@@ -1,3 +1,30 @@
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
+pub trait IAppxAppInstallerReader_Impl: Sized {
+    fn GetXmlDom(&self) -> ::windows::core::Result<super::super::super::Data::Xml::MsXml::IXMLDOMDocument>;
+}
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IAppxAppInstallerReader {}
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
+impl IAppxAppInstallerReader_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAppxAppInstallerReader_Impl, const OFFSET: isize>() -> IAppxAppInstallerReader_Vtbl {
+        unsafe extern "system" fn GetXmlDom<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAppxAppInstallerReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dom: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetXmlDom() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(dom, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetXmlDom: GetXmlDom::<Identity, Impl, OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppxAppInstallerReader as ::windows::core::ComInterface>::IID
+    }
+}
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"implement\"`*"]
 pub trait IAppxBlockMapBlock_Impl: Sized {
     fn GetHash(&self, buffersize: *mut u32, buffer: *mut *mut u8) -> ::windows::core::Result<()>;
@@ -349,6 +376,33 @@ impl IAppxBundleFactory_Vtbl {
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppxBundleFactory as ::windows::core::ComInterface>::IID
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+pub trait IAppxBundleFactory2_Impl: Sized {
+    fn CreateBundleReader2(&self, inputstream: ::core::option::Option<&super::super::super::System::Com::IStream>, expecteddigest: &::windows::core::PCWSTR) -> ::windows::core::Result<IAppxBundleReader>;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IAppxBundleFactory2 {}
+#[cfg(feature = "Win32_System_Com")]
+impl IAppxBundleFactory2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAppxBundleFactory2_Impl, const OFFSET: isize>() -> IAppxBundleFactory2_Vtbl {
+        unsafe extern "system" fn CreateBundleReader2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAppxBundleFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, expecteddigest: ::windows::core::PCWSTR, bundlereader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.CreateBundleReader2(::windows::core::from_raw_borrowed(&inputstream), ::core::mem::transmute(&expecteddigest)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(bundlereader, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateBundleReader2: CreateBundleReader2::<Identity, Impl, OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppxBundleFactory2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"implement\"`*"]
@@ -1225,6 +1279,30 @@ impl IAppxContentGroupsEnumerator_Vtbl {
         iid == &<IAppxContentGroupsEnumerator as ::windows::core::ComInterface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"implement\"`*"]
+pub trait IAppxDigestProvider_Impl: Sized {
+    fn GetDigest(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+}
+impl ::windows::core::RuntimeName for IAppxDigestProvider {}
+impl IAppxDigestProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAppxDigestProvider_Impl, const OFFSET: isize>() -> IAppxDigestProvider_Vtbl {
+        unsafe extern "system" fn GetDigest<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAppxDigestProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, digest: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetDigest() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(digest, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDigest: GetDigest::<Identity, Impl, OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppxDigestProvider as ::windows::core::ComInterface>::IID
+    }
+}
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptedBundleWriter_Impl: Sized {
@@ -1568,6 +1646,49 @@ impl IAppxEncryptionFactory4_Vtbl {
         iid == &<IAppxEncryptionFactory4 as ::windows::core::ComInterface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+pub trait IAppxEncryptionFactory5_Impl: Sized {
+    fn CreateEncryptedPackageReader2(&self, inputstream: ::core::option::Option<&super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO, expecteddigest: &::windows::core::PCWSTR) -> ::windows::core::Result<IAppxPackageReader>;
+    fn CreateEncryptedBundleReader2(&self, inputstream: ::core::option::Option<&super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO, expecteddigest: &::windows::core::PCWSTR) -> ::windows::core::Result<IAppxBundleReader>;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IAppxEncryptionFactory5 {}
+#[cfg(feature = "Win32_System_Com")]
+impl IAppxEncryptionFactory5_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAppxEncryptionFactory5_Impl, const OFFSET: isize>() -> IAppxEncryptionFactory5_Vtbl {
+        unsafe extern "system" fn CreateEncryptedPackageReader2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAppxEncryptionFactory5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, keyinfo: *const APPX_KEY_INFO, expecteddigest: ::windows::core::PCWSTR, packagereader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.CreateEncryptedPackageReader2(::windows::core::from_raw_borrowed(&inputstream), ::core::mem::transmute_copy(&keyinfo), ::core::mem::transmute(&expecteddigest)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(packagereader, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CreateEncryptedBundleReader2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAppxEncryptionFactory5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, keyinfo: *const APPX_KEY_INFO, expecteddigest: ::windows::core::PCWSTR, bundlereader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.CreateEncryptedBundleReader2(::windows::core::from_raw_borrowed(&inputstream), ::core::mem::transmute_copy(&keyinfo), ::core::mem::transmute(&expecteddigest)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(bundlereader, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            CreateEncryptedPackageReader2: CreateEncryptedPackageReader2::<Identity, Impl, OFFSET>,
+            CreateEncryptedBundleReader2: CreateEncryptedBundleReader2::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppxEncryptionFactory5 as ::windows::core::ComInterface>::IID
+    }
+}
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxFactory_Impl: Sized {
@@ -1704,6 +1825,62 @@ impl IAppxFactory2_Vtbl {
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppxFactory2 as ::windows::core::ComInterface>::IID
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+pub trait IAppxFactory3_Impl: Sized {
+    fn CreatePackageReader2(&self, inputstream: ::core::option::Option<&super::super::super::System::Com::IStream>, expecteddigest: &::windows::core::PCWSTR) -> ::windows::core::Result<IAppxPackageReader>;
+    fn CreateManifestReader2(&self, inputstream: ::core::option::Option<&super::super::super::System::Com::IStream>, expecteddigest: &::windows::core::PCWSTR) -> ::windows::core::Result<IAppxManifestReader>;
+    fn CreateAppInstallerReader(&self, inputstream: ::core::option::Option<&super::super::super::System::Com::IStream>, expecteddigest: &::windows::core::PCWSTR) -> ::windows::core::Result<IAppxAppInstallerReader>;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IAppxFactory3 {}
+#[cfg(feature = "Win32_System_Com")]
+impl IAppxFactory3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAppxFactory3_Impl, const OFFSET: isize>() -> IAppxFactory3_Vtbl {
+        unsafe extern "system" fn CreatePackageReader2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAppxFactory3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, expecteddigest: ::windows::core::PCWSTR, packagereader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.CreatePackageReader2(::windows::core::from_raw_borrowed(&inputstream), ::core::mem::transmute(&expecteddigest)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(packagereader, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CreateManifestReader2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAppxFactory3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, expecteddigest: ::windows::core::PCWSTR, manifestreader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.CreateManifestReader2(::windows::core::from_raw_borrowed(&inputstream), ::core::mem::transmute(&expecteddigest)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(manifestreader, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CreateAppInstallerReader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAppxFactory3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, expecteddigest: ::windows::core::PCWSTR, appinstallerreader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.CreateAppInstallerReader(::windows::core::from_raw_borrowed(&inputstream), ::core::mem::transmute(&expecteddigest)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(appinstallerreader, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            CreatePackageReader2: CreatePackageReader2::<Identity, Impl, OFFSET>,
+            CreateManifestReader2: CreateManifestReader2::<Identity, Impl, OFFSET>,
+            CreateAppInstallerReader: CreateAppInstallerReader::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAppxFactory3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]

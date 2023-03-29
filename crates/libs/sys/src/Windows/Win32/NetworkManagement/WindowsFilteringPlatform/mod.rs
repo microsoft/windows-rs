@@ -5,7 +5,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmCalloutDeleteById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmCalloutDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmCalloutDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmCalloutDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -13,11 +13,11 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmCalloutGetById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u32 , callout : *mut *mut FWPM_CALLOUT0 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmCalloutGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID , callout : *mut *mut FWPM_CALLOUT0 ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmCalloutGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID , callout : *mut *mut FWPM_CALLOUT0 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmCalloutGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmCalloutGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmCalloutSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmCalloutSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmCalloutSubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_CALLOUT_SUBSCRIPTION0 , callback : FWPM_CALLOUT_CHANGE_CALLBACK0 , context : *const ::core::ffi::c_void , changehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -51,7 +51,7 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmEngineGetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Rpc"))]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Rpc\"`*"] fn FwpmEngineOpen0 ( servername : :: windows_sys::core::PCWSTR , authnservice : u32 , authidentity : *const super::super::System::Rpc:: SEC_WINNT_AUTH_IDENTITY_W , session : *const FWPM_SESSION0 , enginehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Rpc\"`*"] fn FwpmEngineOpen0 ( servername : ::windows_sys::core::PCWSTR , authnservice : u32 , authidentity : *const super::super::System::Rpc:: SEC_WINNT_AUTH_IDENTITY_W , session : *const FWPM_SESSION0 , enginehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmEngineSetOption0 ( enginehandle : super::super::Foundation:: HANDLE , option : FWPM_ENGINE_OPTION , newvalue : *const FWP_VALUE0 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -63,7 +63,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmFilterDeleteById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmFilterDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmFilterDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmFilterDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -71,11 +71,11 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmFilterGetById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , filter : *mut *mut FWPM_FILTER0 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmFilterGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID , filter : *mut *mut FWPM_FILTER0 ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmFilterGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID , filter : *mut *mut FWPM_FILTER0 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmFilterGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmFilterGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmFilterSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmFilterSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmFilterSubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_FILTER_SUBSCRIPTION0 , callback : FWPM_FILTER_CHANGE_CALLBACK0 , context : *const ::core::ffi::c_void , changehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -83,17 +83,17 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmFilterUnsubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , changehandle : super::super::Foundation:: HANDLE ) -> u32 );
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"] fn FwpmFreeMemory0 ( p : *mut *mut ::core::ffi::c_void ) -> ( ) );
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"] fn FwpmGetAppIdFromFileName0 ( filename : :: windows_sys::core::PCWSTR , appid : *mut *mut FWP_BYTE_BLOB ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"] fn FwpmGetAppIdFromFileName0 ( filename : ::windows_sys::core::PCWSTR , appid : *mut *mut FWP_BYTE_BLOB ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmIPsecTunnelAdd0 ( enginehandle : super::super::Foundation:: HANDLE , flags : u32 , mainmodepolicy : *const FWPM_PROVIDER_CONTEXT0 , tunnelpolicy : *const FWPM_PROVIDER_CONTEXT0 , numfilterconditions : u32 , filterconditions : *const FWPM_FILTER_CONDITION0 , sd : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmIPsecTunnelAdd1 ( enginehandle : super::super::Foundation:: HANDLE , flags : u32 , mainmodepolicy : *const FWPM_PROVIDER_CONTEXT1 , tunnelpolicy : *const FWPM_PROVIDER_CONTEXT1 , numfilterconditions : u32 , filterconditions : *const FWPM_FILTER_CONDITION0 , keymodkey : *const :: windows_sys::core::GUID , sd : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmIPsecTunnelAdd1 ( enginehandle : super::super::Foundation:: HANDLE , flags : u32 , mainmodepolicy : *const FWPM_PROVIDER_CONTEXT1 , tunnelpolicy : *const FWPM_PROVIDER_CONTEXT1 , numfilterconditions : u32 , filterconditions : *const FWPM_FILTER_CONDITION0 , keymodkey : *const ::windows_sys::core::GUID , sd : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmIPsecTunnelAdd2 ( enginehandle : super::super::Foundation:: HANDLE , flags : u32 , mainmodepolicy : *const FWPM_PROVIDER_CONTEXT2 , tunnelpolicy : *const FWPM_PROVIDER_CONTEXT2 , numfilterconditions : u32 , filterconditions : *const FWPM_FILTER_CONDITION0 , keymodkey : *const :: windows_sys::core::GUID , sd : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmIPsecTunnelAdd2 ( enginehandle : super::super::Foundation:: HANDLE , flags : u32 , mainmodepolicy : *const FWPM_PROVIDER_CONTEXT2 , tunnelpolicy : *const FWPM_PROVIDER_CONTEXT2 , numfilterconditions : u32 , filterconditions : *const FWPM_FILTER_CONDITION0 , keymodkey : *const ::windows_sys::core::GUID , sd : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmIPsecTunnelAdd3 ( enginehandle : super::super::Foundation:: HANDLE , flags : u32 , mainmodepolicy : *const FWPM_PROVIDER_CONTEXT3 , tunnelpolicy : *const FWPM_PROVIDER_CONTEXT3 , numfilterconditions : u32 , filterconditions : *const FWPM_FILTER_CONDITION0 , keymodkey : *const :: windows_sys::core::GUID , sd : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmIPsecTunnelAdd3 ( enginehandle : super::super::Foundation:: HANDLE , flags : u32 , mainmodepolicy : *const FWPM_PROVIDER_CONTEXT3 , tunnelpolicy : *const FWPM_PROVIDER_CONTEXT3 , numfilterconditions : u32 , filterconditions : *const FWPM_FILTER_CONDITION0 , keymodkey : *const ::windows_sys::core::GUID , sd : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmIPsecTunnelDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmIPsecTunnelDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmLayerCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const FWPM_LAYER_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -103,11 +103,11 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmLayerGetById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u16 , layer : *mut *mut FWPM_LAYER0 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmLayerGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID , layer : *mut *mut FWPM_LAYER0 ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmLayerGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID , layer : *mut *mut FWPM_LAYER0 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmLayerGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmLayerGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmLayerSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmLayerSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmNetEventCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const FWPM_NET_EVENT_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -157,7 +157,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmProviderContextDeleteById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmProviderContextDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmProviderContextDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmProviderContextDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -177,17 +177,17 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmProviderContextGetById3 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT3 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmProviderContextGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT0 ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmProviderContextGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT0 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmProviderContextGetByKey1 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT1 ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmProviderContextGetByKey1 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT1 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmProviderContextGetByKey2 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT2 ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmProviderContextGetByKey2 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT2 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmProviderContextGetByKey3 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT3 ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmProviderContextGetByKey3 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT3 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmProviderContextGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmProviderContextGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmProviderContextSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmProviderContextSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmProviderContextSubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 , callback : FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0 , context : *const ::core::ffi::c_void , changehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -197,17 +197,17 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmProviderCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const FWPM_PROVIDER_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmProviderDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmProviderDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmProviderDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmProviderEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_PROVIDER0 , numentriesreturned : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmProviderGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID , provider : *mut *mut FWPM_PROVIDER0 ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmProviderGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID , provider : *mut *mut FWPM_PROVIDER0 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmProviderGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmProviderGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmProviderSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmProviderSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmProviderSubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_PROVIDER_SUBSCRIPTION0 , callback : FWPM_PROVIDER_CHANGE_CALLBACK0 , context : *const ::core::ffi::c_void , changehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -225,17 +225,17 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmSubLayerCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const FWPM_SUBLAYER_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmSubLayerDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmSubLayerDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmSubLayerDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmSubLayerEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_SUBLAYER0 , numentriesreturned : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmSubLayerGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID , sublayer : *mut *mut FWPM_SUBLAYER0 ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmSubLayerGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID , sublayer : *mut *mut FWPM_SUBLAYER0 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmSubLayerGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmSubLayerGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmSubLayerSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows_sys::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn FwpmSubLayerSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const ::windows_sys::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmSubLayerSubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_SUBLAYER_SUBSCRIPTION0 , callback : FWPM_SUBLAYER_CHANGE_CALLBACK0 , context : *const ::core::ffi::c_void , changehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -365,9 +365,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn IkeextSaGetById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , sa : *mut *mut IKEEXT_SA_DETAILS0 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn IkeextSaGetById1 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , salookupcontext : *const :: windows_sys::core::GUID , sa : *mut *mut IKEEXT_SA_DETAILS1 ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn IkeextSaGetById1 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , salookupcontext : *const ::windows_sys::core::GUID , sa : *mut *mut IKEEXT_SA_DETAILS1 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn IkeextSaGetById2 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , salookupcontext : *const :: windows_sys::core::GUID , sa : *mut *mut IKEEXT_SA_DETAILS2 ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn IkeextSaGetById2 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , salookupcontext : *const ::windows_sys::core::GUID , sa : *mut *mut IKEEXT_SA_DETAILS2 ) -> u32 );
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_ACTRL_ADD: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
@@ -452,6 +452,10 @@ pub const FWPM_CALLOUT_IPSEC_OUTBOUND_TRANSPORT_V6: ::windows_sys::core::GUID = 
 pub const FWPM_CALLOUT_IPSEC_OUTBOUND_TUNNEL_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x70a4196c_835b_4fb0_98e8_075f4d977d46);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_CALLOUT_IPSEC_OUTBOUND_TUNNEL_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf1835363_a6a5_4e62_b180_23db789d8da6);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const FWPM_CALLOUT_OUTBOUND_NETWORK_CONNECTION_POLICY_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x103090d4_8e28_4fd6_9894_d1d67d6b10c9);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const FWPM_CALLOUT_OUTBOUND_NETWORK_CONNECTION_POLICY_LAYER_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4ed3446d_8dc7_459b_b09f_c1cb7a8f8689);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_CALLOUT_POLICY_SILENT_MODE_AUTH_CONNECT_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5fbfc31d_a51c_44dc_acb6_0624a030a700);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
@@ -965,6 +969,10 @@ pub const FWPM_LAYER_OUTBOUND_MAC_FRAME_NATIVE: ::windows_sys::core::GUID = ::wi
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_LAYER_OUTBOUND_MAC_FRAME_NATIVE_FAST: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x470df946_c962_486f_9446_8293cbc75eb8);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const FWPM_LAYER_OUTBOUND_NETWORK_CONNECTION_POLICY_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x037f317a_d696_494a_bba5_bffc265e6052);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const FWPM_LAYER_OUTBOUND_NETWORK_CONNECTION_POLICY_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x22a4fdb1_6d7e_48ae_ae77_3742525c3119);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_LAYER_OUTBOUND_TRANSPORT_FAST: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x13ed4388_a070_4815_9935_7a9be6408b78);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_LAYER_OUTBOUND_TRANSPORT_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x09e61aea_d214_46e2_9b21_b26b0b2f28c8);
@@ -1061,6 +1069,8 @@ pub const FWPM_PROVIDER_IKEEXT: ::windows_sys::core::GUID = ::windows_sys::core:
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_PROVIDER_IPSEC_DOSP_CONFIG: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3c6c05a9_c05c_4bb9_8338_2327814ce8bf);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const FWPM_PROVIDER_MPSSVC_APP_ISOLATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3cc2631f_2d5d_43a0_b174_614837d863a1);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_PROVIDER_MPSSVC_EDP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa90296f7_46b8_4457_8f84_b05e05d3c622);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_PROVIDER_MPSSVC_TENANT_RESTRICTIONS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd0718ff9_44da_4f50_9dc2_c963a4247613);
@@ -1090,6 +1100,8 @@ pub const FWPM_SUBLAYER_IPSEC_SECURITY_REALM: ::windows_sys::core::GUID = ::wind
 pub const FWPM_SUBLAYER_IPSEC_TUNNEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x83f299ed_9ff4_4967_aff4_c309f4dab827);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_SUBLAYER_LIPS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1b75c0ce_ff60_4711_a70f_b4958cc3b2d0);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const FWPM_SUBLAYER_MPSSVC_APP_ISOLATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xffe221c3_92a8_4564_a59f_dafb70756020);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_SUBLAYER_MPSSVC_EDP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x09a47e38_fa97_471b_b123_18bcd7e65071);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
@@ -1477,6 +1489,14 @@ pub const IPSEC_KEYING_POLICY_FLAG_TERMINATING_MATCH: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const IPSEC_KEY_MANAGER_FLAG_DICTATE_KEY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const IPSEC_POLICY_FLAG_BANDWIDTH1: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const IPSEC_POLICY_FLAG_BANDWIDTH2: u32 = 536870912u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const IPSEC_POLICY_FLAG_BANDWIDTH3: u32 = 1073741824u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const IPSEC_POLICY_FLAG_BANDWIDTH4: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const IPSEC_POLICY_FLAG_KEY_MANAGER_ALLOW_NOTIFY_KEY: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const IPSEC_POLICY_FLAG_RESERVED1: u32 = 32768u32;
@@ -1506,6 +1526,14 @@ pub const IPSEC_SA_BUNDLE_FLAG_NO_IMPERSONATION_LUID_VERIFY: u32 = 64u32;
 pub const IPSEC_SA_BUNDLE_FLAG_NO_MACHINE_LUID_VERIFY: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_SA_OFFLOADED: u32 = 2097152u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const IPSEC_SA_BUNDLE_FLAG_TUNNEL_BANDWIDTH1: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const IPSEC_SA_BUNDLE_FLAG_TUNNEL_BANDWIDTH2: u32 = 536870912u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const IPSEC_SA_BUNDLE_FLAG_TUNNEL_BANDWIDTH3: u32 = 1073741824u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const IPSEC_SA_BUNDLE_FLAG_TUNNEL_BANDWIDTH4: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_USING_DICTATED_KEYS: u32 = 524288u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
@@ -1639,7 +1667,9 @@ pub const FWPM_IPSEC_DOSP_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = 11i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_IPSEC_IKEV2_QM_TRANSPORT_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = 12i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
-pub const FWPM_PROVIDER_CONTEXT_TYPE_MAX: FWPM_PROVIDER_CONTEXT_TYPE = 13i32;
+pub const FWPM_NETWORK_CONNECTION_POLICY_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = 13i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const FWPM_PROVIDER_CONTEXT_TYPE_MAX: FWPM_PROVIDER_CONTEXT_TYPE = 14i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub type FWPM_SERVICE_STATE = i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
@@ -1828,6 +1858,16 @@ pub const FWP_MATCH_PREFIX: FWP_MATCH_TYPE = 11i32;
 pub const FWP_MATCH_NOT_PREFIX: FWP_MATCH_TYPE = 12i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWP_MATCH_TYPE_MAX: FWP_MATCH_TYPE = 13i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub type FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const FWP_NETWORK_CONNECTION_POLICY_SOURCE_ADDRESS: FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE = 0i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const FWP_NETWORK_CONNECTION_POLICY_NEXT_HOP_INTERFACE: FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const FWP_NETWORK_CONNECTION_POLICY_NEXT_HOP: FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const FWP_NETWORK_CONNECTION_POLICY_MAX: FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE = 3i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub type FWP_VSWITCH_NETWORK_TYPE = i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
@@ -2627,6 +2667,36 @@ pub struct FWPM_LAYER_STATISTICS0 {
 }
 impl ::core::marker::Copy for FWPM_LAYER_STATISTICS0 {}
 impl ::core::clone::Clone for FWPM_LAYER_STATISTICS0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub struct FWPM_NETWORK_CONNECTION_POLICY_SETTING0 {
+    pub r#type: FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE,
+    pub value: FWP_VALUE0,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NETWORK_CONNECTION_POLICY_SETTING0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for FWPM_NETWORK_CONNECTION_POLICY_SETTING0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub struct FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 {
+    pub numSettings: u32,
+    pub settings: *mut FWPM_NETWORK_CONNECTION_POLICY_SETTING0,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3805,6 +3875,7 @@ pub union FWPM_PROVIDER_CONTEXT3_0 {
     pub ikeV2QmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY2,
     pub ikeV2MmPolicy: *mut IKEEXT_POLICY2,
     pub idpOptions: *mut IPSEC_DOSP_OPTIONS0,
+    pub networkConnectionPolicy: *mut FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT3_0 {}

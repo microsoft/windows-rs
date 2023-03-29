@@ -1,22 +1,22 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"] fn AssignProcessToJobObject ( hjob : super::super::Foundation:: HANDLE , hprocess : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateJobObjectA ( lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateJobObjectA ( lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateJobObjectW ( lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateJobObjectW ( lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"] fn CreateJobSet ( numjob : u32 , userjobset : *const JOB_SET_ARRAY , flags : u32 ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"] fn FreeMemoryJobObject ( buffer : *const ::core::ffi::c_void ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"] fn IsProcessInJob ( processhandle : super::super::Foundation:: HANDLE , jobhandle : super::super::Foundation:: HANDLE , result : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"] fn OpenJobObjectA ( dwdesiredaccess : u32 , binherithandle : super::super::Foundation:: BOOL , lpname : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"] fn OpenJobObjectA ( dwdesiredaccess : u32 , binherithandle : super::super::Foundation:: BOOL , lpname : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"] fn OpenJobObjectW ( dwdesiredaccess : u32 , binherithandle : super::super::Foundation:: BOOL , lpname : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"] fn OpenJobObjectW ( dwdesiredaccess : u32 , binherithandle : super::super::Foundation:: BOOL , lpname : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"] fn QueryInformationJobObject ( hjob : super::super::Foundation:: HANDLE , jobobjectinformationclass : JOBOBJECTINFOCLASS , lpjobobjectinformation : *mut ::core::ffi::c_void , cbjobobjectinformationlength : u32 , lpreturnlength : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"] fn QueryIoRateControlInformationJobObject ( hjob : super::super::Foundation:: HANDLE , volumename : :: windows_sys::core::PCWSTR , infoblocks : *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION , infoblockcount : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"] fn QueryIoRateControlInformationJobObject ( hjob : super::super::Foundation:: HANDLE , volumename : ::windows_sys::core::PCWSTR , infoblocks : *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION , infoblockcount : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"] fn SetInformationJobObject ( hjob : super::super::Foundation:: HANDLE , jobobjectinformationclass : JOBOBJECTINFOCLASS , lpjobobjectinformation : *const ::core::ffi::c_void , cbjobobjectinformationlength : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -122,7 +122,11 @@ pub const JobObjectReserved24Information: JOBOBJECTINFOCLASS = 46i32;
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 pub const JobObjectReserved25Information: JOBOBJECTINFOCLASS = 47i32;
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const MaxJobObjectInfoClass: JOBOBJECTINFOCLASS = 48i32;
+pub const JobObjectReserved26Information: JOBOBJECTINFOCLASS = 48i32;
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JobObjectReserved27Information: JOBOBJECTINFOCLASS = 49i32;
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const MaxJobObjectInfoClass: JOBOBJECTINFOCLASS = 50i32;
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 pub type JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = i32;
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
@@ -474,6 +478,23 @@ pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
 }
 impl ::core::marker::Copy for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {}
 impl ::core::clone::Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
+    pub MaxIops: i64,
+    pub MaxBandwidth: i64,
+    pub ReservationIops: i64,
+    pub VolumeName: ::windows_sys::core::PWSTR,
+    pub BaseIoSize: u32,
+    pub ControlFlags: JOB_OBJECT_IO_RATE_CONTROL_FLAGS,
+    pub VolumeNameLength: u16,
+}
+impl ::core::marker::Copy for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {}
+impl ::core::clone::Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
     fn clone(&self) -> Self {
         *self
     }

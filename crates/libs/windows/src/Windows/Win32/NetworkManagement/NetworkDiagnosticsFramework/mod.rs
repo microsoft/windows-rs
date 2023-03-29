@@ -1,19 +1,19 @@
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 #[inline]
 pub unsafe fn NdfCancelIncident(handle: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCancelIncident ( handle : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCancelIncident ( handle : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     NdfCancelIncident(handle).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 #[inline]
 pub unsafe fn NdfCloseIncident(handle: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCloseIncident ( handle : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCloseIncident ( handle : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     NdfCloseIncident(handle).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 #[inline]
 pub unsafe fn NdfCreateConnectivityIncident(handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCreateConnectivityIncident ( handle : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCreateConnectivityIncident ( handle : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     NdfCreateConnectivityIncident(handle).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
@@ -22,11 +22,11 @@ pub unsafe fn NdfCreateDNSIncident<P0>(hostname: P0, querytype: u16, handle: *mu
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCreateDNSIncident ( hostname : :: windows::core::PCWSTR , querytype : u16 , handle : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCreateDNSIncident ( hostname : ::windows::core::PCWSTR , querytype : u16 , handle : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     NdfCreateDNSIncident(hostname.into_param().abi(), querytype, handle).ok()
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn NdfCreateGroupingIncident<P0, P1, P2, P3, P4>(cloudname: P0, groupname: P1, identity: P2, invitation: P3, addresses: ::core::option::Option<*const super::super::Networking::WinSock::SOCKET_ADDRESS_LIST>, appid: P4, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
@@ -36,7 +36,7 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P4: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCreateGroupingIncident ( cloudname : :: windows::core::PCWSTR , groupname : :: windows::core::PCWSTR , identity : :: windows::core::PCWSTR , invitation : :: windows::core::PCWSTR , addresses : *const super::super::Networking::WinSock:: SOCKET_ADDRESS_LIST , appid : :: windows::core::PCWSTR , handle : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCreateGroupingIncident ( cloudname : ::windows::core::PCWSTR , groupname : ::windows::core::PCWSTR , identity : ::windows::core::PCWSTR , invitation : ::windows::core::PCWSTR , addresses : *const super::super::Networking::WinSock:: SOCKET_ADDRESS_LIST , appid : ::windows::core::PCWSTR , handle : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     NdfCreateGroupingIncident(cloudname.into_param().abi(), groupname.into_param().abi(), identity.into_param().abi(), invitation.into_param().abi(), ::core::mem::transmute(addresses.unwrap_or(::std::ptr::null())), appid.into_param().abi(), handle).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
@@ -46,13 +46,13 @@ pub unsafe fn NdfCreateIncident<P0>(helperclassname: P0, attributes: &[HELPER_AT
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCreateIncident ( helperclassname : :: windows::core::PCWSTR , celt : u32 , attributes : *const HELPER_ATTRIBUTE , handle : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCreateIncident ( helperclassname : ::windows::core::PCWSTR , celt : u32 , attributes : *const HELPER_ATTRIBUTE , handle : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     NdfCreateIncident(helperclassname.into_param().abi(), attributes.len() as _, ::core::mem::transmute(attributes.as_ptr()), handle).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 #[inline]
 pub unsafe fn NdfCreateNetConnectionIncident(handle: *mut *mut ::core::ffi::c_void, id: ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCreateNetConnectionIncident ( handle : *mut *mut ::core::ffi::c_void , id : :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCreateNetConnectionIncident ( handle : *mut *mut ::core::ffi::c_void , id : ::windows::core::GUID ) -> ::windows::core::HRESULT );
     NdfCreateNetConnectionIncident(handle, ::core::mem::transmute(id)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
@@ -65,7 +65,7 @@ where
     P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCreatePnrpIncident ( cloudname : :: windows::core::PCWSTR , peername : :: windows::core::PCWSTR , diagnosepublish : super::super::Foundation:: BOOL , appid : :: windows::core::PCWSTR , handle : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCreatePnrpIncident ( cloudname : ::windows::core::PCWSTR , peername : ::windows::core::PCWSTR , diagnosepublish : super::super::Foundation:: BOOL , appid : ::windows::core::PCWSTR , handle : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     NdfCreatePnrpIncident(cloudname.into_param().abi(), peername.into_param().abi(), diagnosepublish.into_param().abi(), appid.into_param().abi(), handle).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
@@ -74,7 +74,7 @@ pub unsafe fn NdfCreateSharingIncident<P0>(uncpath: P0, handle: *mut *mut ::core
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCreateSharingIncident ( uncpath : :: windows::core::PCWSTR , handle : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCreateSharingIncident ( uncpath : ::windows::core::PCWSTR , handle : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     NdfCreateSharingIncident(uncpath.into_param().abi(), handle).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
@@ -83,7 +83,7 @@ pub unsafe fn NdfCreateWebIncident<P0>(url: P0, handle: *mut *mut ::core::ffi::c
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCreateWebIncident ( url : :: windows::core::PCWSTR , handle : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCreateWebIncident ( url : ::windows::core::PCWSTR , handle : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     NdfCreateWebIncident(url.into_param().abi(), handle).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
@@ -95,7 +95,7 @@ where
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCreateWebIncidentEx ( url : :: windows::core::PCWSTR , usewinhttp : super::super::Foundation:: BOOL , modulename : :: windows::core::PCWSTR , handle : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCreateWebIncidentEx ( url : ::windows::core::PCWSTR , usewinhttp : super::super::Foundation:: BOOL , modulename : ::windows::core::PCWSTR , handle : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     NdfCreateWebIncidentEx(url.into_param().abi(), usewinhttp.into_param().abi(), modulename.into_param().abi(), handle).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_Security\"`*"]
@@ -107,13 +107,13 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCreateWinSockIncident ( sock : super::super::Networking::WinSock:: SOCKET , host : :: windows::core::PCWSTR , port : u16 , appid : :: windows::core::PCWSTR , userid : *const super::super::Security:: SID , handle : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfCreateWinSockIncident ( sock : super::super::Networking::WinSock:: SOCKET , host : ::windows::core::PCWSTR , port : u16 , appid : ::windows::core::PCWSTR , userid : *const super::super::Security:: SID , handle : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     NdfCreateWinSockIncident(sock.into_param().abi(), host.into_param().abi(), port, appid.into_param().abi(), ::core::mem::transmute(userid.unwrap_or(::std::ptr::null())), handle).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 #[inline]
 pub unsafe fn NdfDiagnoseIncident(handle: *const ::core::ffi::c_void, rootcausecount: *mut u32, rootcauses: *mut *mut RootCauseInfo, dwwait: u32, dwflags: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfDiagnoseIncident ( handle : *const ::core::ffi::c_void , rootcausecount : *mut u32 , rootcauses : *mut *mut RootCauseInfo , dwwait : u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfDiagnoseIncident ( handle : *const ::core::ffi::c_void , rootcausecount : *mut u32 , rootcauses : *mut *mut RootCauseInfo , dwwait : u32 , dwflags : u32 ) -> ::windows::core::HRESULT );
     NdfDiagnoseIncident(handle, rootcausecount, rootcauses, dwwait, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
@@ -123,20 +123,20 @@ pub unsafe fn NdfExecuteDiagnosis<P0>(handle: *const ::core::ffi::c_void, hwnd: 
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfExecuteDiagnosis ( handle : *const ::core::ffi::c_void , hwnd : super::super::Foundation:: HWND ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfExecuteDiagnosis ( handle : *const ::core::ffi::c_void , hwnd : super::super::Foundation:: HWND ) -> ::windows::core::HRESULT );
     NdfExecuteDiagnosis(handle, hwnd.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 #[inline]
-pub unsafe fn NdfGetTraceFile(handle: *const ::core::ffi::c_void) -> ::windows::core::Result<::windows::core::PWSTR> {
-    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfGetTraceFile ( handle : *const ::core::ffi::c_void , tracefilelocation : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+pub unsafe fn NdfGetTraceFile(handle: *const ::core::ffi::c_void) -> ::windows::core::Result<::windows::core::PCWSTR> {
+    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfGetTraceFile ( handle : *const ::core::ffi::c_void , tracefilelocation : *mut ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::PCWSTR>();
     NdfGetTraceFile(handle, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 #[inline]
 pub unsafe fn NdfRepairIncident(handle: *const ::core::ffi::c_void, repairex: *const RepairInfoEx, dwwait: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfRepairIncident ( handle : *const ::core::ffi::c_void , repairex : *const RepairInfoEx , dwwait : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfRepairIncident ( handle : *const ::core::ffi::c_void , repairex : *const RepairInfoEx , dwwait : u32 ) -> ::windows::core::HRESULT );
     NdfRepairIncident(handle, repairex, dwwait).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
@@ -788,39 +788,31 @@ impl ::core::fmt::Debug for UI_INFO_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 pub struct DIAG_SOCKADDR {
     pub family: u16,
-    pub data: [super::super::Foundation::CHAR; 126],
+    pub data: [u8; 126],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DIAG_SOCKADDR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DIAG_SOCKADDR {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DIAG_SOCKADDR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DIAG_SOCKADDR").field("family", &self.family).field("data", &self.data).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DIAG_SOCKADDR {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIAG_SOCKADDR {
     fn eq(&self, other: &Self) -> bool {
         self.family == other.family && self.data == other.data
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DIAG_SOCKADDR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIAG_SOCKADDR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

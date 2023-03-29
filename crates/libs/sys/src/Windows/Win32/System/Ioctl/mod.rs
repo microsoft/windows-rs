@@ -541,6 +541,8 @@ pub const FSCTL_CLEAN_VOLUME_METADATA: u32 = 590716u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_CORRUPTION_HANDLING: u32 = 590432u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_CREATE_LCN_WEAK_REFERENCE: u32 = 590944u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_CREATE_OR_GET_OBJECT_ID: u32 = 590016u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_CREATE_USN_JOURNAL: u32 = 590055u32;
@@ -573,6 +575,10 @@ pub const FSCTL_DELETE_CORRUPTED_REFS_CONTAINER: u32 = 590836u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_DELETE_EXTERNAL_BACKING: u32 = 590612u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_DELETE_LCN_WEAK_REFERENCE: u32 = 590948u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_DELETE_LCN_WEAK_REFERENCES: u32 = 590956u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_DELETE_OBJECT_ID: u32 = 589984u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_DELETE_REPARSE_POINT: u32 = 589996u32;
@@ -584,6 +590,8 @@ pub const FSCTL_DFSR_SET_GHOST_HANDLE_STATE: u32 = 590264u32;
 pub const FSCTL_DISABLE_LOCAL_BUFFERING: u32 = 590520u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_DISMOUNT_VOLUME: u32 = 589856u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_DUPLICATE_CLUSTER: u32 = 590940u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_DUPLICATE_EXTENTS_TO_FILE: u32 = 623428u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
@@ -679,6 +687,8 @@ pub const FSCTL_IS_VOLUME_MOUNTED: u32 = 589864u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_IS_VOLUME_OWNED_BYCSVFS: u32 = 590456u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_LMR_QUERY_INFO: u32 = 590968u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_LOCK_VOLUME: u32 = 589848u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_LOOKUP_STREAM_FROM_CLUSTER: u32 = 590332u32;
@@ -737,6 +747,8 @@ pub const FSCTL_QUERY_FILE_SYSTEM_RECOGNITION: u32 = 590412u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_QUERY_GHOSTED_FILE_EXTENTS: u32 = 590768u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_QUERY_LCN_WEAK_REFERENCE: u32 = 590952u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_QUERY_ON_DISK_VOLUME_INFO: u32 = 590140u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_QUERY_PAGEFILE_ENCRYPTION: u32 = 590312u32;
@@ -779,6 +791,16 @@ pub const FSCTL_RECALL_FILE: u32 = 590103u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_REFS_DEALLOCATE_RANGES: u32 = 590808u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_REFS_DEALLOCATE_RANGES_EX: u32 = 590924u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_REFS_QUERY_VOLUME_COMPRESSION_INFO: u32 = 590936u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_REFS_QUERY_VOLUME_DEDUP_INFO: u32 = 590964u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_REFS_SET_VOLUME_COMPRESSION_INFO: u32 = 590932u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_REFS_SET_VOLUME_DEDUP_INFO: u32 = 590960u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_REFS_STREAM_SNAPSHOT_MANAGEMENT: u32 = 590912u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_REMOVE_OVERLAY: u32 = 623412u32;
@@ -808,6 +830,8 @@ pub const FSCTL_SD_GLOBAL_CHANGE: u32 = 590324u32;
 pub const FSCTL_SECURITY_ID_CHECK: u32 = 606391u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_SET_BOOTLOADER_ACCESSED: u32 = 589903u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_SET_CACHED_RUNS_STATE: u32 = 590928u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_SET_COMPRESSION: u32 = 639040u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
@@ -1146,6 +1170,8 @@ pub const IOCTL_SCM_BUS_GET_PHYSICAL_DEVICES: u32 = 5832708u32;
 pub const IOCTL_SCM_BUS_GET_REGIONS: u32 = 5832712u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const IOCTL_SCM_BUS_QUERY_PROPERTY: u32 = 5832716u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const IOCTL_SCM_BUS_REFRESH_NAMESPACE: u32 = 5832728u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const IOCTL_SCM_BUS_RUNTIME_FW_ACTIVATE: u32 = 5865488u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
@@ -1743,7 +1769,7 @@ pub const STORAGE_COMPONENT_ROLE_DATA: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const STORAGE_COMPONENT_ROLE_TIERING: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
-pub const STORAGE_CRASH_TELEMETRY_REGKEY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CrashControl\\StorageTelemetry");
+pub const STORAGE_CRASH_TELEMETRY_REGKEY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CrashControl\\StorageTelemetry");
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const STORAGE_CRYPTO_CAPABILITY_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
@@ -1761,7 +1787,7 @@ pub const STORAGE_DEVICE_NUMA_NODE_UNKNOWN: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const STORAGE_DEVICE_POWER_CAP_VERSION_V1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
-pub const STORAGE_DEVICE_TELEMETRY_REGKEY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Storage\\StorageTelemetry");
+pub const STORAGE_DEVICE_TELEMETRY_REGKEY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Storage\\StorageTelemetry");
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const STORAGE_DIAGNOSTIC_FLAG_ADAPTER_REQUEST: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
@@ -1782,6 +1808,8 @@ pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_CONTROLLER: u32 = 1u32;
 pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_FIRST_SEGMENT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_LAST_SEGMENT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_REPLACE_EXISTING_IMAGE: u32 = 1073741824u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_SWITCH_TO_EXISTING_FIRMWARE: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
@@ -1897,9 +1925,9 @@ pub const TAPE_RETURN_STATISTICS: i32 = 0i32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const TC_DEVICEDUMP_SUBSECTION_DESC_LENGTH: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
-pub const TC_PUBLIC_DATA_TYPE_ATAGP: ::windows_sys::core::PCSTR = ::windows_sys::s!("ATAGPLogPages");
+pub const TC_PUBLIC_DATA_TYPE_ATAGP: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ATAGPLogPages");
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
-pub const TC_PUBLIC_DATA_TYPE_ATASMART: ::windows_sys::core::PCSTR = ::windows_sys::s!("ATASMARTPages");
+pub const TC_PUBLIC_DATA_TYPE_ATASMART: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ATASMARTPages");
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const TC_PUBLIC_DEVICEDUMP_CONTENT_GPLOG: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
@@ -2419,6 +2447,10 @@ pub const GPT_BASIC_DATA_ATTRIBUTE_SHADOW_COPY: GPT_ATTRIBUTES = 230584300921369
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const GPT_BASIC_DATA_ATTRIBUTE_READ_ONLY: GPT_ATTRIBUTES = 1152921504606846976u64;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub type LMR_QUERY_INFO_CLASS = i32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const LMRQuerySessionInfo: LMR_QUERY_INFO_CLASS = 1i32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub type MEDIA_TYPE = i32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const Unknown: MEDIA_TYPE = 0i32;
@@ -2906,6 +2938,14 @@ pub const DiskOpStatusNotUsable: STORAGE_DISK_OPERATIONAL_STATUS = 6i32;
 pub const DiskOpStatusTransientError: STORAGE_DISK_OPERATIONAL_STATUS = 7i32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const DiskOpStatusMissing: STORAGE_DISK_OPERATIONAL_STATUS = 8i32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub type STORAGE_ENCRYPTION_TYPE = i32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const StorageEncryptionTypeUnknown: STORAGE_ENCRYPTION_TYPE = 0i32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const StorageEncryptionTypeEDrive: STORAGE_ENCRYPTION_TYPE = 1i32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const StorageEncryptionTypeTcgOpal: STORAGE_ENCRYPTION_TYPE = 2i32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub type STORAGE_IDENTIFIER_CODE_SET = i32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
@@ -4113,17 +4153,14 @@ impl ::core::clone::Clone for DEVICEDUMP_PRIVATE_SUBSECTION {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_Ioctl\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub struct DEVICEDUMP_PUBLIC_SUBSECTION {
     pub dwFlags: u32,
     pub GPLogTable: [GP_LOG_PAGE_DESCRIPTOR; 16],
-    pub szDescription: [super::super::Foundation::CHAR; 16],
+    pub szDescription: [u8; 16],
     pub bData: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEVICEDUMP_PUBLIC_SUBSECTION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVICEDUMP_PUBLIC_SUBSECTION {
     fn clone(&self) -> Self {
         *self
@@ -6052,14 +6089,11 @@ impl ::core::clone::Clone for FILE_STORAGE_TIER_REGION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ioctl\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub struct FILE_SYSTEM_RECOGNITION_INFORMATION {
-    pub FileSystem: [super::super::Foundation::CHAR; 9],
+    pub FileSystem: [u8; 9],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FILE_SYSTEM_RECOGNITION_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FILE_SYSTEM_RECOGNITION_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -6583,6 +6617,28 @@ pub struct IO_IRP_EXT_TRACK_OFFSET_HEADER {
 }
 impl ::core::marker::Copy for IO_IRP_EXT_TRACK_OFFSET_HEADER {}
 impl ::core::clone::Clone for IO_IRP_EXT_TRACK_OFFSET_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub struct LMR_QUERY_INFO_PARAM {
+    pub Operation: LMR_QUERY_INFO_CLASS,
+}
+impl ::core::marker::Copy for LMR_QUERY_INFO_PARAM {}
+impl ::core::clone::Clone for LMR_QUERY_INFO_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub struct LMR_QUERY_SESSION_INFO {
+    pub SessionId: u64,
+}
+impl ::core::marker::Copy for LMR_QUERY_SESSION_INFO {}
+impl ::core::clone::Clone for LMR_QUERY_SESSION_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -7967,8 +8023,7 @@ impl ::core::clone::Clone for SCM_PD_DEVICE_HANDLE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ioctl\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub struct SCM_PD_DEVICE_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -7991,11 +8046,9 @@ pub struct SCM_PD_DEVICE_INFO {
     pub ManufacturingYear: u8,
     pub SerialNumber4Byte: u32,
     pub SerialNumberLengthInChars: u32,
-    pub SerialNumber: [super::super::Foundation::CHAR; 1],
+    pub SerialNumber: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SCM_PD_DEVICE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SCM_PD_DEVICE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -9155,6 +9208,23 @@ pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
 impl ::core::marker::Copy for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
+    pub Version: u32,
+    pub Size: u32,
+    pub SupportsSelfEncryption: super::super::Foundation::BOOLEAN,
+    pub EncryptionType: STORAGE_ENCRYPTION_TYPE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
     fn clone(&self) -> Self {
         *self
     }

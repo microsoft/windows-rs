@@ -119,27 +119,22 @@ impl ::core::fmt::Debug for RESTOREPOINTINFO_TYPE {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_Restore\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
 pub struct RESTOREPOINTINFOA {
     pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
     pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
     pub llSequenceNumber: i64,
-    pub szDescription: [super::super::Foundation::CHAR; 64],
+    pub szDescription: [u8; 64],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RESTOREPOINTINFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RESTOREPOINTINFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for RESTOREPOINTINFOA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RESTOREPOINTINFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

@@ -4,7 +4,7 @@ pub unsafe fn DdqCancelDiagnosticRecordOperation<P0>(hsession: P0) -> ::windows:
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqCancelDiagnosticRecordOperation ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqCancelDiagnosticRecordOperation ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION ) -> ::windows::core::HRESULT );
     DdqCancelDiagnosticRecordOperation(hsession.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
@@ -13,13 +13,13 @@ pub unsafe fn DdqCloseSession<P0>(hsession: P0) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqCloseSession ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqCloseSession ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION ) -> ::windows::core::HRESULT );
     DdqCloseSession(hsession.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 #[inline]
 pub unsafe fn DdqCreateSession(accesslevel: DdqAccessLevel) -> ::windows::core::Result<super::HDIAGNOSTIC_DATA_QUERY_SESSION> {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqCreateSession ( accesslevel : DdqAccessLevel , hsession : *mut super:: HDIAGNOSTIC_DATA_QUERY_SESSION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqCreateSession ( accesslevel : DdqAccessLevel , hsession : *mut super:: HDIAGNOSTIC_DATA_QUERY_SESSION ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::HDIAGNOSTIC_DATA_QUERY_SESSION>();
     DdqCreateSession(accesslevel, &mut result__).from_abi(result__)
 }
@@ -31,7 +31,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqExtractDiagnosticReport ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , reportstoretype : u32 , reportkey : :: windows::core::PCWSTR , destinationpath : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqExtractDiagnosticReport ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , reportstoretype : u32 , reportkey : ::windows::core::PCWSTR , destinationpath : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     DdqExtractDiagnosticReport(hsession.into_param().abi(), reportstoretype, reportkey.into_param().abi(), destinationpath.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
@@ -40,7 +40,7 @@ pub unsafe fn DdqFreeDiagnosticRecordLocaleTags<P0>(htagdescription: P0) -> ::wi
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqFreeDiagnosticRecordLocaleTags ( htagdescription : super:: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqFreeDiagnosticRecordLocaleTags ( htagdescription : super:: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION ) -> ::windows::core::HRESULT );
     DdqFreeDiagnosticRecordLocaleTags(htagdescription.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
@@ -49,7 +49,7 @@ pub unsafe fn DdqFreeDiagnosticRecordPage<P0>(hrecord: P0) -> ::windows::core::R
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_RECORD>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqFreeDiagnosticRecordPage ( hrecord : super:: HDIAGNOSTIC_RECORD ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqFreeDiagnosticRecordPage ( hrecord : super:: HDIAGNOSTIC_RECORD ) -> ::windows::core::HRESULT );
     DdqFreeDiagnosticRecordPage(hrecord.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
@@ -58,7 +58,7 @@ pub unsafe fn DdqFreeDiagnosticRecordProducerCategories<P0>(hcategorydescription
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqFreeDiagnosticRecordProducerCategories ( hcategorydescription : super:: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqFreeDiagnosticRecordProducerCategories ( hcategorydescription : super:: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION ) -> ::windows::core::HRESULT );
     DdqFreeDiagnosticRecordProducerCategories(hcategorydescription.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
@@ -67,7 +67,7 @@ pub unsafe fn DdqFreeDiagnosticRecordProducers<P0>(hproducerdescription: P0) -> 
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqFreeDiagnosticRecordProducers ( hproducerdescription : super:: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqFreeDiagnosticRecordProducers ( hproducerdescription : super:: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION ) -> ::windows::core::HRESULT );
     DdqFreeDiagnosticRecordProducers(hproducerdescription.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
@@ -76,13 +76,13 @@ pub unsafe fn DdqFreeDiagnosticReport<P0>(hreport: P0) -> ::windows::core::Resul
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_REPORT>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqFreeDiagnosticReport ( hreport : super:: HDIAGNOSTIC_REPORT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqFreeDiagnosticReport ( hreport : super:: HDIAGNOSTIC_REPORT ) -> ::windows::core::HRESULT );
     DdqFreeDiagnosticReport(hreport.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 #[inline]
 pub unsafe fn DdqGetDiagnosticDataAccessLevelAllowed() -> ::windows::core::Result<DdqAccessLevel> {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticDataAccessLevelAllowed ( accesslevel : *mut DdqAccessLevel ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticDataAccessLevelAllowed ( accesslevel : *mut DdqAccessLevel ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<DdqAccessLevel>();
     DdqGetDiagnosticDataAccessLevelAllowed(&mut result__).from_abi(result__)
 }
@@ -93,7 +93,7 @@ pub unsafe fn DdqGetDiagnosticRecordAtIndex<P0>(hrecord: P0, index: u32, record:
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_RECORD>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordAtIndex ( hrecord : super:: HDIAGNOSTIC_RECORD , index : u32 , record : *mut DIAGNOSTIC_DATA_RECORD ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordAtIndex ( hrecord : super:: HDIAGNOSTIC_RECORD , index : u32 , record : *mut DIAGNOSTIC_DATA_RECORD ) -> ::windows::core::HRESULT );
     DdqGetDiagnosticRecordAtIndex(hrecord.into_param().abi(), index, record).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
@@ -102,7 +102,7 @@ pub unsafe fn DdqGetDiagnosticRecordBinaryDistribution<P0>(hsession: P0, produce
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordBinaryDistribution ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , producernames : *const :: windows::core::PCWSTR , producernamecount : u32 , topnbinaries : u32 , binarystats : *mut *mut DIAGNOSTIC_DATA_EVENT_BINARY_STATS , statcount : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordBinaryDistribution ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , producernames : *const ::windows::core::PCWSTR , producernamecount : u32 , topnbinaries : u32 , binarystats : *mut *mut DIAGNOSTIC_DATA_EVENT_BINARY_STATS , statcount : *mut u32 ) -> ::windows::core::HRESULT );
     DdqGetDiagnosticRecordBinaryDistribution(hsession.into_param().abi(), ::core::mem::transmute(producernames.as_ptr()), producernames.len() as _, topnbinaries, binarystats, statcount).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
@@ -111,7 +111,7 @@ pub unsafe fn DdqGetDiagnosticRecordCategoryAtIndex<P0>(hcategorydescription: P0
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordCategoryAtIndex ( hcategorydescription : super:: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION , index : u32 , categorydescription : *mut DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordCategoryAtIndex ( hcategorydescription : super:: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION , index : u32 , categorydescription : *mut DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION>();
     DdqGetDiagnosticRecordCategoryAtIndex(hcategorydescription.into_param().abi(), index, &mut result__).from_abi(result__)
 }
@@ -121,7 +121,7 @@ pub unsafe fn DdqGetDiagnosticRecordCategoryCount<P0>(hcategorydescription: P0) 
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordCategoryCount ( hcategorydescription : super:: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION , categorydescriptioncount : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordCategoryCount ( hcategorydescription : super:: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION , categorydescriptioncount : *mut u32 ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     DdqGetDiagnosticRecordCategoryCount(hcategorydescription.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -131,7 +131,7 @@ pub unsafe fn DdqGetDiagnosticRecordCount<P0>(hrecord: P0) -> ::windows::core::R
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_RECORD>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordCount ( hrecord : super:: HDIAGNOSTIC_RECORD , recordcount : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordCount ( hrecord : super:: HDIAGNOSTIC_RECORD , recordcount : *mut u32 ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     DdqGetDiagnosticRecordCount(hrecord.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -141,7 +141,7 @@ pub unsafe fn DdqGetDiagnosticRecordLocaleTagAtIndex<P0>(htagdescription: P0, in
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordLocaleTagAtIndex ( htagdescription : super:: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION , index : u32 , tagdescription : *mut DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordLocaleTagAtIndex ( htagdescription : super:: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION , index : u32 , tagdescription : *mut DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION>();
     DdqGetDiagnosticRecordLocaleTagAtIndex(htagdescription.into_param().abi(), index, &mut result__).from_abi(result__)
 }
@@ -151,7 +151,7 @@ pub unsafe fn DdqGetDiagnosticRecordLocaleTagCount<P0>(htagdescription: P0) -> :
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordLocaleTagCount ( htagdescription : super:: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION , tagdescriptioncount : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordLocaleTagCount ( htagdescription : super:: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION , tagdescriptioncount : *mut u32 ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     DdqGetDiagnosticRecordLocaleTagCount(htagdescription.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -162,7 +162,7 @@ where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordLocaleTags ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , locale : :: windows::core::PCWSTR , htagdescription : *mut super:: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordLocaleTags ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , locale : ::windows::core::PCWSTR , htagdescription : *mut super:: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION>();
     DdqGetDiagnosticRecordLocaleTags(hsession.into_param().abi(), locale.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -173,18 +173,18 @@ pub unsafe fn DdqGetDiagnosticRecordPage<P0>(hsession: P0, searchcriteria: *cons
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordPage ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , searchcriteria : *const DIAGNOSTIC_DATA_SEARCH_CRITERIA , offset : u32 , pagerecordcount : u32 , baserowid : i64 , hrecord : *mut super:: HDIAGNOSTIC_RECORD ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordPage ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , searchcriteria : *const DIAGNOSTIC_DATA_SEARCH_CRITERIA , offset : u32 , pagerecordcount : u32 , baserowid : i64 , hrecord : *mut super:: HDIAGNOSTIC_RECORD ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::HDIAGNOSTIC_RECORD>();
     DdqGetDiagnosticRecordPage(hsession.into_param().abi(), searchcriteria, offset, pagerecordcount, baserowid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 #[inline]
-pub unsafe fn DdqGetDiagnosticRecordPayload<P0>(hsession: P0, rowid: i64) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn DdqGetDiagnosticRecordPayload<P0>(hsession: P0, rowid: i64) -> ::windows::core::Result<::windows::core::PCWSTR>
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordPayload ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , rowid : i64 , payload : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordPayload ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , rowid : i64 , payload : *mut ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::PCWSTR>();
     DdqGetDiagnosticRecordPayload(hsession.into_param().abi(), rowid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
@@ -193,7 +193,7 @@ pub unsafe fn DdqGetDiagnosticRecordProducerAtIndex<P0>(hproducerdescription: P0
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordProducerAtIndex ( hproducerdescription : super:: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION , index : u32 , producerdescription : *mut DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordProducerAtIndex ( hproducerdescription : super:: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION , index : u32 , producerdescription : *mut DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION>();
     DdqGetDiagnosticRecordProducerAtIndex(hproducerdescription.into_param().abi(), index, &mut result__).from_abi(result__)
 }
@@ -204,7 +204,7 @@ where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordProducerCategories ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , producername : :: windows::core::PCWSTR , hcategorydescription : *mut super:: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordProducerCategories ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , producername : ::windows::core::PCWSTR , hcategorydescription : *mut super:: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION>();
     DdqGetDiagnosticRecordProducerCategories(hsession.into_param().abi(), producername.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -214,7 +214,7 @@ pub unsafe fn DdqGetDiagnosticRecordProducerCount<P0>(hproducerdescription: P0) 
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordProducerCount ( hproducerdescription : super:: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION , producerdescriptioncount : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordProducerCount ( hproducerdescription : super:: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION , producerdescriptioncount : *mut u32 ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     DdqGetDiagnosticRecordProducerCount(hproducerdescription.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -224,7 +224,7 @@ pub unsafe fn DdqGetDiagnosticRecordProducers<P0>(hsession: P0) -> ::windows::co
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordProducers ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , hproducerdescription : *mut super:: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordProducers ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , hproducerdescription : *mut super:: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION>();
     DdqGetDiagnosticRecordProducers(hsession.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -235,7 +235,7 @@ pub unsafe fn DdqGetDiagnosticRecordStats<P0>(hsession: P0, searchcriteria: *con
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordStats ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , searchcriteria : *const DIAGNOSTIC_DATA_SEARCH_CRITERIA , recordcount : *mut u32 , minrowid : *mut i64 , maxrowid : *mut i64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordStats ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , searchcriteria : *const DIAGNOSTIC_DATA_SEARCH_CRITERIA , recordcount : *mut u32 , minrowid : *mut i64 , maxrowid : *mut i64 ) -> ::windows::core::HRESULT );
     DdqGetDiagnosticRecordStats(hsession.into_param().abi(), searchcriteria, recordcount, minrowid, maxrowid).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
@@ -244,7 +244,7 @@ pub unsafe fn DdqGetDiagnosticRecordSummary<P0>(hsession: P0, producernames: &[:
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordSummary ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , producernames : *const :: windows::core::PCWSTR , producernamecount : u32 , generalstats : *mut DIAGNOSTIC_DATA_GENERAL_STATS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordSummary ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , producernames : *const ::windows::core::PCWSTR , producernamecount : u32 , generalstats : *mut DIAGNOSTIC_DATA_GENERAL_STATS ) -> ::windows::core::HRESULT );
     DdqGetDiagnosticRecordSummary(hsession.into_param().abi(), ::core::mem::transmute(producernames.as_ptr()), producernames.len() as _, generalstats).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
@@ -253,7 +253,7 @@ pub unsafe fn DdqGetDiagnosticRecordTagDistribution<P0>(hsession: P0, producerna
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordTagDistribution ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , producernames : *const :: windows::core::PCWSTR , producernamecount : u32 , tagstats : *mut *mut DIAGNOSTIC_DATA_EVENT_TAG_STATS , statcount : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordTagDistribution ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , producernames : *const ::windows::core::PCWSTR , producernamecount : u32 , tagstats : *mut *mut DIAGNOSTIC_DATA_EVENT_TAG_STATS , statcount : *mut u32 ) -> ::windows::core::HRESULT );
     DdqGetDiagnosticRecordTagDistribution(hsession.into_param().abi(), ::core::mem::transmute(producernames.as_ptr()), producernames.len() as _, tagstats, statcount).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
@@ -262,7 +262,7 @@ pub unsafe fn DdqGetDiagnosticReport<P0>(hsession: P0, reportstoretype: u32) -> 
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticReport ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , reportstoretype : u32 , hreport : *mut super:: HDIAGNOSTIC_REPORT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticReport ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , reportstoretype : u32 , hreport : *mut super:: HDIAGNOSTIC_REPORT ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::HDIAGNOSTIC_REPORT>();
     DdqGetDiagnosticReport(hsession.into_param().abi(), reportstoretype, &mut result__).from_abi(result__)
 }
@@ -273,7 +273,7 @@ pub unsafe fn DdqGetDiagnosticReportAtIndex<P0>(hreport: P0, index: u32, report:
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_REPORT>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticReportAtIndex ( hreport : super:: HDIAGNOSTIC_REPORT , index : u32 , report : *mut DIAGNOSTIC_REPORT_DATA ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticReportAtIndex ( hreport : super:: HDIAGNOSTIC_REPORT , index : u32 , report : *mut DIAGNOSTIC_REPORT_DATA ) -> ::windows::core::HRESULT );
     DdqGetDiagnosticReportAtIndex(hreport.into_param().abi(), index, report).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
@@ -282,7 +282,7 @@ pub unsafe fn DdqGetDiagnosticReportCount<P0>(hreport: P0) -> ::windows::core::R
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_REPORT>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticReportCount ( hreport : super:: HDIAGNOSTIC_REPORT , reportcount : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticReportCount ( hreport : super:: HDIAGNOSTIC_REPORT , reportcount : *mut u32 ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     DdqGetDiagnosticReportCount(hreport.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -292,7 +292,7 @@ pub unsafe fn DdqGetDiagnosticReportStoreReportCount<P0>(hsession: P0, reportsto
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticReportStoreReportCount ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , reportstoretype : u32 , reportcount : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticReportStoreReportCount ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , reportstoretype : u32 , reportcount : *mut u32 ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     DdqGetDiagnosticReportStoreReportCount(hsession.into_param().abi(), reportstoretype, &mut result__).from_abi(result__)
 }
@@ -302,7 +302,7 @@ pub unsafe fn DdqGetSessionAccessLevel<P0>(hsession: P0) -> ::windows::core::Res
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetSessionAccessLevel ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , accesslevel : *mut DdqAccessLevel ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetSessionAccessLevel ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , accesslevel : *mut DdqAccessLevel ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<DdqAccessLevel>();
     DdqGetSessionAccessLevel(hsession.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -312,7 +312,7 @@ pub unsafe fn DdqGetTranscriptConfiguration<P0>(hsession: P0) -> ::windows::core
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetTranscriptConfiguration ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , currentconfig : *mut DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetTranscriptConfiguration ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , currentconfig : *mut DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION>();
     DdqGetTranscriptConfiguration(hsession.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -325,7 +325,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqIsDiagnosticRecordSampledIn ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , providergroup : *const :: windows::core::GUID , providerid : *const :: windows::core::GUID , providername : :: windows::core::PCWSTR , eventid : *const u32 , eventname : :: windows::core::PCWSTR , eventversion : *const u32 , eventkeywords : *const u64 , issampledin : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqIsDiagnosticRecordSampledIn ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , providergroup : *const ::windows::core::GUID , providerid : *const ::windows::core::GUID , providername : ::windows::core::PCWSTR , eventid : *const u32 , eventname : ::windows::core::PCWSTR , eventversion : *const u32 , eventkeywords : *const u64 , issampledin : *mut super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
     DdqIsDiagnosticRecordSampledIn(hsession.into_param().abi(), providergroup, ::core::mem::transmute(providerid.unwrap_or(::std::ptr::null())), providername.into_param().abi(), ::core::mem::transmute(eventid.unwrap_or(::std::ptr::null())), eventname.into_param().abi(), ::core::mem::transmute(eventversion.unwrap_or(::std::ptr::null())), ::core::mem::transmute(eventkeywords.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
@@ -335,7 +335,7 @@ pub unsafe fn DdqSetTranscriptConfiguration<P0>(hsession: P0, desiredconfig: *co
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqSetTranscriptConfiguration ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , desiredconfig : *const DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqSetTranscriptConfiguration ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , desiredconfig : *const DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION ) -> ::windows::core::HRESULT );
     DdqSetTranscriptConfiguration(hsession.into_param().abi(), desiredconfig).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]

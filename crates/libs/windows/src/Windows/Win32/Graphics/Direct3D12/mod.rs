@@ -6,25 +6,25 @@ where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     T: ::windows::core::ComInterface,
 {
-    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12CreateDevice ( padapter : * mut::core::ffi::c_void , minimumfeaturelevel : super::Direct3D:: D3D_FEATURE_LEVEL , riid : *const :: windows::core::GUID , ppdevice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12CreateDevice ( padapter : * mut::core::ffi::c_void , minimumfeaturelevel : super::Direct3D:: D3D_FEATURE_LEVEL , riid : *const ::windows::core::GUID , ppdevice : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3D12CreateDevice(padapter.into_param().abi(), minimumfeaturelevel, &<T as ::windows::core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[inline]
 pub unsafe fn D3D12CreateRootSignatureDeserializer(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows::core::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12CreateRootSignatureDeserializer ( psrcdata : *const ::core::ffi::c_void , srcdatasizeinbytes : usize , prootsignaturedeserializerinterface : *const :: windows::core::GUID , pprootsignaturedeserializer : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12CreateRootSignatureDeserializer ( psrcdata : *const ::core::ffi::c_void , srcdatasizeinbytes : usize , prootsignaturedeserializerinterface : *const ::windows::core::GUID , pprootsignaturedeserializer : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3D12CreateRootSignatureDeserializer(psrcdata, srcdatasizeinbytes, prootsignaturedeserializerinterface, pprootsignaturedeserializer).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[inline]
 pub unsafe fn D3D12CreateVersionedRootSignatureDeserializer(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows::core::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12CreateVersionedRootSignatureDeserializer ( psrcdata : *const ::core::ffi::c_void , srcdatasizeinbytes : usize , prootsignaturedeserializerinterface : *const :: windows::core::GUID , pprootsignaturedeserializer : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12CreateVersionedRootSignatureDeserializer ( psrcdata : *const ::core::ffi::c_void , srcdatasizeinbytes : usize , prootsignaturedeserializerinterface : *const ::windows::core::GUID , pprootsignaturedeserializer : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3D12CreateVersionedRootSignatureDeserializer(psrcdata, srcdatasizeinbytes, prootsignaturedeserializerinterface, pprootsignaturedeserializer).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[inline]
 pub unsafe fn D3D12EnableExperimentalFeatures(numfeatures: u32, piids: *const ::windows::core::GUID, pconfigurationstructs: ::core::option::Option<*const ::core::ffi::c_void>, pconfigurationstructsizes: ::core::option::Option<*const u32>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12EnableExperimentalFeatures ( numfeatures : u32 , piids : *const :: windows::core::GUID , pconfigurationstructs : *const ::core::ffi::c_void , pconfigurationstructsizes : *const u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12EnableExperimentalFeatures ( numfeatures : u32 , piids : *const ::windows::core::GUID , pconfigurationstructs : *const ::core::ffi::c_void , pconfigurationstructsizes : *const u32 ) -> ::windows::core::HRESULT );
     D3D12EnableExperimentalFeatures(numfeatures, piids, ::core::mem::transmute(pconfigurationstructs.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pconfigurationstructsizes.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
@@ -33,7 +33,7 @@ pub unsafe fn D3D12GetDebugInterface<T>(result__: *mut ::core::option::Option<T>
 where
     T: ::windows::core::ComInterface,
 {
-    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12GetDebugInterface ( riid : *const :: windows::core::GUID , ppvdebug : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12GetDebugInterface ( riid : *const ::windows::core::GUID , ppvdebug : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3D12GetDebugInterface(&<T as ::windows::core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
@@ -42,21 +42,21 @@ pub unsafe fn D3D12GetInterface<T>(rclsid: *const ::windows::core::GUID, result_
 where
     T: ::windows::core::ComInterface,
 {
-    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12GetInterface ( rclsid : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppvdebug : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12GetInterface ( rclsid : *const ::windows::core::GUID , riid : *const ::windows::core::GUID , ppvdebug : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3D12GetInterface(rclsid, &<T as ::windows::core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrorblob: ::core::option::Option<*mut ::core::option::Option<super::Direct3D::ID3DBlob>>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12SerializeRootSignature ( prootsignature : *const D3D12_ROOT_SIGNATURE_DESC , version : D3D_ROOT_SIGNATURE_VERSION , ppblob : *mut * mut::core::ffi::c_void , pperrorblob : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12SerializeRootSignature ( prootsignature : *const D3D12_ROOT_SIGNATURE_DESC , version : D3D_ROOT_SIGNATURE_VERSION , ppblob : *mut * mut::core::ffi::c_void , pperrorblob : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3D12SerializeRootSignature(prootsignature, version, ::core::mem::transmute(ppblob), ::core::mem::transmute(pperrorblob.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrorblob: ::core::option::Option<*mut ::core::option::Option<super::Direct3D::ID3DBlob>>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12SerializeVersionedRootSignature ( prootsignature : *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC , ppblob : *mut * mut::core::ffi::c_void , pperrorblob : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12SerializeVersionedRootSignature ( prootsignature : *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC , ppblob : *mut * mut::core::ffi::c_void , pperrorblob : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3D12SerializeVersionedRootSignature(prootsignature, ::core::mem::transmute(ppblob), ::core::mem::transmute(pperrorblob.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
@@ -13289,7 +13289,7 @@ impl ID3D12ShaderReflectionType {
     {
         (::windows::core::Interface::vtable(self).GetMemberTypeByName)(::windows::core::Interface::as_raw(self), name.into_param().abi())
     }
-    pub unsafe fn GetMemberTypeName(&self, index: u32) -> ::windows::core::PSTR {
+    pub unsafe fn GetMemberTypeName(&self, index: u32) -> ::windows::core::PCSTR {
         (::windows::core::Interface::vtable(self).GetMemberTypeName)(::windows::core::Interface::as_raw(self), index)
     }
     pub unsafe fn IsEqual<P0>(&self, ptype: P0) -> ::windows::core::Result<()>
@@ -13353,7 +13353,7 @@ pub struct ID3D12ShaderReflectionType_Vtbl {
     GetDesc: usize,
     pub GetMemberTypeByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D12ShaderReflectionType>,
     pub GetMemberTypeByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D12ShaderReflectionType>,
-    pub GetMemberTypeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PSTR,
+    pub GetMemberTypeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PCSTR,
     pub IsEqual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSubType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D12ShaderReflectionType>,
     pub GetBaseClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D12ShaderReflectionType>,

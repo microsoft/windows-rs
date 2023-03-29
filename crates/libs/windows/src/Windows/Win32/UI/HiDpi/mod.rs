@@ -75,7 +75,7 @@ pub unsafe fn GetDpiForMonitor<P0>(hmonitor: P0, dpitype: MONITOR_DPI_TYPE, dpix
 where
     P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HMONITOR>,
 {
-    ::windows::imp::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll""system" fn GetDpiForMonitor ( hmonitor : super::super::Graphics::Gdi:: HMONITOR , dpitype : MONITOR_DPI_TYPE , dpix : *mut u32 , dpiy : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll""system" fn GetDpiForMonitor ( hmonitor : super::super::Graphics::Gdi:: HMONITOR , dpitype : MONITOR_DPI_TYPE , dpix : *mut u32 , dpiy : *mut u32 ) -> ::windows::core::HRESULT );
     GetDpiForMonitor(hmonitor.into_param().abi(), dpitype, dpix, dpiy).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
@@ -110,7 +110,7 @@ pub unsafe fn GetProcessDpiAwareness<P0>(hprocess: P0) -> ::windows::core::Resul
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll""system" fn GetProcessDpiAwareness ( hprocess : super::super::Foundation:: HANDLE , value : *mut PROCESS_DPI_AWARENESS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll""system" fn GetProcessDpiAwareness ( hprocess : super::super::Foundation:: HANDLE , value : *mut PROCESS_DPI_AWARENESS ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<PROCESS_DPI_AWARENESS>();
     GetProcessDpiAwareness(hprocess.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -191,7 +191,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "uxtheme.dll""system" fn OpenThemeDataForDpi ( hwnd : super::super::Foundation:: HWND , pszclasslist : :: windows::core::PCWSTR , dpi : u32 ) -> super::Controls:: HTHEME );
+    ::windows::imp::link ! ( "uxtheme.dll""system" fn OpenThemeDataForDpi ( hwnd : super::super::Foundation:: HWND , pszclasslist : ::windows::core::PCWSTR , dpi : u32 ) -> super::Controls:: HTHEME );
     OpenThemeDataForDpi(hwnd.into_param().abi(), pszclasslist.into_param().abi(), dpi)
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
@@ -227,7 +227,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 #[inline]
 pub unsafe fn SetProcessDpiAwareness(value: PROCESS_DPI_AWARENESS) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll""system" fn SetProcessDpiAwareness ( value : PROCESS_DPI_AWARENESS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll""system" fn SetProcessDpiAwareness ( value : PROCESS_DPI_AWARENESS ) -> ::windows::core::HRESULT );
     SetProcessDpiAwareness(value).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]

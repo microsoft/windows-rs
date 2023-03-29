@@ -3183,40 +3183,32 @@ impl ::core::default::Default for GNSS_NI_RESPONSE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub struct GNSS_NMEA_DATA {
     pub Size: u32,
     pub Version: u32,
-    pub NmeaSentences: [super::super::Foundation::CHAR; 256],
+    pub NmeaSentences: [u8; 256],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_NMEA_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_NMEA_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GNSS_NMEA_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GNSS_NMEA_DATA").field("Size", &self.Size).field("Version", &self.Version).field("NmeaSentences", &self.NmeaSentences).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for GNSS_NMEA_DATA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_NMEA_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Version == other.Version && self.NmeaSentences == other.NmeaSentences
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_NMEA_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_NMEA_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3452,129 +3444,105 @@ impl ::core::default::Default for GNSS_STOPFIXSESSION_PARAM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub struct GNSS_SUPL_CERT_CONFIG {
     pub Size: u32,
     pub Version: u32,
     pub CertAction: GNSS_SUPL_CERT_ACTION,
-    pub SuplCertName: [super::super::Foundation::CHAR; 260],
+    pub SuplCertName: [u8; 260],
     pub CertSize: u32,
     pub Unused: [u8; 512],
     pub CertData: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_SUPL_CERT_CONFIG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_SUPL_CERT_CONFIG {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GNSS_SUPL_CERT_CONFIG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GNSS_SUPL_CERT_CONFIG").field("Size", &self.Size).field("Version", &self.Version).field("CertAction", &self.CertAction).field("SuplCertName", &self.SuplCertName).field("CertSize", &self.CertSize).field("Unused", &self.Unused).field("CertData", &self.CertData).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for GNSS_SUPL_CERT_CONFIG {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_SUPL_CERT_CONFIG {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Version == other.Version && self.CertAction == other.CertAction && self.SuplCertName == other.SuplCertName && self.CertSize == other.CertSize && self.Unused == other.Unused && self.CertData == other.CertData
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_SUPL_CERT_CONFIG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_SUPL_CERT_CONFIG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub struct GNSS_SUPL_HSLP_CONFIG {
     pub Size: u32,
     pub Version: u32,
-    pub SuplHslp: [super::super::Foundation::CHAR; 260],
-    pub SuplHslpFromImsi: [super::super::Foundation::CHAR; 260],
+    pub SuplHslp: [u8; 260],
+    pub SuplHslpFromImsi: [u8; 260],
     pub Reserved: u32,
     pub Unused: [u8; 512],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_SUPL_HSLP_CONFIG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_SUPL_HSLP_CONFIG {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GNSS_SUPL_HSLP_CONFIG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GNSS_SUPL_HSLP_CONFIG").field("Size", &self.Size).field("Version", &self.Version).field("SuplHslp", &self.SuplHslp).field("SuplHslpFromImsi", &self.SuplHslpFromImsi).field("Reserved", &self.Reserved).field("Unused", &self.Unused).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for GNSS_SUPL_HSLP_CONFIG {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_SUPL_HSLP_CONFIG {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Version == other.Version && self.SuplHslp == other.SuplHslp && self.SuplHslpFromImsi == other.SuplHslpFromImsi && self.Reserved == other.Reserved && self.Unused == other.Unused
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_SUPL_HSLP_CONFIG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_SUPL_HSLP_CONFIG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub struct GNSS_SUPL_NI_INFO {
     pub Size: u32,
     pub Version: u32,
     pub RequestorId: [u16; 260],
     pub ClientName: [u16; 260],
-    pub SuplNiUrl: [super::super::Foundation::CHAR; 260],
+    pub SuplNiUrl: [u8; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_SUPL_NI_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_SUPL_NI_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GNSS_SUPL_NI_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GNSS_SUPL_NI_INFO").field("Size", &self.Size).field("Version", &self.Version).field("RequestorId", &self.RequestorId).field("ClientName", &self.ClientName).field("SuplNiUrl", &self.SuplNiUrl).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for GNSS_SUPL_NI_INFO {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_SUPL_NI_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Version == other.Version && self.RequestorId == other.RequestorId && self.ClientName == other.ClientName && self.SuplNiUrl == other.SuplNiUrl
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_SUPL_NI_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_SUPL_NI_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3644,43 +3612,35 @@ impl ::core::default::Default for GNSS_SUPL_VERSION_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub struct GNSS_V2UPL_CONFIG {
     pub Size: u32,
     pub Version: u32,
-    pub MPC: [super::super::Foundation::CHAR; 260],
-    pub PDE: [super::super::Foundation::CHAR; 260],
+    pub MPC: [u8; 260],
+    pub PDE: [u8; 260],
     pub ApplicationTypeIndicator_MR: u8,
     pub Unused: [u8; 512],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_V2UPL_CONFIG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_V2UPL_CONFIG {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GNSS_V2UPL_CONFIG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("GNSS_V2UPL_CONFIG").field("Size", &self.Size).field("Version", &self.Version).field("MPC", &self.MPC).field("PDE", &self.PDE).field("ApplicationTypeIndicator_MR", &self.ApplicationTypeIndicator_MR).field("Unused", &self.Unused).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for GNSS_V2UPL_CONFIG {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_V2UPL_CONFIG {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Version == other.Version && self.MPC == other.MPC && self.PDE == other.PDE && self.ApplicationTypeIndicator_MR == other.ApplicationTypeIndicator_MR && self.Unused == other.Unused
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_V2UPL_CONFIG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_V2UPL_CONFIG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

@@ -3,10 +3,10 @@
 #[inline]
 pub unsafe fn DirectInput8Create<P0, P1>(hinst: P0, dwversion: u32, riidltf: *const ::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void, punkouter: P1) -> ::windows::core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "dinput8.dll""system" fn DirectInput8Create ( hinst : super::super::Foundation:: HINSTANCE , dwversion : u32 , riidltf : *const :: windows::core::GUID , ppvout : *mut *mut ::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dinput8.dll""system" fn DirectInput8Create ( hinst : super::super::Foundation:: HMODULE , dwversion : u32 , riidltf : *const ::windows::core::GUID , ppvout : *mut *mut ::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DirectInput8Create(hinst.into_param().abi(), dwversion, riidltf, ppvout, punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -59,7 +59,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[inline]
 pub unsafe fn HidD_GetHidGuid() -> ::windows::core::GUID {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidD_GetHidGuid ( hidguid : *mut :: windows::core::GUID ) -> ( ) );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidD_GetHidGuid ( hidguid : *mut ::windows::core::GUID ) -> ( ) );
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     HidD_GetHidGuid(&mut result__);
     ::std::mem::transmute(result__)
@@ -198,7 +198,7 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength: *mut u16, preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetButtonArray ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , buttondata : *mut HIDP_BUTTON_ARRAY_DATA , buttondatalength : *mut u16 , preparseddata : isize , report : :: windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetButtonArray ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , buttondata : *mut HIDP_BUTTON_ARRAY_DATA , buttondatalength : *mut u16 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_GetButtonArray(reporttype, usagepage, linkcollection, usage, buttondata, buttondatalength, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -219,7 +219,7 @@ pub unsafe fn HidP_GetCaps(preparseddata: isize, capabilities: *mut HIDP_CAPS) -
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: isize, report: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetData ( reporttype : HIDP_REPORT_TYPE , datalist : *mut HIDP_DATA , datalength : *mut u32 , preparseddata : isize , report : :: windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetData ( reporttype : HIDP_REPORT_TYPE , datalist : *mut HIDP_DATA , datalength : *mut u32 , preparseddata : isize , report : ::windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_GetData(reporttype, datalist, datalength, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -240,7 +240,7 @@ pub unsafe fn HidP_GetLinkCollectionNodes(linkcollectionnodes: *mut HIDP_LINK_CO
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut i32, preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetScaledUsageValue ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : *mut i32 , preparseddata : isize , report : :: windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetScaledUsageValue ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : *mut i32 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_GetScaledUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -261,28 +261,28 @@ pub unsafe fn HidP_GetSpecificValueCaps(reporttype: HIDP_REPORT_TYPE, usagepage:
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut u32, preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetUsageValue ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : *mut u32 , preparseddata : isize , report : :: windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetUsageValue ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : *mut u32 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_GetUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: &mut [u8], preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetUsageValueArray ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : :: windows::core::PSTR , usagevaluebytelength : u16 , preparseddata : isize , report : :: windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetUsageValueArray ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : ::windows::core::PSTR , usagevaluebytelength : u16 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_GetUsageValueArray(reporttype, usagepage, linkcollection, usage, ::core::mem::transmute(usagevalue.as_ptr()), usagevalue.len() as _, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetUsages ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usagelist : *mut u16 , usagelength : *mut u32 , preparseddata : isize , report : :: windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetUsages ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usagelist : *mut u16 , usagelength : *mut u32 , preparseddata : isize , report : ::windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_GetUsages(reporttype, usagepage, linkcollection, usagelist, usagelength, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetUsagesEx(reporttype: HIDP_REPORT_TYPE, linkcollection: u16, buttonlist: *mut USAGE_AND_PAGE, usagelength: *mut u32, preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetUsagesEx ( reporttype : HIDP_REPORT_TYPE , linkcollection : u16 , buttonlist : *mut USAGE_AND_PAGE , usagelength : *mut u32 , preparseddata : isize , report : :: windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetUsagesEx ( reporttype : HIDP_REPORT_TYPE , linkcollection : u16 , buttonlist : *mut USAGE_AND_PAGE , usagelength : *mut u32 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_GetUsagesEx(reporttype, linkcollection, buttonlist, usagelength, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -296,7 +296,7 @@ pub unsafe fn HidP_GetValueCaps(reporttype: HIDP_REPORT_TYPE, valuecaps: *mut HI
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_InitializeReportForID(reporttype: HIDP_REPORT_TYPE, reportid: u8, preparseddata: isize, report: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_InitializeReportForID ( reporttype : HIDP_REPORT_TYPE , reportid : u8 , preparseddata : isize , report : :: windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_InitializeReportForID ( reporttype : HIDP_REPORT_TYPE , reportid : u8 , preparseddata : isize , report : ::windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_InitializeReportForID(reporttype, reportid, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
@@ -315,42 +315,42 @@ pub unsafe fn HidP_MaxUsageListLength(reporttype: HIDP_REPORT_TYPE, usagepage: u
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: &[HIDP_BUTTON_ARRAY_DATA], preparseddata: isize, report: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetButtonArray ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , buttondata : *const HIDP_BUTTON_ARRAY_DATA , buttondatalength : u16 , preparseddata : isize , report : :: windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetButtonArray ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , buttondata : *const HIDP_BUTTON_ARRAY_DATA , buttondatalength : u16 , preparseddata : isize , report : ::windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_SetButtonArray(reporttype, usagepage, linkcollection, usage, ::core::mem::transmute(buttondata.as_ptr()), buttondata.len() as _, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetData ( reporttype : HIDP_REPORT_TYPE , datalist : *mut HIDP_DATA , datalength : *mut u32 , preparseddata : isize , report : :: windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetData ( reporttype : HIDP_REPORT_TYPE , datalist : *mut HIDP_DATA , datalength : *mut u32 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_SetData(reporttype, datalist, datalength, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: i32, preparseddata: isize, report: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetScaledUsageValue ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : i32 , preparseddata : isize , report : :: windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetScaledUsageValue ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : i32 , preparseddata : isize , report : ::windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_SetScaledUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: u32, preparseddata: isize, report: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetUsageValue ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : u32 , preparseddata : isize , report : :: windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetUsageValue ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : u32 , preparseddata : isize , report : ::windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_SetUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: &[u8], preparseddata: isize, report: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetUsageValueArray ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : :: windows::core::PCSTR , usagevaluebytelength : u16 , preparseddata : isize , report : :: windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetUsageValueArray ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : ::windows::core::PCSTR , usagevaluebytelength : u16 , preparseddata : isize , report : ::windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_SetUsageValueArray(reporttype, usagepage, linkcollection, usage, ::core::mem::transmute(usagevalue.as_ptr()), usagevalue.len() as _, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetUsages ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usagelist : *mut u16 , usagelength : *mut u32 , preparseddata : isize , report : :: windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetUsages ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usagelist : *mut u16 , usagelength : *mut u32 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_SetUsages(reporttype, usagepage, linkcollection, usagelist, usagelength, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -364,7 +364,7 @@ pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: &[u16], key
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_UnsetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_UnsetUsages ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usagelist : *mut u16 , usagelength : *mut u32 , preparseddata : isize , report : :: windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_UnsetUsages ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usagelist : *mut u16 , usagelength : *mut u32 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_UnsetUsages(reporttype, usagepage, linkcollection, usagelist, usagelength, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -410,7 +410,7 @@ impl IDirectInput2A {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
@@ -480,7 +480,7 @@ impl IDirectInput2W {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
@@ -550,7 +550,7 @@ impl IDirectInput7A {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
@@ -626,7 +626,7 @@ impl IDirectInput7W {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
@@ -702,7 +702,7 @@ impl IDirectInput8A {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
@@ -764,7 +764,7 @@ pub struct IDirectInput8A_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RunControlPanel: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HMODULE, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
     pub FindDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: ::windows::core::PCSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -807,7 +807,7 @@ impl IDirectInput8W {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
@@ -869,7 +869,7 @@ pub struct IDirectInput8W_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RunControlPanel: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HMODULE, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
     pub FindDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: ::windows::core::PCWSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -912,7 +912,7 @@ impl IDirectInputA {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
@@ -955,7 +955,7 @@ pub struct IDirectInputA_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RunControlPanel: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HMODULE, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
 }
@@ -1008,13 +1008,9 @@ impl IDirectInputDevice2A {
     {
         (::windows::core::Interface::vtable(self).base__.SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetObjectInfo)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetDeviceInfo)(::windows::core::Interface::as_raw(self), param0).ok()
     }
@@ -1030,7 +1026,7 @@ impl IDirectInputDevice2A {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
     }
@@ -1045,8 +1041,6 @@ impl IDirectInputDevice2A {
     pub unsafe fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EnumEffects)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOA, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetEffectInfo)(::windows::core::Interface::as_raw(self), param0, param1).ok()
     }
@@ -1103,10 +1097,7 @@ pub struct IDirectInputDevice2A_Vtbl {
     pub EnumEffects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     EnumEffects: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetEffectInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECTINFOA, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetEffectInfo: usize,
     pub GetForceFeedbackState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
     pub SendForceFeedbackCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -1184,7 +1175,7 @@ impl IDirectInputDevice2W {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
     }
@@ -1315,13 +1306,9 @@ impl IDirectInputDevice7A {
     {
         (::windows::core::Interface::vtable(self).base__.base__.SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetObjectInfo)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetDeviceInfo)(::windows::core::Interface::as_raw(self), param0).ok()
     }
@@ -1337,7 +1324,7 @@ impl IDirectInputDevice7A {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
     }
@@ -1352,8 +1339,6 @@ impl IDirectInputDevice7A {
     pub unsafe fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EnumEffects)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOA, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetEffectInfo)(::windows::core::Interface::as_raw(self), param0, param1).ok()
     }
@@ -1385,8 +1370,6 @@ impl IDirectInputDevice7A {
     {
         (::windows::core::Interface::vtable(self).EnumEffectsInFile)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2, param3).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteEffectToFile<P0>(&self, param0: P0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
@@ -1425,10 +1408,7 @@ pub struct IDirectInputDevice7A_Vtbl {
     pub EnumEffectsInFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::PCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     EnumEffectsInFile: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub WriteEffectToFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::PCSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    WriteEffectToFile: usize,
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
@@ -1497,7 +1477,7 @@ impl IDirectInputDevice7W {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
     }
@@ -1543,8 +1523,6 @@ impl IDirectInputDevice7W {
     {
         (::windows::core::Interface::vtable(self).EnumEffectsInFile)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2, param3).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteEffectToFile<P0>(&self, param0: P0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
@@ -1583,10 +1561,7 @@ pub struct IDirectInputDevice7W_Vtbl {
     pub EnumEffectsInFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::PCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     EnumEffectsInFile: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub WriteEffectToFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::PCWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    WriteEffectToFile: usize,
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
@@ -1637,13 +1612,9 @@ impl IDirectInputDevice8A {
     {
         (::windows::core::Interface::vtable(self).SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetObjectInfo)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDeviceInfo)(::windows::core::Interface::as_raw(self), param0).ok()
     }
@@ -1659,7 +1630,7 @@ impl IDirectInputDevice8A {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
     }
@@ -1674,8 +1645,6 @@ impl IDirectInputDevice8A {
     pub unsafe fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EnumEffects)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOA, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetEffectInfo)(::windows::core::Interface::as_raw(self), param0, param1).ok()
     }
@@ -1707,8 +1676,6 @@ impl IDirectInputDevice8A {
     {
         (::windows::core::Interface::vtable(self).EnumEffectsInFile)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2, param3).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteEffectToFile<P0>(&self, param0: P0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
@@ -1784,20 +1751,14 @@ pub struct IDirectInputDevice8A_Vtbl {
     pub SetCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetCooperativeLevel: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetObjectInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetObjectInfo: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetDeviceInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEINSTANCEA) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetDeviceInfo: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub RunControlPanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     RunControlPanel: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HMODULE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
     pub CreateEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1805,10 +1766,7 @@ pub struct IDirectInputDevice8A_Vtbl {
     pub EnumEffects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     EnumEffects: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetEffectInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECTINFOA, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetEffectInfo: usize,
     pub GetForceFeedbackState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
     pub SendForceFeedbackCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -1822,10 +1780,7 @@ pub struct IDirectInputDevice8A_Vtbl {
     pub EnumEffectsInFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::PCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     EnumEffectsInFile: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub WriteEffectToFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::PCSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    WriteEffectToFile: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub BuildActionMap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIACTIONFORMATA, param1: ::windows::core::PCSTR, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1906,7 +1861,7 @@ impl IDirectInputDevice8W {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
     }
@@ -1952,8 +1907,6 @@ impl IDirectInputDevice8W {
     {
         (::windows::core::Interface::vtable(self).EnumEffectsInFile)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2, param3).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteEffectToFile<P0>(&self, param0: P0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
@@ -2036,7 +1989,7 @@ pub struct IDirectInputDevice8W_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RunControlPanel: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HMODULE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
     pub CreateEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2058,10 +2011,7 @@ pub struct IDirectInputDevice8W_Vtbl {
     pub EnumEffectsInFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::PCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     EnumEffectsInFile: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub WriteEffectToFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::PCWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    WriteEffectToFile: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub BuildActionMap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIACTIONFORMATW, param1: ::windows::core::PCWSTR, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2124,13 +2074,9 @@ impl IDirectInputDeviceA {
     {
         (::windows::core::Interface::vtable(self).SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetObjectInfo)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDeviceInfo)(::windows::core::Interface::as_raw(self), param0).ok()
     }
@@ -2146,7 +2092,7 @@ impl IDirectInputDeviceA {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
     }
@@ -2198,20 +2144,14 @@ pub struct IDirectInputDeviceA_Vtbl {
     pub SetCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetCooperativeLevel: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetObjectInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetObjectInfo: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetDeviceInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEINSTANCEA) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetDeviceInfo: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub RunControlPanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     RunControlPanel: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HMODULE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
 }
@@ -2282,7 +2222,7 @@ impl IDirectInputDeviceW {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
     }
@@ -2341,7 +2281,7 @@ pub struct IDirectInputDeviceW_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RunControlPanel: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HMODULE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
 }
@@ -2353,7 +2293,7 @@ impl IDirectInputEffect {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
     }
@@ -2413,7 +2353,7 @@ unsafe impl ::windows::core::ComInterface for IDirectInputEffect {
 pub struct IDirectInputEffect_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HMODULE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
     pub GetEffectGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -2814,7 +2754,7 @@ impl IDirectInputW {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
@@ -2857,7 +2797,7 @@ pub struct IDirectInputW_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RunControlPanel: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HMODULE, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
 }
@@ -2908,13 +2848,13 @@ pub const CLSID_DirectInputDevice: ::windows::core::GUID = ::windows::core::GUID
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub const CLSID_DirectInputDevice8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25e609e5_b259_11cf_bfc7_444553540000);
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DD_KEYBOARD_DEVICE_NAME: ::windows::core::PCSTR = ::windows::s!("\\Device\\KeyboardClass");
+pub const DD_KEYBOARD_DEVICE_NAME: ::windows::core::PCSTR = ::windows::core::s!("\\Device\\KeyboardClass");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DD_KEYBOARD_DEVICE_NAME_U: ::windows::core::PCWSTR = ::windows::w!("\\Device\\KeyboardClass");
+pub const DD_KEYBOARD_DEVICE_NAME_U: ::windows::core::PCWSTR = ::windows::core::w!("\\Device\\KeyboardClass");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DD_MOUSE_DEVICE_NAME: ::windows::core::PCSTR = ::windows::s!("\\Device\\PointerClass");
+pub const DD_MOUSE_DEVICE_NAME: ::windows::core::PCSTR = ::windows::core::s!("\\Device\\PointerClass");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DD_MOUSE_DEVICE_NAME_U: ::windows::core::PCWSTR = ::windows::w!("\\Device\\PointerClass");
+pub const DD_MOUSE_DEVICE_NAME_U: ::windows::core::PCWSTR = ::windows::core::w!("\\Device\\PointerClass");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_DeviceInterface_HID_BackgroundAccess: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 8 };
@@ -5900,61 +5840,111 @@ pub const DIPROPCALIBRATIONMODE_COOKED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub const DIPROPCALIBRATIONMODE_RAW: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_APPDATA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000016);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_AUTOCENTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000009);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_AXISMODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000002);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_BUFFERSIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000001);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_CALIBRATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000b);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_CALIBRATIONMODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000a);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_CPOINTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000015);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_DEADZONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000005);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_FFGAIN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000007);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_FFLOAD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000008);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_GETPORTDISPLAYNAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000010);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_GRANULARITY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000003);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_GUIDANDPATH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000c);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_INSTANCENAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000d);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_JOYSTICKID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000f);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_KEYNAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000014);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_LOGICALRANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000013);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_PHYSICALRANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000012);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_PRODUCTNAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000e);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_RANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000004);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_SATURATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000006);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_SCANCODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000017);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_TYPENAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000001a);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_USERNAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000019);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_VIDPID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000018);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub const DIRECTINPUT_HEADER_VERSION: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_NOTIFICATION_MSGSTRING: ::windows::core::PCWSTR = ::windows::w!("DIRECTINPUT_NOTIFICATION_MSGSTRING");
+pub const DIRECTINPUT_NOTIFICATION_MSGSTRING: ::windows::core::PCWSTR = ::windows::core::w!("DIRECTINPUT_NOTIFICATION_MSGSTRING");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_NOTIFICATION_MSGSTRINGA: ::windows::core::PCSTR = ::windows::s!("DIRECTINPUT_NOTIFICATION_MSGSTRING");
+pub const DIRECTINPUT_NOTIFICATION_MSGSTRINGA: ::windows::core::PCSTR = ::windows::core::s!("DIRECTINPUT_NOTIFICATION_MSGSTRING");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_NOTIFICATION_MSGSTRINGW: ::windows::core::PCWSTR = ::windows::w!("DIRECTINPUT_NOTIFICATION_MSGSTRING");
+pub const DIRECTINPUT_NOTIFICATION_MSGSTRINGW: ::windows::core::PCWSTR = ::windows::core::w!("DIRECTINPUT_NOTIFICATION_MSGSTRING");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_KEY_LASTAPP: ::windows::core::PCWSTR = ::windows::w!("MostRecentApplication");
+pub const DIRECTINPUT_REGSTR_KEY_LASTAPP: ::windows::core::PCWSTR = ::windows::core::w!("MostRecentApplication");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_KEY_LASTAPPA: ::windows::core::PCSTR = ::windows::s!("MostRecentApplication");
+pub const DIRECTINPUT_REGSTR_KEY_LASTAPPA: ::windows::core::PCSTR = ::windows::core::s!("MostRecentApplication");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_KEY_LASTAPPW: ::windows::core::PCWSTR = ::windows::w!("MostRecentApplication");
+pub const DIRECTINPUT_REGSTR_KEY_LASTAPPW: ::windows::core::PCWSTR = ::windows::core::w!("MostRecentApplication");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_KEY_LASTMAPAPP: ::windows::core::PCWSTR = ::windows::w!("MostRecentMapperApplication");
+pub const DIRECTINPUT_REGSTR_KEY_LASTMAPAPP: ::windows::core::PCWSTR = ::windows::core::w!("MostRecentMapperApplication");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_KEY_LASTMAPAPPA: ::windows::core::PCSTR = ::windows::s!("MostRecentMapperApplication");
+pub const DIRECTINPUT_REGSTR_KEY_LASTMAPAPPA: ::windows::core::PCSTR = ::windows::core::s!("MostRecentMapperApplication");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_KEY_LASTMAPAPPW: ::windows::core::PCWSTR = ::windows::w!("MostRecentMapperApplication");
+pub const DIRECTINPUT_REGSTR_KEY_LASTMAPAPPW: ::windows::core::PCWSTR = ::windows::core::w!("MostRecentMapperApplication");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_APPIDFLAG: ::windows::core::PCWSTR = ::windows::w!("AppIdFlag");
+pub const DIRECTINPUT_REGSTR_VAL_APPIDFLAG: ::windows::core::PCWSTR = ::windows::core::w!("AppIdFlag");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_APPIDFLAGA: ::windows::core::PCSTR = ::windows::s!("AppIdFlag");
+pub const DIRECTINPUT_REGSTR_VAL_APPIDFLAGA: ::windows::core::PCSTR = ::windows::core::s!("AppIdFlag");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_APPIDFLAGW: ::windows::core::PCWSTR = ::windows::w!("AppIdFlag");
+pub const DIRECTINPUT_REGSTR_VAL_APPIDFLAGW: ::windows::core::PCWSTR = ::windows::core::w!("AppIdFlag");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_ID: ::windows::core::PCWSTR = ::windows::w!("Id");
+pub const DIRECTINPUT_REGSTR_VAL_ID: ::windows::core::PCWSTR = ::windows::core::w!("Id");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_IDA: ::windows::core::PCSTR = ::windows::s!("Id");
+pub const DIRECTINPUT_REGSTR_VAL_IDA: ::windows::core::PCSTR = ::windows::core::s!("Id");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_IDW: ::windows::core::PCWSTR = ::windows::w!("Id");
+pub const DIRECTINPUT_REGSTR_VAL_IDW: ::windows::core::PCWSTR = ::windows::core::w!("Id");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_LASTSTART: ::windows::core::PCWSTR = ::windows::w!("MostRecentStart");
+pub const DIRECTINPUT_REGSTR_VAL_LASTSTART: ::windows::core::PCWSTR = ::windows::core::w!("MostRecentStart");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_LASTSTARTA: ::windows::core::PCSTR = ::windows::s!("MostRecentStart");
+pub const DIRECTINPUT_REGSTR_VAL_LASTSTARTA: ::windows::core::PCSTR = ::windows::core::s!("MostRecentStart");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_LASTSTARTW: ::windows::core::PCWSTR = ::windows::w!("MostRecentStart");
+pub const DIRECTINPUT_REGSTR_VAL_LASTSTARTW: ::windows::core::PCWSTR = ::windows::core::w!("MostRecentStart");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_MAPPER: ::windows::core::PCWSTR = ::windows::w!("UsesMapper");
+pub const DIRECTINPUT_REGSTR_VAL_MAPPER: ::windows::core::PCWSTR = ::windows::core::w!("UsesMapper");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_MAPPERA: ::windows::core::PCSTR = ::windows::s!("UsesMapper");
+pub const DIRECTINPUT_REGSTR_VAL_MAPPERA: ::windows::core::PCSTR = ::windows::core::s!("UsesMapper");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_MAPPERW: ::windows::core::PCWSTR = ::windows::w!("UsesMapper");
+pub const DIRECTINPUT_REGSTR_VAL_MAPPERW: ::windows::core::PCWSTR = ::windows::core::w!("UsesMapper");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_NAME: ::windows::core::PCWSTR = ::windows::w!("Name");
+pub const DIRECTINPUT_REGSTR_VAL_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Name");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_NAMEA: ::windows::core::PCSTR = ::windows::s!("Name");
+pub const DIRECTINPUT_REGSTR_VAL_NAMEA: ::windows::core::PCSTR = ::windows::core::s!("Name");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_NAMEW: ::windows::core::PCWSTR = ::windows::w!("Name");
+pub const DIRECTINPUT_REGSTR_VAL_NAMEW: ::windows::core::PCWSTR = ::windows::core::w!("Name");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_VERSION: ::windows::core::PCWSTR = ::windows::w!("Version");
+pub const DIRECTINPUT_REGSTR_VAL_VERSION: ::windows::core::PCWSTR = ::windows::core::w!("Version");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_VERSIONA: ::windows::core::PCSTR = ::windows::s!("Version");
+pub const DIRECTINPUT_REGSTR_VAL_VERSIONA: ::windows::core::PCSTR = ::windows::core::s!("Version");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_VERSIONW: ::windows::core::PCWSTR = ::windows::w!("Version");
+pub const DIRECTINPUT_REGSTR_VAL_VERSIONW: ::windows::core::PCWSTR = ::windows::core::w!("Version");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub const DIRECTINPUT_VERSION: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
@@ -6618,6 +6608,8 @@ pub const HID_USAGE_DIGITIZER_TRANSDUCER_INDEX: u16 = 56u16;
 pub const HID_USAGE_DIGITIZER_TRANSDUCER_PRODUCT: u16 = 146u16;
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub const HID_USAGE_DIGITIZER_TRANSDUCER_SERIAL: u16 = 91u16;
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const HID_USAGE_DIGITIZER_TRANSDUCER_SERIAL_PART2: u16 = 110u16;
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub const HID_USAGE_DIGITIZER_TRANSDUCER_VENDOR: u16 = 145u16;
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
@@ -8015,10 +8007,10 @@ pub struct DIACTIONFORMATA {
     pub dwBufferSize: u32,
     pub lAxisMin: i32,
     pub lAxisMax: i32,
-    pub hInstString: super::super::Foundation::HINSTANCE,
+    pub hInstString: super::super::Foundation::HMODULE,
     pub ftTimeStamp: super::super::Foundation::FILETIME,
     pub dwCRC: u32,
-    pub tszActionMap: [super::super::Foundation::CHAR; 260],
+    pub tszActionMap: [u8; 260],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DIACTIONFORMATA {}
@@ -8081,7 +8073,7 @@ pub struct DIACTIONFORMATW {
     pub dwBufferSize: u32,
     pub lAxisMin: i32,
     pub lAxisMax: i32,
-    pub hInstString: super::super::Foundation::HINSTANCE,
+    pub hInstString: super::super::Foundation::HMODULE,
     pub ftTimeStamp: super::super::Foundation::FILETIME,
     pub dwCRC: u32,
     pub tszActionMap: [u16; 260],
@@ -8526,7 +8518,7 @@ impl ::core::default::Default for DIDEVCAPS_DX3 {
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEIMAGEINFOA {
-    pub tszImagePath: [super::super::Foundation::CHAR; 260],
+    pub tszImagePath: [u8; 260],
     pub dwFlags: u32,
     pub dwViewID: u32,
     pub rcOverlay: super::super::Foundation::RECT,
@@ -8707,46 +8699,38 @@ impl ::core::default::Default for DIDEVICEIMAGEINFOW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub struct DIDEVICEINSTANCEA {
     pub dwSize: u32,
     pub guidInstance: ::windows::core::GUID,
     pub guidProduct: ::windows::core::GUID,
     pub dwDevType: u32,
-    pub tszInstanceName: [super::super::Foundation::CHAR; 260],
-    pub tszProductName: [super::super::Foundation::CHAR; 260],
+    pub tszInstanceName: [u8; 260],
+    pub tszProductName: [u8; 260],
     pub guidFFDriver: ::windows::core::GUID,
     pub wUsagePage: u16,
     pub wUsage: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DIDEVICEINSTANCEA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DIDEVICEINSTANCEA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DIDEVICEINSTANCEA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DIDEVICEINSTANCEA").field("dwSize", &self.dwSize).field("guidInstance", &self.guidInstance).field("guidProduct", &self.guidProduct).field("dwDevType", &self.dwDevType).field("tszInstanceName", &self.tszInstanceName).field("tszProductName", &self.tszProductName).field("guidFFDriver", &self.guidFFDriver).field("wUsagePage", &self.wUsagePage).field("wUsage", &self.wUsage).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DIDEVICEINSTANCEA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIDEVICEINSTANCEA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.guidProduct == other.guidProduct && self.dwDevType == other.dwDevType && self.tszInstanceName == other.tszInstanceName && self.tszProductName == other.tszProductName && self.guidFFDriver == other.guidFFDriver && self.wUsagePage == other.wUsagePage && self.wUsage == other.wUsage
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DIDEVICEINSTANCEA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIDEVICEINSTANCEA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8791,43 +8775,35 @@ impl ::core::default::Default for DIDEVICEINSTANCEW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub struct DIDEVICEINSTANCE_DX3A {
     pub dwSize: u32,
     pub guidInstance: ::windows::core::GUID,
     pub guidProduct: ::windows::core::GUID,
     pub dwDevType: u32,
-    pub tszInstanceName: [super::super::Foundation::CHAR; 260],
-    pub tszProductName: [super::super::Foundation::CHAR; 260],
+    pub tszInstanceName: [u8; 260],
+    pub tszProductName: [u8; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DIDEVICEINSTANCE_DX3A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DIDEVICEINSTANCE_DX3A {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DIDEVICEINSTANCE_DX3A {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DIDEVICEINSTANCE_DX3A").field("dwSize", &self.dwSize).field("guidInstance", &self.guidInstance).field("guidProduct", &self.guidProduct).field("dwDevType", &self.dwDevType).field("tszInstanceName", &self.tszInstanceName).field("tszProductName", &self.tszProductName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DIDEVICEINSTANCE_DX3A {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIDEVICEINSTANCE_DX3A {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.guidProduct == other.guidProduct && self.dwDevType == other.dwDevType && self.tszInstanceName == other.tszInstanceName && self.tszProductName == other.tszProductName
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DIDEVICEINSTANCE_DX3A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIDEVICEINSTANCE_DX3A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8936,15 +8912,14 @@ impl ::core::default::Default for DIDEVICEOBJECTDATA_DX3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub struct DIDEVICEOBJECTINSTANCEA {
     pub dwSize: u32,
     pub guidType: ::windows::core::GUID,
     pub dwOfs: u32,
     pub dwType: u32,
     pub dwFlags: u32,
-    pub tszName: [super::super::Foundation::CHAR; 260],
+    pub tszName: [u8; 260],
     pub dwFFMaxForce: u32,
     pub dwFFForceResolution: u32,
     pub wCollectionNumber: u16,
@@ -8955,15 +8930,12 @@ pub struct DIDEVICEOBJECTINSTANCEA {
     pub wExponent: u16,
     pub wReportId: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DIDEVICEOBJECTINSTANCEA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCEA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DIDEVICEOBJECTINSTANCEA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DIDEVICEOBJECTINSTANCEA")
@@ -8985,19 +8957,15 @@ impl ::core::fmt::Debug for DIDEVICEOBJECTINSTANCEA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DIDEVICEOBJECTINSTANCEA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIDEVICEOBJECTINSTANCEA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.guidType == other.guidType && self.dwOfs == other.dwOfs && self.dwType == other.dwType && self.dwFlags == other.dwFlags && self.tszName == other.tszName && self.dwFFMaxForce == other.dwFFMaxForce && self.dwFFForceResolution == other.dwFFForceResolution && self.wCollectionNumber == other.wCollectionNumber && self.wDesignatorIndex == other.wDesignatorIndex && self.wUsagePage == other.wUsagePage && self.wUsage == other.wUsage && self.dwDimension == other.dwDimension && self.wExponent == other.wExponent && self.wReportId == other.wReportId
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DIDEVICEOBJECTINSTANCEA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIDEVICEOBJECTINSTANCEA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9064,43 +9032,35 @@ impl ::core::default::Default for DIDEVICEOBJECTINSTANCEW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub struct DIDEVICEOBJECTINSTANCE_DX3A {
     pub dwSize: u32,
     pub guidType: ::windows::core::GUID,
     pub dwOfs: u32,
     pub dwType: u32,
     pub dwFlags: u32,
-    pub tszName: [super::super::Foundation::CHAR; 260],
+    pub tszName: [u8; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DIDEVICEOBJECTINSTANCE_DX3A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCE_DX3A {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DIDEVICEOBJECTINSTANCE_DX3A {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DIDEVICEOBJECTINSTANCE_DX3A").field("dwSize", &self.dwSize).field("guidType", &self.guidType).field("dwOfs", &self.dwOfs).field("dwType", &self.dwType).field("dwFlags", &self.dwFlags).field("tszName", &self.tszName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DIDEVICEOBJECTINSTANCE_DX3A {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIDEVICEOBJECTINSTANCE_DX3A {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.guidType == other.guidType && self.dwOfs == other.dwOfs && self.dwType == other.dwType && self.dwFlags == other.dwFlags && self.tszName == other.tszName
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DIDEVICEOBJECTINSTANCE_DX3A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIDEVICEOBJECTINSTANCE_DX3A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9299,43 +9259,35 @@ impl ::core::default::Default for DIEFFECTATTRIBUTES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub struct DIEFFECTINFOA {
     pub dwSize: u32,
     pub guid: ::windows::core::GUID,
     pub dwEffType: u32,
     pub dwStaticParams: u32,
     pub dwDynamicParams: u32,
-    pub tszName: [super::super::Foundation::CHAR; 260],
+    pub tszName: [u8; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DIEFFECTINFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DIEFFECTINFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DIEFFECTINFOA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DIEFFECTINFOA").field("dwSize", &self.dwSize).field("guid", &self.guid).field("dwEffType", &self.dwEffType).field("dwStaticParams", &self.dwStaticParams).field("dwDynamicParams", &self.dwDynamicParams).field("tszName", &self.tszName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DIEFFECTINFOA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIEFFECTINFOA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.guid == other.guid && self.dwEffType == other.dwEffType && self.dwStaticParams == other.dwStaticParams && self.dwDynamicParams == other.dwDynamicParams && self.tszName == other.tszName
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DIEFFECTINFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIEFFECTINFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9565,41 +9517,33 @@ impl ::core::default::Default for DIFFOBJECTATTRIBUTES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub struct DIFILEEFFECT {
     pub dwSize: u32,
     pub GuidEffect: ::windows::core::GUID,
     pub lpDiEffect: *mut DIEFFECT,
-    pub szFriendlyName: [super::super::Foundation::CHAR; 260],
+    pub szFriendlyName: [u8; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DIFILEEFFECT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DIFILEEFFECT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DIFILEEFFECT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DIFILEEFFECT").field("dwSize", &self.dwSize).field("GuidEffect", &self.GuidEffect).field("lpDiEffect", &self.lpDiEffect).field("szFriendlyName", &self.szFriendlyName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DIFILEEFFECT {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIFILEEFFECT {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.GuidEffect == other.GuidEffect && self.lpDiEffect == other.lpDiEffect && self.szFriendlyName == other.szFriendlyName
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DIFILEEFFECT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIFILEEFFECT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

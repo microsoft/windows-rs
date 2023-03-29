@@ -1,19 +1,19 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn BuildCommDCBA ( lpdef : :: windows_sys::core::PCSTR , lpdcb : *mut DCB ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn BuildCommDCBA ( lpdef : ::windows_sys::core::PCSTR , lpdcb : *mut DCB ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn BuildCommDCBAndTimeoutsA ( lpdef : :: windows_sys::core::PCSTR , lpdcb : *mut DCB , lpcommtimeouts : *mut COMMTIMEOUTS ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn BuildCommDCBAndTimeoutsA ( lpdef : ::windows_sys::core::PCSTR , lpdcb : *mut DCB , lpcommtimeouts : *mut COMMTIMEOUTS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn BuildCommDCBAndTimeoutsW ( lpdef : :: windows_sys::core::PCWSTR , lpdcb : *mut DCB , lpcommtimeouts : *mut COMMTIMEOUTS ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn BuildCommDCBAndTimeoutsW ( lpdef : ::windows_sys::core::PCWSTR , lpdcb : *mut DCB , lpcommtimeouts : *mut COMMTIMEOUTS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn BuildCommDCBW ( lpdef : :: windows_sys::core::PCWSTR , lpdcb : *mut DCB ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn BuildCommDCBW ( lpdef : ::windows_sys::core::PCWSTR , lpdcb : *mut DCB ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn ClearCommBreak ( hfile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn ClearCommError ( hfile : super::super::Foundation:: HANDLE , lperrors : *mut CLEAR_COMM_ERROR_FLAGS , lpstat : *mut COMSTAT ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn CommConfigDialogA ( lpszname : :: windows_sys::core::PCSTR , hwnd : super::super::Foundation:: HWND , lpcc : *mut COMMCONFIG ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn CommConfigDialogA ( lpszname : ::windows_sys::core::PCSTR , hwnd : super::super::Foundation:: HWND , lpcc : *mut COMMCONFIG ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn CommConfigDialogW ( lpszname : :: windows_sys::core::PCWSTR , hwnd : super::super::Foundation:: HWND , lpcc : *mut COMMCONFIG ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn CommConfigDialogW ( lpszname : ::windows_sys::core::PCWSTR , hwnd : super::super::Foundation:: HWND , lpcc : *mut COMMCONFIG ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn EscapeCommFunction ( hfile : super::super::Foundation:: HANDLE , dwfunc : ESCAPE_COMM_FUNCTION ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -30,9 +30,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn GetCommTimeouts ( hfile : super::super::Foundation:: HANDLE , lpcommtimeouts : *mut COMMTIMEOUTS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn GetDefaultCommConfigA ( lpszname : :: windows_sys::core::PCSTR , lpcc : *mut COMMCONFIG , lpdwsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn GetDefaultCommConfigA ( lpszname : ::windows_sys::core::PCSTR , lpcc : *mut COMMCONFIG , lpdwsize : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn GetDefaultCommConfigW ( lpszname : :: windows_sys::core::PCWSTR , lpcc : *mut COMMCONFIG , lpdwsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn GetDefaultCommConfigW ( lpszname : ::windows_sys::core::PCWSTR , lpcc : *mut COMMCONFIG , lpdwsize : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "api-ms-win-core-comm-l1-1-1.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn OpenCommPort ( uportnumber : u32 , dwdesiredaccess : u32 , dwflagsandattributes : u32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
@@ -48,13 +48,13 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn SetCommTimeouts ( hfile : super::super::Foundation:: HANDLE , lpcommtimeouts : *const COMMTIMEOUTS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn SetDefaultCommConfigA ( lpszname : :: windows_sys::core::PCSTR , lpcc : *const COMMCONFIG , dwsize : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn SetDefaultCommConfigA ( lpszname : ::windows_sys::core::PCSTR , lpcc : *const COMMCONFIG , dwsize : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn SetDefaultCommConfigW ( lpszname : :: windows_sys::core::PCWSTR , lpcc : *const COMMCONFIG , dwsize : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn SetDefaultCommConfigW ( lpszname : ::windows_sys::core::PCWSTR , lpcc : *const COMMCONFIG , dwsize : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn SetupComm ( hfile : super::super::Foundation:: HANDLE , dwinqueue : u32 , dwoutqueue : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn TransmitCommChar ( hfile : super::super::Foundation:: HANDLE , cchar : super::super::Foundation:: CHAR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"] fn TransmitCommChar ( hfile : super::super::Foundation:: HANDLE , cchar : u8 ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"] fn WaitCommEvent ( hfile : super::super::Foundation:: HANDLE , lpevtmask : *mut COMM_EVENT_MASK , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
@@ -402,8 +402,7 @@ pub const PURGE_TXABORT: PURGE_COMM_FLAGS = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub const PURGE_TXCLEAR: PURGE_COMM_FLAGS = 4u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub struct COMMCONFIG {
     pub dwSize: u32,
     pub wVersion: u16,
@@ -414,9 +413,7 @@ pub struct COMMCONFIG {
     pub dwProviderSize: u32,
     pub wcProviderData: [u16; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for COMMCONFIG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for COMMCONFIG {
     fn clone(&self) -> Self {
         *self
@@ -479,8 +476,7 @@ impl ::core::clone::Clone for COMSTAT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub struct DCB {
     pub DCBlength: u32,
     pub BaudRate: u32,
@@ -491,16 +487,14 @@ pub struct DCB {
     pub ByteSize: u8,
     pub Parity: DCB_PARITY,
     pub StopBits: DCB_STOP_BITS,
-    pub XonChar: super::super::Foundation::CHAR,
-    pub XoffChar: super::super::Foundation::CHAR,
-    pub ErrorChar: super::super::Foundation::CHAR,
-    pub EofChar: super::super::Foundation::CHAR,
-    pub EvtChar: super::super::Foundation::CHAR,
+    pub XonChar: u8,
+    pub XoffChar: u8,
+    pub ErrorChar: u8,
+    pub EofChar: u8,
+    pub EvtChar: u8,
     pub wReserved1: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DCB {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DCB {
     fn clone(&self) -> Self {
         *self

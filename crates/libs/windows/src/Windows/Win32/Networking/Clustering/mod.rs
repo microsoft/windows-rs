@@ -23,7 +23,7 @@ pub unsafe fn AddClusterNode<P0>(hcluster: *const _HCLUSTER, lpsznodename: P0, p
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn AddClusterNode ( hcluster : *const _HCLUSTER , lpsznodename : :: windows::core::PCWSTR , pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK , pvcallbackarg : *const ::core::ffi::c_void ) -> *mut _HNODE );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn AddClusterNode ( hcluster : *const _HCLUSTER , lpsznodename : ::windows::core::PCWSTR , pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK , pvcallbackarg : *const ::core::ffi::c_void ) -> *mut _HNODE );
     AddClusterNode(hcluster, lpsznodename.into_param().abi(), pfnprogresscallback, ::core::mem::transmute(pvcallbackarg.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
@@ -33,7 +33,7 @@ pub unsafe fn AddClusterNodeEx<P0>(hcluster: *const _HCLUSTER, lpsznodename: P0,
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn AddClusterNodeEx ( hcluster : *const _HCLUSTER , lpsznodename : :: windows::core::PCWSTR , dwflags : u32 , pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK , pvcallbackarg : *const ::core::ffi::c_void ) -> *mut _HNODE );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn AddClusterNodeEx ( hcluster : *const _HCLUSTER , lpsznodename : ::windows::core::PCWSTR , dwflags : u32 , pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK , pvcallbackarg : *const ::core::ffi::c_void ) -> *mut _HNODE );
     AddClusterNodeEx(hcluster, lpsznodename.into_param().abi(), dwflags, pfnprogresscallback, ::core::mem::transmute(pvcallbackarg.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -57,7 +57,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn AddClusterStorageNode ( hcluster : *const _HCLUSTER , lpsznodename : :: windows::core::PCWSTR , pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK , pvcallbackarg : *const ::core::ffi::c_void , lpszclusterstoragenodedescription : :: windows::core::PCWSTR , lpszclusterstoragenodelocation : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn AddClusterStorageNode ( hcluster : *const _HCLUSTER , lpsznodename : ::windows::core::PCWSTR , pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK , pvcallbackarg : *const ::core::ffi::c_void , lpszclusterstoragenodedescription : ::windows::core::PCWSTR , lpszclusterstoragenodelocation : ::windows::core::PCWSTR ) -> u32 );
     AddClusterStorageNode(hcluster, lpsznodename.into_param().abi(), pfnprogresscallback, ::core::mem::transmute(pvcallbackarg.unwrap_or(::std::ptr::null())), lpszclusterstoragenodedescription.into_param().abi(), lpszclusterstoragenodelocation.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -67,7 +67,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn AddCrossClusterGroupSetDependency ( hdependentgroupset : *const _HGROUPSET , lpremoteclustername : :: windows::core::PCWSTR , lpremotegroupsetname : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn AddCrossClusterGroupSetDependency ( hdependentgroupset : *const _HGROUPSET , lpremoteclustername : ::windows::core::PCWSTR , lpremotegroupsetname : ::windows::core::PCWSTR ) -> u32 );
     AddCrossClusterGroupSetDependency(hdependentgroupset, lpremoteclustername.into_param().abi(), lpremotegroupsetname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -82,7 +82,7 @@ pub unsafe fn BackupClusterDatabase<P0>(hcluster: *const _HCLUSTER, lpszpathname
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn BackupClusterDatabase ( hcluster : *const _HCLUSTER , lpszpathname : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn BackupClusterDatabase ( hcluster : *const _HCLUSTER , lpszpathname : ::windows::core::PCWSTR ) -> u32 );
     BackupClusterDatabase(hcluster, lpszpathname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
@@ -190,7 +190,7 @@ pub unsafe fn ClusRemoveClusterHealthFault<P0>(hcluster: *const _HCLUSTER, id: P
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ClusRemoveClusterHealthFault ( hcluster : *const _HCLUSTER , id : :: windows::core::PCWSTR , flags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ClusRemoveClusterHealthFault ( hcluster : *const _HCLUSTER , id : ::windows::core::PCWSTR , flags : u32 ) -> u32 );
     ClusRemoveClusterHealthFault(hcluster, id.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
@@ -240,7 +240,7 @@ pub unsafe fn ClusterAddGroupToAffinityRule<P0>(hcluster: *const _HCLUSTER, rule
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterAddGroupToAffinityRule ( hcluster : *const _HCLUSTER , rulename : :: windows::core::PCWSTR , hgroup : *const _HGROUP ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterAddGroupToAffinityRule ( hcluster : *const _HCLUSTER , rulename : ::windows::core::PCWSTR , hgroup : *const _HGROUP ) -> u32 );
     ClusterAddGroupToAffinityRule(hcluster, rulename.into_param().abi(), hgroup)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -261,7 +261,7 @@ pub unsafe fn ClusterAffinityRuleControl<P0>(hcluster: *const _HCLUSTER, affinit
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterAffinityRuleControl ( hcluster : *const _HCLUSTER , affinityrulename : :: windows::core::PCWSTR , hhostnode : *const _HNODE , dwcontrolcode : u32 , lpinbuffer : *const ::core::ffi::c_void , cbinbuffersize : u32 , lpoutbuffer : *mut ::core::ffi::c_void , cboutbuffersize : u32 , lpbytesreturned : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterAffinityRuleControl ( hcluster : *const _HCLUSTER , affinityrulename : ::windows::core::PCWSTR , hhostnode : *const _HNODE , dwcontrolcode : u32 , lpinbuffer : *const ::core::ffi::c_void , cbinbuffersize : u32 , lpoutbuffer : *mut ::core::ffi::c_void , cboutbuffersize : u32 , lpbytesreturned : *mut u32 ) -> u32 );
     ClusterAffinityRuleControl(hcluster, affinityrulename.into_param().abi(), ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())), dwcontrolcode, ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), cbinbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), cboutbuffersize, ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -270,7 +270,7 @@ pub unsafe fn ClusterClearBackupStateForSharedVolume<P0>(lpszvolumepathname: P0)
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ClusterClearBackupStateForSharedVolume ( lpszvolumepathname : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ClusterClearBackupStateForSharedVolume ( lpszvolumepathname : ::windows::core::PCWSTR ) -> u32 );
     ClusterClearBackupStateForSharedVolume(lpszvolumepathname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -297,7 +297,7 @@ pub unsafe fn ClusterCreateAffinityRule<P0>(hcluster: *const _HCLUSTER, rulename
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterCreateAffinityRule ( hcluster : *const _HCLUSTER , rulename : :: windows::core::PCWSTR , ruletype : CLUS_AFFINITY_RULE_TYPE ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterCreateAffinityRule ( hcluster : *const _HCLUSTER , rulename : ::windows::core::PCWSTR , ruletype : CLUS_AFFINITY_RULE_TYPE ) -> u32 );
     ClusterCreateAffinityRule(hcluster, rulename.into_param().abi(), ruletype)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -315,7 +315,7 @@ pub unsafe fn ClusterEncrypt(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER, pda
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn ClusterEnum(henum: *const _HCLUSENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: ::windows::core::PWSTR, lpcchname: *mut u32) -> u32 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterEnum ( henum : *const _HCLUSENUM , dwindex : u32 , lpdwtype : *mut u32 , lpszname : :: windows::core::PWSTR , lpcchname : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterEnum ( henum : *const _HCLUSENUM , dwindex : u32 , lpdwtype : *mut u32 , lpszname : ::windows::core::PWSTR , lpcchname : *mut u32 ) -> u32 );
     ClusterEnum(henum, dwindex, lpdwtype, ::core::mem::transmute(lpszname), lpcchname)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -343,7 +343,7 @@ pub unsafe fn ClusterGetVolumeNameForVolumeMountPoint<P0>(lpszvolumemountpoint: 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ClusterGetVolumeNameForVolumeMountPoint ( lpszvolumemountpoint : :: windows::core::PCWSTR , lpszvolumename : :: windows::core::PWSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ClusterGetVolumeNameForVolumeMountPoint ( lpszvolumemountpoint : ::windows::core::PCWSTR , lpszvolumename : ::windows::core::PWSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
     ClusterGetVolumeNameForVolumeMountPoint(lpszvolumemountpoint.into_param().abi(), ::core::mem::transmute(lpszvolumename), cchbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
@@ -353,7 +353,7 @@ pub unsafe fn ClusterGetVolumePathName<P0>(lpszfilename: P0, lpszvolumepathname:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ClusterGetVolumePathName ( lpszfilename : :: windows::core::PCWSTR , lpszvolumepathname : :: windows::core::PWSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ClusterGetVolumePathName ( lpszfilename : ::windows::core::PCWSTR , lpszvolumepathname : ::windows::core::PWSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
     ClusterGetVolumePathName(lpszfilename.into_param().abi(), ::core::mem::transmute(lpszvolumepathname), cchbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -377,7 +377,7 @@ pub unsafe fn ClusterGroupControl(hgroup: *const _HGROUP, hhostnode: ::core::opt
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn ClusterGroupEnum(hgroupenum: *const _HGROUPENUM, dwindex: u32, lpdwtype: *mut u32, lpszresourcename: ::windows::core::PWSTR, lpcchname: *mut u32) -> u32 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterGroupEnum ( hgroupenum : *const _HGROUPENUM , dwindex : u32 , lpdwtype : *mut u32 , lpszresourcename : :: windows::core::PWSTR , lpcchname : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterGroupEnum ( hgroupenum : *const _HGROUPENUM , dwindex : u32 , lpdwtype : *mut u32 , lpszresourcename : ::windows::core::PWSTR , lpcchname : *mut u32 ) -> u32 );
     ClusterGroupEnum(hgroupenum, dwindex, lpdwtype, ::core::mem::transmute(lpszresourcename), lpcchname)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -411,7 +411,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterGroupOpenEnumEx ( hcluster : *const _HCLUSTER , lpszproperties : :: windows::core::PCWSTR , cbproperties : u32 , lpszroproperties : :: windows::core::PCWSTR , cbroproperties : u32 , dwflags : u32 ) -> *mut _HGROUPENUMEX );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterGroupOpenEnumEx ( hcluster : *const _HCLUSTER , lpszproperties : ::windows::core::PCWSTR , cbproperties : u32 , lpszroproperties : ::windows::core::PCWSTR , cbroproperties : u32 , dwflags : u32 ) -> *mut _HGROUPENUMEX );
     ClusterGroupOpenEnumEx(hcluster, lpszproperties.into_param().abi(), cbproperties, lpszroproperties.into_param().abi(), cbroproperties, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -429,7 +429,7 @@ pub unsafe fn ClusterGroupSetControl(hgroupset: *const _HGROUPSET, hhostnode: ::
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn ClusterGroupSetEnum(hgroupsetenum: *const _HGROUPSETENUM, dwindex: u32, lpszname: ::windows::core::PWSTR, lpcchname: *mut u32) -> u32 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterGroupSetEnum ( hgroupsetenum : *const _HGROUPSETENUM , dwindex : u32 , lpszname : :: windows::core::PWSTR , lpcchname : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterGroupSetEnum ( hgroupsetenum : *const _HGROUPSETENUM , dwindex : u32 , lpszname : ::windows::core::PWSTR , lpcchname : *mut u32 ) -> u32 );
     ClusterGroupSetEnum(hgroupsetenum, dwindex, ::core::mem::transmute(lpszname), lpcchname)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -451,7 +451,7 @@ pub unsafe fn ClusterIsPathOnSharedVolume<P0>(lpszpathname: P0) -> super::super:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ClusterIsPathOnSharedVolume ( lpszpathname : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ClusterIsPathOnSharedVolume ( lpszpathname : ::windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     ClusterIsPathOnSharedVolume(lpszpathname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -469,7 +469,7 @@ pub unsafe fn ClusterNetInterfaceControl(hnetinterface: *const _HNETINTERFACE, h
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn ClusterNetInterfaceEnum(hnetinterfaceenum: *const _HNETINTERFACEENUM, dwindex: u32, lpszname: ::windows::core::PWSTR, lpcchname: *mut u32) -> u32 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterNetInterfaceEnum ( hnetinterfaceenum : *const _HNETINTERFACEENUM , dwindex : u32 , lpszname : :: windows::core::PWSTR , lpcchname : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterNetInterfaceEnum ( hnetinterfaceenum : *const _HNETINTERFACEENUM , dwindex : u32 , lpszname : ::windows::core::PWSTR , lpcchname : *mut u32 ) -> u32 );
     ClusterNetInterfaceEnum(hnetinterfaceenum, dwindex, ::core::mem::transmute(lpszname), lpcchname)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -479,7 +479,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterNetInterfaceOpenEnum ( hcluster : *const _HCLUSTER , lpsznodename : :: windows::core::PCWSTR , lpsznetworkname : :: windows::core::PCWSTR ) -> *mut _HNETINTERFACEENUM );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterNetInterfaceOpenEnum ( hcluster : *const _HCLUSTER , lpsznodename : ::windows::core::PCWSTR , lpsznetworkname : ::windows::core::PCWSTR ) -> *mut _HNETINTERFACEENUM );
     ClusterNetInterfaceOpenEnum(hcluster, lpsznodename.into_param().abi(), lpsznetworkname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -497,7 +497,7 @@ pub unsafe fn ClusterNetworkControl(hnetwork: *const _HNETWORK, hhostnode: ::cor
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn ClusterNetworkEnum(hnetworkenum: *const _HNETWORKENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: ::windows::core::PWSTR, lpcchname: *mut u32) -> u32 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterNetworkEnum ( hnetworkenum : *const _HNETWORKENUM , dwindex : u32 , lpdwtype : *mut u32 , lpszname : :: windows::core::PWSTR , lpcchname : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterNetworkEnum ( hnetworkenum : *const _HNETWORKENUM , dwindex : u32 , lpdwtype : *mut u32 , lpszname : ::windows::core::PWSTR , lpcchname : *mut u32 ) -> u32 );
     ClusterNetworkEnum(hnetworkenum, dwindex, lpdwtype, ::core::mem::transmute(lpszname), lpcchname)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -533,7 +533,7 @@ pub unsafe fn ClusterNodeControl(hnode: *const _HNODE, hhostnode: ::core::option
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn ClusterNodeEnum(hnodeenum: *const _HNODEENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: ::windows::core::PWSTR, lpcchname: *mut u32) -> u32 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterNodeEnum ( hnodeenum : *const _HNODEENUM , dwindex : u32 , lpdwtype : *mut u32 , lpszname : :: windows::core::PWSTR , lpcchname : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterNodeEnum ( hnodeenum : *const _HNODEENUM , dwindex : u32 , lpdwtype : *mut u32 , lpszname : ::windows::core::PWSTR , lpcchname : *mut u32 ) -> u32 );
     ClusterNodeEnum(hnodeenum, dwindex, lpdwtype, ::core::mem::transmute(lpszname), lpcchname)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -573,7 +573,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterNodeReplacement ( hcluster : *const _HCLUSTER , lpsznodenamecurrent : :: windows::core::PCWSTR , lpsznodenamenew : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterNodeReplacement ( hcluster : *const _HCLUSTER , lpsznodenamecurrent : ::windows::core::PCWSTR , lpsznodenamenew : ::windows::core::PCWSTR ) -> u32 );
     ClusterNodeReplacement(hcluster, lpsznodenamecurrent.into_param().abi(), lpsznodenamenew.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -594,7 +594,7 @@ pub unsafe fn ClusterPrepareSharedVolumeForBackup<P0>(lpszfilename: P0, lpszvolu
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ClusterPrepareSharedVolumeForBackup ( lpszfilename : :: windows::core::PCWSTR , lpszvolumepathname : :: windows::core::PWSTR , lpcchvolumepathname : *mut u32 , lpszvolumename : :: windows::core::PWSTR , lpcchvolumename : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ClusterPrepareSharedVolumeForBackup ( lpszfilename : ::windows::core::PCWSTR , lpszvolumepathname : ::windows::core::PWSTR , lpcchvolumepathname : *mut u32 , lpszvolumename : ::windows::core::PWSTR , lpcchvolumename : *mut u32 ) -> u32 );
     ClusterPrepareSharedVolumeForBackup(lpszfilename.into_param().abi(), ::core::mem::transmute(lpszvolumepathname), lpcchvolumepathname, ::core::mem::transmute(lpszvolumename), lpcchvolumename)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -603,7 +603,7 @@ pub unsafe fn ClusterRegBatchAddCommand<P0>(hregbatch: *const _HREGBATCH, dwcomm
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRegBatchAddCommand ( hregbatch : *const _HREGBATCH , dwcommand : CLUSTER_REG_COMMAND , wzname : :: windows::core::PCWSTR , dwoptions : u32 , lpdata : *const ::core::ffi::c_void , cbdata : u32 ) -> i32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRegBatchAddCommand ( hregbatch : *const _HREGBATCH , dwcommand : CLUSTER_REG_COMMAND , wzname : ::windows::core::PCWSTR , dwoptions : u32 , lpdata : *const ::core::ffi::c_void , cbdata : u32 ) -> i32 );
     ClusterRegBatchAddCommand(hregbatch, dwcommand, wzname.into_param().abi(), dwoptions, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), cbdata)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -696,7 +696,7 @@ where
     P0: ::windows::core::IntoParam<super::super::System::Registry::HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRegCreateKey ( hkey : super::super::System::Registry:: HKEY , lpszsubkey : :: windows::core::PCWSTR , dwoptions : u32 , samdesired : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , phkresult : *mut super::super::System::Registry:: HKEY , lpdwdisposition : *mut u32 ) -> i32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRegCreateKey ( hkey : super::super::System::Registry:: HKEY , lpszsubkey : ::windows::core::PCWSTR , dwoptions : u32 , samdesired : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , phkresult : *mut super::super::System::Registry:: HKEY , lpdwdisposition : *mut u32 ) -> i32 );
     ClusterRegCreateKey(hkey.into_param().abi(), lpszsubkey.into_param().abi(), dwoptions, samdesired, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), phkresult, ::core::mem::transmute(lpdwdisposition.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
@@ -717,7 +717,7 @@ where
     P0: ::windows::core::IntoParam<super::super::System::Registry::HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRegDeleteKey ( hkey : super::super::System::Registry:: HKEY , lpszsubkey : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRegDeleteKey ( hkey : super::super::System::Registry:: HKEY , lpszsubkey : ::windows::core::PCWSTR ) -> i32 );
     ClusterRegDeleteKey(hkey.into_param().abi(), lpszsubkey.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
@@ -728,7 +728,7 @@ where
     P0: ::windows::core::IntoParam<super::super::System::Registry::HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRegDeleteValue ( hkey : super::super::System::Registry:: HKEY , lpszvaluename : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRegDeleteValue ( hkey : super::super::System::Registry:: HKEY , lpszvaluename : ::windows::core::PCWSTR ) -> u32 );
     ClusterRegDeleteValue(hkey.into_param().abi(), lpszvaluename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -738,7 +738,7 @@ pub unsafe fn ClusterRegEnumKey<P0>(hkey: P0, dwindex: u32, lpszname: ::windows:
 where
     P0: ::windows::core::IntoParam<super::super::System::Registry::HKEY>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRegEnumKey ( hkey : super::super::System::Registry:: HKEY , dwindex : u32 , lpszname : :: windows::core::PWSTR , lpcchname : *mut u32 , lpftlastwritetime : *mut super::super::Foundation:: FILETIME ) -> i32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRegEnumKey ( hkey : super::super::System::Registry:: HKEY , dwindex : u32 , lpszname : ::windows::core::PWSTR , lpcchname : *mut u32 , lpftlastwritetime : *mut super::super::Foundation:: FILETIME ) -> i32 );
     ClusterRegEnumKey(hkey.into_param().abi(), dwindex, ::core::mem::transmute(lpszname), lpcchname, ::core::mem::transmute(lpftlastwritetime.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
@@ -748,7 +748,7 @@ pub unsafe fn ClusterRegEnumValue<P0>(hkey: P0, dwindex: u32, lpszvaluename: ::w
 where
     P0: ::windows::core::IntoParam<super::super::System::Registry::HKEY>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRegEnumValue ( hkey : super::super::System::Registry:: HKEY , dwindex : u32 , lpszvaluename : :: windows::core::PWSTR , lpcchvaluename : *mut u32 , lpdwtype : *mut u32 , lpdata : *mut u8 , lpcbdata : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRegEnumValue ( hkey : super::super::System::Registry:: HKEY , dwindex : u32 , lpszvaluename : ::windows::core::PWSTR , lpcchvaluename : *mut u32 , lpdwtype : *mut u32 , lpdata : *mut u8 , lpcbdata : *mut u32 ) -> u32 );
     ClusterRegEnumValue(hkey.into_param().abi(), dwindex, ::core::mem::transmute(lpszvaluename), lpcchvaluename, ::core::mem::transmute(lpdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -775,7 +775,7 @@ where
     P0: ::windows::core::IntoParam<super::super::System::Registry::HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRegOpenKey ( hkey : super::super::System::Registry:: HKEY , lpszsubkey : :: windows::core::PCWSTR , samdesired : u32 , phkresult : *mut super::super::System::Registry:: HKEY ) -> i32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRegOpenKey ( hkey : super::super::System::Registry:: HKEY , lpszsubkey : ::windows::core::PCWSTR , samdesired : u32 , phkresult : *mut super::super::System::Registry:: HKEY ) -> i32 );
     ClusterRegOpenKey(hkey.into_param().abi(), lpszsubkey.into_param().abi(), samdesired, phkresult)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -796,7 +796,7 @@ where
     P0: ::windows::core::IntoParam<super::super::System::Registry::HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRegQueryValue ( hkey : super::super::System::Registry:: HKEY , lpszvaluename : :: windows::core::PCWSTR , lpdwvaluetype : *mut u32 , lpdata : *mut u8 , lpcbdata : *mut u32 ) -> i32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRegQueryValue ( hkey : super::super::System::Registry:: HKEY , lpszvaluename : ::windows::core::PCWSTR , lpdwvaluetype : *mut u32 , lpdata : *mut u8 , lpcbdata : *mut u32 ) -> i32 );
     ClusterRegQueryValue(hkey.into_param().abi(), lpszvaluename.into_param().abi(), ::core::mem::transmute(lpdwvaluetype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -806,7 +806,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRegReadBatchAddCommand ( hregreadbatch : *const _HREGREADBATCH , wzsubkeyname : :: windows::core::PCWSTR , wzvaluename : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRegReadBatchAddCommand ( hregreadbatch : *const _HREGREADBATCH , wzsubkeyname : ::windows::core::PCWSTR , wzvaluename : ::windows::core::PCWSTR ) -> i32 );
     ClusterRegReadBatchAddCommand(hregreadbatch, wzsubkeyname.into_param().abi(), wzvaluename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -834,7 +834,7 @@ where
     P0: ::windows::core::IntoParam<super::super::System::Registry::HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRegSetValue ( hkey : super::super::System::Registry:: HKEY , lpszvaluename : :: windows::core::PCWSTR , dwtype : u32 , lpdata : *const u8 , cbdata : u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRegSetValue ( hkey : super::super::System::Registry:: HKEY , lpszvaluename : ::windows::core::PCWSTR , dwtype : u32 , lpdata : *const u8 , cbdata : u32 ) -> u32 );
     ClusterRegSetValue(hkey.into_param().abi(), lpszvaluename.into_param().abi(), dwtype, lpdata, cbdata)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -849,7 +849,7 @@ pub unsafe fn ClusterRemoveAffinityRule<P0>(hcluster: *const _HCLUSTER, rulename
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRemoveAffinityRule ( hcluster : *const _HCLUSTER , rulename : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRemoveAffinityRule ( hcluster : *const _HCLUSTER , rulename : ::windows::core::PCWSTR ) -> u32 );
     ClusterRemoveAffinityRule(hcluster, rulename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -858,7 +858,7 @@ pub unsafe fn ClusterRemoveGroupFromAffinityRule<P0>(hcluster: *const _HCLUSTER,
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRemoveGroupFromAffinityRule ( hcluster : *const _HCLUSTER , rulename : :: windows::core::PCWSTR , hgroup : *const _HGROUP ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterRemoveGroupFromAffinityRule ( hcluster : *const _HCLUSTER , rulename : ::windows::core::PCWSTR , hgroup : *const _HGROUP ) -> u32 );
     ClusterRemoveGroupFromAffinityRule(hcluster, rulename.into_param().abi(), hgroup)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -894,7 +894,7 @@ pub unsafe fn ClusterResourceControlAsUser(hresource: *const _HRESOURCE, hhostno
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn ClusterResourceEnum(hresenum: *const _HRESENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: ::windows::core::PWSTR, lpcchname: *mut u32) -> u32 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterResourceEnum ( hresenum : *const _HRESENUM , dwindex : u32 , lpdwtype : *mut u32 , lpszname : :: windows::core::PWSTR , lpcchname : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterResourceEnum ( hresenum : *const _HRESENUM , dwindex : u32 , lpdwtype : *mut u32 , lpszname : ::windows::core::PWSTR , lpcchname : *mut u32 ) -> u32 );
     ClusterResourceEnum(hresenum, dwindex, lpdwtype, ::core::mem::transmute(lpszname), lpcchname)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -928,7 +928,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterResourceOpenEnumEx ( hcluster : *const _HCLUSTER , lpszproperties : :: windows::core::PCWSTR , cbproperties : u32 , lpszroproperties : :: windows::core::PCWSTR , cbroproperties : u32 , dwflags : u32 ) -> *mut _HRESENUMEX );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterResourceOpenEnumEx ( hcluster : *const _HCLUSTER , lpszproperties : ::windows::core::PCWSTR , cbproperties : u32 , lpszroproperties : ::windows::core::PCWSTR , cbroproperties : u32 , dwflags : u32 ) -> *mut _HRESENUMEX );
     ClusterResourceOpenEnumEx(hcluster, lpszproperties.into_param().abi(), cbproperties, lpszroproperties.into_param().abi(), cbroproperties, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -943,7 +943,7 @@ pub unsafe fn ClusterResourceTypeControl<P0>(hcluster: *const _HCLUSTER, lpszres
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterResourceTypeControl ( hcluster : *const _HCLUSTER , lpszresourcetypename : :: windows::core::PCWSTR , hhostnode : *const _HNODE , dwcontrolcode : u32 , lpinbuffer : *const ::core::ffi::c_void , ninbuffersize : u32 , lpoutbuffer : *mut ::core::ffi::c_void , noutbuffersize : u32 , lpbytesreturned : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterResourceTypeControl ( hcluster : *const _HCLUSTER , lpszresourcetypename : ::windows::core::PCWSTR , hhostnode : *const _HNODE , dwcontrolcode : u32 , lpinbuffer : *const ::core::ffi::c_void , ninbuffersize : u32 , lpoutbuffer : *mut ::core::ffi::c_void , noutbuffersize : u32 , lpbytesreturned : *mut u32 ) -> u32 );
     ClusterResourceTypeControl(hcluster, lpszresourcetypename.into_param().abi(), ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())), dwcontrolcode, ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -952,13 +952,13 @@ pub unsafe fn ClusterResourceTypeControlAsUser<P0>(hcluster: *const _HCLUSTER, l
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterResourceTypeControlAsUser ( hcluster : *const _HCLUSTER , lpszresourcetypename : :: windows::core::PCWSTR , hhostnode : *const _HNODE , dwcontrolcode : u32 , lpinbuffer : *const ::core::ffi::c_void , ninbuffersize : u32 , lpoutbuffer : *mut ::core::ffi::c_void , noutbuffersize : u32 , lpbytesreturned : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterResourceTypeControlAsUser ( hcluster : *const _HCLUSTER , lpszresourcetypename : ::windows::core::PCWSTR , hhostnode : *const _HNODE , dwcontrolcode : u32 , lpinbuffer : *const ::core::ffi::c_void , ninbuffersize : u32 , lpoutbuffer : *mut ::core::ffi::c_void , noutbuffersize : u32 , lpbytesreturned : *mut u32 ) -> u32 );
     ClusterResourceTypeControlAsUser(hcluster, lpszresourcetypename.into_param().abi(), ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())), dwcontrolcode, ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn ClusterResourceTypeEnum(hrestypeenum: *const _HRESTYPEENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: ::windows::core::PWSTR, lpcchname: *mut u32) -> u32 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterResourceTypeEnum ( hrestypeenum : *const _HRESTYPEENUM , dwindex : u32 , lpdwtype : *mut u32 , lpszname : :: windows::core::PWSTR , lpcchname : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterResourceTypeEnum ( hrestypeenum : *const _HRESTYPEENUM , dwindex : u32 , lpdwtype : *mut u32 , lpszname : ::windows::core::PWSTR , lpcchname : *mut u32 ) -> u32 );
     ClusterResourceTypeEnum(hrestypeenum, dwindex, lpdwtype, ::core::mem::transmute(lpszname), lpcchname)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -973,7 +973,7 @@ pub unsafe fn ClusterResourceTypeOpenEnum<P0>(hcluster: *const _HCLUSTER, lpszre
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterResourceTypeOpenEnum ( hcluster : *const _HCLUSTER , lpszresourcetypename : :: windows::core::PCWSTR , dwtype : u32 ) -> *mut _HRESTYPEENUM );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterResourceTypeOpenEnum ( hcluster : *const _HCLUSTER , lpszresourcetypename : ::windows::core::PCWSTR , dwtype : u32 ) -> *mut _HRESTYPEENUM );
     ClusterResourceTypeOpenEnum(hcluster, lpszresourcetypename.into_param().abi(), dwtype)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -982,7 +982,7 @@ pub unsafe fn ClusterSetAccountAccess<P0>(hcluster: *const _HCLUSTER, szaccounts
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterSetAccountAccess ( hcluster : *const _HCLUSTER , szaccountsid : :: windows::core::PCWSTR , dwaccess : u32 , dwcontroltype : u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterSetAccountAccess ( hcluster : *const _HCLUSTER , szaccountsid : ::windows::core::PCWSTR , dwaccess : u32 , dwcontroltype : u32 ) -> u32 );
     ClusterSetAccountAccess(hcluster, szaccountsid.into_param().abi(), dwaccess, dwcontroltype)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -991,7 +991,7 @@ pub unsafe fn ClusterSharedVolumeSetSnapshotState<P0>(guidsnapshotset: ::windows
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterSharedVolumeSetSnapshotState ( guidsnapshotset : :: windows::core::GUID , lpszvolumename : :: windows::core::PCWSTR , state : CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn ClusterSharedVolumeSetSnapshotState ( guidsnapshotset : ::windows::core::GUID , lpszvolumename : ::windows::core::PCWSTR , state : CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE ) -> u32 );
     ClusterSharedVolumeSetSnapshotState(::core::mem::transmute(guidsnapshotset), lpszvolumename.into_param().abi(), state)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
@@ -1018,7 +1018,7 @@ pub unsafe fn CreateClusterAvailabilitySet<P0>(hcluster: *const _HCLUSTER, lpava
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn CreateClusterAvailabilitySet ( hcluster : *const _HCLUSTER , lpavailabilitysetname : :: windows::core::PCWSTR , pavailabilitysetconfig : *const CLUSTER_AVAILABILITY_SET_CONFIG ) -> *mut _HGROUPSET );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn CreateClusterAvailabilitySet ( hcluster : *const _HCLUSTER , lpavailabilitysetname : ::windows::core::PCWSTR , pavailabilitysetconfig : *const CLUSTER_AVAILABILITY_SET_CONFIG ) -> *mut _HGROUPSET );
     CreateClusterAvailabilitySet(hcluster, lpavailabilitysetname.into_param().abi(), pavailabilitysetconfig)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1027,7 +1027,7 @@ pub unsafe fn CreateClusterGroup<P0>(hcluster: *const _HCLUSTER, lpszgroupname: 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn CreateClusterGroup ( hcluster : *const _HCLUSTER , lpszgroupname : :: windows::core::PCWSTR ) -> *mut _HGROUP );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn CreateClusterGroup ( hcluster : *const _HCLUSTER , lpszgroupname : ::windows::core::PCWSTR ) -> *mut _HGROUP );
     CreateClusterGroup(hcluster, lpszgroupname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1036,7 +1036,7 @@ pub unsafe fn CreateClusterGroupEx<P0>(hcluster: *const _HCLUSTER, lpszgroupname
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn CreateClusterGroupEx ( hcluster : *const _HCLUSTER , lpszgroupname : :: windows::core::PCWSTR , pgroupinfo : *const CLUSTER_CREATE_GROUP_INFO ) -> *mut _HGROUP );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn CreateClusterGroupEx ( hcluster : *const _HCLUSTER , lpszgroupname : ::windows::core::PCWSTR , pgroupinfo : *const CLUSTER_CREATE_GROUP_INFO ) -> *mut _HGROUP );
     CreateClusterGroupEx(hcluster, lpszgroupname.into_param().abi(), ::core::mem::transmute(pgroupinfo.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1045,7 +1045,7 @@ pub unsafe fn CreateClusterGroupSet<P0>(hcluster: *const _HCLUSTER, groupsetname
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn CreateClusterGroupSet ( hcluster : *const _HCLUSTER , groupsetname : :: windows::core::PCWSTR ) -> *mut _HGROUPSET );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn CreateClusterGroupSet ( hcluster : *const _HCLUSTER , groupsetname : ::windows::core::PCWSTR ) -> *mut _HGROUPSET );
     CreateClusterGroupSet(hcluster, groupsetname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
@@ -1074,7 +1074,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn CreateClusterResource ( hgroup : *const _HGROUP , lpszresourcename : :: windows::core::PCWSTR , lpszresourcetype : :: windows::core::PCWSTR , dwflags : u32 ) -> *mut _HRESOURCE );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn CreateClusterResource ( hgroup : *const _HGROUP , lpszresourcename : ::windows::core::PCWSTR , lpszresourcetype : ::windows::core::PCWSTR , dwflags : u32 ) -> *mut _HRESOURCE );
     CreateClusterResource(hgroup, lpszresourcename.into_param().abi(), lpszresourcetype.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1085,7 +1085,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn CreateClusterResourceType ( hcluster : *const _HCLUSTER , lpszresourcetypename : :: windows::core::PCWSTR , lpszdisplayname : :: windows::core::PCWSTR , lpszresourcetypedll : :: windows::core::PCWSTR , dwlooksalivepollinterval : u32 , dwisalivepollinterval : u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn CreateClusterResourceType ( hcluster : *const _HCLUSTER , lpszresourcetypename : ::windows::core::PCWSTR , lpszdisplayname : ::windows::core::PCWSTR , lpszresourcetypedll : ::windows::core::PCWSTR , dwlooksalivepollinterval : u32 , dwisalivepollinterval : u32 ) -> u32 );
     CreateClusterResourceType(hcluster, lpszresourcetypename.into_param().abi(), lpszdisplayname.into_param().abi(), lpszresourcetypedll.into_param().abi(), dwlooksalivepollinterval, dwisalivepollinterval)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1112,7 +1112,7 @@ pub unsafe fn DeleteClusterResourceType<P0>(hcluster: *const _HCLUSTER, lpszreso
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn DeleteClusterResourceType ( hcluster : *const _HCLUSTER , lpszresourcetypename : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn DeleteClusterResourceType ( hcluster : *const _HCLUSTER , lpszresourcetypename : ::windows::core::PCWSTR ) -> u32 );
     DeleteClusterResourceType(hcluster, lpszresourcetypename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
@@ -1140,7 +1140,7 @@ pub unsafe fn DetermineCNOResTypeFromCluster(hcluster: *const _HCLUSTER, pcnores
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn DetermineCNOResTypeFromNodelist(cnodes: u32, ppsznodenames: *const ::windows::core::PCWSTR, pcnorestype: *mut CLUSTER_MGMT_POINT_RESTYPE) -> u32 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn DetermineCNOResTypeFromNodelist ( cnodes : u32 , ppsznodenames : *const :: windows::core::PCWSTR , pcnorestype : *mut CLUSTER_MGMT_POINT_RESTYPE ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn DetermineCNOResTypeFromNodelist ( cnodes : u32 , ppsznodenames : *const ::windows::core::PCWSTR , pcnorestype : *mut CLUSTER_MGMT_POINT_RESTYPE ) -> u32 );
     DetermineCNOResTypeFromNodelist(cnodes, ppsznodenames, pcnorestype)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1152,7 +1152,7 @@ pub unsafe fn DetermineClusterCloudTypeFromCluster(hcluster: *const _HCLUSTER, p
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn DetermineClusterCloudTypeFromNodelist(cnodes: u32, ppsznodenames: *const ::windows::core::PCWSTR, pcloudtype: *mut CLUSTER_CLOUD_TYPE) -> u32 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn DetermineClusterCloudTypeFromNodelist ( cnodes : u32 , ppsznodenames : *const :: windows::core::PCWSTR , pcloudtype : *mut CLUSTER_CLOUD_TYPE ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn DetermineClusterCloudTypeFromNodelist ( cnodes : u32 , ppsznodenames : *const ::windows::core::PCWSTR , pcloudtype : *mut CLUSTER_CLOUD_TYPE ) -> u32 );
     DetermineClusterCloudTypeFromNodelist(cnodes, ppsznodenames, pcloudtype)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1164,7 +1164,7 @@ pub unsafe fn EvictClusterNode(hnode: *const _HNODE) -> u32 {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn EvictClusterNodeEx(hnode: *const _HNODE, dwtimeout: u32, phrcleanupstatus: *mut ::windows::core::HRESULT) -> u32 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn EvictClusterNodeEx ( hnode : *const _HNODE , dwtimeout : u32 , phrcleanupstatus : *mut :: windows::core::HRESULT ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn EvictClusterNodeEx ( hnode : *const _HNODE , dwtimeout : u32 , phrcleanupstatus : *mut ::windows::core::HRESULT ) -> u32 );
     EvictClusterNodeEx(hnode, dwtimeout, phrcleanupstatus)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1232,13 +1232,13 @@ pub unsafe fn GetClusterGroupKey(hgroup: *const _HGROUP, samdesired: u32) -> ::w
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn GetClusterGroupState(hgroup: *const _HGROUP, lpsznodename: ::windows::core::PWSTR, lpcchnodename: ::core::option::Option<*mut u32>) -> CLUSTER_GROUP_STATE {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterGroupState ( hgroup : *const _HGROUP , lpsznodename : :: windows::core::PWSTR , lpcchnodename : *mut u32 ) -> CLUSTER_GROUP_STATE );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterGroupState ( hgroup : *const _HGROUP , lpsznodename : ::windows::core::PWSTR , lpcchnodename : *mut u32 ) -> CLUSTER_GROUP_STATE );
     GetClusterGroupState(hgroup, ::core::mem::transmute(lpsznodename), ::core::mem::transmute(lpcchnodename.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn GetClusterInformation(hcluster: *const _HCLUSTER, lpszclustername: ::windows::core::PWSTR, lpcchclustername: *mut u32, lpclusterinfo: ::core::option::Option<*mut CLUSTERVERSIONINFO>) -> u32 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterInformation ( hcluster : *const _HCLUSTER , lpszclustername : :: windows::core::PWSTR , lpcchclustername : *mut u32 , lpclusterinfo : *mut CLUSTERVERSIONINFO ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterInformation ( hcluster : *const _HCLUSTER , lpszclustername : ::windows::core::PWSTR , lpcchclustername : *mut u32 , lpclusterinfo : *mut CLUSTERVERSIONINFO ) -> u32 );
     GetClusterInformation(hcluster, ::core::mem::transmute(lpszclustername), lpcchclustername, ::core::mem::transmute(lpclusterinfo.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
@@ -1256,7 +1256,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterNetInterface ( hcluster : *const _HCLUSTER , lpsznodename : :: windows::core::PCWSTR , lpsznetworkname : :: windows::core::PCWSTR , lpszinterfacename : :: windows::core::PWSTR , lpcchinterfacename : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterNetInterface ( hcluster : *const _HCLUSTER , lpsznodename : ::windows::core::PCWSTR , lpsznetworkname : ::windows::core::PCWSTR , lpszinterfacename : ::windows::core::PWSTR , lpcchinterfacename : *mut u32 ) -> u32 );
     GetClusterNetInterface(hcluster, lpsznodename.into_param().abi(), lpsznetworkname.into_param().abi(), ::core::mem::transmute(lpszinterfacename), lpcchinterfacename)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
@@ -1276,7 +1276,7 @@ pub unsafe fn GetClusterNetInterfaceState(hnetinterface: *const _HNETINTERFACE) 
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn GetClusterNetworkId(hnetwork: *const _HNETWORK, lpsznetworkid: ::windows::core::PWSTR, lpcchname: *mut u32) -> u32 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterNetworkId ( hnetwork : *const _HNETWORK , lpsznetworkid : :: windows::core::PWSTR , lpcchname : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterNetworkId ( hnetwork : *const _HNETWORK , lpsznetworkid : ::windows::core::PWSTR , lpcchname : *mut u32 ) -> u32 );
     GetClusterNetworkId(hnetwork, ::core::mem::transmute(lpsznetworkid), lpcchname)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
@@ -1296,7 +1296,7 @@ pub unsafe fn GetClusterNetworkState(hnetwork: *const _HNETWORK) -> CLUSTER_NETW
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn GetClusterNodeId(hnode: ::core::option::Option<*const _HNODE>, lpsznodeid: ::windows::core::PWSTR, lpcchname: *mut u32) -> u32 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterNodeId ( hnode : *const _HNODE , lpsznodeid : :: windows::core::PWSTR , lpcchname : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterNodeId ( hnode : *const _HNODE , lpsznodeid : ::windows::core::PWSTR , lpcchname : *mut u32 ) -> u32 );
     GetClusterNodeId(::core::mem::transmute(hnode.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpsznodeid), lpcchname)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
@@ -1316,13 +1316,13 @@ pub unsafe fn GetClusterNodeState(hnode: *const _HNODE) -> CLUSTER_NODE_STATE {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn GetClusterNotify(hchange: *const _HCHANGE, lpdwnotifykey: *mut usize, lpdwfiltertype: *mut u32, lpszname: ::windows::core::PWSTR, lpcchname: *mut u32, dwmilliseconds: u32) -> u32 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterNotify ( hchange : *const _HCHANGE , lpdwnotifykey : *mut usize , lpdwfiltertype : *mut u32 , lpszname : :: windows::core::PWSTR , lpcchname : *mut u32 , dwmilliseconds : u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterNotify ( hchange : *const _HCHANGE , lpdwnotifykey : *mut usize , lpdwfiltertype : *mut u32 , lpszname : ::windows::core::PWSTR , lpcchname : *mut u32 , dwmilliseconds : u32 ) -> u32 );
     GetClusterNotify(hchange, lpdwnotifykey, lpdwfiltertype, ::core::mem::transmute(lpszname), lpcchname, dwmilliseconds)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn GetClusterNotifyV2(hchange: *const _HCHANGE, lpdwnotifykey: *mut usize, pfilterandtype: ::core::option::Option<*mut NOTIFY_FILTER_AND_TYPE>, buffer: ::core::option::Option<*mut u8>, lpbbuffersize: ::core::option::Option<*mut u32>, lpszobjectid: ::windows::core::PWSTR, lpcchobjectid: ::core::option::Option<*mut u32>, lpszparentid: ::windows::core::PWSTR, lpcchparentid: ::core::option::Option<*mut u32>, lpszname: ::windows::core::PWSTR, lpcchname: ::core::option::Option<*mut u32>, lpsztype: ::windows::core::PWSTR, lpcchtype: ::core::option::Option<*mut u32>, dwmilliseconds: u32) -> u32 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterNotifyV2 ( hchange : *const _HCHANGE , lpdwnotifykey : *mut usize , pfilterandtype : *mut NOTIFY_FILTER_AND_TYPE , buffer : *mut u8 , lpbbuffersize : *mut u32 , lpszobjectid : :: windows::core::PWSTR , lpcchobjectid : *mut u32 , lpszparentid : :: windows::core::PWSTR , lpcchparentid : *mut u32 , lpszname : :: windows::core::PWSTR , lpcchname : *mut u32 , lpsztype : :: windows::core::PWSTR , lpcchtype : *mut u32 , dwmilliseconds : u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterNotifyV2 ( hchange : *const _HCHANGE , lpdwnotifykey : *mut usize , pfilterandtype : *mut NOTIFY_FILTER_AND_TYPE , buffer : *mut u8 , lpbbuffersize : *mut u32 , lpszobjectid : ::windows::core::PWSTR , lpcchobjectid : *mut u32 , lpszparentid : ::windows::core::PWSTR , lpcchparentid : *mut u32 , lpszname : ::windows::core::PWSTR , lpcchname : *mut u32 , lpsztype : ::windows::core::PWSTR , lpcchtype : *mut u32 , dwmilliseconds : u32 ) -> u32 );
     GetClusterNotifyV2(
         hchange,
         lpdwnotifykey,
@@ -1343,13 +1343,13 @@ pub unsafe fn GetClusterNotifyV2(hchange: *const _HCHANGE, lpdwnotifykey: *mut u
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn GetClusterQuorumResource(hcluster: *const _HCLUSTER, lpszresourcename: ::windows::core::PWSTR, lpcchresourcename: *mut u32, lpszdevicename: ::windows::core::PWSTR, lpcchdevicename: *mut u32, lpdwmaxquorumlogsize: *mut u32) -> u32 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterQuorumResource ( hcluster : *const _HCLUSTER , lpszresourcename : :: windows::core::PWSTR , lpcchresourcename : *mut u32 , lpszdevicename : :: windows::core::PWSTR , lpcchdevicename : *mut u32 , lpdwmaxquorumlogsize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterQuorumResource ( hcluster : *const _HCLUSTER , lpszresourcename : ::windows::core::PWSTR , lpcchresourcename : *mut u32 , lpszdevicename : ::windows::core::PWSTR , lpcchdevicename : *mut u32 , lpdwmaxquorumlogsize : *mut u32 ) -> u32 );
     GetClusterQuorumResource(hcluster, ::core::mem::transmute(lpszresourcename), lpcchresourcename, ::core::mem::transmute(lpszdevicename), lpcchdevicename, lpdwmaxquorumlogsize)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn GetClusterResourceDependencyExpression(hresource: *const _HRESOURCE, lpszdependencyexpression: ::windows::core::PWSTR, lpcchdependencyexpression: *mut u32) -> u32 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterResourceDependencyExpression ( hresource : *const _HRESOURCE , lpszdependencyexpression : :: windows::core::PWSTR , lpcchdependencyexpression : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterResourceDependencyExpression ( hresource : *const _HRESOURCE , lpszdependencyexpression : ::windows::core::PWSTR , lpcchdependencyexpression : *mut u32 ) -> u32 );
     GetClusterResourceDependencyExpression(hresource, ::core::mem::transmute(lpszdependencyexpression), lpcchdependencyexpression)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
@@ -1364,13 +1364,13 @@ pub unsafe fn GetClusterResourceKey(hresource: *const _HRESOURCE, samdesired: u3
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClusterResourceNetworkName(hresource: *const _HRESOURCE, lpbuffer: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterResourceNetworkName ( hresource : *const _HRESOURCE , lpbuffer : :: windows::core::PWSTR , nsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterResourceNetworkName ( hresource : *const _HRESOURCE , lpbuffer : ::windows::core::PWSTR , nsize : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetClusterResourceNetworkName(hresource, ::core::mem::transmute(lpbuffer), nsize)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn GetClusterResourceState(hresource: *const _HRESOURCE, lpsznodename: ::windows::core::PWSTR, lpcchnodename: ::core::option::Option<*mut u32>, lpszgroupname: ::windows::core::PWSTR, lpcchgroupname: ::core::option::Option<*mut u32>) -> CLUSTER_RESOURCE_STATE {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterResourceState ( hresource : *const _HRESOURCE , lpsznodename : :: windows::core::PWSTR , lpcchnodename : *mut u32 , lpszgroupname : :: windows::core::PWSTR , lpcchgroupname : *mut u32 ) -> CLUSTER_RESOURCE_STATE );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterResourceState ( hresource : *const _HRESOURCE , lpsznodename : ::windows::core::PWSTR , lpcchnodename : *mut u32 , lpszgroupname : ::windows::core::PWSTR , lpcchgroupname : *mut u32 ) -> CLUSTER_RESOURCE_STATE );
     GetClusterResourceState(hresource, ::core::mem::transmute(lpsznodename), ::core::mem::transmute(lpcchnodename.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpszgroupname), ::core::mem::transmute(lpcchgroupname.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
@@ -1380,7 +1380,7 @@ pub unsafe fn GetClusterResourceTypeKey<P0>(hcluster: *const _HCLUSTER, lpsztype
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterResourceTypeKey ( hcluster : *const _HCLUSTER , lpsztypename : :: windows::core::PCWSTR , samdesired : u32 ) -> super::super::System::Registry:: HKEY );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn GetClusterResourceTypeKey ( hcluster : *const _HCLUSTER , lpsztypename : ::windows::core::PCWSTR , samdesired : u32 ) -> super::super::System::Registry:: HKEY );
     let result__ = GetClusterResourceTypeKey(hcluster, lpsztypename.into_param().abi(), samdesired);
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -1390,7 +1390,7 @@ pub unsafe fn GetNodeCloudTypeDW<P0>(ppsznodename: P0, nodecloudtype: *mut u32) 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn GetNodeCloudTypeDW ( ppsznodename : :: windows::core::PCWSTR , nodecloudtype : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn GetNodeCloudTypeDW ( ppsznodename : ::windows::core::PCWSTR , nodecloudtype : *mut u32 ) -> u32 );
     GetNodeCloudTypeDW(ppsznodename.into_param().abi(), nodecloudtype)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1399,7 +1399,7 @@ pub unsafe fn GetNodeClusterState<P0>(lpsznodename: P0, pdwclusterstate: *mut u3
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn GetNodeClusterState ( lpsznodename : :: windows::core::PCWSTR , pdwclusterstate : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn GetNodeClusterState ( lpsznodename : ::windows::core::PCWSTR , pdwclusterstate : *mut u32 ) -> u32 );
     GetNodeClusterState(lpsznodename.into_param().abi(), pdwclusterstate)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
@@ -1428,7 +1428,7 @@ pub unsafe fn IsFileOnClusterSharedVolume<P0>(lpszpathname: P0, pbfileisonshared
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn IsFileOnClusterSharedVolume ( lpszpathname : :: windows::core::PCWSTR , pbfileisonsharedvolume : *mut super::super::Foundation:: BOOL ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn IsFileOnClusterSharedVolume ( lpszpathname : ::windows::core::PCWSTR , pbfileisonsharedvolume : *mut super::super::Foundation:: BOOL ) -> u32 );
     IsFileOnClusterSharedVolume(lpszpathname.into_param().abi(), pbfileisonsharedvolume)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1497,7 +1497,7 @@ pub unsafe fn OpenCluster<P0>(lpszclustername: P0) -> *mut _HCLUSTER
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenCluster ( lpszclustername : :: windows::core::PCWSTR ) -> *mut _HCLUSTER );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenCluster ( lpszclustername : ::windows::core::PCWSTR ) -> *mut _HCLUSTER );
     OpenCluster(lpszclustername.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1506,7 +1506,7 @@ pub unsafe fn OpenClusterCryptProvider<P0>(lpszresource: P0, lpszprovider: *cons
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn OpenClusterCryptProvider ( lpszresource : :: windows::core::PCWSTR , lpszprovider : *const i8 , dwtype : u32 , dwflags : u32 ) -> *mut _HCLUSCRYPTPROVIDER );
+    ::windows::imp::link ! ( "resutils.dll""system" fn OpenClusterCryptProvider ( lpszresource : ::windows::core::PCWSTR , lpszprovider : *const i8 , dwtype : u32 , dwflags : u32 ) -> *mut _HCLUSCRYPTPROVIDER );
     OpenClusterCryptProvider(lpszresource.into_param().abi(), lpszprovider, dwtype, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1516,7 +1516,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn OpenClusterCryptProviderEx ( lpszresource : :: windows::core::PCWSTR , lpszkeyname : :: windows::core::PCWSTR , lpszprovider : *const i8 , dwtype : u32 , dwflags : u32 ) -> *mut _HCLUSCRYPTPROVIDER );
+    ::windows::imp::link ! ( "resutils.dll""system" fn OpenClusterCryptProviderEx ( lpszresource : ::windows::core::PCWSTR , lpszkeyname : ::windows::core::PCWSTR , lpszprovider : *const i8 , dwtype : u32 , dwflags : u32 ) -> *mut _HCLUSCRYPTPROVIDER );
     OpenClusterCryptProviderEx(lpszresource.into_param().abi(), lpszkeyname.into_param().abi(), lpszprovider, dwtype, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1525,7 +1525,7 @@ pub unsafe fn OpenClusterEx<P0>(lpszclustername: P0, desiredaccess: u32, granted
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterEx ( lpszclustername : :: windows::core::PCWSTR , desiredaccess : u32 , grantedaccess : *mut u32 ) -> *mut _HCLUSTER );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterEx ( lpszclustername : ::windows::core::PCWSTR , desiredaccess : u32 , grantedaccess : *mut u32 ) -> *mut _HCLUSTER );
     OpenClusterEx(lpszclustername.into_param().abi(), desiredaccess, ::core::mem::transmute(grantedaccess.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1534,7 +1534,7 @@ pub unsafe fn OpenClusterGroup<P0>(hcluster: *const _HCLUSTER, lpszgroupname: P0
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterGroup ( hcluster : *const _HCLUSTER , lpszgroupname : :: windows::core::PCWSTR ) -> *mut _HGROUP );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterGroup ( hcluster : *const _HCLUSTER , lpszgroupname : ::windows::core::PCWSTR ) -> *mut _HGROUP );
     OpenClusterGroup(hcluster, lpszgroupname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1543,7 +1543,7 @@ pub unsafe fn OpenClusterGroupEx<P0>(hcluster: *const _HCLUSTER, lpszgroupname: 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterGroupEx ( hcluster : *const _HCLUSTER , lpszgroupname : :: windows::core::PCWSTR , dwdesiredaccess : u32 , lpdwgrantedaccess : *mut u32 ) -> *mut _HGROUP );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterGroupEx ( hcluster : *const _HCLUSTER , lpszgroupname : ::windows::core::PCWSTR , dwdesiredaccess : u32 , lpdwgrantedaccess : *mut u32 ) -> *mut _HGROUP );
     OpenClusterGroupEx(hcluster, lpszgroupname.into_param().abi(), dwdesiredaccess, ::core::mem::transmute(lpdwgrantedaccess.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1552,7 +1552,7 @@ pub unsafe fn OpenClusterGroupSet<P0>(hcluster: *const _HCLUSTER, lpszgroupsetna
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterGroupSet ( hcluster : *const _HCLUSTER , lpszgroupsetname : :: windows::core::PCWSTR ) -> *mut _HGROUPSET );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterGroupSet ( hcluster : *const _HCLUSTER , lpszgroupsetname : ::windows::core::PCWSTR ) -> *mut _HGROUPSET );
     OpenClusterGroupSet(hcluster, lpszgroupsetname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1561,7 +1561,7 @@ pub unsafe fn OpenClusterNetInterface<P0>(hcluster: *const _HCLUSTER, lpszinterf
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterNetInterface ( hcluster : *const _HCLUSTER , lpszinterfacename : :: windows::core::PCWSTR ) -> *mut _HNETINTERFACE );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterNetInterface ( hcluster : *const _HCLUSTER , lpszinterfacename : ::windows::core::PCWSTR ) -> *mut _HNETINTERFACE );
     OpenClusterNetInterface(hcluster, lpszinterfacename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1570,7 +1570,7 @@ pub unsafe fn OpenClusterNetInterfaceEx<P0>(hcluster: *const _HCLUSTER, lpszinte
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterNetInterfaceEx ( hcluster : *const _HCLUSTER , lpszinterfacename : :: windows::core::PCWSTR , dwdesiredaccess : u32 , lpdwgrantedaccess : *mut u32 ) -> *mut _HNETINTERFACE );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterNetInterfaceEx ( hcluster : *const _HCLUSTER , lpszinterfacename : ::windows::core::PCWSTR , dwdesiredaccess : u32 , lpdwgrantedaccess : *mut u32 ) -> *mut _HNETINTERFACE );
     OpenClusterNetInterfaceEx(hcluster, lpszinterfacename.into_param().abi(), dwdesiredaccess, ::core::mem::transmute(lpdwgrantedaccess.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1579,7 +1579,7 @@ pub unsafe fn OpenClusterNetwork<P0>(hcluster: *const _HCLUSTER, lpsznetworkname
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterNetwork ( hcluster : *const _HCLUSTER , lpsznetworkname : :: windows::core::PCWSTR ) -> *mut _HNETWORK );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterNetwork ( hcluster : *const _HCLUSTER , lpsznetworkname : ::windows::core::PCWSTR ) -> *mut _HNETWORK );
     OpenClusterNetwork(hcluster, lpsznetworkname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1588,7 +1588,7 @@ pub unsafe fn OpenClusterNetworkEx<P0>(hcluster: *const _HCLUSTER, lpsznetworkna
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterNetworkEx ( hcluster : *const _HCLUSTER , lpsznetworkname : :: windows::core::PCWSTR , dwdesiredaccess : u32 , lpdwgrantedaccess : *mut u32 ) -> *mut _HNETWORK );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterNetworkEx ( hcluster : *const _HCLUSTER , lpsznetworkname : ::windows::core::PCWSTR , dwdesiredaccess : u32 , lpdwgrantedaccess : *mut u32 ) -> *mut _HNETWORK );
     OpenClusterNetworkEx(hcluster, lpsznetworkname.into_param().abi(), dwdesiredaccess, ::core::mem::transmute(lpdwgrantedaccess.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1597,7 +1597,7 @@ pub unsafe fn OpenClusterNode<P0>(hcluster: *const _HCLUSTER, lpsznodename: P0) 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterNode ( hcluster : *const _HCLUSTER , lpsznodename : :: windows::core::PCWSTR ) -> *mut _HNODE );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterNode ( hcluster : *const _HCLUSTER , lpsznodename : ::windows::core::PCWSTR ) -> *mut _HNODE );
     OpenClusterNode(hcluster, lpsznodename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1612,7 +1612,7 @@ pub unsafe fn OpenClusterNodeEx<P0>(hcluster: *const _HCLUSTER, lpsznodename: P0
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterNodeEx ( hcluster : *const _HCLUSTER , lpsznodename : :: windows::core::PCWSTR , dwdesiredaccess : u32 , lpdwgrantedaccess : *mut u32 ) -> *mut _HNODE );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterNodeEx ( hcluster : *const _HCLUSTER , lpsznodename : ::windows::core::PCWSTR , dwdesiredaccess : u32 , lpdwgrantedaccess : *mut u32 ) -> *mut _HNODE );
     OpenClusterNodeEx(hcluster, lpsznodename.into_param().abi(), dwdesiredaccess, ::core::mem::transmute(lpdwgrantedaccess.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1621,7 +1621,7 @@ pub unsafe fn OpenClusterResource<P0>(hcluster: *const _HCLUSTER, lpszresourcena
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterResource ( hcluster : *const _HCLUSTER , lpszresourcename : :: windows::core::PCWSTR ) -> *mut _HRESOURCE );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterResource ( hcluster : *const _HCLUSTER , lpszresourcename : ::windows::core::PCWSTR ) -> *mut _HRESOURCE );
     OpenClusterResource(hcluster, lpszresourcename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1630,7 +1630,7 @@ pub unsafe fn OpenClusterResourceEx<P0>(hcluster: *const _HCLUSTER, lpszresource
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterResourceEx ( hcluster : *const _HCLUSTER , lpszresourcename : :: windows::core::PCWSTR , dwdesiredaccess : u32 , lpdwgrantedaccess : *mut u32 ) -> *mut _HRESOURCE );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn OpenClusterResourceEx ( hcluster : *const _HCLUSTER , lpszresourcename : ::windows::core::PCWSTR , dwdesiredaccess : u32 , lpdwgrantedaccess : *mut u32 ) -> *mut _HRESOURCE );
     OpenClusterResourceEx(hcluster, lpszresourcename.into_param().abi(), dwdesiredaccess, ::core::mem::transmute(lpdwgrantedaccess.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1653,7 +1653,7 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryAppInstanceVersion(appinstanceid: *const ::windows::core::GUID, instanceversionhigh: *mut u64, instanceversionlow: *mut u64, versionstatus: *mut super::super::Foundation::NTSTATUS) -> u32 {
-    ::windows::imp::link ! ( "ntlanman.dll""system" fn QueryAppInstanceVersion ( appinstanceid : *const :: windows::core::GUID , instanceversionhigh : *mut u64 , instanceversionlow : *mut u64 , versionstatus : *mut super::super::Foundation:: NTSTATUS ) -> u32 );
+    ::windows::imp::link ! ( "ntlanman.dll""system" fn QueryAppInstanceVersion ( appinstanceid : *const ::windows::core::GUID , instanceversionhigh : *mut u64 , instanceversionlow : *mut u64 , versionstatus : *mut super::super::Foundation:: NTSTATUS ) -> u32 );
     QueryAppInstanceVersion(appinstanceid, instanceversionhigh, instanceversionlow, versionstatus)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
@@ -1664,13 +1664,13 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "ntlanman.dll""system" fn RegisterAppInstance ( processhandle : super::super::Foundation:: HANDLE , appinstanceid : *const :: windows::core::GUID , childreninheritappinstance : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows::imp::link ! ( "ntlanman.dll""system" fn RegisterAppInstance ( processhandle : super::super::Foundation:: HANDLE , appinstanceid : *const ::windows::core::GUID , childreninheritappinstance : super::super::Foundation:: BOOL ) -> u32 );
     RegisterAppInstance(processhandle.into_param().abi(), appinstanceid, childreninheritappinstance.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn RegisterAppInstanceVersion(appinstanceid: *const ::windows::core::GUID, instanceversionhigh: u64, instanceversionlow: u64) -> u32 {
-    ::windows::imp::link ! ( "ntlanman.dll""system" fn RegisterAppInstanceVersion ( appinstanceid : *const :: windows::core::GUID , instanceversionhigh : u64 , instanceversionlow : u64 ) -> u32 );
+    ::windows::imp::link ! ( "ntlanman.dll""system" fn RegisterAppInstanceVersion ( appinstanceid : *const ::windows::core::GUID , instanceversionhigh : u64 , instanceversionlow : u64 ) -> u32 );
     RegisterAppInstanceVersion(appinstanceid, instanceversionhigh, instanceversionlow)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
@@ -1699,7 +1699,7 @@ pub unsafe fn RegisterClusterResourceTypeNotifyV2<P0>(hchange: *const _HCHANGE, 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn RegisterClusterResourceTypeNotifyV2 ( hchange : *const _HCHANGE , hcluster : *const _HCLUSTER , flags : i64 , restypename : :: windows::core::PCWSTR , dwnotifykey : usize ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn RegisterClusterResourceTypeNotifyV2 ( hchange : *const _HCHANGE , hcluster : *const _HCLUSTER , flags : i64 , restypename : ::windows::core::PCWSTR , dwnotifykey : usize ) -> u32 );
     RegisterClusterResourceTypeNotifyV2(hchange, hcluster, flags, restypename.into_param().abi(), dwnotifykey)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1748,7 +1748,7 @@ pub unsafe fn RemoveClusterStorageNode<P0>(hcluster: *const _HCLUSTER, lpszclust
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn RemoveClusterStorageNode ( hcluster : *const _HCLUSTER , lpszclusterstorageenclosurename : :: windows::core::PCWSTR , dwtimeout : u32 , dwflags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn RemoveClusterStorageNode ( hcluster : *const _HCLUSTER , lpszclusterstorageenclosurename : ::windows::core::PCWSTR , dwtimeout : u32 , dwflags : u32 ) -> u32 );
     RemoveClusterStorageNode(hcluster, lpszclusterstorageenclosurename.into_param().abi(), dwtimeout, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1758,7 +1758,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn RemoveCrossClusterGroupSetDependency ( hdependentgroupset : *const _HGROUPSET , lpremoteclustername : :: windows::core::PCWSTR , lpremotegroupsetname : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn RemoveCrossClusterGroupSetDependency ( hdependentgroupset : *const _HGROUPSET , lpremoteclustername : ::windows::core::PCWSTR , lpremotegroupsetname : ::windows::core::PCWSTR ) -> u32 );
     RemoveCrossClusterGroupSetDependency(hdependentgroupset, lpremoteclustername.into_param().abi(), lpremotegroupsetname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1783,7 +1783,7 @@ pub unsafe fn ResUtilCreateDirectoryTree<P0>(pszpath: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilCreateDirectoryTree ( pszpath : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilCreateDirectoryTree ( pszpath : ::windows::core::PCWSTR ) -> u32 );
     ResUtilCreateDirectoryTree(pszpath.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1811,7 +1811,7 @@ pub unsafe fn ResUtilDupString<P0>(pszinstring: P0) -> ::windows::core::PWSTR
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilDupString ( pszinstring : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilDupString ( pszinstring : ::windows::core::PCWSTR ) -> ::windows::core::PWSTR );
     ResUtilDupString(pszinstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1833,14 +1833,14 @@ pub unsafe fn ResUtilEnumPrivateProperties<P0>(hkeyclusterkey: P0, pszoutpropert
 where
     P0: ::windows::core::IntoParam<super::super::System::Registry::HKEY>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilEnumPrivateProperties ( hkeyclusterkey : super::super::System::Registry:: HKEY , pszoutproperties : :: windows::core::PWSTR , cboutpropertiessize : u32 , pcbbytesreturned : *mut u32 , pcbrequired : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilEnumPrivateProperties ( hkeyclusterkey : super::super::System::Registry:: HKEY , pszoutproperties : ::windows::core::PWSTR , cboutpropertiessize : u32 , pcbbytesreturned : *mut u32 , pcbrequired : *mut u32 ) -> u32 );
     ResUtilEnumPrivateProperties(hkeyclusterkey.into_param().abi(), ::core::mem::transmute(pszoutproperties), cboutpropertiessize, pcbbytesreturned, pcbrequired)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilEnumProperties(ppropertytable: *const RESUTIL_PROPERTY_ITEM, pszoutproperties: ::windows::core::PWSTR, cboutpropertiessize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilEnumProperties ( ppropertytable : *const RESUTIL_PROPERTY_ITEM , pszoutproperties : :: windows::core::PWSTR , cboutpropertiessize : u32 , pcbbytesreturned : *mut u32 , pcbrequired : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilEnumProperties ( ppropertytable : *const RESUTIL_PROPERTY_ITEM , pszoutproperties : ::windows::core::PWSTR , cboutpropertiessize : u32 , pcbbytesreturned : *mut u32 , pcbrequired : *mut u32 ) -> u32 );
     ResUtilEnumProperties(ppropertytable, ::core::mem::transmute(pszoutproperties), cboutpropertiessize, pcbbytesreturned, pcbrequired)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1849,7 +1849,7 @@ pub unsafe fn ResUtilEnumResources<P0>(hself: *mut _HRESOURCE, lpszrestypename: 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilEnumResources ( hself : *mut _HRESOURCE , lpszrestypename : :: windows::core::PCWSTR , prescallback : LPRESOURCE_CALLBACK , pparameter : *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilEnumResources ( hself : *mut _HRESOURCE , lpszrestypename : ::windows::core::PCWSTR , prescallback : LPRESOURCE_CALLBACK , pparameter : *mut ::core::ffi::c_void ) -> u32 );
     ResUtilEnumResources(hself, lpszrestypename.into_param().abi(), prescallback, pparameter)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1858,7 +1858,7 @@ pub unsafe fn ResUtilEnumResourcesEx<P0>(hcluster: *mut _HCLUSTER, hself: *mut _
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilEnumResourcesEx ( hcluster : *mut _HCLUSTER , hself : *mut _HRESOURCE , lpszrestypename : :: windows::core::PCWSTR , prescallback : LPRESOURCE_CALLBACK_EX , pparameter : *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilEnumResourcesEx ( hcluster : *mut _HCLUSTER , hself : *mut _HRESOURCE , lpszrestypename : ::windows::core::PCWSTR , prescallback : LPRESOURCE_CALLBACK_EX , pparameter : *mut ::core::ffi::c_void ) -> u32 );
     ResUtilEnumResourcesEx(hcluster, hself, lpszrestypename.into_param().abi(), prescallback, pparameter)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1867,7 +1867,7 @@ pub unsafe fn ResUtilEnumResourcesEx2<P0>(hcluster: *mut _HCLUSTER, hself: *mut 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilEnumResourcesEx2 ( hcluster : *mut _HCLUSTER , hself : *mut _HRESOURCE , lpszrestypename : :: windows::core::PCWSTR , prescallback : LPRESOURCE_CALLBACK_EX , pparameter : *mut ::core::ffi::c_void , dwdesiredaccess : u32 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilEnumResourcesEx2 ( hcluster : *mut _HCLUSTER , hself : *mut _HRESOURCE , lpszrestypename : ::windows::core::PCWSTR , prescallback : LPRESOURCE_CALLBACK_EX , pparameter : *mut ::core::ffi::c_void , dwdesiredaccess : u32 ) -> u32 );
     ResUtilEnumResourcesEx2(hcluster, hself, lpszrestypename.into_param().abi(), prescallback, pparameter, dwdesiredaccess)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1876,7 +1876,7 @@ pub unsafe fn ResUtilExpandEnvironmentStrings<P0>(pszsrc: P0) -> ::windows::core
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilExpandEnvironmentStrings ( pszsrc : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilExpandEnvironmentStrings ( pszsrc : ::windows::core::PCWSTR ) -> ::windows::core::PWSTR );
     ResUtilExpandEnvironmentStrings(pszsrc.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1885,13 +1885,13 @@ pub unsafe fn ResUtilFindBinaryProperty<P0>(ppropertylist: *const ::core::ffi::c
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilFindBinaryProperty ( ppropertylist : *const ::core::ffi::c_void , cbpropertylistsize : u32 , pszpropertyname : :: windows::core::PCWSTR , pbpropertyvalue : *mut *mut u8 , pcbpropertyvaluesize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilFindBinaryProperty ( ppropertylist : *const ::core::ffi::c_void , cbpropertylistsize : u32 , pszpropertyname : ::windows::core::PCWSTR , pbpropertyvalue : *mut *mut u8 , pcbpropertyvaluesize : *mut u32 ) -> u32 );
     ResUtilFindBinaryProperty(ppropertylist, cbpropertylistsize, pszpropertyname.into_param().abi(), ::core::mem::transmute(pbpropertyvalue.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbpropertyvaluesize.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn ResUtilFindDependentDiskResourceDriveLetter(hcluster: *const _HCLUSTER, hresource: *const _HRESOURCE, pszdriveletter: ::windows::core::PWSTR, pcchdriveletter: *mut u32) -> u32 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilFindDependentDiskResourceDriveLetter ( hcluster : *const _HCLUSTER , hresource : *const _HRESOURCE , pszdriveletter : :: windows::core::PWSTR , pcchdriveletter : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilFindDependentDiskResourceDriveLetter ( hcluster : *const _HCLUSTER , hresource : *const _HRESOURCE , pszdriveletter : ::windows::core::PWSTR , pcchdriveletter : *mut u32 ) -> u32 );
     ResUtilFindDependentDiskResourceDriveLetter(hcluster, hresource, ::core::mem::transmute(pszdriveletter), pcchdriveletter)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1900,7 +1900,7 @@ pub unsafe fn ResUtilFindDwordProperty<P0>(ppropertylist: *const ::core::ffi::c_
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilFindDwordProperty ( ppropertylist : *const ::core::ffi::c_void , cbpropertylistsize : u32 , pszpropertyname : :: windows::core::PCWSTR , pdwpropertyvalue : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilFindDwordProperty ( ppropertylist : *const ::core::ffi::c_void , cbpropertylistsize : u32 , pszpropertyname : ::windows::core::PCWSTR , pdwpropertyvalue : *mut u32 ) -> u32 );
     ResUtilFindDwordProperty(ppropertylist, cbpropertylistsize, pszpropertyname.into_param().abi(), pdwpropertyvalue)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1909,7 +1909,7 @@ pub unsafe fn ResUtilFindExpandSzProperty<P0>(ppropertylist: *const ::core::ffi:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilFindExpandSzProperty ( ppropertylist : *const ::core::ffi::c_void , cbpropertylistsize : u32 , pszpropertyname : :: windows::core::PCWSTR , pszpropertyvalue : *mut :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilFindExpandSzProperty ( ppropertylist : *const ::core::ffi::c_void , cbpropertylistsize : u32 , pszpropertyname : ::windows::core::PCWSTR , pszpropertyvalue : *mut ::windows::core::PWSTR ) -> u32 );
     ResUtilFindExpandSzProperty(ppropertylist, cbpropertylistsize, pszpropertyname.into_param().abi(), ::core::mem::transmute(pszpropertyvalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1918,7 +1918,7 @@ pub unsafe fn ResUtilFindExpandedSzProperty<P0>(ppropertylist: *const ::core::ff
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilFindExpandedSzProperty ( ppropertylist : *const ::core::ffi::c_void , cbpropertylistsize : u32 , pszpropertyname : :: windows::core::PCWSTR , pszpropertyvalue : *mut :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilFindExpandedSzProperty ( ppropertylist : *const ::core::ffi::c_void , cbpropertylistsize : u32 , pszpropertyname : ::windows::core::PCWSTR , pszpropertyvalue : *mut ::windows::core::PWSTR ) -> u32 );
     ResUtilFindExpandedSzProperty(ppropertylist, cbpropertylistsize, pszpropertyname.into_param().abi(), ::core::mem::transmute(pszpropertyvalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
@@ -1928,7 +1928,7 @@ pub unsafe fn ResUtilFindFileTimeProperty<P0>(ppropertylist: *const ::core::ffi:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilFindFileTimeProperty ( ppropertylist : *const ::core::ffi::c_void , cbpropertylistsize : u32 , pszpropertyname : :: windows::core::PCWSTR , pftpropertyvalue : *mut super::super::Foundation:: FILETIME ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilFindFileTimeProperty ( ppropertylist : *const ::core::ffi::c_void , cbpropertylistsize : u32 , pszpropertyname : ::windows::core::PCWSTR , pftpropertyvalue : *mut super::super::Foundation:: FILETIME ) -> u32 );
     ResUtilFindFileTimeProperty(ppropertylist, cbpropertylistsize, pszpropertyname.into_param().abi(), pftpropertyvalue)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1937,7 +1937,7 @@ pub unsafe fn ResUtilFindLongProperty<P0>(ppropertylist: *const ::core::ffi::c_v
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilFindLongProperty ( ppropertylist : *const ::core::ffi::c_void , cbpropertylistsize : u32 , pszpropertyname : :: windows::core::PCWSTR , plpropertyvalue : *mut i32 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilFindLongProperty ( ppropertylist : *const ::core::ffi::c_void , cbpropertylistsize : u32 , pszpropertyname : ::windows::core::PCWSTR , plpropertyvalue : *mut i32 ) -> u32 );
     ResUtilFindLongProperty(ppropertylist, cbpropertylistsize, pszpropertyname.into_param().abi(), plpropertyvalue)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1946,7 +1946,7 @@ pub unsafe fn ResUtilFindMultiSzProperty<P0>(ppropertylist: *const ::core::ffi::
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilFindMultiSzProperty ( ppropertylist : *const ::core::ffi::c_void , cbpropertylistsize : u32 , pszpropertyname : :: windows::core::PCWSTR , pszpropertyvalue : *mut :: windows::core::PWSTR , pcbpropertyvaluesize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilFindMultiSzProperty ( ppropertylist : *const ::core::ffi::c_void , cbpropertylistsize : u32 , pszpropertyname : ::windows::core::PCWSTR , pszpropertyvalue : *mut ::windows::core::PWSTR , pcbpropertyvaluesize : *mut u32 ) -> u32 );
     ResUtilFindMultiSzProperty(ppropertylist, cbpropertylistsize, pszpropertyname.into_param().abi(), pszpropertyvalue, pcbpropertyvaluesize)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1955,7 +1955,7 @@ pub unsafe fn ResUtilFindSzProperty<P0>(ppropertylist: *const ::core::ffi::c_voi
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilFindSzProperty ( ppropertylist : *const ::core::ffi::c_void , cbpropertylistsize : u32 , pszpropertyname : :: windows::core::PCWSTR , pszpropertyvalue : *mut :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilFindSzProperty ( ppropertylist : *const ::core::ffi::c_void , cbpropertylistsize : u32 , pszpropertyname : ::windows::core::PCWSTR , pszpropertyvalue : *mut ::windows::core::PWSTR ) -> u32 );
     ResUtilFindSzProperty(ppropertylist, cbpropertylistsize, pszpropertyname.into_param().abi(), ::core::mem::transmute(pszpropertyvalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1964,7 +1964,7 @@ pub unsafe fn ResUtilFindULargeIntegerProperty<P0>(ppropertylist: *const ::core:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilFindULargeIntegerProperty ( ppropertylist : *const ::core::ffi::c_void , cbpropertylistsize : u32 , pszpropertyname : :: windows::core::PCWSTR , plpropertyvalue : *mut u64 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilFindULargeIntegerProperty ( ppropertylist : *const ::core::ffi::c_void , cbpropertylistsize : u32 , pszpropertyname : ::windows::core::PCWSTR , plpropertyvalue : *mut u64 ) -> u32 );
     ResUtilFindULargeIntegerProperty(ppropertylist, cbpropertylistsize, pszpropertyname.into_param().abi(), plpropertyvalue)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -2004,7 +2004,7 @@ where
     P0: ::windows::core::IntoParam<super::super::System::Registry::HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetBinaryValue ( hkeyclusterkey : super::super::System::Registry:: HKEY , pszvaluename : :: windows::core::PCWSTR , ppboutvalue : *mut *mut u8 , pcboutvaluesize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetBinaryValue ( hkeyclusterkey : super::super::System::Registry:: HKEY , pszvaluename : ::windows::core::PCWSTR , ppboutvalue : *mut *mut u8 , pcboutvaluesize : *mut u32 ) -> u32 );
     ResUtilGetBinaryValue(hkeyclusterkey.into_param().abi(), pszvaluename.into_param().abi(), ppboutvalue, pcboutvaluesize)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -2016,7 +2016,7 @@ pub unsafe fn ResUtilGetClusterGroupType(hgroup: *mut _HGROUP, grouptype: *mut C
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn ResUtilGetClusterId(hcluster: *mut _HCLUSTER, guid: *mut ::windows::core::GUID) -> u32 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetClusterId ( hcluster : *mut _HCLUSTER , guid : *mut :: windows::core::GUID ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetClusterId ( hcluster : *mut _HCLUSTER , guid : *mut ::windows::core::GUID ) -> u32 );
     ResUtilGetClusterId(hcluster, guid)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -2057,7 +2057,7 @@ where
     P0: ::windows::core::IntoParam<super::super::System::Registry::HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetDwordValue ( hkeyclusterkey : super::super::System::Registry:: HKEY , pszvaluename : :: windows::core::PCWSTR , pdwoutvalue : *mut u32 , dwdefaultvalue : u32 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetDwordValue ( hkeyclusterkey : super::super::System::Registry:: HKEY , pszvaluename : ::windows::core::PCWSTR , pdwoutvalue : *mut u32 , dwdefaultvalue : u32 ) -> u32 );
     ResUtilGetDwordValue(hkeyclusterkey.into_param().abi(), pszvaluename.into_param().abi(), pdwoutvalue, dwdefaultvalue)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -2085,7 +2085,7 @@ pub unsafe fn ResUtilGetMultiSzProperty<P0>(ppszoutvalue: *mut ::windows::core::
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetMultiSzProperty ( ppszoutvalue : *mut :: windows::core::PWSTR , pcboutvaluesize : *mut u32 , pvaluestruct : *const CLUSPROP_SZ , pszoldvalue : :: windows::core::PCWSTR , cboldvaluesize : u32 , pppropertylist : *mut *mut u8 , pcbpropertylistsize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetMultiSzProperty ( ppszoutvalue : *mut ::windows::core::PWSTR , pcboutvaluesize : *mut u32 , pvaluestruct : *const CLUSPROP_SZ , pszoldvalue : ::windows::core::PCWSTR , cboldvaluesize : u32 , pppropertylist : *mut *mut u8 , pcbpropertylistsize : *mut u32 ) -> u32 );
     ResUtilGetMultiSzProperty(ppszoutvalue, pcboutvaluesize, pvaluestruct, pszoldvalue.into_param().abi(), cboldvaluesize, pppropertylist, pcbpropertylistsize)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
@@ -2116,7 +2116,7 @@ where
     P0: ::windows::core::IntoParam<super::super::System::Registry::HKEY>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetPropertiesToParameterBlock ( hkeyclusterkey : super::super::System::Registry:: HKEY , ppropertytable : *const RESUTIL_PROPERTY_ITEM , poutparams : *mut u8 , bcheckforrequiredproperties : super::super::Foundation:: BOOL , psznameofpropinerror : *mut :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetPropertiesToParameterBlock ( hkeyclusterkey : super::super::System::Registry:: HKEY , ppropertytable : *const RESUTIL_PROPERTY_ITEM , poutparams : *mut u8 , bcheckforrequiredproperties : super::super::Foundation:: BOOL , psznameofpropinerror : *mut ::windows::core::PWSTR ) -> u32 );
     ResUtilGetPropertiesToParameterBlock(hkeyclusterkey.into_param().abi(), ppropertytable, poutparams, bcheckforrequiredproperties.into_param().abi(), psznameofpropinerror)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -2154,7 +2154,7 @@ where
     P0: ::windows::core::IntoParam<super::super::System::Registry::HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetQwordValue ( hkeyclusterkey : super::super::System::Registry:: HKEY , pszvaluename : :: windows::core::PCWSTR , pqwoutvalue : *mut u64 , qwdefaultvalue : u64 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetQwordValue ( hkeyclusterkey : super::super::System::Registry:: HKEY , pszvaluename : ::windows::core::PCWSTR , pqwoutvalue : *mut u64 , qwdefaultvalue : u64 ) -> u32 );
     ResUtilGetQwordValue(hkeyclusterkey.into_param().abi(), pszvaluename.into_param().abi(), pqwoutvalue, qwdefaultvalue)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
@@ -2165,7 +2165,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetResourceDependency ( hself : super::super::Foundation:: HANDLE , lpszresourcetype : :: windows::core::PCWSTR ) -> *mut _HRESOURCE );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetResourceDependency ( hself : super::super::Foundation:: HANDLE , lpszresourcetype : ::windows::core::PCWSTR ) -> *mut _HRESOURCE );
     ResUtilGetResourceDependency(hself.into_param().abi(), lpszresourcetype.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
@@ -2199,7 +2199,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetResourceDependencyByName ( hcluster : *mut _HCLUSTER , hself : super::super::Foundation:: HANDLE , lpszresourcetype : :: windows::core::PCWSTR , brecurse : super::super::Foundation:: BOOL ) -> *mut _HRESOURCE );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetResourceDependencyByName ( hcluster : *mut _HCLUSTER , hself : super::super::Foundation:: HANDLE , lpszresourcetype : ::windows::core::PCWSTR , brecurse : super::super::Foundation:: BOOL ) -> *mut _HRESOURCE );
     ResUtilGetResourceDependencyByName(hcluster, hself.into_param().abi(), lpszresourcetype.into_param().abi(), brecurse.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
@@ -2211,7 +2211,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetResourceDependencyByNameEx ( hcluster : *mut _HCLUSTER , hself : super::super::Foundation:: HANDLE , lpszresourcetype : :: windows::core::PCWSTR , brecurse : super::super::Foundation:: BOOL , dwdesiredaccess : u32 ) -> *mut _HRESOURCE );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetResourceDependencyByNameEx ( hcluster : *mut _HCLUSTER , hself : super::super::Foundation:: HANDLE , lpszresourcetype : ::windows::core::PCWSTR , brecurse : super::super::Foundation:: BOOL , dwdesiredaccess : u32 ) -> *mut _HRESOURCE );
     ResUtilGetResourceDependencyByNameEx(hcluster, hself.into_param().abi(), lpszresourcetype.into_param().abi(), brecurse.into_param().abi(), dwdesiredaccess)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
@@ -2222,19 +2222,19 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetResourceDependencyEx ( hself : super::super::Foundation:: HANDLE , lpszresourcetype : :: windows::core::PCWSTR , dwdesiredaccess : u32 ) -> *mut _HRESOURCE );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetResourceDependencyEx ( hself : super::super::Foundation:: HANDLE , lpszresourcetype : ::windows::core::PCWSTR , dwdesiredaccess : u32 ) -> *mut _HRESOURCE );
     ResUtilGetResourceDependencyEx(hself.into_param().abi(), lpszresourcetype.into_param().abi(), dwdesiredaccess)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn ResUtilGetResourceDependentIPAddressProps(hresource: *const _HRESOURCE, pszaddress: ::windows::core::PWSTR, pcchaddress: *mut u32, pszsubnetmask: ::windows::core::PWSTR, pcchsubnetmask: *mut u32, psznetwork: ::windows::core::PWSTR, pcchnetwork: *mut u32) -> u32 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetResourceDependentIPAddressProps ( hresource : *const _HRESOURCE , pszaddress : :: windows::core::PWSTR , pcchaddress : *mut u32 , pszsubnetmask : :: windows::core::PWSTR , pcchsubnetmask : *mut u32 , psznetwork : :: windows::core::PWSTR , pcchnetwork : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetResourceDependentIPAddressProps ( hresource : *const _HRESOURCE , pszaddress : ::windows::core::PWSTR , pcchaddress : *mut u32 , pszsubnetmask : ::windows::core::PWSTR , pcchsubnetmask : *mut u32 , psznetwork : ::windows::core::PWSTR , pcchnetwork : *mut u32 ) -> u32 );
     ResUtilGetResourceDependentIPAddressProps(hresource, ::core::mem::transmute(pszaddress), pcchaddress, ::core::mem::transmute(pszsubnetmask), pcchsubnetmask, ::core::mem::transmute(psznetwork), pcchnetwork)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn ResUtilGetResourceName(hresource: *const _HRESOURCE, pszresourcename: ::windows::core::PWSTR, pcchresourcenameinout: *mut u32) -> u32 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetResourceName ( hresource : *const _HRESOURCE , pszresourcename : :: windows::core::PWSTR , pcchresourcenameinout : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetResourceName ( hresource : *const _HRESOURCE , pszresourcename : ::windows::core::PWSTR , pcchresourcenameinout : *mut u32 ) -> u32 );
     ResUtilGetResourceName(hresource, ::core::mem::transmute(pszresourcename), pcchresourcenameinout)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -2244,7 +2244,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetResourceNameDependency ( lpszresourcename : :: windows::core::PCWSTR , lpszresourcetype : :: windows::core::PCWSTR ) -> *mut _HRESOURCE );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetResourceNameDependency ( lpszresourcename : ::windows::core::PCWSTR , lpszresourcetype : ::windows::core::PCWSTR ) -> *mut _HRESOURCE );
     ResUtilGetResourceNameDependency(lpszresourcename.into_param().abi(), lpszresourcetype.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -2254,7 +2254,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetResourceNameDependencyEx ( lpszresourcename : :: windows::core::PCWSTR , lpszresourcetype : :: windows::core::PCWSTR , dwdesiredaccess : u32 ) -> *mut _HRESOURCE );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetResourceNameDependencyEx ( lpszresourcename : ::windows::core::PCWSTR , lpszresourcetype : ::windows::core::PCWSTR , dwdesiredaccess : u32 ) -> *mut _HRESOURCE );
     ResUtilGetResourceNameDependencyEx(lpszresourcename.into_param().abi(), lpszresourcetype.into_param().abi(), dwdesiredaccess)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -2263,7 +2263,7 @@ pub unsafe fn ResUtilGetSzProperty<P0>(ppszoutvalue: *mut ::windows::core::PWSTR
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetSzProperty ( ppszoutvalue : *mut :: windows::core::PWSTR , pvaluestruct : *const CLUSPROP_SZ , pszoldvalue : :: windows::core::PCWSTR , pppropertylist : *mut *mut u8 , pcbpropertylistsize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetSzProperty ( ppszoutvalue : *mut ::windows::core::PWSTR , pvaluestruct : *const CLUSPROP_SZ , pszoldvalue : ::windows::core::PCWSTR , pppropertylist : *mut *mut u8 , pcbpropertylistsize : *mut u32 ) -> u32 );
     ResUtilGetSzProperty(ppszoutvalue, pvaluestruct, pszoldvalue.into_param().abi(), pppropertylist, pcbpropertylistsize)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
@@ -2274,7 +2274,7 @@ where
     P0: ::windows::core::IntoParam<super::super::System::Registry::HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetSzValue ( hkeyclusterkey : super::super::System::Registry:: HKEY , pszvaluename : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilGetSzValue ( hkeyclusterkey : super::super::System::Registry:: HKEY , pszvaluename : ::windows::core::PCWSTR ) -> ::windows::core::PWSTR );
     ResUtilGetSzValue(hkeyclusterkey.into_param().abi(), pszvaluename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
@@ -2291,7 +2291,7 @@ pub unsafe fn ResUtilIsPathValid<P0>(pszpath: P0) -> super::super::Foundation::B
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilIsPathValid ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilIsPathValid ( pszpath : ::windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     ResUtilIsPathValid(pszpath.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
@@ -2334,7 +2334,7 @@ pub unsafe fn ResUtilRemoveResourceServiceEnvironment<P0>(pszservicename: P0, pf
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilRemoveResourceServiceEnvironment ( pszservicename : :: windows::core::PCWSTR , pfnlogevent : PLOG_EVENT_ROUTINE , hresourcehandle : isize ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilRemoveResourceServiceEnvironment ( pszservicename : ::windows::core::PCWSTR , pfnlogevent : PLOG_EVENT_ROUTINE , hresourcehandle : isize ) -> u32 );
     ResUtilRemoveResourceServiceEnvironment(pszservicename.into_param().abi(), pfnlogevent, hresourcehandle)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -2350,7 +2350,7 @@ pub unsafe fn ResUtilResourceTypesEqual<P0>(lpszresourcetypename: P0, hresource:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilResourceTypesEqual ( lpszresourcetypename : :: windows::core::PCWSTR , hresource : *mut _HRESOURCE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilResourceTypesEqual ( lpszresourcetypename : ::windows::core::PCWSTR , hresource : *mut _HRESOURCE ) -> super::super::Foundation:: BOOL );
     ResUtilResourceTypesEqual(lpszresourcetypename.into_param().abi(), hresource)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
@@ -2368,7 +2368,7 @@ where
     P0: ::windows::core::IntoParam<super::super::System::Registry::HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilSetBinaryValue ( hkeyclusterkey : super::super::System::Registry:: HKEY , pszvaluename : :: windows::core::PCWSTR , pbnewvalue : *const u8 , cbnewvaluesize : u32 , ppboutvalue : *mut *mut u8 , pcboutvaluesize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilSetBinaryValue ( hkeyclusterkey : super::super::System::Registry:: HKEY , pszvaluename : ::windows::core::PCWSTR , pbnewvalue : *const u8 , cbnewvaluesize : u32 , ppboutvalue : *mut *mut u8 , pcboutvaluesize : *mut u32 ) -> u32 );
     ResUtilSetBinaryValue(hkeyclusterkey.into_param().abi(), pszvaluename.into_param().abi(), ::core::mem::transmute(pbnewvalue.as_ptr()), pbnewvalue.len() as _, ::core::mem::transmute(ppboutvalue.unwrap_or(::std::ptr::null_mut())), pcboutvaluesize)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
@@ -2379,7 +2379,7 @@ where
     P0: ::windows::core::IntoParam<super::super::System::Registry::HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilSetDwordValue ( hkeyclusterkey : super::super::System::Registry:: HKEY , pszvaluename : :: windows::core::PCWSTR , dwnewvalue : u32 , pdwoutvalue : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilSetDwordValue ( hkeyclusterkey : super::super::System::Registry:: HKEY , pszvaluename : ::windows::core::PCWSTR , dwnewvalue : u32 , pdwoutvalue : *mut u32 ) -> u32 );
     ResUtilSetDwordValue(hkeyclusterkey.into_param().abi(), pszvaluename.into_param().abi(), dwnewvalue, pdwoutvalue)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
@@ -2391,7 +2391,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilSetExpandSzValue ( hkeyclusterkey : super::super::System::Registry:: HKEY , pszvaluename : :: windows::core::PCWSTR , psznewvalue : :: windows::core::PCWSTR , ppszoutstring : *mut :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilSetExpandSzValue ( hkeyclusterkey : super::super::System::Registry:: HKEY , pszvaluename : ::windows::core::PCWSTR , psznewvalue : ::windows::core::PCWSTR , ppszoutstring : *mut ::windows::core::PWSTR ) -> u32 );
     ResUtilSetExpandSzValue(hkeyclusterkey.into_param().abi(), pszvaluename.into_param().abi(), psznewvalue.into_param().abi(), ::core::mem::transmute(ppszoutstring.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
@@ -2403,7 +2403,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilSetMultiSzValue ( hkeyclusterkey : super::super::System::Registry:: HKEY , pszvaluename : :: windows::core::PCWSTR , psznewvalue : :: windows::core::PCWSTR , cbnewvaluesize : u32 , ppszoutvalue : *mut :: windows::core::PWSTR , pcboutvaluesize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilSetMultiSzValue ( hkeyclusterkey : super::super::System::Registry:: HKEY , pszvaluename : ::windows::core::PCWSTR , psznewvalue : ::windows::core::PCWSTR , cbnewvaluesize : u32 , ppszoutvalue : *mut ::windows::core::PWSTR , pcboutvaluesize : *mut u32 ) -> u32 );
     ResUtilSetMultiSzValue(hkeyclusterkey.into_param().abi(), pszvaluename.into_param().abi(), psznewvalue.into_param().abi(), cbnewvaluesize, ::core::mem::transmute(ppszoutvalue.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcboutvaluesize.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
@@ -2468,7 +2468,7 @@ where
     P0: ::windows::core::IntoParam<super::super::System::Registry::HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilSetQwordValue ( hkeyclusterkey : super::super::System::Registry:: HKEY , pszvaluename : :: windows::core::PCWSTR , qwnewvalue : u64 , pqwoutvalue : *mut u64 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilSetQwordValue ( hkeyclusterkey : super::super::System::Registry:: HKEY , pszvaluename : ::windows::core::PCWSTR , qwnewvalue : u64 , pqwoutvalue : *mut u64 ) -> u32 );
     ResUtilSetQwordValue(hkeyclusterkey.into_param().abi(), pszvaluename.into_param().abi(), qwnewvalue, ::core::mem::transmute(pqwoutvalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -2477,7 +2477,7 @@ pub unsafe fn ResUtilSetResourceServiceEnvironment<P0>(pszservicename: P0, hreso
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilSetResourceServiceEnvironment ( pszservicename : :: windows::core::PCWSTR , hresource : *mut _HRESOURCE , pfnlogevent : PLOG_EVENT_ROUTINE , hresourcehandle : isize ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilSetResourceServiceEnvironment ( pszservicename : ::windows::core::PCWSTR , hresource : *mut _HRESOURCE , pfnlogevent : PLOG_EVENT_ROUTINE , hresourcehandle : isize ) -> u32 );
     ResUtilSetResourceServiceEnvironment(pszservicename.into_param().abi(), hresource, pfnlogevent, hresourcehandle)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Security\"`*"]
@@ -2488,7 +2488,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Security::SC_HANDLE>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilSetResourceServiceStartParameters ( pszservicename : :: windows::core::PCWSTR , schscmhandle : super::super::Security:: SC_HANDLE , phservice : *mut isize , pfnlogevent : PLOG_EVENT_ROUTINE , hresourcehandle : isize ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilSetResourceServiceStartParameters ( pszservicename : ::windows::core::PCWSTR , schscmhandle : super::super::Security:: SC_HANDLE , phservice : *mut isize , pfnlogevent : PLOG_EVENT_ROUTINE , hresourcehandle : isize ) -> u32 );
     ResUtilSetResourceServiceStartParameters(pszservicename.into_param().abi(), schscmhandle.into_param().abi(), phservice, pfnlogevent, hresourcehandle)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Security\"`*"]
@@ -2499,7 +2499,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Security::SC_HANDLE>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilSetResourceServiceStartParametersEx ( pszservicename : :: windows::core::PCWSTR , schscmhandle : super::super::Security:: SC_HANDLE , phservice : *mut isize , dwdesiredaccess : u32 , pfnlogevent : PLOG_EVENT_ROUTINE , hresourcehandle : isize ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilSetResourceServiceStartParametersEx ( pszservicename : ::windows::core::PCWSTR , schscmhandle : super::super::Security:: SC_HANDLE , phservice : *mut isize , dwdesiredaccess : u32 , pfnlogevent : PLOG_EVENT_ROUTINE , hresourcehandle : isize ) -> u32 );
     ResUtilSetResourceServiceStartParametersEx(pszservicename.into_param().abi(), schscmhandle.into_param().abi(), phservice, dwdesiredaccess, pfnlogevent, hresourcehandle)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
@@ -2511,7 +2511,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilSetSzValue ( hkeyclusterkey : super::super::System::Registry:: HKEY , pszvaluename : :: windows::core::PCWSTR , psznewvalue : :: windows::core::PCWSTR , ppszoutstring : *mut :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilSetSzValue ( hkeyclusterkey : super::super::System::Registry:: HKEY , pszvaluename : ::windows::core::PCWSTR , psznewvalue : ::windows::core::PCWSTR , ppszoutstring : *mut ::windows::core::PWSTR ) -> u32 );
     ResUtilSetSzValue(hkeyclusterkey.into_param().abi(), pszvaluename.into_param().abi(), psznewvalue.into_param().abi(), ::core::mem::transmute(ppszoutstring.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -2532,7 +2532,7 @@ where
     P0: ::windows::core::IntoParam<super::super::System::Registry::HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilSetValueEx ( hkeyclusterkey : super::super::System::Registry:: HKEY , valuename : :: windows::core::PCWSTR , valuetype : u32 , valuedata : *const u8 , valuesize : u32 , flags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilSetValueEx ( hkeyclusterkey : super::super::System::Registry:: HKEY , valuename : ::windows::core::PCWSTR , valuetype : u32 , valuedata : *const u8 , valuesize : u32 , flags : u32 ) -> u32 );
     ResUtilSetValueEx(hkeyclusterkey.into_param().abi(), valuename.into_param().abi(), valuetype, ::core::mem::transmute(valuedata.as_ptr()), valuedata.len() as _, flags)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -2541,7 +2541,7 @@ pub unsafe fn ResUtilStartResourceService<P0>(pszservicename: P0, phservicehandl
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilStartResourceService ( pszservicename : :: windows::core::PCWSTR , phservicehandle : *mut isize ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilStartResourceService ( pszservicename : ::windows::core::PCWSTR , phservicehandle : *mut isize ) -> u32 );
     ResUtilStartResourceService(pszservicename.into_param().abi(), phservicehandle)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -2550,7 +2550,7 @@ pub unsafe fn ResUtilStopResourceService<P0>(pszservicename: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilStopResourceService ( pszservicename : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilStopResourceService ( pszservicename : ::windows::core::PCWSTR ) -> u32 );
     ResUtilStopResourceService(pszservicename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Security\"`*"]
@@ -2595,7 +2595,7 @@ pub unsafe fn ResUtilVerifyResourceService<P0>(pszservicename: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilVerifyResourceService ( pszservicename : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilVerifyResourceService ( pszservicename : ::windows::core::PCWSTR ) -> u32 );
     ResUtilVerifyResourceService(pszservicename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Security\"`*"]
@@ -2623,7 +2623,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilsDeleteKeyTree ( key : super::super::System::Registry:: HKEY , keyname : :: windows::core::PCWSTR , treatnokeyaserror : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows::imp::link ! ( "resutils.dll""system" fn ResUtilsDeleteKeyTree ( key : super::super::System::Registry:: HKEY , keyname : ::windows::core::PCWSTR , treatnokeyaserror : super::super::Foundation:: BOOL ) -> u32 );
     ResUtilsDeleteKeyTree(key.into_param().abi(), keyname.into_param().abi(), treatnokeyaserror.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -2647,7 +2647,7 @@ where
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn RestoreClusterDatabase ( lpszpathname : :: windows::core::PCWSTR , bforce : super::super::Foundation:: BOOL , lpszquorumdriveletter : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn RestoreClusterDatabase ( lpszpathname : ::windows::core::PCWSTR , bforce : super::super::Foundation:: BOOL , lpszquorumdriveletter : ::windows::core::PCWSTR ) -> u32 );
     RestoreClusterDatabase(lpszpathname.into_param().abi(), bforce.into_param().abi(), lpszquorumdriveletter.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -2678,7 +2678,7 @@ pub unsafe fn SetClusterGroupName<P0>(hgroup: *const _HGROUP, lpszgroupname: P0)
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn SetClusterGroupName ( hgroup : *const _HGROUP , lpszgroupname : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn SetClusterGroupName ( hgroup : *const _HGROUP , lpszgroupname : ::windows::core::PCWSTR ) -> u32 );
     SetClusterGroupName(hgroup, lpszgroupname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -2693,7 +2693,7 @@ pub unsafe fn SetClusterGroupSetDependencyExpression<P0>(hgroupset: *const _HGRO
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn SetClusterGroupSetDependencyExpression ( hgroupset : *const _HGROUPSET , lpszdependencyexprssion : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn SetClusterGroupSetDependencyExpression ( hgroupset : *const _HGROUPSET , lpszdependencyexprssion : ::windows::core::PCWSTR ) -> u32 );
     SetClusterGroupSetDependencyExpression(hgroupset, lpszdependencyexprssion.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -2702,7 +2702,7 @@ pub unsafe fn SetClusterName<P0>(hcluster: *const _HCLUSTER, lpsznewclustername:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn SetClusterName ( hcluster : *const _HCLUSTER , lpsznewclustername : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn SetClusterName ( hcluster : *const _HCLUSTER , lpsznewclustername : ::windows::core::PCWSTR ) -> u32 );
     SetClusterName(hcluster, lpsznewclustername.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -2711,7 +2711,7 @@ pub unsafe fn SetClusterNetworkName<P0>(hnetwork: *const _HNETWORK, lpszname: P0
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn SetClusterNetworkName ( hnetwork : *const _HNETWORK , lpszname : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn SetClusterNetworkName ( hnetwork : *const _HNETWORK , lpszname : ::windows::core::PCWSTR ) -> u32 );
     SetClusterNetworkName(hnetwork, lpszname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -2726,7 +2726,7 @@ pub unsafe fn SetClusterQuorumResource<P0>(hresource: *const _HRESOURCE, lpszdev
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn SetClusterQuorumResource ( hresource : *const _HRESOURCE , lpszdevicename : :: windows::core::PCWSTR , dwmaxquologsize : u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn SetClusterQuorumResource ( hresource : *const _HRESOURCE , lpszdevicename : ::windows::core::PCWSTR , dwmaxquologsize : u32 ) -> u32 );
     SetClusterQuorumResource(hresource, lpszdevicename.into_param().abi(), dwmaxquologsize)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -2735,7 +2735,7 @@ pub unsafe fn SetClusterResourceDependencyExpression<P0>(hresource: *const _HRES
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn SetClusterResourceDependencyExpression ( hresource : *const _HRESOURCE , lpszdependencyexpression : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn SetClusterResourceDependencyExpression ( hresource : *const _HRESOURCE , lpszdependencyexpression : ::windows::core::PCWSTR ) -> u32 );
     SetClusterResourceDependencyExpression(hresource, lpszdependencyexpression.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -2744,7 +2744,7 @@ pub unsafe fn SetClusterResourceName<P0>(hresource: *const _HRESOURCE, lpszresou
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn SetClusterResourceName ( hresource : *const _HRESOURCE , lpszresourcename : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn SetClusterResourceName ( hresource : *const _HRESOURCE , lpszresourcename : ::windows::core::PCWSTR ) -> u32 );
     SetClusterResourceName(hresource, lpszresourcename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
@@ -2755,7 +2755,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn SetClusterServiceAccountPassword ( lpszclustername : :: windows::core::PCWSTR , lpsznewpassword : :: windows::core::PCWSTR , dwflags : u32 , lpreturnstatusbuffer : *mut CLUSTER_SET_PASSWORD_STATUS , lpcbreturnstatusbuffersize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn SetClusterServiceAccountPassword ( lpszclustername : ::windows::core::PCWSTR , lpsznewpassword : ::windows::core::PCWSTR , dwflags : u32 , lpreturnstatusbuffer : *mut CLUSTER_SET_PASSWORD_STATUS , lpcbreturnstatusbuffersize : *mut u32 ) -> u32 );
     SetClusterServiceAccountPassword(lpszclustername.into_param().abi(), lpsznewpassword.into_param().abi(), dwflags, ::core::mem::transmute(lpreturnstatusbuffer.unwrap_or(::std::ptr::null_mut())), lpcbreturnstatusbuffersize)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -2764,7 +2764,7 @@ pub unsafe fn SetGroupDependencyExpression<P0>(hgroup: *const _HGROUP, lpszdepen
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "clusapi.dll""system" fn SetGroupDependencyExpression ( hgroup : *const _HGROUP , lpszdependencyexpression : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "clusapi.dll""system" fn SetGroupDependencyExpression ( hgroup : *const _HGROUP , lpszdependencyexpression : ::windows::core::PCWSTR ) -> u32 );
     SetGroupDependencyExpression(hgroup, lpszdependencyexpression.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -7585,7 +7585,7 @@ pub const CLCTL_MODIFY_SHIFT: u32 = 22u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLCTL_USER_SHIFT: u32 = 21u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLOUD_WITNESS_CONTAINER_NAME: ::windows::core::PCWSTR = ::windows::w!("msft-cloud-witness");
+pub const CLOUD_WITNESS_CONTAINER_NAME: ::windows::core::PCWSTR = ::windows::core::w!("msft-cloud-witness");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLRES_VERSION_V1_00: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -7627,6 +7627,12 @@ pub const CLUSAPI_NODE_PAUSE_REMAIN_ON_PAUSED_NODE_ON_MOVE_ERROR: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSAPI_NODE_PAUSE_RETRY_DRAIN_ON_FAILURE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub const CLUSAPI_NODE_RESUME_FAILBACK_PINNED_VMS_ONLY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub const CLUSAPI_NODE_RESUME_FAILBACK_STORAGE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub const CLUSAPI_NODE_RESUME_FAILBACK_VMS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSAPI_NO_ACCESS: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSAPI_READ_ACCESS: i32 = 1i32;
@@ -7665,7 +7671,9 @@ pub const CLUSAPI_RESOURCE_ONLINE_NECESSARY_FOR_QUORUM: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSAPI_VALID_CHANGE_RESOURCE_GROUP_FLAGS: u64 = 1u64;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSAPI_VERSION: u32 = 2560u32;
+pub const CLUSAPI_VERSION: u32 = 2572u32;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub const CLUSAPI_VERSION_NI: u32 = 2572u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSAPI_VERSION_RS3: u32 = 2560u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -7739,577 +7747,583 @@ pub const CLUSREG_DATABASE_ISOLATE_READ: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSREG_DATABASE_SYNC_WRITE_TO_ALL_NODES: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_KEYNAME_OBJECTGUIDS: ::windows::core::PCWSTR = ::windows::w!("ObjectGUIDs");
+pub const CLUSREG_KEYNAME_OBJECTGUIDS: ::windows::core::PCWSTR = ::windows::core::w!("ObjectGUIDs");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_AFFINITYRULE_ENABLED: ::windows::core::PCWSTR = ::windows::w!("Enabled");
+pub const CLUSREG_NAME_AFFINITYRULE_ENABLED: ::windows::core::PCWSTR = ::windows::core::w!("Enabled");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_AFFINITYRULE_GROUPS: ::windows::core::PCWSTR = ::windows::w!("Groups");
+pub const CLUSREG_NAME_AFFINITYRULE_GROUPS: ::windows::core::PCWSTR = ::windows::core::w!("Groups");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_AFFINITYRULE_NAME: ::windows::core::PCWSTR = ::windows::w!("Name");
+pub const CLUSREG_NAME_AFFINITYRULE_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Name");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_AFFINITYRULE_TYPE: ::windows::core::PCWSTR = ::windows::w!("RuleType");
+pub const CLUSREG_NAME_AFFINITYRULE_TYPE: ::windows::core::PCWSTR = ::windows::core::w!("RuleType");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_CLOUDWITNESS_ACCOUNT_NAME: ::windows::core::PCWSTR = ::windows::w!("AccountName");
+pub const CLUSREG_NAME_CLOUDWITNESS_ACCOUNT_NAME: ::windows::core::PCWSTR = ::windows::core::w!("AccountName");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_CLOUDWITNESS_CONTAINER_NAME: ::windows::core::PCWSTR = ::windows::w!("ContainerName");
+pub const CLUSREG_NAME_CLOUDWITNESS_CONTAINER_NAME: ::windows::core::PCWSTR = ::windows::core::w!("ContainerName");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_CLOUDWITNESS_ENDPOINT_INFO: ::windows::core::PCWSTR = ::windows::w!("EndpointInfo");
+pub const CLUSREG_NAME_CLOUDWITNESS_ENDPOINT_INFO: ::windows::core::PCWSTR = ::windows::core::w!("EndpointInfo");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_CLOUDWITNESS_PRIMARY_KEY: ::windows::core::PCWSTR = ::windows::w!("PrimaryKey");
+pub const CLUSREG_NAME_CLOUDWITNESS_PRIMARY_KEY: ::windows::core::PCWSTR = ::windows::core::w!("PrimaryKey");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_CLOUDWITNESS_PRIMARY_TOKEN: ::windows::core::PCWSTR = ::windows::w!("PrimaryToken");
+pub const CLUSREG_NAME_CLOUDWITNESS_PRIMARY_TOKEN: ::windows::core::PCWSTR = ::windows::core::w!("PrimaryToken");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_CLUS_DEFAULT_NETWORK_ROLE: ::windows::core::PCWSTR = ::windows::w!("DefaultNetworkRole");
+pub const CLUSREG_NAME_CLUS_DEFAULT_NETWORK_ROLE: ::windows::core::PCWSTR = ::windows::core::w!("DefaultNetworkRole");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_CLUS_DESC: ::windows::core::PCWSTR = ::windows::w!("Description");
+pub const CLUSREG_NAME_CLUS_DESC: ::windows::core::PCWSTR = ::windows::core::w!("Description");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_CLUS_SD: ::windows::core::PCWSTR = ::windows::w!("Security Descriptor");
+pub const CLUSREG_NAME_CLUS_SD: ::windows::core::PCWSTR = ::windows::core::w!("Security Descriptor");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_CROSS_SITE_DELAY: ::windows::core::PCWSTR = ::windows::w!("CrossSiteDelay");
+pub const CLUSREG_NAME_CROSS_SITE_DELAY: ::windows::core::PCWSTR = ::windows::core::w!("CrossSiteDelay");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_CROSS_SITE_THRESHOLD: ::windows::core::PCWSTR = ::windows::w!("CrossSiteThreshold");
+pub const CLUSREG_NAME_CROSS_SITE_THRESHOLD: ::windows::core::PCWSTR = ::windows::core::w!("CrossSiteThreshold");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_CROSS_SUBNET_DELAY: ::windows::core::PCWSTR = ::windows::w!("CrossSubnetDelay");
+pub const CLUSREG_NAME_CROSS_SUBNET_DELAY: ::windows::core::PCWSTR = ::windows::core::w!("CrossSubnetDelay");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_CROSS_SUBNET_THRESHOLD: ::windows::core::PCWSTR = ::windows::w!("CrossSubnetThreshold");
+pub const CLUSREG_NAME_CROSS_SUBNET_THRESHOLD: ::windows::core::PCWSTR = ::windows::core::w!("CrossSubnetThreshold");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_CSV_BLOCK_CACHE: ::windows::core::PCWSTR = ::windows::w!("BlockCacheSize");
+pub const CLUSREG_NAME_CSV_BLOCK_CACHE: ::windows::core::PCWSTR = ::windows::core::w!("BlockCacheSize");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_CSV_MDS_SD: ::windows::core::PCWSTR = ::windows::w!("SharedVolumeSecurityDescriptor");
+pub const CLUSREG_NAME_CSV_MDS_SD: ::windows::core::PCWSTR = ::windows::core::w!("SharedVolumeSecurityDescriptor");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_DATABASE_READ_WRITE_MODE: ::windows::core::PCWSTR = ::windows::w!("DatabaseReadWriteMode");
+pub const CLUSREG_NAME_DATABASE_READ_WRITE_MODE: ::windows::core::PCWSTR = ::windows::core::w!("DatabaseReadWriteMode");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_DDA_DEVICE_ALLOCATIONS: ::windows::core::PCWSTR = ::windows::w!("DdaDeviceAllocations");
+pub const CLUSREG_NAME_DDA_DEVICE_ALLOCATIONS: ::windows::core::PCWSTR = ::windows::core::w!("DdaDeviceAllocations");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_DHCP_BACKUP_PATH: ::windows::core::PCWSTR = ::windows::w!("BackupPath");
+pub const CLUSREG_NAME_DHCP_BACKUP_PATH: ::windows::core::PCWSTR = ::windows::core::w!("BackupPath");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_DHCP_DATABASE_PATH: ::windows::core::PCWSTR = ::windows::w!("DatabasePath");
+pub const CLUSREG_NAME_DHCP_DATABASE_PATH: ::windows::core::PCWSTR = ::windows::core::w!("DatabasePath");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_DRAIN_ON_SHUTDOWN: ::windows::core::PCWSTR = ::windows::w!("DrainOnShutdown");
+pub const CLUSREG_NAME_DRAIN_ON_SHUTDOWN: ::windows::core::PCWSTR = ::windows::core::w!("DrainOnShutdown");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_ENABLED_EVENT_LOGS: ::windows::core::PCWSTR = ::windows::w!("EnabledEventLogs");
+pub const CLUSREG_NAME_ENABLED_EVENT_LOGS: ::windows::core::PCWSTR = ::windows::core::w!("EnabledEventLogs");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_FAILOVER_MOVE_MIGRATION_TYPE: ::windows::core::PCWSTR = ::windows::w!("FailoverMoveMigrationType");
+pub const CLUSREG_NAME_FAILOVER_MOVE_MIGRATION_TYPE: ::windows::core::PCWSTR = ::windows::core::w!("FailoverMoveMigrationType");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_FILESHR_CA_TIMEOUT: ::windows::core::PCWSTR = ::windows::w!("CATimeout");
+pub const CLUSREG_NAME_FILESHR_CA_TIMEOUT: ::windows::core::PCWSTR = ::windows::core::w!("CATimeout");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_FILESHR_HIDE_SUBDIR_SHARES: ::windows::core::PCWSTR = ::windows::w!("HideSubDirShares");
+pub const CLUSREG_NAME_FILESHR_HIDE_SUBDIR_SHARES: ::windows::core::PCWSTR = ::windows::core::w!("HideSubDirShares");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_FILESHR_IS_DFS_ROOT: ::windows::core::PCWSTR = ::windows::w!("IsDfsRoot");
+pub const CLUSREG_NAME_FILESHR_IS_DFS_ROOT: ::windows::core::PCWSTR = ::windows::core::w!("IsDfsRoot");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_FILESHR_MAX_USERS: ::windows::core::PCWSTR = ::windows::w!("MaxUsers");
+pub const CLUSREG_NAME_FILESHR_MAX_USERS: ::windows::core::PCWSTR = ::windows::core::w!("MaxUsers");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_FILESHR_PATH: ::windows::core::PCWSTR = ::windows::w!("Path");
+pub const CLUSREG_NAME_FILESHR_PATH: ::windows::core::PCWSTR = ::windows::core::w!("Path");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_FILESHR_REMARK: ::windows::core::PCWSTR = ::windows::w!("Remark");
+pub const CLUSREG_NAME_FILESHR_QOS_FLOWSCOPE: ::windows::core::PCWSTR = ::windows::core::w!("QosFlowScope");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_FILESHR_SD: ::windows::core::PCWSTR = ::windows::w!("Security Descriptor");
+pub const CLUSREG_NAME_FILESHR_QOS_POLICYID: ::windows::core::PCWSTR = ::windows::core::w!("QosPolicyId");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_FILESHR_SERVER_NAME: ::windows::core::PCWSTR = ::windows::w!("ServerName");
+pub const CLUSREG_NAME_FILESHR_REMARK: ::windows::core::PCWSTR = ::windows::core::w!("Remark");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_FILESHR_SHARE_FLAGS: ::windows::core::PCWSTR = ::windows::w!("ShareFlags");
+pub const CLUSREG_NAME_FILESHR_SD: ::windows::core::PCWSTR = ::windows::core::w!("Security Descriptor");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_FILESHR_SHARE_NAME: ::windows::core::PCWSTR = ::windows::w!("ShareName");
+pub const CLUSREG_NAME_FILESHR_SERVER_NAME: ::windows::core::PCWSTR = ::windows::core::w!("ServerName");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_FILESHR_SHARE_SUBDIRS: ::windows::core::PCWSTR = ::windows::w!("ShareSubDirs");
+pub const CLUSREG_NAME_FILESHR_SHARE_FLAGS: ::windows::core::PCWSTR = ::windows::core::w!("ShareFlags");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_FIXQUORUM: ::windows::core::PCWSTR = ::windows::w!("FixQuorum");
+pub const CLUSREG_NAME_FILESHR_SHARE_NAME: ::windows::core::PCWSTR = ::windows::core::w!("ShareName");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_FSWITNESS_ARB_DELAY: ::windows::core::PCWSTR = ::windows::w!("ArbitrationDelay");
+pub const CLUSREG_NAME_FILESHR_SHARE_SUBDIRS: ::windows::core::PCWSTR = ::windows::core::w!("ShareSubDirs");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_FSWITNESS_IMPERSONATE_CNO: ::windows::core::PCWSTR = ::windows::w!("ImpersonateCNO");
+pub const CLUSREG_NAME_FIXQUORUM: ::windows::core::PCWSTR = ::windows::core::w!("FixQuorum");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_FSWITNESS_SHARE_PATH: ::windows::core::PCWSTR = ::windows::w!("SharePath");
+pub const CLUSREG_NAME_FSWITNESS_ARB_DELAY: ::windows::core::PCWSTR = ::windows::core::w!("ArbitrationDelay");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_FUNCTIONAL_LEVEL: ::windows::core::PCWSTR = ::windows::w!("ClusterFunctionalLevel");
+pub const CLUSREG_NAME_FSWITNESS_IMPERSONATE_CNO: ::windows::core::PCWSTR = ::windows::core::w!("ImpersonateCNO");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GENAPP_COMMAND_LINE: ::windows::core::PCWSTR = ::windows::w!("CommandLine");
+pub const CLUSREG_NAME_FSWITNESS_SHARE_PATH: ::windows::core::PCWSTR = ::windows::core::w!("SharePath");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GENAPP_CURRENT_DIRECTORY: ::windows::core::PCWSTR = ::windows::w!("CurrentDirectory");
+pub const CLUSREG_NAME_FUNCTIONAL_LEVEL: ::windows::core::PCWSTR = ::windows::core::w!("ClusterFunctionalLevel");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GENAPP_USE_NETWORK_NAME: ::windows::core::PCWSTR = ::windows::w!("UseNetworkName");
+pub const CLUSREG_NAME_GENAPP_COMMAND_LINE: ::windows::core::PCWSTR = ::windows::core::w!("CommandLine");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GENSCRIPT_SCRIPT_FILEPATH: ::windows::core::PCWSTR = ::windows::w!("ScriptFilepath");
+pub const CLUSREG_NAME_GENAPP_CURRENT_DIRECTORY: ::windows::core::PCWSTR = ::windows::core::w!("CurrentDirectory");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GENSVC_SERVICE_NAME: ::windows::core::PCWSTR = ::windows::w!("ServiceName");
+pub const CLUSREG_NAME_GENAPP_USE_NETWORK_NAME: ::windows::core::PCWSTR = ::windows::core::w!("UseNetworkName");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GENSVC_STARTUP_PARAMS: ::windows::core::PCWSTR = ::windows::w!("StartupParameters");
+pub const CLUSREG_NAME_GENSCRIPT_SCRIPT_FILEPATH: ::windows::core::PCWSTR = ::windows::core::w!("ScriptFilepath");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GENSVC_USE_NETWORK_NAME: ::windows::core::PCWSTR = ::windows::w!("UseNetworkName");
+pub const CLUSREG_NAME_GENSVC_SERVICE_NAME: ::windows::core::PCWSTR = ::windows::core::w!("ServiceName");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GPUP_DEVICE_ALLOCATIONS: ::windows::core::PCWSTR = ::windows::w!("GpupDeviceAllocations");
+pub const CLUSREG_NAME_GENSVC_STARTUP_PARAMS: ::windows::core::PCWSTR = ::windows::core::w!("StartupParameters");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GROUPSET_AVAILABILITY_SET_INDEX_TO_NODE_MAPPING: ::windows::core::PCWSTR = ::windows::w!("NodeDomainInfo");
+pub const CLUSREG_NAME_GENSVC_USE_NETWORK_NAME: ::windows::core::PCWSTR = ::windows::core::w!("UseNetworkName");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GROUPSET_FAULT_DOMAINS: ::windows::core::PCWSTR = ::windows::w!("FaultDomains");
+pub const CLUSREG_NAME_GPUP_DEVICE_ALLOCATIONS: ::windows::core::PCWSTR = ::windows::core::w!("GpupDeviceAllocations");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GROUPSET_IS_AVAILABILITY_SET: ::windows::core::PCWSTR = ::windows::w!("IsAvailabilitySet");
+pub const CLUSREG_NAME_GROUPSET_AVAILABILITY_SET_INDEX_TO_NODE_MAPPING: ::windows::core::PCWSTR = ::windows::core::w!("NodeDomainInfo");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GROUPSET_IS_GLOBAL: ::windows::core::PCWSTR = ::windows::w!("IsGlobal");
+pub const CLUSREG_NAME_GROUPSET_FAULT_DOMAINS: ::windows::core::PCWSTR = ::windows::core::w!("FaultDomains");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GROUPSET_NAME: ::windows::core::PCWSTR = ::windows::w!("Name");
+pub const CLUSREG_NAME_GROUPSET_IS_AVAILABILITY_SET: ::windows::core::PCWSTR = ::windows::core::w!("IsAvailabilitySet");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GROUPSET_RESERVE_NODE: ::windows::core::PCWSTR = ::windows::w!("ReserveSpareNode");
+pub const CLUSREG_NAME_GROUPSET_IS_GLOBAL: ::windows::core::PCWSTR = ::windows::core::w!("IsGlobal");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GROUPSET_STARTUP_COUNT: ::windows::core::PCWSTR = ::windows::w!("StartupCount");
+pub const CLUSREG_NAME_GROUPSET_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Name");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GROUPSET_STARTUP_DELAY: ::windows::core::PCWSTR = ::windows::w!("StartupDelay");
+pub const CLUSREG_NAME_GROUPSET_RESERVE_NODE: ::windows::core::PCWSTR = ::windows::core::w!("ReserveSpareNode");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GROUPSET_STARTUP_SETTING: ::windows::core::PCWSTR = ::windows::w!("StartupSetting");
+pub const CLUSREG_NAME_GROUPSET_STARTUP_COUNT: ::windows::core::PCWSTR = ::windows::core::w!("StartupCount");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GROUPSET_STATUS_INFORMATION: ::windows::core::PCWSTR = ::windows::w!("StatusInformation");
+pub const CLUSREG_NAME_GROUPSET_STARTUP_DELAY: ::windows::core::PCWSTR = ::windows::core::w!("StartupDelay");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GROUPSET_UPDATE_DOMAINS: ::windows::core::PCWSTR = ::windows::w!("UpdateDomains");
+pub const CLUSREG_NAME_GROUPSET_STARTUP_SETTING: ::windows::core::PCWSTR = ::windows::core::w!("StartupSetting");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GROUP_DEPENDENCY_TIMEOUT: ::windows::core::PCWSTR = ::windows::w!("GroupDependencyTimeout");
+pub const CLUSREG_NAME_GROUPSET_STATUS_INFORMATION: ::windows::core::PCWSTR = ::windows::core::w!("StatusInformation");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_ANTI_AFFINITY_CLASS_NAME: ::windows::core::PCWSTR = ::windows::w!("AntiAffinityClassNames");
+pub const CLUSREG_NAME_GROUPSET_UPDATE_DOMAINS: ::windows::core::PCWSTR = ::windows::core::w!("UpdateDomains");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_CCF_EPOCH: ::windows::core::PCWSTR = ::windows::w!("CCFEpoch");
+pub const CLUSREG_NAME_GROUP_DEPENDENCY_TIMEOUT: ::windows::core::PCWSTR = ::windows::core::w!("GroupDependencyTimeout");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_CCF_EPOCH_HIGH: ::windows::core::PCWSTR = ::windows::w!("CCFEpochHigh");
+pub const CLUSREG_NAME_GRP_ANTI_AFFINITY_CLASS_NAME: ::windows::core::PCWSTR = ::windows::core::w!("AntiAffinityClassNames");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_COLD_START_SETTING: ::windows::core::PCWSTR = ::windows::w!("ColdStartSetting");
+pub const CLUSREG_NAME_GRP_CCF_EPOCH: ::windows::core::PCWSTR = ::windows::core::w!("CCFEpoch");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_DEFAULT_OWNER: ::windows::core::PCWSTR = ::windows::w!("DefaultOwner");
+pub const CLUSREG_NAME_GRP_CCF_EPOCH_HIGH: ::windows::core::PCWSTR = ::windows::core::w!("CCFEpochHigh");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_DESC: ::windows::core::PCWSTR = ::windows::w!("Description");
+pub const CLUSREG_NAME_GRP_COLD_START_SETTING: ::windows::core::PCWSTR = ::windows::core::w!("ColdStartSetting");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_FAILBACK_TYPE: ::windows::core::PCWSTR = ::windows::w!("AutoFailbackType");
+pub const CLUSREG_NAME_GRP_DEFAULT_OWNER: ::windows::core::PCWSTR = ::windows::core::w!("DefaultOwner");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_FAILBACK_WIN_END: ::windows::core::PCWSTR = ::windows::w!("FailbackWindowEnd");
+pub const CLUSREG_NAME_GRP_DESC: ::windows::core::PCWSTR = ::windows::core::w!("Description");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_FAILBACK_WIN_START: ::windows::core::PCWSTR = ::windows::w!("FailbackWindowStart");
+pub const CLUSREG_NAME_GRP_FAILBACK_TYPE: ::windows::core::PCWSTR = ::windows::core::w!("AutoFailbackType");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_FAILOVER_PERIOD: ::windows::core::PCWSTR = ::windows::w!("FailoverPeriod");
+pub const CLUSREG_NAME_GRP_FAILBACK_WIN_END: ::windows::core::PCWSTR = ::windows::core::w!("FailbackWindowEnd");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_FAILOVER_THRESHOLD: ::windows::core::PCWSTR = ::windows::w!("FailoverThreshold");
+pub const CLUSREG_NAME_GRP_FAILBACK_WIN_START: ::windows::core::PCWSTR = ::windows::core::w!("FailbackWindowStart");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_FAULT_DOMAIN: ::windows::core::PCWSTR = ::windows::w!("FaultDomain");
+pub const CLUSREG_NAME_GRP_FAILOVER_PERIOD: ::windows::core::PCWSTR = ::windows::core::w!("FailoverPeriod");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_LOCK_MOVE: ::windows::core::PCWSTR = ::windows::w!("LockedFromMoving");
+pub const CLUSREG_NAME_GRP_FAILOVER_THRESHOLD: ::windows::core::PCWSTR = ::windows::core::w!("FailoverThreshold");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_NAME: ::windows::core::PCWSTR = ::windows::w!("Name");
+pub const CLUSREG_NAME_GRP_FAULT_DOMAIN: ::windows::core::PCWSTR = ::windows::core::w!("FaultDomain");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_PERSISTENT_STATE: ::windows::core::PCWSTR = ::windows::w!("PersistentState");
+pub const CLUSREG_NAME_GRP_LOCK_MOVE: ::windows::core::PCWSTR = ::windows::core::w!("LockedFromMoving");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_PLACEMENT_OPTIONS: ::windows::core::PCWSTR = ::windows::w!("PlacementOptions");
+pub const CLUSREG_NAME_GRP_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Name");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_PREFERRED_SITE: ::windows::core::PCWSTR = ::windows::w!("PreferredSite");
+pub const CLUSREG_NAME_GRP_PERSISTENT_STATE: ::windows::core::PCWSTR = ::windows::core::w!("PersistentState");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_PRIORITY: ::windows::core::PCWSTR = ::windows::w!("Priority");
+pub const CLUSREG_NAME_GRP_PLACEMENT_OPTIONS: ::windows::core::PCWSTR = ::windows::core::w!("PlacementOptions");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_RESILIENCY_PERIOD: ::windows::core::PCWSTR = ::windows::w!("ResiliencyPeriod");
+pub const CLUSREG_NAME_GRP_PREFERRED_SITE: ::windows::core::PCWSTR = ::windows::core::w!("PreferredSite");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_START_DELAY: ::windows::core::PCWSTR = ::windows::w!("GroupStartDelay");
+pub const CLUSREG_NAME_GRP_PRIORITY: ::windows::core::PCWSTR = ::windows::core::w!("Priority");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_STATUS_INFORMATION: ::windows::core::PCWSTR = ::windows::w!("StatusInformation");
+pub const CLUSREG_NAME_GRP_RESILIENCY_PERIOD: ::windows::core::PCWSTR = ::windows::core::w!("ResiliencyPeriod");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_TYPE: ::windows::core::PCWSTR = ::windows::w!("GroupType");
+pub const CLUSREG_NAME_GRP_START_DELAY: ::windows::core::PCWSTR = ::windows::core::w!("GroupStartDelay");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_GRP_UPDATE_DOMAIN: ::windows::core::PCWSTR = ::windows::w!("UpdateDomain");
+pub const CLUSREG_NAME_GRP_STATUS_INFORMATION: ::windows::core::PCWSTR = ::windows::core::w!("StatusInformation");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_IGNORE_PERSISTENT_STATE: ::windows::core::PCWSTR = ::windows::w!("IgnorePersistentStateOnStartup");
+pub const CLUSREG_NAME_GRP_TYPE: ::windows::core::PCWSTR = ::windows::core::w!("GroupType");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_IPADDR_ADDRESS: ::windows::core::PCWSTR = ::windows::w!("Address");
+pub const CLUSREG_NAME_GRP_UPDATE_DOMAIN: ::windows::core::PCWSTR = ::windows::core::w!("UpdateDomain");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_IPADDR_DHCP_ADDRESS: ::windows::core::PCWSTR = ::windows::w!("DhcpAddress");
+pub const CLUSREG_NAME_IGNORE_PERSISTENT_STATE: ::windows::core::PCWSTR = ::windows::core::w!("IgnorePersistentStateOnStartup");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_IPADDR_DHCP_SERVER: ::windows::core::PCWSTR = ::windows::w!("DhcpServer");
+pub const CLUSREG_NAME_IPADDR_ADDRESS: ::windows::core::PCWSTR = ::windows::core::w!("Address");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_IPADDR_DHCP_SUBNET_MASK: ::windows::core::PCWSTR = ::windows::w!("DhcpSubnetMask");
+pub const CLUSREG_NAME_IPADDR_DHCP_ADDRESS: ::windows::core::PCWSTR = ::windows::core::w!("DhcpAddress");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_IPADDR_ENABLE_DHCP: ::windows::core::PCWSTR = ::windows::w!("EnableDhcp");
+pub const CLUSREG_NAME_IPADDR_DHCP_SERVER: ::windows::core::PCWSTR = ::windows::core::w!("DhcpServer");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_IPADDR_ENABLE_NETBIOS: ::windows::core::PCWSTR = ::windows::w!("EnableNetBIOS");
+pub const CLUSREG_NAME_IPADDR_DHCP_SUBNET_MASK: ::windows::core::PCWSTR = ::windows::core::w!("DhcpSubnetMask");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_IPADDR_LEASE_OBTAINED_TIME: ::windows::core::PCWSTR = ::windows::w!("LeaseObtainedTime");
+pub const CLUSREG_NAME_IPADDR_ENABLE_DHCP: ::windows::core::PCWSTR = ::windows::core::w!("EnableDhcp");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_IPADDR_LEASE_TERMINATES_TIME: ::windows::core::PCWSTR = ::windows::w!("LeaseExpiresTime");
+pub const CLUSREG_NAME_IPADDR_ENABLE_NETBIOS: ::windows::core::PCWSTR = ::windows::core::w!("EnableNetBIOS");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_IPADDR_NETWORK: ::windows::core::PCWSTR = ::windows::w!("Network");
+pub const CLUSREG_NAME_IPADDR_LEASE_OBTAINED_TIME: ::windows::core::PCWSTR = ::windows::core::w!("LeaseObtainedTime");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_IPADDR_OVERRIDE_ADDRMATCH: ::windows::core::PCWSTR = ::windows::w!("OverrideAddressMatch");
+pub const CLUSREG_NAME_IPADDR_LEASE_TERMINATES_TIME: ::windows::core::PCWSTR = ::windows::core::w!("LeaseExpiresTime");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_IPADDR_PROBE_FAILURE_THRESHOLD: ::windows::core::PCWSTR = ::windows::w!("ProbeFailureThreshold");
+pub const CLUSREG_NAME_IPADDR_NETWORK: ::windows::core::PCWSTR = ::windows::core::w!("Network");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_IPADDR_PROBE_PORT: ::windows::core::PCWSTR = ::windows::w!("ProbePort");
+pub const CLUSREG_NAME_IPADDR_OVERRIDE_ADDRMATCH: ::windows::core::PCWSTR = ::windows::core::w!("OverrideAddressMatch");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_IPADDR_SHARED_NETNAME: ::windows::core::PCWSTR = ::windows::w!("SharedNetname");
+pub const CLUSREG_NAME_IPADDR_PROBE_FAILURE_THRESHOLD: ::windows::core::PCWSTR = ::windows::core::w!("ProbeFailureThreshold");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_IPADDR_SUBNET_MASK: ::windows::core::PCWSTR = ::windows::w!("SubnetMask");
+pub const CLUSREG_NAME_IPADDR_PROBE_PORT: ::windows::core::PCWSTR = ::windows::core::w!("ProbePort");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_IPADDR_T1: ::windows::core::PCWSTR = ::windows::w!("T1");
+pub const CLUSREG_NAME_IPADDR_SHARED_NETNAME: ::windows::core::PCWSTR = ::windows::core::w!("SharedNetname");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_IPADDR_T2: ::windows::core::PCWSTR = ::windows::w!("T2");
+pub const CLUSREG_NAME_IPADDR_SUBNET_MASK: ::windows::core::PCWSTR = ::windows::core::w!("SubnetMask");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_IPV6_NATIVE_ADDRESS: ::windows::core::PCWSTR = ::windows::w!("Address");
+pub const CLUSREG_NAME_IPADDR_T1: ::windows::core::PCWSTR = ::windows::core::w!("T1");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_IPV6_NATIVE_NETWORK: ::windows::core::PCWSTR = ::windows::w!("Network");
+pub const CLUSREG_NAME_IPADDR_T2: ::windows::core::PCWSTR = ::windows::core::w!("T2");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_IPV6_NATIVE_PREFIX_LENGTH: ::windows::core::PCWSTR = ::windows::w!("PrefixLength");
+pub const CLUSREG_NAME_IPV6_NATIVE_ADDRESS: ::windows::core::PCWSTR = ::windows::core::w!("Address");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_IPV6_TUNNEL_ADDRESS: ::windows::core::PCWSTR = ::windows::w!("Address");
+pub const CLUSREG_NAME_IPV6_NATIVE_NETWORK: ::windows::core::PCWSTR = ::windows::core::w!("Network");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_IPV6_TUNNEL_TUNNELTYPE: ::windows::core::PCWSTR = ::windows::w!("TunnelType");
+pub const CLUSREG_NAME_IPV6_NATIVE_PREFIX_LENGTH: ::windows::core::PCWSTR = ::windows::core::w!("PrefixLength");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_LAST_RECENT_EVENTS_RESET_TIME: ::windows::core::PCWSTR = ::windows::w!("RecentEventsResetTime");
+pub const CLUSREG_NAME_IPV6_TUNNEL_ADDRESS: ::windows::core::PCWSTR = ::windows::core::w!("Address");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_LOG_FILE_PATH: ::windows::core::PCWSTR = ::windows::w!("LogFilePath");
+pub const CLUSREG_NAME_IPV6_TUNNEL_TUNNELTYPE: ::windows::core::PCWSTR = ::windows::core::w!("TunnelType");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_MESSAGE_BUFFER_LENGTH: ::windows::core::PCWSTR = ::windows::w!("MessageBufferLength");
+pub const CLUSREG_NAME_LAST_RECENT_EVENTS_RESET_TIME: ::windows::core::PCWSTR = ::windows::core::w!("RecentEventsResetTime");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_MIXED_MODE: ::windows::core::PCWSTR = ::windows::w!("MixedMode");
+pub const CLUSREG_NAME_LOG_FILE_PATH: ::windows::core::PCWSTR = ::windows::core::w!("LogFilePath");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETFT_IPSEC_ENABLED: ::windows::core::PCWSTR = ::windows::w!("NetftIPSecEnabled");
+pub const CLUSREG_NAME_MESSAGE_BUFFER_LENGTH: ::windows::core::PCWSTR = ::windows::core::w!("MessageBufferLength");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETIFACE_ADAPTER_ID: ::windows::core::PCWSTR = ::windows::w!("AdapterId");
+pub const CLUSREG_NAME_MIXED_MODE: ::windows::core::PCWSTR = ::windows::core::w!("MixedMode");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETIFACE_ADAPTER_NAME: ::windows::core::PCWSTR = ::windows::w!("Adapter");
+pub const CLUSREG_NAME_NETFT_IPSEC_ENABLED: ::windows::core::PCWSTR = ::windows::core::w!("NetftIPSecEnabled");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETIFACE_ADDRESS: ::windows::core::PCWSTR = ::windows::w!("Address");
+pub const CLUSREG_NAME_NETIFACE_ADAPTER_ID: ::windows::core::PCWSTR = ::windows::core::w!("AdapterId");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETIFACE_DESC: ::windows::core::PCWSTR = ::windows::w!("Description");
+pub const CLUSREG_NAME_NETIFACE_ADAPTER_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Adapter");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETIFACE_DHCP_ENABLED: ::windows::core::PCWSTR = ::windows::w!("DhcpEnabled");
+pub const CLUSREG_NAME_NETIFACE_ADDRESS: ::windows::core::PCWSTR = ::windows::core::w!("Address");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETIFACE_IPV4_ADDRESSES: ::windows::core::PCWSTR = ::windows::w!("IPv4Addresses");
+pub const CLUSREG_NAME_NETIFACE_DESC: ::windows::core::PCWSTR = ::windows::core::w!("Description");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETIFACE_IPV6_ADDRESSES: ::windows::core::PCWSTR = ::windows::w!("IPv6Addresses");
+pub const CLUSREG_NAME_NETIFACE_DHCP_ENABLED: ::windows::core::PCWSTR = ::windows::core::w!("DhcpEnabled");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETIFACE_NAME: ::windows::core::PCWSTR = ::windows::w!("Name");
+pub const CLUSREG_NAME_NETIFACE_IPV4_ADDRESSES: ::windows::core::PCWSTR = ::windows::core::w!("IPv4Addresses");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETIFACE_NETWORK: ::windows::core::PCWSTR = ::windows::w!("Network");
+pub const CLUSREG_NAME_NETIFACE_IPV6_ADDRESSES: ::windows::core::PCWSTR = ::windows::core::w!("IPv6Addresses");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETIFACE_NODE: ::windows::core::PCWSTR = ::windows::w!("Node");
+pub const CLUSREG_NAME_NETIFACE_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Name");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETNAME_AD_AWARE: ::windows::core::PCWSTR = ::windows::w!("ADAware");
+pub const CLUSREG_NAME_NETIFACE_NETWORK: ::windows::core::PCWSTR = ::windows::core::w!("Network");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETNAME_ALIASES: ::windows::core::PCWSTR = ::windows::w!("Aliases");
+pub const CLUSREG_NAME_NETIFACE_NODE: ::windows::core::PCWSTR = ::windows::core::w!("Node");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETNAME_CONTAINERGUID: ::windows::core::PCWSTR = ::windows::w!("CryptoContainerGUID");
+pub const CLUSREG_NAME_NETNAME_AD_AWARE: ::windows::core::PCWSTR = ::windows::core::w!("ADAware");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETNAME_CREATING_DC: ::windows::core::PCWSTR = ::windows::w!("CreatingDC");
+pub const CLUSREG_NAME_NETNAME_ALIASES: ::windows::core::PCWSTR = ::windows::core::w!("Aliases");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETNAME_DNN_DISABLE_CLONES: ::windows::core::PCWSTR = ::windows::w!("DisableClones");
+pub const CLUSREG_NAME_NETNAME_CONTAINERGUID: ::windows::core::PCWSTR = ::windows::core::w!("CryptoContainerGUID");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETNAME_DNS_NAME: ::windows::core::PCWSTR = ::windows::w!("DnsName");
+pub const CLUSREG_NAME_NETNAME_CREATING_DC: ::windows::core::PCWSTR = ::windows::core::w!("CreatingDC");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETNAME_DNS_SUFFIX: ::windows::core::PCWSTR = ::windows::w!("DnsSuffix");
+pub const CLUSREG_NAME_NETNAME_DNN_DISABLE_CLONES: ::windows::core::PCWSTR = ::windows::core::w!("DisableClones");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETNAME_EXCLUDE_NETWORKS: ::windows::core::PCWSTR = ::windows::w!("ExcludeNetworks");
+pub const CLUSREG_NAME_NETNAME_DNS_NAME: ::windows::core::PCWSTR = ::windows::core::w!("DnsName");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETNAME_HOST_TTL: ::windows::core::PCWSTR = ::windows::w!("HostRecordTTL");
+pub const CLUSREG_NAME_NETNAME_DNS_SUFFIX: ::windows::core::PCWSTR = ::windows::core::w!("DnsSuffix");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETNAME_IN_USE_NETWORKS: ::windows::core::PCWSTR = ::windows::w!("InUseNetworks");
+pub const CLUSREG_NAME_NETNAME_EXCLUDE_NETWORKS: ::windows::core::PCWSTR = ::windows::core::w!("ExcludeNetworks");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETNAME_LAST_DNS_UPDATE: ::windows::core::PCWSTR = ::windows::w!("LastDNSUpdateTime");
+pub const CLUSREG_NAME_NETNAME_HOST_TTL: ::windows::core::PCWSTR = ::windows::core::w!("HostRecordTTL");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETNAME_NAME: ::windows::core::PCWSTR = ::windows::w!("Name");
+pub const CLUSREG_NAME_NETNAME_IN_USE_NETWORKS: ::windows::core::PCWSTR = ::windows::core::w!("InUseNetworks");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETNAME_OBJECT_ID: ::windows::core::PCWSTR = ::windows::w!("ObjectGUID");
+pub const CLUSREG_NAME_NETNAME_LAST_DNS_UPDATE: ::windows::core::PCWSTR = ::windows::core::w!("LastDNSUpdateTime");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETNAME_PUBLISH_PTR: ::windows::core::PCWSTR = ::windows::w!("PublishPTRRecords");
+pub const CLUSREG_NAME_NETNAME_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Name");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETNAME_REGISTER_ALL_IP: ::windows::core::PCWSTR = ::windows::w!("RegisterAllProvidersIP");
+pub const CLUSREG_NAME_NETNAME_OBJECT_ID: ::windows::core::PCWSTR = ::windows::core::w!("ObjectGUID");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETNAME_REMAP_PIPE_NAMES: ::windows::core::PCWSTR = ::windows::w!("RemapPipeNames");
+pub const CLUSREG_NAME_NETNAME_PUBLISH_PTR: ::windows::core::PCWSTR = ::windows::core::w!("PublishPTRRecords");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETNAME_REMOVEVCO_ONDELETE: ::windows::core::PCWSTR = ::windows::w!("DeleteVcoOnResCleanup");
+pub const CLUSREG_NAME_NETNAME_REGISTER_ALL_IP: ::windows::core::PCWSTR = ::windows::core::w!("RegisterAllProvidersIP");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETNAME_RESOURCE_DATA: ::windows::core::PCWSTR = ::windows::w!("ResourceData");
+pub const CLUSREG_NAME_NETNAME_REMAP_PIPE_NAMES: ::windows::core::PCWSTR = ::windows::core::w!("RemapPipeNames");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETNAME_STATUS_DNS: ::windows::core::PCWSTR = ::windows::w!("StatusDNS");
+pub const CLUSREG_NAME_NETNAME_REMOVEVCO_ONDELETE: ::windows::core::PCWSTR = ::windows::core::w!("DeleteVcoOnResCleanup");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETNAME_STATUS_KERBEROS: ::windows::core::PCWSTR = ::windows::w!("StatusKerberos");
+pub const CLUSREG_NAME_NETNAME_RESOURCE_DATA: ::windows::core::PCWSTR = ::windows::core::w!("ResourceData");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETNAME_STATUS_NETBIOS: ::windows::core::PCWSTR = ::windows::w!("StatusNetBIOS");
+pub const CLUSREG_NAME_NETNAME_STATUS_DNS: ::windows::core::PCWSTR = ::windows::core::w!("StatusDNS");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NETNAME_VCO_CONTAINER: ::windows::core::PCWSTR = ::windows::w!("VcoContainer");
+pub const CLUSREG_NAME_NETNAME_STATUS_KERBEROS: ::windows::core::PCWSTR = ::windows::core::w!("StatusKerberos");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NET_ADDRESS: ::windows::core::PCWSTR = ::windows::w!("Address");
+pub const CLUSREG_NAME_NETNAME_STATUS_NETBIOS: ::windows::core::PCWSTR = ::windows::core::w!("StatusNetBIOS");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NET_ADDRESS_MASK: ::windows::core::PCWSTR = ::windows::w!("AddressMask");
+pub const CLUSREG_NAME_NETNAME_VCO_CONTAINER: ::windows::core::PCWSTR = ::windows::core::w!("VcoContainer");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NET_AUTOMETRIC: ::windows::core::PCWSTR = ::windows::w!("AutoMetric");
+pub const CLUSREG_NAME_NET_ADDRESS: ::windows::core::PCWSTR = ::windows::core::w!("Address");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NET_DESC: ::windows::core::PCWSTR = ::windows::w!("Description");
+pub const CLUSREG_NAME_NET_ADDRESS_MASK: ::windows::core::PCWSTR = ::windows::core::w!("AddressMask");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NET_IPV4_ADDRESSES: ::windows::core::PCWSTR = ::windows::w!("IPv4Addresses");
+pub const CLUSREG_NAME_NET_AUTOMETRIC: ::windows::core::PCWSTR = ::windows::core::w!("AutoMetric");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NET_IPV4_PREFIXLENGTHS: ::windows::core::PCWSTR = ::windows::w!("IPv4PrefixLengths");
+pub const CLUSREG_NAME_NET_DESC: ::windows::core::PCWSTR = ::windows::core::w!("Description");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NET_IPV6_ADDRESSES: ::windows::core::PCWSTR = ::windows::w!("IPv6Addresses");
+pub const CLUSREG_NAME_NET_IPV4_ADDRESSES: ::windows::core::PCWSTR = ::windows::core::w!("IPv4Addresses");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NET_IPV6_PREFIXLENGTHS: ::windows::core::PCWSTR = ::windows::w!("IPv6PrefixLengths");
+pub const CLUSREG_NAME_NET_IPV4_PREFIXLENGTHS: ::windows::core::PCWSTR = ::windows::core::w!("IPv4PrefixLengths");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NET_METRIC: ::windows::core::PCWSTR = ::windows::w!("Metric");
+pub const CLUSREG_NAME_NET_IPV6_ADDRESSES: ::windows::core::PCWSTR = ::windows::core::w!("IPv6Addresses");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NET_NAME: ::windows::core::PCWSTR = ::windows::w!("Name");
+pub const CLUSREG_NAME_NET_IPV6_PREFIXLENGTHS: ::windows::core::PCWSTR = ::windows::core::w!("IPv6PrefixLengths");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NET_RDMA_CAPABLE: ::windows::core::PCWSTR = ::windows::w!("RdmaCapable");
+pub const CLUSREG_NAME_NET_METRIC: ::windows::core::PCWSTR = ::windows::core::w!("Metric");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NET_ROLE: ::windows::core::PCWSTR = ::windows::w!("Role");
+pub const CLUSREG_NAME_NET_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Name");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NET_RSS_CAPABLE: ::windows::core::PCWSTR = ::windows::w!("RssCapable");
+pub const CLUSREG_NAME_NET_RDMA_CAPABLE: ::windows::core::PCWSTR = ::windows::core::w!("RdmaCapable");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NET_SPEED: ::windows::core::PCWSTR = ::windows::w!("LinkSpeed");
+pub const CLUSREG_NAME_NET_ROLE: ::windows::core::PCWSTR = ::windows::core::w!("Role");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NODE_BUILD_NUMBER: ::windows::core::PCWSTR = ::windows::w!("BuildNumber");
+pub const CLUSREG_NAME_NET_RSS_CAPABLE: ::windows::core::PCWSTR = ::windows::core::w!("RssCapable");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NODE_CSDVERSION: ::windows::core::PCWSTR = ::windows::w!("CSDVersion");
+pub const CLUSREG_NAME_NET_SPEED: ::windows::core::PCWSTR = ::windows::core::w!("LinkSpeed");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NODE_DESC: ::windows::core::PCWSTR = ::windows::w!("Description");
+pub const CLUSREG_NAME_NODE_BUILD_NUMBER: ::windows::core::PCWSTR = ::windows::core::w!("BuildNumber");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NODE_DRAIN_STATUS: ::windows::core::PCWSTR = ::windows::w!("NodeDrainStatus");
+pub const CLUSREG_NAME_NODE_CSDVERSION: ::windows::core::PCWSTR = ::windows::core::w!("CSDVersion");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NODE_DRAIN_TARGET: ::windows::core::PCWSTR = ::windows::w!("NodeDrainTarget");
+pub const CLUSREG_NAME_NODE_DESC: ::windows::core::PCWSTR = ::windows::core::w!("Description");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NODE_DYNAMIC_WEIGHT: ::windows::core::PCWSTR = ::windows::w!("DynamicWeight");
+pub const CLUSREG_NAME_NODE_DRAIN_STATUS: ::windows::core::PCWSTR = ::windows::core::w!("NodeDrainStatus");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NODE_FAULT_DOMAIN: ::windows::core::PCWSTR = ::windows::w!("FaultDomain");
+pub const CLUSREG_NAME_NODE_DRAIN_TARGET: ::windows::core::PCWSTR = ::windows::core::w!("NodeDrainTarget");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NODE_FDID: ::windows::core::PCWSTR = ::windows::w!("FaultDomainId");
+pub const CLUSREG_NAME_NODE_DYNAMIC_WEIGHT: ::windows::core::PCWSTR = ::windows::core::w!("DynamicWeight");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NODE_HIGHEST_VERSION: ::windows::core::PCWSTR = ::windows::w!("NodeHighestVersion");
+pub const CLUSREG_NAME_NODE_FAULT_DOMAIN: ::windows::core::PCWSTR = ::windows::core::w!("FaultDomain");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NODE_IS_PRIMARY: ::windows::core::PCWSTR = ::windows::w!("IsPrimary");
+pub const CLUSREG_NAME_NODE_FDID: ::windows::core::PCWSTR = ::windows::core::w!("FaultDomainId");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NODE_LOWEST_VERSION: ::windows::core::PCWSTR = ::windows::w!("NodeLowestVersion");
+pub const CLUSREG_NAME_NODE_HIGHEST_VERSION: ::windows::core::PCWSTR = ::windows::core::w!("NodeHighestVersion");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NODE_MAJOR_VERSION: ::windows::core::PCWSTR = ::windows::w!("MajorVersion");
+pub const CLUSREG_NAME_NODE_IS_PRIMARY: ::windows::core::PCWSTR = ::windows::core::w!("IsPrimary");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NODE_MANUFACTURER: ::windows::core::PCWSTR = ::windows::w!("Manufacturer");
+pub const CLUSREG_NAME_NODE_LOWEST_VERSION: ::windows::core::PCWSTR = ::windows::core::w!("NodeLowestVersion");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NODE_MINOR_VERSION: ::windows::core::PCWSTR = ::windows::w!("MinorVersion");
+pub const CLUSREG_NAME_NODE_MAJOR_VERSION: ::windows::core::PCWSTR = ::windows::core::w!("MajorVersion");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NODE_MODEL: ::windows::core::PCWSTR = ::windows::w!("Model");
+pub const CLUSREG_NAME_NODE_MANUFACTURER: ::windows::core::PCWSTR = ::windows::core::w!("Manufacturer");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NODE_NAME: ::windows::core::PCWSTR = ::windows::w!("NodeName");
+pub const CLUSREG_NAME_NODE_MINOR_VERSION: ::windows::core::PCWSTR = ::windows::core::w!("MinorVersion");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NODE_NEEDS_PQ: ::windows::core::PCWSTR = ::windows::w!("NeedsPreventQuorum");
+pub const CLUSREG_NAME_NODE_MODEL: ::windows::core::PCWSTR = ::windows::core::w!("Model");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NODE_SERIALNUMBER: ::windows::core::PCWSTR = ::windows::w!("SerialNumber");
+pub const CLUSREG_NAME_NODE_NAME: ::windows::core::PCWSTR = ::windows::core::w!("NodeName");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NODE_STATUS_INFO: ::windows::core::PCWSTR = ::windows::w!("StatusInformation");
+pub const CLUSREG_NAME_NODE_NEEDS_PQ: ::windows::core::PCWSTR = ::windows::core::w!("NeedsPreventQuorum");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_NODE_WEIGHT: ::windows::core::PCWSTR = ::windows::w!("NodeWeight");
+pub const CLUSREG_NAME_NODE_SERIALNUMBER: ::windows::core::PCWSTR = ::windows::core::w!("SerialNumber");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PHYSDISK_CSVBLOCKCACHE: ::windows::core::PCWSTR = ::windows::w!("EnableBlockCache");
+pub const CLUSREG_NAME_NODE_STATUS_INFO: ::windows::core::PCWSTR = ::windows::core::w!("StatusInformation");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PHYSDISK_CSVSNAPSHOTAGELIMIT: ::windows::core::PCWSTR = ::windows::w!("SnapshotAgeLimit");
+pub const CLUSREG_NAME_NODE_UNIQUEID: ::windows::core::PCWSTR = ::windows::core::w!("UniqueID");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PHYSDISK_CSVSNAPSHOTDIFFAREASIZE: ::windows::core::PCWSTR = ::windows::w!("SnapshotDiffSize");
+pub const CLUSREG_NAME_NODE_WEIGHT: ::windows::core::PCWSTR = ::windows::core::w!("NodeWeight");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PHYSDISK_CSVWRITETHROUGH: ::windows::core::PCWSTR = ::windows::w!("CsvEnforceWriteThrough");
+pub const CLUSREG_NAME_PHYSDISK_CSVBLOCKCACHE: ::windows::core::PCWSTR = ::windows::core::w!("EnableBlockCache");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PHYSDISK_DISKARBINTERVAL: ::windows::core::PCWSTR = ::windows::w!("DiskArbInterval");
+pub const CLUSREG_NAME_PHYSDISK_CSVSNAPSHOTAGELIMIT: ::windows::core::PCWSTR = ::windows::core::w!("SnapshotAgeLimit");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PHYSDISK_DISKARBTYPE: ::windows::core::PCWSTR = ::windows::w!("DiskArbType");
+pub const CLUSREG_NAME_PHYSDISK_CSVSNAPSHOTDIFFAREASIZE: ::windows::core::PCWSTR = ::windows::core::w!("SnapshotDiffSize");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PHYSDISK_DISKGUID: ::windows::core::PCWSTR = ::windows::w!("DiskGuid");
+pub const CLUSREG_NAME_PHYSDISK_CSVWRITETHROUGH: ::windows::core::PCWSTR = ::windows::core::w!("CsvEnforceWriteThrough");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PHYSDISK_DISKIDGUID: ::windows::core::PCWSTR = ::windows::w!("DiskIdGuid");
+pub const CLUSREG_NAME_PHYSDISK_DISKARBINTERVAL: ::windows::core::PCWSTR = ::windows::core::w!("DiskArbInterval");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PHYSDISK_DISKIDTYPE: ::windows::core::PCWSTR = ::windows::w!("DiskIdType");
+pub const CLUSREG_NAME_PHYSDISK_DISKARBTYPE: ::windows::core::PCWSTR = ::windows::core::w!("DiskArbType");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PHYSDISK_DISKIODELAY: ::windows::core::PCWSTR = ::windows::w!("MaxIoLatency");
+pub const CLUSREG_NAME_PHYSDISK_DISKGUID: ::windows::core::PCWSTR = ::windows::core::w!("DiskGuid");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PHYSDISK_DISKPATH: ::windows::core::PCWSTR = ::windows::w!("DiskPath");
+pub const CLUSREG_NAME_PHYSDISK_DISKIDGUID: ::windows::core::PCWSTR = ::windows::core::w!("DiskIdGuid");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PHYSDISK_DISKRECOVERYACTION: ::windows::core::PCWSTR = ::windows::w!("DiskRecoveryAction");
+pub const CLUSREG_NAME_PHYSDISK_DISKIDTYPE: ::windows::core::PCWSTR = ::windows::core::w!("DiskIdType");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PHYSDISK_DISKRELOAD: ::windows::core::PCWSTR = ::windows::w!("DiskReload");
+pub const CLUSREG_NAME_PHYSDISK_DISKIODELAY: ::windows::core::PCWSTR = ::windows::core::w!("MaxIoLatency");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PHYSDISK_DISKRUNCHKDSK: ::windows::core::PCWSTR = ::windows::w!("DiskRunChkDsk");
+pub const CLUSREG_NAME_PHYSDISK_DISKPATH: ::windows::core::PCWSTR = ::windows::core::w!("DiskPath");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PHYSDISK_DISKSIGNATURE: ::windows::core::PCWSTR = ::windows::w!("DiskSignature");
+pub const CLUSREG_NAME_PHYSDISK_DISKRECOVERYACTION: ::windows::core::PCWSTR = ::windows::core::w!("DiskRecoveryAction");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PHYSDISK_DISKUNIQUEIDS: ::windows::core::PCWSTR = ::windows::w!("DiskUniqueIds");
+pub const CLUSREG_NAME_PHYSDISK_DISKRELOAD: ::windows::core::PCWSTR = ::windows::core::w!("DiskReload");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PHYSDISK_DISKVOLUMEINFO: ::windows::core::PCWSTR = ::windows::w!("DiskVolumeInfo");
+pub const CLUSREG_NAME_PHYSDISK_DISKRUNCHKDSK: ::windows::core::PCWSTR = ::windows::core::w!("DiskRunChkDsk");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PHYSDISK_FASTONLINEARBITRATE: ::windows::core::PCWSTR = ::windows::w!("FastOnlineArbitrate");
+pub const CLUSREG_NAME_PHYSDISK_DISKSIGNATURE: ::windows::core::PCWSTR = ::windows::core::w!("DiskSignature");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PHYSDISK_MAINTMODE: ::windows::core::PCWSTR = ::windows::w!("MaintenanceMode");
+pub const CLUSREG_NAME_PHYSDISK_DISKUNIQUEIDS: ::windows::core::PCWSTR = ::windows::core::w!("DiskUniqueIds");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PHYSDISK_MIGRATEFIXUP: ::windows::core::PCWSTR = ::windows::w!("MigrateDriveLetters");
+pub const CLUSREG_NAME_PHYSDISK_DISKVOLUMEINFO: ::windows::core::PCWSTR = ::windows::core::w!("DiskVolumeInfo");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PHYSDISK_SPACEIDGUID: ::windows::core::PCWSTR = ::windows::w!("VirtualDiskId");
+pub const CLUSREG_NAME_PHYSDISK_FASTONLINEARBITRATE: ::windows::core::PCWSTR = ::windows::core::w!("FastOnlineArbitrate");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PHYSDISK_VOLSNAPACTIVATETIMEOUT: ::windows::core::PCWSTR = ::windows::w!("VolsnapActivateTimeout");
+pub const CLUSREG_NAME_PHYSDISK_MAINTMODE: ::windows::core::PCWSTR = ::windows::core::w!("MaintenanceMode");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PLACEMENT_OPTIONS: ::windows::core::PCWSTR = ::windows::w!("PlacementOptions");
+pub const CLUSREG_NAME_PHYSDISK_MIGRATEFIXUP: ::windows::core::PCWSTR = ::windows::core::w!("MigrateDriveLetters");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PLUMB_ALL_CROSS_SUBNET_ROUTES: ::windows::core::PCWSTR = ::windows::w!("PlumbAllCrossSubnetRoutes");
+pub const CLUSREG_NAME_PHYSDISK_SPACEIDGUID: ::windows::core::PCWSTR = ::windows::core::w!("VirtualDiskId");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PREVENTQUORUM: ::windows::core::PCWSTR = ::windows::w!("PreventQuorum");
+pub const CLUSREG_NAME_PHYSDISK_VOLSNAPACTIVATETIMEOUT: ::windows::core::PCWSTR = ::windows::core::w!("VolsnapActivateTimeout");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PRTSPOOL_DEFAULT_SPOOL_DIR: ::windows::core::PCWSTR = ::windows::w!("DefaultSpoolDirectory");
+pub const CLUSREG_NAME_PLACEMENT_OPTIONS: ::windows::core::PCWSTR = ::windows::core::w!("PlacementOptions");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_PRTSPOOL_TIMEOUT: ::windows::core::PCWSTR = ::windows::w!("JobCompletionTimeout");
+pub const CLUSREG_NAME_PLUMB_ALL_CROSS_SUBNET_ROUTES: ::windows::core::PCWSTR = ::windows::core::w!("PlumbAllCrossSubnetRoutes");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_QUARANTINE_DURATION: ::windows::core::PCWSTR = ::windows::w!("QuarantineDuration");
+pub const CLUSREG_NAME_PREVENTQUORUM: ::windows::core::PCWSTR = ::windows::core::w!("PreventQuorum");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_QUARANTINE_THRESHOLD: ::windows::core::PCWSTR = ::windows::w!("QuarantineThreshold");
+pub const CLUSREG_NAME_PRTSPOOL_DEFAULT_SPOOL_DIR: ::windows::core::PCWSTR = ::windows::core::w!("DefaultSpoolDirectory");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_QUORUM_ARBITRATION_TIMEOUT: ::windows::core::PCWSTR = ::windows::w!("QuorumArbitrationTimeMax");
+pub const CLUSREG_NAME_PRTSPOOL_TIMEOUT: ::windows::core::PCWSTR = ::windows::core::w!("JobCompletionTimeout");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RESILIENCY_DEFAULT_SECONDS: ::windows::core::PCWSTR = ::windows::w!("ResiliencyDefaultPeriod");
+pub const CLUSREG_NAME_QUARANTINE_DURATION: ::windows::core::PCWSTR = ::windows::core::w!("QuarantineDuration");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RESILIENCY_LEVEL: ::windows::core::PCWSTR = ::windows::w!("ResiliencyLevel");
+pub const CLUSREG_NAME_QUARANTINE_THRESHOLD: ::windows::core::PCWSTR = ::windows::core::w!("QuarantineThreshold");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RESTYPE_ADMIN_EXTENSIONS: ::windows::core::PCWSTR = ::windows::w!("AdminExtensions");
+pub const CLUSREG_NAME_QUORUM_ARBITRATION_TIMEOUT: ::windows::core::PCWSTR = ::windows::core::w!("QuorumArbitrationTimeMax");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RESTYPE_DEADLOCK_TIMEOUT: ::windows::core::PCWSTR = ::windows::w!("DeadlockTimeout");
+pub const CLUSREG_NAME_RESILIENCY_DEFAULT_SECONDS: ::windows::core::PCWSTR = ::windows::core::w!("ResiliencyDefaultPeriod");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RESTYPE_DESC: ::windows::core::PCWSTR = ::windows::w!("Description");
+pub const CLUSREG_NAME_RESILIENCY_LEVEL: ::windows::core::PCWSTR = ::windows::core::w!("ResiliencyLevel");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RESTYPE_DLL_NAME: ::windows::core::PCWSTR = ::windows::w!("DllName");
+pub const CLUSREG_NAME_RESTYPE_ADMIN_EXTENSIONS: ::windows::core::PCWSTR = ::windows::core::w!("AdminExtensions");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RESTYPE_DUMP_LOG_QUERY: ::windows::core::PCWSTR = ::windows::w!("DumpLogQuery");
+pub const CLUSREG_NAME_RESTYPE_DEADLOCK_TIMEOUT: ::windows::core::PCWSTR = ::windows::core::w!("DeadlockTimeout");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RESTYPE_DUMP_POLICY: ::windows::core::PCWSTR = ::windows::w!("DumpPolicy");
+pub const CLUSREG_NAME_RESTYPE_DESC: ::windows::core::PCWSTR = ::windows::core::w!("Description");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RESTYPE_DUMP_SERVICES: ::windows::core::PCWSTR = ::windows::w!("DumpServices");
+pub const CLUSREG_NAME_RESTYPE_DLL_NAME: ::windows::core::PCWSTR = ::windows::core::w!("DllName");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RESTYPE_ENABLED_EVENT_LOGS: ::windows::core::PCWSTR = ::windows::w!("EnabledEventLogs");
+pub const CLUSREG_NAME_RESTYPE_DUMP_LOG_QUERY: ::windows::core::PCWSTR = ::windows::core::w!("DumpLogQuery");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RESTYPE_IS_ALIVE: ::windows::core::PCWSTR = ::windows::w!("IsAlivePollInterval");
+pub const CLUSREG_NAME_RESTYPE_DUMP_POLICY: ::windows::core::PCWSTR = ::windows::core::w!("DumpPolicy");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RESTYPE_LOOKS_ALIVE: ::windows::core::PCWSTR = ::windows::w!("LooksAlivePollInterval");
+pub const CLUSREG_NAME_RESTYPE_DUMP_SERVICES: ::windows::core::PCWSTR = ::windows::core::w!("DumpServices");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RESTYPE_MAX_MONITORS: ::windows::core::PCWSTR = ::windows::w!("MaximumMonitors");
+pub const CLUSREG_NAME_RESTYPE_ENABLED_EVENT_LOGS: ::windows::core::PCWSTR = ::windows::core::w!("EnabledEventLogs");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RESTYPE_NAME: ::windows::core::PCWSTR = ::windows::w!("Name");
+pub const CLUSREG_NAME_RESTYPE_IS_ALIVE: ::windows::core::PCWSTR = ::windows::core::w!("IsAlivePollInterval");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RESTYPE_PENDING_TIMEOUT: ::windows::core::PCWSTR = ::windows::w!("PendingTimeout");
+pub const CLUSREG_NAME_RESTYPE_LOOKS_ALIVE: ::windows::core::PCWSTR = ::windows::core::w!("LooksAlivePollInterval");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RESTYPE_WPR_PROFILES: ::windows::core::PCWSTR = ::windows::w!("WprProfiles");
+pub const CLUSREG_NAME_RESTYPE_MAX_MONITORS: ::windows::core::PCWSTR = ::windows::core::w!("MaximumMonitors");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RESTYPE_WPR_START_AFTER: ::windows::core::PCWSTR = ::windows::w!("WprStartAfter");
+pub const CLUSREG_NAME_RESTYPE_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Name");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RES_DATA1: ::windows::core::PCWSTR = ::windows::w!("ResourceSpecificData1");
+pub const CLUSREG_NAME_RESTYPE_PENDING_TIMEOUT: ::windows::core::PCWSTR = ::windows::core::w!("PendingTimeout");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RES_DATA2: ::windows::core::PCWSTR = ::windows::w!("ResourceSpecificData2");
+pub const CLUSREG_NAME_RESTYPE_WPR_PROFILES: ::windows::core::PCWSTR = ::windows::core::w!("WprProfiles");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RES_DEADLOCK_TIMEOUT: ::windows::core::PCWSTR = ::windows::w!("DeadlockTimeout");
+pub const CLUSREG_NAME_RESTYPE_WPR_START_AFTER: ::windows::core::PCWSTR = ::windows::core::w!("WprStartAfter");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RES_DESC: ::windows::core::PCWSTR = ::windows::w!("Description");
+pub const CLUSREG_NAME_RES_DATA1: ::windows::core::PCWSTR = ::windows::core::w!("ResourceSpecificData1");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RES_EMBEDDED_FAILURE_ACTION: ::windows::core::PCWSTR = ::windows::w!("EmbeddedFailureAction");
+pub const CLUSREG_NAME_RES_DATA2: ::windows::core::PCWSTR = ::windows::core::w!("ResourceSpecificData2");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RES_IS_ALIVE: ::windows::core::PCWSTR = ::windows::w!("IsAlivePollInterval");
+pub const CLUSREG_NAME_RES_DEADLOCK_TIMEOUT: ::windows::core::PCWSTR = ::windows::core::w!("DeadlockTimeout");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RES_LAST_OPERATION_STATUS_CODE: ::windows::core::PCWSTR = ::windows::w!("LastOperationStatusCode");
+pub const CLUSREG_NAME_RES_DESC: ::windows::core::PCWSTR = ::windows::core::w!("Description");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RES_LOOKS_ALIVE: ::windows::core::PCWSTR = ::windows::w!("LooksAlivePollInterval");
+pub const CLUSREG_NAME_RES_EMBEDDED_FAILURE_ACTION: ::windows::core::PCWSTR = ::windows::core::w!("EmbeddedFailureAction");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RES_MONITOR_PID: ::windows::core::PCWSTR = ::windows::w!("MonitorProcessId");
+pub const CLUSREG_NAME_RES_IS_ALIVE: ::windows::core::PCWSTR = ::windows::core::w!("IsAlivePollInterval");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RES_NAME: ::windows::core::PCWSTR = ::windows::w!("Name");
+pub const CLUSREG_NAME_RES_LAST_OPERATION_STATUS_CODE: ::windows::core::PCWSTR = ::windows::core::w!("LastOperationStatusCode");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RES_PENDING_TIMEOUT: ::windows::core::PCWSTR = ::windows::w!("PendingTimeout");
+pub const CLUSREG_NAME_RES_LOOKS_ALIVE: ::windows::core::PCWSTR = ::windows::core::w!("LooksAlivePollInterval");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RES_PERSISTENT_STATE: ::windows::core::PCWSTR = ::windows::w!("PersistentState");
+pub const CLUSREG_NAME_RES_MONITOR_PID: ::windows::core::PCWSTR = ::windows::core::w!("MonitorProcessId");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RES_RESTART_ACTION: ::windows::core::PCWSTR = ::windows::w!("RestartAction");
+pub const CLUSREG_NAME_RES_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Name");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RES_RESTART_DELAY: ::windows::core::PCWSTR = ::windows::w!("RestartDelay");
+pub const CLUSREG_NAME_RES_PENDING_TIMEOUT: ::windows::core::PCWSTR = ::windows::core::w!("PendingTimeout");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RES_RESTART_PERIOD: ::windows::core::PCWSTR = ::windows::w!("RestartPeriod");
+pub const CLUSREG_NAME_RES_PERSISTENT_STATE: ::windows::core::PCWSTR = ::windows::core::w!("PersistentState");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RES_RESTART_THRESHOLD: ::windows::core::PCWSTR = ::windows::w!("RestartThreshold");
+pub const CLUSREG_NAME_RES_RESTART_ACTION: ::windows::core::PCWSTR = ::windows::core::w!("RestartAction");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RES_RETRY_PERIOD_ON_FAILURE: ::windows::core::PCWSTR = ::windows::w!("RetryPeriodOnFailure");
+pub const CLUSREG_NAME_RES_RESTART_DELAY: ::windows::core::PCWSTR = ::windows::core::w!("RestartDelay");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RES_SEPARATE_MONITOR: ::windows::core::PCWSTR = ::windows::w!("SeparateMonitor");
+pub const CLUSREG_NAME_RES_RESTART_PERIOD: ::windows::core::PCWSTR = ::windows::core::w!("RestartPeriod");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RES_STATUS: ::windows::core::PCWSTR = ::windows::w!("ResourceSpecificStatus");
+pub const CLUSREG_NAME_RES_RESTART_THRESHOLD: ::windows::core::PCWSTR = ::windows::core::w!("RestartThreshold");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RES_STATUS_INFORMATION: ::windows::core::PCWSTR = ::windows::w!("StatusInformation");
+pub const CLUSREG_NAME_RES_RETRY_PERIOD_ON_FAILURE: ::windows::core::PCWSTR = ::windows::core::w!("RetryPeriodOnFailure");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_RES_TYPE: ::windows::core::PCWSTR = ::windows::w!("Type");
+pub const CLUSREG_NAME_RES_SEPARATE_MONITOR: ::windows::core::PCWSTR = ::windows::core::w!("SeparateMonitor");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_ROUTE_HISTORY_LENGTH: ::windows::core::PCWSTR = ::windows::w!("RouteHistoryLength");
+pub const CLUSREG_NAME_RES_STATUS: ::windows::core::PCWSTR = ::windows::core::w!("ResourceSpecificStatus");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_SAME_SUBNET_DELAY: ::windows::core::PCWSTR = ::windows::w!("SameSubnetDelay");
+pub const CLUSREG_NAME_RES_STATUS_INFORMATION: ::windows::core::PCWSTR = ::windows::core::w!("StatusInformation");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_SAME_SUBNET_THRESHOLD: ::windows::core::PCWSTR = ::windows::w!("SameSubnetThreshold");
+pub const CLUSREG_NAME_RES_TYPE: ::windows::core::PCWSTR = ::windows::core::w!("Type");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_SHUTDOWN_TIMEOUT_MINUTES: ::windows::core::PCWSTR = ::windows::w!("ShutdownTimeoutInMinutes");
+pub const CLUSREG_NAME_ROUTE_HISTORY_LENGTH: ::windows::core::PCWSTR = ::windows::core::w!("RouteHistoryLength");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_SOFS_SMBASYMMETRYMODE: ::windows::core::PCWSTR = ::windows::w!("SmbAsymmetryMode");
+pub const CLUSREG_NAME_SAME_SUBNET_DELAY: ::windows::core::PCWSTR = ::windows::core::w!("SameSubnetDelay");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_START_MEMORY: ::windows::core::PCWSTR = ::windows::w!("StartMemory");
+pub const CLUSREG_NAME_SAME_SUBNET_THRESHOLD: ::windows::core::PCWSTR = ::windows::core::w!("SameSubnetThreshold");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_STORAGESPACE_DESCRIPTION: ::windows::core::PCWSTR = ::windows::w!("VirtualDiskDescription");
+pub const CLUSREG_NAME_SHUTDOWN_TIMEOUT_MINUTES: ::windows::core::PCWSTR = ::windows::core::w!("ShutdownTimeoutInMinutes");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_STORAGESPACE_HEALTH: ::windows::core::PCWSTR = ::windows::w!("VirtualDiskHealth");
+pub const CLUSREG_NAME_SOFS_SMBASYMMETRYMODE: ::windows::core::PCWSTR = ::windows::core::w!("SmbAsymmetryMode");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_STORAGESPACE_NAME: ::windows::core::PCWSTR = ::windows::w!("VirtualDiskName");
+pub const CLUSREG_NAME_START_MEMORY: ::windows::core::PCWSTR = ::windows::core::w!("StartMemory");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_STORAGESPACE_POOLARBITRATE: ::windows::core::PCWSTR = ::windows::w!("Arbitrate");
+pub const CLUSREG_NAME_STORAGESPACE_DESCRIPTION: ::windows::core::PCWSTR = ::windows::core::w!("VirtualDiskDescription");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_STORAGESPACE_POOLCONSUMEDCAPACITY: ::windows::core::PCWSTR = ::windows::w!("ConsumedCapacity");
+pub const CLUSREG_NAME_STORAGESPACE_HEALTH: ::windows::core::PCWSTR = ::windows::core::w!("VirtualDiskHealth");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_STORAGESPACE_POOLDESC: ::windows::core::PCWSTR = ::windows::w!("Description");
+pub const CLUSREG_NAME_STORAGESPACE_NAME: ::windows::core::PCWSTR = ::windows::core::w!("VirtualDiskName");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_STORAGESPACE_POOLDRIVEIDS: ::windows::core::PCWSTR = ::windows::w!("DriveIds");
+pub const CLUSREG_NAME_STORAGESPACE_POOLARBITRATE: ::windows::core::PCWSTR = ::windows::core::w!("Arbitrate");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_STORAGESPACE_POOLHEALTH: ::windows::core::PCWSTR = ::windows::w!("Health");
+pub const CLUSREG_NAME_STORAGESPACE_POOLCONSUMEDCAPACITY: ::windows::core::PCWSTR = ::windows::core::w!("ConsumedCapacity");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_STORAGESPACE_POOLIDGUID: ::windows::core::PCWSTR = ::windows::w!("PoolId");
+pub const CLUSREG_NAME_STORAGESPACE_POOLDESC: ::windows::core::PCWSTR = ::windows::core::w!("Description");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_STORAGESPACE_POOLNAME: ::windows::core::PCWSTR = ::windows::w!("Name");
+pub const CLUSREG_NAME_STORAGESPACE_POOLDRIVEIDS: ::windows::core::PCWSTR = ::windows::core::w!("DriveIds");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_STORAGESPACE_POOLQUORUMSHARE: ::windows::core::PCWSTR = ::windows::w!("PoolQuorumShare");
+pub const CLUSREG_NAME_STORAGESPACE_POOLHEALTH: ::windows::core::PCWSTR = ::windows::core::w!("Health");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_STORAGESPACE_POOLQUORUMUSERACCOUNT: ::windows::core::PCWSTR = ::windows::w!("PoolQuorumUserAccount");
+pub const CLUSREG_NAME_STORAGESPACE_POOLIDGUID: ::windows::core::PCWSTR = ::windows::core::w!("PoolId");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_STORAGESPACE_POOLREEVALTIMEOUT: ::windows::core::PCWSTR = ::windows::w!("ReEvaluatePlacementTimeout");
+pub const CLUSREG_NAME_STORAGESPACE_POOLNAME: ::windows::core::PCWSTR = ::windows::core::w!("Name");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_STORAGESPACE_POOLSTATE: ::windows::core::PCWSTR = ::windows::w!("State");
+pub const CLUSREG_NAME_STORAGESPACE_POOLQUORUMSHARE: ::windows::core::PCWSTR = ::windows::core::w!("PoolQuorumShare");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_STORAGESPACE_POOLTOTALCAPACITY: ::windows::core::PCWSTR = ::windows::w!("TotalCapacity");
+pub const CLUSREG_NAME_STORAGESPACE_POOLQUORUMUSERACCOUNT: ::windows::core::PCWSTR = ::windows::core::w!("PoolQuorumUserAccount");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_STORAGESPACE_PROVISIONING: ::windows::core::PCWSTR = ::windows::w!("VirtualDiskProvisioning");
+pub const CLUSREG_NAME_STORAGESPACE_POOLREEVALTIMEOUT: ::windows::core::PCWSTR = ::windows::core::w!("ReEvaluatePlacementTimeout");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_STORAGESPACE_RESILIENCYCOLUMNS: ::windows::core::PCWSTR = ::windows::w!("VirtualDiskResiliencyColumns");
+pub const CLUSREG_NAME_STORAGESPACE_POOLSTATE: ::windows::core::PCWSTR = ::windows::core::w!("State");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_STORAGESPACE_RESILIENCYINTERLEAVE: ::windows::core::PCWSTR = ::windows::w!("VirtualDiskResiliencyInterleave");
+pub const CLUSREG_NAME_STORAGESPACE_POOLTOTALCAPACITY: ::windows::core::PCWSTR = ::windows::core::w!("TotalCapacity");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_STORAGESPACE_RESILIENCYTYPE: ::windows::core::PCWSTR = ::windows::w!("VirtualDiskResiliencyType");
+pub const CLUSREG_NAME_STORAGESPACE_PROVISIONING: ::windows::core::PCWSTR = ::windows::core::w!("VirtualDiskProvisioning");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_STORAGESPACE_STATE: ::windows::core::PCWSTR = ::windows::w!("VirtualDiskState");
+pub const CLUSREG_NAME_STORAGESPACE_RESILIENCYCOLUMNS: ::windows::core::PCWSTR = ::windows::core::w!("VirtualDiskResiliencyColumns");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_UPGRADE_VERSION: ::windows::core::PCWSTR = ::windows::w!("ClusterUpgradeVersion");
+pub const CLUSREG_NAME_STORAGESPACE_RESILIENCYINTERLEAVE: ::windows::core::PCWSTR = ::windows::core::w!("VirtualDiskResiliencyInterleave");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_VIP_ADAPTER_NAME: ::windows::core::PCWSTR = ::windows::w!("AdapterName");
+pub const CLUSREG_NAME_STORAGESPACE_RESILIENCYTYPE: ::windows::core::PCWSTR = ::windows::core::w!("VirtualDiskResiliencyType");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_VIP_ADDRESS: ::windows::core::PCWSTR = ::windows::w!("Address");
+pub const CLUSREG_NAME_STORAGESPACE_STATE: ::windows::core::PCWSTR = ::windows::core::w!("VirtualDiskState");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_VIP_PREFIX_LENGTH: ::windows::core::PCWSTR = ::windows::w!("PrefixLength");
+pub const CLUSREG_NAME_UPGRADE_VERSION: ::windows::core::PCWSTR = ::windows::core::w!("ClusterUpgradeVersion");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_VIP_RDID: ::windows::core::PCWSTR = ::windows::w!("RDID");
+pub const CLUSREG_NAME_VIP_ADAPTER_NAME: ::windows::core::PCWSTR = ::windows::core::w!("AdapterName");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_VIP_VSID: ::windows::core::PCWSTR = ::windows::w!("VSID");
+pub const CLUSREG_NAME_VIP_ADDRESS: ::windows::core::PCWSTR = ::windows::core::w!("Address");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_VIRTUAL_NUMA_COUNT: ::windows::core::PCWSTR = ::windows::w!("VirtualNumaCount");
+pub const CLUSREG_NAME_VIP_PREFIX_LENGTH: ::windows::core::PCWSTR = ::windows::core::w!("PrefixLength");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_VSSTASK_APPNAME: ::windows::core::PCWSTR = ::windows::w!("ApplicationName");
+pub const CLUSREG_NAME_VIP_RDID: ::windows::core::PCWSTR = ::windows::core::w!("RDID");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_VSSTASK_APPPARAMS: ::windows::core::PCWSTR = ::windows::w!("ApplicationParams");
+pub const CLUSREG_NAME_VIP_VSID: ::windows::core::PCWSTR = ::windows::core::w!("VSID");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_VSSTASK_CURRENTDIRECTORY: ::windows::core::PCWSTR = ::windows::w!("CurrentDirectory");
+pub const CLUSREG_NAME_VIRTUAL_NUMA_COUNT: ::windows::core::PCWSTR = ::windows::core::w!("VirtualNumaCount");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_VSSTASK_TRIGGERARRAY: ::windows::core::PCWSTR = ::windows::w!("TriggerArray");
+pub const CLUSREG_NAME_VSSTASK_APPNAME: ::windows::core::PCWSTR = ::windows::core::w!("ApplicationName");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_WINS_BACKUP_PATH: ::windows::core::PCWSTR = ::windows::w!("BackupPath");
+pub const CLUSREG_NAME_VSSTASK_APPPARAMS: ::windows::core::PCWSTR = ::windows::core::w!("ApplicationParams");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_WINS_DATABASE_PATH: ::windows::core::PCWSTR = ::windows::w!("DatabasePath");
+pub const CLUSREG_NAME_VSSTASK_CURRENTDIRECTORY: ::windows::core::PCWSTR = ::windows::core::w!("CurrentDirectory");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSREG_NAME_WITNESS_DYNAMIC_WEIGHT: ::windows::core::PCWSTR = ::windows::w!("WitnessDynamicWeight");
+pub const CLUSREG_NAME_VSSTASK_TRIGGERARRAY: ::windows::core::PCWSTR = ::windows::core::w!("TriggerArray");
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub const CLUSREG_NAME_WINS_BACKUP_PATH: ::windows::core::PCWSTR = ::windows::core::w!("BackupPath");
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub const CLUSREG_NAME_WINS_DATABASE_PATH: ::windows::core::PCWSTR = ::windows::core::w!("DatabasePath");
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub const CLUSREG_NAME_WITNESS_DYNAMIC_WEIGHT: ::windows::core::PCWSTR = ::windows::core::w!("WitnessDynamicWeight");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSRESDLL_STATUS_DO_NOT_COLLECT_WER_REPORT: u32 = 1073741824u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -8333,7 +8347,11 @@ pub const CLUSRESDLL_STATUS_OFFLINE_DESTINATION_THROTTLED: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSRESDLL_STATUS_OFFLINE_SOURCE_THROTTLED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSRES_NAME_GET_OPERATION_CONTEXT_FLAGS: ::windows::core::PCWSTR = ::windows::w!("Flags");
+pub const CLUSRES_DISABLE_WPR_WATCHDOG_FOR_OFFLINE_CALLS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub const CLUSRES_DISABLE_WPR_WATCHDOG_FOR_ONLINE_CALLS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub const CLUSRES_NAME_GET_OPERATION_CONTEXT_FLAGS: ::windows::core::PCWSTR = ::windows::core::w!("Flags");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSRES_STATUS_APPLICATION_READY: u64 = 256u64;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -8355,7 +8373,7 @@ pub const CLUSRES_STATUS_OS_HEARTBEAT: u64 = 128u64;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSRES_STATUS_UNMONITORED: u64 = 64u64;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_ADD_EVICT_DELAY: ::windows::core::PCWSTR = ::windows::w!("AddEvictDelay");
+pub const CLUSTER_ADD_EVICT_DELAY: ::windows::core::PCWSTR = ::windows::core::w!("AddEvictDelay");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_AVAILABILITY_SET_CONFIG_V1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -8365,15 +8383,15 @@ pub const CLUSTER_CREATE_GROUP_INFO_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_CREATE_GROUP_INFO_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_CSA_VSS_STATE: ::windows::core::PCWSTR = ::windows::w!("BackupInProgress");
+pub const CLUSTER_CSA_VSS_STATE: ::windows::core::PCWSTR = ::windows::core::w!("BackupInProgress");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_CSV_COMPATIBLE_FILTERS: ::windows::core::PCWSTR = ::windows::w!("SharedVolumeCompatibleFilters");
+pub const CLUSTER_CSV_COMPATIBLE_FILTERS: ::windows::core::PCWSTR = ::windows::core::w!("SharedVolumeCompatibleFilters");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_CSV_INCOMPATIBLE_FILTERS: ::windows::core::PCWSTR = ::windows::w!("SharedVolumeIncompatibleFilters");
+pub const CLUSTER_CSV_INCOMPATIBLE_FILTERS: ::windows::core::PCWSTR = ::windows::core::w!("SharedVolumeIncompatibleFilters");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_DELETE_ACCESS_CONTROL_ENTRY: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_ENFORCED_ANTIAFFINITY: ::windows::core::PCWSTR = ::windows::w!("ClusterEnforcedAntiaffinity");
+pub const CLUSTER_ENFORCED_ANTIAFFINITY: ::windows::core::PCWSTR = ::windows::core::w!("ClusterEnforcedAntiaffinity");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_ENUM_ITEM_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -8383,53 +8401,53 @@ pub const CLUSTER_GROUP_ENUM_ITEM_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_GROUP_ENUM_ITEM_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_GROUP_WAIT_DELAY: ::windows::core::PCWSTR = ::windows::w!("ClusterGroupWaitDelay");
+pub const CLUSTER_GROUP_WAIT_DELAY: ::windows::core::PCWSTR = ::windows::core::w!("ClusterGroupWaitDelay");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_HANG_RECOVERY_ACTION_KEYNAME: ::windows::core::PCWSTR = ::windows::w!("HangRecoveryAction");
+pub const CLUSTER_HANG_RECOVERY_ACTION_KEYNAME: ::windows::core::PCWSTR = ::windows::core::w!("HangRecoveryAction");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_HANG_TIMEOUT_KEYNAME: ::windows::core::PCWSTR = ::windows::w!("ClusSvcHangTimeout");
+pub const CLUSTER_HANG_TIMEOUT_KEYNAME: ::windows::core::PCWSTR = ::windows::core::w!("ClusSvcHangTimeout");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_HEALTH_FAULT_ARGS: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_HEALTH_FAULT_DESCRIPTION: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_HEALTH_FAULT_DESCRIPTION_LABEL: ::windows::core::PCWSTR = ::windows::w!("Description");
+pub const CLUSTER_HEALTH_FAULT_DESCRIPTION_LABEL: ::windows::core::PCWSTR = ::windows::core::w!("Description");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_HEALTH_FAULT_ERRORCODE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_HEALTH_FAULT_ERRORCODE_LABEL: ::windows::core::PCWSTR = ::windows::w!("ErrorCode");
+pub const CLUSTER_HEALTH_FAULT_ERRORCODE_LABEL: ::windows::core::PCWSTR = ::windows::core::w!("ErrorCode");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_HEALTH_FAULT_ERRORTYPE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_HEALTH_FAULT_ERRORTYPE_LABEL: ::windows::core::PCWSTR = ::windows::w!("ErrorType");
+pub const CLUSTER_HEALTH_FAULT_ERRORTYPE_LABEL: ::windows::core::PCWSTR = ::windows::core::w!("ErrorType");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_HEALTH_FAULT_FLAGS: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_HEALTH_FAULT_FLAGS_LABEL: ::windows::core::PCWSTR = ::windows::w!("Flags");
+pub const CLUSTER_HEALTH_FAULT_FLAGS_LABEL: ::windows::core::PCWSTR = ::windows::core::w!("Flags");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_HEALTH_FAULT_ID: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_HEALTH_FAULT_ID_LABEL: ::windows::core::PCWSTR = ::windows::w!("Id");
+pub const CLUSTER_HEALTH_FAULT_ID_LABEL: ::windows::core::PCWSTR = ::windows::core::w!("Id");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_HEALTH_FAULT_PROPERTY_NAME: ::windows::core::PCWSTR = ::windows::w!("ClusterHealth");
+pub const CLUSTER_HEALTH_FAULT_PROPERTY_NAME: ::windows::core::PCWSTR = ::windows::core::w!("ClusterHealth");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_HEALTH_FAULT_PROVIDER: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_HEALTH_FAULT_PROVIDER_LABEL: ::windows::core::PCWSTR = ::windows::w!("Provider");
+pub const CLUSTER_HEALTH_FAULT_PROVIDER_LABEL: ::windows::core::PCWSTR = ::windows::core::w!("Provider");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_HEALTH_FAULT_RESERVED: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_HEALTH_FAULT_RESERVED_LABEL: ::windows::core::PCWSTR = ::windows::w!("Reserved");
+pub const CLUSTER_HEALTH_FAULT_RESERVED_LABEL: ::windows::core::PCWSTR = ::windows::core::w!("Reserved");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_INSTALLED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_NAME_AUTO_BALANCER_LEVEL: ::windows::core::PCWSTR = ::windows::w!("AutoBalancerLevel");
+pub const CLUSTER_NAME_AUTO_BALANCER_LEVEL: ::windows::core::PCWSTR = ::windows::core::w!("AutoBalancerLevel");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_NAME_AUTO_BALANCER_MODE: ::windows::core::PCWSTR = ::windows::w!("AutoBalancerMode");
+pub const CLUSTER_NAME_AUTO_BALANCER_MODE: ::windows::core::PCWSTR = ::windows::core::w!("AutoBalancerMode");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_NAME_PREFERRED_SITE: ::windows::core::PCWSTR = ::windows::w!("PreferredSite");
+pub const CLUSTER_NAME_PREFERRED_SITE: ::windows::core::PCWSTR = ::windows::core::w!("PreferredSite");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_REQUEST_REPLY_TIMEOUT: ::windows::core::PCWSTR = ::windows::w!("RequestReplyTimeout");
+pub const CLUSTER_REQUEST_REPLY_TIMEOUT: ::windows::core::PCWSTR = ::windows::core::w!("RequestReplyTimeout");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -8437,39 +8455,39 @@ pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_RUNNING: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_S2D_BUS_TYPES: ::windows::core::PCWSTR = ::windows::w!("S2DBusTypes");
+pub const CLUSTER_S2D_BUS_TYPES: ::windows::core::PCWSTR = ::windows::core::w!("S2DBusTypes");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_S2D_CACHE_BEHAVIOR_FLAGS: ::windows::core::PCWSTR = ::windows::w!("S2DCacheBehavior");
+pub const CLUSTER_S2D_CACHE_BEHAVIOR_FLAGS: ::windows::core::PCWSTR = ::windows::core::w!("S2DCacheBehavior");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_S2D_CACHE_DESIRED_STATE: ::windows::core::PCWSTR = ::windows::w!("S2DCacheDesiredState");
+pub const CLUSTER_S2D_CACHE_DESIRED_STATE: ::windows::core::PCWSTR = ::windows::core::w!("S2DCacheDesiredState");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_S2D_CACHE_FLASH_RESERVE_PERCENT: ::windows::core::PCWSTR = ::windows::w!("S2DCacheFlashReservePercent");
+pub const CLUSTER_S2D_CACHE_FLASH_RESERVE_PERCENT: ::windows::core::PCWSTR = ::windows::core::w!("S2DCacheFlashReservePercent");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_S2D_CACHE_METADATA_RESERVE: ::windows::core::PCWSTR = ::windows::w!("S2DCacheMetadataReserveBytes");
+pub const CLUSTER_S2D_CACHE_METADATA_RESERVE: ::windows::core::PCWSTR = ::windows::core::w!("S2DCacheMetadataReserveBytes");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_S2D_CACHE_PAGE_SIZE_KBYTES: ::windows::core::PCWSTR = ::windows::w!("S2DCachePageSizeKBytes");
+pub const CLUSTER_S2D_CACHE_PAGE_SIZE_KBYTES: ::windows::core::PCWSTR = ::windows::core::w!("S2DCachePageSizeKBytes");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_S2D_ENABLED: ::windows::core::PCWSTR = ::windows::w!("S2DEnabled");
+pub const CLUSTER_S2D_ENABLED: ::windows::core::PCWSTR = ::windows::core::w!("S2DEnabled");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_S2D_IO_LATENCY_THRESHOLD: ::windows::core::PCWSTR = ::windows::w!("S2DIOLatencyThreshold");
+pub const CLUSTER_S2D_IO_LATENCY_THRESHOLD: ::windows::core::PCWSTR = ::windows::core::w!("S2DIOLatencyThreshold");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_S2D_OPTIMIZATIONS: ::windows::core::PCWSTR = ::windows::w!("S2DOptimizations");
+pub const CLUSTER_S2D_OPTIMIZATIONS: ::windows::core::PCWSTR = ::windows::core::w!("S2DOptimizations");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_SET_ACCESS_TYPE_ALLOWED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_SET_ACCESS_TYPE_DENIED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_SHARED_VOLUMES_ROOT: ::windows::core::PCWSTR = ::windows::w!("SharedVolumesRoot");
+pub const CLUSTER_SHARED_VOLUMES_ROOT: ::windows::core::PCWSTR = ::windows::core::w!("SharedVolumesRoot");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_SHARED_VOLUME_VSS_WRITER_OPERATION_TIMEOUT: ::windows::core::PCWSTR = ::windows::w!("SharedVolumeVssWriterOperationTimeout");
+pub const CLUSTER_SHARED_VOLUME_VSS_WRITER_OPERATION_TIMEOUT: ::windows::core::PCWSTR = ::windows::core::w!("SharedVolumeVssWriterOperationTimeout");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_VERSION_FLAG_MIXED_MODE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_VERSION_UNKNOWN: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_WITNESS_DATABASE_WRITE_TIMEOUT: ::windows::core::PCWSTR = ::windows::w!("WitnessDatabaseWriteTimeout");
+pub const CLUSTER_WITNESS_DATABASE_WRITE_TIMEOUT: ::windows::core::PCWSTR = ::windows::core::w!("WitnessDatabaseWriteTimeout");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUSTER_WITNESS_FAILED_RESTART_INTERVAL: ::windows::core::PCWSTR = ::windows::w!("WitnessRestartInterval");
+pub const CLUSTER_WITNESS_FAILED_RESTART_INTERVAL: ::windows::core::PCWSTR = ::windows::core::w!("WitnessRestartInterval");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUS_ACCESS_ANY: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -8489,31 +8507,31 @@ pub const CLUS_HYBRID_QUORUM: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUS_MODIFY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_NAME_RES_TYPE_CLUSTER_GROUPID: ::windows::core::PCWSTR = ::windows::w!("ClusterGroupId");
+pub const CLUS_NAME_RES_TYPE_CLUSTER_GROUPID: ::windows::core::PCWSTR = ::windows::core::w!("ClusterGroupId");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_NAME_RES_TYPE_DATA_RESID: ::windows::core::PCWSTR = ::windows::w!("DataResourceId");
+pub const CLUS_NAME_RES_TYPE_DATA_RESID: ::windows::core::PCWSTR = ::windows::core::w!("DataResourceId");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_NAME_RES_TYPE_LOG_MULTIPLE: ::windows::core::PCWSTR = ::windows::w!("LogSizeMultiple");
+pub const CLUS_NAME_RES_TYPE_LOG_MULTIPLE: ::windows::core::PCWSTR = ::windows::core::w!("LogSizeMultiple");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_NAME_RES_TYPE_LOG_RESID: ::windows::core::PCWSTR = ::windows::w!("LogResourceId");
+pub const CLUS_NAME_RES_TYPE_LOG_RESID: ::windows::core::PCWSTR = ::windows::core::w!("LogResourceId");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_NAME_RES_TYPE_LOG_VOLUME: ::windows::core::PCWSTR = ::windows::w!("LogVolume");
+pub const CLUS_NAME_RES_TYPE_LOG_VOLUME: ::windows::core::PCWSTR = ::windows::core::w!("LogVolume");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_NAME_RES_TYPE_MINIMUM_LOG_SIZE: ::windows::core::PCWSTR = ::windows::w!("MinimumLogSizeInBytes");
+pub const CLUS_NAME_RES_TYPE_MINIMUM_LOG_SIZE: ::windows::core::PCWSTR = ::windows::core::w!("MinimumLogSizeInBytes");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_NAME_RES_TYPE_REPLICATION_GROUPID: ::windows::core::PCWSTR = ::windows::w!("ReplicationGroupId");
+pub const CLUS_NAME_RES_TYPE_REPLICATION_GROUPID: ::windows::core::PCWSTR = ::windows::core::w!("ReplicationGroupId");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_NAME_RES_TYPE_REPLICATION_GROUP_TYPE: ::windows::core::PCWSTR = ::windows::w!("ReplicationClusterGroupType");
+pub const CLUS_NAME_RES_TYPE_REPLICATION_GROUP_TYPE: ::windows::core::PCWSTR = ::windows::core::w!("ReplicationClusterGroupType");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_NAME_RES_TYPE_SOURCE_RESID: ::windows::core::PCWSTR = ::windows::w!("SourceResourceId");
+pub const CLUS_NAME_RES_TYPE_SOURCE_RESID: ::windows::core::PCWSTR = ::windows::core::w!("SourceResourceId");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_NAME_RES_TYPE_SOURCE_VOLUMES: ::windows::core::PCWSTR = ::windows::w!("SourceVolumes");
+pub const CLUS_NAME_RES_TYPE_SOURCE_VOLUMES: ::windows::core::PCWSTR = ::windows::core::w!("SourceVolumes");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_NAME_RES_TYPE_TARGET_RESID: ::windows::core::PCWSTR = ::windows::w!("TargetResourceId");
+pub const CLUS_NAME_RES_TYPE_TARGET_RESID: ::windows::core::PCWSTR = ::windows::core::w!("TargetResourceId");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_NAME_RES_TYPE_TARGET_VOLUMES: ::windows::core::PCWSTR = ::windows::w!("TargetVolumes");
+pub const CLUS_NAME_RES_TYPE_TARGET_VOLUMES: ::windows::core::PCWSTR = ::windows::core::w!("TargetVolumes");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_NAME_RES_TYPE_UNIT_LOG_SIZE_CHANGE: ::windows::core::PCWSTR = ::windows::w!("UnitOfLogSizeChangeInBytes");
+pub const CLUS_NAME_RES_TYPE_UNIT_LOG_SIZE_CHANGE: ::windows::core::PCWSTR = ::windows::core::w!("UnitOfLogSizeChangeInBytes");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUS_NODE_MAJORITY_QUORUM: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -8549,115 +8567,115 @@ pub const CLUS_RESDLL_OPEN_DONT_DELETE_TEMP_DISK: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUS_RESDLL_OPEN_RECOVER_MONITOR_STATE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_CAU: ::windows::core::PCWSTR = ::windows::w!("ClusterAwareUpdatingResource");
+pub const CLUS_RESTYPE_NAME_CAU: ::windows::core::PCWSTR = ::windows::core::w!("ClusterAwareUpdatingResource");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_CLOUD_WITNESS: ::windows::core::PCWSTR = ::windows::w!("Cloud Witness");
+pub const CLUS_RESTYPE_NAME_CLOUD_WITNESS: ::windows::core::PCWSTR = ::windows::core::w!("Cloud Witness");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_CONTAINER: ::windows::core::PCWSTR = ::windows::w!("Container");
+pub const CLUS_RESTYPE_NAME_CONTAINER: ::windows::core::PCWSTR = ::windows::core::w!("Container");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_CROSS_CLUSTER: ::windows::core::PCWSTR = ::windows::w!("Cross Cluster Dependency Orchestrator");
+pub const CLUS_RESTYPE_NAME_CROSS_CLUSTER: ::windows::core::PCWSTR = ::windows::core::w!("Cross Cluster Dependency Orchestrator");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_DFS: ::windows::core::PCWSTR = ::windows::w!("Distributed File System");
+pub const CLUS_RESTYPE_NAME_DFS: ::windows::core::PCWSTR = ::windows::core::w!("Distributed File System");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_DFSR: ::windows::core::PCWSTR = ::windows::w!("DFS Replicated Folder");
+pub const CLUS_RESTYPE_NAME_DFSR: ::windows::core::PCWSTR = ::windows::core::w!("DFS Replicated Folder");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_DHCP: ::windows::core::PCWSTR = ::windows::w!("DHCP Service");
+pub const CLUS_RESTYPE_NAME_DHCP: ::windows::core::PCWSTR = ::windows::core::w!("DHCP Service");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_DNN: ::windows::core::PCWSTR = ::windows::w!("Distributed Network Name");
+pub const CLUS_RESTYPE_NAME_DNN: ::windows::core::PCWSTR = ::windows::core::w!("Distributed Network Name");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_FILESERVER: ::windows::core::PCWSTR = ::windows::w!("File Server");
+pub const CLUS_RESTYPE_NAME_FILESERVER: ::windows::core::PCWSTR = ::windows::core::w!("File Server");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_FILESHR: ::windows::core::PCWSTR = ::windows::w!("File Share");
+pub const CLUS_RESTYPE_NAME_FILESHR: ::windows::core::PCWSTR = ::windows::core::w!("File Share");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_FSWITNESS: ::windows::core::PCWSTR = ::windows::w!("File Share Witness");
+pub const CLUS_RESTYPE_NAME_FSWITNESS: ::windows::core::PCWSTR = ::windows::core::w!("File Share Witness");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_GENAPP: ::windows::core::PCWSTR = ::windows::w!("Generic Application");
+pub const CLUS_RESTYPE_NAME_GENAPP: ::windows::core::PCWSTR = ::windows::core::w!("Generic Application");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_GENSCRIPT: ::windows::core::PCWSTR = ::windows::w!("Generic Script");
+pub const CLUS_RESTYPE_NAME_GENSCRIPT: ::windows::core::PCWSTR = ::windows::core::w!("Generic Script");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_GENSVC: ::windows::core::PCWSTR = ::windows::w!("Generic Service");
+pub const CLUS_RESTYPE_NAME_GENSVC: ::windows::core::PCWSTR = ::windows::core::w!("Generic Service");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_HARDDISK: ::windows::core::PCWSTR = ::windows::w!("Physical Disk");
+pub const CLUS_RESTYPE_NAME_HARDDISK: ::windows::core::PCWSTR = ::windows::core::w!("Physical Disk");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_HCSVM: ::windows::core::PCWSTR = ::windows::w!("HCS Virtual Machine");
+pub const CLUS_RESTYPE_NAME_HCSVM: ::windows::core::PCWSTR = ::windows::core::w!("HCS Virtual Machine");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_HEALTH_SERVICE: ::windows::core::PCWSTR = ::windows::w!("Health Service");
+pub const CLUS_RESTYPE_NAME_HEALTH_SERVICE: ::windows::core::PCWSTR = ::windows::core::w!("Health Service");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_IPADDR: ::windows::core::PCWSTR = ::windows::w!("IP Address");
+pub const CLUS_RESTYPE_NAME_IPADDR: ::windows::core::PCWSTR = ::windows::core::w!("IP Address");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_IPV6_NATIVE: ::windows::core::PCWSTR = ::windows::w!("IPv6 Address");
+pub const CLUS_RESTYPE_NAME_IPV6_NATIVE: ::windows::core::PCWSTR = ::windows::core::w!("IPv6 Address");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_IPV6_TUNNEL: ::windows::core::PCWSTR = ::windows::w!("IPv6 Tunnel Address");
+pub const CLUS_RESTYPE_NAME_IPV6_TUNNEL: ::windows::core::PCWSTR = ::windows::core::w!("IPv6 Tunnel Address");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_ISCSITARGET: ::windows::core::PCWSTR = ::windows::w!("iSCSI Target Server");
+pub const CLUS_RESTYPE_NAME_ISCSITARGET: ::windows::core::PCWSTR = ::windows::core::w!("iSCSI Target Server");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_ISNS: ::windows::core::PCWSTR = ::windows::w!("Microsoft iSNS");
+pub const CLUS_RESTYPE_NAME_ISNS: ::windows::core::PCWSTR = ::windows::core::w!("Microsoft iSNS");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_MSDTC: ::windows::core::PCWSTR = ::windows::w!("Distributed Transaction Coordinator");
+pub const CLUS_RESTYPE_NAME_MSDTC: ::windows::core::PCWSTR = ::windows::core::w!("Distributed Transaction Coordinator");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_MSMQ: ::windows::core::PCWSTR = ::windows::w!("Microsoft Message Queue Server");
+pub const CLUS_RESTYPE_NAME_MSMQ: ::windows::core::PCWSTR = ::windows::core::w!("Microsoft Message Queue Server");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_MSMQ_TRIGGER: ::windows::core::PCWSTR = ::windows::w!("MSMQTriggers");
+pub const CLUS_RESTYPE_NAME_MSMQ_TRIGGER: ::windows::core::PCWSTR = ::windows::core::w!("MSMQTriggers");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_NAT: ::windows::core::PCWSTR = ::windows::w!("Nat");
+pub const CLUS_RESTYPE_NAME_NAT: ::windows::core::PCWSTR = ::windows::core::w!("Nat");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_NETNAME: ::windows::core::PCWSTR = ::windows::w!("Network Name");
+pub const CLUS_RESTYPE_NAME_NETNAME: ::windows::core::PCWSTR = ::windows::core::w!("Network Name");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_NETWORK_FILE_SYSTEM: ::windows::core::PCWSTR = ::windows::w!("Network File System");
+pub const CLUS_RESTYPE_NAME_NETWORK_FILE_SYSTEM: ::windows::core::PCWSTR = ::windows::core::w!("Network File System");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_NEW_MSMQ: ::windows::core::PCWSTR = ::windows::w!("MSMQ");
+pub const CLUS_RESTYPE_NAME_NEW_MSMQ: ::windows::core::PCWSTR = ::windows::core::w!("MSMQ");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_NFS: ::windows::core::PCWSTR = ::windows::w!("NFS Share");
+pub const CLUS_RESTYPE_NAME_NFS: ::windows::core::PCWSTR = ::windows::core::w!("NFS Share");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_NFS_MSNS: ::windows::core::PCWSTR = ::windows::w!("NFS Multi Server Namespace");
+pub const CLUS_RESTYPE_NAME_NFS_MSNS: ::windows::core::PCWSTR = ::windows::core::w!("NFS Multi Server Namespace");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_NFS_V2: ::windows::core::PCWSTR = ::windows::w!("Network File System");
+pub const CLUS_RESTYPE_NAME_NFS_V2: ::windows::core::PCWSTR = ::windows::core::w!("Network File System");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_NV_PROVIDER_ADDRESS: ::windows::core::PCWSTR = ::windows::w!("Provider Address");
+pub const CLUS_RESTYPE_NAME_NV_PROVIDER_ADDRESS: ::windows::core::PCWSTR = ::windows::core::w!("Provider Address");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_PHYS_DISK: ::windows::core::PCWSTR = ::windows::w!("Physical Disk");
+pub const CLUS_RESTYPE_NAME_PHYS_DISK: ::windows::core::PCWSTR = ::windows::core::w!("Physical Disk");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_PRTSPLR: ::windows::core::PCWSTR = ::windows::w!("Print Spooler");
+pub const CLUS_RESTYPE_NAME_PRTSPLR: ::windows::core::PCWSTR = ::windows::core::w!("Print Spooler");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_SCALEOUT_MASTER: ::windows::core::PCWSTR = ::windows::w!("Scaleout Master");
+pub const CLUS_RESTYPE_NAME_SCALEOUT_MASTER: ::windows::core::PCWSTR = ::windows::core::w!("Scaleout Master");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_SCALEOUT_WORKER: ::windows::core::PCWSTR = ::windows::w!("Scaleout Worker");
+pub const CLUS_RESTYPE_NAME_SCALEOUT_WORKER: ::windows::core::PCWSTR = ::windows::core::w!("Scaleout Worker");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_SDDC_MANAGEMENT: ::windows::core::PCWSTR = ::windows::w!("SDDC Management");
+pub const CLUS_RESTYPE_NAME_SDDC_MANAGEMENT: ::windows::core::PCWSTR = ::windows::core::w!("SDDC Management");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_SODAFILESERVER: ::windows::core::PCWSTR = ::windows::w!("Scale Out File Server");
+pub const CLUS_RESTYPE_NAME_SODAFILESERVER: ::windows::core::PCWSTR = ::windows::core::w!("Scale Out File Server");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_STORAGE_POLICIES: ::windows::core::PCWSTR = ::windows::w!("Storage Policies");
+pub const CLUS_RESTYPE_NAME_STORAGE_POLICIES: ::windows::core::PCWSTR = ::windows::core::w!("Storage Policies");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_STORAGE_POOL: ::windows::core::PCWSTR = ::windows::w!("Storage Pool");
+pub const CLUS_RESTYPE_NAME_STORAGE_POOL: ::windows::core::PCWSTR = ::windows::core::w!("Storage Pool");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_STORAGE_REPLICA: ::windows::core::PCWSTR = ::windows::w!("Storage Replica");
+pub const CLUS_RESTYPE_NAME_STORAGE_REPLICA: ::windows::core::PCWSTR = ::windows::core::w!("Storage Replica");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_STORQOS: ::windows::core::PCWSTR = ::windows::w!("Storage QoS Policy Manager");
+pub const CLUS_RESTYPE_NAME_STORQOS: ::windows::core::PCWSTR = ::windows::core::w!("Storage QoS Policy Manager");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_TASKSCHEDULER: ::windows::core::PCWSTR = ::windows::w!("Task Scheduler");
+pub const CLUS_RESTYPE_NAME_TASKSCHEDULER: ::windows::core::PCWSTR = ::windows::core::w!("Task Scheduler");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_VIRTUAL_IPV4: ::windows::core::PCWSTR = ::windows::w!("Disjoint IPv4 Address");
+pub const CLUS_RESTYPE_NAME_VIRTUAL_IPV4: ::windows::core::PCWSTR = ::windows::core::w!("Disjoint IPv4 Address");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_VIRTUAL_IPV6: ::windows::core::PCWSTR = ::windows::w!("Disjoint IPv6 Address");
+pub const CLUS_RESTYPE_NAME_VIRTUAL_IPV6: ::windows::core::PCWSTR = ::windows::core::w!("Disjoint IPv6 Address");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_VM: ::windows::core::PCWSTR = ::windows::w!("Virtual Machine");
+pub const CLUS_RESTYPE_NAME_VM: ::windows::core::PCWSTR = ::windows::core::w!("Virtual Machine");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_VMREPLICA_BROKER: ::windows::core::PCWSTR = ::windows::w!("Virtual Machine Replication Broker");
+pub const CLUS_RESTYPE_NAME_VMREPLICA_BROKER: ::windows::core::PCWSTR = ::windows::core::w!("Virtual Machine Replication Broker");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_VMREPLICA_COORDINATOR: ::windows::core::PCWSTR = ::windows::w!("Virtual Machine Replication Coordinator");
+pub const CLUS_RESTYPE_NAME_VMREPLICA_COORDINATOR: ::windows::core::PCWSTR = ::windows::core::w!("Virtual Machine Replication Coordinator");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_VM_CONFIG: ::windows::core::PCWSTR = ::windows::w!("Virtual Machine Configuration");
+pub const CLUS_RESTYPE_NAME_VM_CONFIG: ::windows::core::PCWSTR = ::windows::core::w!("Virtual Machine Configuration");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_VM_WMI: ::windows::core::PCWSTR = ::windows::w!("Virtual Machine Cluster WMI");
+pub const CLUS_RESTYPE_NAME_VM_WMI: ::windows::core::PCWSTR = ::windows::core::w!("Virtual Machine Cluster WMI");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_VSSTASK: ::windows::core::PCWSTR = ::windows::w!("Volume Shadow Copy Service Task");
+pub const CLUS_RESTYPE_NAME_VSSTASK: ::windows::core::PCWSTR = ::windows::core::w!("Volume Shadow Copy Service Task");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RESTYPE_NAME_WINS: ::windows::core::PCWSTR = ::windows::w!("WINS Service");
+pub const CLUS_RESTYPE_NAME_WINS: ::windows::core::PCWSTR = ::windows::core::w!("WINS Service");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RES_NAME_SCALEOUT_MASTER: ::windows::core::PCWSTR = ::windows::w!("Scaleout Master");
+pub const CLUS_RES_NAME_SCALEOUT_MASTER: ::windows::core::PCWSTR = ::windows::core::w!("Scaleout Master");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const CLUS_RES_NAME_SCALEOUT_WORKER: ::windows::core::PCWSTR = ::windows::w!("Scaleout Worker");
+pub const CLUS_RES_NAME_SCALEOUT_WORKER: ::windows::core::PCWSTR = ::windows::core::w!("Scaleout Worker");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CREATEDC_PRESENT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -8747,7 +8765,7 @@ pub const DNS_LENGTH: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const DomainNames: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606e1_2631_11d1_89f1_00a0c90d061e);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const ENABLE_CLUSTER_SHARED_VOLUMES: ::windows::core::PCWSTR = ::windows::w!("EnableSharedVolumes");
+pub const ENABLE_CLUSTER_SHARED_VOLUMES: ::windows::core::PCWSTR = ::windows::core::w!("EnableSharedVolumes");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const FE_UPGRADE_VERSION: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -8781,15 +8799,17 @@ pub const MAX_CREATINGDC_LENGTH: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const MAX_OBJECTID: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const MINIMUM_NEVER_PREEMPT_PRIORITY: ::windows::core::PCWSTR = ::windows::w!("MinimumNeverPreemptPriority");
+pub const MINIMUM_NEVER_PREEMPT_PRIORITY: ::windows::core::PCWSTR = ::windows::core::w!("MinimumNeverPreemptPriority");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const MINIMUM_PREEMPTOR_PRIORITY: ::windows::core::PCWSTR = ::windows::w!("MinimumPreemptorPriority");
+pub const MINIMUM_PREEMPTOR_PRIORITY: ::windows::core::PCWSTR = ::windows::core::w!("MinimumPreemptorPriority");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const MN_UPGRADE_VERSION: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const NINETEEN_H1_UPGRADE_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const NINETEEN_H2_UPGRADE_VERSION: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub const NI_UPGRADE_VERSION: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const NNLEN: u32 = 80u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -8855,11 +8875,11 @@ pub const SET_APPINSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const SR_REPLICATED_PARTITION_DISALLOW_MULTINODE_IO: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const STARTUP_EX_ROUTINE: ::windows::core::PCSTR = ::windows::s!("StartupEx");
+pub const STARTUP_EX_ROUTINE: ::windows::core::PCSTR = ::windows::core::s!("StartupEx");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const STARTUP_ROUTINE: ::windows::core::PCSTR = ::windows::s!("Startup");
+pub const STARTUP_ROUTINE: ::windows::core::PCSTR = ::windows::core::s!("Startup");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub const USE_CLIENT_ACCESS_NETWORKS_FOR_CSV: ::windows::core::PCWSTR = ::windows::w!("UseClientAccessNetworksForSharedVolumes");
+pub const USE_CLIENT_ACCESS_NETWORKS_FOR_CSV: ::windows::core::PCWSTR = ::windows::core::w!("UseClientAccessNetworksForSharedVolumes");
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const VolumeRedirectedIOReasonMax: u64 = 9223372036854775808u64;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -8926,6 +8946,10 @@ pub const CLCTL_VALIDATE_COMMON_PROPERTIES: CLCTL_CODES = CLCTL_CODES(97i32);
 pub const CLCTL_GET_COMMON_PROPERTY_FMTS: CLCTL_CODES = CLCTL_CODES(101i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLCTL_GET_COMMON_RESOURCE_PROPERTY_FMTS: CLCTL_CODES = CLCTL_CODES(105i32);
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub const CLCTL_CHECK_VOTER_EVICT_WITNESS: CLCTL_CODES = CLCTL_CODES(109i32);
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub const CLCTL_CHECK_VOTER_DOWN_WITNESS: CLCTL_CODES = CLCTL_CODES(113i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLCTL_ENUM_PRIVATE_PROPERTIES: CLCTL_CODES = CLCTL_CODES(121i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -9435,6 +9459,10 @@ pub const CLUSCTL_CLUSTER_GET_NODES_IN_FD: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUST
 pub const CLUSCTL_CLUSTER_FORCE_FLUSH_DB: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121646566i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSCTL_CLUSTER_GET_CLMUSR_TOKEN: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440877i32);
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub const CLUSCTL_CLUSTER_CHECK_VOTER_EVICT_WITNESS: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440621i32);
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub const CLUSCTL_CLUSTER_CHECK_VOTER_DOWN_WITNESS: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440625i32);
 impl ::core::marker::Copy for CLUSCTL_CLUSTER_CODES {}
 impl ::core::clone::Clone for CLUSCTL_CLUSTER_CODES {
     fn clone(&self) -> Self {
@@ -11583,6 +11611,8 @@ pub const CLUSTER_OBJECT_TYPE_SHARED_VOLUME: CLUSTER_OBJECT_TYPE = CLUSTER_OBJEC
 pub const CLUSTER_OBJECT_TYPE_GROUPSET: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(13i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_OBJECT_TYPE_AFFINITYRULE: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub const CLUSTER_OBJECT_TYPE_FAULTDOMAIN: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(17i32);
 impl ::core::marker::Copy for CLUSTER_OBJECT_TYPE {}
 impl ::core::clone::Clone for CLUSTER_OBJECT_TYPE {
     fn clone(&self) -> Self {
@@ -13367,6 +13397,8 @@ pub struct CLRES_CALLBACK_FUNCTION_TABLE {
     pub SetInternalState: PSET_INTERNAL_STATE,
     pub SetResourceLockedModeEx: PSET_RESOURCE_LOCKED_MODE_EX_ROUTINE,
     pub RequestDump: PREQUEST_DUMP_ROUTINE,
+    pub SetResourceWprPolicy: PSET_RESOURCE_WPR_POLICY_ROUTINE,
+    pub ArmWprWatchdogForCurrentResourceCall: PARM_WPR_WATCHDOG_FOR_CURRENT_RESOURCE_CALL_ROUTINE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CLRES_CALLBACK_FUNCTION_TABLE {}
@@ -13606,6 +13638,37 @@ impl ::windows::core::TypeKind for CLRES_V4_FUNCTIONS {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::default::Default for CLRES_V4_FUNCTIONS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CLUSAPI_REASON_HANDLER {
+    pub lpParameter: *mut ::core::ffi::c_void,
+    pub pfnHandler: PCLUSAPI_PFN_REASON_HANDLER,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUSAPI_REASON_HANDLER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLUSAPI_REASON_HANDLER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLUSAPI_REASON_HANDLER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLUSAPI_REASON_HANDLER").field("lpParameter", &self.lpParameter).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for CLUSAPI_REASON_HANDLER {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for CLUSAPI_REASON_HANDLER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -17121,6 +17184,7 @@ pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
     pub MinimumPartnersInSync: u32,
     pub EnableWriteConsistency: super::super::Foundation::BOOLEAN,
     pub EnableEncryption: super::super::Foundation::BOOLEAN,
+    pub EnableCompression: super::super::Foundation::BOOLEAN,
     pub CertificateThumbprint: [u16; 260],
     pub VolumeNameCount: u32,
     pub VolumeNames: [u16; 260],
@@ -17146,6 +17210,7 @@ impl ::core::fmt::Debug for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
             .field("MinimumPartnersInSync", &self.MinimumPartnersInSync)
             .field("EnableWriteConsistency", &self.EnableWriteConsistency)
             .field("EnableEncryption", &self.EnableEncryption)
+            .field("EnableCompression", &self.EnableCompression)
             .field("CertificateThumbprint", &self.CertificateThumbprint)
             .field("VolumeNameCount", &self.VolumeNameCount)
             .field("VolumeNames", &self.VolumeNames)
@@ -17159,7 +17224,7 @@ impl ::windows::core::TypeKind for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
     fn eq(&self, other: &Self) -> bool {
-        self.ReplicationGroupName == other.ReplicationGroupName && self.Description == other.Description && self.LogPath == other.LogPath && self.MaxLogSizeInBytes == other.MaxLogSizeInBytes && self.LogType == other.LogType && self.ReplicationMode == other.ReplicationMode && self.MinimumPartnersInSync == other.MinimumPartnersInSync && self.EnableWriteConsistency == other.EnableWriteConsistency && self.EnableEncryption == other.EnableEncryption && self.CertificateThumbprint == other.CertificateThumbprint && self.VolumeNameCount == other.VolumeNameCount && self.VolumeNames == other.VolumeNames
+        self.ReplicationGroupName == other.ReplicationGroupName && self.Description == other.Description && self.LogPath == other.LogPath && self.MaxLogSizeInBytes == other.MaxLogSizeInBytes && self.LogType == other.LogType && self.ReplicationMode == other.ReplicationMode && self.MinimumPartnersInSync == other.MinimumPartnersInSync && self.EnableWriteConsistency == other.EnableWriteConsistency && self.EnableEncryption == other.EnableEncryption && self.EnableCompression == other.EnableCompression && self.CertificateThumbprint == other.CertificateThumbprint && self.VolumeNameCount == other.VolumeNameCount && self.VolumeNames == other.VolumeNames
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17633,6 +17698,8 @@ pub type LPRESOURCE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(
 pub type LPRESOURCE_CALLBACK_EX = ::core::option::Option<unsafe extern "system" fn(param0: *mut _HCLUSTER, param1: *mut _HRESOURCE, param2: *mut _HRESOURCE, param3: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PARBITRATE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(resource: *mut ::core::ffi::c_void, lostquorumresource: PQUORUM_RESOURCE_LOST) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PARM_WPR_WATCHDOG_FOR_CURRENT_RESOURCE_CALL_ROUTINE = ::core::option::Option<unsafe extern "system" fn(resourcehandle: isize, timeoutinms: u64) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PBEGIN_RESCALL_AS_USER_ROUTINE = ::core::option::Option<unsafe extern "system" fn(resource: *mut ::core::ffi::c_void, tokenhandle: super::super::Foundation::HANDLE, controlcode: u32, inbuffer: *mut ::core::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32, context: i64, returnedasynchronously: *mut super::super::Foundation::BOOL) -> u32>;
@@ -17663,9 +17730,15 @@ pub type PCLUSAPIClusWorkerCheckTerminate = ::core::option::Option<unsafe extern
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_ADD_CLUSTER_GROUP_DEPENDENCY = ::core::option::Option<unsafe extern "system" fn(hdependentgroup: *const _HGROUP, hprovidergroup: *const _HGROUP) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_ADD_CLUSTER_GROUP_DEPENDENCY_EX = ::core::option::Option<unsafe extern "system" fn(hdependentgroup: *const _HGROUP, hprovidergroup: *const _HGROUP, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_ADD_CLUSTER_GROUP_GROUPSET_DEPENDENCY = ::core::option::Option<unsafe extern "system" fn(hdependentgroupset: *const _HGROUPSET, hprovidergroupset: *const _HGROUPSET) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_ADD_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EX = ::core::option::Option<unsafe extern "system" fn(hdependentgroupset: *const _HGROUPSET, hprovidergroupset: *const _HGROUPSET, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_ADD_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY = ::core::option::Option<unsafe extern "system" fn(hdependentgroup: *const _HGROUP, hprovidergroupset: *const _HGROUPSET) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_ADD_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY_EX = ::core::option::Option<unsafe extern "system" fn(hdependentgroup: *const _HGROUP, hprovidergroupset: *const _HGROUPSET, lpszreason: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_ADD_CLUSTER_NODE = ::core::option::Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsznodename: ::windows::core::PCWSTR, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void) -> *mut _HNODE>;
@@ -17675,7 +17748,11 @@ pub type PCLUSAPI_ADD_CLUSTER_NODE_EX = ::core::option::Option<unsafe extern "sy
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_DEPENDENCY = ::core::option::Option<unsafe extern "system" fn(hresource: *mut _HRESOURCE, hdependson: *mut _HRESOURCE) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_DEPENDENCY_EX = ::core::option::Option<unsafe extern "system" fn(hresource: *const _HRESOURCE, hdependson: *const _HRESOURCE, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_NODE = ::core::option::Option<unsafe extern "system" fn(hresource: *mut _HRESOURCE, hnode: *mut _HNODE) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_NODE_EX = ::core::option::Option<unsafe extern "system" fn(hresource: *const _HRESOURCE, hnode: *const _HNODE, lpszreason: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_ADD_CROSS_CLUSTER_GROUPSET_DEPENDENCY = ::core::option::Option<unsafe extern "system" fn(hdependentgroupset: *const _HGROUPSET, lpremoteclustername: ::windows::core::PCWSTR, lpremotegroupsetname: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -17689,6 +17766,8 @@ pub type PCLUSAPI_CAN_RESOURCE_BE_DEPENDENT = ::core::option::Option<unsafe exte
 pub type PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP = ::core::option::Option<unsafe extern "system" fn(hresource: *mut _HRESOURCE, hgroup: *mut _HGROUP) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP_EX = ::core::option::Option<unsafe extern "system" fn(hresource: *mut _HRESOURCE, hgroup: *mut _HGROUP, flags: u64) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP_EX2 = ::core::option::Option<unsafe extern "system" fn(hresource: *const _HRESOURCE, hgroup: *const _HGROUP, flags: u64, lpszreason: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLOSE_CLUSTER = ::core::option::Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER) -> super::super::Foundation::BOOL>;
@@ -17716,6 +17795,8 @@ pub type PCLUSAPI_CLOSE_CLUSTER_RESOURCE = ::core::option::Option<unsafe extern 
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_ADD_GROUP_TO_AFFINITY_RULE = ::core::option::Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, rulename: ::windows::core::PCWSTR, hgroup: *const _HGROUP) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_CLUSTER_ADD_GROUP_TO_GROUPSET_WITH_DOMAINS_EX = ::core::option::Option<unsafe extern "system" fn(hgroupset: *const _HGROUPSET, hgroup: *const _HGROUP, faultdomain: u32, updatedomain: u32, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_ADD_GROUP_TO_GROUP_GROUPSET = ::core::option::Option<unsafe extern "system" fn(hgroupset: *const _HGROUPSET, hgroup: *const _HGROUP) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_AFFINITY_RULE_CONTROL = ::core::option::Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, affinityrulename: ::windows::core::PCWSTR, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
@@ -17725,6 +17806,8 @@ pub type PCLUSAPI_CLUSTER_CLOSE_ENUM = ::core::option::Option<unsafe extern "sys
 pub type PCLUSAPI_CLUSTER_CLOSE_ENUM_EX = ::core::option::Option<unsafe extern "system" fn(hclusterenum: *const _HCLUSENUMEX) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_CONTROL = ::core::option::Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_CLUSTER_CONTROL_EX = ::core::option::Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_CREATE_AFFINITY_RULE = ::core::option::Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, rulename: ::windows::core::PCWSTR, ruletype: CLUS_AFFINITY_RULE_TYPE) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -17742,6 +17825,8 @@ pub type PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM_EX = ::core::option::Option<unsafe ex
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_GROUP_CONTROL = ::core::option::Option<unsafe extern "system" fn(hgroup: *const _HGROUP, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_CLUSTER_GROUP_CONTROL_EX = ::core::option::Option<unsafe extern "system" fn(hgroup: *const _HGROUP, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_GROUP_ENUM = ::core::option::Option<unsafe extern "system" fn(hgroupenum: *const _HGROUPENUM, dwindex: u32, lpdwtype: *mut u32, lpszresourcename: ::windows::core::PWSTR, lpcchname: *mut u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_GROUP_ENUM_EX = ::core::option::Option<unsafe extern "system" fn(hgroupenumex: *const _HGROUPENUMEX, dwindex: u32, pitem: *mut CLUSTER_GROUP_ENUM_ITEM, cbitem: *mut u32) -> u32>;
@@ -17752,6 +17837,8 @@ pub type PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT_EX = ::core::option::Option<unsaf
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_GROUP_GROUPSET_CONTROL = ::core::option::Option<unsafe extern "system" fn(hgroupset: *const _HGROUPSET, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_CLUSTER_GROUP_GROUPSET_CONTROL_EX = ::core::option::Option<unsafe extern "system" fn(hgroupset: *const _HGROUPSET, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM = ::core::option::Option<unsafe extern "system" fn(hgroup: *mut _HGROUP, dwtype: u32) -> *mut _HGROUPENUM>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM_EX = ::core::option::Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszproperties: ::windows::core::PCWSTR, cbproperties: u32, lpszroproperties: ::windows::core::PCWSTR, cbroproperties: u32, dwflags: u32) -> *mut _HGROUPENUMEX>;
@@ -17759,6 +17846,8 @@ pub type PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM_EX = ::core::option::Option<unsafe ext
 pub type PCLUSAPI_CLUSTER_NETWORK_CLOSE_ENUM = ::core::option::Option<unsafe extern "system" fn(hnetworkenum: *const _HNETWORKENUM) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_NETWORK_CONTROL = ::core::option::Option<unsafe extern "system" fn(hnetwork: *const _HNETWORK, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_CLUSTER_NETWORK_CONTROL_EX = ::core::option::Option<unsafe extern "system" fn(hnetwork: *const _HNETWORK, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_NETWORK_ENUM = ::core::option::Option<unsafe extern "system" fn(hnetworkenum: *const _HNETWORKENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: ::windows::core::PWSTR, lpcchname: *mut u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -17768,11 +17857,15 @@ pub type PCLUSAPI_CLUSTER_NETWORK_OPEN_ENUM = ::core::option::Option<unsafe exte
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_NET_INTERFACE_CONTROL = ::core::option::Option<unsafe extern "system" fn(hnetinterface: *const _HNETINTERFACE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_CLUSTER_NET_INTERFACE_CONTROL_EX = ::core::option::Option<unsafe extern "system" fn(hnetinterface: *const _HNETINTERFACE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM = ::core::option::Option<unsafe extern "system" fn(hnodeenum: *const _HNODEENUM) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM_EX = ::core::option::Option<unsafe extern "system" fn(hnodeenum: *const _HNODEENUMEX) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_NODE_CONTROL = ::core::option::Option<unsafe extern "system" fn(hnode: *const _HNODE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_CLUSTER_NODE_CONTROL_EX = ::core::option::Option<unsafe extern "system" fn(hnode: *const _HNODE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_NODE_ENUM = ::core::option::Option<unsafe extern "system" fn(hnodeenum: *const _HNODEENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: ::windows::core::PWSTR, lpcchname: *mut u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -17798,12 +17891,21 @@ pub type PCLUSAPI_CLUSTER_REG_CREATE_BATCH = ::core::option::Option<unsafe exter
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Registry"))]
 pub type PCLUSAPI_CLUSTER_REG_CREATE_KEY = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszsubkey: ::windows::core::PCWSTR, dwoptions: u32, samdesired: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut super::super::System::Registry::HKEY, lpdwdisposition: *mut u32) -> i32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Registry\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Registry"))]
+pub type PCLUSAPI_CLUSTER_REG_CREATE_KEY_EX = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszsubkey: ::windows::core::PCWSTR, dwoptions: u32, samdesired: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut super::super::System::Registry::HKEY, lpdwdisposition: *mut u32, lpszreason: ::windows::core::PCWSTR) -> i32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_DELETE_KEY = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszsubkey: ::windows::core::PCWSTR) -> i32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_CLUSTER_REG_DELETE_KEY_EX = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpsubkey: ::windows::core::PCWSTR, lpszreason: ::windows::core::PCWSTR) -> i32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
+#[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_DELETE_VALUE = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_CLUSTER_REG_DELETE_VALUE_EX = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: ::windows::core::PCWSTR, lpszreason: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PCLUSAPI_CLUSTER_REG_ENUM_KEY = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, dwindex: u32, lpszname: ::windows::core::PWSTR, lpcchname: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> i32>;
@@ -17825,9 +17927,15 @@ pub type PCLUSAPI_CLUSTER_REG_QUERY_VALUE = ::core::option::Option<unsafe extern
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Security\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 pub type PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> i32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Security\"`, `\"Win32_System_Registry\"`*"]
+#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
+pub type PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY_EX = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, lpszreason: ::windows::core::PCWSTR) -> i32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_SET_VALUE = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: ::windows::core::PCWSTR, dwtype: u32, lpdata: *const u8, cbdata: u32) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_CLUSTER_REG_SET_VALUE_EX = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: ::windows::core::PCWSTR, dwtype: u32, lpdata: *const u8, cbdata: u32, lpszreason: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_REG_SYNC_DATABASE = ::core::option::Option<unsafe extern "system" fn(hcluster: *mut _HCLUSTER, flags: u32) -> i32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -17835,13 +17943,19 @@ pub type PCLUSAPI_CLUSTER_REMOVE_AFFINITY_RULE = ::core::option::Option<unsafe e
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_AFFINITY_RULE = ::core::option::Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, rulename: ::windows::core::PCWSTR, hgroup: *const _HGROUP) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-pub type PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_GROUP_GROUPSET = ::core::option::Option<unsafe extern "system" fn(hgroupset: *const _HGROUPSET, hgroupname: *const _HGROUP) -> u32>;
+pub type PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_GROUPSET = ::core::option::Option<unsafe extern "system" fn(hgroupset: *const _HGROUPSET) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_GROUPSET_EX = ::core::option::Option<unsafe extern "system" fn(hgroupset: *const _HGROUPSET, lpszreason: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM = ::core::option::Option<unsafe extern "system" fn(hresenum: *mut _HRESENUM) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM_EX = ::core::option::Option<unsafe extern "system" fn(hresourceenumex: *const _HRESENUMEX) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_RESOURCE_CONTROL = ::core::option::Option<unsafe extern "system" fn(hresource: *const _HRESOURCE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_CLUSTER_RESOURCE_CONTROL_AS_USER_EX = ::core::option::Option<unsafe extern "system" fn(hresource: *const _HRESOURCE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_CLUSTER_RESOURCE_CONTROL_EX = ::core::option::Option<unsafe extern "system" fn(hresource: *const _HRESOURCE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_RESOURCE_ENUM = ::core::option::Option<unsafe extern "system" fn(hresenum: *const _HRESENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: ::windows::core::PWSTR, lpcchname: *mut u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -17858,6 +17972,10 @@ pub type PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM_EX = ::core::option::Option<unsafe 
 pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CLOSE_ENUM = ::core::option::Option<unsafe extern "system" fn(hrestypeenum: *const _HRESTYPEENUM) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL = ::core::option::Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszresourcetypename: ::windows::core::PCWSTR, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL_AS_USER_EX = ::core::option::Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszresourcetypename: ::windows::core::PCWSTR, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL_EX = ::core::option::Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszresourcetypename: ::windows::core::PCWSTR, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpszreason: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_ENUM = ::core::option::Option<unsafe extern "system" fn(hrestypeenum: *const _HRESTYPEENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: ::windows::core::PWSTR, lpcchname: *mut u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -17898,26 +18016,44 @@ pub type PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT_V2 = ::core::option::Option<unsafe 
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE = ::core::option::Option<unsafe extern "system" fn(hgroup: *mut _HGROUP, lpszresourcename: ::windows::core::PCWSTR, lpszresourcetype: ::windows::core::PCWSTR, dwflags: u32) -> *mut _HRESOURCE>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE_EX = ::core::option::Option<unsafe extern "system" fn(hgroup: *const _HGROUP, lpszresourcename: ::windows::core::PCWSTR, lpszresourcetype: ::windows::core::PCWSTR, dwflags: u32, lpszreason: ::windows::core::PCWSTR) -> *mut _HRESOURCE>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE_TYPE = ::core::option::Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszresourcetypename: ::windows::core::PCWSTR, lpszdisplayname: ::windows::core::PCWSTR, lpszresourcetypedll: ::windows::core::PCWSTR, dwlooksalivepollinterval: u32, dwisalivepollinterval: u32) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE_TYPE_EX = ::core::option::Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszresourcetypename: ::windows::core::PCWSTR, lpszdisplayname: ::windows::core::PCWSTR, lpszresourcetypedll: ::windows::core::PCWSTR, dwlooksalivepollinterval: u32, dwisalivepollinterval: u32, lpszreason: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_DELETE_CLUSTER_GROUP = ::core::option::Option<unsafe extern "system" fn(hgroup: *mut _HGROUP) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_DELETE_CLUSTER_GROUP_EX = ::core::option::Option<unsafe extern "system" fn(hgroup: *const _HGROUP, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_DELETE_CLUSTER_GROUP_GROUPSET = ::core::option::Option<unsafe extern "system" fn(hgroupset: *const _HGROUPSET) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_DELETE_CLUSTER_GROUP_GROUPSET_EX = ::core::option::Option<unsafe extern "system" fn(hgroupset: *const _HGROUPSET, lpszreason: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE = ::core::option::Option<unsafe extern "system" fn(hresource: *mut _HRESOURCE) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE_EX = ::core::option::Option<unsafe extern "system" fn(hresource: *const _HRESOURCE, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE_TYPE = ::core::option::Option<unsafe extern "system" fn(hcluster: *mut _HCLUSTER, lpszresourcetypename: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE_TYPE_EX = ::core::option::Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsztypename: ::windows::core::PCWSTR, lpszreason: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_DESTROY_CLUSTER = ::core::option::Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void, fdeletevirtualcomputerobjects: super::super::Foundation::BOOL) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_DESTROY_CLUSTER_GROUP = ::core::option::Option<unsafe extern "system" fn(hgroup: *mut _HGROUP) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_DESTROY_CLUSTER_GROUP_EX = ::core::option::Option<unsafe extern "system" fn(hgroup: *const _HGROUP, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_EVICT_CLUSTER_NODE = ::core::option::Option<unsafe extern "system" fn(hnode: *const _HNODE) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_EVICT_CLUSTER_NODE_EX = ::core::option::Option<unsafe extern "system" fn(hnode: *const _HNODE, dwtimeout: u32, phrcleanupstatus: *mut ::windows::core::HRESULT) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_EVICT_CLUSTER_NODE_EX2 = ::core::option::Option<unsafe extern "system" fn(hnode: *const _HNODE, dwtimeout: u32, phrcleanupstatus: *mut ::windows::core::HRESULT, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_FAIL_CLUSTER_RESOURCE = ::core::option::Option<unsafe extern "system" fn(hresource: *mut _HRESOURCE) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_FAIL_CLUSTER_RESOURCE_EX = ::core::option::Option<unsafe extern "system" fn(hresource: *const _HRESOURCE, lpszreason: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_GET_CLUSTER_FROM_GROUP = ::core::option::Option<unsafe extern "system" fn(hgroup: *const _HGROUP) -> *mut _HCLUSTER>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -18033,6 +18169,12 @@ pub type PCLUSAPI_PAUSE_CLUSTER_NODE = ::core::option::Option<unsafe extern "sys
 pub type PCLUSAPI_PAUSE_CLUSTER_NODE_EX = ::core::option::Option<unsafe extern "system" fn(hnode: *const _HNODE, bdrainnode: super::super::Foundation::BOOL, dwpauseflags: u32, hnodedraintarget: *const _HNODE) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_PAUSE_CLUSTER_NODE_EX2 = ::core::option::Option<unsafe extern "system" fn(hnode: *const _HNODE, bdrainnode: super::super::Foundation::BOOL, dwpauseflags: u32, hnodedraintarget: *const _HNODE, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_PFN_REASON_HANDLER = ::core::option::Option<unsafe extern "system" fn(lpparameter: *const ::core::ffi::c_void, hcluster: *const _HCLUSTER, szreason: ::windows::core::PWSTR, lpsize: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_REGISTER_CLUSTER_NOTIFY = ::core::option::Option<unsafe extern "system" fn(hchange: *const _HCHANGE, dwfiltertype: u32, hobject: super::super::Foundation::HANDLE, dwnotifykey: usize) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -18040,21 +18182,33 @@ pub type PCLUSAPI_REGISTER_CLUSTER_NOTIFY_V2 = ::core::option::Option<unsafe ext
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_DEPENDENCY = ::core::option::Option<unsafe extern "system" fn(hgroup: *const _HGROUP, hdependson: *const _HGROUP) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_DEPENDENCY_EX = ::core::option::Option<unsafe extern "system" fn(hgroup: *const _HGROUP, hdependson: *const _HGROUP, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_GROUPSET_DEPENDENCY = ::core::option::Option<unsafe extern "system" fn(hgroupset: *const _HGROUPSET, hdependson: *const _HGROUPSET) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EX = ::core::option::Option<unsafe extern "system" fn(hgroupset: *const _HGROUPSET, hdependson: *const _HGROUPSET, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY = ::core::option::Option<unsafe extern "system" fn(hgroup: *const _HGROUP, hdependson: *const _HGROUPSET) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY_EX = ::core::option::Option<unsafe extern "system" fn(hgroup: *const _HGROUP, hdependson: *const _HGROUPSET, lpszreason: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_REMOVE_CLUSTER_NAME_ACCOUNT = ::core::option::Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_DEPENDENCY = ::core::option::Option<unsafe extern "system" fn(hresource: *mut _HRESOURCE, hdependson: *mut _HRESOURCE) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_DEPENDENCY_EX = ::core::option::Option<unsafe extern "system" fn(hresource: *const _HRESOURCE, hdependson: *const _HRESOURCE, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_NODE = ::core::option::Option<unsafe extern "system" fn(hresource: *mut _HRESOURCE, hnode: *mut _HNODE) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_NODE_EX = ::core::option::Option<unsafe extern "system" fn(hresource: *const _HRESOURCE, hnode: *const _HNODE, lpszreason: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_REMOVE_CROSS_CLUSTER_GROUPSET_DEPENDENCY = ::core::option::Option<unsafe extern "system" fn(hdependentgroupset: *const _HGROUPSET, lpremoteclustername: ::windows::core::PCWSTR, lpremotegroupsetname: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_REMOVE_RESOURCE_FROM_CLUSTER_SHARED_VOLUMES = ::core::option::Option<unsafe extern "system" fn(hresource: *const _HRESOURCE) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_RESTART_CLUSTER_RESOURCE = ::core::option::Option<unsafe extern "system" fn(hresource: *mut _HRESOURCE, dwflags: u32) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_RESTART_CLUSTER_RESOURCE_EX = ::core::option::Option<unsafe extern "system" fn(hresource: *mut _HRESOURCE, dwflags: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_RESTORE_CLUSTER_DATABASE = ::core::option::Option<unsafe extern "system" fn(lpszpathname: ::windows::core::PCWSTR, bforce: super::super::Foundation::BOOL, lpszquorumdriveletter: ::windows::core::PCWSTR) -> u32>;
@@ -18063,26 +18217,47 @@ pub type PCLUSAPI_RESUME_CLUSTER_NODE = ::core::option::Option<unsafe extern "sy
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_RESUME_CLUSTER_NODE_EX = ::core::option::Option<unsafe extern "system" fn(hnode: *const _HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_RESUME_CLUSTER_NODE_EX2 = ::core::option::Option<unsafe extern "system" fn(hnode: *const _HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: u32, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_SET_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EXPRESSION = ::core::option::Option<unsafe extern "system" fn(hgroupset: *const _HGROUPSET, lpszdependencyexpression: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_SET_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EXPRESSION_EX = ::core::option::Option<unsafe extern "system" fn(hgroupset: *const _HGROUPSET, lpszdependencyexpression: ::windows::core::PCWSTR, lpszreason: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_SET_CLUSTER_GROUP_NAME = ::core::option::Option<unsafe extern "system" fn(hgroup: *mut _HGROUP, lpszgroupname: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_SET_CLUSTER_GROUP_NAME_EX = ::core::option::Option<unsafe extern "system" fn(hgroup: *const _HGROUP, lpszgroupname: ::windows::core::PCWSTR, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST = ::core::option::Option<unsafe extern "system" fn(hgroup: *const _HGROUP, nodecount: u32, nodelist: *const *const _HNODE) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST_EX = ::core::option::Option<unsafe extern "system" fn(hgroup: *const _HGROUP, nodecount: u32, nodelist: *const *const _HNODE, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_SET_CLUSTER_NAME_EX = ::core::option::Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsznewclustername: ::windows::core::PCWSTR, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_SET_CLUSTER_NETWORK_NAME = ::core::option::Option<unsafe extern "system" fn(hnetwork: *const _HNETWORK, lpszname: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_SET_CLUSTER_NETWORK_NAME_EX = ::core::option::Option<unsafe extern "system" fn(hnetwork: *const _HNETWORK, lpszname: ::windows::core::PCWSTR, lpszreason: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_SET_CLUSTER_NETWORK_PRIORITY_ORDER = ::core::option::Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, networkcount: u32, networklist: *const *const _HNETWORK) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE = ::core::option::Option<unsafe extern "system" fn(hresource: *const _HRESOURCE, lpszdevicename: ::windows::core::PCWSTR, dwmaxquologsize: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE_EX = ::core::option::Option<unsafe extern "system" fn(hresource: *const _HRESOURCE, lpszdevicename: ::windows::core::PCWSTR, dwmaxquorumlogsize: u32, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_SET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION = ::core::option::Option<unsafe extern "system" fn(hresource: *const _HRESOURCE, lpszdependencyexpression: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_SET_CLUSTER_RESOURCE_NAME = ::core::option::Option<unsafe extern "system" fn(hresource: *mut _HRESOURCE, lpszresourcename: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_SET_CLUSTER_RESOURCE_NAME_EX = ::core::option::Option<unsafe extern "system" fn(hresource: *const _HRESOURCE, lpszresourcename: ::windows::core::PCWSTR, lpszreason: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_SET_CLUSTER_SERVICE_ACCOUNT_PASSWORD = ::core::option::Option<unsafe extern "system" fn(lpszclustername: ::windows::core::PCWSTR, lpsznewpassword: ::windows::core::PCWSTR, dwflags: u32, lpreturnstatusbuffer: *mut CLUSTER_SET_PASSWORD_STATUS, lpcbreturnstatusbuffersize: *mut u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_SET_GROUP_DEPENDENCY_EXPRESSION = ::core::option::Option<unsafe extern "system" fn(hgroupset: *const _HGROUP, lpszdependencyexpression: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PCLUSAPI_SET_GROUP_DEPENDENCY_EXPRESSION_EX = ::core::option::Option<unsafe extern "system" fn(hgroup: *const _HGROUP, lpszdependencyexpression: ::windows::core::PCWSTR, lpszreason: ::windows::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_SET_REASON_HANDLER = ::core::option::Option<unsafe extern "system" fn(lphandler: *const CLUSAPI_REASON_HANDLER) -> *mut CLUSAPI_REASON_HANDLER>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PCLUSAPI_SHARED_VOLUME_SET_SNAPSHOT_STATE = ::core::option::Option<unsafe extern "system" fn(guidsnapshotset: ::windows::core::GUID, lpszvolumename: ::windows::core::PCWSTR, state: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -18433,6 +18608,8 @@ pub type PSET_RESOURCE_STATUS_ROUTINE = ::core::option::Option<unsafe extern "sy
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSET_RESOURCE_STATUS_ROUTINE_EX = ::core::option::Option<unsafe extern "system" fn(resourcehandle: isize, resourcestatus: *mut RESOURCE_STATUS_EX) -> u32>;
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+pub type PSET_RESOURCE_WPR_POLICY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(resourcehandle: isize, wprpolicyflags: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type PSIGNAL_FAILURE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(resourcehandle: isize, failuretype: FAILURE_TYPE, applicationspecificerrorcode: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]

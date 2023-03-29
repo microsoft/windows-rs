@@ -45,7 +45,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "api-ms-win-core-memory-l1-1-7.dll""system" fn CreateFileMapping2 ( file : super::super::Foundation:: HANDLE , securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , desiredaccess : u32 , pageprotection : PAGE_PROTECTION_FLAGS , allocationattributes : u32 , maximumsize : u64 , name : :: windows::core::PCWSTR , extendedparameters : *mut MEM_EXTENDED_PARAMETER , parametercount : u32 ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "api-ms-win-core-memory-l1-1-7.dll""system" fn CreateFileMapping2 ( file : super::super::Foundation:: HANDLE , securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , desiredaccess : u32 , pageprotection : PAGE_PROTECTION_FLAGS , allocationattributes : u32 , maximumsize : u64 , name : ::windows::core::PCWSTR , extendedparameters : *mut MEM_EXTENDED_PARAMETER , parametercount : u32 ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateFileMapping2(file.into_param().abi(), ::core::mem::transmute(securityattributes.unwrap_or(::std::ptr::null())), desiredaccess, pageprotection, allocationattributes, maximumsize, name.into_param().abi(), ::core::mem::transmute(extendedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len() as _));
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -57,7 +57,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateFileMappingA ( hfile : super::super::Foundation:: HANDLE , lpfilemappingattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , flprotect : PAGE_PROTECTION_FLAGS , dwmaximumsizehigh : u32 , dwmaximumsizelow : u32 , lpname : :: windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateFileMappingA ( hfile : super::super::Foundation:: HANDLE , lpfilemappingattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , flprotect : PAGE_PROTECTION_FLAGS , dwmaximumsizehigh : u32 , dwmaximumsizelow : u32 , lpname : ::windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateFileMappingA(hfile.into_param().abi(), ::core::mem::transmute(lpfilemappingattributes.unwrap_or(::std::ptr::null())), flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname.into_param().abi());
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -69,7 +69,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateFileMappingFromApp ( hfile : super::super::Foundation:: HANDLE , securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , pageprotection : PAGE_PROTECTION_FLAGS , maximumsize : u64 , name : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateFileMappingFromApp ( hfile : super::super::Foundation:: HANDLE , securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , pageprotection : PAGE_PROTECTION_FLAGS , maximumsize : u64 , name : ::windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateFileMappingFromApp(hfile.into_param().abi(), ::core::mem::transmute(securityattributes.unwrap_or(::std::ptr::null())), pageprotection, maximumsize, name.into_param().abi());
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -81,7 +81,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateFileMappingNumaA ( hfile : super::super::Foundation:: HANDLE , lpfilemappingattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , flprotect : PAGE_PROTECTION_FLAGS , dwmaximumsizehigh : u32 , dwmaximumsizelow : u32 , lpname : :: windows::core::PCSTR , nndpreferred : u32 ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateFileMappingNumaA ( hfile : super::super::Foundation:: HANDLE , lpfilemappingattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , flprotect : PAGE_PROTECTION_FLAGS , dwmaximumsizehigh : u32 , dwmaximumsizelow : u32 , lpname : ::windows::core::PCSTR , nndpreferred : u32 ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateFileMappingNumaA(hfile.into_param().abi(), ::core::mem::transmute(lpfilemappingattributes.unwrap_or(::std::ptr::null())), flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname.into_param().abi(), nndpreferred);
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -93,7 +93,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateFileMappingNumaW ( hfile : super::super::Foundation:: HANDLE , lpfilemappingattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , flprotect : PAGE_PROTECTION_FLAGS , dwmaximumsizehigh : u32 , dwmaximumsizelow : u32 , lpname : :: windows::core::PCWSTR , nndpreferred : u32 ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateFileMappingNumaW ( hfile : super::super::Foundation:: HANDLE , lpfilemappingattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , flprotect : PAGE_PROTECTION_FLAGS , dwmaximumsizehigh : u32 , dwmaximumsizelow : u32 , lpname : ::windows::core::PCWSTR , nndpreferred : u32 ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateFileMappingNumaW(hfile.into_param().abi(), ::core::mem::transmute(lpfilemappingattributes.unwrap_or(::std::ptr::null())), flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname.into_param().abi(), nndpreferred);
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -105,7 +105,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateFileMappingW ( hfile : super::super::Foundation:: HANDLE , lpfilemappingattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , flprotect : PAGE_PROTECTION_FLAGS , dwmaximumsizehigh : u32 , dwmaximumsizelow : u32 , lpname : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateFileMappingW ( hfile : super::super::Foundation:: HANDLE , lpfilemappingattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , flprotect : PAGE_PROTECTION_FLAGS , dwmaximumsizehigh : u32 , dwmaximumsizelow : u32 , lpname : ::windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateFileMappingW(hfile.into_param().abi(), ::core::mem::transmute(lpfilemappingattributes.unwrap_or(::std::ptr::null())), flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname.into_param().abi());
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -421,7 +421,7 @@ pub unsafe fn IsBadStringPtrA<P0>(lpsz: P0, ucchmax: usize) -> super::super::Fou
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn IsBadStringPtrA ( lpsz : :: windows::core::PCSTR , ucchmax : usize ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn IsBadStringPtrA ( lpsz : ::windows::core::PCSTR , ucchmax : usize ) -> super::super::Foundation:: BOOL );
     IsBadStringPtrA(lpsz.into_param().abi(), ucchmax)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
@@ -431,7 +431,7 @@ pub unsafe fn IsBadStringPtrW<P0>(lpsz: P0, ucchmax: usize) -> super::super::Fou
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn IsBadStringPtrW ( lpsz : :: windows::core::PCWSTR , ucchmax : usize ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn IsBadStringPtrW ( lpsz : ::windows::core::PCWSTR , ucchmax : usize ) -> super::super::Foundation:: BOOL );
     IsBadStringPtrW(lpsz.into_param().abi(), ucchmax)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
@@ -536,75 +536,82 @@ pub unsafe fn MapUserPhysicalPagesScatter(virtualaddresses: *const *const ::core
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MapViewOfFile<P0>(hfilemappingobject: P0, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize) -> *mut ::core::ffi::c_void
+pub unsafe fn MapViewOfFile<P0>(hfilemappingobject: P0, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize) -> ::windows::core::Result<MEMORYMAPPEDVIEW_HANDLE>
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn MapViewOfFile ( hfilemappingobject : super::super::Foundation:: HANDLE , dwdesiredaccess : FILE_MAP , dwfileoffsethigh : u32 , dwfileoffsetlow : u32 , dwnumberofbytestomap : usize ) -> *mut ::core::ffi::c_void );
-    MapViewOfFile(hfilemappingobject.into_param().abi(), dwdesiredaccess, dwfileoffsethigh, dwfileoffsetlow, dwnumberofbytestomap)
+    ::windows::imp::link ! ( "kernel32.dll""system" fn MapViewOfFile ( hfilemappingobject : super::super::Foundation:: HANDLE , dwdesiredaccess : FILE_MAP , dwfileoffsethigh : u32 , dwfileoffsetlow : u32 , dwnumberofbytestomap : usize ) -> MEMORYMAPPEDVIEW_HANDLE );
+    let result__ = MapViewOfFile(hfilemappingobject.into_param().abi(), dwdesiredaccess, dwfileoffsethigh, dwfileoffsetlow, dwnumberofbytestomap);
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MapViewOfFile3<P0, P1>(filemapping: P0, process: P1, baseaddress: ::core::option::Option<*const ::core::ffi::c_void>, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: ::core::option::Option<&mut [MEM_EXTENDED_PARAMETER]>) -> *mut ::core::ffi::c_void
+pub unsafe fn MapViewOfFile3<P0, P1>(filemapping: P0, process: P1, baseaddress: ::core::option::Option<*const ::core::ffi::c_void>, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: ::core::option::Option<&mut [MEM_EXTENDED_PARAMETER]>) -> ::windows::core::Result<MEMORYMAPPEDVIEW_HANDLE>
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "api-ms-win-core-memory-l1-1-6.dll""system" fn MapViewOfFile3 ( filemapping : super::super::Foundation:: HANDLE , process : super::super::Foundation:: HANDLE , baseaddress : *const ::core::ffi::c_void , offset : u64 , viewsize : usize , allocationtype : VIRTUAL_ALLOCATION_TYPE , pageprotection : u32 , extendedparameters : *mut MEM_EXTENDED_PARAMETER , parametercount : u32 ) -> *mut ::core::ffi::c_void );
-    MapViewOfFile3(filemapping.into_param().abi(), process.into_param().abi(), ::core::mem::transmute(baseaddress.unwrap_or(::std::ptr::null())), offset, viewsize, allocationtype, pageprotection, ::core::mem::transmute(extendedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len() as _))
+    ::windows::imp::link ! ( "api-ms-win-core-memory-l1-1-6.dll""system" fn MapViewOfFile3 ( filemapping : super::super::Foundation:: HANDLE , process : super::super::Foundation:: HANDLE , baseaddress : *const ::core::ffi::c_void , offset : u64 , viewsize : usize , allocationtype : VIRTUAL_ALLOCATION_TYPE , pageprotection : u32 , extendedparameters : *mut MEM_EXTENDED_PARAMETER , parametercount : u32 ) -> MEMORYMAPPEDVIEW_HANDLE );
+    let result__ = MapViewOfFile3(filemapping.into_param().abi(), process.into_param().abi(), ::core::mem::transmute(baseaddress.unwrap_or(::std::ptr::null())), offset, viewsize, allocationtype, pageprotection, ::core::mem::transmute(extendedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len() as _));
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MapViewOfFile3FromApp<P0, P1>(filemapping: P0, process: P1, baseaddress: ::core::option::Option<*const ::core::ffi::c_void>, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: ::core::option::Option<&mut [MEM_EXTENDED_PARAMETER]>) -> *mut ::core::ffi::c_void
+pub unsafe fn MapViewOfFile3FromApp<P0, P1>(filemapping: P0, process: P1, baseaddress: ::core::option::Option<*const ::core::ffi::c_void>, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: ::core::option::Option<&mut [MEM_EXTENDED_PARAMETER]>) -> ::windows::core::Result<MEMORYMAPPEDVIEW_HANDLE>
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "api-ms-win-core-memory-l1-1-6.dll""system" fn MapViewOfFile3FromApp ( filemapping : super::super::Foundation:: HANDLE , process : super::super::Foundation:: HANDLE , baseaddress : *const ::core::ffi::c_void , offset : u64 , viewsize : usize , allocationtype : VIRTUAL_ALLOCATION_TYPE , pageprotection : u32 , extendedparameters : *mut MEM_EXTENDED_PARAMETER , parametercount : u32 ) -> *mut ::core::ffi::c_void );
-    MapViewOfFile3FromApp(filemapping.into_param().abi(), process.into_param().abi(), ::core::mem::transmute(baseaddress.unwrap_or(::std::ptr::null())), offset, viewsize, allocationtype, pageprotection, ::core::mem::transmute(extendedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len() as _))
+    ::windows::imp::link ! ( "api-ms-win-core-memory-l1-1-6.dll""system" fn MapViewOfFile3FromApp ( filemapping : super::super::Foundation:: HANDLE , process : super::super::Foundation:: HANDLE , baseaddress : *const ::core::ffi::c_void , offset : u64 , viewsize : usize , allocationtype : VIRTUAL_ALLOCATION_TYPE , pageprotection : u32 , extendedparameters : *mut MEM_EXTENDED_PARAMETER , parametercount : u32 ) -> MEMORYMAPPEDVIEW_HANDLE );
+    let result__ = MapViewOfFile3FromApp(filemapping.into_param().abi(), process.into_param().abi(), ::core::mem::transmute(baseaddress.unwrap_or(::std::ptr::null())), offset, viewsize, allocationtype, pageprotection, ::core::mem::transmute(extendedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len() as _));
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MapViewOfFileEx<P0>(hfilemappingobject: P0, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize, lpbaseaddress: ::core::option::Option<*const ::core::ffi::c_void>) -> *mut ::core::ffi::c_void
+pub unsafe fn MapViewOfFileEx<P0>(hfilemappingobject: P0, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize, lpbaseaddress: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<MEMORYMAPPEDVIEW_HANDLE>
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn MapViewOfFileEx ( hfilemappingobject : super::super::Foundation:: HANDLE , dwdesiredaccess : FILE_MAP , dwfileoffsethigh : u32 , dwfileoffsetlow : u32 , dwnumberofbytestomap : usize , lpbaseaddress : *const ::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
-    MapViewOfFileEx(hfilemappingobject.into_param().abi(), dwdesiredaccess, dwfileoffsethigh, dwfileoffsetlow, dwnumberofbytestomap, ::core::mem::transmute(lpbaseaddress.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "kernel32.dll""system" fn MapViewOfFileEx ( hfilemappingobject : super::super::Foundation:: HANDLE , dwdesiredaccess : FILE_MAP , dwfileoffsethigh : u32 , dwfileoffsetlow : u32 , dwnumberofbytestomap : usize , lpbaseaddress : *const ::core::ffi::c_void ) -> MEMORYMAPPEDVIEW_HANDLE );
+    let result__ = MapViewOfFileEx(hfilemappingobject.into_param().abi(), dwdesiredaccess, dwfileoffsethigh, dwfileoffsetlow, dwnumberofbytestomap, ::core::mem::transmute(lpbaseaddress.unwrap_or(::std::ptr::null())));
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MapViewOfFileExNuma<P0>(hfilemappingobject: P0, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize, lpbaseaddress: ::core::option::Option<*const ::core::ffi::c_void>, nndpreferred: u32) -> *mut ::core::ffi::c_void
+pub unsafe fn MapViewOfFileExNuma<P0>(hfilemappingobject: P0, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize, lpbaseaddress: ::core::option::Option<*const ::core::ffi::c_void>, nndpreferred: u32) -> ::windows::core::Result<MEMORYMAPPEDVIEW_HANDLE>
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn MapViewOfFileExNuma ( hfilemappingobject : super::super::Foundation:: HANDLE , dwdesiredaccess : FILE_MAP , dwfileoffsethigh : u32 , dwfileoffsetlow : u32 , dwnumberofbytestomap : usize , lpbaseaddress : *const ::core::ffi::c_void , nndpreferred : u32 ) -> *mut ::core::ffi::c_void );
-    MapViewOfFileExNuma(hfilemappingobject.into_param().abi(), dwdesiredaccess, dwfileoffsethigh, dwfileoffsetlow, dwnumberofbytestomap, ::core::mem::transmute(lpbaseaddress.unwrap_or(::std::ptr::null())), nndpreferred)
+    ::windows::imp::link ! ( "kernel32.dll""system" fn MapViewOfFileExNuma ( hfilemappingobject : super::super::Foundation:: HANDLE , dwdesiredaccess : FILE_MAP , dwfileoffsethigh : u32 , dwfileoffsetlow : u32 , dwnumberofbytestomap : usize , lpbaseaddress : *const ::core::ffi::c_void , nndpreferred : u32 ) -> MEMORYMAPPEDVIEW_HANDLE );
+    let result__ = MapViewOfFileExNuma(hfilemappingobject.into_param().abi(), dwdesiredaccess, dwfileoffsethigh, dwfileoffsetlow, dwnumberofbytestomap, ::core::mem::transmute(lpbaseaddress.unwrap_or(::std::ptr::null())), nndpreferred);
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MapViewOfFileFromApp<P0>(hfilemappingobject: P0, desiredaccess: FILE_MAP, fileoffset: u64, numberofbytestomap: usize) -> *mut ::core::ffi::c_void
+pub unsafe fn MapViewOfFileFromApp<P0>(hfilemappingobject: P0, desiredaccess: FILE_MAP, fileoffset: u64, numberofbytestomap: usize) -> ::windows::core::Result<MEMORYMAPPEDVIEW_HANDLE>
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn MapViewOfFileFromApp ( hfilemappingobject : super::super::Foundation:: HANDLE , desiredaccess : FILE_MAP , fileoffset : u64 , numberofbytestomap : usize ) -> *mut ::core::ffi::c_void );
-    MapViewOfFileFromApp(hfilemappingobject.into_param().abi(), desiredaccess, fileoffset, numberofbytestomap)
+    ::windows::imp::link ! ( "kernel32.dll""system" fn MapViewOfFileFromApp ( hfilemappingobject : super::super::Foundation:: HANDLE , desiredaccess : FILE_MAP , fileoffset : u64 , numberofbytestomap : usize ) -> MEMORYMAPPEDVIEW_HANDLE );
+    let result__ = MapViewOfFileFromApp(hfilemappingobject.into_param().abi(), desiredaccess, fileoffset, numberofbytestomap);
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MapViewOfFileNuma2<P0, P1>(filemappinghandle: P0, processhandle: P1, offset: u64, baseaddress: ::core::option::Option<*const ::core::ffi::c_void>, viewsize: usize, allocationtype: u32, pageprotection: u32, preferrednode: u32) -> *mut ::core::ffi::c_void
+pub unsafe fn MapViewOfFileNuma2<P0, P1>(filemappinghandle: P0, processhandle: P1, offset: u64, baseaddress: ::core::option::Option<*const ::core::ffi::c_void>, viewsize: usize, allocationtype: u32, pageprotection: u32, preferrednode: u32) -> ::windows::core::Result<MEMORYMAPPEDVIEW_HANDLE>
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "api-ms-win-core-memory-l1-1-5.dll""system" fn MapViewOfFileNuma2 ( filemappinghandle : super::super::Foundation:: HANDLE , processhandle : super::super::Foundation:: HANDLE , offset : u64 , baseaddress : *const ::core::ffi::c_void , viewsize : usize , allocationtype : u32 , pageprotection : u32 , preferrednode : u32 ) -> *mut ::core::ffi::c_void );
-    MapViewOfFileNuma2(filemappinghandle.into_param().abi(), processhandle.into_param().abi(), offset, ::core::mem::transmute(baseaddress.unwrap_or(::std::ptr::null())), viewsize, allocationtype, pageprotection, preferrednode)
+    ::windows::imp::link ! ( "api-ms-win-core-memory-l1-1-5.dll""system" fn MapViewOfFileNuma2 ( filemappinghandle : super::super::Foundation:: HANDLE , processhandle : super::super::Foundation:: HANDLE , offset : u64 , baseaddress : *const ::core::ffi::c_void , viewsize : usize , allocationtype : u32 , pageprotection : u32 , preferrednode : u32 ) -> MEMORYMAPPEDVIEW_HANDLE );
+    let result__ = MapViewOfFileNuma2(filemappinghandle.into_param().abi(), processhandle.into_param().abi(), offset, ::core::mem::transmute(baseaddress.unwrap_or(::std::ptr::null())), viewsize, allocationtype, pageprotection, preferrednode);
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -631,7 +638,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn OpenFileMappingA ( dwdesiredaccess : u32 , binherithandle : super::super::Foundation:: BOOL , lpname : :: windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn OpenFileMappingA ( dwdesiredaccess : u32 , binherithandle : super::super::Foundation:: BOOL , lpname : ::windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
     let result__ = OpenFileMappingA(dwdesiredaccess, binherithandle.into_param().abi(), lpname.into_param().abi());
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -643,7 +650,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "api-ms-win-core-memory-l1-1-3.dll""system" fn OpenFileMappingFromApp ( desiredaccess : u32 , inherithandle : super::super::Foundation:: BOOL , name : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "api-ms-win-core-memory-l1-1-3.dll""system" fn OpenFileMappingFromApp ( desiredaccess : u32 , inherithandle : super::super::Foundation:: BOOL , name : ::windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
     let result__ = OpenFileMappingFromApp(desiredaccess, inherithandle.into_param().abi(), name.into_param().abi());
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -655,7 +662,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn OpenFileMappingW ( dwdesiredaccess : u32 , binherithandle : super::super::Foundation:: BOOL , lpname : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn OpenFileMappingW ( dwdesiredaccess : u32 , binherithandle : super::super::Foundation:: BOOL , lpname : ::windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
     let result__ = OpenFileMappingW(dwdesiredaccess, binherithandle.into_param().abi(), lpname.into_param().abi());
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -790,26 +797,33 @@ pub unsafe fn SetSystemFileCacheSize(minimumfilecachesize: usize, maximumfilecac
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnmapViewOfFile(lpbaseaddress: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn UnmapViewOfFile ( lpbaseaddress : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    UnmapViewOfFile(lpbaseaddress)
+pub unsafe fn UnmapViewOfFile<P0>(lpbaseaddress: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::windows::core::IntoParam<MEMORYMAPPEDVIEW_HANDLE>,
+{
+    ::windows::imp::link ! ( "kernel32.dll""system" fn UnmapViewOfFile ( lpbaseaddress : MEMORYMAPPEDVIEW_HANDLE ) -> super::super::Foundation:: BOOL );
+    UnmapViewOfFile(lpbaseaddress.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnmapViewOfFile2<P0>(process: P0, baseaddress: *const ::core::ffi::c_void, unmapflags: UNMAP_VIEW_OF_FILE_FLAGS) -> super::super::Foundation::BOOL
+pub unsafe fn UnmapViewOfFile2<P0, P1>(process: P0, baseaddress: P1, unmapflags: UNMAP_VIEW_OF_FILE_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<MEMORYMAPPEDVIEW_HANDLE>,
 {
-    ::windows::imp::link ! ( "api-ms-win-core-memory-l1-1-5.dll""system" fn UnmapViewOfFile2 ( process : super::super::Foundation:: HANDLE , baseaddress : *const ::core::ffi::c_void , unmapflags : UNMAP_VIEW_OF_FILE_FLAGS ) -> super::super::Foundation:: BOOL );
-    UnmapViewOfFile2(process.into_param().abi(), baseaddress, unmapflags)
+    ::windows::imp::link ! ( "api-ms-win-core-memory-l1-1-5.dll""system" fn UnmapViewOfFile2 ( process : super::super::Foundation:: HANDLE , baseaddress : MEMORYMAPPEDVIEW_HANDLE , unmapflags : UNMAP_VIEW_OF_FILE_FLAGS ) -> super::super::Foundation:: BOOL );
+    UnmapViewOfFile2(process.into_param().abi(), baseaddress.into_param().abi(), unmapflags)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnmapViewOfFileEx(baseaddress: *const ::core::ffi::c_void, unmapflags: UNMAP_VIEW_OF_FILE_FLAGS) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn UnmapViewOfFileEx ( baseaddress : *const ::core::ffi::c_void , unmapflags : UNMAP_VIEW_OF_FILE_FLAGS ) -> super::super::Foundation:: BOOL );
-    UnmapViewOfFileEx(baseaddress, unmapflags)
+pub unsafe fn UnmapViewOfFileEx<P0>(baseaddress: P0, unmapflags: UNMAP_VIEW_OF_FILE_FLAGS) -> super::super::Foundation::BOOL
+where
+    P0: ::windows::core::IntoParam<MEMORYMAPPEDVIEW_HANDLE>,
+{
+    ::windows::imp::link ! ( "kernel32.dll""system" fn UnmapViewOfFileEx ( baseaddress : MEMORYMAPPEDVIEW_HANDLE , unmapflags : UNMAP_VIEW_OF_FILE_FLAGS ) -> super::super::Foundation:: BOOL );
+    UnmapViewOfFileEx(baseaddress.into_param().abi(), unmapflags)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1989,6 +2003,33 @@ impl ::core::fmt::Debug for HeapHandle {
     }
 }
 impl ::windows::core::TypeKind for HeapHandle {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MEMORYMAPPEDVIEW_HANDLE(pub isize);
+impl MEMORYMAPPEDVIEW_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for MEMORYMAPPEDVIEW_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for MEMORYMAPPEDVIEW_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for MEMORYMAPPEDVIEW_HANDLE {}
+impl ::core::fmt::Debug for MEMORYMAPPEDVIEW_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MEMORYMAPPEDVIEW_HANDLE").field(&self.0).finish()
+    }
+}
+impl ::windows::core::TypeKind for MEMORYMAPPEDVIEW_HANDLE {
     type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]

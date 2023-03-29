@@ -3,13 +3,13 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSCloseServer ( hserver : super::super::Foundation:: HANDLE ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSConnectSessionA ( logonid : u32 , targetlogonid : u32 , ppassword : :: windows_sys::core::PCSTR , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSConnectSessionA ( logonid : u32 , targetlogonid : u32 , ppassword : ::windows_sys::core::PCSTR , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSConnectSessionW ( logonid : u32 , targetlogonid : u32 , ppassword : :: windows_sys::core::PCWSTR , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSConnectSessionW ( logonid : u32 , targetlogonid : u32 , ppassword : ::windows_sys::core::PCWSTR , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSCreateListenerA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows_sys::core::PCSTR , pbuffer : *const WTSLISTENERCONFIGA , flag : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSCreateListenerA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : ::windows_sys::core::PCSTR , pbuffer : *const WTSLISTENERCONFIGA , flag : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSCreateListenerW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows_sys::core::PCWSTR , pbuffer : *const WTSLISTENERCONFIGW , flag : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSCreateListenerW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : ::windows_sys::core::PCWSTR , pbuffer : *const WTSLISTENERCONFIGW , flag : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSDisconnectSession ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -21,15 +21,15 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSEnumerateProcessesA ( hserver : super::super::Foundation:: HANDLE , reserved : u32 , version : u32 , ppprocessinfo : *mut *mut WTS_PROCESS_INFOA , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSEnumerateProcessesExA ( hserver : super::super::Foundation:: HANDLE , plevel : *mut u32 , sessionid : u32 , ppprocessinfo : *mut :: windows_sys::core::PSTR , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSEnumerateProcessesExA ( hserver : super::super::Foundation:: HANDLE , plevel : *mut u32 , sessionid : u32 , ppprocessinfo : *mut ::windows_sys::core::PSTR , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSEnumerateProcessesExW ( hserver : super::super::Foundation:: HANDLE , plevel : *mut u32 , sessionid : u32 , ppprocessinfo : *mut :: windows_sys::core::PWSTR , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSEnumerateProcessesExW ( hserver : super::super::Foundation:: HANDLE , plevel : *mut u32 , sessionid : u32 , ppprocessinfo : *mut ::windows_sys::core::PWSTR , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSEnumerateProcessesW ( hserver : super::super::Foundation:: HANDLE , reserved : u32 , version : u32 , ppprocessinfo : *mut *mut WTS_PROCESS_INFOW , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSEnumerateServersA ( pdomainname : :: windows_sys::core::PCSTR , reserved : u32 , version : u32 , ppserverinfo : *mut *mut WTS_SERVER_INFOA , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSEnumerateServersA ( pdomainname : ::windows_sys::core::PCSTR , reserved : u32 , version : u32 , ppserverinfo : *mut *mut WTS_SERVER_INFOA , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSEnumerateServersW ( pdomainname : :: windows_sys::core::PCWSTR , reserved : u32 , version : u32 , ppserverinfo : *mut *mut WTS_SERVER_INFOW , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSEnumerateServersW ( pdomainname : ::windows_sys::core::PCWSTR , reserved : u32 , version : u32 , ppserverinfo : *mut *mut WTS_SERVER_INFOW , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSEnumerateSessionsA ( hserver : super::super::Foundation:: HANDLE , reserved : u32 , version : u32 , ppsessioninfo : *mut *mut WTS_SESSION_INFOA , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -47,33 +47,33 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSGetChildSessionId ( psessionid : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn WTSGetListenerSecurityA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows_sys::core::PCSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , nlength : u32 , lpnlengthneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn WTSGetListenerSecurityA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : ::windows_sys::core::PCSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , nlength : u32 , lpnlengthneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn WTSGetListenerSecurityW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows_sys::core::PCWSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , nlength : u32 , lpnlengthneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn WTSGetListenerSecurityW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : ::windows_sys::core::PCWSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , nlength : u32 , lpnlengthneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSIsChildSessionsEnabled ( pbenabled : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSLogoffSession ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSOpenServerA ( pservername : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSOpenServerA ( pservername : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSOpenServerExA ( pservername : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSOpenServerExA ( pservername : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSOpenServerExW ( pservername : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSOpenServerExW ( pservername : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSOpenServerW ( pservername : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSOpenServerW ( pservername : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSQueryListenerConfigA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows_sys::core::PCSTR , pbuffer : *mut WTSLISTENERCONFIGA ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSQueryListenerConfigA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : ::windows_sys::core::PCSTR , pbuffer : *mut WTSLISTENERCONFIGA ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSQueryListenerConfigW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows_sys::core::PCWSTR , pbuffer : *mut WTSLISTENERCONFIGW ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSQueryListenerConfigW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : ::windows_sys::core::PCWSTR , pbuffer : *mut WTSLISTENERCONFIGW ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSQuerySessionInformationA ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , wtsinfoclass : WTS_INFO_CLASS , ppbuffer : *mut :: windows_sys::core::PSTR , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSQuerySessionInformationA ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , wtsinfoclass : WTS_INFO_CLASS , ppbuffer : *mut ::windows_sys::core::PSTR , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSQuerySessionInformationW ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , wtsinfoclass : WTS_INFO_CLASS , ppbuffer : *mut :: windows_sys::core::PWSTR , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSQuerySessionInformationW ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , wtsinfoclass : WTS_INFO_CLASS , ppbuffer : *mut ::windows_sys::core::PWSTR , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSQueryUserConfigA ( pservername : :: windows_sys::core::PCSTR , pusername : :: windows_sys::core::PCSTR , wtsconfigclass : WTS_CONFIG_CLASS , ppbuffer : *mut :: windows_sys::core::PSTR , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSQueryUserConfigA ( pservername : ::windows_sys::core::PCSTR , pusername : ::windows_sys::core::PCSTR , wtsconfigclass : WTS_CONFIG_CLASS , ppbuffer : *mut ::windows_sys::core::PSTR , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSQueryUserConfigW ( pservername : :: windows_sys::core::PCWSTR , pusername : :: windows_sys::core::PCWSTR , wtsconfigclass : WTS_CONFIG_CLASS , ppbuffer : *mut :: windows_sys::core::PWSTR , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSQueryUserConfigW ( pservername : ::windows_sys::core::PCWSTR , pusername : ::windows_sys::core::PCWSTR , wtsconfigclass : WTS_CONFIG_CLASS , ppbuffer : *mut ::windows_sys::core::PWSTR , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSQueryUserToken ( sessionid : u32 , phtoken : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -81,25 +81,25 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSRegisterSessionNotificationEx ( hserver : super::super::Foundation:: HANDLE , hwnd : super::super::Foundation:: HWND , dwflags : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn WTSSendMessageA ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , ptitle : :: windows_sys::core::PCSTR , titlelength : u32 , pmessage : :: windows_sys::core::PCSTR , messagelength : u32 , style : super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE , timeout : u32 , presponse : *mut super::super::UI::WindowsAndMessaging:: MESSAGEBOX_RESULT , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn WTSSendMessageA ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , ptitle : ::windows_sys::core::PCSTR , titlelength : u32 , pmessage : ::windows_sys::core::PCSTR , messagelength : u32 , style : super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE , timeout : u32 , presponse : *mut super::super::UI::WindowsAndMessaging:: MESSAGEBOX_RESULT , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn WTSSendMessageW ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , ptitle : :: windows_sys::core::PCWSTR , titlelength : u32 , pmessage : :: windows_sys::core::PCWSTR , messagelength : u32 , style : super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE , timeout : u32 , presponse : *mut super::super::UI::WindowsAndMessaging:: MESSAGEBOX_RESULT , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn WTSSendMessageW ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , ptitle : ::windows_sys::core::PCWSTR , titlelength : u32 , pmessage : ::windows_sys::core::PCWSTR , messagelength : u32 , style : super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE , timeout : u32 , presponse : *mut super::super::UI::WindowsAndMessaging:: MESSAGEBOX_RESULT , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn WTSSetListenerSecurityA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows_sys::core::PCSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn WTSSetListenerSecurityA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : ::windows_sys::core::PCSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn WTSSetListenerSecurityW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows_sys::core::PCWSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn WTSSetListenerSecurityW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : ::windows_sys::core::PCWSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSSetRenderHint ( prenderhintid : *mut u64 , hwndowner : super::super::Foundation:: HWND , renderhinttype : u32 , cbhintdatalength : u32 , phintdata : *const u8 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSSetRenderHint ( prenderhintid : *mut u64 , hwndowner : super::super::Foundation:: HWND , renderhinttype : u32 , cbhintdatalength : u32 , phintdata : *const u8 ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSSetUserConfigA ( pservername : :: windows_sys::core::PCSTR , pusername : :: windows_sys::core::PCSTR , wtsconfigclass : WTS_CONFIG_CLASS , pbuffer : :: windows_sys::core::PCSTR , datalength : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSSetUserConfigA ( pservername : ::windows_sys::core::PCSTR , pusername : ::windows_sys::core::PCSTR , wtsconfigclass : WTS_CONFIG_CLASS , pbuffer : ::windows_sys::core::PCSTR , datalength : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSSetUserConfigW ( pservername : :: windows_sys::core::PCWSTR , pusername : :: windows_sys::core::PCWSTR , wtsconfigclass : WTS_CONFIG_CLASS , pbuffer : :: windows_sys::core::PCWSTR , datalength : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSSetUserConfigW ( pservername : ::windows_sys::core::PCWSTR , pusername : ::windows_sys::core::PCWSTR , wtsconfigclass : WTS_CONFIG_CLASS , pbuffer : ::windows_sys::core::PCWSTR , datalength : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSShutdownSystem ( hserver : super::super::Foundation:: HANDLE , shutdownflag : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSStartRemoteControlSessionA ( ptargetservername : :: windows_sys::core::PCSTR , targetlogonid : u32 , hotkeyvk : u8 , hotkeymodifiers : u16 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSStartRemoteControlSessionA ( ptargetservername : ::windows_sys::core::PCSTR , targetlogonid : u32 , hotkeyvk : u8 , hotkeymodifiers : u16 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSStartRemoteControlSessionW ( ptargetservername : :: windows_sys::core::PCWSTR , targetlogonid : u32 , hotkeyvk : u8 , hotkeymodifiers : u16 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSStartRemoteControlSessionW ( ptargetservername : ::windows_sys::core::PCWSTR , targetlogonid : u32 , hotkeyvk : u8 , hotkeymodifiers : u16 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSStopRemoteControlSession ( logonid : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -111,8 +111,8 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSVirtualChannelClose ( hchannelhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSVirtualChannelOpen ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , pvirtualname : :: windows_sys::core::PCSTR ) -> HwtsVirtualChannelHandle );
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"] fn WTSVirtualChannelOpenEx ( sessionid : u32 , pvirtualname : :: windows_sys::core::PCSTR , flags : u32 ) -> HwtsVirtualChannelHandle );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSVirtualChannelOpen ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , pvirtualname : ::windows_sys::core::PCSTR ) -> HwtsVirtualChannelHandle );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"] fn WTSVirtualChannelOpenEx ( sessionid : u32 , pvirtualname : ::windows_sys::core::PCSTR , flags : u32 ) -> HwtsVirtualChannelHandle );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSVirtualChannelPurgeInput ( hchannelhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -120,9 +120,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSVirtualChannelQuery ( hchannelhandle : super::super::Foundation:: HANDLE , param1 : WTS_VIRTUAL_CLASS , ppbuffer : *mut *mut ::core::ffi::c_void , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSVirtualChannelRead ( hchannelhandle : super::super::Foundation:: HANDLE , timeout : u32 , buffer : :: windows_sys::core::PSTR , buffersize : u32 , pbytesread : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSVirtualChannelRead ( hchannelhandle : super::super::Foundation:: HANDLE , timeout : u32 , buffer : ::windows_sys::core::PSTR , buffersize : u32 , pbytesread : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSVirtualChannelWrite ( hchannelhandle : super::super::Foundation:: HANDLE , buffer : :: windows_sys::core::PCSTR , length : u32 , pbyteswritten : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSVirtualChannelWrite ( hchannelhandle : super::super::Foundation:: HANDLE , buffer : ::windows_sys::core::PCSTR , length : u32 , pbyteswritten : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wtsapi32.dll""system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSWaitSystemEvent ( hserver : super::super::Foundation:: HANDLE , eventmask : u32 , peventflags : *mut u32 ) -> super::super::Foundation:: BOOL );
 pub type IADsTSUserEx = *mut ::core::ffi::c_void;
@@ -601,7 +601,7 @@ pub const WTS_CURRENT_SERVER: super::super::Foundation::HANDLE = 0i32 as _;
 #[cfg(feature = "Win32_Foundation")]
 pub const WTS_CURRENT_SERVER_HANDLE: super::super::Foundation::HANDLE = 0i32 as _;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_CURRENT_SERVER_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("");
+pub const WTS_CURRENT_SERVER_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("");
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WTS_CURRENT_SESSION: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -693,7 +693,7 @@ pub const WTS_PROCESS_INFO_LEVEL_0: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WTS_PROCESS_INFO_LEVEL_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_PROPERTY_DEFAULT_CONFIG: ::windows_sys::core::PCWSTR = ::windows_sys::w!("DefaultConfig");
+pub const WTS_PROPERTY_DEFAULT_CONFIG: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DefaultConfig");
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WTS_PROTOCOL_NAME_LENGTH: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -1468,23 +1468,19 @@ impl ::core::clone::Clone for BITMAP_RENDERER_STATISTICS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct CHANNEL_DEF {
-    pub name: [super::super::Foundation::CHAR; 8],
+    pub name: [u8; 8],
     pub options: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHANNEL_DEF {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHANNEL_DEF {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct CHANNEL_ENTRY_POINTS {
     pub cbSize: u32,
     pub protocolVersion: u32,
@@ -1493,9 +1489,7 @@ pub struct CHANNEL_ENTRY_POINTS {
     pub pVirtualChannelClose: PVIRTUALCHANNELCLOSE,
     pub pVirtualChannelWrite: PVIRTUALCHANNELWRITE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHANNEL_ENTRY_POINTS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHANNEL_ENTRY_POINTS {
     fn clone(&self) -> Self {
         *self
@@ -1528,15 +1522,12 @@ impl ::core::clone::Clone for CLIENT_DISPLAY {
 }
 pub type HwtsVirtualChannelHandle = isize;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct PRODUCT_INFOA {
-    pub CompanyName: [super::super::Foundation::CHAR; 256],
-    pub ProductID: [super::super::Foundation::CHAR; 4],
+    pub CompanyName: [u8; 256],
+    pub ProductID: [u8; 4],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PRODUCT_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PRODUCT_INFOA {
     fn clone(&self) -> Self {
         *self
@@ -1992,32 +1983,29 @@ impl ::core::clone::Clone for WRDS_SETTINGS_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTSCLIENTA {
-    pub ClientName: [super::super::Foundation::CHAR; 21],
-    pub Domain: [super::super::Foundation::CHAR; 18],
-    pub UserName: [super::super::Foundation::CHAR; 21],
-    pub WorkDirectory: [super::super::Foundation::CHAR; 261],
-    pub InitialProgram: [super::super::Foundation::CHAR; 261],
+    pub ClientName: [u8; 21],
+    pub Domain: [u8; 18],
+    pub UserName: [u8; 21],
+    pub WorkDirectory: [u8; 261],
+    pub InitialProgram: [u8; 261],
     pub EncryptionLevel: u8,
     pub ClientAddressFamily: u32,
     pub ClientAddress: [u16; 31],
     pub HRes: u16,
     pub VRes: u16,
     pub ColorDepth: u16,
-    pub ClientDirectory: [super::super::Foundation::CHAR; 261],
+    pub ClientDirectory: [u8; 261],
     pub ClientBuildNumber: u32,
     pub ClientHardwareId: u32,
     pub ClientProductId: u16,
     pub OutBufCountHost: u16,
     pub OutBufCountClient: u16,
     pub OutBufLength: u16,
-    pub DeviceId: [super::super::Foundation::CHAR; 261],
+    pub DeviceId: [u8; 261],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WTSCLIENTA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WTSCLIENTA {
     fn clone(&self) -> Self {
         *self
@@ -2053,8 +2041,7 @@ impl ::core::clone::Clone for WTSCLIENTW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTSCONFIGINFOA {
     pub version: u32,
     pub fConnectClientDrivesAtLogon: u32,
@@ -2062,15 +2049,13 @@ pub struct WTSCONFIGINFOA {
     pub fDisablePrinterRedirection: u32,
     pub fDisableDefaultMainClientPrinter: u32,
     pub ShadowSettings: u32,
-    pub LogonUserName: [super::super::Foundation::CHAR; 21],
-    pub LogonDomain: [super::super::Foundation::CHAR; 18],
-    pub WorkDirectory: [super::super::Foundation::CHAR; 261],
-    pub InitialProgram: [super::super::Foundation::CHAR; 261],
-    pub ApplicationName: [super::super::Foundation::CHAR; 261],
+    pub LogonUserName: [u8; 21],
+    pub LogonDomain: [u8; 18],
+    pub WorkDirectory: [u8; 261],
+    pub InitialProgram: [u8; 261],
+    pub ApplicationName: [u8; 261],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WTSCONFIGINFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WTSCONFIGINFOA {
     fn clone(&self) -> Self {
         *self
@@ -2098,8 +2083,7 @@ impl ::core::clone::Clone for WTSCONFIGINFOW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTSINFOA {
     pub State: WTS_CONNECTSTATE_CLASS,
     pub SessionId: u32,
@@ -2109,33 +2093,28 @@ pub struct WTSINFOA {
     pub OutgoingFrames: u32,
     pub IncomingCompressedBytes: u32,
     pub OutgoingCompressedBy: u32,
-    pub WinStationName: [super::super::Foundation::CHAR; 32],
-    pub Domain: [super::super::Foundation::CHAR; 17],
-    pub UserName: [super::super::Foundation::CHAR; 21],
+    pub WinStationName: [u8; 32],
+    pub Domain: [u8; 17],
+    pub UserName: [u8; 21],
     pub ConnectTime: i64,
     pub DisconnectTime: i64,
     pub LastInputTime: i64,
     pub LogonTime: i64,
     pub CurrentTime: i64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WTSINFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WTSINFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTSINFOEXA {
     pub Level: u32,
     pub Data: WTSINFOEX_LEVEL_A,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WTSINFOEXA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WTSINFOEXA {
     fn clone(&self) -> Self {
         *self
@@ -2154,15 +2133,14 @@ impl ::core::clone::Clone for WTSINFOEXW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTSINFOEX_LEVEL1_A {
     pub SessionId: u32,
     pub SessionState: WTS_CONNECTSTATE_CLASS,
     pub SessionFlags: i32,
-    pub WinStationName: [super::super::Foundation::CHAR; 33],
-    pub UserName: [super::super::Foundation::CHAR; 21],
-    pub DomainName: [super::super::Foundation::CHAR; 18],
+    pub WinStationName: [u8; 33],
+    pub UserName: [u8; 21],
+    pub DomainName: [u8; 18],
     pub LogonTime: i64,
     pub ConnectTime: i64,
     pub DisconnectTime: i64,
@@ -2175,9 +2153,7 @@ pub struct WTSINFOEX_LEVEL1_A {
     pub IncomingCompressedBytes: u32,
     pub OutgoingCompressedBytes: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WTSINFOEX_LEVEL1_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WTSINFOEX_LEVEL1_A {
     fn clone(&self) -> Self {
         *self
@@ -2211,14 +2187,11 @@ impl ::core::clone::Clone for WTSINFOEX_LEVEL1_W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub union WTSINFOEX_LEVEL_A {
     pub WTSInfoExLevel1: WTSINFOEX_LEVEL1_A,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WTSINFOEX_LEVEL_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WTSINFOEX_LEVEL_A {
     fn clone(&self) -> Self {
         *self
@@ -2262,8 +2235,7 @@ impl ::core::clone::Clone for WTSINFOW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTSLISTENERCONFIGA {
     pub version: u32,
     pub fEnableListener: u32,
@@ -2291,15 +2263,13 @@ pub struct WTSLISTENERCONFIGA {
     pub SecurityLayer: u32,
     pub MinEncryptionLevel: u32,
     pub UserAuthentication: u32,
-    pub Comment: [super::super::Foundation::CHAR; 61],
-    pub LogonUserName: [super::super::Foundation::CHAR; 21],
-    pub LogonDomain: [super::super::Foundation::CHAR; 18],
-    pub WorkDirectory: [super::super::Foundation::CHAR; 261],
-    pub InitialProgram: [super::super::Foundation::CHAR; 261],
+    pub Comment: [u8; 61],
+    pub LogonUserName: [u8; 21],
+    pub LogonDomain: [u8; 18],
+    pub WorkDirectory: [u8; 261],
+    pub InitialProgram: [u8; 261],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WTSLISTENERCONFIGA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WTSLISTENERCONFIGA {
     fn clone(&self) -> Self {
         *self
@@ -2425,8 +2395,7 @@ impl ::core::clone::Clone for WTSSESSION_NOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTSUSERCONFIGA {
     pub Source: u32,
     pub InheritInitialProgram: u32,
@@ -2441,15 +2410,13 @@ pub struct WTSUSERCONFIGA {
     pub ReconnectSettings: u32,
     pub ShadowingSettings: u32,
     pub TerminalServerRemoteHomeDir: u32,
-    pub InitialProgram: [super::super::Foundation::CHAR; 261],
-    pub WorkDirectory: [super::super::Foundation::CHAR; 261],
-    pub TerminalServerProfilePath: [super::super::Foundation::CHAR; 261],
-    pub TerminalServerHomeDir: [super::super::Foundation::CHAR; 261],
-    pub TerminalServerHomeDirDrive: [super::super::Foundation::CHAR; 4],
+    pub InitialProgram: [u8; 261],
+    pub WorkDirectory: [u8; 261],
+    pub TerminalServerProfilePath: [u8; 261],
+    pub TerminalServerHomeDir: [u8; 261],
+    pub TerminalServerHomeDirDrive: [u8; 4],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WTSUSERCONFIGA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WTSUSERCONFIGA {
     fn clone(&self) -> Self {
         *self
@@ -3094,8 +3061,7 @@ impl ::core::clone::Clone for WTS_USER_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTS_VALIDATION_INFORMATIONA {
     pub ProductInfo: PRODUCT_INFOA,
     pub License: [u8; 16384],
@@ -3103,9 +3069,7 @@ pub struct WTS_VALIDATION_INFORMATIONA {
     pub HardwareID: [u8; 20],
     pub HardwareIDLength: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WTS_VALIDATION_INFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WTS_VALIDATION_INFORMATIONA {
     fn clone(&self) -> Self {
         *self
@@ -3186,8 +3150,7 @@ pub type PVIRTUALCHANNELCLOSE = ::core::option::Option<unsafe extern "system" fn
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PVIRTUALCHANNELENTRY = ::core::option::Option<unsafe extern "system" fn(pentrypoints: *mut CHANNEL_ENTRY_POINTS) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub type PVIRTUALCHANNELINIT = ::core::option::Option<unsafe extern "system" fn(ppinithandle: *mut *mut ::core::ffi::c_void, pchannel: *mut CHANNEL_DEF, channelcount: i32, versionrequested: u32, pchanneliniteventproc: PCHANNEL_INIT_EVENT_FN) -> u32>;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub type PVIRTUALCHANNELOPEN = ::core::option::Option<unsafe extern "system" fn(pinithandle: *mut ::core::ffi::c_void, popenhandle: *mut u32, pchannelname: ::windows_sys::core::PCSTR, pchannelopeneventproc: PCHANNEL_OPEN_EVENT_FN) -> u32>;

@@ -1,0 +1,11 @@
+[package]
+name = "test_standalone"
+version = "0.0.0"
+authors = ["Microsoft"]
+edition = "2018"
+
+[dependencies.windows-targets]
+path = "../../libs/targets"
+
+[build-dependencies.windows-bindgen]
+path = "../../libs/bindgen"

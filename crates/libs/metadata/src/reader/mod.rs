@@ -1,6 +1,7 @@
 mod blob;
 mod codes;
 mod file;
+mod filter;
 mod guid;
 mod row;
 mod tree;
@@ -11,6 +12,7 @@ pub use super::*;
 pub use blob::*;
 pub use codes::*;
 pub use file::*;
+pub use filter::*;
 pub use guid::*;
 pub use r#type::*;
 pub use row::*;
@@ -195,6 +197,9 @@ impl<'a> Reader<'a> {
             for row in 0..file.tables[TABLE_TYPEDEF].len {
                 let key = Row::new(row, TABLE_TYPEDEF, file_index);
                 let namespace = file.str(key.row as _, key.table as _, 2);
+                if namespace.is_empty() {
+                    continue;
+                }
                 let name = trim_tick(file.str(key.row as _, key.table as _, 1));
                 types.entry(namespace).or_default().entry(name).or_default().push(TypeDef(key));
             }
@@ -208,22 +213,26 @@ impl<'a> Reader<'a> {
         }
         Self { files, types, nested }
     }
-    pub fn tree(&'a self, root: &'a str, exclude: &[&str]) -> Option<Tree> {
+    pub fn tree(&'a self, root: &'a str, filter: &Filter) -> Tree {
         let mut tree = Tree::from_namespace("");
         for ns in self.types.keys() {
-            if !exclude.iter().any(|x| ns.starts_with(x)) {
+            if filter.includes_namespace(ns) {
                 tree.insert_namespace(ns, 0);
             }
         }
-        tree.seek(root)
+        if root.is_empty() {
+            tree
+        } else {
+            tree.seek(root).expect("Namespace not found")
+        }
     }
 
     //
     // Hash functions for fast type lookup
     //
 
-    pub fn namespace_types(&self, namespace: &str) -> impl Iterator<Item = TypeDef> + '_ {
-        self.types.get(namespace).map(|types| types.values().flatten().copied()).into_iter().flatten()
+    pub fn namespace_types(&'a self, namespace: &str, filter: &'a Filter) -> impl Iterator<Item = TypeDef> + '_ {
+        self.types.get(namespace).map(move |types| types.values().flatten().copied().filter(move |ty| filter.includes_type(self, *ty))).into_iter().flatten()
     }
     pub fn nested_types(&self, type_def: TypeDef) -> impl Iterator<Item = TypeDef> + '_ {
         self.nested.get(&type_def).map(|map| map.values().copied()).into_iter().flatten()
@@ -394,7 +403,7 @@ impl<'a> Reader<'a> {
         let def = self.type_from_blob(&mut blob, enclosing, &[]).expect("Type not found");
 
         if self.field_is_const(row) {
-            def.to_const()
+            def.to_const_type().to_const_ptr()
         } else {
             def
         }
@@ -563,15 +572,25 @@ impl<'a> Reader<'a> {
         blob.read_usize();
         blob.read_usize();
 
-        let return_type = self.type_from_blob(&mut blob, None, generics);
+        let mut return_type = self.type_from_blob(&mut blob, None, generics);
+
         let mut params: Vec<SignatureParam> = self
             .method_def_params(row)
             .filter_map(|param| {
                 if self.param_sequence(param) == 0 {
+                    if self.param_is_const(param) {
+                        return_type = return_type.clone().map(|ty| ty.to_const_type());
+                    }
                     None
                 } else {
-                    let ty = self.type_from_blob(&mut blob, None, generics).expect("Parameter type not found");
-                    let ty = if !self.param_flags(param).contains(ParamAttributes::OUTPUT) { ty.to_const() } else { ty };
+                    let is_output = self.param_flags(param).contains(ParamAttributes::OUTPUT);
+                    let mut ty = self.type_from_blob(&mut blob, None, generics).expect("Parameter type not found");
+                    if self.param_is_const(param) || !is_output {
+                        ty = ty.to_const_type();
+                    }
+                    if !is_output {
+                        ty = ty.to_const_ptr();
+                    }
                     let kind = self.param_kind(param);
                     Some(SignatureParam { def: param, ty, kind })
                 }
@@ -787,6 +806,9 @@ impl<'a> Reader<'a> {
             }
         }
         None
+    }
+    pub fn param_is_const(&self, row: Param) -> bool {
+        self.param_attributes(row).any(|attribute| self.attribute_name(attribute) == "ConstAttribute")
     }
 
     //
@@ -1770,4 +1792,4 @@ impl<'a> Reader<'a> {
 
 pub const REMAP_TYPES: [(TypeName, TypeName); 2] = [(TypeName::D2D_MATRIX_3X2_F, TypeName::Matrix3x2), (TypeName::D3DMATRIX, TypeName::Matrix4x4)];
 
-pub const CORE_TYPES: [(TypeName, Type); 10] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HRESULT, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::BSTR, Type::BSTR), (TypeName::IInspectable, Type::IInspectable), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::TypeName)];
+pub const CORE_TYPES: [(TypeName, Type); 11] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HRESULT, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::BSTR, Type::BSTR), (TypeName::IInspectable, Type::IInspectable), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::TypeName), (TypeName::CHAR, Type::U8)];

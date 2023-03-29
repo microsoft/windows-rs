@@ -4,9 +4,9 @@
 pub unsafe fn D3D11CreateDevice<P0, P1>(padapter: P0, drivertype: super::Direct3D::D3D_DRIVER_TYPE, software: P1, flags: D3D11_CREATE_DEVICE_FLAG, pfeaturelevels: ::core::option::Option<&[super::Direct3D::D3D_FEATURE_LEVEL]>, sdkversion: u32, ppdevice: ::core::option::Option<*mut ::core::option::Option<ID3D11Device>>, pfeaturelevel: ::core::option::Option<*mut super::Direct3D::D3D_FEATURE_LEVEL>, ppimmediatecontext: ::core::option::Option<*mut ::core::option::Option<ID3D11DeviceContext>>) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<super::Dxgi::IDXGIAdapter>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "d3d11.dll""system" fn D3D11CreateDevice ( padapter : * mut::core::ffi::c_void , drivertype : super::Direct3D:: D3D_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : D3D11_CREATE_DEVICE_FLAG , pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL , featurelevels : u32 , sdkversion : u32 , ppdevice : *mut * mut::core::ffi::c_void , pfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL , ppimmediatecontext : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d11.dll""system" fn D3D11CreateDevice ( padapter : * mut::core::ffi::c_void , drivertype : super::Direct3D:: D3D_DRIVER_TYPE , software : super::super::Foundation:: HMODULE , flags : D3D11_CREATE_DEVICE_FLAG , pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL , featurelevels : u32 , sdkversion : u32 , ppdevice : *mut * mut::core::ffi::c_void , pfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL , ppimmediatecontext : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3D11CreateDevice(padapter.into_param().abi(), drivertype, software.into_param().abi(), flags, ::core::mem::transmute(pfeaturelevels.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pfeaturelevels.as_deref().map_or(0, |slice| slice.len() as _), sdkversion, ::core::mem::transmute(ppdevice.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfeaturelevel.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppimmediatecontext.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
@@ -15,9 +15,9 @@ where
 pub unsafe fn D3D11CreateDeviceAndSwapChain<P0, P1>(padapter: P0, drivertype: super::Direct3D::D3D_DRIVER_TYPE, software: P1, flags: D3D11_CREATE_DEVICE_FLAG, pfeaturelevels: ::core::option::Option<&[super::Direct3D::D3D_FEATURE_LEVEL]>, sdkversion: u32, pswapchaindesc: ::core::option::Option<*const super::Dxgi::DXGI_SWAP_CHAIN_DESC>, ppswapchain: ::core::option::Option<*mut ::core::option::Option<super::Dxgi::IDXGISwapChain>>, ppdevice: ::core::option::Option<*mut ::core::option::Option<ID3D11Device>>, pfeaturelevel: ::core::option::Option<*mut super::Direct3D::D3D_FEATURE_LEVEL>, ppimmediatecontext: ::core::option::Option<*mut ::core::option::Option<ID3D11DeviceContext>>) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<super::Dxgi::IDXGIAdapter>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "d3d11.dll""system" fn D3D11CreateDeviceAndSwapChain ( padapter : * mut::core::ffi::c_void , drivertype : super::Direct3D:: D3D_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : D3D11_CREATE_DEVICE_FLAG , pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL , featurelevels : u32 , sdkversion : u32 , pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC , ppswapchain : *mut * mut::core::ffi::c_void , ppdevice : *mut * mut::core::ffi::c_void , pfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL , ppimmediatecontext : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d11.dll""system" fn D3D11CreateDeviceAndSwapChain ( padapter : * mut::core::ffi::c_void , drivertype : super::Direct3D:: D3D_DRIVER_TYPE , software : super::super::Foundation:: HMODULE , flags : D3D11_CREATE_DEVICE_FLAG , pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL , featurelevels : u32 , sdkversion : u32 , pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC , ppswapchain : *mut * mut::core::ffi::c_void , ppdevice : *mut * mut::core::ffi::c_void , pfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL , ppimmediatecontext : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3D11CreateDeviceAndSwapChain(
         padapter.into_param().abi(),
         drivertype,
@@ -41,7 +41,7 @@ pub unsafe fn D3DDisassemble11Trace<P0>(psrcdata: *const ::core::ffi::c_void, sr
 where
     P0: ::windows::core::IntoParam<ID3D11ShaderTrace>,
 {
-    ::windows::imp::link ! ( "d3dcompiler_47.dll""system" fn D3DDisassemble11Trace ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , ptrace : * mut::core::ffi::c_void , startstep : u32 , numsteps : u32 , flags : u32 , ppdisassembly : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcompiler_47.dll""system" fn D3DDisassemble11Trace ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , ptrace : * mut::core::ffi::c_void , startstep : u32 , numsteps : u32 , flags : u32 , ppdisassembly : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::Direct3D::ID3DBlob>();
     D3DDisassemble11Trace(psrcdata, srcdatasize, ptrace.into_param().abi(), startstep, numsteps, flags, &mut result__).from_abi(result__)
 }
@@ -51,7 +51,7 @@ pub unsafe fn D3DX11CreateFFT<P0>(pdevicecontext: P0, pdesc: *const D3DX11_FFT_D
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT ( pdevicecontext : * mut::core::ffi::c_void , pdesc : *const D3DX11_FFT_DESC , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT ( pdevicecontext : * mut::core::ffi::c_void , pdesc : *const D3DX11_FFT_DESC , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3DX11CreateFFT(pdevicecontext.into_param().abi(), pdesc, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -60,7 +60,7 @@ pub unsafe fn D3DX11CreateFFT1DComplex<P0>(pdevicecontext: P0, x: u32, flags: u3
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT1DComplex ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT1DComplex ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3DX11CreateFFT1DComplex(pdevicecontext.into_param().abi(), x, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -69,7 +69,7 @@ pub unsafe fn D3DX11CreateFFT1DReal<P0>(pdevicecontext: P0, x: u32, flags: u32, 
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT1DReal ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT1DReal ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3DX11CreateFFT1DReal(pdevicecontext.into_param().abi(), x, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -78,7 +78,7 @@ pub unsafe fn D3DX11CreateFFT2DComplex<P0>(pdevicecontext: P0, x: u32, y: u32, f
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT2DComplex ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT2DComplex ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3DX11CreateFFT2DComplex(pdevicecontext.into_param().abi(), x, y, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -87,7 +87,7 @@ pub unsafe fn D3DX11CreateFFT2DReal<P0>(pdevicecontext: P0, x: u32, y: u32, flag
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT2DReal ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT2DReal ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3DX11CreateFFT2DReal(pdevicecontext.into_param().abi(), x, y, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -96,7 +96,7 @@ pub unsafe fn D3DX11CreateFFT3DComplex<P0>(pdevicecontext: P0, x: u32, y: u32, z
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT3DComplex ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , z : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT3DComplex ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , z : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3DX11CreateFFT3DComplex(pdevicecontext.into_param().abi(), x, y, z, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -105,7 +105,7 @@ pub unsafe fn D3DX11CreateFFT3DReal<P0>(pdevicecontext: P0, x: u32, y: u32, z: u
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT3DReal ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , z : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT3DReal ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , z : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3DX11CreateFFT3DReal(pdevicecontext.into_param().abi(), x, y, z, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -114,7 +114,7 @@ pub unsafe fn D3DX11CreateScan<P0>(pdevicecontext: P0, maxelementscansize: u32, 
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateScan ( pdevicecontext : * mut::core::ffi::c_void , maxelementscansize : u32 , maxscancount : u32 , ppscan : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateScan ( pdevicecontext : * mut::core::ffi::c_void , maxelementscansize : u32 , maxscancount : u32 , ppscan : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<ID3DX11Scan>();
     D3DX11CreateScan(pdevicecontext.into_param().abi(), maxelementscansize, maxscancount, &mut result__).from_abi(result__)
 }
@@ -124,7 +124,7 @@ pub unsafe fn D3DX11CreateSegmentedScan<P0>(pdevicecontext: P0, maxelementscansi
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateSegmentedScan ( pdevicecontext : * mut::core::ffi::c_void , maxelementscansize : u32 , ppscan : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateSegmentedScan ( pdevicecontext : * mut::core::ffi::c_void , maxelementscansize : u32 , ppscan : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<ID3DX11SegmentedScan>();
     D3DX11CreateSegmentedScan(pdevicecontext.into_param().abi(), maxelementscansize, &mut result__).from_abi(result__)
 }
@@ -8809,7 +8809,7 @@ impl ID3D11ShaderReflectionType {
     {
         (::windows::core::Interface::vtable(self).GetMemberTypeByName)(::windows::core::Interface::as_raw(self), name.into_param().abi())
     }
-    pub unsafe fn GetMemberTypeName(&self, index: u32) -> ::windows::core::PSTR {
+    pub unsafe fn GetMemberTypeName(&self, index: u32) -> ::windows::core::PCSTR {
         (::windows::core::Interface::vtable(self).GetMemberTypeName)(::windows::core::Interface::as_raw(self), index)
     }
     pub unsafe fn IsEqual<P0>(&self, ptype: P0) -> ::windows::core::Result<()>
@@ -8873,7 +8873,7 @@ pub struct ID3D11ShaderReflectionType_Vtbl {
     GetDesc: usize,
     pub GetMemberTypeByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D11ShaderReflectionType>,
     pub GetMemberTypeByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D11ShaderReflectionType>,
-    pub GetMemberTypeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PSTR,
+    pub GetMemberTypeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PCSTR,
     pub IsEqual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSubType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D11ShaderReflectionType>,
     pub GetBaseClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D11ShaderReflectionType>,
@@ -13801,9 +13801,9 @@ pub const D3D11_ANISOTROPIC_FILTERING_BIT: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_APPEND_ALIGNED_ELEMENT: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_APPNAME_STRING: ::windows::core::PCWSTR = ::windows::w!("Name");
+pub const D3D11_APPNAME_STRING: ::windows::core::PCWSTR = ::windows::core::w!("Name");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_APPSIZE_STRING: ::windows::core::PCWSTR = ::windows::w!("Size");
+pub const D3D11_APPSIZE_STRING: ::windows::core::PCWSTR = ::windows::core::w!("Size");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_ARRAY_AXIS_ADDRESS_RANGE_BIT_COUNT: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -13843,13 +13843,13 @@ pub const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT: ::
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x012f0bd6_e662_4474_befd_aa53e5143c6d);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_BREAKON_CATEGORY: ::windows::core::PCWSTR = ::windows::w!("BreakOn_CATEGORY_%s");
+pub const D3D11_BREAKON_CATEGORY: ::windows::core::PCWSTR = ::windows::core::w!("BreakOn_CATEGORY_%s");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_BREAKON_ID_DECIMAL: ::windows::core::PCWSTR = ::windows::w!("BreakOn_ID_%d");
+pub const D3D11_BREAKON_ID_DECIMAL: ::windows::core::PCWSTR = ::windows::core::w!("BreakOn_ID_%d");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_BREAKON_ID_STRING: ::windows::core::PCWSTR = ::windows::w!("BreakOn_ID_%s");
+pub const D3D11_BREAKON_ID_STRING: ::windows::core::PCWSTR = ::windows::core::w!("BreakOn_ID_%s");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_BREAKON_SEVERITY: ::windows::core::PCWSTR = ::windows::w!("BreakOn_SEVERITY_%s");
+pub const D3D11_BREAKON_SEVERITY: ::windows::core::PCWSTR = ::windows::core::w!("BreakOn_SEVERITY_%s");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_CLIP_OR_CULL_DISTANCE_COUNT: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -14243,7 +14243,7 @@ pub const D3D11_DS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_DS_OUTPUT_REGISTER_COUNT: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_ENABLE_BREAK_ON_MESSAGE: ::windows::core::PCWSTR = ::windows::w!("EnableBreakOnMessage");
+pub const D3D11_ENABLE_BREAK_ON_MESSAGE: ::windows::core::PCWSTR = ::windows::core::w!("EnableBreakOnMessage");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_FILTER_REDUCTION_TYPE_MASK: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -14269,9 +14269,9 @@ pub const D3D11_FLOAT_TO_SRGB_SCALE_2: f32 = 1.055f32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_FLOAT_TO_SRGB_THRESHOLD: f32 = 0.0031308f32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_FORCE_DEBUGGABLE: ::windows::core::PCWSTR = ::windows::w!("ForceDebuggable");
+pub const D3D11_FORCE_DEBUGGABLE: ::windows::core::PCWSTR = ::windows::core::w!("ForceDebuggable");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_FORCE_SHADER_SKIP_OPTIMIZATION: ::windows::core::PCWSTR = ::windows::w!("ForceShaderSkipOptimization");
+pub const D3D11_FORCE_SHADER_SKIP_OPTIMIZATION: ::windows::core::PCWSTR = ::windows::core::w!("ForceShaderSkipOptimization");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_FTOI_INSTRUCTION_MAX_INPUT: f32 = 2147483600f32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -14423,7 +14423,7 @@ pub const D3D11_IA_VERTEX_INPUT_STRUCTURE_ELEMENTS_COMPONENTS: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_IA_VERTEX_INPUT_STRUCTURE_ELEMENT_COUNT: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_INFOQUEUE_STORAGE_FILTER_OVERRIDE: ::windows::core::PCWSTR = ::windows::w!("InfoQueueStorageFilterOverride");
+pub const D3D11_INFOQUEUE_STORAGE_FILTER_OVERRIDE: ::windows::core::PCWSTR = ::windows::core::w!("InfoQueueStorageFilterOverride");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -14479,15 +14479,15 @@ pub const D3D11_MIP_LOD_RANGE_BIT_COUNT: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4f32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MUTE_CATEGORY: ::windows::core::PCWSTR = ::windows::w!("Mute_CATEGORY_%s");
+pub const D3D11_MUTE_CATEGORY: ::windows::core::PCWSTR = ::windows::core::w!("Mute_CATEGORY_%s");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MUTE_DEBUG_OUTPUT: ::windows::core::PCWSTR = ::windows::w!("MuteDebugOutput");
+pub const D3D11_MUTE_DEBUG_OUTPUT: ::windows::core::PCWSTR = ::windows::core::w!("MuteDebugOutput");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MUTE_ID_DECIMAL: ::windows::core::PCWSTR = ::windows::w!("Mute_ID_%d");
+pub const D3D11_MUTE_ID_DECIMAL: ::windows::core::PCWSTR = ::windows::core::w!("Mute_ID_%d");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MUTE_ID_STRING: ::windows::core::PCWSTR = ::windows::w!("Mute_ID_%s");
+pub const D3D11_MUTE_ID_STRING: ::windows::core::PCWSTR = ::windows::core::w!("Mute_ID_%s");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MUTE_SEVERITY: ::windows::core::PCWSTR = ::windows::w!("Mute_SEVERITY_%s");
+pub const D3D11_MUTE_SEVERITY: ::windows::core::PCWSTR = ::windows::core::w!("Mute_SEVERITY_%s");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_NONSAMPLE_FETCH_OUT_OF_RANGE_ACCESS_RESULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -14545,7 +14545,7 @@ pub const D3D11_PS_PIXEL_CENTER_FRACTIONAL_COMPONENT: f32 = 0.5f32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_RAW_UAV_SRV_BYTE_ALIGNMENT: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_REGKEY_PATH: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Direct3D");
+pub const D3D11_REGKEY_PATH: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Direct3D");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_REQ_BLEND_OBJECT_COUNT_PER_DEVICE: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -14723,7 +14723,7 @@ pub const D3D11_TRACE_REGISTER_FLAGS_RELATIVE_INDEXING: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_UNBOUND_MEMORY_ACCESS_RESULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_UNMUTE_SEVERITY_INFO: ::windows::core::PCWSTR = ::windows::w!("Unmute_SEVERITY_INFO");
+pub const D3D11_UNMUTE_SEVERITY_INFO: ::windows::core::PCWSTR = ::windows::core::w!("Unmute_SEVERITY_INFO");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIEWPORT_AND_SCISSORRECT_MAX_INDEX: u32 = 15u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -14755,11 +14755,11 @@ pub const D3D11_WHQL_DRAWINDEXED_INDEX_COUNT_2_TO_EXP: u32 = 25u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_WHQL_DRAW_VERTEX_COUNT_2_TO_EXP: u32 = 25u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3DCSX_DLL: ::windows::core::PCWSTR = ::windows::w!("d3dcsx_47.dll");
+pub const D3DCSX_DLL: ::windows::core::PCWSTR = ::windows::core::w!("d3dcsx_47.dll");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3DCSX_DLL_A: ::windows::core::PCSTR = ::windows::s!("d3dcsx_47.dll");
+pub const D3DCSX_DLL_A: ::windows::core::PCSTR = ::windows::core::s!("d3dcsx_47.dll");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3DCSX_DLL_W: ::windows::core::PCWSTR = ::windows::w!("d3dcsx_47.dll");
+pub const D3DCSX_DLL_W: ::windows::core::PCWSTR = ::windows::core::w!("d3dcsx_47.dll");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3DX11_FFT_MAX_DIMENSIONS: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -18911,339 +18911,341 @@ pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETBEHAVIORHINTS_INVALIDDESTRECT: D3D11
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_MESSAGE_ID_GETCRYPTOSESSIONPRIVATEDATASIZE_INVALID_KEY_EXCHANGE_TYPE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146116i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_D3D11_1_MESSAGES_END: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146117i32);
+pub const D3D11_MESSAGE_ID_DEVICE_OPEN_SHARED_RESOURCE1_ACCESS_DENIED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146117i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_D3D11_2_MESSAGES_START: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146118i32);
+pub const D3D11_MESSAGE_ID_D3D11_1_MESSAGES_END: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146118i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATEBUFFER_INVALIDUSAGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146119i32);
+pub const D3D11_MESSAGE_ID_D3D11_2_MESSAGES_START: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146119i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATETEXTURE1D_INVALIDUSAGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146120i32);
+pub const D3D11_MESSAGE_ID_CREATEBUFFER_INVALIDUSAGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146120i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATETEXTURE2D_INVALIDUSAGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146121i32);
+pub const D3D11_MESSAGE_ID_CREATETEXTURE1D_INVALIDUSAGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146121i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATEINPUTLAYOUT_LEVEL9_STEPRATE_NOT_1: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146122i32);
+pub const D3D11_MESSAGE_ID_CREATETEXTURE2D_INVALIDUSAGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146122i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATEINPUTLAYOUT_LEVEL9_INSTANCING_NOT_SUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146123i32);
+pub const D3D11_MESSAGE_ID_CREATEINPUTLAYOUT_LEVEL9_STEPRATE_NOT_1: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146123i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_UPDATETILEMAPPINGS_INVALID_PARAMETER: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146124i32);
+pub const D3D11_MESSAGE_ID_CREATEINPUTLAYOUT_LEVEL9_INSTANCING_NOT_SUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146124i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_COPYTILEMAPPINGS_INVALID_PARAMETER: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146125i32);
+pub const D3D11_MESSAGE_ID_UPDATETILEMAPPINGS_INVALID_PARAMETER: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146125i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_COPYTILES_INVALID_PARAMETER: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146126i32);
+pub const D3D11_MESSAGE_ID_COPYTILEMAPPINGS_INVALID_PARAMETER: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146126i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_UPDATETILES_INVALID_PARAMETER: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146127i32);
+pub const D3D11_MESSAGE_ID_COPYTILES_INVALID_PARAMETER: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146127i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_RESIZETILEPOOL_INVALID_PARAMETER: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146128i32);
+pub const D3D11_MESSAGE_ID_UPDATETILES_INVALID_PARAMETER: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146128i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_TILEDRESOURCEBARRIER_INVALID_PARAMETER: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146129i32);
+pub const D3D11_MESSAGE_ID_RESIZETILEPOOL_INVALID_PARAMETER: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146129i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_NULL_TILE_MAPPING_ACCESS_WARNING: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146130i32);
+pub const D3D11_MESSAGE_ID_TILEDRESOURCEBARRIER_INVALID_PARAMETER: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146130i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_NULL_TILE_MAPPING_ACCESS_ERROR: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146131i32);
+pub const D3D11_MESSAGE_ID_NULL_TILE_MAPPING_ACCESS_WARNING: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146131i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_DIRTY_TILE_MAPPING_ACCESS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146132i32);
+pub const D3D11_MESSAGE_ID_NULL_TILE_MAPPING_ACCESS_ERROR: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146132i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_DUPLICATE_TILE_MAPPINGS_IN_COVERED_AREA: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146133i32);
+pub const D3D11_MESSAGE_ID_DIRTY_TILE_MAPPING_ACCESS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146133i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_TILE_MAPPINGS_IN_COVERED_AREA_DUPLICATED_OUTSIDE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146134i32);
+pub const D3D11_MESSAGE_ID_DUPLICATE_TILE_MAPPINGS_IN_COVERED_AREA: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146134i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_TILE_MAPPINGS_SHARED_BETWEEN_INCOMPATIBLE_RESOURCES: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146135i32);
+pub const D3D11_MESSAGE_ID_TILE_MAPPINGS_IN_COVERED_AREA_DUPLICATED_OUTSIDE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146135i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_TILE_MAPPINGS_SHARED_BETWEEN_INPUT_AND_OUTPUT: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146136i32);
+pub const D3D11_MESSAGE_ID_TILE_MAPPINGS_SHARED_BETWEEN_INCOMPATIBLE_RESOURCES: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146136i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CHECKMULTISAMPLEQUALITYLEVELS_INVALIDFLAGS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146137i32);
+pub const D3D11_MESSAGE_ID_TILE_MAPPINGS_SHARED_BETWEEN_INPUT_AND_OUTPUT: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146137i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_GETRESOURCETILING_NONTILED_RESOURCE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146138i32);
+pub const D3D11_MESSAGE_ID_CHECKMULTISAMPLEQUALITYLEVELS_INVALIDFLAGS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146138i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_RESIZETILEPOOL_SHRINK_WITH_MAPPINGS_STILL_DEFINED_PAST_END: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146139i32);
+pub const D3D11_MESSAGE_ID_GETRESOURCETILING_NONTILED_RESOURCE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146139i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_NEED_TO_CALL_TILEDRESOURCEBARRIER: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146140i32);
+pub const D3D11_MESSAGE_ID_RESIZETILEPOOL_SHRINK_WITH_MAPPINGS_STILL_DEFINED_PAST_END: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146140i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATEDEVICE_INVALIDARGS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146141i32);
+pub const D3D11_MESSAGE_ID_NEED_TO_CALL_TILEDRESOURCEBARRIER: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146141i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATEDEVICE_WARNING: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146142i32);
+pub const D3D11_MESSAGE_ID_CREATEDEVICE_INVALIDARGS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146142i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CLEARUNORDEREDACCESSVIEWUINT_HAZARD: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146143i32);
+pub const D3D11_MESSAGE_ID_CREATEDEVICE_WARNING: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146143i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CLEARUNORDEREDACCESSVIEWFLOAT_HAZARD: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146144i32);
+pub const D3D11_MESSAGE_ID_CLEARUNORDEREDACCESSVIEWUINT_HAZARD: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146144i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_TILED_RESOURCE_TIER_1_BUFFER_TEXTURE_MISMATCH: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146145i32);
+pub const D3D11_MESSAGE_ID_CLEARUNORDEREDACCESSVIEWFLOAT_HAZARD: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146145i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATE_CRYPTOSESSION: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146146i32);
+pub const D3D11_MESSAGE_ID_TILED_RESOURCE_TIER_1_BUFFER_TEXTURE_MISMATCH: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146146i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATE_AUTHENTICATEDCHANNEL: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146147i32);
+pub const D3D11_MESSAGE_ID_CREATE_CRYPTOSESSION: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146147i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_LIVE_CRYPTOSESSION: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146148i32);
+pub const D3D11_MESSAGE_ID_CREATE_AUTHENTICATEDCHANNEL: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146148i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_LIVE_AUTHENTICATEDCHANNEL: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146149i32);
+pub const D3D11_MESSAGE_ID_LIVE_CRYPTOSESSION: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146149i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_DESTROY_CRYPTOSESSION: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146150i32);
+pub const D3D11_MESSAGE_ID_LIVE_AUTHENTICATEDCHANNEL: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146150i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_DESTROY_AUTHENTICATEDCHANNEL: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146151i32);
+pub const D3D11_MESSAGE_ID_DESTROY_CRYPTOSESSION: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146151i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_D3D11_2_MESSAGES_END: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146152i32);
+pub const D3D11_MESSAGE_ID_DESTROY_AUTHENTICATEDCHANNEL: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146152i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_D3D11_3_MESSAGES_START: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146153i32);
+pub const D3D11_MESSAGE_ID_D3D11_2_MESSAGES_END: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146153i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATERASTERIZERSTATE_INVALID_CONSERVATIVERASTERMODE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146154i32);
+pub const D3D11_MESSAGE_ID_D3D11_3_MESSAGES_START: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146154i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_DEVICE_DRAW_INVALID_SYSTEMVALUE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146155i32);
+pub const D3D11_MESSAGE_ID_CREATERASTERIZERSTATE_INVALID_CONSERVATIVERASTERMODE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146155i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATEQUERYORPREDICATE_INVALIDCONTEXTTYPE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146156i32);
+pub const D3D11_MESSAGE_ID_DEVICE_DRAW_INVALID_SYSTEMVALUE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146156i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATEQUERYORPREDICATE_DECODENOTSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146157i32);
+pub const D3D11_MESSAGE_ID_CREATEQUERYORPREDICATE_INVALIDCONTEXTTYPE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146157i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATEQUERYORPREDICATE_ENCODENOTSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146158i32);
+pub const D3D11_MESSAGE_ID_CREATEQUERYORPREDICATE_DECODENOTSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146158i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATESHADERRESOURCEVIEW_INVALIDPLANEINDEX: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146159i32);
+pub const D3D11_MESSAGE_ID_CREATEQUERYORPREDICATE_ENCODENOTSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146159i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATESHADERRESOURCEVIEW_INVALIDVIDEOPLANEINDEX: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146160i32);
+pub const D3D11_MESSAGE_ID_CREATESHADERRESOURCEVIEW_INVALIDPLANEINDEX: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146160i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATESHADERRESOURCEVIEW_AMBIGUOUSVIDEOPLANEINDEX: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146161i32);
+pub const D3D11_MESSAGE_ID_CREATESHADERRESOURCEVIEW_INVALIDVIDEOPLANEINDEX: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146161i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATERENDERTARGETVIEW_INVALIDPLANEINDEX: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146162i32);
+pub const D3D11_MESSAGE_ID_CREATESHADERRESOURCEVIEW_AMBIGUOUSVIDEOPLANEINDEX: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146162i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATERENDERTARGETVIEW_INVALIDVIDEOPLANEINDEX: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146163i32);
+pub const D3D11_MESSAGE_ID_CREATERENDERTARGETVIEW_INVALIDPLANEINDEX: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146163i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATERENDERTARGETVIEW_AMBIGUOUSVIDEOPLANEINDEX: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146164i32);
+pub const D3D11_MESSAGE_ID_CREATERENDERTARGETVIEW_INVALIDVIDEOPLANEINDEX: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146164i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATEUNORDEREDACCESSVIEW_INVALIDPLANEINDEX: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146165i32);
+pub const D3D11_MESSAGE_ID_CREATERENDERTARGETVIEW_AMBIGUOUSVIDEOPLANEINDEX: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146165i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATEUNORDEREDACCESSVIEW_INVALIDVIDEOPLANEINDEX: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146166i32);
+pub const D3D11_MESSAGE_ID_CREATEUNORDEREDACCESSVIEW_INVALIDPLANEINDEX: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146166i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATEUNORDEREDACCESSVIEW_AMBIGUOUSVIDEOPLANEINDEX: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146167i32);
+pub const D3D11_MESSAGE_ID_CREATEUNORDEREDACCESSVIEW_INVALIDVIDEOPLANEINDEX: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146167i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_INVALIDSCANDATAOFFSET: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146168i32);
+pub const D3D11_MESSAGE_ID_CREATEUNORDEREDACCESSVIEW_AMBIGUOUSVIDEOPLANEINDEX: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146168i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_NOTSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146169i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_INVALIDSCANDATAOFFSET: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146169i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_DIMENSIONSTOOLARGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146170i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_NOTSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146170i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_INVALIDCOMPONENTS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146171i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_DIMENSIONSTOOLARGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146171i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_DESTINATIONNOT2D: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146172i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_INVALIDCOMPONENTS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146172i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_TILEDRESOURCESUNSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146173i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_DESTINATIONNOT2D: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146173i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_GUARDRECTSUNSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146174i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_TILEDRESOURCESUNSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146174i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_FORMATUNSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146175i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_GUARDRECTSUNSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146175i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_INVALIDSUBRESOURCE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146176i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_FORMATUNSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146176i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_INVALIDMIPLEVEL: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146177i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_INVALIDSUBRESOURCE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146177i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_EMPTYDESTBOX: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146178i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_INVALIDMIPLEVEL: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146178i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_DESTBOXNOT2D: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146179i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_EMPTYDESTBOX: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146179i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_DESTBOXNOTSUB: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146180i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_DESTBOXNOT2D: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146180i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_DESTBOXESINTERSECT: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146181i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_DESTBOXNOTSUB: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146181i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_XSUBSAMPLEMISMATCH: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146182i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_DESTBOXESINTERSECT: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146182i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_YSUBSAMPLEMISMATCH: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146183i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_XSUBSAMPLEMISMATCH: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146183i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_XSUBSAMPLEODD: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146184i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_YSUBSAMPLEMISMATCH: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146184i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_YSUBSAMPLEODD: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146185i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_XSUBSAMPLEODD: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146185i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_OUTPUTDIMENSIONSTOOLARGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146186i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_YSUBSAMPLEODD: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146186i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_NONPOW2SCALEUNSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146187i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_OUTPUTDIMENSIONSTOOLARGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146187i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_FRACTIONALDOWNSCALETOLARGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146188i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_NONPOW2SCALEUNSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146188i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_CHROMASIZEMISMATCH: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146189i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_FRACTIONALDOWNSCALETOLARGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146189i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_LUMACHROMASIZEMISMATCH: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146190i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_CHROMASIZEMISMATCH: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146190i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_INVALIDNUMDESTINATIONS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146191i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_LUMACHROMASIZEMISMATCH: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146191i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_SUBBOXUNSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146192i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_INVALIDNUMDESTINATIONS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146192i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_1DESTUNSUPPORTEDFORMAT: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146193i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_SUBBOXUNSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146193i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_3DESTUNSUPPORTEDFORMAT: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146194i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_1DESTUNSUPPORTEDFORMAT: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146194i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_SCALEUNSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146195i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_3DESTUNSUPPORTEDFORMAT: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146195i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_INVALIDSOURCESIZE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146196i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_SCALEUNSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146196i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_INVALIDCOPYFLAGS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146197i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_INVALIDSOURCESIZE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146197i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_HAZARD: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146198i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_INVALIDCOPYFLAGS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146198i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_UNSUPPORTEDSRCBUFFERUSAGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146199i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_HAZARD: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146199i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_UNSUPPORTEDSRCBUFFERMISCFLAGS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146200i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_UNSUPPORTEDSRCBUFFERUSAGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146200i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_UNSUPPORTEDDSTTEXTUREUSAGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146201i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_UNSUPPORTEDSRCBUFFERMISCFLAGS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146201i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_BACKBUFFERNOTSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146202i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_UNSUPPORTEDDSTTEXTUREUSAGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146202i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGDECODE_UNSUPPRTEDCOPYFLAGS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146203i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_BACKBUFFERNOTSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146203i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGENCODE_NOTSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146204i32);
+pub const D3D11_MESSAGE_ID_JPEGDECODE_UNSUPPRTEDCOPYFLAGS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146204i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGENCODE_INVALIDSCANDATAOFFSET: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146205i32);
+pub const D3D11_MESSAGE_ID_JPEGENCODE_NOTSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146205i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGENCODE_INVALIDCOMPONENTS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146206i32);
+pub const D3D11_MESSAGE_ID_JPEGENCODE_INVALIDSCANDATAOFFSET: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146206i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGENCODE_SOURCENOT2D: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146207i32);
+pub const D3D11_MESSAGE_ID_JPEGENCODE_INVALIDCOMPONENTS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146207i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGENCODE_TILEDRESOURCESUNSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146208i32);
+pub const D3D11_MESSAGE_ID_JPEGENCODE_SOURCENOT2D: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146208i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGENCODE_GUARDRECTSUNSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146209i32);
+pub const D3D11_MESSAGE_ID_JPEGENCODE_TILEDRESOURCESUNSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146209i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGENCODE_XSUBSAMPLEMISMATCH: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146210i32);
+pub const D3D11_MESSAGE_ID_JPEGENCODE_GUARDRECTSUNSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146210i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGENCODE_YSUBSAMPLEMISMATCH: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146211i32);
+pub const D3D11_MESSAGE_ID_JPEGENCODE_XSUBSAMPLEMISMATCH: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146211i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGENCODE_FORMATUNSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146212i32);
+pub const D3D11_MESSAGE_ID_JPEGENCODE_YSUBSAMPLEMISMATCH: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146212i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGENCODE_INVALIDSUBRESOURCE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146213i32);
+pub const D3D11_MESSAGE_ID_JPEGENCODE_FORMATUNSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146213i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGENCODE_INVALIDMIPLEVEL: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146214i32);
+pub const D3D11_MESSAGE_ID_JPEGENCODE_INVALIDSUBRESOURCE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146214i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGENCODE_DIMENSIONSTOOLARGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146215i32);
+pub const D3D11_MESSAGE_ID_JPEGENCODE_INVALIDMIPLEVEL: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146215i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGENCODE_HAZARD: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146216i32);
+pub const D3D11_MESSAGE_ID_JPEGENCODE_DIMENSIONSTOOLARGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146216i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGENCODE_UNSUPPORTEDDSTBUFFERUSAGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146217i32);
+pub const D3D11_MESSAGE_ID_JPEGENCODE_HAZARD: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146217i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGENCODE_UNSUPPORTEDDSTBUFFERMISCFLAGS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146218i32);
+pub const D3D11_MESSAGE_ID_JPEGENCODE_UNSUPPORTEDDSTBUFFERUSAGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146218i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGENCODE_UNSUPPORTEDSRCTEXTUREUSAGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146219i32);
+pub const D3D11_MESSAGE_ID_JPEGENCODE_UNSUPPORTEDDSTBUFFERMISCFLAGS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146219i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_JPEGENCODE_BACKBUFFERNOTSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146220i32);
+pub const D3D11_MESSAGE_ID_JPEGENCODE_UNSUPPORTEDSRCTEXTUREUSAGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146220i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATEQUERYORPREDICATE_UNSUPPORTEDCONTEXTTTYPEFORQUERY: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146221i32);
+pub const D3D11_MESSAGE_ID_JPEGENCODE_BACKBUFFERNOTSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146221i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_FLUSH1_INVALIDCONTEXTTYPE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146222i32);
+pub const D3D11_MESSAGE_ID_CREATEQUERYORPREDICATE_UNSUPPORTEDCONTEXTTTYPEFORQUERY: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146222i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_DEVICE_SETHARDWAREPROTECTION_INVALIDCONTEXT: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146223i32);
+pub const D3D11_MESSAGE_ID_FLUSH1_INVALIDCONTEXTTYPE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146223i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORSETOUTPUTHDRMETADATA_NULLPARAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146224i32);
+pub const D3D11_MESSAGE_ID_DEVICE_SETHARDWAREPROTECTION_INVALIDCONTEXT: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146224i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORSETOUTPUTHDRMETADATA_INVALIDSIZE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146225i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORSETOUTPUTHDRMETADATA_NULLPARAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146225i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETOUTPUTHDRMETADATA_NULLPARAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146226i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORSETOUTPUTHDRMETADATA_INVALIDSIZE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146226i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETOUTPUTHDRMETADATA_INVALIDSIZE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146227i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETOUTPUTHDRMETADATA_NULLPARAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146227i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORSETSTREAMHDRMETADATA_NULLPARAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146228i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETOUTPUTHDRMETADATA_INVALIDSIZE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146228i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORSETSTREAMHDRMETADATA_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146229i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORSETSTREAMHDRMETADATA_NULLPARAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146229i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORSETSTREAMHDRMETADATA_INVALIDSIZE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146230i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORSETSTREAMHDRMETADATA_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146230i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMHDRMETADATA_NULLPARAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146231i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORSETSTREAMHDRMETADATA_INVALIDSIZE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146231i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMHDRMETADATA_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146232i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMHDRMETADATA_NULLPARAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146232i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMHDRMETADATA_INVALIDSIZE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146233i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMHDRMETADATA_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146233i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMFRAMEFORMAT_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146234i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMHDRMETADATA_INVALIDSIZE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146234i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMCOLORSPACE_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146235i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMFRAMEFORMAT_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146235i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMOUTPUTRATE_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146236i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMCOLORSPACE_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146236i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMSOURCERECT_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146237i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMOUTPUTRATE_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146237i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMDESTRECT_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146238i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMSOURCERECT_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146238i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMALPHA_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146239i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMDESTRECT_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146239i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMPALETTE_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146240i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMALPHA_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146240i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMPIXELASPECTRATIO_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146241i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMPALETTE_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146241i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMLUMAKEY_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146242i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMPIXELASPECTRATIO_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146242i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMSTEREOFORMAT_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146243i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMLUMAKEY_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146243i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMAUTOPROCESSINGMODE_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146244i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMSTEREOFORMAT_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146244i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMFILTER_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146245i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMAUTOPROCESSINGMODE_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146245i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMROTATION_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146246i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMFILTER_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146246i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMCOLORSPACE1_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146247i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMROTATION_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146247i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMMIRROR_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146248i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMCOLORSPACE1_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146248i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATE_FENCE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146249i32);
+pub const D3D11_MESSAGE_ID_VIDEOPROCESSORGETSTREAMMIRROR_INVALIDSTREAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146249i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_LIVE_FENCE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146250i32);
+pub const D3D11_MESSAGE_ID_CREATE_FENCE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146250i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_DESTROY_FENCE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146251i32);
+pub const D3D11_MESSAGE_ID_LIVE_FENCE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146251i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATE_SYNCHRONIZEDCHANNEL: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146252i32);
+pub const D3D11_MESSAGE_ID_DESTROY_FENCE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146252i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_LIVE_SYNCHRONIZEDCHANNEL: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146253i32);
+pub const D3D11_MESSAGE_ID_CREATE_SYNCHRONIZEDCHANNEL: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146253i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_DESTROY_SYNCHRONIZEDCHANNEL: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146254i32);
+pub const D3D11_MESSAGE_ID_LIVE_SYNCHRONIZEDCHANNEL: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146254i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATEFENCE_INVALIDFLAGS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146255i32);
+pub const D3D11_MESSAGE_ID_DESTROY_SYNCHRONIZEDCHANNEL: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146255i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_D3D11_3_MESSAGES_END: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146256i32);
+pub const D3D11_MESSAGE_ID_CREATEFENCE_INVALIDFLAGS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146256i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_D3D11_5_MESSAGES_START: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146257i32);
+pub const D3D11_MESSAGE_ID_D3D11_3_MESSAGES_END: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146257i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_NEGOTIATECRYPTOSESSIONKEYEXCHANGEMT_INVALIDKEYEXCHANGETYPE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146258i32);
+pub const D3D11_MESSAGE_ID_D3D11_5_MESSAGES_START: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146258i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_NEGOTIATECRYPTOSESSIONKEYEXCHANGEMT_NOT_SUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146259i32);
+pub const D3D11_MESSAGE_ID_NEGOTIATECRYPTOSESSIONKEYEXCHANGEMT_INVALIDKEYEXCHANGETYPE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146259i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_DECODERBEGINFRAME_INVALID_HISTOGRAM_COMPONENT_COUNT: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146260i32);
+pub const D3D11_MESSAGE_ID_NEGOTIATECRYPTOSESSIONKEYEXCHANGEMT_NOT_SUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146260i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_DECODERBEGINFRAME_INVALID_HISTOGRAM_COMPONENT: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146261i32);
+pub const D3D11_MESSAGE_ID_DECODERBEGINFRAME_INVALID_HISTOGRAM_COMPONENT_COUNT: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146261i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_DECODERBEGINFRAME_INVALID_HISTOGRAM_BUFFER_SIZE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146262i32);
+pub const D3D11_MESSAGE_ID_DECODERBEGINFRAME_INVALID_HISTOGRAM_COMPONENT: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146262i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_DECODERBEGINFRAME_INVALID_HISTOGRAM_BUFFER_USAGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146263i32);
+pub const D3D11_MESSAGE_ID_DECODERBEGINFRAME_INVALID_HISTOGRAM_BUFFER_SIZE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146263i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_DECODERBEGINFRAME_INVALID_HISTOGRAM_BUFFER_MISC_FLAGS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146264i32);
+pub const D3D11_MESSAGE_ID_DECODERBEGINFRAME_INVALID_HISTOGRAM_BUFFER_USAGE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146264i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_DECODERBEGINFRAME_INVALID_HISTOGRAM_BUFFER_OFFSET: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146265i32);
+pub const D3D11_MESSAGE_ID_DECODERBEGINFRAME_INVALID_HISTOGRAM_BUFFER_MISC_FLAGS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146265i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATE_TRACKEDWORKLOAD: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146266i32);
+pub const D3D11_MESSAGE_ID_DECODERBEGINFRAME_INVALID_HISTOGRAM_BUFFER_OFFSET: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146266i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_LIVE_TRACKEDWORKLOAD: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146267i32);
+pub const D3D11_MESSAGE_ID_CREATE_TRACKEDWORKLOAD: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146267i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_DESTROY_TRACKEDWORKLOAD: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146268i32);
+pub const D3D11_MESSAGE_ID_LIVE_TRACKEDWORKLOAD: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146268i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATE_TRACKED_WORKLOAD_NULLPARAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146269i32);
+pub const D3D11_MESSAGE_ID_DESTROY_TRACKEDWORKLOAD: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146269i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATE_TRACKED_WORKLOAD_INVALID_MAX_INSTANCES: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146270i32);
+pub const D3D11_MESSAGE_ID_CREATE_TRACKED_WORKLOAD_NULLPARAM: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146270i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATE_TRACKED_WORKLOAD_INVALID_DEADLINE_TYPE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146271i32);
+pub const D3D11_MESSAGE_ID_CREATE_TRACKED_WORKLOAD_INVALID_MAX_INSTANCES: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146271i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CREATE_TRACKED_WORKLOAD_INVALID_ENGINE_TYPE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146272i32);
+pub const D3D11_MESSAGE_ID_CREATE_TRACKED_WORKLOAD_INVALID_DEADLINE_TYPE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146272i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_MULTIPLE_TRACKED_WORKLOADS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146273i32);
+pub const D3D11_MESSAGE_ID_CREATE_TRACKED_WORKLOAD_INVALID_ENGINE_TYPE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146273i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_MULTIPLE_TRACKED_WORKLOAD_PAIRS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146274i32);
+pub const D3D11_MESSAGE_ID_MULTIPLE_TRACKED_WORKLOADS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146274i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_INCOMPLETE_TRACKED_WORKLOAD_PAIR: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146275i32);
+pub const D3D11_MESSAGE_ID_MULTIPLE_TRACKED_WORKLOAD_PAIRS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146275i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_OUT_OF_ORDER_TRACKED_WORKLOAD_PAIR: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146276i32);
+pub const D3D11_MESSAGE_ID_INCOMPLETE_TRACKED_WORKLOAD_PAIR: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146276i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_CANNOT_ADD_TRACKED_WORKLOAD: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146277i32);
+pub const D3D11_MESSAGE_ID_OUT_OF_ORDER_TRACKED_WORKLOAD_PAIR: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146277i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_TRACKED_WORKLOAD_NOT_SUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146278i32);
+pub const D3D11_MESSAGE_ID_CANNOT_ADD_TRACKED_WORKLOAD: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146278i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_TRACKED_WORKLOAD_ENGINE_TYPE_NOT_FOUND: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146279i32);
+pub const D3D11_MESSAGE_ID_TRACKED_WORKLOAD_NOT_SUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146279i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_NO_TRACKED_WORKLOAD_SLOT_AVAILABLE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146280i32);
+pub const D3D11_MESSAGE_ID_TRACKED_WORKLOAD_ENGINE_TYPE_NOT_FOUND: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146280i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_END_TRACKED_WORKLOAD_INVALID_ARG: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146281i32);
+pub const D3D11_MESSAGE_ID_NO_TRACKED_WORKLOAD_SLOT_AVAILABLE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146281i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_TRACKED_WORKLOAD_DISJOINT_FAILURE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146282i32);
+pub const D3D11_MESSAGE_ID_END_TRACKED_WORKLOAD_INVALID_ARG: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146282i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MESSAGE_ID_D3D11_5_MESSAGES_END: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146283i32);
+pub const D3D11_MESSAGE_ID_TRACKED_WORKLOAD_DISJOINT_FAILURE: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146283i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
+pub const D3D11_MESSAGE_ID_D3D11_5_MESSAGES_END: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146284i32);
 impl ::core::marker::Copy for D3D11_MESSAGE_ID {}
 impl ::core::clone::Clone for D3D11_MESSAGE_ID {
     fn clone(&self) -> Self {
@@ -28980,9 +28982,9 @@ impl ::core::default::Default for D3DX11_FFT_DESC {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi"))]
-pub type PFN_D3D11_CREATE_DEVICE = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<super::Dxgi::IDXGIAdapter>, param1: super::Direct3D::D3D_DRIVER_TYPE, param2: super::super::Foundation::HINSTANCE, param3: u32, param4: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, param6: u32, param7: *mut ::core::option::Option<ID3D11Device>, param8: *mut super::Direct3D::D3D_FEATURE_LEVEL, param9: *mut ::core::option::Option<ID3D11DeviceContext>) -> ::windows::core::HRESULT>;
+pub type PFN_D3D11_CREATE_DEVICE = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<super::Dxgi::IDXGIAdapter>, param1: super::Direct3D::D3D_DRIVER_TYPE, param2: super::super::Foundation::HMODULE, param3: u32, param4: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, param6: u32, param7: *mut ::core::option::Option<ID3D11Device>, param8: *mut super::Direct3D::D3D_FEATURE_LEVEL, param9: *mut ::core::option::Option<ID3D11DeviceContext>) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-pub type PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<super::Dxgi::IDXGIAdapter>, param1: super::Direct3D::D3D_DRIVER_TYPE, param2: super::super::Foundation::HINSTANCE, param3: u32, param4: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, param6: u32, param7: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, param8: *mut ::core::option::Option<super::Dxgi::IDXGISwapChain>, param9: *mut ::core::option::Option<ID3D11Device>, param10: *mut super::Direct3D::D3D_FEATURE_LEVEL, param11: *mut ::core::option::Option<ID3D11DeviceContext>) -> ::windows::core::HRESULT>;
+pub type PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<super::Dxgi::IDXGIAdapter>, param1: super::Direct3D::D3D_DRIVER_TYPE, param2: super::super::Foundation::HMODULE, param3: u32, param4: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, param6: u32, param7: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, param8: *mut ::core::option::Option<super::Dxgi::IDXGISwapChain>, param9: *mut ::core::option::Option<ID3D11Device>, param10: *mut super::Direct3D::D3D_FEATURE_LEVEL, param11: *mut ::core::option::Option<ID3D11DeviceContext>) -> ::windows::core::HRESULT>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

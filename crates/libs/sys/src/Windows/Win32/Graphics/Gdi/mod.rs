@@ -2,10 +2,10 @@
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn AbortPath ( hdc : HDC ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn AddFontMemResourceEx ( pfileview : *const ::core::ffi::c_void , cjsize : u32 , pvresrved : *const ::core::ffi::c_void , pnumfonts : *const u32 ) -> super::super::Foundation:: HANDLE );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn AddFontResourceA ( param0 : :: windows_sys::core::PCSTR ) -> i32 );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn AddFontResourceExA ( name : :: windows_sys::core::PCSTR , fl : FONT_RESOURCE_CHARACTERISTICS , res : *const ::core::ffi::c_void ) -> i32 );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn AddFontResourceExW ( name : :: windows_sys::core::PCWSTR , fl : FONT_RESOURCE_CHARACTERISTICS , res : *const ::core::ffi::c_void ) -> i32 );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn AddFontResourceW ( param0 : :: windows_sys::core::PCWSTR ) -> i32 );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn AddFontResourceA ( param0 : ::windows_sys::core::PCSTR ) -> i32 );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn AddFontResourceExA ( name : ::windows_sys::core::PCSTR , fl : FONT_RESOURCE_CHARACTERISTICS , res : *const ::core::ffi::c_void ) -> i32 );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn AddFontResourceExW ( name : ::windows_sys::core::PCWSTR , fl : FONT_RESOURCE_CHARACTERISTICS , res : *const ::core::ffi::c_void ) -> i32 );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn AddFontResourceW ( param0 : ::windows_sys::core::PCWSTR ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "msimg32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn AlphaBlend ( hdcdest : HDC , xorigindest : i32 , yorigindest : i32 , wdest : i32 , hdest : i32 , hdcsrc : HDC , xoriginsrc : i32 , yoriginsrc : i32 , wsrc : i32 , hsrc : i32 , ftn : BLENDFUNCTION ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -27,9 +27,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn ChangeDisplaySettingsA ( lpdevmode : *const DEVMODEA , dwflags : CDS_TYPE ) -> DISP_CHANGE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn ChangeDisplaySettingsExA ( lpszdevicename : :: windows_sys::core::PCSTR , lpdevmode : *const DEVMODEA , hwnd : super::super::Foundation:: HWND , dwflags : CDS_TYPE , lparam : *const ::core::ffi::c_void ) -> DISP_CHANGE );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn ChangeDisplaySettingsExA ( lpszdevicename : ::windows_sys::core::PCSTR , lpdevmode : *const DEVMODEA , hwnd : super::super::Foundation:: HWND , dwflags : CDS_TYPE , lparam : *const ::core::ffi::c_void ) -> DISP_CHANGE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn ChangeDisplaySettingsExW ( lpszdevicename : :: windows_sys::core::PCWSTR , lpdevmode : *const DEVMODEW , hwnd : super::super::Foundation:: HWND , dwflags : CDS_TYPE , lparam : *const ::core::ffi::c_void ) -> DISP_CHANGE );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn ChangeDisplaySettingsExW ( lpszdevicename : ::windows_sys::core::PCWSTR , lpdevmode : *const DEVMODEW , hwnd : super::super::Foundation:: HWND , dwflags : CDS_TYPE , lparam : *const ::core::ffi::c_void ) -> DISP_CHANGE );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn ChangeDisplaySettingsW ( lpdevmode : *const DEVMODEW , dwflags : CDS_TYPE ) -> DISP_CHANGE );
 #[cfg(feature = "Win32_Foundation")]
@@ -43,10 +43,10 @@
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CombineRgn ( hrgndst : HRGN , hrgnsrc1 : HRGN , hrgnsrc2 : HRGN , imode : RGN_COMBINE_MODE ) -> GDI_REGION_TYPE );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CombineTransform ( lpxfout : *mut XFORM , lpxf1 : *const XFORM , lpxf2 : *const XFORM ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CopyEnhMetaFileA ( henh : HENHMETAFILE , lpfilename : :: windows_sys::core::PCSTR ) -> HENHMETAFILE );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CopyEnhMetaFileW ( henh : HENHMETAFILE , lpfilename : :: windows_sys::core::PCWSTR ) -> HENHMETAFILE );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CopyMetaFileA ( param0 : HMETAFILE , param1 : :: windows_sys::core::PCSTR ) -> HMETAFILE );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CopyMetaFileW ( param0 : HMETAFILE , param1 : :: windows_sys::core::PCWSTR ) -> HMETAFILE );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CopyEnhMetaFileA ( henh : HENHMETAFILE , lpfilename : ::windows_sys::core::PCSTR ) -> HENHMETAFILE );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CopyEnhMetaFileW ( henh : HENHMETAFILE , lpfilename : ::windows_sys::core::PCWSTR ) -> HENHMETAFILE );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CopyMetaFileA ( param0 : HMETAFILE , param1 : ::windows_sys::core::PCSTR ) -> HMETAFILE );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CopyMetaFileW ( param0 : HMETAFILE , param1 : ::windows_sys::core::PCWSTR ) -> HMETAFILE );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CopyRect ( lprcdst : *mut super::super::Foundation:: RECT , lprcsrc : *const super::super::Foundation:: RECT ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateBitmap ( nwidth : i32 , nheight : i32 , nplanes : u32 , nbitcount : u32 , lpbits : *const ::core::ffi::c_void ) -> HBITMAP );
@@ -56,9 +56,9 @@
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateCompatibleBitmap ( hdc : HDC , cx : i32 , cy : i32 ) -> HBITMAP );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateCompatibleDC ( hdc : HDC ) -> CreatedHDC );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateDCA ( pwszdriver : :: windows_sys::core::PCSTR , pwszdevice : :: windows_sys::core::PCSTR , pszport : :: windows_sys::core::PCSTR , pdm : *const DEVMODEA ) -> CreatedHDC );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateDCA ( pwszdriver : ::windows_sys::core::PCSTR , pwszdevice : ::windows_sys::core::PCSTR , pszport : ::windows_sys::core::PCSTR , pdm : *const DEVMODEA ) -> CreatedHDC );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateDCW ( pwszdriver : :: windows_sys::core::PCWSTR , pwszdevice : :: windows_sys::core::PCWSTR , pszport : :: windows_sys::core::PCWSTR , pdm : *const DEVMODEW ) -> CreatedHDC );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateDCW ( pwszdriver : ::windows_sys::core::PCWSTR , pwszdevice : ::windows_sys::core::PCWSTR , pszport : ::windows_sys::core::PCWSTR , pdm : *const DEVMODEW ) -> CreatedHDC );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateDIBPatternBrush ( h : super::super::Foundation:: HGLOBAL , iusage : DIB_USAGE ) -> HBRUSH );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateDIBPatternBrushPt ( lppackeddib : *const ::core::ffi::c_void , iusage : DIB_USAGE ) -> HBRUSH );
@@ -70,27 +70,25 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateEllipticRgnIndirect ( lprect : *const super::super::Foundation:: RECT ) -> HRGN );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateEnhMetaFileA ( hdc : HDC , lpfilename : :: windows_sys::core::PCSTR , lprc : *const super::super::Foundation:: RECT , lpdesc : :: windows_sys::core::PCSTR ) -> HdcMetdataEnhFileHandle );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateEnhMetaFileA ( hdc : HDC , lpfilename : ::windows_sys::core::PCSTR , lprc : *const super::super::Foundation:: RECT , lpdesc : ::windows_sys::core::PCSTR ) -> HdcMetdataEnhFileHandle );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateEnhMetaFileW ( hdc : HDC , lpfilename : :: windows_sys::core::PCWSTR , lprc : *const super::super::Foundation:: RECT , lpdesc : :: windows_sys::core::PCWSTR ) -> HdcMetdataEnhFileHandle );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateFontA ( cheight : i32 , cwidth : i32 , cescapement : i32 , corientation : i32 , cweight : i32 , bitalic : u32 , bunderline : u32 , bstrikeout : u32 , icharset : u32 , ioutprecision : u32 , iclipprecision : u32 , iquality : u32 , ipitchandfamily : u32 , pszfacename : :: windows_sys::core::PCSTR ) -> HFONT );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateFontIndirectA ( lplf : *const LOGFONTA ) -> HFONT );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateFontIndirectExA ( param0 : *const ENUMLOGFONTEXDVA ) -> HFONT );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateEnhMetaFileW ( hdc : HDC , lpfilename : ::windows_sys::core::PCWSTR , lprc : *const super::super::Foundation:: RECT , lpdesc : ::windows_sys::core::PCWSTR ) -> HdcMetdataEnhFileHandle );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateFontA ( cheight : i32 , cwidth : i32 , cescapement : i32 , corientation : i32 , cweight : i32 , bitalic : u32 , bunderline : u32 , bstrikeout : u32 , icharset : u32 , ioutprecision : u32 , iclipprecision : u32 , iquality : u32 , ipitchandfamily : u32 , pszfacename : ::windows_sys::core::PCSTR ) -> HFONT );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateFontIndirectA ( lplf : *const LOGFONTA ) -> HFONT );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateFontIndirectExA ( param0 : *const ENUMLOGFONTEXDVA ) -> HFONT );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateFontIndirectExW ( param0 : *const ENUMLOGFONTEXDVW ) -> HFONT );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateFontIndirectW ( lplf : *const LOGFONTW ) -> HFONT );
 ::windows_sys::core::link ! ( "fontsub.dll""cdecl" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateFontPackage ( puchsrcbuffer : *const u8 , ulsrcbuffersize : u32 , ppuchfontpackagebuffer : *mut *mut u8 , pulfontpackagebuffersize : *mut u32 , pulbyteswritten : *mut u32 , usflag : u16 , usttcindex : u16 , ussubsetformat : u16 , ussubsetlanguage : u16 , ussubsetplatform : CREATE_FONT_PACKAGE_SUBSET_PLATFORM , ussubsetencoding : CREATE_FONT_PACKAGE_SUBSET_ENCODING , pussubsetkeeplist : *const u16 , ussubsetlistcount : u16 , lpfnallocate : CFP_ALLOCPROC , lpfnreallocate : CFP_REALLOCPROC , lpfnfree : CFP_FREEPROC , lpvreserved : *mut ::core::ffi::c_void ) -> u32 );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateFontW ( cheight : i32 , cwidth : i32 , cescapement : i32 , corientation : i32 , cweight : i32 , bitalic : u32 , bunderline : u32 , bstrikeout : u32 , icharset : u32 , ioutprecision : u32 , iclipprecision : u32 , iquality : u32 , ipitchandfamily : u32 , pszfacename : :: windows_sys::core::PCWSTR ) -> HFONT );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateFontW ( cheight : i32 , cwidth : i32 , cescapement : i32 , corientation : i32 , cweight : i32 , bitalic : u32 , bunderline : u32 , bstrikeout : u32 , icharset : u32 , ioutprecision : u32 , iclipprecision : u32 , iquality : u32 , ipitchandfamily : u32 , pszfacename : ::windows_sys::core::PCWSTR ) -> HFONT );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateHalftonePalette ( hdc : HDC ) -> HPALETTE );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateHatchBrush ( ihatch : HATCH_BRUSH_STYLE , color : super::super::Foundation:: COLORREF ) -> HBRUSH );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateICA ( pszdriver : :: windows_sys::core::PCSTR , pszdevice : :: windows_sys::core::PCSTR , pszport : :: windows_sys::core::PCSTR , pdm : *const DEVMODEA ) -> CreatedHDC );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateICA ( pszdriver : ::windows_sys::core::PCSTR , pszdevice : ::windows_sys::core::PCSTR , pszport : ::windows_sys::core::PCSTR , pdm : *const DEVMODEA ) -> CreatedHDC );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateICW ( pszdriver : :: windows_sys::core::PCWSTR , pszdevice : :: windows_sys::core::PCWSTR , pszport : :: windows_sys::core::PCWSTR , pdm : *const DEVMODEW ) -> CreatedHDC );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateMetaFileA ( pszfile : :: windows_sys::core::PCSTR ) -> HdcMetdataFileHandle );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateMetaFileW ( pszfile : :: windows_sys::core::PCWSTR ) -> HdcMetdataFileHandle );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateICW ( pszdriver : ::windows_sys::core::PCWSTR , pszdevice : ::windows_sys::core::PCWSTR , pszport : ::windows_sys::core::PCWSTR , pdm : *const DEVMODEW ) -> CreatedHDC );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateMetaFileA ( pszfile : ::windows_sys::core::PCSTR ) -> HdcMetdataFileHandle );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateMetaFileW ( pszfile : ::windows_sys::core::PCWSTR ) -> HdcMetdataFileHandle );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreatePalette ( plpal : *const LOGPALETTE ) -> HPALETTE );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreatePatternBrush ( hbm : HBITMAP ) -> HBRUSH );
 #[cfg(feature = "Win32_Foundation")]
@@ -106,9 +104,9 @@
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateRectRgnIndirect ( lprect : *const super::super::Foundation:: RECT ) -> HRGN );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateRoundRectRgn ( x1 : i32 , y1 : i32 , x2 : i32 , y2 : i32 , w : i32 , h : i32 ) -> HRGN );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateScalableFontResourceA ( fdwhidden : u32 , lpszfont : :: windows_sys::core::PCSTR , lpszfile : :: windows_sys::core::PCSTR , lpszpath : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateScalableFontResourceA ( fdwhidden : u32 , lpszfont : ::windows_sys::core::PCSTR , lpszfile : ::windows_sys::core::PCSTR , lpszpath : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateScalableFontResourceW ( fdwhidden : u32 , lpszfont : :: windows_sys::core::PCWSTR , lpszfile : :: windows_sys::core::PCWSTR , lpszpath : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateScalableFontResourceW ( fdwhidden : u32 , lpszfont : ::windows_sys::core::PCWSTR , lpszfile : ::windows_sys::core::PCWSTR , lpszpath : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateSolidBrush ( color : super::super::Foundation:: COLORREF ) -> HBRUSH );
 #[cfg(feature = "Win32_Foundation")]
@@ -127,7 +125,7 @@
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn DrawCaption ( hwnd : super::super::Foundation:: HWND , hdc : HDC , lprect : *const super::super::Foundation:: RECT , flags : DRAW_CAPTION_FLAGS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn DrawEdge ( hdc : HDC , qrc : *mut super::super::Foundation:: RECT , edge : DRAWEDGE_FLAGS , grfflags : DRAW_EDGE_FLAGS ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn DrawEscape ( hdc : HDC , iescape : i32 , cjin : i32 , lpin : :: windows_sys::core::PCSTR ) -> i32 );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn DrawEscape ( hdc : HDC , iescape : i32 , cjin : i32 , lpin : ::windows_sys::core::PCSTR ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn DrawFocusRect ( hdc : HDC , lprc : *const super::super::Foundation:: RECT ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -137,13 +135,13 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn DrawStateW ( hdc : HDC , hbrfore : HBRUSH , qfncallback : DRAWSTATEPROC , ldata : super::super::Foundation:: LPARAM , wdata : super::super::Foundation:: WPARAM , x : i32 , y : i32 , cx : i32 , cy : i32 , uflags : DRAWSTATE_FLAGS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn DrawTextA ( hdc : HDC , lpchtext : :: windows_sys::core::PSTR , cchtext : i32 , lprc : *mut super::super::Foundation:: RECT , format : DRAW_TEXT_FORMAT ) -> i32 );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn DrawTextA ( hdc : HDC , lpchtext : ::windows_sys::core::PCSTR , cchtext : i32 , lprc : *mut super::super::Foundation:: RECT , format : DRAW_TEXT_FORMAT ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn DrawTextExA ( hdc : HDC , lpchtext : :: windows_sys::core::PSTR , cchtext : i32 , lprc : *mut super::super::Foundation:: RECT , format : DRAW_TEXT_FORMAT , lpdtp : *const DRAWTEXTPARAMS ) -> i32 );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn DrawTextExA ( hdc : HDC , lpchtext : ::windows_sys::core::PSTR , cchtext : i32 , lprc : *mut super::super::Foundation:: RECT , format : DRAW_TEXT_FORMAT , lpdtp : *const DRAWTEXTPARAMS ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn DrawTextExW ( hdc : HDC , lpchtext : :: windows_sys::core::PWSTR , cchtext : i32 , lprc : *mut super::super::Foundation:: RECT , format : DRAW_TEXT_FORMAT , lpdtp : *const DRAWTEXTPARAMS ) -> i32 );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn DrawTextExW ( hdc : HDC , lpchtext : ::windows_sys::core::PWSTR , cchtext : i32 , lprc : *mut super::super::Foundation:: RECT , format : DRAW_TEXT_FORMAT , lpdtp : *const DRAWTEXTPARAMS ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn DrawTextW ( hdc : HDC , lpchtext : :: windows_sys::core::PWSTR , cchtext : i32 , lprc : *mut super::super::Foundation:: RECT , format : DRAW_TEXT_FORMAT ) -> i32 );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn DrawTextW ( hdc : HDC , lpchtext : ::windows_sys::core::PCWSTR , cchtext : i32 , lprc : *mut super::super::Foundation:: RECT , format : DRAW_TEXT_FORMAT ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn Ellipse ( hdc : HDC , left : i32 , top : i32 , right : i32 , bottom : i32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -151,33 +149,33 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EndPath ( hdc : HDC ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumDisplayDevicesA ( lpdevice : :: windows_sys::core::PCSTR , idevnum : u32 , lpdisplaydevice : *mut DISPLAY_DEVICEA , dwflags : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumDisplayDevicesA ( lpdevice : ::windows_sys::core::PCSTR , idevnum : u32 , lpdisplaydevice : *mut DISPLAY_DEVICEA , dwflags : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumDisplayDevicesW ( lpdevice : :: windows_sys::core::PCWSTR , idevnum : u32 , lpdisplaydevice : *mut DISPLAY_DEVICEW , dwflags : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumDisplayDevicesW ( lpdevice : ::windows_sys::core::PCWSTR , idevnum : u32 , lpdisplaydevice : *mut DISPLAY_DEVICEW , dwflags : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumDisplayMonitors ( hdc : HDC , lprcclip : *const super::super::Foundation:: RECT , lpfnenum : MONITORENUMPROC , dwdata : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumDisplaySettingsA ( lpszdevicename : :: windows_sys::core::PCSTR , imodenum : ENUM_DISPLAY_SETTINGS_MODE , lpdevmode : *mut DEVMODEA ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumDisplaySettingsA ( lpszdevicename : ::windows_sys::core::PCSTR , imodenum : ENUM_DISPLAY_SETTINGS_MODE , lpdevmode : *mut DEVMODEA ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumDisplaySettingsExA ( lpszdevicename : :: windows_sys::core::PCSTR , imodenum : ENUM_DISPLAY_SETTINGS_MODE , lpdevmode : *mut DEVMODEA , dwflags : ENUM_DISPLAY_SETTINGS_FLAGS ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumDisplaySettingsExA ( lpszdevicename : ::windows_sys::core::PCSTR , imodenum : ENUM_DISPLAY_SETTINGS_MODE , lpdevmode : *mut DEVMODEA , dwflags : ENUM_DISPLAY_SETTINGS_FLAGS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumDisplaySettingsExW ( lpszdevicename : :: windows_sys::core::PCWSTR , imodenum : ENUM_DISPLAY_SETTINGS_MODE , lpdevmode : *mut DEVMODEW , dwflags : ENUM_DISPLAY_SETTINGS_FLAGS ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumDisplaySettingsExW ( lpszdevicename : ::windows_sys::core::PCWSTR , imodenum : ENUM_DISPLAY_SETTINGS_MODE , lpdevmode : *mut DEVMODEW , dwflags : ENUM_DISPLAY_SETTINGS_FLAGS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumDisplaySettingsW ( lpszdevicename : :: windows_sys::core::PCWSTR , imodenum : ENUM_DISPLAY_SETTINGS_MODE , lpdevmode : *mut DEVMODEW ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumDisplaySettingsW ( lpszdevicename : ::windows_sys::core::PCWSTR , imodenum : ENUM_DISPLAY_SETTINGS_MODE , lpdevmode : *mut DEVMODEW ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumEnhMetaFile ( hdc : HDC , hmf : HENHMETAFILE , proc : ENHMFENUMPROC , param3 : *const ::core::ffi::c_void , lprect : *const super::super::Foundation:: RECT ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumFontFamiliesA ( hdc : HDC , lplogfont : :: windows_sys::core::PCSTR , lpproc : FONTENUMPROCA , lparam : super::super::Foundation:: LPARAM ) -> i32 );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumFontFamiliesA ( hdc : HDC , lplogfont : ::windows_sys::core::PCSTR , lpproc : FONTENUMPROCA , lparam : super::super::Foundation:: LPARAM ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumFontFamiliesExA ( hdc : HDC , lplogfont : *const LOGFONTA , lpproc : FONTENUMPROCA , lparam : super::super::Foundation:: LPARAM , dwflags : u32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumFontFamiliesExW ( hdc : HDC , lplogfont : *const LOGFONTW , lpproc : FONTENUMPROCW , lparam : super::super::Foundation:: LPARAM , dwflags : u32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumFontFamiliesW ( hdc : HDC , lplogfont : :: windows_sys::core::PCWSTR , lpproc : FONTENUMPROCW , lparam : super::super::Foundation:: LPARAM ) -> i32 );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumFontFamiliesW ( hdc : HDC , lplogfont : ::windows_sys::core::PCWSTR , lpproc : FONTENUMPROCW , lparam : super::super::Foundation:: LPARAM ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumFontsA ( hdc : HDC , lplogfont : :: windows_sys::core::PCSTR , lpproc : FONTENUMPROCA , lparam : super::super::Foundation:: LPARAM ) -> i32 );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumFontsA ( hdc : HDC , lplogfont : ::windows_sys::core::PCSTR , lpproc : FONTENUMPROCA , lparam : super::super::Foundation:: LPARAM ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumFontsW ( hdc : HDC , lplogfont : :: windows_sys::core::PCWSTR , lpproc : FONTENUMPROCW , lparam : super::super::Foundation:: LPARAM ) -> i32 );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumFontsW ( hdc : HDC , lplogfont : ::windows_sys::core::PCWSTR , lpproc : FONTENUMPROCW , lparam : super::super::Foundation:: LPARAM ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn EnumMetaFile ( hdc : HDC , hmf : HMETAFILE , proc : MFENUMPROC , param3 : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -197,9 +195,9 @@
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn ExtFloodFill ( hdc : HDC , x : i32 , y : i32 , color : super::super::Foundation:: COLORREF , r#type : EXT_FLOOD_FILL_TYPE ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn ExtSelectClipRgn ( hdc : HDC , hrgn : HRGN , mode : RGN_COMBINE_MODE ) -> GDI_REGION_TYPE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn ExtTextOutA ( hdc : HDC , x : i32 , y : i32 , options : ETO_OPTIONS , lprect : *const super::super::Foundation:: RECT , lpstring : :: windows_sys::core::PCSTR , c : u32 , lpdx : *const i32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn ExtTextOutA ( hdc : HDC , x : i32 , y : i32 , options : ETO_OPTIONS , lprect : *const super::super::Foundation:: RECT , lpstring : ::windows_sys::core::PCSTR , c : u32 , lpdx : *const i32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn ExtTextOutW ( hdc : HDC , x : i32 , y : i32 , options : ETO_OPTIONS , lprect : *const super::super::Foundation:: RECT , lpstring : :: windows_sys::core::PCWSTR , c : u32 , lpdx : *const i32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn ExtTextOutW ( hdc : HDC , x : i32 , y : i32 , options : ETO_OPTIONS , lprect : *const super::super::Foundation:: RECT , lpstring : ::windows_sys::core::PCWSTR , c : u32 , lpdx : *const i32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn FillPath ( hdc : HDC ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -265,8 +263,8 @@
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn GetCharWidthI ( hdc : HDC , gifirst : u32 , cgi : u32 , pgi : *const u16 , piwidths : *mut i32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn GetCharWidthW ( hdc : HDC , ifirst : u32 , ilast : u32 , lpbuffer : *mut i32 ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetCharacterPlacementA ( hdc : HDC , lpstring : :: windows_sys::core::PCSTR , ncount : i32 , nmexextent : i32 , lpresults : *mut GCP_RESULTSA , dwflags : GET_CHARACTER_PLACEMENT_FLAGS ) -> u32 );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetCharacterPlacementW ( hdc : HDC , lpstring : :: windows_sys::core::PCWSTR , ncount : i32 , nmexextent : i32 , lpresults : *mut GCP_RESULTSW , dwflags : GET_CHARACTER_PLACEMENT_FLAGS ) -> u32 );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetCharacterPlacementA ( hdc : HDC , lpstring : ::windows_sys::core::PCSTR , ncount : i32 , nmexextent : i32 , lpresults : *mut GCP_RESULTSA , dwflags : GET_CHARACTER_PLACEMENT_FLAGS ) -> u32 );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetCharacterPlacementW ( hdc : HDC , lpstring : ::windows_sys::core::PCWSTR , ncount : i32 , nmexextent : i32 , lpresults : *mut GCP_RESULTSW , dwflags : GET_CHARACTER_PLACEMENT_FLAGS ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn GetClipBox ( hdc : HDC , lprect : *mut super::super::Foundation:: RECT ) -> GDI_REGION_TYPE );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetClipRgn ( hdc : HDC , hrgn : HRGN ) -> i32 );
@@ -288,19 +286,19 @@
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetDIBColorTable ( hdc : HDC , istart : u32 , centries : u32 , prgbq : *mut RGBQUAD ) -> u32 );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetDIBits ( hdc : HDC , hbm : HBITMAP , start : u32 , clines : u32 , lpvbits : *mut ::core::ffi::c_void , lpbmi : *mut BITMAPINFO , usage : DIB_USAGE ) -> i32 );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetDeviceCaps ( hdc : HDC , index : GET_DEVICE_CAPS_INDEX ) -> i32 );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetEnhMetaFileA ( lpname : :: windows_sys::core::PCSTR ) -> HENHMETAFILE );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetEnhMetaFileA ( lpname : ::windows_sys::core::PCSTR ) -> HENHMETAFILE );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetEnhMetaFileBits ( hemf : HENHMETAFILE , nsize : u32 , lpdata : *mut u8 ) -> u32 );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetEnhMetaFileDescriptionA ( hemf : HENHMETAFILE , cchbuffer : u32 , lpdescription : :: windows_sys::core::PSTR ) -> u32 );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetEnhMetaFileDescriptionW ( hemf : HENHMETAFILE , cchbuffer : u32 , lpdescription : :: windows_sys::core::PWSTR ) -> u32 );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetEnhMetaFileDescriptionA ( hemf : HENHMETAFILE , cchbuffer : u32 , lpdescription : ::windows_sys::core::PSTR ) -> u32 );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetEnhMetaFileDescriptionW ( hemf : HENHMETAFILE , cchbuffer : u32 , lpdescription : ::windows_sys::core::PWSTR ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn GetEnhMetaFileHeader ( hemf : HENHMETAFILE , nsize : u32 , lpenhmetaheader : *mut ENHMETAHEADER ) -> u32 );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetEnhMetaFilePaletteEntries ( hemf : HENHMETAFILE , nnumentries : u32 , lppaletteentries : *mut PALETTEENTRY ) -> u32 );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetEnhMetaFileW ( lpname : :: windows_sys::core::PCWSTR ) -> HENHMETAFILE );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetEnhMetaFileW ( lpname : ::windows_sys::core::PCWSTR ) -> HENHMETAFILE );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetFontData ( hdc : HDC , dwtable : u32 , dwoffset : u32 , pvbuffer : *mut ::core::ffi::c_void , cjbuffer : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetFontLanguageInfo ( hdc : HDC ) -> u32 );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetFontUnicodeRanges ( hdc : HDC , lpgs : *mut GLYPHSET ) -> u32 );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetGlyphIndicesA ( hdc : HDC , lpstr : :: windows_sys::core::PCSTR , c : i32 , pgi : *mut u16 , fl : u32 ) -> u32 );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetGlyphIndicesW ( hdc : HDC , lpstr : :: windows_sys::core::PCWSTR , c : i32 , pgi : *mut u16 , fl : u32 ) -> u32 );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetGlyphIndicesA ( hdc : HDC , lpstr : ::windows_sys::core::PCSTR , c : i32 , pgi : *mut u16 , fl : u32 ) -> u32 );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetGlyphIndicesW ( hdc : HDC , lpstr : ::windows_sys::core::PCWSTR , c : i32 , pgi : *mut u16 , fl : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn GetGlyphOutlineA ( hdc : HDC , uchar : u32 , fuformat : GET_GLYPH_OUTLINE_FORMAT , lpgm : *mut GLYPHMETRICS , cjbuffer : u32 , pvbuffer : *mut ::core::ffi::c_void , lpmat2 : *const MAT2 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -310,9 +308,9 @@
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetKerningPairsW ( hdc : HDC , npairs : u32 , lpkernpair : *mut KERNINGPAIR ) -> u32 );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetLayout ( hdc : HDC ) -> u32 );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetMapMode ( hdc : HDC ) -> HDC_MAP_MODE );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetMetaFileA ( lpname : :: windows_sys::core::PCSTR ) -> HMETAFILE );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetMetaFileA ( lpname : ::windows_sys::core::PCSTR ) -> HMETAFILE );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetMetaFileBitsEx ( hmf : HMETAFILE , cbbuffer : u32 , lpdata : *mut ::core::ffi::c_void ) -> u32 );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetMetaFileW ( lpname : :: windows_sys::core::PCWSTR ) -> HMETAFILE );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetMetaFileW ( lpname : ::windows_sys::core::PCWSTR ) -> HMETAFILE );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetMetaRgn ( hdc : HDC , hrgn : HRGN ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn GetMiterLimit ( hdc : HDC , plimit : *mut f32 ) -> super::super::Foundation:: BOOL );
@@ -351,30 +349,30 @@
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetSysColorBrush ( nindex : SYS_COLOR_INDEX ) -> HBRUSH );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetSystemPaletteEntries ( hdc : HDC , istart : u32 , centries : u32 , ppalentries : *mut PALETTEENTRY ) -> u32 );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetSystemPaletteUse ( hdc : HDC ) -> u32 );
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetTabbedTextExtentA ( hdc : HDC , lpstring : :: windows_sys::core::PCSTR , chcount : i32 , ntabpositions : i32 , lpntabstoppositions : *const i32 ) -> u32 );
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetTabbedTextExtentW ( hdc : HDC , lpstring : :: windows_sys::core::PCWSTR , chcount : i32 , ntabpositions : i32 , lpntabstoppositions : *const i32 ) -> u32 );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetTabbedTextExtentA ( hdc : HDC , lpstring : ::windows_sys::core::PCSTR , chcount : i32 , ntabpositions : i32 , lpntabstoppositions : *const i32 ) -> u32 );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetTabbedTextExtentW ( hdc : HDC , lpstring : ::windows_sys::core::PCWSTR , chcount : i32 , ntabpositions : i32 , lpntabstoppositions : *const i32 ) -> u32 );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetTextAlign ( hdc : HDC ) -> TEXT_ALIGN_OPTIONS );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetTextCharacterExtra ( hdc : HDC ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn GetTextColor ( hdc : HDC ) -> super::super::Foundation:: COLORREF );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn GetTextExtentExPointA ( hdc : HDC , lpszstring : :: windows_sys::core::PCSTR , cchstring : i32 , nmaxextent : i32 , lpnfit : *mut i32 , lpndx : *mut i32 , lpsize : *mut super::super::Foundation:: SIZE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn GetTextExtentExPointA ( hdc : HDC , lpszstring : ::windows_sys::core::PCSTR , cchstring : i32 , nmaxextent : i32 , lpnfit : *mut i32 , lpndx : *mut i32 , lpsize : *mut super::super::Foundation:: SIZE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn GetTextExtentExPointI ( hdc : HDC , lpwszstring : *const u16 , cwchstring : i32 , nmaxextent : i32 , lpnfit : *mut i32 , lpndx : *mut i32 , lpsize : *mut super::super::Foundation:: SIZE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn GetTextExtentExPointW ( hdc : HDC , lpszstring : :: windows_sys::core::PCWSTR , cchstring : i32 , nmaxextent : i32 , lpnfit : *mut i32 , lpndx : *mut i32 , lpsize : *mut super::super::Foundation:: SIZE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn GetTextExtentExPointW ( hdc : HDC , lpszstring : ::windows_sys::core::PCWSTR , cchstring : i32 , nmaxextent : i32 , lpnfit : *mut i32 , lpndx : *mut i32 , lpsize : *mut super::super::Foundation:: SIZE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn GetTextExtentPoint32A ( hdc : HDC , lpstring : :: windows_sys::core::PCSTR , c : i32 , psizl : *mut super::super::Foundation:: SIZE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn GetTextExtentPoint32A ( hdc : HDC , lpstring : ::windows_sys::core::PCSTR , c : i32 , psizl : *mut super::super::Foundation:: SIZE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn GetTextExtentPoint32W ( hdc : HDC , lpstring : :: windows_sys::core::PCWSTR , c : i32 , psizl : *mut super::super::Foundation:: SIZE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn GetTextExtentPoint32W ( hdc : HDC , lpstring : ::windows_sys::core::PCWSTR , c : i32 , psizl : *mut super::super::Foundation:: SIZE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn GetTextExtentPointA ( hdc : HDC , lpstring : :: windows_sys::core::PCSTR , c : i32 , lpsz : *mut super::super::Foundation:: SIZE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn GetTextExtentPointA ( hdc : HDC , lpstring : ::windows_sys::core::PCSTR , c : i32 , lpsz : *mut super::super::Foundation:: SIZE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn GetTextExtentPointI ( hdc : HDC , pgiin : *const u16 , cgi : i32 , psize : *mut super::super::Foundation:: SIZE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn GetTextExtentPointW ( hdc : HDC , lpstring : :: windows_sys::core::PCWSTR , c : i32 , lpsz : *mut super::super::Foundation:: SIZE ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetTextFaceA ( hdc : HDC , c : i32 , lpname : :: windows_sys::core::PSTR ) -> i32 );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetTextFaceW ( hdc : HDC , c : i32 , lpname : :: windows_sys::core::PWSTR ) -> i32 );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn GetTextExtentPointW ( hdc : HDC , lpstring : ::windows_sys::core::PCWSTR , c : i32 , lpsz : *mut super::super::Foundation:: SIZE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetTextFaceA ( hdc : HDC , c : i32 , lpname : ::windows_sys::core::PSTR ) -> i32 );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn GetTextFaceW ( hdc : HDC , c : i32 , lpname : ::windows_sys::core::PWSTR ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn GetTextMetricsA ( hdc : HDC , lptm : *mut TEXTMETRICA ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -428,9 +426,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn LineTo ( hdc : HDC , x : i32 , y : i32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn LoadBitmapA ( hinstance : super::super::Foundation:: HINSTANCE , lpbitmapname : :: windows_sys::core::PCSTR ) -> HBITMAP );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn LoadBitmapA ( hinstance : super::super::Foundation:: HMODULE , lpbitmapname : ::windows_sys::core::PCSTR ) -> HBITMAP );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn LoadBitmapW ( hinstance : super::super::Foundation:: HINSTANCE , lpbitmapname : :: windows_sys::core::PCWSTR ) -> HBITMAP );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn LoadBitmapW ( hinstance : super::super::Foundation:: HMODULE , lpbitmapname : ::windows_sys::core::PCWSTR ) -> HBITMAP );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn LockWindowUpdate ( hwndlock : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -515,13 +513,13 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn RemoveFontMemResourceEx ( h : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn RemoveFontResourceA ( lpfilename : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn RemoveFontResourceA ( lpfilename : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn RemoveFontResourceExA ( name : :: windows_sys::core::PCSTR , fl : u32 , pdv : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn RemoveFontResourceExA ( name : ::windows_sys::core::PCSTR , fl : u32 , pdv : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn RemoveFontResourceExW ( name : :: windows_sys::core::PCWSTR , fl : u32 , pdv : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn RemoveFontResourceExW ( name : ::windows_sys::core::PCWSTR , fl : u32 , pdv : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn RemoveFontResourceW ( lpfilename : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn RemoveFontResourceW ( lpfilename : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn ResetDCA ( hdc : HDC , lpdm : *const DEVMODEA ) -> HDC );
 #[cfg(feature = "Win32_Foundation")]
@@ -623,27 +621,27 @@
 ::windows_sys::core::link ! ( "t2embed.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn TTDeleteEmbeddedFont ( hfontreference : super::super::Foundation:: HANDLE , ulflags : u32 , pulstatus : *mut u32 ) -> i32 );
 ::windows_sys::core::link ! ( "t2embed.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn TTEmbedFont ( hdc : HDC , ulflags : TTEMBED_FLAGS , ulcharset : EMBED_FONT_CHARSET , pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS , pulstatus : *mut u32 , lpfnwritetostream : WRITEEMBEDPROC , lpvwritestream : *const ::core::ffi::c_void , puscharcodeset : *const u16 , uscharcodecount : u16 , uslanguage : u16 , pttembedinfo : *const TTEMBEDINFO ) -> i32 );
 ::windows_sys::core::link ! ( "t2embed.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn TTEmbedFontEx ( hdc : HDC , ulflags : TTEMBED_FLAGS , ulcharset : EMBED_FONT_CHARSET , pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS , pulstatus : *mut u32 , lpfnwritetostream : WRITEEMBEDPROC , lpvwritestream : *const ::core::ffi::c_void , pulcharcodeset : *const u32 , uscharcodecount : u16 , uslanguage : u16 , pttembedinfo : *const TTEMBEDINFO ) -> i32 );
-::windows_sys::core::link ! ( "t2embed.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn TTEmbedFontFromFileA ( hdc : HDC , szfontfilename : :: windows_sys::core::PCSTR , usttcindex : u16 , ulflags : TTEMBED_FLAGS , ulcharset : EMBED_FONT_CHARSET , pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS , pulstatus : *mut u32 , lpfnwritetostream : WRITEEMBEDPROC , lpvwritestream : *const ::core::ffi::c_void , puscharcodeset : *const u16 , uscharcodecount : u16 , uslanguage : u16 , pttembedinfo : *const TTEMBEDINFO ) -> i32 );
+::windows_sys::core::link ! ( "t2embed.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn TTEmbedFontFromFileA ( hdc : HDC , szfontfilename : ::windows_sys::core::PCSTR , usttcindex : u16 , ulflags : TTEMBED_FLAGS , ulcharset : EMBED_FONT_CHARSET , pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS , pulstatus : *mut u32 , lpfnwritetostream : WRITEEMBEDPROC , lpvwritestream : *const ::core::ffi::c_void , puscharcodeset : *const u16 , uscharcodecount : u16 , uslanguage : u16 , pttembedinfo : *const TTEMBEDINFO ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "t2embed.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn TTEnableEmbeddingForFacename ( lpszfacename : :: windows_sys::core::PCSTR , benable : super::super::Foundation:: BOOL ) -> i32 );
+::windows_sys::core::link ! ( "t2embed.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn TTEnableEmbeddingForFacename ( lpszfacename : ::windows_sys::core::PCSTR , benable : super::super::Foundation:: BOOL ) -> i32 );
 ::windows_sys::core::link ! ( "t2embed.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn TTGetEmbeddedFontInfo ( ulflags : TTEMBED_FLAGS , pulprivstatus : *mut u32 , ulprivs : FONT_LICENSE_PRIVS , pulstatus : *mut u32 , lpfnreadfromstream : READEMBEDPROC , lpvreadstream : *const ::core::ffi::c_void , pttloadinfo : *const TTLOADINFO ) -> i32 );
 ::windows_sys::core::link ! ( "t2embed.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn TTGetEmbeddingType ( hdc : HDC , pulembedtype : *mut EMBEDDED_FONT_PRIV_STATUS ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "t2embed.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn TTGetNewFontName ( phfontreference : *const super::super::Foundation:: HANDLE , wzwinfamilyname : :: windows_sys::core::PWSTR , cchmaxwinname : i32 , szmacfamilyname : :: windows_sys::core::PSTR , cchmaxmacname : i32 ) -> i32 );
+::windows_sys::core::link ! ( "t2embed.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn TTGetNewFontName ( phfontreference : *const super::super::Foundation:: HANDLE , wzwinfamilyname : ::windows_sys::core::PWSTR , cchmaxwinname : i32 , szmacfamilyname : ::windows_sys::core::PSTR , cchmaxmacname : i32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "t2embed.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn TTIsEmbeddingEnabled ( hdc : HDC , pbenabled : *mut super::super::Foundation:: BOOL ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "t2embed.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn TTIsEmbeddingEnabledForFacename ( lpszfacename : :: windows_sys::core::PCSTR , pbenabled : *mut super::super::Foundation:: BOOL ) -> i32 );
+::windows_sys::core::link ! ( "t2embed.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn TTIsEmbeddingEnabledForFacename ( lpszfacename : ::windows_sys::core::PCSTR , pbenabled : *mut super::super::Foundation:: BOOL ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "t2embed.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn TTLoadEmbeddedFont ( phfontreference : *mut super::super::Foundation:: HANDLE , ulflags : u32 , pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS , ulprivs : FONT_LICENSE_PRIVS , pulstatus : *mut TTLOAD_EMBEDDED_FONT_STATUS , lpfnreadfromstream : READEMBEDPROC , lpvreadstream : *const ::core::ffi::c_void , szwinfamilyname : :: windows_sys::core::PCWSTR , szmacfamilyname : :: windows_sys::core::PCSTR , pttloadinfo : *const TTLOADINFO ) -> i32 );
+::windows_sys::core::link ! ( "t2embed.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn TTLoadEmbeddedFont ( phfontreference : *mut super::super::Foundation:: HANDLE , ulflags : u32 , pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS , ulprivs : FONT_LICENSE_PRIVS , pulstatus : *mut TTLOAD_EMBEDDED_FONT_STATUS , lpfnreadfromstream : READEMBEDPROC , lpvreadstream : *const ::core::ffi::c_void , szwinfamilyname : ::windows_sys::core::PCWSTR , szmacfamilyname : ::windows_sys::core::PCSTR , pttloadinfo : *const TTLOADINFO ) -> i32 );
 ::windows_sys::core::link ! ( "t2embed.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn TTRunValidationTests ( hdc : HDC , ptestparam : *const TTVALIDATIONTESTSPARAMS ) -> i32 );
 ::windows_sys::core::link ! ( "t2embed.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn TTRunValidationTestsEx ( hdc : HDC , ptestparam : *const TTVALIDATIONTESTSPARAMSEX ) -> i32 );
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn TabbedTextOutA ( hdc : HDC , x : i32 , y : i32 , lpstring : :: windows_sys::core::PCSTR , chcount : i32 , ntabpositions : i32 , lpntabstoppositions : *const i32 , ntaborigin : i32 ) -> i32 );
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn TabbedTextOutW ( hdc : HDC , x : i32 , y : i32 , lpstring : :: windows_sys::core::PCWSTR , chcount : i32 , ntabpositions : i32 , lpntabstoppositions : *const i32 , ntaborigin : i32 ) -> i32 );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn TabbedTextOutA ( hdc : HDC , x : i32 , y : i32 , lpstring : ::windows_sys::core::PCSTR , chcount : i32 , ntabpositions : i32 , lpntabstoppositions : *const i32 , ntaborigin : i32 ) -> i32 );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn TabbedTextOutW ( hdc : HDC , x : i32 , y : i32 , lpstring : ::windows_sys::core::PCWSTR , chcount : i32 , ntabpositions : i32 , lpntabstoppositions : *const i32 , ntaborigin : i32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn TextOutA ( hdc : HDC , x : i32 , y : i32 , lpstring : :: windows_sys::core::PCSTR , c : i32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn TextOutA ( hdc : HDC , x : i32 , y : i32 , lpstring : ::windows_sys::core::PCSTR , c : i32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn TextOutW ( hdc : HDC , x : i32 , y : i32 , lpstring : :: windows_sys::core::PCWSTR , c : i32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn TextOutW ( hdc : HDC , x : i32 , y : i32 , lpstring : ::windows_sys::core::PCWSTR , c : i32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "msimg32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn TransparentBlt ( hdcdest : HDC , xorigindest : i32 , yorigindest : i32 , wdest : i32 , hdest : i32 , hdcsrc : HDC , xoriginsrc : i32 , yoriginsrc : i32 , wsrc : i32 , hsrc : i32 , crtransparent : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -4365,7 +4363,7 @@ pub struct BITMAPINFOHEADER {
     pub biHeight: i32,
     pub biPlanes: u16,
     pub biBitCount: u16,
-    pub biCompression: BI_COMPRESSION,
+    pub biCompression: u32,
     pub biSizeImage: u32,
     pub biXPelsPerMeter: i32,
     pub biYPelsPerMeter: i32,
@@ -4751,19 +4749,16 @@ impl ::core::clone::Clone for DIBSECTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct DISPLAY_DEVICEA {
     pub cb: u32,
-    pub DeviceName: [super::super::Foundation::CHAR; 32],
-    pub DeviceString: [super::super::Foundation::CHAR; 128],
+    pub DeviceName: [u8; 32],
+    pub DeviceString: [u8; 128],
     pub StateFlags: u32,
-    pub DeviceID: [super::super::Foundation::CHAR; 128],
-    pub DeviceKey: [super::super::Foundation::CHAR; 128],
+    pub DeviceID: [u8; 128],
+    pub DeviceKey: [u8; 128],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISPLAY_DEVICEA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAY_DEVICEA {
     fn clone(&self) -> Self {
         *self
@@ -5998,48 +5993,39 @@ impl ::core::clone::Clone for ENHMETARECORD {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct ENUMLOGFONTA {
     pub elfLogFont: LOGFONTA,
     pub elfFullName: [u8; 64],
     pub elfStyle: [u8; 32],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ENUMLOGFONTA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ENUMLOGFONTA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct ENUMLOGFONTEXA {
     pub elfLogFont: LOGFONTA,
     pub elfFullName: [u8; 64],
     pub elfStyle: [u8; 32],
     pub elfScript: [u8; 32],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ENUMLOGFONTEXA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ENUMLOGFONTEXA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct ENUMLOGFONTEXDVA {
     pub elfEnumLogfontEx: ENUMLOGFONTEXA,
     pub elfDesignVector: DESIGNVECTOR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ENUMLOGFONTEXDVA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ENUMLOGFONTEXDVA {
     fn clone(&self) -> Self {
         *self
@@ -6085,8 +6071,7 @@ impl ::core::clone::Clone for ENUMLOGFONTW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EXTLOGFONTA {
     pub elfLogFont: LOGFONTA,
     pub elfFullName: [u8; 64],
@@ -6099,9 +6084,7 @@ pub struct EXTLOGFONTA {
     pub elfCulture: u32,
     pub elfPanose: PANOSE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EXTLOGFONTA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EXTLOGFONTA {
     fn clone(&self) -> Self {
         *self
@@ -6345,8 +6328,7 @@ impl ::core::clone::Clone for LOGBRUSH32 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct LOGFONTA {
     pub lfHeight: i32,
     pub lfWidth: i32,
@@ -6361,11 +6343,9 @@ pub struct LOGFONTA {
     pub lfClipPrecision: FONT_CLIP_PRECISION,
     pub lfQuality: FONT_QUALITY,
     pub lfPitchAndFamily: u8,
-    pub lfFaceName: [super::super::Foundation::CHAR; 32],
+    pub lfFaceName: [u8; 32],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LOGFONTA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LOGFONTA {
     fn clone(&self) -> Self {
         *self
@@ -6490,7 +6470,7 @@ impl ::core::clone::Clone for MONITORINFO {
 #[cfg(feature = "Win32_Foundation")]
 pub struct MONITORINFOEXA {
     pub monitorInfo: MONITORINFO,
-    pub szDevice: [super::super::Foundation::CHAR; 32],
+    pub szDevice: [u8; 32],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MONITORINFOEXA {}
@@ -6838,7 +6818,7 @@ impl ::core::clone::Clone for RGBTRIPLE {
 #[cfg(feature = "Win32_Foundation")]
 pub struct RGNDATA {
     pub rdh: RGNDATAHEADER,
-    pub Buffer: [super::super::Foundation::CHAR; 1],
+    pub Buffer: [u8; 1],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RGNDATA {}
@@ -7100,7 +7080,7 @@ pub type LINEDDAPROC = ::core::option::Option<unsafe extern "system" fn(param0: 
 pub type LPFNDEVCAPS = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCSTR, param1: ::windows_sys::core::PCSTR, param2: u32, param3: ::windows_sys::core::PCSTR, param4: *mut DEVMODEA) -> u32>;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNDEVMODE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::HINSTANCE, param2: *mut DEVMODEA, param3: ::windows_sys::core::PCSTR, param4: ::windows_sys::core::PCSTR, param5: *mut DEVMODEA, param6: ::windows_sys::core::PCSTR, param7: u32) -> u32>;
+pub type LPFNDEVMODE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::HMODULE, param2: *mut DEVMODEA, param3: ::windows_sys::core::PCSTR, param4: ::windows_sys::core::PCSTR, param5: *mut DEVMODEA, param6: ::windows_sys::core::PCSTR, param7: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type MFENUMPROC = ::core::option::Option<unsafe extern "system" fn(hdc: HDC, lpht: *const HANDLETABLE, lpmr: *const METARECORD, nobj: i32, param4: super::super::Foundation::LPARAM) -> i32>;

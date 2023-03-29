@@ -162,7 +162,7 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P4: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "authz.dll""cdecl" fn AuthzInitializeObjectAccessAuditEvent ( flags : AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS , hauditeventtype : AUTHZ_AUDIT_EVENT_TYPE_HANDLE , szoperationtype : :: windows::core::PCWSTR , szobjecttype : :: windows::core::PCWSTR , szobjectname : :: windows::core::PCWSTR , szadditionalinfo : :: windows::core::PCWSTR , phauditevent : *mut isize , dwadditionalparametercount : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "authz.dll""cdecl" fn AuthzInitializeObjectAccessAuditEvent ( flags : AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS , hauditeventtype : AUTHZ_AUDIT_EVENT_TYPE_HANDLE , szoperationtype : ::windows::core::PCWSTR , szobjecttype : ::windows::core::PCWSTR , szobjectname : ::windows::core::PCWSTR , szadditionalinfo : ::windows::core::PCWSTR , phauditevent : *mut isize , dwadditionalparametercount : u32 ) -> super::super::Foundation:: BOOL );
     AuthzInitializeObjectAccessAuditEvent(flags, hauditeventtype.into_param().abi(), szoperationtype.into_param().abi(), szobjecttype.into_param().abi(), szobjectname.into_param().abi(), szadditionalinfo.into_param().abi(), phauditevent, dwadditionalparametercount)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -177,7 +177,7 @@ where
     P4: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P5: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "authz.dll""cdecl" fn AuthzInitializeObjectAccessAuditEvent2 ( flags : u32 , hauditeventtype : AUTHZ_AUDIT_EVENT_TYPE_HANDLE , szoperationtype : :: windows::core::PCWSTR , szobjecttype : :: windows::core::PCWSTR , szobjectname : :: windows::core::PCWSTR , szadditionalinfo : :: windows::core::PCWSTR , szadditionalinfo2 : :: windows::core::PCWSTR , phauditevent : *mut isize , dwadditionalparametercount : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "authz.dll""cdecl" fn AuthzInitializeObjectAccessAuditEvent2 ( flags : u32 , hauditeventtype : AUTHZ_AUDIT_EVENT_TYPE_HANDLE , szoperationtype : ::windows::core::PCWSTR , szobjecttype : ::windows::core::PCWSTR , szobjectname : ::windows::core::PCWSTR , szadditionalinfo : ::windows::core::PCWSTR , szadditionalinfo2 : ::windows::core::PCWSTR , phauditevent : *mut isize , dwadditionalparametercount : u32 ) -> super::super::Foundation:: BOOL );
     AuthzInitializeObjectAccessAuditEvent2(flags, hauditeventtype.into_param().abi(), szoperationtype.into_param().abi(), szobjecttype.into_param().abi(), szobjectname.into_param().abi(), szadditionalinfo.into_param().abi(), szadditionalinfo2.into_param().abi(), phauditevent, dwadditionalparametercount)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -194,7 +194,7 @@ pub unsafe fn AuthzInitializeResourceManager<P0>(flags: u32, pfndynamicaccessche
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "authz.dll""system" fn AuthzInitializeResourceManager ( flags : u32 , pfndynamicaccesscheck : PFN_AUTHZ_DYNAMIC_ACCESS_CHECK , pfncomputedynamicgroups : PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS , pfnfreedynamicgroups : PFN_AUTHZ_FREE_DYNAMIC_GROUPS , szresourcemanagername : :: windows::core::PCWSTR , phauthzresourcemanager : *mut AUTHZ_RESOURCE_MANAGER_HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "authz.dll""system" fn AuthzInitializeResourceManager ( flags : u32 , pfndynamicaccesscheck : PFN_AUTHZ_DYNAMIC_ACCESS_CHECK , pfncomputedynamicgroups : PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS , pfnfreedynamicgroups : PFN_AUTHZ_FREE_DYNAMIC_GROUPS , szresourcemanagername : ::windows::core::PCWSTR , phauthzresourcemanager : *mut AUTHZ_RESOURCE_MANAGER_HANDLE ) -> super::super::Foundation:: BOOL );
     AuthzInitializeResourceManager(flags, pfndynamicaccesscheck, pfncomputedynamicgroups, pfnfreedynamicgroups, szresourcemanagername.into_param().abi(), phauthzresourcemanager)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -267,7 +267,7 @@ pub unsafe fn AuthzRegisterSecurityEventSource<P0>(dwflags: u32, szeventsourcena
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "authz.dll""system" fn AuthzRegisterSecurityEventSource ( dwflags : u32 , szeventsourcename : :: windows::core::PCWSTR , pheventprovider : *mut isize ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "authz.dll""system" fn AuthzRegisterSecurityEventSource ( dwflags : u32 , szeventsourcename : ::windows::core::PCWSTR , pheventprovider : *mut isize ) -> super::super::Foundation:: BOOL );
     AuthzRegisterSecurityEventSource(dwflags, szeventsourcename.into_param().abi(), pheventprovider)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -310,7 +310,7 @@ pub unsafe fn AuthzUninstallSecurityEventSource<P0>(dwflags: u32, szeventsourcen
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "authz.dll""system" fn AuthzUninstallSecurityEventSource ( dwflags : u32 , szeventsourcename : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "authz.dll""system" fn AuthzUninstallSecurityEventSource ( dwflags : u32 , szeventsourcename : ::windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     AuthzUninstallSecurityEventSource(dwflags, szeventsourcename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -333,7 +333,7 @@ pub unsafe fn BuildExplicitAccessWithNameA<P0>(pexplicitaccess: *mut EXPLICIT_AC
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn BuildExplicitAccessWithNameA ( pexplicitaccess : *mut EXPLICIT_ACCESS_A , ptrusteename : :: windows::core::PCSTR , accesspermissions : u32 , accessmode : ACCESS_MODE , inheritance : super:: ACE_FLAGS ) -> ( ) );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn BuildExplicitAccessWithNameA ( pexplicitaccess : *mut EXPLICIT_ACCESS_A , ptrusteename : ::windows::core::PCSTR , accesspermissions : u32 , accessmode : ACCESS_MODE , inheritance : super:: ACE_FLAGS ) -> ( ) );
     BuildExplicitAccessWithNameA(pexplicitaccess, ptrusteename.into_param().abi(), accesspermissions, accessmode, inheritance)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
@@ -342,7 +342,7 @@ pub unsafe fn BuildExplicitAccessWithNameW<P0>(pexplicitaccess: *mut EXPLICIT_AC
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn BuildExplicitAccessWithNameW ( pexplicitaccess : *mut EXPLICIT_ACCESS_W , ptrusteename : :: windows::core::PCWSTR , accesspermissions : u32 , accessmode : ACCESS_MODE , inheritance : super:: ACE_FLAGS ) -> ( ) );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn BuildExplicitAccessWithNameW ( pexplicitaccess : *mut EXPLICIT_ACCESS_W , ptrusteename : ::windows::core::PCWSTR , accesspermissions : u32 , accessmode : ACCESS_MODE , inheritance : super:: ACE_FLAGS ) -> ( ) );
     BuildExplicitAccessWithNameW(pexplicitaccess, ptrusteename.into_param().abi(), accesspermissions, accessmode, inheritance)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
@@ -351,7 +351,7 @@ pub unsafe fn BuildImpersonateExplicitAccessWithNameA<P0>(pexplicitaccess: *mut 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn BuildImpersonateExplicitAccessWithNameA ( pexplicitaccess : *mut EXPLICIT_ACCESS_A , ptrusteename : :: windows::core::PCSTR , ptrustee : *const TRUSTEE_A , accesspermissions : u32 , accessmode : ACCESS_MODE , inheritance : u32 ) -> ( ) );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn BuildImpersonateExplicitAccessWithNameA ( pexplicitaccess : *mut EXPLICIT_ACCESS_A , ptrusteename : ::windows::core::PCSTR , ptrustee : *const TRUSTEE_A , accesspermissions : u32 , accessmode : ACCESS_MODE , inheritance : u32 ) -> ( ) );
     BuildImpersonateExplicitAccessWithNameA(pexplicitaccess, ptrusteename.into_param().abi(), ::core::mem::transmute(ptrustee.unwrap_or(::std::ptr::null())), accesspermissions, accessmode, inheritance)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
@@ -360,7 +360,7 @@ pub unsafe fn BuildImpersonateExplicitAccessWithNameW<P0>(pexplicitaccess: *mut 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn BuildImpersonateExplicitAccessWithNameW ( pexplicitaccess : *mut EXPLICIT_ACCESS_W , ptrusteename : :: windows::core::PCWSTR , ptrustee : *const TRUSTEE_W , accesspermissions : u32 , accessmode : ACCESS_MODE , inheritance : u32 ) -> ( ) );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn BuildImpersonateExplicitAccessWithNameW ( pexplicitaccess : *mut EXPLICIT_ACCESS_W , ptrusteename : ::windows::core::PCWSTR , ptrustee : *const TRUSTEE_W , accesspermissions : u32 , accessmode : ACCESS_MODE , inheritance : u32 ) -> ( ) );
     BuildImpersonateExplicitAccessWithNameW(pexplicitaccess, ptrusteename.into_param().abi(), ::core::mem::transmute(ptrustee.unwrap_or(::std::ptr::null())), accesspermissions, accessmode, inheritance)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
@@ -421,7 +421,7 @@ pub unsafe fn BuildTrusteeWithNameA<P0>(ptrustee: *mut TRUSTEE_A, pname: P0)
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn BuildTrusteeWithNameA ( ptrustee : *mut TRUSTEE_A , pname : :: windows::core::PCSTR ) -> ( ) );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn BuildTrusteeWithNameA ( ptrustee : *mut TRUSTEE_A , pname : ::windows::core::PCSTR ) -> ( ) );
     BuildTrusteeWithNameA(ptrustee, pname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
@@ -430,7 +430,7 @@ pub unsafe fn BuildTrusteeWithNameW<P0>(ptrustee: *mut TRUSTEE_W, pname: P0)
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn BuildTrusteeWithNameW ( ptrustee : *mut TRUSTEE_W , pname : :: windows::core::PCWSTR ) -> ( ) );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn BuildTrusteeWithNameW ( ptrustee : *mut TRUSTEE_W , pname : ::windows::core::PCWSTR ) -> ( ) );
     BuildTrusteeWithNameW(ptrustee, pname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
@@ -441,7 +441,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn BuildTrusteeWithObjectsAndNameA ( ptrustee : *mut TRUSTEE_A , pobjname : *const OBJECTS_AND_NAME_A , objecttype : SE_OBJECT_TYPE , objecttypename : :: windows::core::PCSTR , inheritedobjecttypename : :: windows::core::PCSTR , name : :: windows::core::PCSTR ) -> ( ) );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn BuildTrusteeWithObjectsAndNameA ( ptrustee : *mut TRUSTEE_A , pobjname : *const OBJECTS_AND_NAME_A , objecttype : SE_OBJECT_TYPE , objecttypename : ::windows::core::PCSTR , inheritedobjecttypename : ::windows::core::PCSTR , name : ::windows::core::PCSTR ) -> ( ) );
     BuildTrusteeWithObjectsAndNameA(ptrustee, ::core::mem::transmute(pobjname.unwrap_or(::std::ptr::null())), objecttype, objecttypename.into_param().abi(), inheritedobjecttypename.into_param().abi(), name.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
@@ -452,7 +452,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn BuildTrusteeWithObjectsAndNameW ( ptrustee : *mut TRUSTEE_W , pobjname : *const OBJECTS_AND_NAME_W , objecttype : SE_OBJECT_TYPE , objecttypename : :: windows::core::PCWSTR , inheritedobjecttypename : :: windows::core::PCWSTR , name : :: windows::core::PCWSTR ) -> ( ) );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn BuildTrusteeWithObjectsAndNameW ( ptrustee : *mut TRUSTEE_W , pobjname : *const OBJECTS_AND_NAME_W , objecttype : SE_OBJECT_TYPE , objecttypename : ::windows::core::PCWSTR , inheritedobjecttypename : ::windows::core::PCWSTR , name : ::windows::core::PCWSTR ) -> ( ) );
     BuildTrusteeWithObjectsAndNameW(ptrustee, ::core::mem::transmute(pobjname.unwrap_or(::std::ptr::null())), objecttype, objecttypename.into_param().abi(), inheritedobjecttypename.into_param().abi(), name.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -462,7 +462,7 @@ pub unsafe fn BuildTrusteeWithObjectsAndSidA<P0>(ptrustee: *mut TRUSTEE_A, pobjs
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::PSID>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn BuildTrusteeWithObjectsAndSidA ( ptrustee : *mut TRUSTEE_A , pobjsid : *const OBJECTS_AND_SID , pobjectguid : *const :: windows::core::GUID , pinheritedobjectguid : *const :: windows::core::GUID , psid : super::super::Foundation:: PSID ) -> ( ) );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn BuildTrusteeWithObjectsAndSidA ( ptrustee : *mut TRUSTEE_A , pobjsid : *const OBJECTS_AND_SID , pobjectguid : *const ::windows::core::GUID , pinheritedobjectguid : *const ::windows::core::GUID , psid : super::super::Foundation:: PSID ) -> ( ) );
     BuildTrusteeWithObjectsAndSidA(ptrustee, ::core::mem::transmute(pobjsid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pobjectguid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pinheritedobjectguid.unwrap_or(::std::ptr::null())), psid.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -472,7 +472,7 @@ pub unsafe fn BuildTrusteeWithObjectsAndSidW<P0>(ptrustee: *mut TRUSTEE_W, pobjs
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::PSID>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn BuildTrusteeWithObjectsAndSidW ( ptrustee : *mut TRUSTEE_W , pobjsid : *const OBJECTS_AND_SID , pobjectguid : *const :: windows::core::GUID , pinheritedobjectguid : *const :: windows::core::GUID , psid : super::super::Foundation:: PSID ) -> ( ) );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn BuildTrusteeWithObjectsAndSidW ( ptrustee : *mut TRUSTEE_W , pobjsid : *const OBJECTS_AND_SID , pobjectguid : *const ::windows::core::GUID , pinheritedobjectguid : *const ::windows::core::GUID , psid : super::super::Foundation:: PSID ) -> ( ) );
     BuildTrusteeWithObjectsAndSidW(ptrustee, ::core::mem::transmute(pobjsid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pobjectguid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pinheritedobjectguid.unwrap_or(::std::ptr::null())), psid.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -502,7 +502,7 @@ pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorA<P0>(securityd
 where
     P0: ::windows::core::IntoParam<super::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn ConvertSecurityDescriptorToStringSecurityDescriptorA ( securitydescriptor : super:: PSECURITY_DESCRIPTOR , requestedstringsdrevision : u32 , securityinformation : u32 , stringsecuritydescriptor : *mut :: windows::core::PSTR , stringsecuritydescriptorlen : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn ConvertSecurityDescriptorToStringSecurityDescriptorA ( securitydescriptor : super:: PSECURITY_DESCRIPTOR , requestedstringsdrevision : u32 , securityinformation : u32 , stringsecuritydescriptor : *mut ::windows::core::PSTR , stringsecuritydescriptorlen : *mut u32 ) -> super::super::Foundation:: BOOL );
     ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor.into_param().abi(), requestedstringsdrevision, securityinformation, stringsecuritydescriptor, ::core::mem::transmute(stringsecuritydescriptorlen.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -512,7 +512,7 @@ pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorW<P0>(securityd
 where
     P0: ::windows::core::IntoParam<super::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn ConvertSecurityDescriptorToStringSecurityDescriptorW ( securitydescriptor : super:: PSECURITY_DESCRIPTOR , requestedstringsdrevision : u32 , securityinformation : u32 , stringsecuritydescriptor : *mut :: windows::core::PWSTR , stringsecuritydescriptorlen : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn ConvertSecurityDescriptorToStringSecurityDescriptorW ( securitydescriptor : super:: PSECURITY_DESCRIPTOR , requestedstringsdrevision : u32 , securityinformation : u32 , stringsecuritydescriptor : *mut ::windows::core::PWSTR , stringsecuritydescriptorlen : *mut u32 ) -> super::super::Foundation:: BOOL );
     ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor.into_param().abi(), requestedstringsdrevision, securityinformation, stringsecuritydescriptor, ::core::mem::transmute(stringsecuritydescriptorlen.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -522,7 +522,7 @@ pub unsafe fn ConvertSidToStringSidA<P0>(sid: P0, stringsid: *mut ::windows::cor
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::PSID>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn ConvertSidToStringSidA ( sid : super::super::Foundation:: PSID , stringsid : *mut :: windows::core::PSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn ConvertSidToStringSidA ( sid : super::super::Foundation:: PSID , stringsid : *mut ::windows::core::PSTR ) -> super::super::Foundation:: BOOL );
     ConvertSidToStringSidA(sid.into_param().abi(), stringsid)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -532,7 +532,7 @@ pub unsafe fn ConvertSidToStringSidW<P0>(sid: P0, stringsid: *mut ::windows::cor
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::PSID>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn ConvertSidToStringSidW ( sid : super::super::Foundation:: PSID , stringsid : *mut :: windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn ConvertSidToStringSidW ( sid : super::super::Foundation:: PSID , stringsid : *mut ::windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
     ConvertSidToStringSidW(sid.into_param().abi(), stringsid)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -542,7 +542,7 @@ pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorA<P0>(stringsec
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn ConvertStringSecurityDescriptorToSecurityDescriptorA ( stringsecuritydescriptor : :: windows::core::PCSTR , stringsdrevision : u32 , securitydescriptor : *mut super:: PSECURITY_DESCRIPTOR , securitydescriptorsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn ConvertStringSecurityDescriptorToSecurityDescriptorA ( stringsecuritydescriptor : ::windows::core::PCSTR , stringsdrevision : u32 , securitydescriptor : *mut super:: PSECURITY_DESCRIPTOR , securitydescriptorsize : *mut u32 ) -> super::super::Foundation:: BOOL );
     ConvertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor.into_param().abi(), stringsdrevision, securitydescriptor, ::core::mem::transmute(securitydescriptorsize.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -552,7 +552,7 @@ pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorW<P0>(stringsec
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn ConvertStringSecurityDescriptorToSecurityDescriptorW ( stringsecuritydescriptor : :: windows::core::PCWSTR , stringsdrevision : u32 , securitydescriptor : *mut super:: PSECURITY_DESCRIPTOR , securitydescriptorsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn ConvertStringSecurityDescriptorToSecurityDescriptorW ( stringsecuritydescriptor : ::windows::core::PCWSTR , stringsdrevision : u32 , securitydescriptor : *mut super:: PSECURITY_DESCRIPTOR , securitydescriptorsize : *mut u32 ) -> super::super::Foundation:: BOOL );
     ConvertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor.into_param().abi(), stringsdrevision, securitydescriptor, ::core::mem::transmute(securitydescriptorsize.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -562,7 +562,7 @@ pub unsafe fn ConvertStringSidToSidA<P0>(stringsid: P0, sid: *mut super::super::
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn ConvertStringSidToSidA ( stringsid : :: windows::core::PCSTR , sid : *mut super::super::Foundation:: PSID ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn ConvertStringSidToSidA ( stringsid : ::windows::core::PCSTR , sid : *mut super::super::Foundation:: PSID ) -> super::super::Foundation:: BOOL );
     ConvertStringSidToSidA(stringsid.into_param().abi(), sid)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -572,7 +572,7 @@ pub unsafe fn ConvertStringSidToSidW<P0>(stringsid: P0, sid: *mut super::super::
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn ConvertStringSidToSidW ( stringsid : :: windows::core::PCWSTR , sid : *mut super::super::Foundation:: PSID ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn ConvertStringSidToSidW ( stringsid : ::windows::core::PCWSTR , sid : *mut super::super::Foundation:: PSID ) -> super::super::Foundation:: BOOL );
     ConvertStringSidToSidW(stringsid.into_param().abi(), sid)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -632,7 +632,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn GetInheritanceSourceA ( pobjectname : :: windows::core::PCSTR , objecttype : SE_OBJECT_TYPE , securityinfo : u32 , container : super::super::Foundation:: BOOL , pobjectclassguids : *const *const :: windows::core::GUID , guidcount : u32 , pacl : *const super:: ACL , pfnarray : *const FN_OBJECT_MGR_FUNCTS , pgenericmapping : *const super:: GENERIC_MAPPING , pinheritarray : *mut INHERITED_FROMA ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn GetInheritanceSourceA ( pobjectname : ::windows::core::PCSTR , objecttype : SE_OBJECT_TYPE , securityinfo : u32 , container : super::super::Foundation:: BOOL , pobjectclassguids : *const *const ::windows::core::GUID , guidcount : u32 , pacl : *const super:: ACL , pfnarray : *const FN_OBJECT_MGR_FUNCTS , pgenericmapping : *const super:: GENERIC_MAPPING , pinheritarray : *mut INHERITED_FROMA ) -> super::super::Foundation:: WIN32_ERROR );
     GetInheritanceSourceA(pobjectname.into_param().abi(), objecttype, securityinfo, container.into_param().abi(), ::core::mem::transmute(pobjectclassguids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pobjectclassguids.as_deref().map_or(0, |slice| slice.len() as _), pacl, ::core::mem::transmute(pfnarray.unwrap_or(::std::ptr::null())), pgenericmapping, pinheritarray)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -643,7 +643,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn GetInheritanceSourceW ( pobjectname : :: windows::core::PCWSTR , objecttype : SE_OBJECT_TYPE , securityinfo : u32 , container : super::super::Foundation:: BOOL , pobjectclassguids : *const *const :: windows::core::GUID , guidcount : u32 , pacl : *const super:: ACL , pfnarray : *const FN_OBJECT_MGR_FUNCTS , pgenericmapping : *const super:: GENERIC_MAPPING , pinheritarray : *mut INHERITED_FROMW ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn GetInheritanceSourceW ( pobjectname : ::windows::core::PCWSTR , objecttype : SE_OBJECT_TYPE , securityinfo : u32 , container : super::super::Foundation:: BOOL , pobjectclassguids : *const *const ::windows::core::GUID , guidcount : u32 , pacl : *const super:: ACL , pfnarray : *const FN_OBJECT_MGR_FUNCTS , pgenericmapping : *const super:: GENERIC_MAPPING , pinheritarray : *mut INHERITED_FROMW ) -> super::super::Foundation:: WIN32_ERROR );
     GetInheritanceSourceW(pobjectname.into_param().abi(), objecttype, securityinfo, container.into_param().abi(), ::core::mem::transmute(pobjectclassguids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pobjectclassguids.as_deref().map_or(0, |slice| slice.len() as _), pacl, ::core::mem::transmute(pfnarray.unwrap_or(::std::ptr::null())), pgenericmapping, pinheritarray)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
@@ -677,7 +677,7 @@ pub unsafe fn GetNamedSecurityInfoA<P0>(pobjectname: P0, objecttype: SE_OBJECT_T
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn GetNamedSecurityInfoA ( pobjectname : :: windows::core::PCSTR , objecttype : SE_OBJECT_TYPE , securityinfo : super:: OBJECT_SECURITY_INFORMATION , ppsidowner : *mut super::super::Foundation:: PSID , ppsidgroup : *mut super::super::Foundation:: PSID , ppdacl : *mut *mut super:: ACL , ppsacl : *mut *mut super:: ACL , ppsecuritydescriptor : *mut super:: PSECURITY_DESCRIPTOR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn GetNamedSecurityInfoA ( pobjectname : ::windows::core::PCSTR , objecttype : SE_OBJECT_TYPE , securityinfo : super:: OBJECT_SECURITY_INFORMATION , ppsidowner : *mut super::super::Foundation:: PSID , ppsidgroup : *mut super::super::Foundation:: PSID , ppdacl : *mut *mut super:: ACL , ppsacl : *mut *mut super:: ACL , ppsecuritydescriptor : *mut super:: PSECURITY_DESCRIPTOR ) -> super::super::Foundation:: WIN32_ERROR );
     GetNamedSecurityInfoA(pobjectname.into_param().abi(), objecttype, securityinfo, ::core::mem::transmute(ppsidowner.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppsidgroup.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdacl.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppsacl.unwrap_or(::std::ptr::null_mut())), ppsecuritydescriptor)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -687,7 +687,7 @@ pub unsafe fn GetNamedSecurityInfoW<P0>(pobjectname: P0, objecttype: SE_OBJECT_T
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn GetNamedSecurityInfoW ( pobjectname : :: windows::core::PCWSTR , objecttype : SE_OBJECT_TYPE , securityinfo : super:: OBJECT_SECURITY_INFORMATION , ppsidowner : *mut super::super::Foundation:: PSID , ppsidgroup : *mut super::super::Foundation:: PSID , ppdacl : *mut *mut super:: ACL , ppsacl : *mut *mut super:: ACL , ppsecuritydescriptor : *mut super:: PSECURITY_DESCRIPTOR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn GetNamedSecurityInfoW ( pobjectname : ::windows::core::PCWSTR , objecttype : SE_OBJECT_TYPE , securityinfo : super:: OBJECT_SECURITY_INFORMATION , ppsidowner : *mut super::super::Foundation:: PSID , ppsidgroup : *mut super::super::Foundation:: PSID , ppdacl : *mut *mut super:: ACL , ppsacl : *mut *mut super:: ACL , ppsecuritydescriptor : *mut super:: PSECURITY_DESCRIPTOR ) -> super::super::Foundation:: WIN32_ERROR );
     GetNamedSecurityInfoW(pobjectname.into_param().abi(), objecttype, securityinfo, ::core::mem::transmute(ppsidowner.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppsidgroup.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdacl.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppsacl.unwrap_or(::std::ptr::null_mut())), ppsecuritydescriptor)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -715,13 +715,13 @@ pub unsafe fn GetTrusteeFormW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_FORM {
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
 pub unsafe fn GetTrusteeNameA(ptrustee: *const TRUSTEE_A) -> ::windows::core::PSTR {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn GetTrusteeNameA ( ptrustee : *const TRUSTEE_A ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn GetTrusteeNameA ( ptrustee : *const TRUSTEE_A ) -> ::windows::core::PSTR );
     GetTrusteeNameA(ptrustee)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
 pub unsafe fn GetTrusteeNameW(ptrustee: *const TRUSTEE_W) -> ::windows::core::PWSTR {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn GetTrusteeNameW ( ptrustee : *const TRUSTEE_W ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn GetTrusteeNameW ( ptrustee : *const TRUSTEE_W ) -> ::windows::core::PWSTR );
     GetTrusteeNameW(ptrustee)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
@@ -779,7 +779,7 @@ where
     P1: ::windows::core::IntoParam<super::super::Foundation::PSID>,
     P2: ::windows::core::IntoParam<super::super::Foundation::PSID>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn SetNamedSecurityInfoA ( pobjectname : :: windows::core::PCSTR , objecttype : SE_OBJECT_TYPE , securityinfo : super:: OBJECT_SECURITY_INFORMATION , psidowner : super::super::Foundation:: PSID , psidgroup : super::super::Foundation:: PSID , pdacl : *const super:: ACL , psacl : *const super:: ACL ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn SetNamedSecurityInfoA ( pobjectname : ::windows::core::PCSTR , objecttype : SE_OBJECT_TYPE , securityinfo : super:: OBJECT_SECURITY_INFORMATION , psidowner : super::super::Foundation:: PSID , psidgroup : super::super::Foundation:: PSID , pdacl : *const super:: ACL , psacl : *const super:: ACL ) -> super::super::Foundation:: WIN32_ERROR );
     SetNamedSecurityInfoA(pobjectname.into_param().abi(), objecttype, securityinfo, psidowner.into_param().abi(), psidgroup.into_param().abi(), ::core::mem::transmute(pdacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psacl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -791,7 +791,7 @@ where
     P1: ::windows::core::IntoParam<super::super::Foundation::PSID>,
     P2: ::windows::core::IntoParam<super::super::Foundation::PSID>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn SetNamedSecurityInfoW ( pobjectname : :: windows::core::PCWSTR , objecttype : SE_OBJECT_TYPE , securityinfo : super:: OBJECT_SECURITY_INFORMATION , psidowner : super::super::Foundation:: PSID , psidgroup : super::super::Foundation:: PSID , pdacl : *const super:: ACL , psacl : *const super:: ACL ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn SetNamedSecurityInfoW ( pobjectname : ::windows::core::PCWSTR , objecttype : SE_OBJECT_TYPE , securityinfo : super:: OBJECT_SECURITY_INFORMATION , psidowner : super::super::Foundation:: PSID , psidgroup : super::super::Foundation:: PSID , pdacl : *const super:: ACL , psacl : *const super:: ACL ) -> super::super::Foundation:: WIN32_ERROR );
     SetNamedSecurityInfoW(pobjectname.into_param().abi(), objecttype, securityinfo, psidowner.into_param().abi(), psidgroup.into_param().abi(), ::core::mem::transmute(pdacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psacl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -816,7 +816,7 @@ where
     P2: ::windows::core::IntoParam<super::super::Foundation::PSID>,
     P3: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn TreeResetNamedSecurityInfoA ( pobjectname : :: windows::core::PCSTR , objecttype : SE_OBJECT_TYPE , securityinfo : u32 , powner : super::super::Foundation:: PSID , pgroup : super::super::Foundation:: PSID , pdacl : *const super:: ACL , psacl : *const super:: ACL , keepexplicit : super::super::Foundation:: BOOL , fnprogress : FN_PROGRESS , progressinvokesetting : PROG_INVOKE_SETTING , args : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn TreeResetNamedSecurityInfoA ( pobjectname : ::windows::core::PCSTR , objecttype : SE_OBJECT_TYPE , securityinfo : u32 , powner : super::super::Foundation:: PSID , pgroup : super::super::Foundation:: PSID , pdacl : *const super:: ACL , psacl : *const super:: ACL , keepexplicit : super::super::Foundation:: BOOL , fnprogress : FN_PROGRESS , progressinvokesetting : PROG_INVOKE_SETTING , args : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
     TreeResetNamedSecurityInfoA(pobjectname.into_param().abi(), objecttype, securityinfo, powner.into_param().abi(), pgroup.into_param().abi(), ::core::mem::transmute(pdacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psacl.unwrap_or(::std::ptr::null())), keepexplicit.into_param().abi(), fnprogress, progressinvokesetting, ::core::mem::transmute(args.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -829,7 +829,7 @@ where
     P2: ::windows::core::IntoParam<super::super::Foundation::PSID>,
     P3: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn TreeResetNamedSecurityInfoW ( pobjectname : :: windows::core::PCWSTR , objecttype : SE_OBJECT_TYPE , securityinfo : u32 , powner : super::super::Foundation:: PSID , pgroup : super::super::Foundation:: PSID , pdacl : *const super:: ACL , psacl : *const super:: ACL , keepexplicit : super::super::Foundation:: BOOL , fnprogress : FN_PROGRESS , progressinvokesetting : PROG_INVOKE_SETTING , args : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn TreeResetNamedSecurityInfoW ( pobjectname : ::windows::core::PCWSTR , objecttype : SE_OBJECT_TYPE , securityinfo : u32 , powner : super::super::Foundation:: PSID , pgroup : super::super::Foundation:: PSID , pdacl : *const super:: ACL , psacl : *const super:: ACL , keepexplicit : super::super::Foundation:: BOOL , fnprogress : FN_PROGRESS , progressinvokesetting : PROG_INVOKE_SETTING , args : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
     TreeResetNamedSecurityInfoW(pobjectname.into_param().abi(), objecttype, securityinfo, powner.into_param().abi(), pgroup.into_param().abi(), ::core::mem::transmute(pdacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psacl.unwrap_or(::std::ptr::null())), keepexplicit.into_param().abi(), fnprogress, progressinvokesetting, ::core::mem::transmute(args.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -841,7 +841,7 @@ where
     P1: ::windows::core::IntoParam<super::super::Foundation::PSID>,
     P2: ::windows::core::IntoParam<super::super::Foundation::PSID>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn TreeSetNamedSecurityInfoA ( pobjectname : :: windows::core::PCSTR , objecttype : SE_OBJECT_TYPE , securityinfo : u32 , powner : super::super::Foundation:: PSID , pgroup : super::super::Foundation:: PSID , pdacl : *const super:: ACL , psacl : *const super:: ACL , dwaction : TREE_SEC_INFO , fnprogress : FN_PROGRESS , progressinvokesetting : PROG_INVOKE_SETTING , args : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn TreeSetNamedSecurityInfoA ( pobjectname : ::windows::core::PCSTR , objecttype : SE_OBJECT_TYPE , securityinfo : u32 , powner : super::super::Foundation:: PSID , pgroup : super::super::Foundation:: PSID , pdacl : *const super:: ACL , psacl : *const super:: ACL , dwaction : TREE_SEC_INFO , fnprogress : FN_PROGRESS , progressinvokesetting : PROG_INVOKE_SETTING , args : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
     TreeSetNamedSecurityInfoA(pobjectname.into_param().abi(), objecttype, securityinfo, powner.into_param().abi(), pgroup.into_param().abi(), ::core::mem::transmute(pdacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psacl.unwrap_or(::std::ptr::null())), dwaction, fnprogress, progressinvokesetting, ::core::mem::transmute(args.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
@@ -853,7 +853,7 @@ where
     P1: ::windows::core::IntoParam<super::super::Foundation::PSID>,
     P2: ::windows::core::IntoParam<super::super::Foundation::PSID>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn TreeSetNamedSecurityInfoW ( pobjectname : :: windows::core::PCWSTR , objecttype : SE_OBJECT_TYPE , securityinfo : u32 , powner : super::super::Foundation:: PSID , pgroup : super::super::Foundation:: PSID , pdacl : *const super:: ACL , psacl : *const super:: ACL , dwaction : TREE_SEC_INFO , fnprogress : FN_PROGRESS , progressinvokesetting : PROG_INVOKE_SETTING , args : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn TreeSetNamedSecurityInfoW ( pobjectname : ::windows::core::PCWSTR , objecttype : SE_OBJECT_TYPE , securityinfo : u32 , powner : super::super::Foundation:: PSID , pgroup : super::super::Foundation:: PSID , pdacl : *const super:: ACL , psacl : *const super:: ACL , dwaction : TREE_SEC_INFO , fnprogress : FN_PROGRESS , progressinvokesetting : PROG_INVOKE_SETTING , args : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
     TreeSetNamedSecurityInfoW(pobjectname.into_param().abi(), objecttype, securityinfo, powner.into_param().abi(), pgroup.into_param().abi(), ::core::mem::transmute(pdacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psacl.unwrap_or(::std::ptr::null())), dwaction, fnprogress, progressinvokesetting, ::core::mem::transmute(args.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_System_Com\"`*"]
@@ -8463,11 +8463,11 @@ pub struct IAzTasks_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumptr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACCCTRL_DEFAULT_PROVIDER: ::windows::core::PCWSTR = ::windows::w!("Windows NT Access Provider");
+pub const ACCCTRL_DEFAULT_PROVIDER: ::windows::core::PCWSTR = ::windows::core::w!("Windows NT Access Provider");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACCCTRL_DEFAULT_PROVIDERA: ::windows::core::PCSTR = ::windows::s!("Windows NT Access Provider");
+pub const ACCCTRL_DEFAULT_PROVIDERA: ::windows::core::PCSTR = ::windows::core::s!("Windows NT Access Provider");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACCCTRL_DEFAULT_PROVIDERW: ::windows::core::PCWSTR = ::windows::w!("Windows NT Access Provider");
+pub const ACCCTRL_DEFAULT_PROVIDERW: ::windows::core::PCWSTR = ::windows::core::w!("Windows NT Access Provider");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const ACTRL_ACCESS_NO_OPTIONS: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
@@ -8719,307 +8719,307 @@ pub const INHERITED_PARENT: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const OLESCRIPT_E_SYNTAX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147352319i32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ACCESS_ALLOWED: ::windows::core::PCWSTR = ::windows::w!("A");
+pub const SDDL_ACCESS_ALLOWED: ::windows::core::PCWSTR = ::windows::core::w!("A");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ACCESS_CONTROL_ASSISTANCE_OPS: ::windows::core::PCWSTR = ::windows::w!("AA");
+pub const SDDL_ACCESS_CONTROL_ASSISTANCE_OPS: ::windows::core::PCWSTR = ::windows::core::w!("AA");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ACCESS_DENIED: ::windows::core::PCWSTR = ::windows::w!("D");
+pub const SDDL_ACCESS_DENIED: ::windows::core::PCWSTR = ::windows::core::w!("D");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ACCESS_FILTER: ::windows::core::PCWSTR = ::windows::w!("FL");
+pub const SDDL_ACCESS_FILTER: ::windows::core::PCWSTR = ::windows::core::w!("FL");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ACCOUNT_OPERATORS: ::windows::core::PCWSTR = ::windows::w!("AO");
+pub const SDDL_ACCOUNT_OPERATORS: ::windows::core::PCWSTR = ::windows::core::w!("AO");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ACE_BEGIN: ::windows::core::PCWSTR = ::windows::w!("(");
+pub const SDDL_ACE_BEGIN: ::windows::core::PCWSTR = ::windows::core::w!("(");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ACE_COND_ATTRIBUTE_PREFIX: ::windows::core::PCWSTR = ::windows::w!("@");
+pub const SDDL_ACE_COND_ATTRIBUTE_PREFIX: ::windows::core::PCWSTR = ::windows::core::w!("@");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ACE_COND_BEGIN: ::windows::core::PCWSTR = ::windows::w!("(");
+pub const SDDL_ACE_COND_BEGIN: ::windows::core::PCWSTR = ::windows::core::w!("(");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ACE_COND_BLOB_PREFIX: ::windows::core::PCWSTR = ::windows::w!("#");
+pub const SDDL_ACE_COND_BLOB_PREFIX: ::windows::core::PCWSTR = ::windows::core::w!("#");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ACE_COND_DEVICE_ATTRIBUTE_PREFIX: ::windows::core::PCWSTR = ::windows::w!("@DEVICE.");
+pub const SDDL_ACE_COND_DEVICE_ATTRIBUTE_PREFIX: ::windows::core::PCWSTR = ::windows::core::w!("@DEVICE.");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ACE_COND_END: ::windows::core::PCWSTR = ::windows::w!(")");
+pub const SDDL_ACE_COND_END: ::windows::core::PCWSTR = ::windows::core::w!(")");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ACE_COND_RESOURCE_ATTRIBUTE_PREFIX: ::windows::core::PCWSTR = ::windows::w!("@RESOURCE.");
+pub const SDDL_ACE_COND_RESOURCE_ATTRIBUTE_PREFIX: ::windows::core::PCWSTR = ::windows::core::w!("@RESOURCE.");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ACE_COND_SID_PREFIX: ::windows::core::PCWSTR = ::windows::w!("SID");
+pub const SDDL_ACE_COND_SID_PREFIX: ::windows::core::PCWSTR = ::windows::core::w!("SID");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ACE_COND_TOKEN_ATTRIBUTE_PREFIX: ::windows::core::PCWSTR = ::windows::w!("@TOKEN.");
+pub const SDDL_ACE_COND_TOKEN_ATTRIBUTE_PREFIX: ::windows::core::PCWSTR = ::windows::core::w!("@TOKEN.");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ACE_COND_USER_ATTRIBUTE_PREFIX: ::windows::core::PCWSTR = ::windows::w!("@USER.");
+pub const SDDL_ACE_COND_USER_ATTRIBUTE_PREFIX: ::windows::core::PCWSTR = ::windows::core::w!("@USER.");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ACE_END: ::windows::core::PCWSTR = ::windows::w!(")");
+pub const SDDL_ACE_END: ::windows::core::PCWSTR = ::windows::core::w!(")");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ALARM: ::windows::core::PCWSTR = ::windows::w!("AL");
+pub const SDDL_ALARM: ::windows::core::PCWSTR = ::windows::core::w!("AL");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ALIAS_PREW2KCOMPACC: ::windows::core::PCWSTR = ::windows::w!("RU");
+pub const SDDL_ALIAS_PREW2KCOMPACC: ::windows::core::PCWSTR = ::windows::core::w!("RU");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const SDDL_ALIAS_SIZE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ALL_APP_PACKAGES: ::windows::core::PCWSTR = ::windows::w!("AC");
+pub const SDDL_ALL_APP_PACKAGES: ::windows::core::PCWSTR = ::windows::core::w!("AC");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ANONYMOUS: ::windows::core::PCWSTR = ::windows::w!("AN");
+pub const SDDL_ANONYMOUS: ::windows::core::PCWSTR = ::windows::core::w!("AN");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_AUDIT: ::windows::core::PCWSTR = ::windows::w!("AU");
+pub const SDDL_AUDIT: ::windows::core::PCWSTR = ::windows::core::w!("AU");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_AUDIT_FAILURE: ::windows::core::PCWSTR = ::windows::w!("FA");
+pub const SDDL_AUDIT_FAILURE: ::windows::core::PCWSTR = ::windows::core::w!("FA");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_AUDIT_SUCCESS: ::windows::core::PCWSTR = ::windows::w!("SA");
+pub const SDDL_AUDIT_SUCCESS: ::windows::core::PCWSTR = ::windows::core::w!("SA");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_AUTHENTICATED_USERS: ::windows::core::PCWSTR = ::windows::w!("AU");
+pub const SDDL_AUTHENTICATED_USERS: ::windows::core::PCWSTR = ::windows::core::w!("AU");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_AUTHORITY_ASSERTED: ::windows::core::PCWSTR = ::windows::w!("AS");
+pub const SDDL_AUTHORITY_ASSERTED: ::windows::core::PCWSTR = ::windows::core::w!("AS");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_AUTO_INHERITED: ::windows::core::PCWSTR = ::windows::w!("AI");
+pub const SDDL_AUTO_INHERITED: ::windows::core::PCWSTR = ::windows::core::w!("AI");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_AUTO_INHERIT_REQ: ::windows::core::PCWSTR = ::windows::w!("AR");
+pub const SDDL_AUTO_INHERIT_REQ: ::windows::core::PCWSTR = ::windows::core::w!("AR");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_BACKUP_OPERATORS: ::windows::core::PCWSTR = ::windows::w!("BO");
+pub const SDDL_BACKUP_OPERATORS: ::windows::core::PCWSTR = ::windows::core::w!("BO");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_BLOB: ::windows::core::PCWSTR = ::windows::w!("TX");
+pub const SDDL_BLOB: ::windows::core::PCWSTR = ::windows::core::w!("TX");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_BOOLEAN: ::windows::core::PCWSTR = ::windows::w!("TB");
+pub const SDDL_BOOLEAN: ::windows::core::PCWSTR = ::windows::core::w!("TB");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_BUILTIN_ADMINISTRATORS: ::windows::core::PCWSTR = ::windows::w!("BA");
+pub const SDDL_BUILTIN_ADMINISTRATORS: ::windows::core::PCWSTR = ::windows::core::w!("BA");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_BUILTIN_GUESTS: ::windows::core::PCWSTR = ::windows::w!("BG");
+pub const SDDL_BUILTIN_GUESTS: ::windows::core::PCWSTR = ::windows::core::w!("BG");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_BUILTIN_USERS: ::windows::core::PCWSTR = ::windows::w!("BU");
+pub const SDDL_BUILTIN_USERS: ::windows::core::PCWSTR = ::windows::core::w!("BU");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_CALLBACK_ACCESS_ALLOWED: ::windows::core::PCWSTR = ::windows::w!("XA");
+pub const SDDL_CALLBACK_ACCESS_ALLOWED: ::windows::core::PCWSTR = ::windows::core::w!("XA");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_CALLBACK_ACCESS_DENIED: ::windows::core::PCWSTR = ::windows::w!("XD");
+pub const SDDL_CALLBACK_ACCESS_DENIED: ::windows::core::PCWSTR = ::windows::core::w!("XD");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_CALLBACK_AUDIT: ::windows::core::PCWSTR = ::windows::w!("XU");
+pub const SDDL_CALLBACK_AUDIT: ::windows::core::PCWSTR = ::windows::core::w!("XU");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_CALLBACK_OBJECT_ACCESS_ALLOWED: ::windows::core::PCWSTR = ::windows::w!("ZA");
+pub const SDDL_CALLBACK_OBJECT_ACCESS_ALLOWED: ::windows::core::PCWSTR = ::windows::core::w!("ZA");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_CERTSVC_DCOM_ACCESS: ::windows::core::PCWSTR = ::windows::w!("CD");
+pub const SDDL_CERTSVC_DCOM_ACCESS: ::windows::core::PCWSTR = ::windows::core::w!("CD");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_CERT_SERV_ADMINISTRATORS: ::windows::core::PCWSTR = ::windows::w!("CA");
+pub const SDDL_CERT_SERV_ADMINISTRATORS: ::windows::core::PCWSTR = ::windows::core::w!("CA");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_CLONEABLE_CONTROLLERS: ::windows::core::PCWSTR = ::windows::w!("CN");
+pub const SDDL_CLONEABLE_CONTROLLERS: ::windows::core::PCWSTR = ::windows::core::w!("CN");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_CONTAINER_INHERIT: ::windows::core::PCWSTR = ::windows::w!("CI");
+pub const SDDL_CONTAINER_INHERIT: ::windows::core::PCWSTR = ::windows::core::w!("CI");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_CONTROL_ACCESS: ::windows::core::PCWSTR = ::windows::w!("CR");
+pub const SDDL_CONTROL_ACCESS: ::windows::core::PCWSTR = ::windows::core::w!("CR");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_CREATE_CHILD: ::windows::core::PCWSTR = ::windows::w!("CC");
+pub const SDDL_CREATE_CHILD: ::windows::core::PCWSTR = ::windows::core::w!("CC");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_CREATOR_GROUP: ::windows::core::PCWSTR = ::windows::w!("CG");
+pub const SDDL_CREATOR_GROUP: ::windows::core::PCWSTR = ::windows::core::w!("CG");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_CREATOR_OWNER: ::windows::core::PCWSTR = ::windows::w!("CO");
+pub const SDDL_CREATOR_OWNER: ::windows::core::PCWSTR = ::windows::core::w!("CO");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_CRITICAL: ::windows::core::PCWSTR = ::windows::w!("CR");
+pub const SDDL_CRITICAL: ::windows::core::PCWSTR = ::windows::core::w!("CR");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_CRYPTO_OPERATORS: ::windows::core::PCWSTR = ::windows::w!("CY");
+pub const SDDL_CRYPTO_OPERATORS: ::windows::core::PCWSTR = ::windows::core::w!("CY");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_DACL: ::windows::core::PCWSTR = ::windows::w!("D");
+pub const SDDL_DACL: ::windows::core::PCWSTR = ::windows::core::w!("D");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_DELETE_CHILD: ::windows::core::PCWSTR = ::windows::w!("DC");
+pub const SDDL_DELETE_CHILD: ::windows::core::PCWSTR = ::windows::core::w!("DC");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_DELETE_TREE: ::windows::core::PCWSTR = ::windows::w!("DT");
+pub const SDDL_DELETE_TREE: ::windows::core::PCWSTR = ::windows::core::w!("DT");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_DELIMINATOR: ::windows::core::PCWSTR = ::windows::w!(":");
+pub const SDDL_DELIMINATOR: ::windows::core::PCWSTR = ::windows::core::w!(":");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_DOMAIN_ADMINISTRATORS: ::windows::core::PCWSTR = ::windows::w!("DA");
+pub const SDDL_DOMAIN_ADMINISTRATORS: ::windows::core::PCWSTR = ::windows::core::w!("DA");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_DOMAIN_COMPUTERS: ::windows::core::PCWSTR = ::windows::w!("DC");
+pub const SDDL_DOMAIN_COMPUTERS: ::windows::core::PCWSTR = ::windows::core::w!("DC");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_DOMAIN_DOMAIN_CONTROLLERS: ::windows::core::PCWSTR = ::windows::w!("DD");
+pub const SDDL_DOMAIN_DOMAIN_CONTROLLERS: ::windows::core::PCWSTR = ::windows::core::w!("DD");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_DOMAIN_GUESTS: ::windows::core::PCWSTR = ::windows::w!("DG");
+pub const SDDL_DOMAIN_GUESTS: ::windows::core::PCWSTR = ::windows::core::w!("DG");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_DOMAIN_USERS: ::windows::core::PCWSTR = ::windows::w!("DU");
+pub const SDDL_DOMAIN_USERS: ::windows::core::PCWSTR = ::windows::core::w!("DU");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ENTERPRISE_ADMINS: ::windows::core::PCWSTR = ::windows::w!("EA");
+pub const SDDL_ENTERPRISE_ADMINS: ::windows::core::PCWSTR = ::windows::core::w!("EA");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ENTERPRISE_DOMAIN_CONTROLLERS: ::windows::core::PCWSTR = ::windows::w!("ED");
+pub const SDDL_ENTERPRISE_DOMAIN_CONTROLLERS: ::windows::core::PCWSTR = ::windows::core::w!("ED");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ENTERPRISE_KEY_ADMINS: ::windows::core::PCWSTR = ::windows::w!("EK");
+pub const SDDL_ENTERPRISE_KEY_ADMINS: ::windows::core::PCWSTR = ::windows::core::w!("EK");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ENTERPRISE_RO_DCs: ::windows::core::PCWSTR = ::windows::w!("RO");
+pub const SDDL_ENTERPRISE_RO_DCs: ::windows::core::PCWSTR = ::windows::core::w!("RO");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_EVENT_LOG_READERS: ::windows::core::PCWSTR = ::windows::w!("ER");
+pub const SDDL_EVENT_LOG_READERS: ::windows::core::PCWSTR = ::windows::core::w!("ER");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_EVERYONE: ::windows::core::PCWSTR = ::windows::w!("WD");
+pub const SDDL_EVERYONE: ::windows::core::PCWSTR = ::windows::core::w!("WD");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_FILE_ALL: ::windows::core::PCWSTR = ::windows::w!("FA");
+pub const SDDL_FILE_ALL: ::windows::core::PCWSTR = ::windows::core::w!("FA");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_FILE_EXECUTE: ::windows::core::PCWSTR = ::windows::w!("FX");
+pub const SDDL_FILE_EXECUTE: ::windows::core::PCWSTR = ::windows::core::w!("FX");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_FILE_READ: ::windows::core::PCWSTR = ::windows::w!("FR");
+pub const SDDL_FILE_READ: ::windows::core::PCWSTR = ::windows::core::w!("FR");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_FILE_WRITE: ::windows::core::PCWSTR = ::windows::w!("FW");
+pub const SDDL_FILE_WRITE: ::windows::core::PCWSTR = ::windows::core::w!("FW");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_GENERIC_ALL: ::windows::core::PCWSTR = ::windows::w!("GA");
+pub const SDDL_GENERIC_ALL: ::windows::core::PCWSTR = ::windows::core::w!("GA");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_GENERIC_EXECUTE: ::windows::core::PCWSTR = ::windows::w!("GX");
+pub const SDDL_GENERIC_EXECUTE: ::windows::core::PCWSTR = ::windows::core::w!("GX");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_GENERIC_READ: ::windows::core::PCWSTR = ::windows::w!("GR");
+pub const SDDL_GENERIC_READ: ::windows::core::PCWSTR = ::windows::core::w!("GR");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_GENERIC_WRITE: ::windows::core::PCWSTR = ::windows::w!("GW");
+pub const SDDL_GENERIC_WRITE: ::windows::core::PCWSTR = ::windows::core::w!("GW");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_GROUP: ::windows::core::PCWSTR = ::windows::w!("G");
+pub const SDDL_GROUP: ::windows::core::PCWSTR = ::windows::core::w!("G");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_GROUP_POLICY_ADMINS: ::windows::core::PCWSTR = ::windows::w!("PA");
+pub const SDDL_GROUP_POLICY_ADMINS: ::windows::core::PCWSTR = ::windows::core::w!("PA");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_HYPER_V_ADMINS: ::windows::core::PCWSTR = ::windows::w!("HA");
+pub const SDDL_HYPER_V_ADMINS: ::windows::core::PCWSTR = ::windows::core::w!("HA");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_IIS_USERS: ::windows::core::PCWSTR = ::windows::w!("IS");
+pub const SDDL_IIS_USERS: ::windows::core::PCWSTR = ::windows::core::w!("IS");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_INHERITED: ::windows::core::PCWSTR = ::windows::w!("ID");
+pub const SDDL_INHERITED: ::windows::core::PCWSTR = ::windows::core::w!("ID");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_INHERIT_ONLY: ::windows::core::PCWSTR = ::windows::w!("IO");
+pub const SDDL_INHERIT_ONLY: ::windows::core::PCWSTR = ::windows::core::w!("IO");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_INT: ::windows::core::PCWSTR = ::windows::w!("TI");
+pub const SDDL_INT: ::windows::core::PCWSTR = ::windows::core::w!("TI");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_INTERACTIVE: ::windows::core::PCWSTR = ::windows::w!("IU");
+pub const SDDL_INTERACTIVE: ::windows::core::PCWSTR = ::windows::core::w!("IU");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_KEY_ADMINS: ::windows::core::PCWSTR = ::windows::w!("KA");
+pub const SDDL_KEY_ADMINS: ::windows::core::PCWSTR = ::windows::core::w!("KA");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_KEY_ALL: ::windows::core::PCWSTR = ::windows::w!("KA");
+pub const SDDL_KEY_ALL: ::windows::core::PCWSTR = ::windows::core::w!("KA");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_KEY_EXECUTE: ::windows::core::PCWSTR = ::windows::w!("KX");
+pub const SDDL_KEY_EXECUTE: ::windows::core::PCWSTR = ::windows::core::w!("KX");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_KEY_READ: ::windows::core::PCWSTR = ::windows::w!("KR");
+pub const SDDL_KEY_READ: ::windows::core::PCWSTR = ::windows::core::w!("KR");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_KEY_WRITE: ::windows::core::PCWSTR = ::windows::w!("KW");
+pub const SDDL_KEY_WRITE: ::windows::core::PCWSTR = ::windows::core::w!("KW");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_LIST_CHILDREN: ::windows::core::PCWSTR = ::windows::w!("LC");
+pub const SDDL_LIST_CHILDREN: ::windows::core::PCWSTR = ::windows::core::w!("LC");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_LIST_OBJECT: ::windows::core::PCWSTR = ::windows::w!("LO");
+pub const SDDL_LIST_OBJECT: ::windows::core::PCWSTR = ::windows::core::w!("LO");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_LOCAL_ADMIN: ::windows::core::PCWSTR = ::windows::w!("LA");
+pub const SDDL_LOCAL_ADMIN: ::windows::core::PCWSTR = ::windows::core::w!("LA");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_LOCAL_GUEST: ::windows::core::PCWSTR = ::windows::w!("LG");
+pub const SDDL_LOCAL_GUEST: ::windows::core::PCWSTR = ::windows::core::w!("LG");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_LOCAL_SERVICE: ::windows::core::PCWSTR = ::windows::w!("LS");
+pub const SDDL_LOCAL_SERVICE: ::windows::core::PCWSTR = ::windows::core::w!("LS");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_LOCAL_SYSTEM: ::windows::core::PCWSTR = ::windows::w!("SY");
+pub const SDDL_LOCAL_SYSTEM: ::windows::core::PCWSTR = ::windows::core::w!("SY");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_MANDATORY_LABEL: ::windows::core::PCWSTR = ::windows::w!("ML");
+pub const SDDL_MANDATORY_LABEL: ::windows::core::PCWSTR = ::windows::core::w!("ML");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ML_HIGH: ::windows::core::PCWSTR = ::windows::w!("HI");
+pub const SDDL_ML_HIGH: ::windows::core::PCWSTR = ::windows::core::w!("HI");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ML_LOW: ::windows::core::PCWSTR = ::windows::w!("LW");
+pub const SDDL_ML_LOW: ::windows::core::PCWSTR = ::windows::core::w!("LW");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ML_MEDIUM: ::windows::core::PCWSTR = ::windows::w!("ME");
+pub const SDDL_ML_MEDIUM: ::windows::core::PCWSTR = ::windows::core::w!("ME");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ML_MEDIUM_PLUS: ::windows::core::PCWSTR = ::windows::w!("MP");
+pub const SDDL_ML_MEDIUM_PLUS: ::windows::core::PCWSTR = ::windows::core::w!("MP");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_ML_SYSTEM: ::windows::core::PCWSTR = ::windows::w!("SI");
+pub const SDDL_ML_SYSTEM: ::windows::core::PCWSTR = ::windows::core::w!("SI");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_NETWORK: ::windows::core::PCWSTR = ::windows::w!("NU");
+pub const SDDL_NETWORK: ::windows::core::PCWSTR = ::windows::core::w!("NU");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_NETWORK_CONFIGURATION_OPS: ::windows::core::PCWSTR = ::windows::w!("NO");
+pub const SDDL_NETWORK_CONFIGURATION_OPS: ::windows::core::PCWSTR = ::windows::core::w!("NO");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_NETWORK_SERVICE: ::windows::core::PCWSTR = ::windows::w!("NS");
+pub const SDDL_NETWORK_SERVICE: ::windows::core::PCWSTR = ::windows::core::w!("NS");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_NO_EXECUTE_UP: ::windows::core::PCWSTR = ::windows::w!("NX");
+pub const SDDL_NO_EXECUTE_UP: ::windows::core::PCWSTR = ::windows::core::w!("NX");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_NO_PROPAGATE: ::windows::core::PCWSTR = ::windows::w!("NP");
+pub const SDDL_NO_PROPAGATE: ::windows::core::PCWSTR = ::windows::core::w!("NP");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_NO_READ_UP: ::windows::core::PCWSTR = ::windows::w!("NR");
+pub const SDDL_NO_READ_UP: ::windows::core::PCWSTR = ::windows::core::w!("NR");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_NO_WRITE_UP: ::windows::core::PCWSTR = ::windows::w!("NW");
+pub const SDDL_NO_WRITE_UP: ::windows::core::PCWSTR = ::windows::core::w!("NW");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_NULL_ACL: ::windows::core::PCWSTR = ::windows::w!("NO_ACCESS_CONTROL");
+pub const SDDL_NULL_ACL: ::windows::core::PCWSTR = ::windows::core::w!("NO_ACCESS_CONTROL");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_OBJECT_ACCESS_ALLOWED: ::windows::core::PCWSTR = ::windows::w!("OA");
+pub const SDDL_OBJECT_ACCESS_ALLOWED: ::windows::core::PCWSTR = ::windows::core::w!("OA");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_OBJECT_ACCESS_DENIED: ::windows::core::PCWSTR = ::windows::w!("OD");
+pub const SDDL_OBJECT_ACCESS_DENIED: ::windows::core::PCWSTR = ::windows::core::w!("OD");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_OBJECT_ALARM: ::windows::core::PCWSTR = ::windows::w!("OL");
+pub const SDDL_OBJECT_ALARM: ::windows::core::PCWSTR = ::windows::core::w!("OL");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_OBJECT_AUDIT: ::windows::core::PCWSTR = ::windows::w!("OU");
+pub const SDDL_OBJECT_AUDIT: ::windows::core::PCWSTR = ::windows::core::w!("OU");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_OBJECT_INHERIT: ::windows::core::PCWSTR = ::windows::w!("OI");
+pub const SDDL_OBJECT_INHERIT: ::windows::core::PCWSTR = ::windows::core::w!("OI");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_OWNER: ::windows::core::PCWSTR = ::windows::w!("O");
+pub const SDDL_OWNER: ::windows::core::PCWSTR = ::windows::core::w!("O");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_OWNER_RIGHTS: ::windows::core::PCWSTR = ::windows::w!("OW");
+pub const SDDL_OWNER_RIGHTS: ::windows::core::PCWSTR = ::windows::core::w!("OW");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_PERFLOG_USERS: ::windows::core::PCWSTR = ::windows::w!("LU");
+pub const SDDL_PERFLOG_USERS: ::windows::core::PCWSTR = ::windows::core::w!("LU");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_PERFMON_USERS: ::windows::core::PCWSTR = ::windows::w!("MU");
+pub const SDDL_PERFMON_USERS: ::windows::core::PCWSTR = ::windows::core::w!("MU");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_PERSONAL_SELF: ::windows::core::PCWSTR = ::windows::w!("PS");
+pub const SDDL_PERSONAL_SELF: ::windows::core::PCWSTR = ::windows::core::w!("PS");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_POWER_USERS: ::windows::core::PCWSTR = ::windows::w!("PU");
+pub const SDDL_POWER_USERS: ::windows::core::PCWSTR = ::windows::core::w!("PU");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_PRINTER_OPERATORS: ::windows::core::PCWSTR = ::windows::w!("PO");
+pub const SDDL_PRINTER_OPERATORS: ::windows::core::PCWSTR = ::windows::core::w!("PO");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_PROCESS_TRUST_LABEL: ::windows::core::PCWSTR = ::windows::w!("TL");
+pub const SDDL_PROCESS_TRUST_LABEL: ::windows::core::PCWSTR = ::windows::core::w!("TL");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_PROTECTED: ::windows::core::PCWSTR = ::windows::w!("P");
+pub const SDDL_PROTECTED: ::windows::core::PCWSTR = ::windows::core::w!("P");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_PROTECTED_USERS: ::windows::core::PCWSTR = ::windows::w!("AP");
+pub const SDDL_PROTECTED_USERS: ::windows::core::PCWSTR = ::windows::core::w!("AP");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_RAS_SERVERS: ::windows::core::PCWSTR = ::windows::w!("RS");
+pub const SDDL_RAS_SERVERS: ::windows::core::PCWSTR = ::windows::core::w!("RS");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_RDS_ENDPOINT_SERVERS: ::windows::core::PCWSTR = ::windows::w!("ES");
+pub const SDDL_RDS_ENDPOINT_SERVERS: ::windows::core::PCWSTR = ::windows::core::w!("ES");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_RDS_MANAGEMENT_SERVERS: ::windows::core::PCWSTR = ::windows::w!("MS");
+pub const SDDL_RDS_MANAGEMENT_SERVERS: ::windows::core::PCWSTR = ::windows::core::w!("MS");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_RDS_REMOTE_ACCESS_SERVERS: ::windows::core::PCWSTR = ::windows::w!("RA");
+pub const SDDL_RDS_REMOTE_ACCESS_SERVERS: ::windows::core::PCWSTR = ::windows::core::w!("RA");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_READ_CONTROL: ::windows::core::PCWSTR = ::windows::w!("RC");
+pub const SDDL_READ_CONTROL: ::windows::core::PCWSTR = ::windows::core::w!("RC");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_READ_PROPERTY: ::windows::core::PCWSTR = ::windows::w!("RP");
+pub const SDDL_READ_PROPERTY: ::windows::core::PCWSTR = ::windows::core::w!("RP");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_REMOTE_DESKTOP: ::windows::core::PCWSTR = ::windows::w!("RD");
+pub const SDDL_REMOTE_DESKTOP: ::windows::core::PCWSTR = ::windows::core::w!("RD");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_REMOTE_MANAGEMENT_USERS: ::windows::core::PCWSTR = ::windows::w!("RM");
+pub const SDDL_REMOTE_MANAGEMENT_USERS: ::windows::core::PCWSTR = ::windows::core::w!("RM");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_REPLICATOR: ::windows::core::PCWSTR = ::windows::w!("RE");
+pub const SDDL_REPLICATOR: ::windows::core::PCWSTR = ::windows::core::w!("RE");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_RESOURCE_ATTRIBUTE: ::windows::core::PCWSTR = ::windows::w!("RA");
+pub const SDDL_RESOURCE_ATTRIBUTE: ::windows::core::PCWSTR = ::windows::core::w!("RA");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_RESTRICTED_CODE: ::windows::core::PCWSTR = ::windows::w!("RC");
+pub const SDDL_RESTRICTED_CODE: ::windows::core::PCWSTR = ::windows::core::w!("RC");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const SDDL_REVISION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const SDDL_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_SACL: ::windows::core::PCWSTR = ::windows::w!("S");
+pub const SDDL_SACL: ::windows::core::PCWSTR = ::windows::core::w!("S");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_SCHEMA_ADMINISTRATORS: ::windows::core::PCWSTR = ::windows::w!("SA");
+pub const SDDL_SCHEMA_ADMINISTRATORS: ::windows::core::PCWSTR = ::windows::core::w!("SA");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_SCOPED_POLICY_ID: ::windows::core::PCWSTR = ::windows::w!("SP");
+pub const SDDL_SCOPED_POLICY_ID: ::windows::core::PCWSTR = ::windows::core::w!("SP");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_SELF_WRITE: ::windows::core::PCWSTR = ::windows::w!("SW");
+pub const SDDL_SELF_WRITE: ::windows::core::PCWSTR = ::windows::core::w!("SW");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_SEPERATOR: ::windows::core::PCWSTR = ::windows::w!(";");
+pub const SDDL_SEPERATOR: ::windows::core::PCWSTR = ::windows::core::w!(";");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_SERVER_OPERATORS: ::windows::core::PCWSTR = ::windows::w!("SO");
+pub const SDDL_SERVER_OPERATORS: ::windows::core::PCWSTR = ::windows::core::w!("SO");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_SERVICE: ::windows::core::PCWSTR = ::windows::w!("SU");
+pub const SDDL_SERVICE: ::windows::core::PCWSTR = ::windows::core::w!("SU");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_SERVICE_ASSERTED: ::windows::core::PCWSTR = ::windows::w!("SS");
+pub const SDDL_SERVICE_ASSERTED: ::windows::core::PCWSTR = ::windows::core::w!("SS");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_SID: ::windows::core::PCWSTR = ::windows::w!("TD");
+pub const SDDL_SID: ::windows::core::PCWSTR = ::windows::core::w!("TD");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_SPACE: ::windows::core::PCWSTR = ::windows::w!(" ");
+pub const SDDL_SPACE: ::windows::core::PCWSTR = ::windows::core::w!(" ");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_STANDARD_DELETE: ::windows::core::PCWSTR = ::windows::w!("SD");
+pub const SDDL_STANDARD_DELETE: ::windows::core::PCWSTR = ::windows::core::w!("SD");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_TRUST_PROTECTED_FILTER: ::windows::core::PCWSTR = ::windows::w!("TP");
+pub const SDDL_TRUST_PROTECTED_FILTER: ::windows::core::PCWSTR = ::windows::core::w!("TP");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_UINT: ::windows::core::PCWSTR = ::windows::w!("TU");
+pub const SDDL_UINT: ::windows::core::PCWSTR = ::windows::core::w!("TU");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_USER_MODE_DRIVERS: ::windows::core::PCWSTR = ::windows::w!("UD");
+pub const SDDL_USER_MODE_DRIVERS: ::windows::core::PCWSTR = ::windows::core::w!("UD");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_WRITE_DAC: ::windows::core::PCWSTR = ::windows::w!("WD");
+pub const SDDL_WRITE_DAC: ::windows::core::PCWSTR = ::windows::core::w!("WD");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_WRITE_OWNER: ::windows::core::PCWSTR = ::windows::w!("WO");
+pub const SDDL_WRITE_OWNER: ::windows::core::PCWSTR = ::windows::core::w!("WO");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_WRITE_PROPERTY: ::windows::core::PCWSTR = ::windows::w!("WP");
+pub const SDDL_WRITE_PROPERTY: ::windows::core::PCWSTR = ::windows::core::w!("WP");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_WRITE_RESTRICTED_CODE: ::windows::core::PCWSTR = ::windows::w!("WR");
+pub const SDDL_WRITE_RESTRICTED_CODE: ::windows::core::PCWSTR = ::windows::core::w!("WR");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SDDL_WSTRING: ::windows::core::PCWSTR = ::windows::w!("TS");
+pub const SDDL_WSTRING: ::windows::core::PCWSTR = ::windows::core::w!("TS");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const TRUSTEE_ACCESS_ALL: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]

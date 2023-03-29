@@ -4157,11 +4157,11 @@ impl IWbemClassObject {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<P0>(&self, wszname: P0, lflags: i32, pval: *mut super::Com::VARIANT, ptype: ::core::option::Option<*const i32>, plflavor: ::core::option::Option<*const i32>) -> ::windows::core::Result<()>
+    pub unsafe fn Get<P0>(&self, wszname: P0, lflags: i32, pval: *mut super::Com::VARIANT, ptype: ::core::option::Option<*mut i32>, plflavor: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), wszname.into_param().abi(), lflags, pval, ::core::mem::transmute(ptype.unwrap_or(::std::ptr::null())), ::core::mem::transmute(plflavor.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), wszname.into_param().abi(), lflags, pval, ::core::mem::transmute(ptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(plflavor.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4312,7 +4312,7 @@ pub struct IWbemClassObject_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetQualifierSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqualset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszname: ::windows::core::PCWSTR, lflags: i32, pval: *mut super::Com::VARIANT, ptype: *const i32, plflavor: *const i32) -> ::windows::core::HRESULT,
+    pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszname: ::windows::core::PCWSTR, lflags: i32, pval: *mut super::Com::VARIANT, ptype: *mut i32, plflavor: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Get: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5332,11 +5332,11 @@ impl IWbemObjectAccess {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<P0>(&self, wszname: P0, lflags: i32, pval: *mut super::Com::VARIANT, ptype: ::core::option::Option<*const i32>, plflavor: ::core::option::Option<*const i32>) -> ::windows::core::Result<()>
+    pub unsafe fn Get<P0>(&self, wszname: P0, lflags: i32, pval: *mut super::Com::VARIANT, ptype: ::core::option::Option<*mut i32>, plflavor: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), wszname.into_param().abi(), lflags, pval, ::core::mem::transmute(ptype.unwrap_or(::std::ptr::null())), ::core::mem::transmute(plflavor.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), wszname.into_param().abi(), lflags, pval, ::core::mem::transmute(ptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(plflavor.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6934,9 +6934,9 @@ pub const MI_SERIALIZER_FLAGS_CLASS_DEEP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const MI_SERIALIZER_FLAGS_INSTANCE_WITH_CLASS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_SUBSCRIBE_BOOKMARK_NEWEST: ::windows::core::PCWSTR = ::windows::w!("MI_SUBSCRIBE_BOOKMARK_NEWEST");
+pub const MI_SUBSCRIBE_BOOKMARK_NEWEST: ::windows::core::PCWSTR = ::windows::core::w!("MI_SUBSCRIBE_BOOKMARK_NEWEST");
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_SUBSCRIBE_BOOKMARK_OLDEST: ::windows::core::PCWSTR = ::windows::w!("MI_SUBSCRIBE_BOOKMARK_OLDEST");
+pub const MI_SUBSCRIBE_BOOKMARK_OLDEST: ::windows::core::PCWSTR = ::windows::core::w!("MI_SUBSCRIBE_BOOKMARK_OLDEST");
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const MI_WRITEMESSAGE_CHANNEL_DEBUG: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]

@@ -54,7 +54,7 @@ pub unsafe fn CapabilitiesRequestAndCapabilitiesReply<P0>(hmonitor: P0, pszascii
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "dxva2.dll""system" fn CapabilitiesRequestAndCapabilitiesReply ( hmonitor : super::super::Foundation:: HANDLE , pszasciicapabilitiesstring : :: windows::core::PSTR , dwcapabilitiesstringlengthincharacters : u32 ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn CapabilitiesRequestAndCapabilitiesReply ( hmonitor : super::super::Foundation:: HANDLE , pszasciicapabilitiesstring : ::windows::core::PSTR , dwcapabilitiesstringlengthincharacters : u32 ) -> i32 );
     CapabilitiesRequestAndCapabilitiesReply(hmonitor.into_param().abi(), ::core::mem::transmute(pszasciicapabilitiesstring.as_ptr()), pszasciicapabilitiesstring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -287,7 +287,7 @@ pub unsafe fn EngGetDriverName<P0>(hdev: P0) -> ::windows::core::PWSTR
 where
     P0: ::windows::core::IntoParam<HDEV>,
 {
-    ::windows::imp::link ! ( "gdi32.dll""system" fn EngGetDriverName ( hdev : HDEV ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngGetDriverName ( hdev : HDEV ) -> ::windows::core::PWSTR );
     EngGetDriverName(hdev.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
@@ -296,7 +296,7 @@ pub unsafe fn EngGetPrinterDataFileName<P0>(hdev: P0) -> ::windows::core::PWSTR
 where
     P0: ::windows::core::IntoParam<HDEV>,
 {
-    ::windows::imp::link ! ( "gdi32.dll""system" fn EngGetPrinterDataFileName ( hdev : HDEV ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngGetPrinterDataFileName ( hdev : HDEV ) -> ::windows::core::PWSTR );
     EngGetPrinterDataFileName(hdev.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -320,7 +320,7 @@ pub unsafe fn EngLoadModule<P0>(pwsz: P0) -> super::super::Foundation::HANDLE
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "gdi32.dll""system" fn EngLoadModule ( pwsz : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngLoadModule ( pwsz : ::windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
     EngLoadModule(pwsz.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -346,13 +346,13 @@ where
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
 pub unsafe fn EngMultiByteToUnicodeN(unicodestring: ::windows::core::PWSTR, maxbytesinunicodestring: u32, bytesinunicodestring: ::core::option::Option<*mut u32>, multibytestring: &[u8]) {
-    ::windows::imp::link ! ( "gdi32.dll""system" fn EngMultiByteToUnicodeN ( unicodestring : :: windows::core::PWSTR , maxbytesinunicodestring : u32 , bytesinunicodestring : *mut u32 , multibytestring : :: windows::core::PCSTR , bytesinmultibytestring : u32 ) -> ( ) );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngMultiByteToUnicodeN ( unicodestring : ::windows::core::PWSTR , maxbytesinunicodestring : u32 , bytesinunicodestring : *mut u32 , multibytestring : ::windows::core::PCSTR , bytesinmultibytestring : u32 ) -> ( ) );
     EngMultiByteToUnicodeN(::core::mem::transmute(unicodestring), maxbytesinunicodestring, ::core::mem::transmute(bytesinunicodestring.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
 pub unsafe fn EngMultiByteToWideChar(codepage: u32, widecharstring: ::windows::core::PWSTR, bytesinwidecharstring: i32, multibytestring: ::core::option::Option<&[u8]>) -> i32 {
-    ::windows::imp::link ! ( "gdi32.dll""system" fn EngMultiByteToWideChar ( codepage : u32 , widecharstring : :: windows::core::PWSTR , bytesinwidecharstring : i32 , multibytestring : :: windows::core::PCSTR , bytesinmultibytestring : i32 ) -> i32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngMultiByteToWideChar ( codepage : u32 , widecharstring : ::windows::core::PWSTR , bytesinwidecharstring : i32 , multibytestring : ::windows::core::PCSTR , bytesinmultibytestring : i32 ) -> i32 );
     EngMultiByteToWideChar(codepage, ::core::mem::transmute(widecharstring), bytesinwidecharstring, ::core::mem::transmute(multibytestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), multibytestring.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -444,7 +444,7 @@ pub unsafe fn EngUnicodeToMultiByteN<P0>(multibytestring: &mut [u8], bytesinmult
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "gdi32.dll""system" fn EngUnicodeToMultiByteN ( multibytestring : :: windows::core::PSTR , maxbytesinmultibytestring : u32 , bytesinmultibytestring : *mut u32 , unicodestring : :: windows::core::PCWSTR , bytesinunicodestring : u32 ) -> ( ) );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngUnicodeToMultiByteN ( multibytestring : ::windows::core::PSTR , maxbytesinmultibytestring : u32 , bytesinmultibytestring : *mut u32 , unicodestring : ::windows::core::PCWSTR , bytesinunicodestring : u32 ) -> ( ) );
     EngUnicodeToMultiByteN(::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len() as _, ::core::mem::transmute(bytesinmultibytestring.unwrap_or(::std::ptr::null_mut())), unicodestring.into_param().abi(), bytesinunicodestring)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -460,7 +460,7 @@ pub unsafe fn EngWideCharToMultiByte<P0>(codepage: u32, widecharstring: P0, byte
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "gdi32.dll""system" fn EngWideCharToMultiByte ( codepage : u32 , widecharstring : :: windows::core::PCWSTR , bytesinwidecharstring : i32 , multibytestring : :: windows::core::PSTR , bytesinmultibytestring : i32 ) -> i32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngWideCharToMultiByte ( codepage : u32 , widecharstring : ::windows::core::PCWSTR , bytesinwidecharstring : i32 , multibytestring : ::windows::core::PSTR , bytesinmultibytestring : i32 ) -> i32 );
     EngWideCharToMultiByte(codepage, widecharstring.into_param().abi(), bytesinwidecharstring, ::core::mem::transmute(multibytestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), multibytestring.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -657,7 +657,7 @@ pub unsafe fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9<P0>(pdirect3ddevic
 where
     P0: ::windows::core::IntoParam<super::super::Graphics::Direct3D9::IDirect3DDevice9>,
 {
-    ::windows::imp::link ! ( "dxva2.dll""system" fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9 ( pdirect3ddevice9 : * mut::core::ffi::c_void , pdwnumberofphysicalmonitors : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9 ( pdirect3ddevice9 : * mut::core::ffi::c_void , pdwnumberofphysicalmonitors : *mut u32 ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -678,7 +678,7 @@ pub unsafe fn GetPhysicalMonitorsFromIDirect3DDevice9<P0>(pdirect3ddevice9: P0, 
 where
     P0: ::windows::core::IntoParam<super::super::Graphics::Direct3D9::IDirect3DDevice9>,
 {
-    ::windows::imp::link ! ( "dxva2.dll""system" fn GetPhysicalMonitorsFromIDirect3DDevice9 ( pdirect3ddevice9 : * mut::core::ffi::c_void , dwphysicalmonitorarraysize : u32 , pphysicalmonitorarray : *mut PHYSICAL_MONITOR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn GetPhysicalMonitorsFromIDirect3DDevice9 ( pdirect3ddevice9 : * mut::core::ffi::c_void , dwphysicalmonitorarraysize : u32 , pphysicalmonitorarray : *mut PHYSICAL_MONITOR ) -> ::windows::core::HRESULT );
     GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.into_param().abi(), pphysicalmonitorarray.len() as _, ::core::mem::transmute(pphysicalmonitorarray.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -1229,7 +1229,7 @@ pub const DDI_DRIVER_VERSION_SP3: u32 = 131075u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const DDI_ERROR: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DD_FULLSCREEN_VIDEO_DEVICE_NAME: ::windows::core::PCWSTR = ::windows::w!("\\Device\\FSVideo");
+pub const DD_FULLSCREEN_VIDEO_DEVICE_NAME: ::windows::core::PCWSTR = ::windows::core::w!("\\Device\\FSVideo");
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const DEVHTADJF_ADDITIVE_DEVICE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
@@ -2033,6 +2033,8 @@ pub const IOCTL_PANEL_GET_BACKLIGHT_REDUCTION: u32 = 2296856u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const IOCTL_PANEL_GET_BRIGHTNESS: u32 = 2296840u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const IOCTL_PANEL_GET_MANUFACTURING_MODE: u32 = 2296860u32;
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const IOCTL_PANEL_QUERY_BRIGHTNESS_CAPS: u32 = 2296832u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const IOCTL_PANEL_QUERY_BRIGHTNESS_RANGES: u32 = 2296836u32;
@@ -2439,7 +2441,7 @@ pub const VIDEO_COLOR_LUT_DATA_FORMAT_RGB256WORDS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const VIDEO_DEVICE_COLOR: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VIDEO_DEVICE_NAME: ::windows::core::PCSTR = ::windows::s!("DISPLAY%d");
+pub const VIDEO_DEVICE_NAME: ::windows::core::PCSTR = ::windows::core::s!("DISPLAY%d");
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const VIDEO_DUALVIEW_PRIMARY: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
@@ -2559,7 +2561,7 @@ pub const WO_RGN_WINDOW: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const WO_SPRITE_NOTIFY: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const WVIDEO_DEVICE_NAME: ::windows::core::PCWSTR = ::windows::w!("DISPLAY%d");
+pub const WVIDEO_DEVICE_NAME: ::windows::core::PCWSTR = ::windows::core::w!("DISPLAY%d");
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const XF_INV_FXTOL: i32 = 3i32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
@@ -4251,25 +4253,25 @@ impl ::core::default::Default for CDDDXGK_REDIRBITMAPPRESENTINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_System_Console\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_System_Console\"`*"]
+#[cfg(feature = "Win32_System_Console")]
 pub struct CHAR_IMAGE_INFO {
     pub CharInfo: super::super::System::Console::CHAR_INFO,
     pub FontImageInfo: FONT_IMAGE_INFO,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::core::marker::Copy for CHAR_IMAGE_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::core::clone::Clone for CHAR_IMAGE_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::windows::core::TypeKind for CHAR_IMAGE_INFO {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::core::default::Default for CHAR_IMAGE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7685,39 +7687,39 @@ impl ::core::default::Default for FSVIDEO_SCREEN_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_System_Console\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_System_Console\"`*"]
+#[cfg(feature = "Win32_System_Console")]
 pub struct FSVIDEO_WRITE_TO_FRAME_BUFFER {
     pub SrcBuffer: *mut CHAR_IMAGE_INFO,
     pub DestScreen: FSCNTL_SCREEN_INFO,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::core::marker::Copy for FSVIDEO_WRITE_TO_FRAME_BUFFER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::core::clone::Clone for FSVIDEO_WRITE_TO_FRAME_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::core::fmt::Debug for FSVIDEO_WRITE_TO_FRAME_BUFFER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FSVIDEO_WRITE_TO_FRAME_BUFFER").field("SrcBuffer", &self.SrcBuffer).field("DestScreen", &self.DestScreen).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::windows::core::TypeKind for FSVIDEO_WRITE_TO_FRAME_BUFFER {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::core::cmp::PartialEq for FSVIDEO_WRITE_TO_FRAME_BUFFER {
     fn eq(&self, other: &Self) -> bool {
         self.SrcBuffer == other.SrcBuffer && self.DestScreen == other.DestScreen
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::core::cmp::Eq for FSVIDEO_WRITE_TO_FRAME_BUFFER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::core::default::Default for FSVIDEO_WRITE_TO_FRAME_BUFFER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10329,39 +10331,31 @@ impl ::core::default::Default for TYPE1_FONT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub struct VGA_CHAR {
-    pub Char: super::super::Foundation::CHAR,
-    pub Attributes: super::super::Foundation::CHAR,
+    pub Char: u8,
+    pub Attributes: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VGA_CHAR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VGA_CHAR {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for VGA_CHAR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("VGA_CHAR").field("Char", &self.Char).field("Attributes", &self.Attributes).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for VGA_CHAR {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VGA_CHAR {
     fn eq(&self, other: &Self) -> bool {
         self.Char == other.Char && self.Attributes == other.Attributes
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for VGA_CHAR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VGA_CHAR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

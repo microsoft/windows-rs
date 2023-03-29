@@ -13,7 +13,7 @@
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpDuplicatePdu ( session : isize , pdu : isize ) -> isize );
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpDuplicateVbl ( session : isize , vbl : isize ) -> isize );
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpEncodeMsg ( session : isize , srcentity : isize , dstentity : isize , context : isize , pdu : isize , msgbufdesc : *mut smiOCTETS ) -> u32 );
-::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpEntityToStr ( entity : isize , size : u32 , string : :: windows_sys::core::PSTR ) -> u32 );
+::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpEntityToStr ( entity : isize , size : u32 , string : ::windows_sys::core::PSTR ) -> u32 );
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpFreeContext ( context : isize ) -> u32 );
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpFreeDescriptor ( syntax : u32 , descriptor : *mut smiOCTETS ) -> u32 );
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpFreeEntity ( entity : isize ) -> u32 );
@@ -26,8 +26,7 @@
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpGetTimeout ( hentity : isize , npolicytimeout : *mut u32 , nactualtimeout : *mut u32 ) -> u32 );
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpGetTranslateMode ( ntranslatemode : *mut SNMP_API_TRANSLATE_MODE ) -> u32 );
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpGetVb ( vbl : isize , index : u32 , name : *mut smiOID , value : *mut smiVALUE ) -> u32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"] fn SnmpGetVendorInfo ( vendorinfo : *mut smiVENDORINFO ) -> u32 );
+::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpGetVendorInfo ( vendorinfo : *mut smiVENDORINFO ) -> u32 );
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpListen ( hentity : isize , lstatus : SNMP_STATUS ) -> u32 );
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpListenEx ( hentity : isize , lstatus : u32 , nuseentityaddr : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -39,17 +38,17 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mgmtapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"] fn SnmpMgrGetTrapEx ( enterprise : *mut AsnObjectIdentifier , agentaddress : *mut AsnOctetString , sourceaddress : *mut AsnOctetString , generictrap : *mut SNMP_GENERICTRAP , specifictrap : *mut i32 , community : *mut AsnOctetString , timestamp : *mut u32 , variablebindings : *mut SnmpVarBindList ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "mgmtapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"] fn SnmpMgrOidToStr ( oid : *mut AsnObjectIdentifier , string : *mut :: windows_sys::core::PSTR ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "mgmtapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpMgrOpen ( lpagentaddress : :: windows_sys::core::PCSTR , lpagentcommunity : :: windows_sys::core::PCSTR , ntimeout : i32 , nretries : i32 ) -> *mut ::core::ffi::c_void );
+::windows_sys::core::link ! ( "mgmtapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"] fn SnmpMgrOidToStr ( oid : *mut AsnObjectIdentifier , string : *mut ::windows_sys::core::PSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "mgmtapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpMgrOpen ( lpagentaddress : ::windows_sys::core::PCSTR , lpagentcommunity : ::windows_sys::core::PCSTR , ntimeout : i32 , nretries : i32 ) -> *mut ::core::ffi::c_void );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mgmtapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"] fn SnmpMgrRequest ( session : *mut ::core::ffi::c_void , requesttype : u8 , variablebindings : *mut SnmpVarBindList , errorstatus : *mut SNMP_ERROR_STATUS , errorindex : *mut i32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "mgmtapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"] fn SnmpMgrStrToOid ( string : :: windows_sys::core::PCSTR , oid : *mut AsnObjectIdentifier ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "mgmtapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"] fn SnmpMgrStrToOid ( string : ::windows_sys::core::PCSTR , oid : *mut AsnObjectIdentifier ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mgmtapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"] fn SnmpMgrTrapListen ( phtrapavailable : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpOidCompare ( xoid : *mut smiOID , yoid : *mut smiOID , maxlen : u32 , result : *mut i32 ) -> u32 );
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpOidCopy ( srcoid : *mut smiOID , dstoid : *mut smiOID ) -> u32 );
-::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpOidToStr ( srcoid : *const smiOID , size : u32 , string : :: windows_sys::core::PSTR ) -> u32 );
+::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpOidToStr ( srcoid : *const smiOID , size : u32 , string : ::windows_sys::core::PSTR ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"] fn SnmpOpen ( hwnd : super::super::Foundation:: HWND , wmsg : u32 ) -> isize );
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpRecvMsg ( session : isize , srcentity : *mut isize , dstentity : *mut isize , context : *mut isize , pdu : *mut isize ) -> u32 );
@@ -65,8 +64,8 @@
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpStartup ( nmajorversion : *mut u32 , nminorversion : *mut u32 , nlevel : *mut u32 , ntranslatemode : *mut SNMP_API_TRANSLATE_MODE , nretransmitmode : *mut SNMP_STATUS ) -> u32 );
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpStartupEx ( nmajorversion : *mut u32 , nminorversion : *mut u32 , nlevel : *mut u32 , ntranslatemode : *mut SNMP_API_TRANSLATE_MODE , nretransmitmode : *mut SNMP_STATUS ) -> u32 );
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpStrToContext ( session : isize , string : *mut smiOCTETS ) -> isize );
-::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpStrToEntity ( session : isize , string : :: windows_sys::core::PCSTR ) -> isize );
-::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpStrToOid ( string : :: windows_sys::core::PCSTR , dstoid : *mut smiOID ) -> u32 );
+::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpStrToEntity ( session : isize , string : ::windows_sys::core::PCSTR ) -> isize );
+::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpStrToOid ( string : ::windows_sys::core::PCSTR , dstoid : *mut smiOID ) -> u32 );
 ::windows_sys::core::link ! ( "snmpapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpSvcGetUptime ( ) -> u32 );
 ::windows_sys::core::link ! ( "snmpapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpSvcSetLogLevel ( nloglevel : SNMP_LOG ) -> ( ) );
 ::windows_sys::core::link ! ( "snmpapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpSvcSetLogType ( nlogtype : SNMP_OUTPUT_LOG_TYPE ) -> ( ) );
@@ -74,8 +73,8 @@
 ::windows_sys::core::link ! ( "snmpapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"] fn SnmpUtilAsnAnyCpy ( panydst : *mut AsnAny , panysrc : *mut AsnAny ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "snmpapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"] fn SnmpUtilAsnAnyFree ( pany : *mut AsnAny ) -> ( ) );
-::windows_sys::core::link ! ( "snmpapi.dll""cdecl" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpUtilDbgPrint ( nloglevel : SNMP_LOG , szformat : :: windows_sys::core::PCSTR ) -> ( ) );
-::windows_sys::core::link ! ( "snmpapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpUtilIdsToA ( ids : *mut u32 , idlength : u32 ) -> :: windows_sys::core::PSTR );
+::windows_sys::core::link ! ( "snmpapi.dll""cdecl" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpUtilDbgPrint ( nloglevel : SNMP_LOG , szformat : ::windows_sys::core::PCSTR ) -> ( ) );
+::windows_sys::core::link ! ( "snmpapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpUtilIdsToA ( ids : *mut u32 , idlength : u32 ) -> ::windows_sys::core::PSTR );
 ::windows_sys::core::link ! ( "snmpapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpUtilMemAlloc ( nbytes : u32 ) -> *mut ::core::ffi::c_void );
 ::windows_sys::core::link ! ( "snmpapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpUtilMemFree ( pmem : *mut ::core::ffi::c_void ) -> ( ) );
 ::windows_sys::core::link ! ( "snmpapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpUtilMemReAlloc ( pmem : *mut ::core::ffi::c_void , nbytes : u32 ) -> *mut ::core::ffi::c_void );
@@ -92,7 +91,7 @@
 ::windows_sys::core::link ! ( "snmpapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpUtilOidCpy ( poiddst : *mut AsnObjectIdentifier , poidsrc : *mut AsnObjectIdentifier ) -> i32 );
 ::windows_sys::core::link ! ( "snmpapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpUtilOidFree ( poid : *mut AsnObjectIdentifier ) -> ( ) );
 ::windows_sys::core::link ! ( "snmpapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpUtilOidNCmp ( poid1 : *mut AsnObjectIdentifier , poid2 : *mut AsnObjectIdentifier , nsubids : u32 ) -> i32 );
-::windows_sys::core::link ! ( "snmpapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpUtilOidToA ( oid : *mut AsnObjectIdentifier ) -> :: windows_sys::core::PSTR );
+::windows_sys::core::link ! ( "snmpapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpUtilOidToA ( oid : *mut AsnObjectIdentifier ) -> ::windows_sys::core::PSTR );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "snmpapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"] fn SnmpUtilPrintAsnAny ( pany : *mut AsnAny ) -> ( ) );
 ::windows_sys::core::link ! ( "snmpapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpUtilPrintOid ( oid : *mut AsnObjectIdentifier ) -> ( ) );
@@ -611,18 +610,15 @@ impl ::core::clone::Clone for smiVALUE_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub struct smiVENDORINFO {
-    pub vendorName: [super::super::Foundation::CHAR; 64],
-    pub vendorContact: [super::super::Foundation::CHAR; 64],
-    pub vendorVersionId: [super::super::Foundation::CHAR; 32],
-    pub vendorVersionDate: [super::super::Foundation::CHAR; 32],
+    pub vendorName: [u8; 64],
+    pub vendorContact: [u8; 64],
+    pub vendorVersionId: [u8; 32],
+    pub vendorVersionDate: [u8; 32],
     pub vendorEnterprise: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for smiVENDORINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for smiVENDORINFO {
     fn clone(&self) -> Self {
         *self

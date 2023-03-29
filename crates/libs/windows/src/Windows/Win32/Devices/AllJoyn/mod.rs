@@ -26,7 +26,7 @@ pub unsafe fn AllJoynConnectToBus<P0>(connectionspec: P0) -> ::windows::core::Re
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn AllJoynConnectToBus ( connectionspec : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn AllJoynConnectToBus ( connectionspec : ::windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
     let result__ = AllJoynConnectToBus(connectionspec.into_param().abi());
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -81,8 +81,8 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn QCC_StatusText(status: QStatus) -> ::windows::core::PSTR {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn QCC_StatusText ( status : QStatus ) -> :: windows::core::PSTR );
+pub unsafe fn QCC_StatusText(status: QStatus) -> ::windows::core::PCSTR {
+    ::windows::imp::link ! ( "msajapi.dll""system" fn QCC_StatusText ( status : QStatus ) -> ::windows::core::PCSTR );
     QCC_StatusText(status)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -91,7 +91,7 @@ pub unsafe fn alljoyn_aboutdata_create<P0>(defaultlanguage: P0) -> alljoyn_about
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_create ( defaultlanguage : :: windows::core::PCSTR ) -> alljoyn_aboutdata );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_create ( defaultlanguage : ::windows::core::PCSTR ) -> alljoyn_aboutdata );
     alljoyn_aboutdata_create(defaultlanguage.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -107,7 +107,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_msgarg>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_create_full ( arg : alljoyn_msgarg , language : :: windows::core::PCSTR ) -> alljoyn_aboutdata );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_create_full ( arg : alljoyn_msgarg , language : ::windows::core::PCSTR ) -> alljoyn_aboutdata );
     alljoyn_aboutdata_create_full(arg.into_param().abi(), language.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -118,7 +118,7 @@ where
     P1: ::windows::core::IntoParam<alljoyn_msgarg>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_createfrommsgarg ( data : alljoyn_aboutdata , arg : alljoyn_msgarg , language : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_createfrommsgarg ( data : alljoyn_aboutdata , arg : alljoyn_msgarg , language : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_aboutdata_createfrommsgarg(data.into_param().abi(), arg.into_param().abi(), language.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -128,7 +128,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_aboutdata>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_createfromxml ( data : alljoyn_aboutdata , aboutdataxml : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_createfromxml ( data : alljoyn_aboutdata , aboutdataxml : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_aboutdata_createfromxml(data.into_param().abi(), aboutdataxml.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -148,7 +148,7 @@ where
     P1: ::windows::core::IntoParam<alljoyn_msgarg>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getaboutdata ( data : alljoyn_aboutdata , msgarg : alljoyn_msgarg , language : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getaboutdata ( data : alljoyn_aboutdata , msgarg : alljoyn_msgarg , language : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_aboutdata_getaboutdata(data.into_param().abi(), msgarg.into_param().abi(), language.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -186,7 +186,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_aboutdata>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getappname ( data : alljoyn_aboutdata , appname : *mut *mut i8 , language : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getappname ( data : alljoyn_aboutdata , appname : *mut *mut i8 , language : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_aboutdata_getappname(data.into_param().abi(), appname, language.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -214,7 +214,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_aboutdata>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getdescription ( data : alljoyn_aboutdata , description : *mut *mut i8 , language : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getdescription ( data : alljoyn_aboutdata , description : *mut *mut i8 , language : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_aboutdata_getdescription(data.into_param().abi(), description, language.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -233,7 +233,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_aboutdata>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getdevicename ( data : alljoyn_aboutdata , devicename : *mut *mut i8 , language : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getdevicename ( data : alljoyn_aboutdata , devicename : *mut *mut i8 , language : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_aboutdata_getdevicename(data.into_param().abi(), devicename, language.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -244,7 +244,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getfield ( data : alljoyn_aboutdata , name : :: windows::core::PCSTR , value : *mut alljoyn_msgarg , language : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getfield ( data : alljoyn_aboutdata , name : ::windows::core::PCSTR , value : *mut alljoyn_msgarg , language : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_aboutdata_getfield(data.into_param().abi(), name.into_param().abi(), value, language.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -258,12 +258,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_aboutdata_getfieldsignature<P0, P1>(data: P0, fieldname: P1) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_aboutdata_getfieldsignature<P0, P1>(data: P0, fieldname: P1) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_aboutdata>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getfieldsignature ( data : alljoyn_aboutdata , fieldname : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getfieldsignature ( data : alljoyn_aboutdata , fieldname : ::windows::core::PCSTR ) -> ::windows::core::PCSTR );
     alljoyn_aboutdata_getfieldsignature(data.into_param().abi(), fieldname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -282,7 +282,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_aboutdata>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getmanufacturer ( data : alljoyn_aboutdata , manufacturer : *mut *mut i8 , language : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getmanufacturer ( data : alljoyn_aboutdata , manufacturer : *mut *mut i8 , language : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_aboutdata_getmanufacturer(data.into_param().abi(), manufacturer, language.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -328,7 +328,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_aboutdata>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_isfieldannounced ( data : alljoyn_aboutdata , fieldname : :: windows::core::PCSTR ) -> u8 );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_isfieldannounced ( data : alljoyn_aboutdata , fieldname : ::windows::core::PCSTR ) -> u8 );
     alljoyn_aboutdata_isfieldannounced(data.into_param().abi(), fieldname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -338,7 +338,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_aboutdata>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_isfieldlocalized ( data : alljoyn_aboutdata , fieldname : :: windows::core::PCSTR ) -> u8 );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_isfieldlocalized ( data : alljoyn_aboutdata , fieldname : ::windows::core::PCSTR ) -> u8 );
     alljoyn_aboutdata_isfieldlocalized(data.into_param().abi(), fieldname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -348,7 +348,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_aboutdata>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_isfieldrequired ( data : alljoyn_aboutdata , fieldname : :: windows::core::PCSTR ) -> u8 );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_isfieldrequired ( data : alljoyn_aboutdata , fieldname : ::windows::core::PCSTR ) -> u8 );
     alljoyn_aboutdata_isfieldrequired(data.into_param().abi(), fieldname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -358,7 +358,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_aboutdata>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_isvalid ( data : alljoyn_aboutdata , language : :: windows::core::PCSTR ) -> u8 );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_isvalid ( data : alljoyn_aboutdata , language : ::windows::core::PCSTR ) -> u8 );
     alljoyn_aboutdata_isvalid(data.into_param().abi(), language.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -377,7 +377,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_aboutdata>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setappid_fromstring ( data : alljoyn_aboutdata , appid : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setappid_fromstring ( data : alljoyn_aboutdata , appid : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_aboutdata_setappid_fromstring(data.into_param().abi(), appid.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -388,7 +388,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setappname ( data : alljoyn_aboutdata , appname : :: windows::core::PCSTR , language : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setappname ( data : alljoyn_aboutdata , appname : ::windows::core::PCSTR , language : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_aboutdata_setappname(data.into_param().abi(), appname.into_param().abi(), language.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -398,7 +398,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_aboutdata>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setdateofmanufacture ( data : alljoyn_aboutdata , dateofmanufacture : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setdateofmanufacture ( data : alljoyn_aboutdata , dateofmanufacture : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_aboutdata_setdateofmanufacture(data.into_param().abi(), dateofmanufacture.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -408,7 +408,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_aboutdata>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setdefaultlanguage ( data : alljoyn_aboutdata , defaultlanguage : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setdefaultlanguage ( data : alljoyn_aboutdata , defaultlanguage : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_aboutdata_setdefaultlanguage(data.into_param().abi(), defaultlanguage.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -419,7 +419,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setdescription ( data : alljoyn_aboutdata , description : :: windows::core::PCSTR , language : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setdescription ( data : alljoyn_aboutdata , description : ::windows::core::PCSTR , language : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_aboutdata_setdescription(data.into_param().abi(), description.into_param().abi(), language.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -429,7 +429,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_aboutdata>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setdeviceid ( data : alljoyn_aboutdata , deviceid : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setdeviceid ( data : alljoyn_aboutdata , deviceid : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_aboutdata_setdeviceid(data.into_param().abi(), deviceid.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -440,7 +440,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setdevicename ( data : alljoyn_aboutdata , devicename : :: windows::core::PCSTR , language : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setdevicename ( data : alljoyn_aboutdata , devicename : ::windows::core::PCSTR , language : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_aboutdata_setdevicename(data.into_param().abi(), devicename.into_param().abi(), language.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -452,7 +452,7 @@ where
     P2: ::windows::core::IntoParam<alljoyn_msgarg>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setfield ( data : alljoyn_aboutdata , name : :: windows::core::PCSTR , value : alljoyn_msgarg , language : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setfield ( data : alljoyn_aboutdata , name : ::windows::core::PCSTR , value : alljoyn_msgarg , language : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_aboutdata_setfield(data.into_param().abi(), name.into_param().abi(), value.into_param().abi(), language.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -462,7 +462,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_aboutdata>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_sethardwareversion ( data : alljoyn_aboutdata , hardwareversion : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_sethardwareversion ( data : alljoyn_aboutdata , hardwareversion : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_aboutdata_sethardwareversion(data.into_param().abi(), hardwareversion.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -473,7 +473,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setmanufacturer ( data : alljoyn_aboutdata , manufacturer : :: windows::core::PCSTR , language : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setmanufacturer ( data : alljoyn_aboutdata , manufacturer : ::windows::core::PCSTR , language : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_aboutdata_setmanufacturer(data.into_param().abi(), manufacturer.into_param().abi(), language.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -483,7 +483,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_aboutdata>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setmodelnumber ( data : alljoyn_aboutdata , modelnumber : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setmodelnumber ( data : alljoyn_aboutdata , modelnumber : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_aboutdata_setmodelnumber(data.into_param().abi(), modelnumber.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -493,7 +493,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_aboutdata>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setsoftwareversion ( data : alljoyn_aboutdata , softwareversion : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setsoftwareversion ( data : alljoyn_aboutdata , softwareversion : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_aboutdata_setsoftwareversion(data.into_param().abi(), softwareversion.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -503,7 +503,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_aboutdata>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setsupportedlanguage ( data : alljoyn_aboutdata , language : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setsupportedlanguage ( data : alljoyn_aboutdata , language : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_aboutdata_setsupportedlanguage(data.into_param().abi(), language.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -513,7 +513,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_aboutdata>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setsupporturl ( data : alljoyn_aboutdata , supporturl : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setsupporturl ( data : alljoyn_aboutdata , supporturl : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_aboutdata_setsupporturl(data.into_param().abi(), supporturl.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -567,7 +567,7 @@ pub unsafe fn alljoyn_abouticon_setcontent<P0>(icon: *mut _alljoyn_abouticon_han
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_abouticon_setcontent ( icon : *mut _alljoyn_abouticon_handle , r#type : :: windows::core::PCSTR , data : *mut u8 , csize : usize , ownsdata : u8 ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_abouticon_setcontent ( icon : *mut _alljoyn_abouticon_handle , r#type : ::windows::core::PCSTR , data : *mut u8 , csize : usize , ownsdata : u8 ) -> QStatus );
     alljoyn_abouticon_setcontent(icon, r#type.into_param().abi(), data, csize, ownsdata)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -586,7 +586,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_abouticon_seturl ( icon : *mut _alljoyn_abouticon_handle , r#type : :: windows::core::PCSTR , url : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_abouticon_seturl ( icon : *mut _alljoyn_abouticon_handle , r#type : ::windows::core::PCSTR , url : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_abouticon_seturl(icon, r#type.into_param().abi(), url.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -611,7 +611,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_abouticonproxy_create ( bus : alljoyn_busattachment , busname : :: windows::core::PCSTR , sessionid : u32 ) -> *mut _alljoyn_abouticonproxy_handle );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_abouticonproxy_create ( bus : alljoyn_busattachment , busname : ::windows::core::PCSTR , sessionid : u32 ) -> *mut _alljoyn_abouticonproxy_handle );
     alljoyn_abouticonproxy_create(bus.into_param().abi(), busname.into_param().abi(), sessionid)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -744,7 +744,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_aboutobjectdescription>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutobjectdescription_getinterfacepaths ( description : alljoyn_aboutobjectdescription , interfacename : :: windows::core::PCSTR , paths : *const *const i8 , numpaths : usize ) -> usize );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutobjectdescription_getinterfacepaths ( description : alljoyn_aboutobjectdescription , interfacename : ::windows::core::PCSTR , paths : *const *const i8 , numpaths : usize ) -> usize );
     alljoyn_aboutobjectdescription_getinterfacepaths(description.into_param().abi(), interfacename.into_param().abi(), paths, numpaths)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -754,7 +754,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_aboutobjectdescription>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutobjectdescription_getinterfaces ( description : alljoyn_aboutobjectdescription , path : :: windows::core::PCSTR , interfaces : *const *const i8 , numinterfaces : usize ) -> usize );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutobjectdescription_getinterfaces ( description : alljoyn_aboutobjectdescription , path : ::windows::core::PCSTR , interfaces : *const *const i8 , numinterfaces : usize ) -> usize );
     alljoyn_aboutobjectdescription_getinterfaces(description.into_param().abi(), path.into_param().abi(), interfaces, numinterfaces)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -783,7 +783,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_aboutobjectdescription>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutobjectdescription_hasinterface ( description : alljoyn_aboutobjectdescription , interfacename : :: windows::core::PCSTR ) -> u8 );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutobjectdescription_hasinterface ( description : alljoyn_aboutobjectdescription , interfacename : ::windows::core::PCSTR ) -> u8 );
     alljoyn_aboutobjectdescription_hasinterface(description.into_param().abi(), interfacename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -794,7 +794,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutobjectdescription_hasinterfaceatpath ( description : alljoyn_aboutobjectdescription , path : :: windows::core::PCSTR , interfacename : :: windows::core::PCSTR ) -> u8 );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutobjectdescription_hasinterfaceatpath ( description : alljoyn_aboutobjectdescription , path : ::windows::core::PCSTR , interfacename : ::windows::core::PCSTR ) -> u8 );
     alljoyn_aboutobjectdescription_hasinterfaceatpath(description.into_param().abi(), path.into_param().abi(), interfacename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -804,7 +804,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_aboutobjectdescription>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutobjectdescription_haspath ( description : alljoyn_aboutobjectdescription , path : :: windows::core::PCSTR ) -> u8 );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutobjectdescription_haspath ( description : alljoyn_aboutobjectdescription , path : ::windows::core::PCSTR ) -> u8 );
     alljoyn_aboutobjectdescription_haspath(description.into_param().abi(), path.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -814,7 +814,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutproxy_create ( bus : alljoyn_busattachment , busname : :: windows::core::PCSTR , sessionid : u32 ) -> alljoyn_aboutproxy );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutproxy_create ( bus : alljoyn_busattachment , busname : ::windows::core::PCSTR , sessionid : u32 ) -> alljoyn_aboutproxy );
     alljoyn_aboutproxy_create(bus.into_param().abi(), busname.into_param().abi(), sessionid)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -834,7 +834,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<alljoyn_msgarg>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutproxy_getaboutdata ( proxy : alljoyn_aboutproxy , language : :: windows::core::PCSTR , data : alljoyn_msgarg ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_aboutproxy_getaboutdata ( proxy : alljoyn_aboutproxy , language : ::windows::core::PCSTR , data : alljoyn_msgarg ) -> QStatus );
     alljoyn_aboutproxy_getaboutdata(proxy.into_param().abi(), language.into_param().abi(), data.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -937,7 +937,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_autopinger_adddestination ( autopinger : alljoyn_autopinger , group : :: windows::core::PCSTR , destination : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_autopinger_adddestination ( autopinger : alljoyn_autopinger , group : ::windows::core::PCSTR , destination : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_autopinger_adddestination(autopinger.into_param().abi(), group.into_param().abi(), destination.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -948,7 +948,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<alljoyn_pinglistener>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_autopinger_addpinggroup ( autopinger : alljoyn_autopinger , group : :: windows::core::PCSTR , listener : alljoyn_pinglistener , pinginterval : u32 ) -> ( ) );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_autopinger_addpinggroup ( autopinger : alljoyn_autopinger , group : ::windows::core::PCSTR , listener : alljoyn_pinglistener , pinginterval : u32 ) -> ( ) );
     alljoyn_autopinger_addpinggroup(autopinger.into_param().abi(), group.into_param().abi(), listener.into_param().abi(), pinginterval)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -986,7 +986,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_autopinger_removedestination ( autopinger : alljoyn_autopinger , group : :: windows::core::PCSTR , destination : :: windows::core::PCSTR , removeall : i32 ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_autopinger_removedestination ( autopinger : alljoyn_autopinger , group : ::windows::core::PCSTR , destination : ::windows::core::PCSTR , removeall : i32 ) -> QStatus );
     alljoyn_autopinger_removedestination(autopinger.into_param().abi(), group.into_param().abi(), destination.into_param().abi(), removeall)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -996,7 +996,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_autopinger>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_autopinger_removepinggroup ( autopinger : alljoyn_autopinger , group : :: windows::core::PCSTR ) -> ( ) );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_autopinger_removepinggroup ( autopinger : alljoyn_autopinger , group : ::windows::core::PCSTR ) -> ( ) );
     alljoyn_autopinger_removepinggroup(autopinger.into_param().abi(), group.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1015,7 +1015,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_autopinger>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_autopinger_setpinginterval ( autopinger : alljoyn_autopinger , group : :: windows::core::PCSTR , pinginterval : u32 ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_autopinger_setpinginterval ( autopinger : alljoyn_autopinger , group : ::windows::core::PCSTR , pinginterval : u32 ) -> QStatus );
     alljoyn_autopinger_setpinginterval(autopinger.into_param().abi(), group.into_param().abi(), pinginterval)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1027,7 +1027,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_addlogonentry ( bus : alljoyn_busattachment , authmechanism : :: windows::core::PCSTR , username : :: windows::core::PCSTR , password : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_addlogonentry ( bus : alljoyn_busattachment , authmechanism : ::windows::core::PCSTR , username : ::windows::core::PCSTR , password : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_busattachment_addlogonentry(bus.into_param().abi(), authmechanism.into_param().abi(), username.into_param().abi(), password.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1037,7 +1037,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_addmatch ( bus : alljoyn_busattachment , rule : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_addmatch ( bus : alljoyn_busattachment , rule : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_busattachment_addmatch(bus.into_param().abi(), rule.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1047,7 +1047,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_advertisename ( bus : alljoyn_busattachment , name : :: windows::core::PCSTR , transports : u16 ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_advertisename ( bus : alljoyn_busattachment , name : ::windows::core::PCSTR , transports : u16 ) -> QStatus );
     alljoyn_busattachment_advertisename(bus.into_param().abi(), name.into_param().abi(), transports)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1068,7 +1068,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_canceladvertisename ( bus : alljoyn_busattachment , name : :: windows::core::PCSTR , transports : u16 ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_canceladvertisename ( bus : alljoyn_busattachment , name : ::windows::core::PCSTR , transports : u16 ) -> QStatus );
     alljoyn_busattachment_canceladvertisename(bus.into_param().abi(), name.into_param().abi(), transports)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1078,7 +1078,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_cancelfindadvertisedname ( bus : alljoyn_busattachment , nameprefix : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_cancelfindadvertisedname ( bus : alljoyn_busattachment , nameprefix : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_busattachment_cancelfindadvertisedname(bus.into_param().abi(), nameprefix.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1088,7 +1088,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_cancelfindadvertisednamebytransport ( bus : alljoyn_busattachment , nameprefix : :: windows::core::PCSTR , transports : u16 ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_cancelfindadvertisednamebytransport ( bus : alljoyn_busattachment , nameprefix : ::windows::core::PCSTR , transports : u16 ) -> QStatus );
     alljoyn_busattachment_cancelfindadvertisednamebytransport(bus.into_param().abi(), nameprefix.into_param().abi(), transports)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1098,7 +1098,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_cancelwhoimplements_interface ( bus : alljoyn_busattachment , implementsinterface : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_cancelwhoimplements_interface ( bus : alljoyn_busattachment , implementsinterface : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_busattachment_cancelwhoimplements_interface(bus.into_param().abi(), implementsinterface.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1117,7 +1117,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_clearkeys ( bus : alljoyn_busattachment , guid : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_clearkeys ( bus : alljoyn_busattachment , guid : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_busattachment_clearkeys(bus.into_param().abi(), guid.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1136,7 +1136,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_connect ( bus : alljoyn_busattachment , connectspec : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_connect ( bus : alljoyn_busattachment , connectspec : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_busattachment_connect(bus.into_param().abi(), connectspec.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1145,7 +1145,7 @@ pub unsafe fn alljoyn_busattachment_create<P0>(applicationname: P0, allowremotem
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_create ( applicationname : :: windows::core::PCSTR , allowremotemessages : i32 ) -> alljoyn_busattachment );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_create ( applicationname : ::windows::core::PCSTR , allowremotemessages : i32 ) -> alljoyn_busattachment );
     alljoyn_busattachment_create(applicationname.into_param().abi(), allowremotemessages)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1154,7 +1154,7 @@ pub unsafe fn alljoyn_busattachment_create_concurrency<P0>(applicationname: P0, 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_create_concurrency ( applicationname : :: windows::core::PCSTR , allowremotemessages : i32 , concurrency : u32 ) -> alljoyn_busattachment );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_create_concurrency ( applicationname : ::windows::core::PCSTR , allowremotemessages : i32 , concurrency : u32 ) -> alljoyn_busattachment );
     alljoyn_busattachment_create_concurrency(applicationname.into_param().abi(), allowremotemessages, concurrency)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1164,7 +1164,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_createinterface ( bus : alljoyn_busattachment , name : :: windows::core::PCSTR , iface : *mut alljoyn_interfacedescription ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_createinterface ( bus : alljoyn_busattachment , name : ::windows::core::PCSTR , iface : *mut alljoyn_interfacedescription ) -> QStatus );
     alljoyn_busattachment_createinterface(bus.into_param().abi(), name.into_param().abi(), iface)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1174,7 +1174,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_createinterface_secure ( bus : alljoyn_busattachment , name : :: windows::core::PCSTR , iface : *mut alljoyn_interfacedescription , secpolicy : alljoyn_interfacedescription_securitypolicy ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_createinterface_secure ( bus : alljoyn_busattachment , name : ::windows::core::PCSTR , iface : *mut alljoyn_interfacedescription , secpolicy : alljoyn_interfacedescription_securitypolicy ) -> QStatus );
     alljoyn_busattachment_createinterface_secure(bus.into_param().abi(), name.into_param().abi(), iface, secpolicy)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1184,7 +1184,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_createinterfacesfromxml ( bus : alljoyn_busattachment , xml : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_createinterfacesfromxml ( bus : alljoyn_busattachment , xml : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_busattachment_createinterfacesfromxml(bus.into_param().abi(), xml.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1193,7 +1193,7 @@ pub unsafe fn alljoyn_busattachment_deletedefaultkeystore<P0>(applicationname: P
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_deletedefaultkeystore ( applicationname : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_deletedefaultkeystore ( applicationname : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_busattachment_deletedefaultkeystore(applicationname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1222,7 +1222,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_disconnect ( bus : alljoyn_busattachment , unused : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_disconnect ( bus : alljoyn_busattachment , unused : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_busattachment_disconnect(bus.into_param().abi(), unused.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1243,7 +1243,7 @@ where
     P2: ::windows::core::IntoParam<alljoyn_authlistener>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_enablepeersecurity ( bus : alljoyn_busattachment , authmechanisms : :: windows::core::PCSTR , listener : alljoyn_authlistener , keystorefilename : :: windows::core::PCSTR , isshared : i32 ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_enablepeersecurity ( bus : alljoyn_busattachment , authmechanisms : ::windows::core::PCSTR , listener : alljoyn_authlistener , keystorefilename : ::windows::core::PCSTR , isshared : i32 ) -> QStatus );
     alljoyn_busattachment_enablepeersecurity(bus.into_param().abi(), authmechanisms.into_param().abi(), listener.into_param().abi(), keystorefilename.into_param().abi(), isshared)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1256,7 +1256,7 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P4: ::windows::core::IntoParam<alljoyn_permissionconfigurationlistener>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener ( bus : alljoyn_busattachment , authmechanisms : :: windows::core::PCSTR , authlistener : alljoyn_authlistener , keystorefilename : :: windows::core::PCSTR , isshared : i32 , permissionconfigurationlistener : alljoyn_permissionconfigurationlistener ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener ( bus : alljoyn_busattachment , authmechanisms : ::windows::core::PCSTR , authlistener : alljoyn_authlistener , keystorefilename : ::windows::core::PCSTR , isshared : i32 , permissionconfigurationlistener : alljoyn_permissionconfigurationlistener ) -> QStatus );
     alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener(bus.into_param().abi(), authmechanisms.into_param().abi(), authlistener.into_param().abi(), keystorefilename.into_param().abi(), isshared, permissionconfigurationlistener.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1266,7 +1266,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_findadvertisedname ( bus : alljoyn_busattachment , nameprefix : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_findadvertisedname ( bus : alljoyn_busattachment , nameprefix : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_busattachment_findadvertisedname(bus.into_param().abi(), nameprefix.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1276,7 +1276,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_findadvertisednamebytransport ( bus : alljoyn_busattachment , nameprefix : :: windows::core::PCSTR , transports : u16 ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_findadvertisednamebytransport ( bus : alljoyn_busattachment , nameprefix : ::windows::core::PCSTR , transports : u16 ) -> QStatus );
     alljoyn_busattachment_findadvertisednamebytransport(bus.into_param().abi(), nameprefix.into_param().abi(), transports)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1308,11 +1308,11 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_getconnectspec<P0>(bus: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_busattachment_getconnectspec<P0>(bus: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_getconnectspec ( bus : alljoyn_busattachment ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_getconnectspec ( bus : alljoyn_busattachment ) -> ::windows::core::PCSTR );
     alljoyn_busattachment_getconnectspec(bus.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1326,11 +1326,11 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_getglobalguidstring<P0>(bus: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_busattachment_getglobalguidstring<P0>(bus: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_getglobalguidstring ( bus : alljoyn_busattachment ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_getglobalguidstring ( bus : alljoyn_busattachment ) -> ::windows::core::PCSTR );
     alljoyn_busattachment_getglobalguidstring(bus.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1340,7 +1340,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_getinterface ( bus : alljoyn_busattachment , name : :: windows::core::PCSTR ) -> alljoyn_interfacedescription );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_getinterface ( bus : alljoyn_busattachment , name : ::windows::core::PCSTR ) -> alljoyn_interfacedescription );
     alljoyn_busattachment_getinterface(bus.into_param().abi(), name.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1359,7 +1359,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_getkeyexpiration ( bus : alljoyn_busattachment , guid : :: windows::core::PCSTR , timeout : *mut u32 ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_getkeyexpiration ( bus : alljoyn_busattachment , guid : ::windows::core::PCSTR , timeout : *mut u32 ) -> QStatus );
     alljoyn_busattachment_getkeyexpiration(bus.into_param().abi(), guid.into_param().abi(), timeout)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1370,7 +1370,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_getpeerguid ( bus : alljoyn_busattachment , name : :: windows::core::PCSTR , guid : :: windows::core::PCSTR , guidsz : *mut usize ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_getpeerguid ( bus : alljoyn_busattachment , name : ::windows::core::PCSTR , guid : ::windows::core::PCSTR , guidsz : *mut usize ) -> QStatus );
     alljoyn_busattachment_getpeerguid(bus.into_param().abi(), name.into_param().abi(), guid.into_param().abi(), guidsz)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1390,11 +1390,11 @@ pub unsafe fn alljoyn_busattachment_gettimestamp() -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busattachment_getuniquename<P0>(bus: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_busattachment_getuniquename<P0>(bus: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_getuniquename ( bus : alljoyn_busattachment ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_getuniquename ( bus : alljoyn_busattachment ) -> ::windows::core::PCSTR );
     alljoyn_busattachment_getuniquename(bus.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1451,7 +1451,7 @@ where
     P2: ::windows::core::IntoParam<alljoyn_sessionlistener>,
     P3: ::windows::core::IntoParam<alljoyn_sessionopts>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_joinsession ( bus : alljoyn_busattachment , sessionhost : :: windows::core::PCSTR , sessionport : u16 , listener : alljoyn_sessionlistener , sessionid : *mut u32 , opts : alljoyn_sessionopts ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_joinsession ( bus : alljoyn_busattachment , sessionhost : ::windows::core::PCSTR , sessionport : u16 , listener : alljoyn_sessionlistener , sessionid : *mut u32 , opts : alljoyn_sessionopts ) -> QStatus );
     alljoyn_busattachment_joinsession(bus.into_param().abi(), sessionhost.into_param().abi(), sessionport, listener.into_param().abi(), sessionid, opts.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1463,7 +1463,7 @@ where
     P2: ::windows::core::IntoParam<alljoyn_sessionlistener>,
     P3: ::windows::core::IntoParam<alljoyn_sessionopts>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_joinsessionasync ( bus : alljoyn_busattachment , sessionhost : :: windows::core::PCSTR , sessionport : u16 , listener : alljoyn_sessionlistener , opts : alljoyn_sessionopts , callback : alljoyn_busattachment_joinsessioncb_ptr , context : *mut ::core::ffi::c_void ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_joinsessionasync ( bus : alljoyn_busattachment , sessionhost : ::windows::core::PCSTR , sessionport : u16 , listener : alljoyn_sessionlistener , opts : alljoyn_sessionopts , callback : alljoyn_busattachment_joinsessioncb_ptr , context : *mut ::core::ffi::c_void ) -> QStatus );
     alljoyn_busattachment_joinsessionasync(bus.into_param().abi(), sessionhost.into_param().abi(), sessionport, listener.into_param().abi(), opts.into_param().abi(), callback, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1482,7 +1482,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_namehasowner ( bus : alljoyn_busattachment , name : :: windows::core::PCSTR , hasowner : *mut i32 ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_namehasowner ( bus : alljoyn_busattachment , name : ::windows::core::PCSTR , hasowner : *mut i32 ) -> QStatus );
     alljoyn_busattachment_namehasowner(bus.into_param().abi(), name.into_param().abi(), hasowner)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1492,7 +1492,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_ping ( bus : alljoyn_busattachment , name : :: windows::core::PCSTR , timeout : u32 ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_ping ( bus : alljoyn_busattachment , name : ::windows::core::PCSTR , timeout : u32 ) -> QStatus );
     alljoyn_busattachment_ping(bus.into_param().abi(), name.into_param().abi(), timeout)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1562,7 +1562,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_registersignalhandler ( bus : alljoyn_busattachment , signal_handler : alljoyn_messagereceiver_signalhandler_ptr , member : alljoyn_interfacedescription_member , srcpath : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_registersignalhandler ( bus : alljoyn_busattachment , signal_handler : alljoyn_messagereceiver_signalhandler_ptr , member : alljoyn_interfacedescription_member , srcpath : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_busattachment_registersignalhandler(bus.into_param().abi(), signal_handler, ::core::mem::transmute(member), srcpath.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1572,7 +1572,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_registersignalhandlerwithrule ( bus : alljoyn_busattachment , signal_handler : alljoyn_messagereceiver_signalhandler_ptr , member : alljoyn_interfacedescription_member , matchrule : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_registersignalhandlerwithrule ( bus : alljoyn_busattachment , signal_handler : alljoyn_messagereceiver_signalhandler_ptr , member : alljoyn_interfacedescription_member , matchrule : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_busattachment_registersignalhandlerwithrule(bus.into_param().abi(), signal_handler, ::core::mem::transmute(member), matchrule.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1582,7 +1582,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_releasename ( bus : alljoyn_busattachment , name : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_releasename ( bus : alljoyn_busattachment , name : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_busattachment_releasename(bus.into_param().abi(), name.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1601,7 +1601,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_removematch ( bus : alljoyn_busattachment , rule : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_removematch ( bus : alljoyn_busattachment , rule : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_busattachment_removematch(bus.into_param().abi(), rule.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1611,7 +1611,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_removesessionmember ( bus : alljoyn_busattachment , sessionid : u32 , membername : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_removesessionmember ( bus : alljoyn_busattachment , sessionid : u32 , membername : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_busattachment_removesessionmember(bus.into_param().abi(), sessionid, membername.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1621,7 +1621,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_requestname ( bus : alljoyn_busattachment , requestedname : :: windows::core::PCSTR , flags : u32 ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_requestname ( bus : alljoyn_busattachment , requestedname : ::windows::core::PCSTR , flags : u32 ) -> QStatus );
     alljoyn_busattachment_requestname(bus.into_param().abi(), requestedname.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1631,7 +1631,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_secureconnection ( bus : alljoyn_busattachment , name : :: windows::core::PCSTR , forceauth : i32 ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_secureconnection ( bus : alljoyn_busattachment , name : ::windows::core::PCSTR , forceauth : i32 ) -> QStatus );
     alljoyn_busattachment_secureconnection(bus.into_param().abi(), name.into_param().abi(), forceauth)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1641,7 +1641,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_secureconnectionasync ( bus : alljoyn_busattachment , name : :: windows::core::PCSTR , forceauth : i32 ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_secureconnectionasync ( bus : alljoyn_busattachment , name : ::windows::core::PCSTR , forceauth : i32 ) -> QStatus );
     alljoyn_busattachment_secureconnectionasync(bus.into_param().abi(), name.into_param().abi(), forceauth)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1651,7 +1651,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_setdaemondebug ( bus : alljoyn_busattachment , module : :: windows::core::PCSTR , level : u32 ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_setdaemondebug ( bus : alljoyn_busattachment , module : ::windows::core::PCSTR , level : u32 ) -> QStatus );
     alljoyn_busattachment_setdaemondebug(bus.into_param().abi(), module.into_param().abi(), level)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1661,7 +1661,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_setkeyexpiration ( bus : alljoyn_busattachment , guid : :: windows::core::PCSTR , timeout : u32 ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_setkeyexpiration ( bus : alljoyn_busattachment , guid : ::windows::core::PCSTR , timeout : u32 ) -> QStatus );
     alljoyn_busattachment_setkeyexpiration(bus.into_param().abi(), guid.into_param().abi(), timeout)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1784,7 +1784,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_unregistersignalhandler ( bus : alljoyn_busattachment , signal_handler : alljoyn_messagereceiver_signalhandler_ptr , member : alljoyn_interfacedescription_member , srcpath : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_unregistersignalhandler ( bus : alljoyn_busattachment , signal_handler : alljoyn_messagereceiver_signalhandler_ptr , member : alljoyn_interfacedescription_member , srcpath : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_busattachment_unregistersignalhandler(bus.into_param().abi(), signal_handler, ::core::mem::transmute(member), srcpath.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1794,7 +1794,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_unregistersignalhandlerwithrule ( bus : alljoyn_busattachment , signal_handler : alljoyn_messagereceiver_signalhandler_ptr , member : alljoyn_interfacedescription_member , matchrule : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_unregistersignalhandlerwithrule ( bus : alljoyn_busattachment , signal_handler : alljoyn_messagereceiver_signalhandler_ptr , member : alljoyn_interfacedescription_member , matchrule : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_busattachment_unregistersignalhandlerwithrule(bus.into_param().abi(), signal_handler, ::core::mem::transmute(member), matchrule.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1804,7 +1804,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busattachment>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_whoimplements_interface ( bus : alljoyn_busattachment , implementsinterface : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_whoimplements_interface ( bus : alljoyn_busattachment , implementsinterface : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_busattachment_whoimplements_interface(bus.into_param().abi(), implementsinterface.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1894,7 +1894,7 @@ pub unsafe fn alljoyn_busobject_create<P0>(path: P0, isplaceholder: i32, callbac
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busobject_create ( path : :: windows::core::PCSTR , isplaceholder : i32 , callbacks_in : *const alljoyn_busobject_callbacks , context_in : *const ::core::ffi::c_void ) -> alljoyn_busobject );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busobject_create ( path : ::windows::core::PCSTR , isplaceholder : i32 , callbacks_in : *const alljoyn_busobject_callbacks , context_in : *const ::core::ffi::c_void ) -> alljoyn_busobject );
     alljoyn_busobject_create(path.into_param().abi(), isplaceholder, callbacks_in, context_in)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1913,7 +1913,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busobject>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busobject_emitpropertieschanged ( bus : alljoyn_busobject , ifcname : :: windows::core::PCSTR , propnames : *const *const i8 , numprops : usize , id : u32 ) -> ( ) );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busobject_emitpropertieschanged ( bus : alljoyn_busobject , ifcname : ::windows::core::PCSTR , propnames : *const *const i8 , numprops : usize , id : u32 ) -> ( ) );
     alljoyn_busobject_emitpropertieschanged(bus.into_param().abi(), ifcname.into_param().abi(), propnames, numprops, id)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1925,7 +1925,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<alljoyn_msgarg>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busobject_emitpropertychanged ( bus : alljoyn_busobject , ifcname : :: windows::core::PCSTR , propname : :: windows::core::PCSTR , val : alljoyn_msgarg , id : u32 ) -> ( ) );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busobject_emitpropertychanged ( bus : alljoyn_busobject , ifcname : ::windows::core::PCSTR , propname : ::windows::core::PCSTR , val : alljoyn_msgarg , id : u32 ) -> ( ) );
     alljoyn_busobject_emitpropertychanged(bus.into_param().abi(), ifcname.into_param().abi(), propname.into_param().abi(), val.into_param().abi(), id)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1953,16 +1953,16 @@ where
     P0: ::windows::core::IntoParam<alljoyn_busobject>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busobject_getname ( bus : alljoyn_busobject , buffer : :: windows::core::PCSTR , buffersz : usize ) -> usize );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busobject_getname ( bus : alljoyn_busobject , buffer : ::windows::core::PCSTR , buffersz : usize ) -> usize );
     alljoyn_busobject_getname(bus.into_param().abi(), buffer.into_param().abi(), buffersz)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_busobject_getpath<P0>(bus: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_busobject_getpath<P0>(bus: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_busobject>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busobject_getpath ( bus : alljoyn_busobject ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busobject_getpath ( bus : alljoyn_busobject ) -> ::windows::core::PCSTR );
     alljoyn_busobject_getpath(bus.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1994,7 +1994,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busobject_methodreply_err ( bus : alljoyn_busobject , msg : alljoyn_message , error : :: windows::core::PCSTR , errormessage : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busobject_methodreply_err ( bus : alljoyn_busobject , msg : alljoyn_message , error : ::windows::core::PCSTR , errormessage : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_busobject_methodreply_err(bus.into_param().abi(), msg.into_param().abi(), error.into_param().abi(), errormessage.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2026,7 +2026,7 @@ where
     P2: ::windows::core::IntoParam<alljoyn_msgarg>,
     P3: ::windows::core::IntoParam<alljoyn_message>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busobject_signal ( bus : alljoyn_busobject , destination : :: windows::core::PCSTR , sessionid : u32 , signal : alljoyn_interfacedescription_member , args : alljoyn_msgarg , numargs : usize , timetolive : u16 , flags : u8 , msg : alljoyn_message ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_busobject_signal ( bus : alljoyn_busobject , destination : ::windows::core::PCSTR , sessionid : u32 , signal : alljoyn_interfacedescription_member , args : alljoyn_msgarg , numargs : usize , timetolive : u16 , flags : u8 , msg : alljoyn_message ) -> QStatus );
     alljoyn_busobject_signal(bus.into_param().abi(), destination.into_param().abi(), sessionid, ::core::mem::transmute(signal), args.into_param().abi(), numargs, timetolive, flags, msg.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2055,11 +2055,11 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_credentials_getcertchain<P0>(cred: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_credentials_getcertchain<P0>(cred: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_credentials>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_credentials_getcertchain ( cred : alljoyn_credentials ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_credentials_getcertchain ( cred : alljoyn_credentials ) -> ::windows::core::PCSTR );
     alljoyn_credentials_getcertchain(cred.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2073,38 +2073,38 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_credentials_getlogonentry<P0>(cred: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_credentials_getlogonentry<P0>(cred: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_credentials>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_credentials_getlogonentry ( cred : alljoyn_credentials ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_credentials_getlogonentry ( cred : alljoyn_credentials ) -> ::windows::core::PCSTR );
     alljoyn_credentials_getlogonentry(cred.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_credentials_getpassword<P0>(cred: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_credentials_getpassword<P0>(cred: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_credentials>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_credentials_getpassword ( cred : alljoyn_credentials ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_credentials_getpassword ( cred : alljoyn_credentials ) -> ::windows::core::PCSTR );
     alljoyn_credentials_getpassword(cred.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_credentials_getprivateKey<P0>(cred: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_credentials_getprivateKey<P0>(cred: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_credentials>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_credentials_getprivateKey ( cred : alljoyn_credentials ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_credentials_getprivateKey ( cred : alljoyn_credentials ) -> ::windows::core::PCSTR );
     alljoyn_credentials_getprivateKey(cred.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_credentials_getusername<P0>(cred: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_credentials_getusername<P0>(cred: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_credentials>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_credentials_getusername ( cred : alljoyn_credentials ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_credentials_getusername ( cred : alljoyn_credentials ) -> ::windows::core::PCSTR );
     alljoyn_credentials_getusername(cred.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2123,7 +2123,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_credentials>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_credentials_setcertchain ( cred : alljoyn_credentials , certchain : :: windows::core::PCSTR ) -> ( ) );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_credentials_setcertchain ( cred : alljoyn_credentials , certchain : ::windows::core::PCSTR ) -> ( ) );
     alljoyn_credentials_setcertchain(cred.into_param().abi(), certchain.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2142,7 +2142,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_credentials>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_credentials_setlogonentry ( cred : alljoyn_credentials , logonentry : :: windows::core::PCSTR ) -> ( ) );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_credentials_setlogonentry ( cred : alljoyn_credentials , logonentry : ::windows::core::PCSTR ) -> ( ) );
     alljoyn_credentials_setlogonentry(cred.into_param().abi(), logonentry.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2152,7 +2152,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_credentials>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_credentials_setpassword ( cred : alljoyn_credentials , pwd : :: windows::core::PCSTR ) -> ( ) );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_credentials_setpassword ( cred : alljoyn_credentials , pwd : ::windows::core::PCSTR ) -> ( ) );
     alljoyn_credentials_setpassword(cred.into_param().abi(), pwd.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2162,7 +2162,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_credentials>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_credentials_setprivatekey ( cred : alljoyn_credentials , pk : :: windows::core::PCSTR ) -> ( ) );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_credentials_setprivatekey ( cred : alljoyn_credentials , pk : ::windows::core::PCSTR ) -> ( ) );
     alljoyn_credentials_setprivatekey(cred.into_param().abi(), pk.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2172,13 +2172,13 @@ where
     P0: ::windows::core::IntoParam<alljoyn_credentials>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_credentials_setusername ( cred : alljoyn_credentials , username : :: windows::core::PCSTR ) -> ( ) );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_credentials_setusername ( cred : alljoyn_credentials , username : ::windows::core::PCSTR ) -> ( ) );
     alljoyn_credentials_setusername(cred.into_param().abi(), username.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_getbuildinfo() -> ::windows::core::PSTR {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_getbuildinfo ( ) -> :: windows::core::PSTR );
+pub unsafe fn alljoyn_getbuildinfo() -> ::windows::core::PCSTR {
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_getbuildinfo ( ) -> ::windows::core::PCSTR );
     alljoyn_getbuildinfo()
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2189,8 +2189,8 @@ pub unsafe fn alljoyn_getnumericversion() -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_getversion() -> ::windows::core::PSTR {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_getversion ( ) -> :: windows::core::PSTR );
+pub unsafe fn alljoyn_getversion() -> ::windows::core::PCSTR {
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_getversion ( ) -> ::windows::core::PCSTR );
     alljoyn_getversion()
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2216,7 +2216,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_addannotation ( iface : alljoyn_interfacedescription , name : :: windows::core::PCSTR , value : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_addannotation ( iface : alljoyn_interfacedescription , name : ::windows::core::PCSTR , value : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_interfacedescription_addannotation(iface.into_param().abi(), name.into_param().abi(), value.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2229,7 +2229,7 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P4: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_addargannotation ( iface : alljoyn_interfacedescription , member : :: windows::core::PCSTR , argname : :: windows::core::PCSTR , name : :: windows::core::PCSTR , value : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_addargannotation ( iface : alljoyn_interfacedescription , member : ::windows::core::PCSTR , argname : ::windows::core::PCSTR , name : ::windows::core::PCSTR , value : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_interfacedescription_addargannotation(iface.into_param().abi(), member.into_param().abi(), argname.into_param().abi(), name.into_param().abi(), value.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2242,7 +2242,7 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P4: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_addmember ( iface : alljoyn_interfacedescription , r#type : alljoyn_messagetype , name : :: windows::core::PCSTR , inputsig : :: windows::core::PCSTR , outsig : :: windows::core::PCSTR , argnames : :: windows::core::PCSTR , annotation : u8 ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_addmember ( iface : alljoyn_interfacedescription , r#type : alljoyn_messagetype , name : ::windows::core::PCSTR , inputsig : ::windows::core::PCSTR , outsig : ::windows::core::PCSTR , argnames : ::windows::core::PCSTR , annotation : u8 ) -> QStatus );
     alljoyn_interfacedescription_addmember(iface.into_param().abi(), r#type, name.into_param().abi(), inputsig.into_param().abi(), outsig.into_param().abi(), argnames.into_param().abi(), annotation)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2254,7 +2254,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_addmemberannotation ( iface : alljoyn_interfacedescription , member : :: windows::core::PCSTR , name : :: windows::core::PCSTR , value : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_addmemberannotation ( iface : alljoyn_interfacedescription , member : ::windows::core::PCSTR , name : ::windows::core::PCSTR , value : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_interfacedescription_addmemberannotation(iface.into_param().abi(), member.into_param().abi(), name.into_param().abi(), value.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2268,7 +2268,7 @@ where
     P4: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P5: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_addmethod ( iface : alljoyn_interfacedescription , name : :: windows::core::PCSTR , inputsig : :: windows::core::PCSTR , outsig : :: windows::core::PCSTR , argnames : :: windows::core::PCSTR , annotation : u8 , accessperms : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_addmethod ( iface : alljoyn_interfacedescription , name : ::windows::core::PCSTR , inputsig : ::windows::core::PCSTR , outsig : ::windows::core::PCSTR , argnames : ::windows::core::PCSTR , annotation : u8 , accessperms : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_interfacedescription_addmethod(iface.into_param().abi(), name.into_param().abi(), inputsig.into_param().abi(), outsig.into_param().abi(), argnames.into_param().abi(), annotation, accessperms.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2279,7 +2279,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_addproperty ( iface : alljoyn_interfacedescription , name : :: windows::core::PCSTR , signature : :: windows::core::PCSTR , access : u8 ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_addproperty ( iface : alljoyn_interfacedescription , name : ::windows::core::PCSTR , signature : ::windows::core::PCSTR , access : u8 ) -> QStatus );
     alljoyn_interfacedescription_addproperty(iface.into_param().abi(), name.into_param().abi(), signature.into_param().abi(), access)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2291,7 +2291,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_addpropertyannotation ( iface : alljoyn_interfacedescription , property : :: windows::core::PCSTR , name : :: windows::core::PCSTR , value : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_addpropertyannotation ( iface : alljoyn_interfacedescription , property : ::windows::core::PCSTR , name : ::windows::core::PCSTR , value : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_interfacedescription_addpropertyannotation(iface.into_param().abi(), property.into_param().abi(), name.into_param().abi(), value.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2304,7 +2304,7 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P4: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_addsignal ( iface : alljoyn_interfacedescription , name : :: windows::core::PCSTR , sig : :: windows::core::PCSTR , argnames : :: windows::core::PCSTR , annotation : u8 , accessperms : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_addsignal ( iface : alljoyn_interfacedescription , name : ::windows::core::PCSTR , sig : ::windows::core::PCSTR , argnames : ::windows::core::PCSTR , annotation : u8 , accessperms : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_interfacedescription_addsignal(iface.into_param().abi(), name.into_param().abi(), sig.into_param().abi(), argnames.into_param().abi(), annotation, accessperms.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2325,7 +2325,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getannotation ( iface : alljoyn_interfacedescription , name : :: windows::core::PCSTR , value : :: windows::core::PCSTR , value_size : *mut usize ) -> i32 );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getannotation ( iface : alljoyn_interfacedescription , name : ::windows::core::PCSTR , value : ::windows::core::PCSTR , value_size : *mut usize ) -> i32 );
     alljoyn_interfacedescription_getannotation(iface.into_param().abi(), name.into_param().abi(), value.into_param().abi(), value_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2336,7 +2336,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getannotationatindex ( iface : alljoyn_interfacedescription , index : usize , name : :: windows::core::PCSTR , name_size : *mut usize , value : :: windows::core::PCSTR , value_size : *mut usize ) -> ( ) );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getannotationatindex ( iface : alljoyn_interfacedescription , index : usize , name : ::windows::core::PCSTR , name_size : *mut usize , value : ::windows::core::PCSTR , value_size : *mut usize ) -> ( ) );
     alljoyn_interfacedescription_getannotationatindex(iface.into_param().abi(), index, name.into_param().abi(), name_size, value.into_param().abi(), value_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2358,7 +2358,7 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P4: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getargdescriptionforlanguage ( iface : alljoyn_interfacedescription , member : :: windows::core::PCSTR , arg : :: windows::core::PCSTR , description : :: windows::core::PCSTR , maxlanguagelength : usize , languagetag : :: windows::core::PCSTR ) -> usize );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getargdescriptionforlanguage ( iface : alljoyn_interfacedescription , member : ::windows::core::PCSTR , arg : ::windows::core::PCSTR , description : ::windows::core::PCSTR , maxlanguagelength : usize , languagetag : ::windows::core::PCSTR ) -> usize );
     alljoyn_interfacedescription_getargdescriptionforlanguage(iface.into_param().abi(), member.into_param().abi(), arg.into_param().abi(), description.into_param().abi(), maxlanguagelength, languagetag.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2369,7 +2369,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getdescriptionforlanguage ( iface : alljoyn_interfacedescription , description : :: windows::core::PCSTR , maxlanguagelength : usize , languagetag : :: windows::core::PCSTR ) -> usize );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getdescriptionforlanguage ( iface : alljoyn_interfacedescription , description : ::windows::core::PCSTR , maxlanguagelength : usize , languagetag : ::windows::core::PCSTR ) -> usize );
     alljoyn_interfacedescription_getdescriptionforlanguage(iface.into_param().abi(), description.into_param().abi(), maxlanguagelength, languagetag.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2388,7 +2388,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_interfacedescription>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getdescriptionlanguages2 ( iface : alljoyn_interfacedescription , languages : :: windows::core::PCSTR , languagessize : usize ) -> usize );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getdescriptionlanguages2 ( iface : alljoyn_interfacedescription , languages : ::windows::core::PCSTR , languagessize : usize ) -> usize );
     alljoyn_interfacedescription_getdescriptionlanguages2(iface.into_param().abi(), languages.into_param().abi(), languagessize)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2407,7 +2407,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_interfacedescription>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getmember ( iface : alljoyn_interfacedescription , name : :: windows::core::PCSTR , member : *mut alljoyn_interfacedescription_member ) -> i32 );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getmember ( iface : alljoyn_interfacedescription , name : ::windows::core::PCSTR , member : *mut alljoyn_interfacedescription_member ) -> i32 );
     alljoyn_interfacedescription_getmember(iface.into_param().abi(), name.into_param().abi(), member)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2419,7 +2419,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getmemberannotation ( iface : alljoyn_interfacedescription , member : :: windows::core::PCSTR , name : :: windows::core::PCSTR , value : :: windows::core::PCSTR , value_size : *mut usize ) -> i32 );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getmemberannotation ( iface : alljoyn_interfacedescription , member : ::windows::core::PCSTR , name : ::windows::core::PCSTR , value : ::windows::core::PCSTR , value_size : *mut usize ) -> i32 );
     alljoyn_interfacedescription_getmemberannotation(iface.into_param().abi(), member.into_param().abi(), name.into_param().abi(), value.into_param().abi(), value_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2432,7 +2432,7 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P4: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getmemberargannotation ( iface : alljoyn_interfacedescription , member : :: windows::core::PCSTR , argname : :: windows::core::PCSTR , name : :: windows::core::PCSTR , value : :: windows::core::PCSTR , value_size : *mut usize ) -> i32 );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getmemberargannotation ( iface : alljoyn_interfacedescription , member : ::windows::core::PCSTR , argname : ::windows::core::PCSTR , name : ::windows::core::PCSTR , value : ::windows::core::PCSTR , value_size : *mut usize ) -> i32 );
     alljoyn_interfacedescription_getmemberargannotation(iface.into_param().abi(), member.into_param().abi(), argname.into_param().abi(), name.into_param().abi(), value.into_param().abi(), value_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2444,7 +2444,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getmemberdescriptionforlanguage ( iface : alljoyn_interfacedescription , member : :: windows::core::PCSTR , description : :: windows::core::PCSTR , maxlanguagelength : usize , languagetag : :: windows::core::PCSTR ) -> usize );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getmemberdescriptionforlanguage ( iface : alljoyn_interfacedescription , member : ::windows::core::PCSTR , description : ::windows::core::PCSTR , maxlanguagelength : usize , languagetag : ::windows::core::PCSTR ) -> usize );
     alljoyn_interfacedescription_getmemberdescriptionforlanguage(iface.into_param().abi(), member.into_param().abi(), description.into_param().abi(), maxlanguagelength, languagetag.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2463,16 +2463,16 @@ where
     P0: ::windows::core::IntoParam<alljoyn_interfacedescription>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getmethod ( iface : alljoyn_interfacedescription , name : :: windows::core::PCSTR , member : *mut alljoyn_interfacedescription_member ) -> i32 );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getmethod ( iface : alljoyn_interfacedescription , name : ::windows::core::PCSTR , member : *mut alljoyn_interfacedescription_member ) -> i32 );
     alljoyn_interfacedescription_getmethod(iface.into_param().abi(), name.into_param().abi(), member)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getname<P0>(iface: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_interfacedescription_getname<P0>(iface: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_interfacedescription>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getname ( iface : alljoyn_interfacedescription ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getname ( iface : alljoyn_interfacedescription ) -> ::windows::core::PCSTR );
     alljoyn_interfacedescription_getname(iface.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2491,7 +2491,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_interfacedescription>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getproperty ( iface : alljoyn_interfacedescription , name : :: windows::core::PCSTR , property : *mut alljoyn_interfacedescription_property ) -> i32 );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getproperty ( iface : alljoyn_interfacedescription , name : ::windows::core::PCSTR , property : *mut alljoyn_interfacedescription_property ) -> i32 );
     alljoyn_interfacedescription_getproperty(iface.into_param().abi(), name.into_param().abi(), property)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2503,7 +2503,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getpropertyannotation ( iface : alljoyn_interfacedescription , property : :: windows::core::PCSTR , name : :: windows::core::PCSTR , value : :: windows::core::PCSTR , str_size : *mut usize ) -> i32 );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getpropertyannotation ( iface : alljoyn_interfacedescription , property : ::windows::core::PCSTR , name : ::windows::core::PCSTR , value : ::windows::core::PCSTR , str_size : *mut usize ) -> i32 );
     alljoyn_interfacedescription_getpropertyannotation(iface.into_param().abi(), property.into_param().abi(), name.into_param().abi(), value.into_param().abi(), str_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2515,7 +2515,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getpropertydescriptionforlanguage ( iface : alljoyn_interfacedescription , property : :: windows::core::PCSTR , description : :: windows::core::PCSTR , maxlanguagelength : usize , languagetag : :: windows::core::PCSTR ) -> usize );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getpropertydescriptionforlanguage ( iface : alljoyn_interfacedescription , property : ::windows::core::PCSTR , description : ::windows::core::PCSTR , maxlanguagelength : usize , languagetag : ::windows::core::PCSTR ) -> usize );
     alljoyn_interfacedescription_getpropertydescriptionforlanguage(iface.into_param().abi(), property.into_param().abi(), description.into_param().abi(), maxlanguagelength, languagetag.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2534,7 +2534,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_interfacedescription>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getsignal ( iface : alljoyn_interfacedescription , name : :: windows::core::PCSTR , member : *mut alljoyn_interfacedescription_member ) -> i32 );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getsignal ( iface : alljoyn_interfacedescription , name : ::windows::core::PCSTR , member : *mut alljoyn_interfacedescription_member ) -> i32 );
     alljoyn_interfacedescription_getsignal(iface.into_param().abi(), name.into_param().abi(), member)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2555,7 +2555,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_hasmember ( iface : alljoyn_interfacedescription , name : :: windows::core::PCSTR , insig : :: windows::core::PCSTR , outsig : :: windows::core::PCSTR ) -> i32 );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_hasmember ( iface : alljoyn_interfacedescription , name : ::windows::core::PCSTR , insig : ::windows::core::PCSTR , outsig : ::windows::core::PCSTR ) -> i32 );
     alljoyn_interfacedescription_hasmember(iface.into_param().abi(), name.into_param().abi(), insig.into_param().abi(), outsig.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2574,7 +2574,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_interfacedescription>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_hasproperty ( iface : alljoyn_interfacedescription , name : :: windows::core::PCSTR ) -> i32 );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_hasproperty ( iface : alljoyn_interfacedescription , name : ::windows::core::PCSTR ) -> i32 );
     alljoyn_interfacedescription_hasproperty(iface.into_param().abi(), name.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2584,7 +2584,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_interfacedescription>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_introspect ( iface : alljoyn_interfacedescription , str : :: windows::core::PCSTR , buf : usize , indent : usize ) -> usize );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_introspect ( iface : alljoyn_interfacedescription , str : ::windows::core::PCSTR , buf : usize , indent : usize ) -> usize );
     alljoyn_interfacedescription_introspect(iface.into_param().abi(), str.into_param().abi(), buf, indent)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2609,7 +2609,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_member_getannotation ( member : alljoyn_interfacedescription_member , name : :: windows::core::PCSTR , value : :: windows::core::PCSTR , value_size : *mut usize ) -> i32 );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_member_getannotation ( member : alljoyn_interfacedescription_member , name : ::windows::core::PCSTR , value : ::windows::core::PCSTR , value_size : *mut usize ) -> i32 );
     alljoyn_interfacedescription_member_getannotation(::core::mem::transmute(member), name.into_param().abi(), value.into_param().abi(), value_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2619,7 +2619,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_member_getannotationatindex ( member : alljoyn_interfacedescription_member , index : usize , name : :: windows::core::PCSTR , name_size : *mut usize , value : :: windows::core::PCSTR , value_size : *mut usize ) -> ( ) );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_member_getannotationatindex ( member : alljoyn_interfacedescription_member , index : usize , name : ::windows::core::PCSTR , name_size : *mut usize , value : ::windows::core::PCSTR , value_size : *mut usize ) -> ( ) );
     alljoyn_interfacedescription_member_getannotationatindex(::core::mem::transmute(member), index, name.into_param().abi(), name_size, value.into_param().abi(), value_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2636,7 +2636,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_member_getargannotation ( member : alljoyn_interfacedescription_member , argname : :: windows::core::PCSTR , name : :: windows::core::PCSTR , value : :: windows::core::PCSTR , value_size : *mut usize ) -> i32 );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_member_getargannotation ( member : alljoyn_interfacedescription_member , argname : ::windows::core::PCSTR , name : ::windows::core::PCSTR , value : ::windows::core::PCSTR , value_size : *mut usize ) -> i32 );
     alljoyn_interfacedescription_member_getargannotation(::core::mem::transmute(member), argname.into_param().abi(), name.into_param().abi(), value.into_param().abi(), value_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2647,7 +2647,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_member_getargannotationatindex ( member : alljoyn_interfacedescription_member , argname : :: windows::core::PCSTR , index : usize , name : :: windows::core::PCSTR , name_size : *mut usize , value : :: windows::core::PCSTR , value_size : *mut usize ) -> ( ) );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_member_getargannotationatindex ( member : alljoyn_interfacedescription_member , argname : ::windows::core::PCSTR , index : usize , name : ::windows::core::PCSTR , name_size : *mut usize , value : ::windows::core::PCSTR , value_size : *mut usize ) -> ( ) );
     alljoyn_interfacedescription_member_getargannotationatindex(::core::mem::transmute(member), argname.into_param().abi(), index, name.into_param().abi(), name_size, value.into_param().abi(), value_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2656,7 +2656,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getargannotationscount<P0>(mem
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_member_getargannotationscount ( member : alljoyn_interfacedescription_member , argname : :: windows::core::PCSTR ) -> usize );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_member_getargannotationscount ( member : alljoyn_interfacedescription_member , argname : ::windows::core::PCSTR ) -> usize );
     alljoyn_interfacedescription_member_getargannotationscount(::core::mem::transmute(member), argname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2672,7 +2672,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_property_getannotation ( property : alljoyn_interfacedescription_property , name : :: windows::core::PCSTR , value : :: windows::core::PCSTR , value_size : *mut usize ) -> i32 );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_property_getannotation ( property : alljoyn_interfacedescription_property , name : ::windows::core::PCSTR , value : ::windows::core::PCSTR , value_size : *mut usize ) -> i32 );
     alljoyn_interfacedescription_property_getannotation(::core::mem::transmute(property), name.into_param().abi(), value.into_param().abi(), value_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2682,7 +2682,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_property_getannotationatindex ( property : alljoyn_interfacedescription_property , index : usize , name : :: windows::core::PCSTR , name_size : *mut usize , value : :: windows::core::PCSTR , value_size : *mut usize ) -> ( ) );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_property_getannotationatindex ( property : alljoyn_interfacedescription_property , index : usize , name : ::windows::core::PCSTR , name_size : *mut usize , value : ::windows::core::PCSTR , value_size : *mut usize ) -> ( ) );
     alljoyn_interfacedescription_property_getannotationatindex(::core::mem::transmute(property), index, name.into_param().abi(), name_size, value.into_param().abi(), value_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2700,7 +2700,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_setargdescription ( iface : alljoyn_interfacedescription , member : :: windows::core::PCSTR , argname : :: windows::core::PCSTR , description : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_setargdescription ( iface : alljoyn_interfacedescription , member : ::windows::core::PCSTR , argname : ::windows::core::PCSTR , description : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_interfacedescription_setargdescription(iface.into_param().abi(), member.into_param().abi(), argname.into_param().abi(), description.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2713,7 +2713,7 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P4: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_setargdescriptionforlanguage ( iface : alljoyn_interfacedescription , member : :: windows::core::PCSTR , arg : :: windows::core::PCSTR , description : :: windows::core::PCSTR , languagetag : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_setargdescriptionforlanguage ( iface : alljoyn_interfacedescription , member : ::windows::core::PCSTR , arg : ::windows::core::PCSTR , description : ::windows::core::PCSTR , languagetag : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_interfacedescription_setargdescriptionforlanguage(iface.into_param().abi(), member.into_param().abi(), arg.into_param().abi(), description.into_param().abi(), languagetag.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2723,7 +2723,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_interfacedescription>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_setdescription ( iface : alljoyn_interfacedescription , description : :: windows::core::PCSTR ) -> ( ) );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_setdescription ( iface : alljoyn_interfacedescription , description : ::windows::core::PCSTR ) -> ( ) );
     alljoyn_interfacedescription_setdescription(iface.into_param().abi(), description.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2734,7 +2734,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_setdescriptionforlanguage ( iface : alljoyn_interfacedescription , description : :: windows::core::PCSTR , languagetag : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_setdescriptionforlanguage ( iface : alljoyn_interfacedescription , description : ::windows::core::PCSTR , languagetag : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_interfacedescription_setdescriptionforlanguage(iface.into_param().abi(), description.into_param().abi(), languagetag.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2744,7 +2744,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_interfacedescription>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_setdescriptionlanguage ( iface : alljoyn_interfacedescription , language : :: windows::core::PCSTR ) -> ( ) );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_setdescriptionlanguage ( iface : alljoyn_interfacedescription , language : ::windows::core::PCSTR ) -> ( ) );
     alljoyn_interfacedescription_setdescriptionlanguage(iface.into_param().abi(), language.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2764,7 +2764,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_setmemberdescription ( iface : alljoyn_interfacedescription , member : :: windows::core::PCSTR , description : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_setmemberdescription ( iface : alljoyn_interfacedescription , member : ::windows::core::PCSTR , description : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_interfacedescription_setmemberdescription(iface.into_param().abi(), member.into_param().abi(), description.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2776,7 +2776,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_setmemberdescriptionforlanguage ( iface : alljoyn_interfacedescription , member : :: windows::core::PCSTR , description : :: windows::core::PCSTR , languagetag : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_setmemberdescriptionforlanguage ( iface : alljoyn_interfacedescription , member : ::windows::core::PCSTR , description : ::windows::core::PCSTR , languagetag : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_interfacedescription_setmemberdescriptionforlanguage(iface.into_param().abi(), member.into_param().abi(), description.into_param().abi(), languagetag.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2787,7 +2787,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_setpropertydescription ( iface : alljoyn_interfacedescription , name : :: windows::core::PCSTR , description : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_setpropertydescription ( iface : alljoyn_interfacedescription , name : ::windows::core::PCSTR , description : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_interfacedescription_setpropertydescription(iface.into_param().abi(), name.into_param().abi(), description.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2799,7 +2799,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_setpropertydescriptionforlanguage ( iface : alljoyn_interfacedescription , name : :: windows::core::PCSTR , description : :: windows::core::PCSTR , languagetag : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_setpropertydescriptionforlanguage ( iface : alljoyn_interfacedescription , name : ::windows::core::PCSTR , description : ::windows::core::PCSTR , languagetag : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_interfacedescription_setpropertydescriptionforlanguage(iface.into_param().abi(), name.into_param().abi(), description.into_param().abi(), languagetag.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2825,7 +2825,7 @@ where
     P1: ::windows::core::IntoParam<alljoyn_keystore>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_keystorelistener_getkeys ( listener : alljoyn_keystorelistener , keystore : alljoyn_keystore , sink : :: windows::core::PCSTR , sink_sz : *mut usize ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_keystorelistener_getkeys ( listener : alljoyn_keystorelistener , keystore : alljoyn_keystore , sink : ::windows::core::PCSTR , sink_sz : *mut usize ) -> QStatus );
     alljoyn_keystorelistener_getkeys(listener.into_param().abi(), keystore.into_param().abi(), sink.into_param().abi(), sink_sz)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2837,7 +2837,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_keystorelistener_putkeys ( listener : alljoyn_keystorelistener , keystore : alljoyn_keystore , source : :: windows::core::PCSTR , password : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_keystorelistener_putkeys ( listener : alljoyn_keystorelistener , keystore : alljoyn_keystore , source : ::windows::core::PCSTR , password : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_keystorelistener_putkeys(listener.into_param().abi(), keystore.into_param().abi(), source.into_param().abi(), password.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2862,7 +2862,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_message>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_message_description ( msg : alljoyn_message , str : :: windows::core::PCSTR , buf : usize ) -> usize );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_message_description ( msg : alljoyn_message , str : ::windows::core::PCSTR , buf : usize ) -> usize );
     alljoyn_message_description(msg.into_param().abi(), str.into_param().abi(), buf)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2904,11 +2904,11 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getauthmechanism<P0>(msg: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_message_getauthmechanism<P0>(msg: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_message>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_message_getauthmechanism ( msg : alljoyn_message ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_message_getauthmechanism ( msg : alljoyn_message ) -> ::windows::core::PCSTR );
     alljoyn_message_getauthmechanism(msg.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2931,21 +2931,21 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getdestination<P0>(msg: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_message_getdestination<P0>(msg: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_message>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_message_getdestination ( msg : alljoyn_message ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_message_getdestination ( msg : alljoyn_message ) -> ::windows::core::PCSTR );
     alljoyn_message_getdestination(msg.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_geterrorname<P0, P1>(msg: P0, errormessage: P1, errormessage_size: *mut usize) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_message_geterrorname<P0, P1>(msg: P0, errormessage: P1, errormessage_size: *mut usize) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_message>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_message_geterrorname ( msg : alljoyn_message , errormessage : :: windows::core::PCSTR , errormessage_size : *mut usize ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_message_geterrorname ( msg : alljoyn_message , errormessage : ::windows::core::PCSTR , errormessage_size : *mut usize ) -> ::windows::core::PCSTR );
     alljoyn_message_geterrorname(msg.into_param().abi(), errormessage.into_param().abi(), errormessage_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2959,38 +2959,38 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getinterface<P0>(msg: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_message_getinterface<P0>(msg: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_message>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_message_getinterface ( msg : alljoyn_message ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_message_getinterface ( msg : alljoyn_message ) -> ::windows::core::PCSTR );
     alljoyn_message_getinterface(msg.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getmembername<P0>(msg: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_message_getmembername<P0>(msg: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_message>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_message_getmembername ( msg : alljoyn_message ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_message_getmembername ( msg : alljoyn_message ) -> ::windows::core::PCSTR );
     alljoyn_message_getmembername(msg.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getobjectpath<P0>(msg: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_message_getobjectpath<P0>(msg: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_message>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_message_getobjectpath ( msg : alljoyn_message ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_message_getobjectpath ( msg : alljoyn_message ) -> ::windows::core::PCSTR );
     alljoyn_message_getobjectpath(msg.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getreceiveendpointname<P0>(msg: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_message_getreceiveendpointname<P0>(msg: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_message>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_message_getreceiveendpointname ( msg : alljoyn_message ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_message_getreceiveendpointname ( msg : alljoyn_message ) -> ::windows::core::PCSTR );
     alljoyn_message_getreceiveendpointname(msg.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3004,11 +3004,11 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getsender<P0>(msg: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_message_getsender<P0>(msg: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_message>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_message_getsender ( msg : alljoyn_message ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_message_getsender ( msg : alljoyn_message ) -> ::windows::core::PCSTR );
     alljoyn_message_getsender(msg.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3022,11 +3022,11 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_message_getsignature<P0>(msg: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_message_getsignature<P0>(msg: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_message>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_message_getsignature ( msg : alljoyn_message ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_message_getsignature ( msg : alljoyn_message ) -> ::windows::core::PCSTR );
     alljoyn_message_getsignature(msg.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3108,7 +3108,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_message>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""cdecl" fn alljoyn_message_parseargs ( msg : alljoyn_message , signature : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""cdecl" fn alljoyn_message_parseargs ( msg : alljoyn_message , signature : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_message_parseargs(msg.into_param().abi(), signature.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3124,7 +3124,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_message>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_message_tostring ( msg : alljoyn_message , str : :: windows::core::PCSTR , buf : usize ) -> usize );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_message_tostring ( msg : alljoyn_message , str : ::windows::core::PCSTR , buf : usize ) -> usize );
     alljoyn_message_tostring(msg.into_param().abi(), str.into_param().abi(), buf)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3149,7 +3149,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_msgarg>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""cdecl" fn alljoyn_msgarg_array_get ( args : alljoyn_msgarg , numargs : usize , signature : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""cdecl" fn alljoyn_msgarg_array_get ( args : alljoyn_msgarg , numargs : usize , signature : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_msgarg_array_get(args.into_param().abi(), numargs, signature.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3159,7 +3159,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_msgarg>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""cdecl" fn alljoyn_msgarg_array_set ( args : alljoyn_msgarg , numargs : *mut usize , signature : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""cdecl" fn alljoyn_msgarg_array_set ( args : alljoyn_msgarg , numargs : *mut usize , signature : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_msgarg_array_set(args.into_param().abi(), numargs, signature.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3169,7 +3169,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_msgarg>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""cdecl" fn alljoyn_msgarg_array_set_offset ( args : alljoyn_msgarg , argoffset : usize , numargs : *mut usize , signature : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""cdecl" fn alljoyn_msgarg_array_set_offset ( args : alljoyn_msgarg , argoffset : usize , numargs : *mut usize , signature : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_msgarg_array_set_offset(args.into_param().abi(), argoffset, numargs, signature.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3179,7 +3179,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_msgarg>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_array_signature ( values : alljoyn_msgarg , numvalues : usize , str : :: windows::core::PCSTR , buf : usize ) -> usize );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_array_signature ( values : alljoyn_msgarg , numvalues : usize , str : ::windows::core::PCSTR , buf : usize ) -> usize );
     alljoyn_msgarg_array_signature(values.into_param().abi(), numvalues, str.into_param().abi(), buf)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3189,7 +3189,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_msgarg>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_array_tostring ( args : alljoyn_msgarg , numargs : usize , str : :: windows::core::PCSTR , buf : usize , indent : usize ) -> usize );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_array_tostring ( args : alljoyn_msgarg , numargs : usize , str : ::windows::core::PCSTR , buf : usize , indent : usize ) -> usize );
     alljoyn_msgarg_array_tostring(args.into_param().abi(), numargs, str.into_param().abi(), buf, indent)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3232,7 +3232,7 @@ pub unsafe fn alljoyn_msgarg_create_and_set<P0>(signature: P0) -> alljoyn_msgarg
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""cdecl" fn alljoyn_msgarg_create_and_set ( signature : :: windows::core::PCSTR ) -> alljoyn_msgarg );
+    ::windows::imp::link ! ( "msajapi.dll""cdecl" fn alljoyn_msgarg_create_and_set ( signature : ::windows::core::PCSTR ) -> alljoyn_msgarg );
     alljoyn_msgarg_create_and_set(signature.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3261,7 +3261,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_msgarg>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""cdecl" fn alljoyn_msgarg_get ( arg : alljoyn_msgarg , signature : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""cdecl" fn alljoyn_msgarg_get ( arg : alljoyn_msgarg , signature : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_msgarg_get(arg.into_param().abi(), signature.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3275,11 +3275,11 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_array_elementsignature<P0>(arg: P0, index: usize) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_msgarg_get_array_elementsignature<P0>(arg: P0, index: usize) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_msgarg>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_array_elementsignature ( arg : alljoyn_msgarg , index : usize ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_array_elementsignature ( arg : alljoyn_msgarg , index : usize ) -> ::windows::core::PCSTR );
     alljoyn_msgarg_get_array_elementsignature(arg.into_param().abi(), index)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3497,7 +3497,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_msgarg>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_variant_array ( arg : alljoyn_msgarg , signature : :: windows::core::PCSTR , length : *mut usize , av : *mut alljoyn_msgarg ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_variant_array ( arg : alljoyn_msgarg , signature : ::windows::core::PCSTR , length : *mut usize , av : *mut alljoyn_msgarg ) -> QStatus );
     alljoyn_msgarg_get_variant_array(arg.into_param().abi(), signature.into_param().abi(), length, av)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3507,7 +3507,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_msgarg>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""cdecl" fn alljoyn_msgarg_getdictelement ( arg : alljoyn_msgarg , elemsig : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""cdecl" fn alljoyn_msgarg_getdictelement ( arg : alljoyn_msgarg , elemsig : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_msgarg_getdictelement(arg.into_param().abi(), elemsig.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3562,7 +3562,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_msgarg>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_hassignature ( arg : alljoyn_msgarg , signature : :: windows::core::PCSTR ) -> i32 );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_hassignature ( arg : alljoyn_msgarg , signature : ::windows::core::PCSTR ) -> i32 );
     alljoyn_msgarg_hassignature(arg.into_param().abi(), signature.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3572,7 +3572,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_msgarg>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""cdecl" fn alljoyn_msgarg_set ( arg : alljoyn_msgarg , signature : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""cdecl" fn alljoyn_msgarg_set ( arg : alljoyn_msgarg , signature : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_msgarg_set(arg.into_param().abi(), signature.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3582,7 +3582,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_msgarg>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""cdecl" fn alljoyn_msgarg_set_and_stabilize ( arg : alljoyn_msgarg , signature : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""cdecl" fn alljoyn_msgarg_set_and_stabilize ( arg : alljoyn_msgarg , signature : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_msgarg_set_and_stabilize(arg.into_param().abi(), signature.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3682,7 +3682,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_msgarg>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_set_objectpath ( arg : alljoyn_msgarg , o : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_set_objectpath ( arg : alljoyn_msgarg , o : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_msgarg_set_objectpath(arg.into_param().abi(), o.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3701,7 +3701,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_msgarg>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_set_signature ( arg : alljoyn_msgarg , g : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_set_signature ( arg : alljoyn_msgarg , g : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_msgarg_set_signature(arg.into_param().abi(), g.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3720,7 +3720,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_msgarg>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_set_string ( arg : alljoyn_msgarg , s : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_set_string ( arg : alljoyn_msgarg , s : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_msgarg_set_string(arg.into_param().abi(), s.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3832,7 +3832,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_msgarg>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_signature ( arg : alljoyn_msgarg , str : :: windows::core::PCSTR , buf : usize ) -> usize );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_signature ( arg : alljoyn_msgarg , str : ::windows::core::PCSTR , buf : usize ) -> usize );
     alljoyn_msgarg_signature(arg.into_param().abi(), str.into_param().abi(), buf)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3851,7 +3851,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_msgarg>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_tostring ( arg : alljoyn_msgarg , str : :: windows::core::PCSTR , buf : usize , indent : usize ) -> usize );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_tostring ( arg : alljoyn_msgarg , str : ::windows::core::PCSTR , buf : usize , indent : usize ) -> usize );
     alljoyn_msgarg_tostring(arg.into_param().abi(), str.into_param().abi(), buf, indent)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3880,7 +3880,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_observer_get ( observer : alljoyn_observer , uniquebusname : :: windows::core::PCSTR , objectpath : :: windows::core::PCSTR ) -> alljoyn_proxybusobject_ref );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_observer_get ( observer : alljoyn_observer , uniquebusname : ::windows::core::PCSTR , objectpath : ::windows::core::PCSTR ) -> alljoyn_proxybusobject_ref );
     alljoyn_observer_get(observer.into_param().abi(), uniquebusname.into_param().abi(), objectpath.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -3953,7 +3953,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_passwordmanager_setcredentials ( authmechanism : :: windows::core::PCSTR , password : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_passwordmanager_setcredentials ( authmechanism : ::windows::core::PCSTR , password : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_passwordmanager_setcredentials(authmechanism.into_param().abi(), password.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4286,7 +4286,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_proxybusobject>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_addinterface_by_name ( proxyobj : alljoyn_proxybusobject , name : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_addinterface_by_name ( proxyobj : alljoyn_proxybusobject , name : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_proxybusobject_addinterface_by_name(proxyobj.into_param().abi(), name.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4306,7 +4306,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_create ( bus : alljoyn_busattachment , service : :: windows::core::PCSTR , path : :: windows::core::PCSTR , sessionid : u32 ) -> alljoyn_proxybusobject );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_create ( bus : alljoyn_busattachment , service : ::windows::core::PCSTR , path : ::windows::core::PCSTR , sessionid : u32 ) -> alljoyn_proxybusobject );
     alljoyn_proxybusobject_create(bus.into_param().abi(), service.into_param().abi(), path.into_param().abi(), sessionid)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4317,7 +4317,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_create_secure ( bus : alljoyn_busattachment , service : :: windows::core::PCSTR , path : :: windows::core::PCSTR , sessionid : u32 ) -> alljoyn_proxybusobject );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_create_secure ( bus : alljoyn_busattachment , service : ::windows::core::PCSTR , path : ::windows::core::PCSTR , sessionid : u32 ) -> alljoyn_proxybusobject );
     alljoyn_proxybusobject_create_secure(bus.into_param().abi(), service.into_param().abi(), path.into_param().abi(), sessionid)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4346,7 +4346,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<alljoyn_msgarg>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getallproperties ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , values : alljoyn_msgarg ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getallproperties ( proxyobj : alljoyn_proxybusobject , iface : ::windows::core::PCSTR , values : alljoyn_msgarg ) -> QStatus );
     alljoyn_proxybusobject_getallproperties(proxyobj.into_param().abi(), iface.into_param().abi(), values.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4356,7 +4356,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_proxybusobject>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getallpropertiesasync ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , callback : alljoyn_proxybusobject_listener_getallpropertiescb_ptr , timeout : u32 , context : *mut ::core::ffi::c_void ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getallpropertiesasync ( proxyobj : alljoyn_proxybusobject , iface : ::windows::core::PCSTR , callback : alljoyn_proxybusobject_listener_getallpropertiescb_ptr , timeout : u32 , context : *mut ::core::ffi::c_void ) -> QStatus );
     alljoyn_proxybusobject_getallpropertiesasync(proxyobj.into_param().abi(), iface.into_param().abi(), callback, timeout, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4366,7 +4366,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_proxybusobject>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getchild ( proxyobj : alljoyn_proxybusobject , path : :: windows::core::PCSTR ) -> alljoyn_proxybusobject );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getchild ( proxyobj : alljoyn_proxybusobject , path : ::windows::core::PCSTR ) -> alljoyn_proxybusobject );
     alljoyn_proxybusobject_getchild(proxyobj.into_param().abi(), path.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4385,7 +4385,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_proxybusobject>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getinterface ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR ) -> alljoyn_interfacedescription );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getinterface ( proxyobj : alljoyn_proxybusobject , iface : ::windows::core::PCSTR ) -> alljoyn_interfacedescription );
     alljoyn_proxybusobject_getinterface(proxyobj.into_param().abi(), iface.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4399,11 +4399,11 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_getpath<P0>(proxyobj: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_proxybusobject_getpath<P0>(proxyobj: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_proxybusobject>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getpath ( proxyobj : alljoyn_proxybusobject ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getpath ( proxyobj : alljoyn_proxybusobject ) -> ::windows::core::PCSTR );
     alljoyn_proxybusobject_getpath(proxyobj.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4415,7 +4415,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<alljoyn_msgarg>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getproperty ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , property : :: windows::core::PCSTR , value : alljoyn_msgarg ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getproperty ( proxyobj : alljoyn_proxybusobject , iface : ::windows::core::PCSTR , property : ::windows::core::PCSTR , value : alljoyn_msgarg ) -> QStatus );
     alljoyn_proxybusobject_getproperty(proxyobj.into_param().abi(), iface.into_param().abi(), property.into_param().abi(), value.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4426,16 +4426,16 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getpropertyasync ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , property : :: windows::core::PCSTR , callback : alljoyn_proxybusobject_listener_getpropertycb_ptr , timeout : u32 , context : *mut ::core::ffi::c_void ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getpropertyasync ( proxyobj : alljoyn_proxybusobject , iface : ::windows::core::PCSTR , property : ::windows::core::PCSTR , callback : alljoyn_proxybusobject_listener_getpropertycb_ptr , timeout : u32 , context : *mut ::core::ffi::c_void ) -> QStatus );
     alljoyn_proxybusobject_getpropertyasync(proxyobj.into_param().abi(), iface.into_param().abi(), property.into_param().abi(), callback, timeout, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_getservicename<P0>(proxyobj: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_proxybusobject_getservicename<P0>(proxyobj: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_proxybusobject>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getservicename ( proxyobj : alljoyn_proxybusobject ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getservicename ( proxyobj : alljoyn_proxybusobject ) -> ::windows::core::PCSTR );
     alljoyn_proxybusobject_getservicename(proxyobj.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4449,11 +4449,11 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_getuniquename<P0>(proxyobj: P0) -> ::windows::core::PSTR
+pub unsafe fn alljoyn_proxybusobject_getuniquename<P0>(proxyobj: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<alljoyn_proxybusobject>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getuniquename ( proxyobj : alljoyn_proxybusobject ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getuniquename ( proxyobj : alljoyn_proxybusobject ) -> ::windows::core::PCSTR );
     alljoyn_proxybusobject_getuniquename(proxyobj.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4463,7 +4463,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_proxybusobject>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_implementsinterface ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR ) -> i32 );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_implementsinterface ( proxyobj : alljoyn_proxybusobject , iface : ::windows::core::PCSTR ) -> i32 );
     alljoyn_proxybusobject_implementsinterface(proxyobj.into_param().abi(), iface.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4512,7 +4512,7 @@ where
     P3: ::windows::core::IntoParam<alljoyn_msgarg>,
     P4: ::windows::core::IntoParam<alljoyn_message>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_methodcall ( proxyobj : alljoyn_proxybusobject , ifacename : :: windows::core::PCSTR , methodname : :: windows::core::PCSTR , args : alljoyn_msgarg , numargs : usize , replymsg : alljoyn_message , timeout : u32 , flags : u8 ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_methodcall ( proxyobj : alljoyn_proxybusobject , ifacename : ::windows::core::PCSTR , methodname : ::windows::core::PCSTR , args : alljoyn_msgarg , numargs : usize , replymsg : alljoyn_message , timeout : u32 , flags : u8 ) -> QStatus );
     alljoyn_proxybusobject_methodcall(proxyobj.into_param().abi(), ifacename.into_param().abi(), methodname.into_param().abi(), args.into_param().abi(), numargs, replymsg.into_param().abi(), timeout, flags)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4545,7 +4545,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<alljoyn_msgarg>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_methodcall_noreply ( proxyobj : alljoyn_proxybusobject , ifacename : :: windows::core::PCSTR , methodname : :: windows::core::PCSTR , args : alljoyn_msgarg , numargs : usize , flags : u8 ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_methodcall_noreply ( proxyobj : alljoyn_proxybusobject , ifacename : ::windows::core::PCSTR , methodname : ::windows::core::PCSTR , args : alljoyn_msgarg , numargs : usize , flags : u8 ) -> QStatus );
     alljoyn_proxybusobject_methodcall_noreply(proxyobj.into_param().abi(), ifacename.into_param().abi(), methodname.into_param().abi(), args.into_param().abi(), numargs, flags)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4557,7 +4557,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<alljoyn_msgarg>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_methodcallasync ( proxyobj : alljoyn_proxybusobject , ifacename : :: windows::core::PCSTR , methodname : :: windows::core::PCSTR , replyfunc : alljoyn_messagereceiver_replyhandler_ptr , args : alljoyn_msgarg , numargs : usize , context : *mut ::core::ffi::c_void , timeout : u32 , flags : u8 ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_methodcallasync ( proxyobj : alljoyn_proxybusobject , ifacename : ::windows::core::PCSTR , methodname : ::windows::core::PCSTR , replyfunc : alljoyn_messagereceiver_replyhandler_ptr , args : alljoyn_msgarg , numargs : usize , context : *mut ::core::ffi::c_void , timeout : u32 , flags : u8 ) -> QStatus );
     alljoyn_proxybusobject_methodcallasync(proxyobj.into_param().abi(), ifacename.into_param().abi(), methodname.into_param().abi(), replyfunc, args.into_param().abi(), numargs, context, timeout, flags)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4578,7 +4578,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_parsexml ( proxyobj : alljoyn_proxybusobject , xml : :: windows::core::PCSTR , identifier : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_parsexml ( proxyobj : alljoyn_proxybusobject , xml : ::windows::core::PCSTR , identifier : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_proxybusobject_parsexml(proxyobj.into_param().abi(), xml.into_param().abi(), identifier.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4624,7 +4624,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_proxybusobject>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_registerpropertieschangedlistener ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , properties : *const *const i8 , numproperties : usize , callback : alljoyn_proxybusobject_listener_propertieschanged_ptr , context : *mut ::core::ffi::c_void ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_registerpropertieschangedlistener ( proxyobj : alljoyn_proxybusobject , iface : ::windows::core::PCSTR , properties : *const *const i8 , numproperties : usize , callback : alljoyn_proxybusobject_listener_propertieschanged_ptr , context : *mut ::core::ffi::c_void ) -> QStatus );
     alljoyn_proxybusobject_registerpropertieschangedlistener(proxyobj.into_param().abi(), iface.into_param().abi(), properties, numproperties, callback, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4634,7 +4634,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_proxybusobject>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_removechild ( proxyobj : alljoyn_proxybusobject , path : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_removechild ( proxyobj : alljoyn_proxybusobject , path : ::windows::core::PCSTR ) -> QStatus );
     alljoyn_proxybusobject_removechild(proxyobj.into_param().abi(), path.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4664,7 +4664,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<alljoyn_msgarg>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_setproperty ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , property : :: windows::core::PCSTR , value : alljoyn_msgarg ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_setproperty ( proxyobj : alljoyn_proxybusobject , iface : ::windows::core::PCSTR , property : ::windows::core::PCSTR , value : alljoyn_msgarg ) -> QStatus );
     alljoyn_proxybusobject_setproperty(proxyobj.into_param().abi(), iface.into_param().abi(), property.into_param().abi(), value.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4676,7 +4676,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<alljoyn_msgarg>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_setpropertyasync ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , property : :: windows::core::PCSTR , value : alljoyn_msgarg , callback : alljoyn_proxybusobject_listener_setpropertycb_ptr , timeout : u32 , context : *mut ::core::ffi::c_void ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_setpropertyasync ( proxyobj : alljoyn_proxybusobject , iface : ::windows::core::PCSTR , property : ::windows::core::PCSTR , value : alljoyn_msgarg , callback : alljoyn_proxybusobject_listener_setpropertycb_ptr , timeout : u32 , context : *mut ::core::ffi::c_void ) -> QStatus );
     alljoyn_proxybusobject_setpropertyasync(proxyobj.into_param().abi(), iface.into_param().abi(), property.into_param().abi(), value.into_param().abi(), callback, timeout, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4686,7 +4686,7 @@ where
     P0: ::windows::core::IntoParam<alljoyn_proxybusobject>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_unregisterpropertieschangedlistener ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , callback : alljoyn_proxybusobject_listener_propertieschanged_ptr ) -> QStatus );
+    ::windows::imp::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_unregisterpropertieschangedlistener ( proxyobj : alljoyn_proxybusobject , iface : ::windows::core::PCSTR , callback : alljoyn_proxybusobject_listener_propertieschanged_ptr ) -> QStatus );
     alljoyn_proxybusobject_unregisterpropertieschangedlistener(proxyobj.into_param().abi(), iface.into_param().abi(), callback)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -5118,7 +5118,7 @@ pub const ALLJOYN_MESSAGE_FLAG_NO_REPLY_EXPECTED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub const ALLJOYN_MESSAGE_FLAG_SESSIONLESS: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
-pub const ALLJOYN_NAMED_PIPE_CONNECT_SPEC: ::windows::core::PCWSTR = ::windows::w!("npipe:");
+pub const ALLJOYN_NAMED_PIPE_CONNECT_SPEC: ::windows::core::PCWSTR = ::windows::core::w!("npipe:");
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub const ALLJOYN_PROP_ACCESS_READ: u8 = 1u8;
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -7506,7 +7506,7 @@ pub type alljoyn_busobject_prop_get_ptr = ::core::option::Option<unsafe extern "
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub type alljoyn_busobject_prop_set_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, ifcname: ::windows::core::PCSTR, propname: ::windows::core::PCSTR, val: alljoyn_msgarg) -> QStatus>;
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
-pub type alljoyn_interfacedescription_translation_callback_ptr = ::core::option::Option<unsafe extern "system" fn(sourcelanguage: ::windows::core::PCSTR, targetlanguage: ::windows::core::PCSTR, sourcetext: ::windows::core::PCSTR) -> ::windows::core::PSTR>;
+pub type alljoyn_interfacedescription_translation_callback_ptr = ::core::option::Option<unsafe extern "system" fn(sourcelanguage: ::windows::core::PCSTR, targetlanguage: ::windows::core::PCSTR, sourcetext: ::windows::core::PCSTR) -> ::windows::core::PCSTR>;
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub type alljoyn_keystorelistener_acquireexclusivelock_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_keystorelistener) -> QStatus>;
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]

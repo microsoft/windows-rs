@@ -24,19 +24,19 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "sensorsutilsv2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`*"] fn GetPerformanceTime ( timems : *mut u32 ) -> super::super::Foundation:: NTSTATUS );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-::windows_sys::core::link ! ( "sensorsutilsv2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"] fn InitPropVariantFromCLSIDArray ( members : *const :: windows_sys::core::GUID , size : u32 , ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "sensorsutilsv2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"] fn InitPropVariantFromCLSIDArray ( members : *const ::windows_sys::core::GUID , size : u32 , ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-::windows_sys::core::link ! ( "sensorsutilsv2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"] fn InitPropVariantFromFloat ( fltval : f32 , ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "sensorsutilsv2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"] fn InitPropVariantFromFloat ( fltval : f32 , ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 ::windows_sys::core::link ! ( "sensorsutilsv2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"] fn IsCollectionListSame ( lista : *const SENSOR_COLLECTION_LIST , listb : *const SENSOR_COLLECTION_LIST ) -> super::super::Foundation:: BOOLEAN );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "sensorsutilsv2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`*"] fn IsGUIDPresentInList ( guidarray : *const :: windows_sys::core::GUID , arraylength : u32 , guidelem : *const :: windows_sys::core::GUID ) -> super::super::Foundation:: BOOLEAN );
+::windows_sys::core::link ! ( "sensorsutilsv2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`*"] fn IsGUIDPresentInList ( guidarray : *const ::windows_sys::core::GUID , arraylength : u32 , guidelem : *const ::windows_sys::core::GUID ) -> super::super::Foundation:: BOOLEAN );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 ::windows_sys::core::link ! ( "sensorsutilsv2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"] fn IsKeyPresentInCollectionList ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY ) -> super::super::Foundation:: BOOLEAN );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 ::windows_sys::core::link ! ( "sensorsutilsv2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"] fn IsKeyPresentInPropertyList ( plist : *const SENSOR_PROPERTY_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY ) -> super::super::Foundation:: BOOLEAN );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-::windows_sys::core::link ! ( "sensorsutilsv2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"] fn IsSensorSubscribed ( subscriptionlist : *const SENSOR_COLLECTION_LIST , currenttype : :: windows_sys::core::GUID ) -> super::super::Foundation:: BOOLEAN );
+::windows_sys::core::link ! ( "sensorsutilsv2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"] fn IsSensorSubscribed ( subscriptionlist : *const SENSOR_COLLECTION_LIST , currenttype : ::windows_sys::core::GUID ) -> super::super::Foundation:: BOOLEAN );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 ::windows_sys::core::link ! ( "sensorsutilsv2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"] fn PropKeyFindKeyGetBool ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: NTSTATUS );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -46,7 +46,7 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 ::windows_sys::core::link ! ( "sensorsutilsv2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"] fn PropKeyFindKeyGetFloat ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut f32 ) -> super::super::Foundation:: NTSTATUS );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-::windows_sys::core::link ! ( "sensorsutilsv2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"] fn PropKeyFindKeyGetGuid ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut :: windows_sys::core::GUID ) -> super::super::Foundation:: NTSTATUS );
+::windows_sys::core::link ! ( "sensorsutilsv2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"] fn PropKeyFindKeyGetGuid ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut ::windows_sys::core::GUID ) -> super::super::Foundation:: NTSTATUS );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 ::windows_sys::core::link ! ( "sensorsutilsv2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"] fn PropKeyFindKeyGetInt32 ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut i32 ) -> super::super::Foundation:: NTSTATUS );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -921,6 +921,14 @@ pub const PedometerStepType_Force_Dword: PEDOMETER_STEP_TYPE = -1i32;
 pub type PEDOMETER_STEP_TYPE_COUNT = i32;
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub const PedometerStepTypeCount: PEDOMETER_STEP_TYPE_COUNT = 3i32;
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub type PROXIMITY_SENSOR_CAPABILITIES = i32;
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const Proximity_Sensor_Human_Presence_Capable: PROXIMITY_SENSOR_CAPABILITIES = 1i32;
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const Proximity_Sensor_Human_Engagement_Capable: PROXIMITY_SENSOR_CAPABILITIES = 2i32;
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const Proximity_Sensor_Supported_Capabilities: PROXIMITY_SENSOR_CAPABILITIES = 3i32;
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub type PROXIMITY_TYPE = i32;
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]

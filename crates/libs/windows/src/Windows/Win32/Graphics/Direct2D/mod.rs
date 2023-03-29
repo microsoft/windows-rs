@@ -21,7 +21,7 @@ pub unsafe fn D2D1CreateDevice<P0>(dxgidevice: P0, creationproperties: ::core::o
 where
     P0: ::windows::core::IntoParam<super::Dxgi::IDXGIDevice>,
 {
-    ::windows::imp::link ! ( "d2d1.dll""system" fn D2D1CreateDevice ( dxgidevice : * mut::core::ffi::c_void , creationproperties : *const D2D1_CREATION_PROPERTIES , d2ddevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d2d1.dll""system" fn D2D1CreateDevice ( dxgidevice : * mut::core::ffi::c_void , creationproperties : *const D2D1_CREATION_PROPERTIES , d2ddevice : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<ID2D1Device>();
     D2D1CreateDevice(dxgidevice.into_param().abi(), ::core::mem::transmute(creationproperties.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
@@ -32,7 +32,7 @@ pub unsafe fn D2D1CreateDeviceContext<P0>(dxgisurface: P0, creationproperties: :
 where
     P0: ::windows::core::IntoParam<super::Dxgi::IDXGISurface>,
 {
-    ::windows::imp::link ! ( "d2d1.dll""system" fn D2D1CreateDeviceContext ( dxgisurface : * mut::core::ffi::c_void , creationproperties : *const D2D1_CREATION_PROPERTIES , d2ddevicecontext : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d2d1.dll""system" fn D2D1CreateDeviceContext ( dxgisurface : * mut::core::ffi::c_void , creationproperties : *const D2D1_CREATION_PROPERTIES , d2ddevicecontext : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<ID2D1DeviceContext>();
     D2D1CreateDeviceContext(dxgisurface.into_param().abi(), ::core::mem::transmute(creationproperties.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
@@ -42,7 +42,7 @@ pub unsafe fn D2D1CreateFactory<T>(factorytype: D2D1_FACTORY_TYPE, pfactoryoptio
 where
     T: ::windows::core::ComInterface,
 {
-    ::windows::imp::link ! ( "d2d1.dll""system" fn D2D1CreateFactory ( factorytype : D2D1_FACTORY_TYPE , riid : *const :: windows::core::GUID , pfactoryoptions : *const D2D1_FACTORY_OPTIONS , ppifactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d2d1.dll""system" fn D2D1CreateFactory ( factorytype : D2D1_FACTORY_TYPE , riid : *const ::windows::core::GUID , pfactoryoptions : *const D2D1_FACTORY_OPTIONS , ppifactory : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     D2D1CreateFactory(factorytype, &<T as ::windows::core::ComInterface>::IID, ::core::mem::transmute(pfactoryoptions.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }

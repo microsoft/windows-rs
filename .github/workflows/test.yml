@@ -61,6 +61,8 @@ jobs:
           cargo test --target ${{ matrix.target }} -p sample_message_box_sys &&
           cargo test --target ${{ matrix.target }} -p sample_ocr &&
           cargo test --target ${{ matrix.target }} -p sample_overlapped &&
+          cargo test --target ${{ matrix.target }} -p sample_privileges &&
+          cargo test --target ${{ matrix.target }} -p sample_privileges_sys &&
           cargo test --target ${{ matrix.target }} -p sample_rss &&
           cargo test --target ${{ matrix.target }} -p sample_simple &&
           cargo test --target ${{ matrix.target }} -p sample_spellchecker &&
@@ -83,6 +85,7 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_component &&
           cargo test --target ${{ matrix.target }} -p test_component_client &&
           cargo test --target ${{ matrix.target }} -p test_const_fields &&
+          cargo test --target ${{ matrix.target }} -p test_const_params &&
           cargo test --target ${{ matrix.target }} -p test_const_ptrs &&
           cargo test --target ${{ matrix.target }} -p test_core &&
           cargo test --target ${{ matrix.target }} -p test_debug &&
@@ -91,9 +94,9 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_dispatch &&
           cargo test --target ${{ matrix.target }} -p test_does_not_return &&
           cargo test --target ${{ matrix.target }} -p test_enums &&
+          cargo clean &&
           cargo test --target ${{ matrix.target }} -p test_error &&
           cargo test --target ${{ matrix.target }} -p test_event &&
-          cargo clean &&
           cargo test --target ${{ matrix.target }} -p test_extensions &&
           cargo test --target ${{ matrix.target }} -p test_handles &&
           cargo test --target ${{ matrix.target }} -p test_helpers &&
@@ -113,8 +116,8 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_reserved &&
           cargo test --target ${{ matrix.target }} -p test_resources &&
           cargo test --target ${{ matrix.target }} -p test_return_struct &&
-          cargo test --target ${{ matrix.target }} -p test_riddle &&
           cargo test --target ${{ matrix.target }} -p test_simple_component &&
+          cargo test --target ${{ matrix.target }} -p test_standalone &&
           cargo test --target ${{ matrix.target }} -p test_string_param &&
           cargo test --target ${{ matrix.target }} -p test_structs &&
           cargo test --target ${{ matrix.target }} -p test_sys &&

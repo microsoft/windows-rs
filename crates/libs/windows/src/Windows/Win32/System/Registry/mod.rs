@@ -9,7 +9,7 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P4: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "api-ms-win-core-state-helpers-l1-1-0.dll""system" fn GetRegistryValueWithFallbackW ( hkeyprimary : HKEY , pwszprimarysubkey : :: windows::core::PCWSTR , hkeyfallback : HKEY , pwszfallbacksubkey : :: windows::core::PCWSTR , pwszvalue : :: windows::core::PCWSTR , dwflags : u32 , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , cbdatain : u32 , pcbdataout : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-core-state-helpers-l1-1-0.dll""system" fn GetRegistryValueWithFallbackW ( hkeyprimary : HKEY , pwszprimarysubkey : ::windows::core::PCWSTR , hkeyfallback : HKEY , pwszfallbacksubkey : ::windows::core::PCWSTR , pwszvalue : ::windows::core::PCWSTR , dwflags : u32 , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , cbdatain : u32 , pcbdataout : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     GetRegistryValueWithFallbackW(hkeyprimary.into_param().abi(), pwszprimarysubkey.into_param().abi(), hkeyfallback.into_param().abi(), pwszfallbacksubkey.into_param().abi(), pwszvalue.into_param().abi(), dwflags, ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), cbdatain, ::core::mem::transmute(pcbdataout.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -30,7 +30,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<HKEY>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegConnectRegistryA ( lpmachinename : :: windows::core::PCSTR , hkey : HKEY , phkresult : *mut HKEY ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegConnectRegistryA ( lpmachinename : ::windows::core::PCSTR , hkey : HKEY , phkresult : *mut HKEY ) -> super::super::Foundation:: WIN32_ERROR );
     RegConnectRegistryA(lpmachinename.into_param().abi(), hkey.into_param().abi(), phkresult)
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
@@ -40,7 +40,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<HKEY>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegConnectRegistryExA ( lpmachinename : :: windows::core::PCSTR , hkey : HKEY , flags : u32 , phkresult : *mut HKEY ) -> i32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegConnectRegistryExA ( lpmachinename : ::windows::core::PCSTR , hkey : HKEY , flags : u32 , phkresult : *mut HKEY ) -> i32 );
     RegConnectRegistryExA(lpmachinename.into_param().abi(), hkey.into_param().abi(), flags, phkresult)
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
@@ -50,7 +50,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<HKEY>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegConnectRegistryExW ( lpmachinename : :: windows::core::PCWSTR , hkey : HKEY , flags : u32 , phkresult : *mut HKEY ) -> i32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegConnectRegistryExW ( lpmachinename : ::windows::core::PCWSTR , hkey : HKEY , flags : u32 , phkresult : *mut HKEY ) -> i32 );
     RegConnectRegistryExW(lpmachinename.into_param().abi(), hkey.into_param().abi(), flags, phkresult)
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -61,7 +61,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<HKEY>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegConnectRegistryW ( lpmachinename : :: windows::core::PCWSTR , hkey : HKEY , phkresult : *mut HKEY ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegConnectRegistryW ( lpmachinename : ::windows::core::PCWSTR , hkey : HKEY , phkresult : *mut HKEY ) -> super::super::Foundation:: WIN32_ERROR );
     RegConnectRegistryW(lpmachinename.into_param().abi(), hkey.into_param().abi(), phkresult)
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -73,7 +73,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<HKEY>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegCopyTreeA ( hkeysrc : HKEY , lpsubkey : :: windows::core::PCSTR , hkeydest : HKEY ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegCopyTreeA ( hkeysrc : HKEY , lpsubkey : ::windows::core::PCSTR , hkeydest : HKEY ) -> super::super::Foundation:: WIN32_ERROR );
     RegCopyTreeA(hkeysrc.into_param().abi(), lpsubkey.into_param().abi(), hkeydest.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -85,7 +85,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<HKEY>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegCopyTreeW ( hkeysrc : HKEY , lpsubkey : :: windows::core::PCWSTR , hkeydest : HKEY ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegCopyTreeW ( hkeysrc : HKEY , lpsubkey : ::windows::core::PCWSTR , hkeydest : HKEY ) -> super::super::Foundation:: WIN32_ERROR );
     RegCopyTreeW(hkeysrc.into_param().abi(), lpsubkey.into_param().abi(), hkeydest.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -96,7 +96,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegCreateKeyA ( hkey : HKEY , lpsubkey : :: windows::core::PCSTR , phkresult : *mut HKEY ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegCreateKeyA ( hkey : HKEY , lpsubkey : ::windows::core::PCSTR , phkresult : *mut HKEY ) -> super::super::Foundation:: WIN32_ERROR );
     RegCreateKeyA(hkey.into_param().abi(), lpsubkey.into_param().abi(), phkresult)
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -108,7 +108,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegCreateKeyExA ( hkey : HKEY , lpsubkey : :: windows::core::PCSTR , reserved : u32 , lpclass : :: windows::core::PCSTR , dwoptions : REG_OPEN_CREATE_OPTIONS , samdesired : REG_SAM_FLAGS , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , phkresult : *mut HKEY , lpdwdisposition : *mut REG_CREATE_KEY_DISPOSITION ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegCreateKeyExA ( hkey : HKEY , lpsubkey : ::windows::core::PCSTR , reserved : u32 , lpclass : ::windows::core::PCSTR , dwoptions : REG_OPEN_CREATE_OPTIONS , samdesired : REG_SAM_FLAGS , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , phkresult : *mut HKEY , lpdwdisposition : *mut REG_CREATE_KEY_DISPOSITION ) -> super::super::Foundation:: WIN32_ERROR );
     RegCreateKeyExA(hkey.into_param().abi(), lpsubkey.into_param().abi(), reserved, lpclass.into_param().abi(), dwoptions, samdesired, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), phkresult, ::core::mem::transmute(lpdwdisposition.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -120,7 +120,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegCreateKeyExW ( hkey : HKEY , lpsubkey : :: windows::core::PCWSTR , reserved : u32 , lpclass : :: windows::core::PCWSTR , dwoptions : REG_OPEN_CREATE_OPTIONS , samdesired : REG_SAM_FLAGS , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , phkresult : *mut HKEY , lpdwdisposition : *mut REG_CREATE_KEY_DISPOSITION ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegCreateKeyExW ( hkey : HKEY , lpsubkey : ::windows::core::PCWSTR , reserved : u32 , lpclass : ::windows::core::PCWSTR , dwoptions : REG_OPEN_CREATE_OPTIONS , samdesired : REG_SAM_FLAGS , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , phkresult : *mut HKEY , lpdwdisposition : *mut REG_CREATE_KEY_DISPOSITION ) -> super::super::Foundation:: WIN32_ERROR );
     RegCreateKeyExW(hkey.into_param().abi(), lpsubkey.into_param().abi(), reserved, lpclass.into_param().abi(), dwoptions, samdesired, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), phkresult, ::core::mem::transmute(lpdwdisposition.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -133,7 +133,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegCreateKeyTransactedA ( hkey : HKEY , lpsubkey : :: windows::core::PCSTR , reserved : u32 , lpclass : :: windows::core::PCSTR , dwoptions : REG_OPEN_CREATE_OPTIONS , samdesired : REG_SAM_FLAGS , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , phkresult : *mut HKEY , lpdwdisposition : *mut REG_CREATE_KEY_DISPOSITION , htransaction : super::super::Foundation:: HANDLE , pextendedparemeter : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegCreateKeyTransactedA ( hkey : HKEY , lpsubkey : ::windows::core::PCSTR , reserved : u32 , lpclass : ::windows::core::PCSTR , dwoptions : REG_OPEN_CREATE_OPTIONS , samdesired : REG_SAM_FLAGS , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , phkresult : *mut HKEY , lpdwdisposition : *mut REG_CREATE_KEY_DISPOSITION , htransaction : super::super::Foundation:: HANDLE , pextendedparemeter : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
     RegCreateKeyTransactedA(hkey.into_param().abi(), lpsubkey.into_param().abi(), reserved, lpclass.into_param().abi(), dwoptions, samdesired, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), phkresult, ::core::mem::transmute(lpdwdisposition.unwrap_or(::std::ptr::null_mut())), htransaction.into_param().abi(), ::core::mem::transmute(pextendedparemeter.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -146,7 +146,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegCreateKeyTransactedW ( hkey : HKEY , lpsubkey : :: windows::core::PCWSTR , reserved : u32 , lpclass : :: windows::core::PCWSTR , dwoptions : REG_OPEN_CREATE_OPTIONS , samdesired : REG_SAM_FLAGS , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , phkresult : *mut HKEY , lpdwdisposition : *mut REG_CREATE_KEY_DISPOSITION , htransaction : super::super::Foundation:: HANDLE , pextendedparemeter : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegCreateKeyTransactedW ( hkey : HKEY , lpsubkey : ::windows::core::PCWSTR , reserved : u32 , lpclass : ::windows::core::PCWSTR , dwoptions : REG_OPEN_CREATE_OPTIONS , samdesired : REG_SAM_FLAGS , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , phkresult : *mut HKEY , lpdwdisposition : *mut REG_CREATE_KEY_DISPOSITION , htransaction : super::super::Foundation:: HANDLE , pextendedparemeter : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
     RegCreateKeyTransactedW(hkey.into_param().abi(), lpsubkey.into_param().abi(), reserved, lpclass.into_param().abi(), dwoptions, samdesired, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), phkresult, ::core::mem::transmute(lpdwdisposition.unwrap_or(::std::ptr::null_mut())), htransaction.into_param().abi(), ::core::mem::transmute(pextendedparemeter.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -157,7 +157,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegCreateKeyW ( hkey : HKEY , lpsubkey : :: windows::core::PCWSTR , phkresult : *mut HKEY ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegCreateKeyW ( hkey : HKEY , lpsubkey : ::windows::core::PCWSTR , phkresult : *mut HKEY ) -> super::super::Foundation:: WIN32_ERROR );
     RegCreateKeyW(hkey.into_param().abi(), lpsubkey.into_param().abi(), phkresult)
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -168,7 +168,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteKeyA ( hkey : HKEY , lpsubkey : :: windows::core::PCSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteKeyA ( hkey : HKEY , lpsubkey : ::windows::core::PCSTR ) -> super::super::Foundation:: WIN32_ERROR );
     RegDeleteKeyA(hkey.into_param().abi(), lpsubkey.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -179,7 +179,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteKeyExA ( hkey : HKEY , lpsubkey : :: windows::core::PCSTR , samdesired : u32 , reserved : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteKeyExA ( hkey : HKEY , lpsubkey : ::windows::core::PCSTR , samdesired : u32 , reserved : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     RegDeleteKeyExA(hkey.into_param().abi(), lpsubkey.into_param().abi(), samdesired, reserved)
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -190,7 +190,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteKeyExW ( hkey : HKEY , lpsubkey : :: windows::core::PCWSTR , samdesired : u32 , reserved : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteKeyExW ( hkey : HKEY , lpsubkey : ::windows::core::PCWSTR , samdesired : u32 , reserved : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     RegDeleteKeyExW(hkey.into_param().abi(), lpsubkey.into_param().abi(), samdesired, reserved)
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -202,7 +202,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteKeyTransactedA ( hkey : HKEY , lpsubkey : :: windows::core::PCSTR , samdesired : u32 , reserved : u32 , htransaction : super::super::Foundation:: HANDLE , pextendedparameter : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteKeyTransactedA ( hkey : HKEY , lpsubkey : ::windows::core::PCSTR , samdesired : u32 , reserved : u32 , htransaction : super::super::Foundation:: HANDLE , pextendedparameter : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
     RegDeleteKeyTransactedA(hkey.into_param().abi(), lpsubkey.into_param().abi(), samdesired, reserved, htransaction.into_param().abi(), ::core::mem::transmute(pextendedparameter.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -214,7 +214,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteKeyTransactedW ( hkey : HKEY , lpsubkey : :: windows::core::PCWSTR , samdesired : u32 , reserved : u32 , htransaction : super::super::Foundation:: HANDLE , pextendedparameter : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteKeyTransactedW ( hkey : HKEY , lpsubkey : ::windows::core::PCWSTR , samdesired : u32 , reserved : u32 , htransaction : super::super::Foundation:: HANDLE , pextendedparameter : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
     RegDeleteKeyTransactedW(hkey.into_param().abi(), lpsubkey.into_param().abi(), samdesired, reserved, htransaction.into_param().abi(), ::core::mem::transmute(pextendedparameter.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -226,7 +226,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteKeyValueA ( hkey : HKEY , lpsubkey : :: windows::core::PCSTR , lpvaluename : :: windows::core::PCSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteKeyValueA ( hkey : HKEY , lpsubkey : ::windows::core::PCSTR , lpvaluename : ::windows::core::PCSTR ) -> super::super::Foundation:: WIN32_ERROR );
     RegDeleteKeyValueA(hkey.into_param().abi(), lpsubkey.into_param().abi(), lpvaluename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -238,7 +238,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteKeyValueW ( hkey : HKEY , lpsubkey : :: windows::core::PCWSTR , lpvaluename : :: windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteKeyValueW ( hkey : HKEY , lpsubkey : ::windows::core::PCWSTR , lpvaluename : ::windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
     RegDeleteKeyValueW(hkey.into_param().abi(), lpsubkey.into_param().abi(), lpvaluename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -249,7 +249,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteKeyW ( hkey : HKEY , lpsubkey : :: windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteKeyW ( hkey : HKEY , lpsubkey : ::windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
     RegDeleteKeyW(hkey.into_param().abi(), lpsubkey.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -260,7 +260,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteTreeA ( hkey : HKEY , lpsubkey : :: windows::core::PCSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteTreeA ( hkey : HKEY , lpsubkey : ::windows::core::PCSTR ) -> super::super::Foundation:: WIN32_ERROR );
     RegDeleteTreeA(hkey.into_param().abi(), lpsubkey.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -271,7 +271,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteTreeW ( hkey : HKEY , lpsubkey : :: windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteTreeW ( hkey : HKEY , lpsubkey : ::windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
     RegDeleteTreeW(hkey.into_param().abi(), lpsubkey.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -282,7 +282,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteValueA ( hkey : HKEY , lpvaluename : :: windows::core::PCSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteValueA ( hkey : HKEY , lpvaluename : ::windows::core::PCSTR ) -> super::super::Foundation:: WIN32_ERROR );
     RegDeleteValueA(hkey.into_param().abi(), lpvaluename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -293,7 +293,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteValueW ( hkey : HKEY , lpvaluename : :: windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegDeleteValueW ( hkey : HKEY , lpvaluename : ::windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
     RegDeleteValueW(hkey.into_param().abi(), lpvaluename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -337,7 +337,7 @@ pub unsafe fn RegEnumKeyA<P0>(hkey: P0, dwindex: u32, lpname: ::core::option::Op
 where
     P0: ::windows::core::IntoParam<HKEY>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegEnumKeyA ( hkey : HKEY , dwindex : u32 , lpname : :: windows::core::PSTR , cchname : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegEnumKeyA ( hkey : HKEY , dwindex : u32 , lpname : ::windows::core::PSTR , cchname : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     RegEnumKeyA(hkey.into_param().abi(), dwindex, ::core::mem::transmute(lpname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpname.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -347,7 +347,7 @@ pub unsafe fn RegEnumKeyExA<P0>(hkey: P0, dwindex: u32, lpname: ::windows::core:
 where
     P0: ::windows::core::IntoParam<HKEY>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegEnumKeyExA ( hkey : HKEY , dwindex : u32 , lpname : :: windows::core::PSTR , lpcchname : *mut u32 , lpreserved : *const u32 , lpclass : :: windows::core::PSTR , lpcchclass : *mut u32 , lpftlastwritetime : *mut super::super::Foundation:: FILETIME ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegEnumKeyExA ( hkey : HKEY , dwindex : u32 , lpname : ::windows::core::PSTR , lpcchname : *mut u32 , lpreserved : *const u32 , lpclass : ::windows::core::PSTR , lpcchclass : *mut u32 , lpftlastwritetime : *mut super::super::Foundation:: FILETIME ) -> super::super::Foundation:: WIN32_ERROR );
     RegEnumKeyExA(hkey.into_param().abi(), dwindex, ::core::mem::transmute(lpname), lpcchname, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpclass), ::core::mem::transmute(lpcchclass.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpftlastwritetime.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -357,7 +357,7 @@ pub unsafe fn RegEnumKeyExW<P0>(hkey: P0, dwindex: u32, lpname: ::windows::core:
 where
     P0: ::windows::core::IntoParam<HKEY>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegEnumKeyExW ( hkey : HKEY , dwindex : u32 , lpname : :: windows::core::PWSTR , lpcchname : *mut u32 , lpreserved : *const u32 , lpclass : :: windows::core::PWSTR , lpcchclass : *mut u32 , lpftlastwritetime : *mut super::super::Foundation:: FILETIME ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegEnumKeyExW ( hkey : HKEY , dwindex : u32 , lpname : ::windows::core::PWSTR , lpcchname : *mut u32 , lpreserved : *const u32 , lpclass : ::windows::core::PWSTR , lpcchclass : *mut u32 , lpftlastwritetime : *mut super::super::Foundation:: FILETIME ) -> super::super::Foundation:: WIN32_ERROR );
     RegEnumKeyExW(hkey.into_param().abi(), dwindex, ::core::mem::transmute(lpname), lpcchname, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpclass), ::core::mem::transmute(lpcchclass.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpftlastwritetime.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -367,7 +367,7 @@ pub unsafe fn RegEnumKeyW<P0>(hkey: P0, dwindex: u32, lpname: ::core::option::Op
 where
     P0: ::windows::core::IntoParam<HKEY>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegEnumKeyW ( hkey : HKEY , dwindex : u32 , lpname : :: windows::core::PWSTR , cchname : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegEnumKeyW ( hkey : HKEY , dwindex : u32 , lpname : ::windows::core::PWSTR , cchname : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     RegEnumKeyW(hkey.into_param().abi(), dwindex, ::core::mem::transmute(lpname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpname.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -377,7 +377,7 @@ pub unsafe fn RegEnumValueA<P0>(hkey: P0, dwindex: u32, lpvaluename: ::windows::
 where
     P0: ::windows::core::IntoParam<HKEY>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegEnumValueA ( hkey : HKEY , dwindex : u32 , lpvaluename : :: windows::core::PSTR , lpcchvaluename : *mut u32 , lpreserved : *const u32 , lptype : *mut u32 , lpdata : *mut u8 , lpcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegEnumValueA ( hkey : HKEY , dwindex : u32 , lpvaluename : ::windows::core::PSTR , lpcchvaluename : *mut u32 , lpreserved : *const u32 , lptype : *mut u32 , lpdata : *mut u8 , lpcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     RegEnumValueA(hkey.into_param().abi(), dwindex, ::core::mem::transmute(lpvaluename), lpcchvaluename, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -387,7 +387,7 @@ pub unsafe fn RegEnumValueW<P0>(hkey: P0, dwindex: u32, lpvaluename: ::windows::
 where
     P0: ::windows::core::IntoParam<HKEY>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegEnumValueW ( hkey : HKEY , dwindex : u32 , lpvaluename : :: windows::core::PWSTR , lpcchvaluename : *mut u32 , lpreserved : *const u32 , lptype : *mut u32 , lpdata : *mut u8 , lpcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegEnumValueW ( hkey : HKEY , dwindex : u32 , lpvaluename : ::windows::core::PWSTR , lpcchvaluename : *mut u32 , lpreserved : *const u32 , lptype : *mut u32 , lpdata : *mut u8 , lpcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     RegEnumValueW(hkey.into_param().abi(), dwindex, ::core::mem::transmute(lpvaluename), lpcchvaluename, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -419,7 +419,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegGetValueA ( hkey : HKEY , lpsubkey : :: windows::core::PCSTR , lpvalue : :: windows::core::PCSTR , dwflags : REG_ROUTINE_FLAGS , pdwtype : *mut REG_VALUE_TYPE , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegGetValueA ( hkey : HKEY , lpsubkey : ::windows::core::PCSTR , lpvalue : ::windows::core::PCSTR , dwflags : REG_ROUTINE_FLAGS , pdwtype : *mut REG_VALUE_TYPE , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     RegGetValueA(hkey.into_param().abi(), lpsubkey.into_param().abi(), lpvalue.into_param().abi(), dwflags, ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -431,7 +431,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegGetValueW ( hkey : HKEY , lpsubkey : :: windows::core::PCWSTR , lpvalue : :: windows::core::PCWSTR , dwflags : REG_ROUTINE_FLAGS , pdwtype : *mut REG_VALUE_TYPE , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegGetValueW ( hkey : HKEY , lpsubkey : ::windows::core::PCWSTR , lpvalue : ::windows::core::PCWSTR , dwflags : REG_ROUTINE_FLAGS , pdwtype : *mut REG_VALUE_TYPE , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     RegGetValueW(hkey.into_param().abi(), lpsubkey.into_param().abi(), lpvalue.into_param().abi(), dwflags, ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -441,7 +441,7 @@ pub unsafe fn RegLoadAppKeyA<P0>(lpfile: P0, phkresult: *mut HKEY, samdesired: u
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegLoadAppKeyA ( lpfile : :: windows::core::PCSTR , phkresult : *mut HKEY , samdesired : u32 , dwoptions : u32 , reserved : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegLoadAppKeyA ( lpfile : ::windows::core::PCSTR , phkresult : *mut HKEY , samdesired : u32 , dwoptions : u32 , reserved : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     RegLoadAppKeyA(lpfile.into_param().abi(), phkresult, samdesired, dwoptions, reserved)
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -451,7 +451,7 @@ pub unsafe fn RegLoadAppKeyW<P0>(lpfile: P0, phkresult: *mut HKEY, samdesired: u
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegLoadAppKeyW ( lpfile : :: windows::core::PCWSTR , phkresult : *mut HKEY , samdesired : u32 , dwoptions : u32 , reserved : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegLoadAppKeyW ( lpfile : ::windows::core::PCWSTR , phkresult : *mut HKEY , samdesired : u32 , dwoptions : u32 , reserved : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     RegLoadAppKeyW(lpfile.into_param().abi(), phkresult, samdesired, dwoptions, reserved)
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -463,7 +463,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegLoadKeyA ( hkey : HKEY , lpsubkey : :: windows::core::PCSTR , lpfile : :: windows::core::PCSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegLoadKeyA ( hkey : HKEY , lpsubkey : ::windows::core::PCSTR , lpfile : ::windows::core::PCSTR ) -> super::super::Foundation:: WIN32_ERROR );
     RegLoadKeyA(hkey.into_param().abi(), lpsubkey.into_param().abi(), lpfile.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -475,7 +475,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegLoadKeyW ( hkey : HKEY , lpsubkey : :: windows::core::PCWSTR , lpfile : :: windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegLoadKeyW ( hkey : HKEY , lpsubkey : ::windows::core::PCWSTR , lpfile : ::windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
     RegLoadKeyW(hkey.into_param().abi(), lpsubkey.into_param().abi(), lpfile.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -487,7 +487,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegLoadMUIStringA ( hkey : HKEY , pszvalue : :: windows::core::PCSTR , pszoutbuf : :: windows::core::PSTR , cboutbuf : u32 , pcbdata : *mut u32 , flags : u32 , pszdirectory : :: windows::core::PCSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegLoadMUIStringA ( hkey : HKEY , pszvalue : ::windows::core::PCSTR , pszoutbuf : ::windows::core::PSTR , cboutbuf : u32 , pcbdata : *mut u32 , flags : u32 , pszdirectory : ::windows::core::PCSTR ) -> super::super::Foundation:: WIN32_ERROR );
     RegLoadMUIStringA(hkey.into_param().abi(), pszvalue.into_param().abi(), ::core::mem::transmute(pszoutbuf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszoutbuf.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())), flags, pszdirectory.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -499,7 +499,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegLoadMUIStringW ( hkey : HKEY , pszvalue : :: windows::core::PCWSTR , pszoutbuf : :: windows::core::PWSTR , cboutbuf : u32 , pcbdata : *mut u32 , flags : u32 , pszdirectory : :: windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegLoadMUIStringW ( hkey : HKEY , pszvalue : ::windows::core::PCWSTR , pszoutbuf : ::windows::core::PWSTR , cboutbuf : u32 , pcbdata : *mut u32 , flags : u32 , pszdirectory : ::windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
     RegLoadMUIStringW(hkey.into_param().abi(), pszvalue.into_param().abi(), ::core::mem::transmute(pszoutbuf), cboutbuf, ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())), flags, pszdirectory.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -530,7 +530,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegOpenKeyA ( hkey : HKEY , lpsubkey : :: windows::core::PCSTR , phkresult : *mut HKEY ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegOpenKeyA ( hkey : HKEY , lpsubkey : ::windows::core::PCSTR , phkresult : *mut HKEY ) -> super::super::Foundation:: WIN32_ERROR );
     RegOpenKeyA(hkey.into_param().abi(), lpsubkey.into_param().abi(), phkresult)
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -541,7 +541,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegOpenKeyExA ( hkey : HKEY , lpsubkey : :: windows::core::PCSTR , uloptions : u32 , samdesired : REG_SAM_FLAGS , phkresult : *mut HKEY ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegOpenKeyExA ( hkey : HKEY , lpsubkey : ::windows::core::PCSTR , uloptions : u32 , samdesired : REG_SAM_FLAGS , phkresult : *mut HKEY ) -> super::super::Foundation:: WIN32_ERROR );
     RegOpenKeyExA(hkey.into_param().abi(), lpsubkey.into_param().abi(), uloptions, samdesired, phkresult)
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -552,7 +552,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegOpenKeyExW ( hkey : HKEY , lpsubkey : :: windows::core::PCWSTR , uloptions : u32 , samdesired : REG_SAM_FLAGS , phkresult : *mut HKEY ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegOpenKeyExW ( hkey : HKEY , lpsubkey : ::windows::core::PCWSTR , uloptions : u32 , samdesired : REG_SAM_FLAGS , phkresult : *mut HKEY ) -> super::super::Foundation:: WIN32_ERROR );
     RegOpenKeyExW(hkey.into_param().abi(), lpsubkey.into_param().abi(), uloptions, samdesired, phkresult)
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -564,7 +564,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegOpenKeyTransactedA ( hkey : HKEY , lpsubkey : :: windows::core::PCSTR , uloptions : u32 , samdesired : REG_SAM_FLAGS , phkresult : *mut HKEY , htransaction : super::super::Foundation:: HANDLE , pextendedparemeter : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegOpenKeyTransactedA ( hkey : HKEY , lpsubkey : ::windows::core::PCSTR , uloptions : u32 , samdesired : REG_SAM_FLAGS , phkresult : *mut HKEY , htransaction : super::super::Foundation:: HANDLE , pextendedparemeter : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
     RegOpenKeyTransactedA(hkey.into_param().abi(), lpsubkey.into_param().abi(), uloptions, samdesired, phkresult, htransaction.into_param().abi(), ::core::mem::transmute(pextendedparemeter.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -576,7 +576,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegOpenKeyTransactedW ( hkey : HKEY , lpsubkey : :: windows::core::PCWSTR , uloptions : u32 , samdesired : REG_SAM_FLAGS , phkresult : *mut HKEY , htransaction : super::super::Foundation:: HANDLE , pextendedparemeter : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegOpenKeyTransactedW ( hkey : HKEY , lpsubkey : ::windows::core::PCWSTR , uloptions : u32 , samdesired : REG_SAM_FLAGS , phkresult : *mut HKEY , htransaction : super::super::Foundation:: HANDLE , pextendedparemeter : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
     RegOpenKeyTransactedW(hkey.into_param().abi(), lpsubkey.into_param().abi(), uloptions, samdesired, phkresult, htransaction.into_param().abi(), ::core::mem::transmute(pextendedparemeter.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -587,7 +587,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegOpenKeyW ( hkey : HKEY , lpsubkey : :: windows::core::PCWSTR , phkresult : *mut HKEY ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegOpenKeyW ( hkey : HKEY , lpsubkey : ::windows::core::PCWSTR , phkresult : *mut HKEY ) -> super::super::Foundation:: WIN32_ERROR );
     RegOpenKeyW(hkey.into_param().abi(), lpsubkey.into_param().abi(), phkresult)
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -618,7 +618,7 @@ pub unsafe fn RegQueryInfoKeyA<P0>(hkey: P0, lpclass: ::windows::core::PSTR, lpc
 where
     P0: ::windows::core::IntoParam<HKEY>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegQueryInfoKeyA ( hkey : HKEY , lpclass : :: windows::core::PSTR , lpcchclass : *mut u32 , lpreserved : *const u32 , lpcsubkeys : *mut u32 , lpcbmaxsubkeylen : *mut u32 , lpcbmaxclasslen : *mut u32 , lpcvalues : *mut u32 , lpcbmaxvaluenamelen : *mut u32 , lpcbmaxvaluelen : *mut u32 , lpcbsecuritydescriptor : *mut u32 , lpftlastwritetime : *mut super::super::Foundation:: FILETIME ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegQueryInfoKeyA ( hkey : HKEY , lpclass : ::windows::core::PSTR , lpcchclass : *mut u32 , lpreserved : *const u32 , lpcsubkeys : *mut u32 , lpcbmaxsubkeylen : *mut u32 , lpcbmaxclasslen : *mut u32 , lpcvalues : *mut u32 , lpcbmaxvaluenamelen : *mut u32 , lpcbmaxvaluelen : *mut u32 , lpcbsecuritydescriptor : *mut u32 , lpftlastwritetime : *mut super::super::Foundation:: FILETIME ) -> super::super::Foundation:: WIN32_ERROR );
     RegQueryInfoKeyA(
         hkey.into_param().abi(),
         ::core::mem::transmute(lpclass),
@@ -641,7 +641,7 @@ pub unsafe fn RegQueryInfoKeyW<P0>(hkey: P0, lpclass: ::windows::core::PWSTR, lp
 where
     P0: ::windows::core::IntoParam<HKEY>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegQueryInfoKeyW ( hkey : HKEY , lpclass : :: windows::core::PWSTR , lpcchclass : *mut u32 , lpreserved : *const u32 , lpcsubkeys : *mut u32 , lpcbmaxsubkeylen : *mut u32 , lpcbmaxclasslen : *mut u32 , lpcvalues : *mut u32 , lpcbmaxvaluenamelen : *mut u32 , lpcbmaxvaluelen : *mut u32 , lpcbsecuritydescriptor : *mut u32 , lpftlastwritetime : *mut super::super::Foundation:: FILETIME ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegQueryInfoKeyW ( hkey : HKEY , lpclass : ::windows::core::PWSTR , lpcchclass : *mut u32 , lpreserved : *const u32 , lpcsubkeys : *mut u32 , lpcbmaxsubkeylen : *mut u32 , lpcbmaxclasslen : *mut u32 , lpcvalues : *mut u32 , lpcbmaxvaluenamelen : *mut u32 , lpcbmaxvaluelen : *mut u32 , lpcbsecuritydescriptor : *mut u32 , lpftlastwritetime : *mut super::super::Foundation:: FILETIME ) -> super::super::Foundation:: WIN32_ERROR );
     RegQueryInfoKeyW(
         hkey.into_param().abi(),
         ::core::mem::transmute(lpclass),
@@ -664,7 +664,7 @@ pub unsafe fn RegQueryMultipleValuesA<P0>(hkey: P0, val_list: &mut [VALENTA], lp
 where
     P0: ::windows::core::IntoParam<HKEY>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegQueryMultipleValuesA ( hkey : HKEY , val_list : *mut VALENTA , num_vals : u32 , lpvaluebuf : :: windows::core::PSTR , ldwtotsize : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegQueryMultipleValuesA ( hkey : HKEY , val_list : *mut VALENTA , num_vals : u32 , lpvaluebuf : ::windows::core::PSTR , ldwtotsize : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     RegQueryMultipleValuesA(hkey.into_param().abi(), ::core::mem::transmute(val_list.as_ptr()), val_list.len() as _, ::core::mem::transmute(lpvaluebuf), ::core::mem::transmute(ldwtotsize.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -674,7 +674,7 @@ pub unsafe fn RegQueryMultipleValuesW<P0>(hkey: P0, val_list: &mut [VALENTW], lp
 where
     P0: ::windows::core::IntoParam<HKEY>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegQueryMultipleValuesW ( hkey : HKEY , val_list : *mut VALENTW , num_vals : u32 , lpvaluebuf : :: windows::core::PWSTR , ldwtotsize : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegQueryMultipleValuesW ( hkey : HKEY , val_list : *mut VALENTW , num_vals : u32 , lpvaluebuf : ::windows::core::PWSTR , ldwtotsize : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     RegQueryMultipleValuesW(hkey.into_param().abi(), ::core::mem::transmute(val_list.as_ptr()), val_list.len() as _, ::core::mem::transmute(lpvaluebuf), ::core::mem::transmute(ldwtotsize.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -695,7 +695,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegQueryValueA ( hkey : HKEY , lpsubkey : :: windows::core::PCSTR , lpdata : :: windows::core::PSTR , lpcbdata : *mut i32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegQueryValueA ( hkey : HKEY , lpsubkey : ::windows::core::PCSTR , lpdata : ::windows::core::PSTR , lpcbdata : *mut i32 ) -> super::super::Foundation:: WIN32_ERROR );
     RegQueryValueA(hkey.into_param().abi(), lpsubkey.into_param().abi(), ::core::mem::transmute(lpdata), ::core::mem::transmute(lpcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -706,7 +706,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegQueryValueExA ( hkey : HKEY , lpvaluename : :: windows::core::PCSTR , lpreserved : *const u32 , lptype : *mut REG_VALUE_TYPE , lpdata : *mut u8 , lpcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegQueryValueExA ( hkey : HKEY , lpvaluename : ::windows::core::PCSTR , lpreserved : *const u32 , lptype : *mut REG_VALUE_TYPE , lpdata : *mut u8 , lpcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     RegQueryValueExA(hkey.into_param().abi(), lpvaluename.into_param().abi(), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -717,7 +717,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegQueryValueExW ( hkey : HKEY , lpvaluename : :: windows::core::PCWSTR , lpreserved : *const u32 , lptype : *mut REG_VALUE_TYPE , lpdata : *mut u8 , lpcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegQueryValueExW ( hkey : HKEY , lpvaluename : ::windows::core::PCWSTR , lpreserved : *const u32 , lptype : *mut REG_VALUE_TYPE , lpdata : *mut u8 , lpcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     RegQueryValueExW(hkey.into_param().abi(), lpvaluename.into_param().abi(), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -728,7 +728,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegQueryValueW ( hkey : HKEY , lpsubkey : :: windows::core::PCWSTR , lpdata : :: windows::core::PWSTR , lpcbdata : *mut i32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegQueryValueW ( hkey : HKEY , lpsubkey : ::windows::core::PCWSTR , lpdata : ::windows::core::PWSTR , lpcbdata : *mut i32 ) -> super::super::Foundation:: WIN32_ERROR );
     RegQueryValueW(hkey.into_param().abi(), lpsubkey.into_param().abi(), ::core::mem::transmute(lpdata), ::core::mem::transmute(lpcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -740,7 +740,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegRenameKey ( hkey : HKEY , lpsubkeyname : :: windows::core::PCWSTR , lpnewkeyname : :: windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegRenameKey ( hkey : HKEY , lpsubkeyname : ::windows::core::PCWSTR , lpnewkeyname : ::windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
     RegRenameKey(hkey.into_param().abi(), lpsubkeyname.into_param().abi(), lpnewkeyname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -753,7 +753,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegReplaceKeyA ( hkey : HKEY , lpsubkey : :: windows::core::PCSTR , lpnewfile : :: windows::core::PCSTR , lpoldfile : :: windows::core::PCSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegReplaceKeyA ( hkey : HKEY , lpsubkey : ::windows::core::PCSTR , lpnewfile : ::windows::core::PCSTR , lpoldfile : ::windows::core::PCSTR ) -> super::super::Foundation:: WIN32_ERROR );
     RegReplaceKeyA(hkey.into_param().abi(), lpsubkey.into_param().abi(), lpnewfile.into_param().abi(), lpoldfile.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -766,7 +766,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegReplaceKeyW ( hkey : HKEY , lpsubkey : :: windows::core::PCWSTR , lpnewfile : :: windows::core::PCWSTR , lpoldfile : :: windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegReplaceKeyW ( hkey : HKEY , lpsubkey : ::windows::core::PCWSTR , lpnewfile : ::windows::core::PCWSTR , lpoldfile : ::windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
     RegReplaceKeyW(hkey.into_param().abi(), lpsubkey.into_param().abi(), lpnewfile.into_param().abi(), lpoldfile.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -777,7 +777,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegRestoreKeyA ( hkey : HKEY , lpfile : :: windows::core::PCSTR , dwflags : REG_RESTORE_KEY_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegRestoreKeyA ( hkey : HKEY , lpfile : ::windows::core::PCSTR , dwflags : REG_RESTORE_KEY_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
     RegRestoreKeyA(hkey.into_param().abi(), lpfile.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -788,7 +788,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegRestoreKeyW ( hkey : HKEY , lpfile : :: windows::core::PCWSTR , dwflags : REG_RESTORE_KEY_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegRestoreKeyW ( hkey : HKEY , lpfile : ::windows::core::PCWSTR , dwflags : REG_RESTORE_KEY_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
     RegRestoreKeyW(hkey.into_param().abi(), lpfile.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -799,7 +799,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegSaveKeyA ( hkey : HKEY , lpfile : :: windows::core::PCSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegSaveKeyA ( hkey : HKEY , lpfile : ::windows::core::PCSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: WIN32_ERROR );
     RegSaveKeyA(hkey.into_param().abi(), lpfile.into_param().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -810,7 +810,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegSaveKeyExA ( hkey : HKEY , lpfile : :: windows::core::PCSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , flags : REG_SAVE_FORMAT ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegSaveKeyExA ( hkey : HKEY , lpfile : ::windows::core::PCSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , flags : REG_SAVE_FORMAT ) -> super::super::Foundation:: WIN32_ERROR );
     RegSaveKeyExA(hkey.into_param().abi(), lpfile.into_param().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -821,7 +821,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegSaveKeyExW ( hkey : HKEY , lpfile : :: windows::core::PCWSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , flags : REG_SAVE_FORMAT ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegSaveKeyExW ( hkey : HKEY , lpfile : ::windows::core::PCWSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , flags : REG_SAVE_FORMAT ) -> super::super::Foundation:: WIN32_ERROR );
     RegSaveKeyExW(hkey.into_param().abi(), lpfile.into_param().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -832,7 +832,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegSaveKeyW ( hkey : HKEY , lpfile : :: windows::core::PCWSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegSaveKeyW ( hkey : HKEY , lpfile : ::windows::core::PCWSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: WIN32_ERROR );
     RegSaveKeyW(hkey.into_param().abi(), lpfile.into_param().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -855,7 +855,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegSetKeyValueA ( hkey : HKEY , lpsubkey : :: windows::core::PCSTR , lpvaluename : :: windows::core::PCSTR , dwtype : u32 , lpdata : *const ::core::ffi::c_void , cbdata : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegSetKeyValueA ( hkey : HKEY , lpsubkey : ::windows::core::PCSTR , lpvaluename : ::windows::core::PCSTR , dwtype : u32 , lpdata : *const ::core::ffi::c_void , cbdata : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     RegSetKeyValueA(hkey.into_param().abi(), lpsubkey.into_param().abi(), lpvaluename.into_param().abi(), dwtype, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), cbdata)
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -867,7 +867,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegSetKeyValueW ( hkey : HKEY , lpsubkey : :: windows::core::PCWSTR , lpvaluename : :: windows::core::PCWSTR , dwtype : u32 , lpdata : *const ::core::ffi::c_void , cbdata : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegSetKeyValueW ( hkey : HKEY , lpsubkey : ::windows::core::PCWSTR , lpvaluename : ::windows::core::PCWSTR , dwtype : u32 , lpdata : *const ::core::ffi::c_void , cbdata : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     RegSetKeyValueW(hkey.into_param().abi(), lpsubkey.into_param().abi(), lpvaluename.into_param().abi(), dwtype, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), cbdata)
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -878,7 +878,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegSetValueA ( hkey : HKEY , lpsubkey : :: windows::core::PCSTR , dwtype : REG_VALUE_TYPE , lpdata : :: windows::core::PCSTR , cbdata : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegSetValueA ( hkey : HKEY , lpsubkey : ::windows::core::PCSTR , dwtype : REG_VALUE_TYPE , lpdata : ::windows::core::PCSTR , cbdata : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     RegSetValueA(hkey.into_param().abi(), lpsubkey.into_param().abi(), dwtype, ::core::mem::transmute(lpdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -889,7 +889,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegSetValueExA ( hkey : HKEY , lpvaluename : :: windows::core::PCSTR , reserved : u32 , dwtype : REG_VALUE_TYPE , lpdata : *const u8 , cbdata : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegSetValueExA ( hkey : HKEY , lpvaluename : ::windows::core::PCSTR , reserved : u32 , dwtype : REG_VALUE_TYPE , lpdata : *const u8 , cbdata : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     RegSetValueExA(hkey.into_param().abi(), lpvaluename.into_param().abi(), reserved, dwtype, ::core::mem::transmute(lpdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -900,7 +900,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegSetValueExW ( hkey : HKEY , lpvaluename : :: windows::core::PCWSTR , reserved : u32 , dwtype : REG_VALUE_TYPE , lpdata : *const u8 , cbdata : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegSetValueExW ( hkey : HKEY , lpvaluename : ::windows::core::PCWSTR , reserved : u32 , dwtype : REG_VALUE_TYPE , lpdata : *const u8 , cbdata : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     RegSetValueExW(hkey.into_param().abi(), lpvaluename.into_param().abi(), reserved, dwtype, ::core::mem::transmute(lpdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -912,7 +912,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegSetValueW ( hkey : HKEY , lpsubkey : :: windows::core::PCWSTR , dwtype : REG_VALUE_TYPE , lpdata : :: windows::core::PCWSTR , cbdata : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegSetValueW ( hkey : HKEY , lpsubkey : ::windows::core::PCWSTR , dwtype : REG_VALUE_TYPE , lpdata : ::windows::core::PCWSTR , cbdata : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     RegSetValueW(hkey.into_param().abi(), lpsubkey.into_param().abi(), dwtype, lpdata.into_param().abi(), cbdata)
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -923,7 +923,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegUnLoadKeyA ( hkey : HKEY , lpsubkey : :: windows::core::PCSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegUnLoadKeyA ( hkey : HKEY , lpsubkey : ::windows::core::PCSTR ) -> super::super::Foundation:: WIN32_ERROR );
     RegUnLoadKeyA(hkey.into_param().abi(), lpsubkey.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
@@ -934,7 +934,7 @@ where
     P0: ::windows::core::IntoParam<HKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn RegUnLoadKeyW ( hkey : HKEY , lpsubkey : :: windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegUnLoadKeyW ( hkey : HKEY , lpsubkey : ::windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
     RegUnLoadKeyW(hkey.into_param().abi(), lpsubkey.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
@@ -1210,1511 +1210,1511 @@ pub const REGDF_NOTDETMEM: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub const REGDF_NOTVERIFIED: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_DATA_NETOS_IPX: ::windows::core::PCWSTR = ::windows::w!("IPX");
+pub const REGSTR_DATA_NETOS_IPX: ::windows::core::PCWSTR = ::windows::core::w!("IPX");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_DATA_NETOS_NDIS: ::windows::core::PCWSTR = ::windows::w!("NDIS");
+pub const REGSTR_DATA_NETOS_NDIS: ::windows::core::PCWSTR = ::windows::core::w!("NDIS");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_DATA_NETOS_ODI: ::windows::core::PCWSTR = ::windows::w!("ODI");
+pub const REGSTR_DATA_NETOS_ODI: ::windows::core::PCWSTR = ::windows::core::w!("ODI");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_DEFAULT_INSTANCE: ::windows::core::PCWSTR = ::windows::w!("0000");
+pub const REGSTR_DEFAULT_INSTANCE: ::windows::core::PCWSTR = ::windows::core::w!("0000");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_ACPIENUM: ::windows::core::PCWSTR = ::windows::w!("ACPI");
+pub const REGSTR_KEY_ACPIENUM: ::windows::core::PCWSTR = ::windows::core::w!("ACPI");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_APM: ::windows::core::PCWSTR = ::windows::w!("*PNP0C05");
+pub const REGSTR_KEY_APM: ::windows::core::PCWSTR = ::windows::core::w!("*PNP0C05");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_BIOSENUM: ::windows::core::PCWSTR = ::windows::w!("BIOS");
+pub const REGSTR_KEY_BIOSENUM: ::windows::core::PCWSTR = ::windows::core::w!("BIOS");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_CLASS: ::windows::core::PCWSTR = ::windows::w!("Class");
+pub const REGSTR_KEY_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("Class");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_CONFIG: ::windows::core::PCWSTR = ::windows::w!("Config");
+pub const REGSTR_KEY_CONFIG: ::windows::core::PCWSTR = ::windows::core::w!("Config");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_CONTROL: ::windows::core::PCWSTR = ::windows::w!("Control");
+pub const REGSTR_KEY_CONTROL: ::windows::core::PCWSTR = ::windows::core::w!("Control");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_CRASHES: ::windows::core::PCWSTR = ::windows::w!("Crashes");
+pub const REGSTR_KEY_CRASHES: ::windows::core::PCWSTR = ::windows::core::w!("Crashes");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_CURRENT: ::windows::core::PCWSTR = ::windows::w!("Current");
+pub const REGSTR_KEY_CURRENT: ::windows::core::PCWSTR = ::windows::core::w!("Current");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_CURRENT_ENV: ::windows::core::PCWSTR = ::windows::w!("\\Windows 4.0");
+pub const REGSTR_KEY_CURRENT_ENV: ::windows::core::PCWSTR = ::windows::core::w!("\\Windows 4.0");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_DANGERS: ::windows::core::PCWSTR = ::windows::w!("Dangers");
+pub const REGSTR_KEY_DANGERS: ::windows::core::PCWSTR = ::windows::core::w!("Dangers");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_DEFAULT: ::windows::core::PCWSTR = ::windows::w!("Default");
+pub const REGSTR_KEY_DEFAULT: ::windows::core::PCWSTR = ::windows::core::w!("Default");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_DETMODVARS: ::windows::core::PCWSTR = ::windows::w!("DetModVars");
+pub const REGSTR_KEY_DETMODVARS: ::windows::core::PCWSTR = ::windows::core::w!("DetModVars");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_DEVICEPARAMETERS: ::windows::core::PCWSTR = ::windows::w!("Device Parameters");
+pub const REGSTR_KEY_DEVICEPARAMETERS: ::windows::core::PCWSTR = ::windows::core::w!("Device Parameters");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_DEVICE_PROPERTIES: ::windows::core::PCWSTR = ::windows::w!("Properties");
+pub const REGSTR_KEY_DEVICE_PROPERTIES: ::windows::core::PCWSTR = ::windows::core::w!("Properties");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_DISPLAY_CLASS: ::windows::core::PCWSTR = ::windows::w!("Display");
+pub const REGSTR_KEY_DISPLAY_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("Display");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_DOSOPTCDROM: ::windows::core::PCWSTR = ::windows::w!("CD-ROM");
+pub const REGSTR_KEY_DOSOPTCDROM: ::windows::core::PCWSTR = ::windows::core::w!("CD-ROM");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_DOSOPTMOUSE: ::windows::core::PCWSTR = ::windows::w!("MOUSE");
+pub const REGSTR_KEY_DOSOPTMOUSE: ::windows::core::PCWSTR = ::windows::core::w!("MOUSE");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_DRIVERPARAMETERS: ::windows::core::PCWSTR = ::windows::w!("Driver Parameters");
+pub const REGSTR_KEY_DRIVERPARAMETERS: ::windows::core::PCWSTR = ::windows::core::w!("Driver Parameters");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_DRIVERS: ::windows::core::PCWSTR = ::windows::w!("\\Drivers");
+pub const REGSTR_KEY_DRIVERS: ::windows::core::PCWSTR = ::windows::core::w!("\\Drivers");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_EBDAUTOEXECBATKEYBOARD: ::windows::core::PCWSTR = ::windows::w!("EBDAutoexecBatKeyboard");
+pub const REGSTR_KEY_EBDAUTOEXECBATKEYBOARD: ::windows::core::PCWSTR = ::windows::core::w!("EBDAutoexecBatKeyboard");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_EBDAUTOEXECBATLOCAL: ::windows::core::PCWSTR = ::windows::w!("EBDAutoexecBatLocale");
+pub const REGSTR_KEY_EBDAUTOEXECBATLOCAL: ::windows::core::PCWSTR = ::windows::core::w!("EBDAutoexecBatLocale");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_EBDCONFIGSYSKEYBOARD: ::windows::core::PCWSTR = ::windows::w!("EBDConfigSysKeyboard");
+pub const REGSTR_KEY_EBDCONFIGSYSKEYBOARD: ::windows::core::PCWSTR = ::windows::core::w!("EBDConfigSysKeyboard");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_EBDCONFIGSYSLOCAL: ::windows::core::PCWSTR = ::windows::w!("EBDConfigSysLocale");
+pub const REGSTR_KEY_EBDCONFIGSYSLOCAL: ::windows::core::PCWSTR = ::windows::core::w!("EBDConfigSysLocale");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_EBDFILESKEYBOARD: ::windows::core::PCWSTR = ::windows::w!("EBDFilesKeyboard");
+pub const REGSTR_KEY_EBDFILESKEYBOARD: ::windows::core::PCWSTR = ::windows::core::w!("EBDFilesKeyboard");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_EBDFILESLOCAL: ::windows::core::PCWSTR = ::windows::w!("EBDFilesLocale");
+pub const REGSTR_KEY_EBDFILESLOCAL: ::windows::core::PCWSTR = ::windows::core::w!("EBDFilesLocale");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_EISAENUM: ::windows::core::PCWSTR = ::windows::w!("EISA");
+pub const REGSTR_KEY_EISAENUM: ::windows::core::PCWSTR = ::windows::core::w!("EISA");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_ENUM: ::windows::core::PCWSTR = ::windows::w!("Enum");
+pub const REGSTR_KEY_ENUM: ::windows::core::PCWSTR = ::windows::core::w!("Enum");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_EXPLORER: ::windows::core::PCWSTR = ::windows::w!("Explorer");
+pub const REGSTR_KEY_EXPLORER: ::windows::core::PCWSTR = ::windows::core::w!("Explorer");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_FILTERS: ::windows::core::PCWSTR = ::windows::w!("Filters");
+pub const REGSTR_KEY_FILTERS: ::windows::core::PCWSTR = ::windows::core::w!("Filters");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_INIUPDATE: ::windows::core::PCWSTR = ::windows::w!("IniUpdate");
+pub const REGSTR_KEY_INIUPDATE: ::windows::core::PCWSTR = ::windows::core::w!("IniUpdate");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_ISAENUM: ::windows::core::PCWSTR = ::windows::w!("ISAPnP");
+pub const REGSTR_KEY_ISAENUM: ::windows::core::PCWSTR = ::windows::core::w!("ISAPnP");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_JOYCURR: ::windows::core::PCWSTR = ::windows::w!("CurrentJoystickSettings");
+pub const REGSTR_KEY_JOYCURR: ::windows::core::PCWSTR = ::windows::core::w!("CurrentJoystickSettings");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_JOYSETTINGS: ::windows::core::PCWSTR = ::windows::w!("JoystickSettings");
+pub const REGSTR_KEY_JOYSETTINGS: ::windows::core::PCWSTR = ::windows::core::w!("JoystickSettings");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_KEYBOARD_CLASS: ::windows::core::PCWSTR = ::windows::w!("Keyboard");
+pub const REGSTR_KEY_KEYBOARD_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("Keyboard");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_KNOWNDOCKINGSTATES: ::windows::core::PCWSTR = ::windows::w!("Hardware Profiles");
+pub const REGSTR_KEY_KNOWNDOCKINGSTATES: ::windows::core::PCWSTR = ::windows::core::w!("Hardware Profiles");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_LOGCONFIG: ::windows::core::PCWSTR = ::windows::w!("LogConfig");
+pub const REGSTR_KEY_LOGCONFIG: ::windows::core::PCWSTR = ::windows::core::w!("LogConfig");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_LOGON: ::windows::core::PCWSTR = ::windows::w!("\\Logon");
+pub const REGSTR_KEY_LOGON: ::windows::core::PCWSTR = ::windows::core::w!("\\Logon");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_LOWER_FILTER_LEVEL_DEFAULT: ::windows::core::PCWSTR = ::windows::w!("*Lower");
+pub const REGSTR_KEY_LOWER_FILTER_LEVEL_DEFAULT: ::windows::core::PCWSTR = ::windows::core::w!("*Lower");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_MEDIA_CLASS: ::windows::core::PCWSTR = ::windows::w!("MEDIA");
+pub const REGSTR_KEY_MEDIA_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("MEDIA");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_MODEM_CLASS: ::windows::core::PCWSTR = ::windows::w!("Modem");
+pub const REGSTR_KEY_MODEM_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("Modem");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_MODES: ::windows::core::PCWSTR = ::windows::w!("Modes");
+pub const REGSTR_KEY_MODES: ::windows::core::PCWSTR = ::windows::core::w!("Modes");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_MONITOR_CLASS: ::windows::core::PCWSTR = ::windows::w!("Monitor");
+pub const REGSTR_KEY_MONITOR_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("Monitor");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_MOUSE_CLASS: ::windows::core::PCWSTR = ::windows::w!("Mouse");
+pub const REGSTR_KEY_MOUSE_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("Mouse");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_NDISINFO: ::windows::core::PCWSTR = ::windows::w!("NDISInfo");
+pub const REGSTR_KEY_NDISINFO: ::windows::core::PCWSTR = ::windows::core::w!("NDISInfo");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_NETWORK: ::windows::core::PCWSTR = ::windows::w!("Network");
+pub const REGSTR_KEY_NETWORK: ::windows::core::PCWSTR = ::windows::core::w!("Network");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_NETWORKPROVIDER: ::windows::core::PCWSTR = ::windows::w!("\\NetworkProvider");
+pub const REGSTR_KEY_NETWORKPROVIDER: ::windows::core::PCWSTR = ::windows::core::w!("\\NetworkProvider");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_NETWORK_PERSISTENT: ::windows::core::PCWSTR = ::windows::w!("\\Persistent");
+pub const REGSTR_KEY_NETWORK_PERSISTENT: ::windows::core::PCWSTR = ::windows::core::w!("\\Persistent");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_NETWORK_RECENT: ::windows::core::PCWSTR = ::windows::w!("\\Recent");
+pub const REGSTR_KEY_NETWORK_RECENT: ::windows::core::PCWSTR = ::windows::core::w!("\\Recent");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_OVERRIDE: ::windows::core::PCWSTR = ::windows::w!("Override");
+pub const REGSTR_KEY_OVERRIDE: ::windows::core::PCWSTR = ::windows::core::w!("Override");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_PCIENUM: ::windows::core::PCWSTR = ::windows::w!("PCI");
+pub const REGSTR_KEY_PCIENUM: ::windows::core::PCWSTR = ::windows::core::w!("PCI");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_PCMCIA: ::windows::core::PCWSTR = ::windows::w!("PCMCIA\\");
+pub const REGSTR_KEY_PCMCIA: ::windows::core::PCWSTR = ::windows::core::w!("PCMCIA\\");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_PCMCIAENUM: ::windows::core::PCWSTR = ::windows::w!("PCMCIA");
+pub const REGSTR_KEY_PCMCIAENUM: ::windows::core::PCWSTR = ::windows::core::w!("PCMCIA");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_PCMCIA_CLASS: ::windows::core::PCWSTR = ::windows::w!("PCMCIA");
+pub const REGSTR_KEY_PCMCIA_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("PCMCIA");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_PCMTD: ::windows::core::PCWSTR = ::windows::w!("MTD-");
+pub const REGSTR_KEY_PCMTD: ::windows::core::PCWSTR = ::windows::core::w!("MTD-");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_PCUNKNOWN: ::windows::core::PCWSTR = ::windows::w!("UNKNOWN_MANUFACTURER");
+pub const REGSTR_KEY_PCUNKNOWN: ::windows::core::PCWSTR = ::windows::core::w!("UNKNOWN_MANUFACTURER");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_POL_COMPUTERS: ::windows::core::PCWSTR = ::windows::w!("Computers");
+pub const REGSTR_KEY_POL_COMPUTERS: ::windows::core::PCWSTR = ::windows::core::w!("Computers");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_POL_DEFAULT: ::windows::core::PCWSTR = ::windows::w!(".default");
+pub const REGSTR_KEY_POL_DEFAULT: ::windows::core::PCWSTR = ::windows::core::w!(".default");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_POL_USERGROUPDATA: ::windows::core::PCWSTR = ::windows::w!("GroupData\\UserGroups\\Priority");
+pub const REGSTR_KEY_POL_USERGROUPDATA: ::windows::core::PCWSTR = ::windows::core::w!("GroupData\\UserGroups\\Priority");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_POL_USERGROUPS: ::windows::core::PCWSTR = ::windows::w!("UserGroups");
+pub const REGSTR_KEY_POL_USERGROUPS: ::windows::core::PCWSTR = ::windows::core::w!("UserGroups");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_POL_USERS: ::windows::core::PCWSTR = ::windows::w!("Users");
+pub const REGSTR_KEY_POL_USERS: ::windows::core::PCWSTR = ::windows::core::w!("Users");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_PORTS_CLASS: ::windows::core::PCWSTR = ::windows::w!("ports");
+pub const REGSTR_KEY_PORTS_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("ports");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_PRINTERS: ::windows::core::PCWSTR = ::windows::w!("Printers");
+pub const REGSTR_KEY_PRINTERS: ::windows::core::PCWSTR = ::windows::core::w!("Printers");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_PRINT_PROC: ::windows::core::PCWSTR = ::windows::w!("\\Print Processors");
+pub const REGSTR_KEY_PRINT_PROC: ::windows::core::PCWSTR = ::windows::core::w!("\\Print Processors");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_ROOTENUM: ::windows::core::PCWSTR = ::windows::w!("Root");
+pub const REGSTR_KEY_ROOTENUM: ::windows::core::PCWSTR = ::windows::core::w!("Root");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_RUNHISTORY: ::windows::core::PCWSTR = ::windows::w!("RunHistory");
+pub const REGSTR_KEY_RUNHISTORY: ::windows::core::PCWSTR = ::windows::core::w!("RunHistory");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_SCSI_CLASS: ::windows::core::PCWSTR = ::windows::w!("SCSIAdapter");
+pub const REGSTR_KEY_SCSI_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("SCSIAdapter");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_SETUP: ::windows::core::PCWSTR = ::windows::w!("\\Setup");
+pub const REGSTR_KEY_SETUP: ::windows::core::PCWSTR = ::windows::core::w!("\\Setup");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_SHARES: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Network\\LanMan");
+pub const REGSTR_KEY_SHARES: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Network\\LanMan");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_SYSTEM: ::windows::core::PCWSTR = ::windows::w!("System");
+pub const REGSTR_KEY_SYSTEM: ::windows::core::PCWSTR = ::windows::core::w!("System");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_SYSTEMBOARD: ::windows::core::PCWSTR = ::windows::w!("*PNP0C01");
+pub const REGSTR_KEY_SYSTEMBOARD: ::windows::core::PCWSTR = ::windows::core::w!("*PNP0C01");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_UPPER_FILTER_LEVEL_DEFAULT: ::windows::core::PCWSTR = ::windows::w!("*Upper");
+pub const REGSTR_KEY_UPPER_FILTER_LEVEL_DEFAULT: ::windows::core::PCWSTR = ::windows::core::w!("*Upper");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_USER: ::windows::core::PCWSTR = ::windows::w!("User");
+pub const REGSTR_KEY_USER: ::windows::core::PCWSTR = ::windows::core::w!("User");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_VPOWERDENUM: ::windows::core::PCWSTR = ::windows::w!("VPOWERD");
+pub const REGSTR_KEY_VPOWERDENUM: ::windows::core::PCWSTR = ::windows::core::w!("VPOWERD");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_KEY_WINOLDAPP: ::windows::core::PCWSTR = ::windows::w!("WinOldApp");
+pub const REGSTR_KEY_WINOLDAPP: ::windows::core::PCWSTR = ::windows::core::w!("WinOldApp");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_ATT_PC: ::windows::core::PCWSTR = ::windows::w!("AT&T PC");
+pub const REGSTR_MACHTYPE_ATT_PC: ::windows::core::PCWSTR = ::windows::core::w!("AT&T PC");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_HP_VECTRA: ::windows::core::PCWSTR = ::windows::w!("HP Vectra");
+pub const REGSTR_MACHTYPE_HP_VECTRA: ::windows::core::PCWSTR = ::windows::core::w!("HP Vectra");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_IBMPC: ::windows::core::PCWSTR = ::windows::w!("IBM PC");
+pub const REGSTR_MACHTYPE_IBMPC: ::windows::core::PCWSTR = ::windows::core::w!("IBM PC");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_IBMPCAT: ::windows::core::PCWSTR = ::windows::w!("IBM PC/AT");
+pub const REGSTR_MACHTYPE_IBMPCAT: ::windows::core::PCWSTR = ::windows::core::w!("IBM PC/AT");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_IBMPCCONV: ::windows::core::PCWSTR = ::windows::w!("IBM PC Convertible");
+pub const REGSTR_MACHTYPE_IBMPCCONV: ::windows::core::PCWSTR = ::windows::core::w!("IBM PC Convertible");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_IBMPCJR: ::windows::core::PCWSTR = ::windows::w!("IBM PCjr");
+pub const REGSTR_MACHTYPE_IBMPCJR: ::windows::core::PCWSTR = ::windows::core::w!("IBM PCjr");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_IBMPCXT: ::windows::core::PCWSTR = ::windows::w!("IBM PC/XT");
+pub const REGSTR_MACHTYPE_IBMPCXT: ::windows::core::PCWSTR = ::windows::core::w!("IBM PC/XT");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_IBMPCXT_286: ::windows::core::PCWSTR = ::windows::w!("IBM PC/XT 286");
+pub const REGSTR_MACHTYPE_IBMPCXT_286: ::windows::core::PCWSTR = ::windows::core::w!("IBM PC/XT 286");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_IBMPS1: ::windows::core::PCWSTR = ::windows::w!("IBM PS/1");
+pub const REGSTR_MACHTYPE_IBMPS1: ::windows::core::PCWSTR = ::windows::core::w!("IBM PS/1");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_IBMPS2_25: ::windows::core::PCWSTR = ::windows::w!("IBM PS/2-25");
+pub const REGSTR_MACHTYPE_IBMPS2_25: ::windows::core::PCWSTR = ::windows::core::w!("IBM PS/2-25");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_IBMPS2_30: ::windows::core::PCWSTR = ::windows::w!("IBM PS/2-30");
+pub const REGSTR_MACHTYPE_IBMPS2_30: ::windows::core::PCWSTR = ::windows::core::w!("IBM PS/2-30");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_IBMPS2_30_286: ::windows::core::PCWSTR = ::windows::w!("IBM PS/2-30 286");
+pub const REGSTR_MACHTYPE_IBMPS2_30_286: ::windows::core::PCWSTR = ::windows::core::w!("IBM PS/2-30 286");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_IBMPS2_50: ::windows::core::PCWSTR = ::windows::w!("IBM PS/2-50");
+pub const REGSTR_MACHTYPE_IBMPS2_50: ::windows::core::PCWSTR = ::windows::core::w!("IBM PS/2-50");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_IBMPS2_50Z: ::windows::core::PCWSTR = ::windows::w!("IBM PS/2-50Z");
+pub const REGSTR_MACHTYPE_IBMPS2_50Z: ::windows::core::PCWSTR = ::windows::core::w!("IBM PS/2-50Z");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_IBMPS2_55SX: ::windows::core::PCWSTR = ::windows::w!("IBM PS/2-55SX");
+pub const REGSTR_MACHTYPE_IBMPS2_55SX: ::windows::core::PCWSTR = ::windows::core::w!("IBM PS/2-55SX");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_IBMPS2_60: ::windows::core::PCWSTR = ::windows::w!("IBM PS/2-60");
+pub const REGSTR_MACHTYPE_IBMPS2_60: ::windows::core::PCWSTR = ::windows::core::w!("IBM PS/2-60");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_IBMPS2_65SX: ::windows::core::PCWSTR = ::windows::w!("IBM PS/2-65SX");
+pub const REGSTR_MACHTYPE_IBMPS2_65SX: ::windows::core::PCWSTR = ::windows::core::w!("IBM PS/2-65SX");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_IBMPS2_70: ::windows::core::PCWSTR = ::windows::w!("IBM PS/2-70");
+pub const REGSTR_MACHTYPE_IBMPS2_70: ::windows::core::PCWSTR = ::windows::core::w!("IBM PS/2-70");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_IBMPS2_70_80: ::windows::core::PCWSTR = ::windows::w!("IBM PS/2-70/80");
+pub const REGSTR_MACHTYPE_IBMPS2_70_80: ::windows::core::PCWSTR = ::windows::core::w!("IBM PS/2-70/80");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_IBMPS2_80: ::windows::core::PCWSTR = ::windows::w!("IBM PS/2-80");
+pub const REGSTR_MACHTYPE_IBMPS2_80: ::windows::core::PCWSTR = ::windows::core::w!("IBM PS/2-80");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_IBMPS2_90: ::windows::core::PCWSTR = ::windows::w!("IBM PS/2-90");
+pub const REGSTR_MACHTYPE_IBMPS2_90: ::windows::core::PCWSTR = ::windows::core::w!("IBM PS/2-90");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_IBMPS2_P70: ::windows::core::PCWSTR = ::windows::w!("IBM PS/2-P70");
+pub const REGSTR_MACHTYPE_IBMPS2_P70: ::windows::core::PCWSTR = ::windows::core::w!("IBM PS/2-P70");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_PHOENIX_PCAT: ::windows::core::PCWSTR = ::windows::w!("Phoenix PC/AT Compatible");
+pub const REGSTR_MACHTYPE_PHOENIX_PCAT: ::windows::core::PCWSTR = ::windows::core::w!("Phoenix PC/AT Compatible");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_UNKNOWN: ::windows::core::PCWSTR = ::windows::w!("Unknown");
+pub const REGSTR_MACHTYPE_UNKNOWN: ::windows::core::PCWSTR = ::windows::core::w!("Unknown");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_MACHTYPE_ZENITH_PC: ::windows::core::PCWSTR = ::windows::w!("Zenith PC");
+pub const REGSTR_MACHTYPE_ZENITH_PC: ::windows::core::PCWSTR = ::windows::core::w!("Zenith PC");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub const REGSTR_MAX_VALUE_LENGTH: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_ADDRARB: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Services\\Arbitrators\\AddrArb");
+pub const REGSTR_PATH_ADDRARB: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Services\\Arbitrators\\AddrArb");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_AEDEBUG: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows NT\\CurrentVersion\\AeDebug");
+pub const REGSTR_PATH_AEDEBUG: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows NT\\CurrentVersion\\AeDebug");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_APPEARANCE: ::windows::core::PCWSTR = ::windows::w!("Control Panel\\Appearance");
+pub const REGSTR_PATH_APPEARANCE: ::windows::core::PCWSTR = ::windows::core::w!("Control Panel\\Appearance");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_APPPATCH: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\SessionManager\\AppPatches");
+pub const REGSTR_PATH_APPPATCH: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\SessionManager\\AppPatches");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_APPPATHS: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\App Paths");
+pub const REGSTR_PATH_APPPATHS: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\App Paths");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_BIOSINFO: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\BiosInfo");
+pub const REGSTR_PATH_BIOSINFO: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\BiosInfo");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_BUSINFORMATION: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\PnP\\BusInformation");
+pub const REGSTR_PATH_BUSINFORMATION: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\PnP\\BusInformation");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_CDFS: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\FileSystem\\CDFS");
+pub const REGSTR_PATH_CDFS: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\FileSystem\\CDFS");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_CHECKBADAPPS: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\SessionManager\\CheckBadApps");
+pub const REGSTR_PATH_CHECKBADAPPS: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\SessionManager\\CheckBadApps");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_CHECKBADAPPS400: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\SessionManager\\CheckBadApps400");
+pub const REGSTR_PATH_CHECKBADAPPS400: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\SessionManager\\CheckBadApps400");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_CHECKDISK: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Applets\\Check Drive");
+pub const REGSTR_PATH_CHECKDISK: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Applets\\Check Drive");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_CHECKDISKSET: ::windows::core::PCWSTR = ::windows::w!("Settings");
+pub const REGSTR_PATH_CHECKDISKSET: ::windows::core::PCWSTR = ::windows::core::w!("Settings");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_CHECKDISKUDRVS: ::windows::core::PCWSTR = ::windows::w!("NoUnknownDDErrDrvs");
+pub const REGSTR_PATH_CHECKDISKUDRVS: ::windows::core::PCWSTR = ::windows::core::w!("NoUnknownDDErrDrvs");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_CHECKVERDLLS: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\SessionManager\\CheckVerDLLs");
+pub const REGSTR_PATH_CHECKVERDLLS: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\SessionManager\\CheckVerDLLs");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_CHILD_PREFIX: ::windows::core::PCWSTR = ::windows::w!("Child");
+pub const REGSTR_PATH_CHILD_PREFIX: ::windows::core::PCWSTR = ::windows::core::w!("Child");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_CHKLASTCHECK: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Applets\\Check Drive\\LastCheck");
+pub const REGSTR_PATH_CHKLASTCHECK: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Applets\\Check Drive\\LastCheck");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_CHKLASTSURFAN: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Applets\\Check Drive\\LastSurfaceAnalysis");
+pub const REGSTR_PATH_CHKLASTSURFAN: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Applets\\Check Drive\\LastSurfaceAnalysis");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_CLASS: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Services\\Class");
+pub const REGSTR_PATH_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Services\\Class");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_CLASS_NT: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\Class");
+pub const REGSTR_PATH_CLASS_NT: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\Class");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_CODEPAGE: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\Nls\\Codepage");
+pub const REGSTR_PATH_CODEPAGE: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\Nls\\Codepage");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_CODEVICEINSTALLERS: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\CoDeviceInstallers");
+pub const REGSTR_PATH_CODEVICEINSTALLERS: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\CoDeviceInstallers");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_COLORS: ::windows::core::PCWSTR = ::windows::w!("Control Panel\\Colors");
+pub const REGSTR_PATH_COLORS: ::windows::core::PCWSTR = ::windows::core::w!("Control Panel\\Colors");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_COMPUTRNAME: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\ComputerName\\ComputerName");
+pub const REGSTR_PATH_COMPUTRNAME: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\ComputerName\\ComputerName");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_CONTROLPANEL: ::windows::core::PCWSTR = ::windows::w!("Control Panel");
+pub const REGSTR_PATH_CONTROLPANEL: ::windows::core::PCWSTR = ::windows::core::w!("Control Panel");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_CONTROLSFOLDER: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Controls Folder");
+pub const REGSTR_PATH_CONTROLSFOLDER: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Controls Folder");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_CRITICALDEVICEDATABASE: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\CriticalDeviceDatabase");
+pub const REGSTR_PATH_CRITICALDEVICEDATABASE: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\CriticalDeviceDatabase");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_CURRENTCONTROLSET: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet");
+pub const REGSTR_PATH_CURRENTCONTROLSET: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_CURRENT_CONTROL_SET: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control");
+pub const REGSTR_PATH_CURRENT_CONTROL_SET: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_CURSORS: ::windows::core::PCWSTR = ::windows::w!("Control Panel\\Cursors");
+pub const REGSTR_PATH_CURSORS: ::windows::core::PCWSTR = ::windows::core::w!("Control Panel\\Cursors");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_CVNETWORK: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Network");
+pub const REGSTR_PATH_CVNETWORK: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Network");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_DESKTOP: ::windows::core::PCWSTR = ::windows::w!("Control Panel\\Desktop");
+pub const REGSTR_PATH_DESKTOP: ::windows::core::PCWSTR = ::windows::core::w!("Control Panel\\Desktop");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_DETECT: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Detect");
+pub const REGSTR_PATH_DETECT: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Detect");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_DEVICEINSTALLER: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Device Installer");
+pub const REGSTR_PATH_DEVICEINSTALLER: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Device Installer");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_DEVICE_CLASSES: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\DeviceClasses");
+pub const REGSTR_PATH_DEVICE_CLASSES: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\DeviceClasses");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_DIFX: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\DIFX");
+pub const REGSTR_PATH_DIFX: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\DIFX");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_DISPLAYSETTINGS: ::windows::core::PCWSTR = ::windows::w!("Display\\Settings");
+pub const REGSTR_PATH_DISPLAYSETTINGS: ::windows::core::PCWSTR = ::windows::core::w!("Display\\Settings");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_DMAARB: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Services\\Arbitrators\\DMAArb");
+pub const REGSTR_PATH_DMAARB: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Services\\Arbitrators\\DMAArb");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_DRIVERSIGN: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Driver Signing");
+pub const REGSTR_PATH_DRIVERSIGN: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Driver Signing");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_DRIVERSIGN_POLICY: ::windows::core::PCWSTR = ::windows::w!("Software\\Policies\\Microsoft\\Windows NT\\Driver Signing");
+pub const REGSTR_PATH_DRIVERSIGN_POLICY: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Policies\\Microsoft\\Windows NT\\Driver Signing");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_ENUM: ::windows::core::PCWSTR = ::windows::w!("Enum");
+pub const REGSTR_PATH_ENUM: ::windows::core::PCWSTR = ::windows::core::w!("Enum");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_ENVIRONMENTS: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\Print\\Environments");
+pub const REGSTR_PATH_ENVIRONMENTS: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\Print\\Environments");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_EVENTLABELS: ::windows::core::PCWSTR = ::windows::w!("AppEvents\\EventLabels");
+pub const REGSTR_PATH_EVENTLABELS: ::windows::core::PCWSTR = ::windows::core::w!("AppEvents\\EventLabels");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_EXPLORER: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer");
+pub const REGSTR_PATH_EXPLORER: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_FAULT: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Fault");
+pub const REGSTR_PATH_FAULT: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Fault");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_FILESYSTEM: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\FileSystem");
+pub const REGSTR_PATH_FILESYSTEM: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\FileSystem");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_FILESYSTEM_NOVOLTRACK: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\FileSystem\\NoVolTrack");
+pub const REGSTR_PATH_FILESYSTEM_NOVOLTRACK: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\FileSystem\\NoVolTrack");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_FLOATINGPOINTPROCESSOR: ::windows::core::PCWSTR = ::windows::w!("HARDWARE\\DESCRIPTION\\System\\FloatingPointProcessor");
+pub const REGSTR_PATH_FLOATINGPOINTPROCESSOR: ::windows::core::PCWSTR = ::windows::core::w!("HARDWARE\\DESCRIPTION\\System\\FloatingPointProcessor");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_FLOATINGPOINTPROCESSOR0: ::windows::core::PCWSTR = ::windows::w!("HARDWARE\\DESCRIPTION\\System\\FloatingPointProcessor\\0");
+pub const REGSTR_PATH_FLOATINGPOINTPROCESSOR0: ::windows::core::PCWSTR = ::windows::core::w!("HARDWARE\\DESCRIPTION\\System\\FloatingPointProcessor\\0");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_FONTS: ::windows::core::PCWSTR = ::windows::w!("Display\\Fonts");
+pub const REGSTR_PATH_FONTS: ::windows::core::PCWSTR = ::windows::core::w!("Display\\Fonts");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_GRPCONV: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\GrpConv");
+pub const REGSTR_PATH_GRPCONV: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\GrpConv");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_HACKINIFILE: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\SessionManager\\HackIniFiles");
+pub const REGSTR_PATH_HACKINIFILE: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\SessionManager\\HackIniFiles");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_HWPROFILES: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Hardware Profiles");
+pub const REGSTR_PATH_HWPROFILES: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Hardware Profiles");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_HWPROFILESCURRENT: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Hardware Profiles\\Current");
+pub const REGSTR_PATH_HWPROFILESCURRENT: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Hardware Profiles\\Current");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_ICONS: ::windows::core::PCWSTR = ::windows::w!("Control Panel\\Icons");
+pub const REGSTR_PATH_ICONS: ::windows::core::PCWSTR = ::windows::core::w!("Control Panel\\Icons");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_IDCONFIGDB: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\IDConfigDB");
+pub const REGSTR_PATH_IDCONFIGDB: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\IDConfigDB");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_INSTALLEDFILES: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\InstalledFiles");
+pub const REGSTR_PATH_INSTALLEDFILES: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\InstalledFiles");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_IOARB: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Services\\Arbitrators\\IOArb");
+pub const REGSTR_PATH_IOARB: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Services\\Arbitrators\\IOArb");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_IOS: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Services\\VxD\\IOS");
+pub const REGSTR_PATH_IOS: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Services\\VxD\\IOS");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_IRQARB: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Services\\Arbitrators\\IRQArb");
+pub const REGSTR_PATH_IRQARB: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Services\\Arbitrators\\IRQArb");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_KEYBOARD: ::windows::core::PCWSTR = ::windows::w!("Control Panel\\Keyboard");
+pub const REGSTR_PATH_KEYBOARD: ::windows::core::PCWSTR = ::windows::core::w!("Control Panel\\Keyboard");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_KNOWN16DLLS: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\SessionManager\\Known16DLLs");
+pub const REGSTR_PATH_KNOWN16DLLS: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\SessionManager\\Known16DLLs");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_KNOWNDLLS: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\SessionManager\\KnownDLLs");
+pub const REGSTR_PATH_KNOWNDLLS: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\SessionManager\\KnownDLLs");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_KNOWNVXDS: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\SessionManager\\KnownVxDs");
+pub const REGSTR_PATH_KNOWNVXDS: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\SessionManager\\KnownVxDs");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_LASTBACKUP: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\LastBackup");
+pub const REGSTR_PATH_LASTBACKUP: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\LastBackup");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_LASTCHECK: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\LastCheck");
+pub const REGSTR_PATH_LASTCHECK: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\LastCheck");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_LASTGOOD: ::windows::core::PCWSTR = ::windows::w!("System\\LastKnownGoodRecovery\\LastGood");
+pub const REGSTR_PATH_LASTGOOD: ::windows::core::PCWSTR = ::windows::core::w!("System\\LastKnownGoodRecovery\\LastGood");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_LASTGOODTMP: ::windows::core::PCWSTR = ::windows::w!("System\\LastKnownGoodRecovery\\LastGood.Tmp");
+pub const REGSTR_PATH_LASTGOODTMP: ::windows::core::PCWSTR = ::windows::core::w!("System\\LastKnownGoodRecovery\\LastGood.Tmp");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_LASTOPTIMIZE: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\LastOptimize");
+pub const REGSTR_PATH_LASTOPTIMIZE: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\LastOptimize");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_LOOKSCHEMES: ::windows::core::PCWSTR = ::windows::w!("Control Panel\\Appearance\\Schemes");
+pub const REGSTR_PATH_LOOKSCHEMES: ::windows::core::PCWSTR = ::windows::core::w!("Control Panel\\Appearance\\Schemes");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_METRICS: ::windows::core::PCWSTR = ::windows::w!("Control Panel\\Desktop\\WindowMetrics");
+pub const REGSTR_PATH_METRICS: ::windows::core::PCWSTR = ::windows::core::w!("Control Panel\\Desktop\\WindowMetrics");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_MONITORS: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\Print\\Monitors");
+pub const REGSTR_PATH_MONITORS: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\Print\\Monitors");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_MOUSE: ::windows::core::PCWSTR = ::windows::w!("Control Panel\\Mouse");
+pub const REGSTR_PATH_MOUSE: ::windows::core::PCWSTR = ::windows::core::w!("Control Panel\\Mouse");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_MSDOSOPTS: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\MS-DOSOptions");
+pub const REGSTR_PATH_MSDOSOPTS: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\MS-DOSOptions");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_MULTIMEDIA_AUDIO: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Multimedia\\Audio");
+pub const REGSTR_PATH_MULTIMEDIA_AUDIO: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Multimedia\\Audio");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_MULTI_FUNCTION: ::windows::core::PCWSTR = ::windows::w!("MF");
+pub const REGSTR_PATH_MULTI_FUNCTION: ::windows::core::PCWSTR = ::windows::core::w!("MF");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_NCPSERVER: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Services\\NcpServer\\Parameters");
+pub const REGSTR_PATH_NCPSERVER: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Services\\NcpServer\\Parameters");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_NETEQUIV: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Network\\Equivalent");
+pub const REGSTR_PATH_NETEQUIV: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Network\\Equivalent");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_NETWORK_USERSETTINGS: ::windows::core::PCWSTR = ::windows::w!("Network");
+pub const REGSTR_PATH_NETWORK_USERSETTINGS: ::windows::core::PCWSTR = ::windows::core::w!("Network");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_NEWDOSBOX: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\MS-DOSSpecialConfig");
+pub const REGSTR_PATH_NEWDOSBOX: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\MS-DOSSpecialConfig");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_NONDRIVERSIGN: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Non-Driver Signing");
+pub const REGSTR_PATH_NONDRIVERSIGN: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Non-Driver Signing");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_NONDRIVERSIGN_POLICY: ::windows::core::PCWSTR = ::windows::w!("Software\\Policies\\Microsoft\\Windows NT\\Non-Driver Signing");
+pub const REGSTR_PATH_NONDRIVERSIGN_POLICY: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Policies\\Microsoft\\Windows NT\\Non-Driver Signing");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_NOSUGGMSDOS: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\NoMSDOSWarn");
+pub const REGSTR_PATH_NOSUGGMSDOS: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\NoMSDOSWarn");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_NT_CURRENTVERSION: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows NT\\CurrentVersion");
+pub const REGSTR_PATH_NT_CURRENTVERSION: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows NT\\CurrentVersion");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_NWREDIR: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Services\\VxD\\NWREDIR");
+pub const REGSTR_PATH_NWREDIR: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Services\\VxD\\NWREDIR");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_PCIIR: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\Pnp\\PciIrqRouting");
+pub const REGSTR_PATH_PCIIR: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\Pnp\\PciIrqRouting");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_PER_HW_ID_STORAGE: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows NT\\CurrentVersion\\PerHwIdStorage");
+pub const REGSTR_PATH_PER_HW_ID_STORAGE: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows NT\\CurrentVersion\\PerHwIdStorage");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_PIFCONVERT: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\PIFConvert");
+pub const REGSTR_PATH_PIFCONVERT: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\PIFConvert");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_POLICIES: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Policies");
+pub const REGSTR_PATH_POLICIES: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Policies");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_PRINT: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\Print");
+pub const REGSTR_PATH_PRINT: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\Print");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_PRINTERS: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\Print\\Printers");
+pub const REGSTR_PATH_PRINTERS: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\Print\\Printers");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_PROPERTYSYSTEM: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\PropertySystem");
+pub const REGSTR_PATH_PROPERTYSYSTEM: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\PropertySystem");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_PROVIDERS: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\Print\\Providers");
+pub const REGSTR_PATH_PROVIDERS: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\Print\\Providers");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_PWDPROVIDER: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\PwdProvider");
+pub const REGSTR_PATH_PWDPROVIDER: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\PwdProvider");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_REALMODENET: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Network\\Real Mode Net");
+pub const REGSTR_PATH_REALMODENET: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Network\\Real Mode Net");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_REINSTALL: ::windows::core::PCWSTR = ::windows::w!("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Reinstall");
+pub const REGSTR_PATH_REINSTALL: ::windows::core::PCWSTR = ::windows::core::w!("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Reinstall");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_RELIABILITY: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Reliability");
+pub const REGSTR_PATH_RELIABILITY: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Reliability");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_RELIABILITY_POLICY: ::windows::core::PCWSTR = ::windows::w!("Software\\Policies\\Microsoft\\Windows NT\\Reliability");
+pub const REGSTR_PATH_RELIABILITY_POLICY: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Policies\\Microsoft\\Windows NT\\Reliability");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_RELIABILITY_POLICY_REPORTSNAPSHOT: ::windows::core::PCWSTR = ::windows::w!("ReportSnapshot");
+pub const REGSTR_PATH_RELIABILITY_POLICY_REPORTSNAPSHOT: ::windows::core::PCWSTR = ::windows::core::w!("ReportSnapshot");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_RELIABILITY_POLICY_SHUTDOWNREASONUI: ::windows::core::PCWSTR = ::windows::w!("ShutdownReasonUI");
+pub const REGSTR_PATH_RELIABILITY_POLICY_SHUTDOWNREASONUI: ::windows::core::PCWSTR = ::windows::core::w!("ShutdownReasonUI");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_RELIABILITY_POLICY_SNAPSHOT: ::windows::core::PCWSTR = ::windows::w!("Snapshot");
+pub const REGSTR_PATH_RELIABILITY_POLICY_SNAPSHOT: ::windows::core::PCWSTR = ::windows::core::w!("Snapshot");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_ROOT: ::windows::core::PCWSTR = ::windows::w!("Enum\\Root");
+pub const REGSTR_PATH_ROOT: ::windows::core::PCWSTR = ::windows::core::w!("Enum\\Root");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_RUN: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Run");
+pub const REGSTR_PATH_RUN: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Run");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_RUNONCE: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce");
+pub const REGSTR_PATH_RUNONCE: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_RUNONCEEX: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\RunOnceEx");
+pub const REGSTR_PATH_RUNONCEEX: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\RunOnceEx");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_RUNSERVICES: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\RunServices");
+pub const REGSTR_PATH_RUNSERVICES: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\RunServices");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_RUNSERVICESONCE: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\RunServicesOnce");
+pub const REGSTR_PATH_RUNSERVICESONCE: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\RunServicesOnce");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_SCHEMES: ::windows::core::PCWSTR = ::windows::w!("AppEvents\\Schemes");
+pub const REGSTR_PATH_SCHEMES: ::windows::core::PCWSTR = ::windows::core::w!("AppEvents\\Schemes");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_SCREENSAVE: ::windows::core::PCWSTR = ::windows::w!("Control Panel\\Desktop");
+pub const REGSTR_PATH_SCREENSAVE: ::windows::core::PCWSTR = ::windows::core::w!("Control Panel\\Desktop");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_SERVICES: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Services");
+pub const REGSTR_PATH_SERVICES: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Services");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_SETUP: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion");
+pub const REGSTR_PATH_SETUP: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_SHUTDOWN: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\Shutdown");
+pub const REGSTR_PATH_SHUTDOWN: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\Shutdown");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_SOUND: ::windows::core::PCWSTR = ::windows::w!("Control Panel\\Sound");
+pub const REGSTR_PATH_SOUND: ::windows::core::PCWSTR = ::windows::core::w!("Control Panel\\Sound");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_SYSTEMENUM: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Enum");
+pub const REGSTR_PATH_SYSTEMENUM: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Enum");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_SYSTRAY: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Applets\\SysTray");
+pub const REGSTR_PATH_SYSTRAY: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Applets\\SysTray");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_TIMEZONE: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\TimeZoneInformation");
+pub const REGSTR_PATH_TIMEZONE: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\TimeZoneInformation");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_UNINSTALL: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall");
+pub const REGSTR_PATH_UNINSTALL: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_UPDATE: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\Update");
+pub const REGSTR_PATH_UPDATE: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\Update");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_VCOMM: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Services\\VxD\\VCOMM");
+pub const REGSTR_PATH_VCOMM: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Services\\VxD\\VCOMM");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_VMM: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Services\\VxD\\VMM");
+pub const REGSTR_PATH_VMM: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Services\\VxD\\VMM");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_VMM32FILES: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\VMM32Files");
+pub const REGSTR_PATH_VMM32FILES: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\VMM32Files");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_VNETSUP: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Services\\VxD\\VNETSUP");
+pub const REGSTR_PATH_VNETSUP: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Services\\VxD\\VNETSUP");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_VOLUMECACHE: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches");
+pub const REGSTR_PATH_VOLUMECACHE: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_VPOWERD: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Services\\VxD\\VPOWERD");
+pub const REGSTR_PATH_VPOWERD: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Services\\VxD\\VPOWERD");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_VXD: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Services\\VxD");
+pub const REGSTR_PATH_VXD: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Services\\VxD");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_WARNVERDLLS: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\SessionManager\\WarnVerDLLs");
+pub const REGSTR_PATH_WARNVERDLLS: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\SessionManager\\WarnVerDLLs");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_WINBOOT: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\WinBoot");
+pub const REGSTR_PATH_WINBOOT: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\WinBoot");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_WINDOWSAPPLETS: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Applets");
+pub const REGSTR_PATH_WINDOWSAPPLETS: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Applets");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_WINLOGON: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Winlogon");
+pub const REGSTR_PATH_WINLOGON: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\Winlogon");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PATH_WMI_SECURITY: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Control\\Wmi\\Security");
+pub const REGSTR_PATH_WMI_SECURITY: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Control\\Wmi\\Security");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PCI_DUAL_IDE: ::windows::core::PCWSTR = ::windows::w!("PCIDualIDE");
+pub const REGSTR_PCI_DUAL_IDE: ::windows::core::PCWSTR = ::windows::core::w!("PCIDualIDE");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_PCI_OPTIONS: ::windows::core::PCWSTR = ::windows::w!("Options");
+pub const REGSTR_PCI_OPTIONS: ::windows::core::PCWSTR = ::windows::core::w!("Options");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VALUE_DEFAULTLOC: ::windows::core::PCWSTR = ::windows::w!("UseDefaultNetLocation");
+pub const REGSTR_VALUE_DEFAULTLOC: ::windows::core::PCWSTR = ::windows::core::w!("UseDefaultNetLocation");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VALUE_ENABLE: ::windows::core::PCWSTR = ::windows::w!("Enable");
+pub const REGSTR_VALUE_ENABLE: ::windows::core::PCWSTR = ::windows::core::w!("Enable");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VALUE_LOWPOWERACTIVE: ::windows::core::PCWSTR = ::windows::w!("ScreenSaveLowPowerActive");
+pub const REGSTR_VALUE_LOWPOWERACTIVE: ::windows::core::PCWSTR = ::windows::core::w!("ScreenSaveLowPowerActive");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VALUE_LOWPOWERTIMEOUT: ::windows::core::PCWSTR = ::windows::w!("ScreenSaveLowPowerTimeout");
+pub const REGSTR_VALUE_LOWPOWERTIMEOUT: ::windows::core::PCWSTR = ::windows::core::w!("ScreenSaveLowPowerTimeout");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VALUE_NETPATH: ::windows::core::PCWSTR = ::windows::w!("NetworkPath");
+pub const REGSTR_VALUE_NETPATH: ::windows::core::PCWSTR = ::windows::core::w!("NetworkPath");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VALUE_POWEROFFACTIVE: ::windows::core::PCWSTR = ::windows::w!("ScreenSavePowerOffActive");
+pub const REGSTR_VALUE_POWEROFFACTIVE: ::windows::core::PCWSTR = ::windows::core::w!("ScreenSavePowerOffActive");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VALUE_POWEROFFTIMEOUT: ::windows::core::PCWSTR = ::windows::w!("ScreenSavePowerOffTimeout");
+pub const REGSTR_VALUE_POWEROFFTIMEOUT: ::windows::core::PCWSTR = ::windows::core::w!("ScreenSavePowerOffTimeout");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VALUE_SCRPASSWORD: ::windows::core::PCWSTR = ::windows::w!("ScreenSave_Data");
+pub const REGSTR_VALUE_SCRPASSWORD: ::windows::core::PCWSTR = ::windows::core::w!("ScreenSave_Data");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VALUE_USESCRPASSWORD: ::windows::core::PCWSTR = ::windows::w!("ScreenSaveUsePassword");
+pub const REGSTR_VALUE_USESCRPASSWORD: ::windows::core::PCWSTR = ::windows::core::w!("ScreenSaveUsePassword");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VALUE_VERBOSE: ::windows::core::PCWSTR = ::windows::w!("Verbose");
+pub const REGSTR_VALUE_VERBOSE: ::windows::core::PCWSTR = ::windows::core::w!("Verbose");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_ACDRIVESPINDOWN: ::windows::core::PCWSTR = ::windows::w!("ACDriveSpinDown");
+pub const REGSTR_VAL_ACDRIVESPINDOWN: ::windows::core::PCWSTR = ::windows::core::w!("ACDriveSpinDown");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_ACSPINDOWNPREVIOUS: ::windows::core::PCWSTR = ::windows::w!("ACSpinDownPrevious");
+pub const REGSTR_VAL_ACSPINDOWNPREVIOUS: ::windows::core::PCWSTR = ::windows::core::w!("ACSpinDownPrevious");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_ACTIVESERVICE: ::windows::core::PCWSTR = ::windows::w!("ActiveService");
+pub const REGSTR_VAL_ACTIVESERVICE: ::windows::core::PCWSTR = ::windows::core::w!("ActiveService");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_ADDRESS: ::windows::core::PCWSTR = ::windows::w!("Address");
+pub const REGSTR_VAL_ADDRESS: ::windows::core::PCWSTR = ::windows::core::w!("Address");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_AEDEBUG_AUTO: ::windows::core::PCWSTR = ::windows::w!("Auto");
+pub const REGSTR_VAL_AEDEBUG_AUTO: ::windows::core::PCWSTR = ::windows::core::w!("Auto");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_AEDEBUG_DEBUGGER: ::windows::core::PCWSTR = ::windows::w!("Debugger");
+pub const REGSTR_VAL_AEDEBUG_DEBUGGER: ::windows::core::PCWSTR = ::windows::core::w!("Debugger");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_ALPHANUMPWDS: ::windows::core::PCWSTR = ::windows::w!("AlphanumPwds");
+pub const REGSTR_VAL_ALPHANUMPWDS: ::windows::core::PCWSTR = ::windows::core::w!("AlphanumPwds");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_APISUPPORT: ::windows::core::PCWSTR = ::windows::w!("APISupport");
+pub const REGSTR_VAL_APISUPPORT: ::windows::core::PCWSTR = ::windows::core::w!("APISupport");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_APMACTIMEOUT: ::windows::core::PCWSTR = ::windows::w!("APMACTimeout");
+pub const REGSTR_VAL_APMACTIMEOUT: ::windows::core::PCWSTR = ::windows::core::w!("APMACTimeout");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_APMBATTIMEOUT: ::windows::core::PCWSTR = ::windows::w!("APMBatTimeout");
+pub const REGSTR_VAL_APMBATTIMEOUT: ::windows::core::PCWSTR = ::windows::core::w!("APMBatTimeout");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_APMBIOSVER: ::windows::core::PCWSTR = ::windows::w!("APMBiosVer");
+pub const REGSTR_VAL_APMBIOSVER: ::windows::core::PCWSTR = ::windows::core::w!("APMBiosVer");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_APMFLAGS: ::windows::core::PCWSTR = ::windows::w!("APMFlags");
+pub const REGSTR_VAL_APMFLAGS: ::windows::core::PCWSTR = ::windows::core::w!("APMFlags");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_APMMENUSUSPEND: ::windows::core::PCWSTR = ::windows::w!("APMMenuSuspend");
+pub const REGSTR_VAL_APMMENUSUSPEND: ::windows::core::PCWSTR = ::windows::core::w!("APMMenuSuspend");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_APMSHUTDOWNPOWER: ::windows::core::PCWSTR = ::windows::w!("APMShutDownPower");
+pub const REGSTR_VAL_APMSHUTDOWNPOWER: ::windows::core::PCWSTR = ::windows::core::w!("APMShutDownPower");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_APPINSTPATH: ::windows::core::PCWSTR = ::windows::w!("AppInstallPath");
+pub const REGSTR_VAL_APPINSTPATH: ::windows::core::PCWSTR = ::windows::core::w!("AppInstallPath");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_ASKFORCONFIG: ::windows::core::PCWSTR = ::windows::w!("AskForConfig");
+pub const REGSTR_VAL_ASKFORCONFIG: ::windows::core::PCWSTR = ::windows::core::w!("AskForConfig");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_ASKFORCONFIGFUNC: ::windows::core::PCWSTR = ::windows::w!("AskForConfigFunc");
+pub const REGSTR_VAL_ASKFORCONFIGFUNC: ::windows::core::PCWSTR = ::windows::core::w!("AskForConfigFunc");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_ASYNCFILECOMMIT: ::windows::core::PCWSTR = ::windows::w!("AsyncFileCommit");
+pub const REGSTR_VAL_ASYNCFILECOMMIT: ::windows::core::PCWSTR = ::windows::core::w!("AsyncFileCommit");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_AUDIO_BITMAP: ::windows::core::PCWSTR = ::windows::w!("bitmap");
+pub const REGSTR_VAL_AUDIO_BITMAP: ::windows::core::PCWSTR = ::windows::core::w!("bitmap");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_AUDIO_ICON: ::windows::core::PCWSTR = ::windows::w!("icon");
+pub const REGSTR_VAL_AUDIO_ICON: ::windows::core::PCWSTR = ::windows::core::w!("icon");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_AUTHENT_AGENT: ::windows::core::PCWSTR = ::windows::w!("AuthenticatingAgent");
+pub const REGSTR_VAL_AUTHENT_AGENT: ::windows::core::PCWSTR = ::windows::core::w!("AuthenticatingAgent");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_AUTOEXEC: ::windows::core::PCWSTR = ::windows::w!("Autoexec.Bat");
+pub const REGSTR_VAL_AUTOEXEC: ::windows::core::PCWSTR = ::windows::core::w!("Autoexec.Bat");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_AUTOINSNOTE: ::windows::core::PCWSTR = ::windows::w!("AutoInsertNotification");
+pub const REGSTR_VAL_AUTOINSNOTE: ::windows::core::PCWSTR = ::windows::core::w!("AutoInsertNotification");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_AUTOLOGON: ::windows::core::PCWSTR = ::windows::w!("AutoLogon");
+pub const REGSTR_VAL_AUTOLOGON: ::windows::core::PCWSTR = ::windows::core::w!("AutoLogon");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_AUTOMOUNT: ::windows::core::PCWSTR = ::windows::w!("AutoMountDrives");
+pub const REGSTR_VAL_AUTOMOUNT: ::windows::core::PCWSTR = ::windows::core::w!("AutoMountDrives");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_AUTOSTART: ::windows::core::PCWSTR = ::windows::w!("AutoStart");
+pub const REGSTR_VAL_AUTOSTART: ::windows::core::PCWSTR = ::windows::core::w!("AutoStart");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_BASICPROPERTIES: ::windows::core::PCWSTR = ::windows::w!("BasicProperties");
+pub const REGSTR_VAL_BASICPROPERTIES: ::windows::core::PCWSTR = ::windows::core::w!("BasicProperties");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_BASICPROPERTIES_32: ::windows::core::PCWSTR = ::windows::w!("BasicProperties32");
+pub const REGSTR_VAL_BASICPROPERTIES_32: ::windows::core::PCWSTR = ::windows::core::w!("BasicProperties32");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_BATDRIVESPINDOWN: ::windows::core::PCWSTR = ::windows::w!("BatDriveSpinDown");
+pub const REGSTR_VAL_BATDRIVESPINDOWN: ::windows::core::PCWSTR = ::windows::core::w!("BatDriveSpinDown");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_BATSPINDOWNPREVIOUS: ::windows::core::PCWSTR = ::windows::w!("BatSpinDownPrevious");
+pub const REGSTR_VAL_BATSPINDOWNPREVIOUS: ::windows::core::PCWSTR = ::windows::core::w!("BatSpinDownPrevious");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_BEHAVIOR_ON_FAILED_VERIFY: ::windows::core::PCWSTR = ::windows::w!("BehaviorOnFailedVerify");
+pub const REGSTR_VAL_BEHAVIOR_ON_FAILED_VERIFY: ::windows::core::PCWSTR = ::windows::core::w!("BehaviorOnFailedVerify");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_BIOSDATE: ::windows::core::PCWSTR = ::windows::w!("BIOSDate");
+pub const REGSTR_VAL_BIOSDATE: ::windows::core::PCWSTR = ::windows::core::w!("BIOSDate");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_BIOSNAME: ::windows::core::PCWSTR = ::windows::w!("BIOSName");
+pub const REGSTR_VAL_BIOSNAME: ::windows::core::PCWSTR = ::windows::core::w!("BIOSName");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_BIOSVERSION: ::windows::core::PCWSTR = ::windows::w!("BIOSVersion");
+pub const REGSTR_VAL_BIOSVERSION: ::windows::core::PCWSTR = ::windows::core::w!("BIOSVersion");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_BITSPERPIXEL: ::windows::core::PCWSTR = ::windows::w!("BitsPerPixel");
+pub const REGSTR_VAL_BITSPERPIXEL: ::windows::core::PCWSTR = ::windows::core::w!("BitsPerPixel");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_BOOTCONFIG: ::windows::core::PCWSTR = ::windows::w!("BootConfig");
+pub const REGSTR_VAL_BOOTCONFIG: ::windows::core::PCWSTR = ::windows::core::w!("BootConfig");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_BOOTCOUNT: ::windows::core::PCWSTR = ::windows::w!("BootCount");
+pub const REGSTR_VAL_BOOTCOUNT: ::windows::core::PCWSTR = ::windows::core::w!("BootCount");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_BOOTDIR: ::windows::core::PCWSTR = ::windows::w!("BootDir");
+pub const REGSTR_VAL_BOOTDIR: ::windows::core::PCWSTR = ::windows::core::w!("BootDir");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_BPP: ::windows::core::PCWSTR = ::windows::w!("BPP");
+pub const REGSTR_VAL_BPP: ::windows::core::PCWSTR = ::windows::core::w!("BPP");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_BT: ::windows::core::PCWSTR = ::windows::w!("6005BT");
+pub const REGSTR_VAL_BT: ::windows::core::PCWSTR = ::windows::core::w!("6005BT");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_BUFFAGETIMEOUT: ::windows::core::PCWSTR = ::windows::w!("BufferAgeTimeout");
+pub const REGSTR_VAL_BUFFAGETIMEOUT: ::windows::core::PCWSTR = ::windows::core::w!("BufferAgeTimeout");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_BUFFIDLETIMEOUT: ::windows::core::PCWSTR = ::windows::w!("BufferIdleTimeout");
+pub const REGSTR_VAL_BUFFIDLETIMEOUT: ::windows::core::PCWSTR = ::windows::core::w!("BufferIdleTimeout");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_BUSTYPE: ::windows::core::PCWSTR = ::windows::w!("BusType");
+pub const REGSTR_VAL_BUSTYPE: ::windows::core::PCWSTR = ::windows::core::w!("BusType");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CAPABILITIES: ::windows::core::PCWSTR = ::windows::w!("Capabilities");
+pub const REGSTR_VAL_CAPABILITIES: ::windows::core::PCWSTR = ::windows::core::w!("Capabilities");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CARDSPECIFIC: ::windows::core::PCWSTR = ::windows::w!("CardSpecific");
+pub const REGSTR_VAL_CARDSPECIFIC: ::windows::core::PCWSTR = ::windows::core::w!("CardSpecific");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CDCACHESIZE: ::windows::core::PCWSTR = ::windows::w!("CacheSize");
+pub const REGSTR_VAL_CDCACHESIZE: ::windows::core::PCWSTR = ::windows::core::w!("CacheSize");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CDCOMPATNAMES: ::windows::core::PCWSTR = ::windows::w!("MSCDEXCompatNames");
+pub const REGSTR_VAL_CDCOMPATNAMES: ::windows::core::PCWSTR = ::windows::core::w!("MSCDEXCompatNames");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CDEXTERRORS: ::windows::core::PCWSTR = ::windows::w!("ExtendedErrors");
+pub const REGSTR_VAL_CDEXTERRORS: ::windows::core::PCWSTR = ::windows::core::w!("ExtendedErrors");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CDNOREADAHEAD: ::windows::core::PCWSTR = ::windows::w!("NoReadAhead");
+pub const REGSTR_VAL_CDNOREADAHEAD: ::windows::core::PCWSTR = ::windows::core::w!("NoReadAhead");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CDPREFETCH: ::windows::core::PCWSTR = ::windows::w!("Prefetch");
+pub const REGSTR_VAL_CDPREFETCH: ::windows::core::PCWSTR = ::windows::core::w!("Prefetch");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CDPREFETCHTAIL: ::windows::core::PCWSTR = ::windows::w!("PrefetchTail");
+pub const REGSTR_VAL_CDPREFETCHTAIL: ::windows::core::PCWSTR = ::windows::core::w!("PrefetchTail");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CDRAWCACHE: ::windows::core::PCWSTR = ::windows::w!("RawCache");
+pub const REGSTR_VAL_CDRAWCACHE: ::windows::core::PCWSTR = ::windows::core::w!("RawCache");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CDROM: ::windows::core::PCWSTR = ::windows::w!("GenCD");
+pub const REGSTR_VAL_CDROM: ::windows::core::PCWSTR = ::windows::core::w!("GenCD");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CDROMCLASSNAME: ::windows::core::PCWSTR = ::windows::w!("CDROM");
+pub const REGSTR_VAL_CDROMCLASSNAME: ::windows::core::PCWSTR = ::windows::core::w!("CDROM");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CDSHOWVERSIONS: ::windows::core::PCWSTR = ::windows::w!("ShowVersions");
+pub const REGSTR_VAL_CDSHOWVERSIONS: ::windows::core::PCWSTR = ::windows::core::w!("ShowVersions");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CDSVDSENSE: ::windows::core::PCWSTR = ::windows::w!("SVDSense");
+pub const REGSTR_VAL_CDSVDSENSE: ::windows::core::PCWSTR = ::windows::core::w!("SVDSense");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CHECKSUM: ::windows::core::PCWSTR = ::windows::w!("CurrentChecksum");
+pub const REGSTR_VAL_CHECKSUM: ::windows::core::PCWSTR = ::windows::core::w!("CurrentChecksum");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CLASS: ::windows::core::PCWSTR = ::windows::w!("Class");
+pub const REGSTR_VAL_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("Class");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CLASSDESC: ::windows::core::PCWSTR = ::windows::w!("ClassDesc");
+pub const REGSTR_VAL_CLASSDESC: ::windows::core::PCWSTR = ::windows::core::w!("ClassDesc");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CLASSGUID: ::windows::core::PCWSTR = ::windows::w!("ClassGUID");
+pub const REGSTR_VAL_CLASSGUID: ::windows::core::PCWSTR = ::windows::core::w!("ClassGUID");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CMDRIVFLAGS: ::windows::core::PCWSTR = ::windows::w!("CMDrivFlags");
+pub const REGSTR_VAL_CMDRIVFLAGS: ::windows::core::PCWSTR = ::windows::core::w!("CMDrivFlags");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CMENUMFLAGS: ::windows::core::PCWSTR = ::windows::w!("CMEnumFlags");
+pub const REGSTR_VAL_CMENUMFLAGS: ::windows::core::PCWSTR = ::windows::core::w!("CMEnumFlags");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_COINSTALLERS_32: ::windows::core::PCWSTR = ::windows::w!("CoInstallers32");
+pub const REGSTR_VAL_COINSTALLERS_32: ::windows::core::PCWSTR = ::windows::core::w!("CoInstallers32");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_COMINFO: ::windows::core::PCWSTR = ::windows::w!("ComInfo");
+pub const REGSTR_VAL_COMINFO: ::windows::core::PCWSTR = ::windows::core::w!("ComInfo");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_COMMENT: ::windows::core::PCWSTR = ::windows::w!("Comment");
+pub const REGSTR_VAL_COMMENT: ::windows::core::PCWSTR = ::windows::core::w!("Comment");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_COMPATIBLEIDS: ::windows::core::PCWSTR = ::windows::w!("CompatibleIDs");
+pub const REGSTR_VAL_COMPATIBLEIDS: ::windows::core::PCWSTR = ::windows::core::w!("CompatibleIDs");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_COMPRESSIONMETHOD: ::windows::core::PCWSTR = ::windows::w!("CompressionAlgorithm");
+pub const REGSTR_VAL_COMPRESSIONMETHOD: ::windows::core::PCWSTR = ::windows::core::w!("CompressionAlgorithm");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_COMPRESSIONTHRESHOLD: ::windows::core::PCWSTR = ::windows::w!("CompressionThreshold");
+pub const REGSTR_VAL_COMPRESSIONTHRESHOLD: ::windows::core::PCWSTR = ::windows::core::w!("CompressionThreshold");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_COMPUTERNAME: ::windows::core::PCWSTR = ::windows::w!("ComputerName");
+pub const REGSTR_VAL_COMPUTERNAME: ::windows::core::PCWSTR = ::windows::core::w!("ComputerName");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_COMPUTRNAME: ::windows::core::PCWSTR = ::windows::w!("ComputerName");
+pub const REGSTR_VAL_COMPUTRNAME: ::windows::core::PCWSTR = ::windows::core::w!("ComputerName");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_COMVERIFYBASE: ::windows::core::PCWSTR = ::windows::w!("COMVerifyBase");
+pub const REGSTR_VAL_COMVERIFYBASE: ::windows::core::PCWSTR = ::windows::core::w!("COMVerifyBase");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CONFIG: ::windows::core::PCWSTR = ::windows::w!("ConfigPath");
+pub const REGSTR_VAL_CONFIG: ::windows::core::PCWSTR = ::windows::core::w!("ConfigPath");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CONFIGFLAGS: ::windows::core::PCWSTR = ::windows::w!("ConfigFlags");
+pub const REGSTR_VAL_CONFIGFLAGS: ::windows::core::PCWSTR = ::windows::core::w!("ConfigFlags");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CONFIGMG: ::windows::core::PCWSTR = ::windows::w!("CONFIGMG");
+pub const REGSTR_VAL_CONFIGMG: ::windows::core::PCWSTR = ::windows::core::w!("CONFIGMG");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CONFIGSYS: ::windows::core::PCWSTR = ::windows::w!("Config.Sys");
+pub const REGSTR_VAL_CONFIGSYS: ::windows::core::PCWSTR = ::windows::core::w!("Config.Sys");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CONNECTION_TYPE: ::windows::core::PCWSTR = ::windows::w!("ConnectionType");
+pub const REGSTR_VAL_CONNECTION_TYPE: ::windows::core::PCWSTR = ::windows::core::w!("ConnectionType");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CONTAINERID: ::windows::core::PCWSTR = ::windows::w!("ContainerID");
+pub const REGSTR_VAL_CONTAINERID: ::windows::core::PCWSTR = ::windows::core::w!("ContainerID");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CONTIGFILEALLOC: ::windows::core::PCWSTR = ::windows::w!("ContigFileAllocSize");
+pub const REGSTR_VAL_CONTIGFILEALLOC: ::windows::core::PCWSTR = ::windows::core::w!("ContigFileAllocSize");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CONVMEM: ::windows::core::PCWSTR = ::windows::w!("ConvMem");
+pub const REGSTR_VAL_CONVMEM: ::windows::core::PCWSTR = ::windows::core::w!("ConvMem");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CPU: ::windows::core::PCWSTR = ::windows::w!("CPU");
+pub const REGSTR_VAL_CPU: ::windows::core::PCWSTR = ::windows::core::w!("CPU");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CRASHFUNCS: ::windows::core::PCWSTR = ::windows::w!("CrashFuncs");
+pub const REGSTR_VAL_CRASHFUNCS: ::windows::core::PCWSTR = ::windows::core::w!("CrashFuncs");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CSCONFIGFLAGS: ::windows::core::PCWSTR = ::windows::w!("CSConfigFlags");
+pub const REGSTR_VAL_CSCONFIGFLAGS: ::windows::core::PCWSTR = ::windows::core::w!("CSConfigFlags");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CURCONFIG: ::windows::core::PCWSTR = ::windows::w!("CurrentConfig");
+pub const REGSTR_VAL_CURCONFIG: ::windows::core::PCWSTR = ::windows::core::w!("CurrentConfig");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CURDRVLET: ::windows::core::PCWSTR = ::windows::w!("CurrentDriveLetterAssignment");
+pub const REGSTR_VAL_CURDRVLET: ::windows::core::PCWSTR = ::windows::core::w!("CurrentDriveLetterAssignment");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CURRENTCONFIG: ::windows::core::PCWSTR = ::windows::w!("CurrentConfig");
+pub const REGSTR_VAL_CURRENTCONFIG: ::windows::core::PCWSTR = ::windows::core::w!("CurrentConfig");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CURRENT_BUILD: ::windows::core::PCWSTR = ::windows::w!("CurrentBuildNumber");
+pub const REGSTR_VAL_CURRENT_BUILD: ::windows::core::PCWSTR = ::windows::core::w!("CurrentBuildNumber");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CURRENT_CSDVERSION: ::windows::core::PCWSTR = ::windows::w!("CSDVersion");
+pub const REGSTR_VAL_CURRENT_CSDVERSION: ::windows::core::PCWSTR = ::windows::core::w!("CSDVersion");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CURRENT_TYPE: ::windows::core::PCWSTR = ::windows::w!("CurrentType");
+pub const REGSTR_VAL_CURRENT_TYPE: ::windows::core::PCWSTR = ::windows::core::w!("CurrentType");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CURRENT_USER: ::windows::core::PCWSTR = ::windows::w!("Current User");
+pub const REGSTR_VAL_CURRENT_USER: ::windows::core::PCWSTR = ::windows::core::w!("Current User");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CURRENT_VERSION: ::windows::core::PCWSTR = ::windows::w!("CurrentVersion");
+pub const REGSTR_VAL_CURRENT_VERSION: ::windows::core::PCWSTR = ::windows::core::w!("CurrentVersion");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CUSTOMCOLORS: ::windows::core::PCWSTR = ::windows::w!("CustomColors");
+pub const REGSTR_VAL_CUSTOMCOLORS: ::windows::core::PCWSTR = ::windows::core::w!("CustomColors");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CUSTOM_PROPERTY_CACHE_DATE: ::windows::core::PCWSTR = ::windows::w!("CustomPropertyCacheDate");
+pub const REGSTR_VAL_CUSTOM_PROPERTY_CACHE_DATE: ::windows::core::PCWSTR = ::windows::core::w!("CustomPropertyCacheDate");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_CUSTOM_PROPERTY_HW_ID_KEY: ::windows::core::PCWSTR = ::windows::w!("CustomPropertyHwIdKey");
+pub const REGSTR_VAL_CUSTOM_PROPERTY_HW_ID_KEY: ::windows::core::PCWSTR = ::windows::core::w!("CustomPropertyHwIdKey");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DEFAULT: ::windows::core::PCWSTR = ::windows::w!("Default");
+pub const REGSTR_VAL_DEFAULT: ::windows::core::PCWSTR = ::windows::core::w!("Default");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DETCONFIG: ::windows::core::PCWSTR = ::windows::w!("DetConfig");
+pub const REGSTR_VAL_DETCONFIG: ::windows::core::PCWSTR = ::windows::core::w!("DetConfig");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DETECT: ::windows::core::PCWSTR = ::windows::w!("Detect");
+pub const REGSTR_VAL_DETECT: ::windows::core::PCWSTR = ::windows::core::w!("Detect");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DETECTFUNC: ::windows::core::PCWSTR = ::windows::w!("DetectFunc");
+pub const REGSTR_VAL_DETECTFUNC: ::windows::core::PCWSTR = ::windows::core::w!("DetectFunc");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DETFLAGS: ::windows::core::PCWSTR = ::windows::w!("DetFlags");
+pub const REGSTR_VAL_DETFLAGS: ::windows::core::PCWSTR = ::windows::core::w!("DetFlags");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DETFUNC: ::windows::core::PCWSTR = ::windows::w!("DetFunc");
+pub const REGSTR_VAL_DETFUNC: ::windows::core::PCWSTR = ::windows::core::w!("DetFunc");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DEVDESC: ::windows::core::PCWSTR = ::windows::w!("DeviceDesc");
+pub const REGSTR_VAL_DEVDESC: ::windows::core::PCWSTR = ::windows::core::w!("DeviceDesc");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DEVICEDRIVER: ::windows::core::PCWSTR = ::windows::w!("DeviceDriver");
+pub const REGSTR_VAL_DEVICEDRIVER: ::windows::core::PCWSTR = ::windows::core::w!("DeviceDriver");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DEVICEPATH: ::windows::core::PCWSTR = ::windows::w!("DevicePath");
+pub const REGSTR_VAL_DEVICEPATH: ::windows::core::PCWSTR = ::windows::core::w!("DevicePath");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DEVICE_CHARACTERISTICS: ::windows::core::PCWSTR = ::windows::w!("DeviceCharacteristics");
+pub const REGSTR_VAL_DEVICE_CHARACTERISTICS: ::windows::core::PCWSTR = ::windows::core::w!("DeviceCharacteristics");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DEVICE_EXCLUSIVE: ::windows::core::PCWSTR = ::windows::w!("Exclusive");
+pub const REGSTR_VAL_DEVICE_EXCLUSIVE: ::windows::core::PCWSTR = ::windows::core::w!("Exclusive");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DEVICE_INSTANCE: ::windows::core::PCWSTR = ::windows::w!("DeviceInstance");
+pub const REGSTR_VAL_DEVICE_INSTANCE: ::windows::core::PCWSTR = ::windows::core::w!("DeviceInstance");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DEVICE_SECURITY_DESCRIPTOR: ::windows::core::PCWSTR = ::windows::w!("Security");
+pub const REGSTR_VAL_DEVICE_SECURITY_DESCRIPTOR: ::windows::core::PCWSTR = ::windows::core::w!("Security");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DEVICE_TYPE: ::windows::core::PCWSTR = ::windows::w!("DeviceType");
+pub const REGSTR_VAL_DEVICE_TYPE: ::windows::core::PCWSTR = ::windows::core::w!("DeviceType");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DEVLOADER: ::windows::core::PCWSTR = ::windows::w!("DevLoader");
+pub const REGSTR_VAL_DEVLOADER: ::windows::core::PCWSTR = ::windows::core::w!("DevLoader");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DEVTYPE: ::windows::core::PCWSTR = ::windows::w!("DeviceType");
+pub const REGSTR_VAL_DEVTYPE: ::windows::core::PCWSTR = ::windows::core::w!("DeviceType");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DIRECTHOST: ::windows::core::PCWSTR = ::windows::w!("DirectHost");
+pub const REGSTR_VAL_DIRECTHOST: ::windows::core::PCWSTR = ::windows::core::w!("DirectHost");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DIRTYSHUTDOWN: ::windows::core::PCWSTR = ::windows::w!("DirtyShutdown");
+pub const REGSTR_VAL_DIRTYSHUTDOWN: ::windows::core::PCWSTR = ::windows::core::w!("DirtyShutdown");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DIRTYSHUTDOWNTIME: ::windows::core::PCWSTR = ::windows::w!("DirtyShutdownTime");
+pub const REGSTR_VAL_DIRTYSHUTDOWNTIME: ::windows::core::PCWSTR = ::windows::core::w!("DirtyShutdownTime");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DISABLECOUNT: ::windows::core::PCWSTR = ::windows::w!("DisableCount");
+pub const REGSTR_VAL_DISABLECOUNT: ::windows::core::PCWSTR = ::windows::core::w!("DisableCount");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DISABLEPWDCACHING: ::windows::core::PCWSTR = ::windows::w!("DisablePwdCaching");
+pub const REGSTR_VAL_DISABLEPWDCACHING: ::windows::core::PCWSTR = ::windows::core::w!("DisablePwdCaching");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DISABLEREGTOOLS: ::windows::core::PCWSTR = ::windows::w!("DisableRegistryTools");
+pub const REGSTR_VAL_DISABLEREGTOOLS: ::windows::core::PCWSTR = ::windows::core::w!("DisableRegistryTools");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DISCONNECT: ::windows::core::PCWSTR = ::windows::w!("Disconnect");
+pub const REGSTR_VAL_DISCONNECT: ::windows::core::PCWSTR = ::windows::core::w!("Disconnect");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DISK: ::windows::core::PCWSTR = ::windows::w!("GenDisk");
+pub const REGSTR_VAL_DISK: ::windows::core::PCWSTR = ::windows::core::w!("GenDisk");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DISKCLASSNAME: ::windows::core::PCWSTR = ::windows::w!("DiskDrive");
+pub const REGSTR_VAL_DISKCLASSNAME: ::windows::core::PCWSTR = ::windows::core::w!("DiskDrive");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DISPCPL_NOAPPEARANCEPAGE: ::windows::core::PCWSTR = ::windows::w!("NoDispAppearancePage");
+pub const REGSTR_VAL_DISPCPL_NOAPPEARANCEPAGE: ::windows::core::PCWSTR = ::windows::core::w!("NoDispAppearancePage");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DISPCPL_NOBACKGROUNDPAGE: ::windows::core::PCWSTR = ::windows::w!("NoDispBackgroundPage");
+pub const REGSTR_VAL_DISPCPL_NOBACKGROUNDPAGE: ::windows::core::PCWSTR = ::windows::core::w!("NoDispBackgroundPage");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DISPCPL_NODISPCPL: ::windows::core::PCWSTR = ::windows::w!("NoDispCPL");
+pub const REGSTR_VAL_DISPCPL_NODISPCPL: ::windows::core::PCWSTR = ::windows::core::w!("NoDispCPL");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DISPCPL_NOSCRSAVPAGE: ::windows::core::PCWSTR = ::windows::w!("NoDispScrSavPage");
+pub const REGSTR_VAL_DISPCPL_NOSCRSAVPAGE: ::windows::core::PCWSTR = ::windows::core::w!("NoDispScrSavPage");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DISPCPL_NOSETTINGSPAGE: ::windows::core::PCWSTR = ::windows::w!("NoDispSettingsPage");
+pub const REGSTR_VAL_DISPCPL_NOSETTINGSPAGE: ::windows::core::PCWSTR = ::windows::core::w!("NoDispSettingsPage");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DISPLAY: ::windows::core::PCWSTR = ::windows::w!("display");
+pub const REGSTR_VAL_DISPLAY: ::windows::core::PCWSTR = ::windows::core::w!("display");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DISPLAYFLAGS: ::windows::core::PCWSTR = ::windows::w!("DisplayFlags");
+pub const REGSTR_VAL_DISPLAYFLAGS: ::windows::core::PCWSTR = ::windows::core::w!("DisplayFlags");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DOCKED: ::windows::core::PCWSTR = ::windows::w!("CurrentDockedState");
+pub const REGSTR_VAL_DOCKED: ::windows::core::PCWSTR = ::windows::core::w!("CurrentDockedState");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DOCKSTATE: ::windows::core::PCWSTR = ::windows::w!("DockState");
+pub const REGSTR_VAL_DOCKSTATE: ::windows::core::PCWSTR = ::windows::core::w!("DockState");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DOES_POLLING: ::windows::core::PCWSTR = ::windows::w!("PollingSupportNeeded");
+pub const REGSTR_VAL_DOES_POLLING: ::windows::core::PCWSTR = ::windows::core::w!("PollingSupportNeeded");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DONTLOADIFCONFLICT: ::windows::core::PCWSTR = ::windows::w!("DontLoadIfConflict");
+pub const REGSTR_VAL_DONTLOADIFCONFLICT: ::windows::core::PCWSTR = ::windows::core::w!("DontLoadIfConflict");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DONTUSEMEM: ::windows::core::PCWSTR = ::windows::w!("DontAllocLastMem");
+pub const REGSTR_VAL_DONTUSEMEM: ::windows::core::PCWSTR = ::windows::core::w!("DontAllocLastMem");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DOSCP: ::windows::core::PCWSTR = ::windows::w!("OEMCP");
+pub const REGSTR_VAL_DOSCP: ::windows::core::PCWSTR = ::windows::core::w!("OEMCP");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DOSOPTFLAGS: ::windows::core::PCWSTR = ::windows::w!("Flags");
+pub const REGSTR_VAL_DOSOPTFLAGS: ::windows::core::PCWSTR = ::windows::core::w!("Flags");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DOSOPTGLOBALFLAGS: ::windows::core::PCWSTR = ::windows::w!("GlobalFlags");
+pub const REGSTR_VAL_DOSOPTGLOBALFLAGS: ::windows::core::PCWSTR = ::windows::core::w!("GlobalFlags");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DOSOPTTIP: ::windows::core::PCWSTR = ::windows::w!("TipText");
+pub const REGSTR_VAL_DOSOPTTIP: ::windows::core::PCWSTR = ::windows::core::w!("TipText");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DOSPAGER: ::windows::core::PCWSTR = ::windows::w!("DOSPager");
+pub const REGSTR_VAL_DOSPAGER: ::windows::core::PCWSTR = ::windows::core::w!("DOSPager");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DOS_SPOOL_MASK: ::windows::core::PCWSTR = ::windows::w!("DOSSpoolMask");
+pub const REGSTR_VAL_DOS_SPOOL_MASK: ::windows::core::PCWSTR = ::windows::core::w!("DOSSpoolMask");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DOUBLEBUFFER: ::windows::core::PCWSTR = ::windows::w!("DoubleBuffer");
+pub const REGSTR_VAL_DOUBLEBUFFER: ::windows::core::PCWSTR = ::windows::core::w!("DoubleBuffer");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DPI: ::windows::core::PCWSTR = ::windows::w!("dpi");
+pub const REGSTR_VAL_DPI: ::windows::core::PCWSTR = ::windows::core::w!("dpi");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DPILOGICALX: ::windows::core::PCWSTR = ::windows::w!("DPILogicalX");
+pub const REGSTR_VAL_DPILOGICALX: ::windows::core::PCWSTR = ::windows::core::w!("DPILogicalX");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DPILOGICALY: ::windows::core::PCWSTR = ::windows::w!("DPILogicalY");
+pub const REGSTR_VAL_DPILOGICALY: ::windows::core::PCWSTR = ::windows::core::w!("DPILogicalY");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DPIPHYSICALX: ::windows::core::PCWSTR = ::windows::w!("DPIPhysicalX");
+pub const REGSTR_VAL_DPIPHYSICALX: ::windows::core::PCWSTR = ::windows::core::w!("DPIPhysicalX");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DPIPHYSICALY: ::windows::core::PCWSTR = ::windows::w!("DPIPhysicalY");
+pub const REGSTR_VAL_DPIPHYSICALY: ::windows::core::PCWSTR = ::windows::core::w!("DPIPhysicalY");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DPMS: ::windows::core::PCWSTR = ::windows::w!("DPMS");
+pub const REGSTR_VAL_DPMS: ::windows::core::PCWSTR = ::windows::core::w!("DPMS");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DRIVER: ::windows::core::PCWSTR = ::windows::w!("Driver");
+pub const REGSTR_VAL_DRIVER: ::windows::core::PCWSTR = ::windows::core::w!("Driver");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DRIVERCACHEPATH: ::windows::core::PCWSTR = ::windows::w!("DriverCachePath");
+pub const REGSTR_VAL_DRIVERCACHEPATH: ::windows::core::PCWSTR = ::windows::core::w!("DriverCachePath");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DRIVERDATE: ::windows::core::PCWSTR = ::windows::w!("DriverDate");
+pub const REGSTR_VAL_DRIVERDATE: ::windows::core::PCWSTR = ::windows::core::w!("DriverDate");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DRIVERDATEDATA: ::windows::core::PCWSTR = ::windows::w!("DriverDateData");
+pub const REGSTR_VAL_DRIVERDATEDATA: ::windows::core::PCWSTR = ::windows::core::w!("DriverDateData");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DRIVERVERSION: ::windows::core::PCWSTR = ::windows::w!("DriverVersion");
+pub const REGSTR_VAL_DRIVERVERSION: ::windows::core::PCWSTR = ::windows::core::w!("DriverVersion");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DRIVESPINDOWN: ::windows::core::PCWSTR = ::windows::w!("DriveSpinDown");
+pub const REGSTR_VAL_DRIVESPINDOWN: ::windows::core::PCWSTR = ::windows::core::w!("DriveSpinDown");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DRIVEWRITEBEHIND: ::windows::core::PCWSTR = ::windows::w!("DriveWriteBehind");
+pub const REGSTR_VAL_DRIVEWRITEBEHIND: ::windows::core::PCWSTR = ::windows::core::w!("DriveWriteBehind");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DRIVE_SPINDOWN: ::windows::core::PCWSTR = ::windows::w!("NoDispSpinDown");
+pub const REGSTR_VAL_DRIVE_SPINDOWN: ::windows::core::PCWSTR = ::windows::core::w!("NoDispSpinDown");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DRV: ::windows::core::PCWSTR = ::windows::w!("drv");
+pub const REGSTR_VAL_DRV: ::windows::core::PCWSTR = ::windows::core::w!("drv");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DRVDESC: ::windows::core::PCWSTR = ::windows::w!("DriverDesc");
+pub const REGSTR_VAL_DRVDESC: ::windows::core::PCWSTR = ::windows::core::w!("DriverDesc");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_DYNAMIC: ::windows::core::PCWSTR = ::windows::w!("Dynamic");
+pub const REGSTR_VAL_DYNAMIC: ::windows::core::PCWSTR = ::windows::core::w!("Dynamic");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_EISA_FLAGS: ::windows::core::PCWSTR = ::windows::w!("EISAFlags");
+pub const REGSTR_VAL_EISA_FLAGS: ::windows::core::PCWSTR = ::windows::core::w!("EISAFlags");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_EISA_FUNCTIONS: ::windows::core::PCWSTR = ::windows::w!("EISAFunctions");
+pub const REGSTR_VAL_EISA_FUNCTIONS: ::windows::core::PCWSTR = ::windows::core::w!("EISAFunctions");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_EISA_FUNCTIONS_MASK: ::windows::core::PCWSTR = ::windows::w!("EISAFunctionsMask");
+pub const REGSTR_VAL_EISA_FUNCTIONS_MASK: ::windows::core::PCWSTR = ::windows::core::w!("EISAFunctionsMask");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_EISA_RANGES: ::windows::core::PCWSTR = ::windows::w!("EISARanges");
+pub const REGSTR_VAL_EISA_RANGES: ::windows::core::PCWSTR = ::windows::core::w!("EISARanges");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_EISA_SIMULATE_INT15: ::windows::core::PCWSTR = ::windows::w!("EISASimulateInt15");
+pub const REGSTR_VAL_EISA_SIMULATE_INT15: ::windows::core::PCWSTR = ::windows::core::w!("EISASimulateInt15");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_EJECT_PRIORITY: ::windows::core::PCWSTR = ::windows::w!("EjectPriority");
+pub const REGSTR_VAL_EJECT_PRIORITY: ::windows::core::PCWSTR = ::windows::core::w!("EjectPriority");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_ENABLEINTS: ::windows::core::PCWSTR = ::windows::w!("EnableInts");
+pub const REGSTR_VAL_ENABLEINTS: ::windows::core::PCWSTR = ::windows::core::w!("EnableInts");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_ENUMERATOR: ::windows::core::PCWSTR = ::windows::w!("Enumerator");
+pub const REGSTR_VAL_ENUMERATOR: ::windows::core::PCWSTR = ::windows::core::w!("Enumerator");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_ENUMPROPPAGES: ::windows::core::PCWSTR = ::windows::w!("EnumPropPages");
+pub const REGSTR_VAL_ENUMPROPPAGES: ::windows::core::PCWSTR = ::windows::core::w!("EnumPropPages");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_ENUMPROPPAGES_32: ::windows::core::PCWSTR = ::windows::w!("EnumPropPages32");
+pub const REGSTR_VAL_ENUMPROPPAGES_32: ::windows::core::PCWSTR = ::windows::core::w!("EnumPropPages32");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_ESDI: ::windows::core::PCWSTR = ::windows::w!("ESDI\\");
+pub const REGSTR_VAL_ESDI: ::windows::core::PCWSTR = ::windows::core::w!("ESDI\\");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_EXISTS: ::windows::core::PCWSTR = ::windows::w!("Exists");
+pub const REGSTR_VAL_EXISTS: ::windows::core::PCWSTR = ::windows::core::w!("Exists");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_EXTMEM: ::windows::core::PCWSTR = ::windows::w!("ExtMem");
+pub const REGSTR_VAL_EXTMEM: ::windows::core::PCWSTR = ::windows::core::w!("ExtMem");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_FAULT_LOGFILE: ::windows::core::PCWSTR = ::windows::w!("LogFile");
+pub const REGSTR_VAL_FAULT_LOGFILE: ::windows::core::PCWSTR = ::windows::core::w!("LogFile");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_FIFODEPTH: ::windows::core::PCWSTR = ::windows::w!("FIFODepth");
+pub const REGSTR_VAL_FIFODEPTH: ::windows::core::PCWSTR = ::windows::core::w!("FIFODepth");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_FILESHARING: ::windows::core::PCWSTR = ::windows::w!("FileSharing");
+pub const REGSTR_VAL_FILESHARING: ::windows::core::PCWSTR = ::windows::core::w!("FileSharing");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_FIRSTINSTALLDATETIME: ::windows::core::PCWSTR = ::windows::w!("FirstInstallDateTime");
+pub const REGSTR_VAL_FIRSTINSTALLDATETIME: ::windows::core::PCWSTR = ::windows::core::w!("FirstInstallDateTime");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_FIRSTNETDRIVE: ::windows::core::PCWSTR = ::windows::w!("FirstNetworkDrive");
+pub const REGSTR_VAL_FIRSTNETDRIVE: ::windows::core::PCWSTR = ::windows::core::w!("FirstNetworkDrive");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_FLOP: ::windows::core::PCWSTR = ::windows::w!("FLOP\\");
+pub const REGSTR_VAL_FLOP: ::windows::core::PCWSTR = ::windows::core::w!("FLOP\\");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_FLOPPY: ::windows::core::PCWSTR = ::windows::w!("FLOPPY");
+pub const REGSTR_VAL_FLOPPY: ::windows::core::PCWSTR = ::windows::core::w!("FLOPPY");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_FONTSIZE: ::windows::core::PCWSTR = ::windows::w!("FontSize");
+pub const REGSTR_VAL_FONTSIZE: ::windows::core::PCWSTR = ::windows::core::w!("FontSize");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_FORCECL: ::windows::core::PCWSTR = ::windows::w!("ForceChangeLine");
+pub const REGSTR_VAL_FORCECL: ::windows::core::PCWSTR = ::windows::core::w!("ForceChangeLine");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_FORCEDCONFIG: ::windows::core::PCWSTR = ::windows::w!("ForcedConfig");
+pub const REGSTR_VAL_FORCEDCONFIG: ::windows::core::PCWSTR = ::windows::core::w!("ForcedConfig");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_FORCEFIFO: ::windows::core::PCWSTR = ::windows::w!("ForceFIFO");
+pub const REGSTR_VAL_FORCEFIFO: ::windows::core::PCWSTR = ::windows::core::w!("ForceFIFO");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_FORCELOAD: ::windows::core::PCWSTR = ::windows::w!("ForceLoadPD");
+pub const REGSTR_VAL_FORCELOAD: ::windows::core::PCWSTR = ::windows::core::w!("ForceLoadPD");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_FORCEPMIO: ::windows::core::PCWSTR = ::windows::w!("ForcePMIO");
+pub const REGSTR_VAL_FORCEPMIO: ::windows::core::PCWSTR = ::windows::core::w!("ForcePMIO");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_FORCEREBOOT: ::windows::core::PCWSTR = ::windows::w!("ForceReboot");
+pub const REGSTR_VAL_FORCEREBOOT: ::windows::core::PCWSTR = ::windows::core::w!("ForceReboot");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_FORCERMIO: ::windows::core::PCWSTR = ::windows::w!("ForceRMIO");
+pub const REGSTR_VAL_FORCERMIO: ::windows::core::PCWSTR = ::windows::core::w!("ForceRMIO");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_FREESPACERATIO: ::windows::core::PCWSTR = ::windows::w!("FreeSpaceRatio");
+pub const REGSTR_VAL_FREESPACERATIO: ::windows::core::PCWSTR = ::windows::core::w!("FreeSpaceRatio");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_FRIENDLYNAME: ::windows::core::PCWSTR = ::windows::w!("FriendlyName");
+pub const REGSTR_VAL_FRIENDLYNAME: ::windows::core::PCWSTR = ::windows::core::w!("FriendlyName");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_FSFILTERCLASS: ::windows::core::PCWSTR = ::windows::w!("FSFilterClass");
+pub const REGSTR_VAL_FSFILTERCLASS: ::windows::core::PCWSTR = ::windows::core::w!("FSFilterClass");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_FULLTRACE: ::windows::core::PCWSTR = ::windows::w!("FullTrace");
+pub const REGSTR_VAL_FULLTRACE: ::windows::core::PCWSTR = ::windows::core::w!("FullTrace");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_FUNCDESC: ::windows::core::PCWSTR = ::windows::w!("FunctionDesc");
+pub const REGSTR_VAL_FUNCDESC: ::windows::core::PCWSTR = ::windows::core::w!("FunctionDesc");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_GAPTIME: ::windows::core::PCWSTR = ::windows::w!("GapTime");
+pub const REGSTR_VAL_GAPTIME: ::windows::core::PCWSTR = ::windows::core::w!("GapTime");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_GRB: ::windows::core::PCWSTR = ::windows::w!("grb");
+pub const REGSTR_VAL_GRB: ::windows::core::PCWSTR = ::windows::core::w!("grb");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_HARDWAREID: ::windows::core::PCWSTR = ::windows::w!("HardwareID");
+pub const REGSTR_VAL_HARDWAREID: ::windows::core::PCWSTR = ::windows::core::w!("HardwareID");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_HIDESHAREPWDS: ::windows::core::PCWSTR = ::windows::w!("HideSharePwds");
+pub const REGSTR_VAL_HIDESHAREPWDS: ::windows::core::PCWSTR = ::windows::core::w!("HideSharePwds");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_HRES: ::windows::core::PCWSTR = ::windows::w!("HRes");
+pub const REGSTR_VAL_HRES: ::windows::core::PCWSTR = ::windows::core::w!("HRes");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_HWDETECT: ::windows::core::PCWSTR = ::windows::w!("HardwareDetect");
+pub const REGSTR_VAL_HWDETECT: ::windows::core::PCWSTR = ::windows::core::w!("HardwareDetect");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_HWMECHANISM: ::windows::core::PCWSTR = ::windows::w!("HWMechanism");
+pub const REGSTR_VAL_HWMECHANISM: ::windows::core::PCWSTR = ::windows::core::w!("HWMechanism");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_HWREV: ::windows::core::PCWSTR = ::windows::w!("HWRevision");
+pub const REGSTR_VAL_HWREV: ::windows::core::PCWSTR = ::windows::core::w!("HWRevision");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_ID: ::windows::core::PCWSTR = ::windows::w!("CurrentID");
+pub const REGSTR_VAL_ID: ::windows::core::PCWSTR = ::windows::core::w!("CurrentID");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_IDE_FORCE_SERIALIZE: ::windows::core::PCWSTR = ::windows::w!("ForceSerialization");
+pub const REGSTR_VAL_IDE_FORCE_SERIALIZE: ::windows::core::PCWSTR = ::windows::core::w!("ForceSerialization");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_IDE_NO_SERIALIZE: ::windows::core::PCWSTR = ::windows::w!("IDENoSerialize");
+pub const REGSTR_VAL_IDE_NO_SERIALIZE: ::windows::core::PCWSTR = ::windows::core::w!("IDENoSerialize");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_INFNAME: ::windows::core::PCWSTR = ::windows::w!("InfName");
+pub const REGSTR_VAL_INFNAME: ::windows::core::PCWSTR = ::windows::core::w!("InfName");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_INFPATH: ::windows::core::PCWSTR = ::windows::w!("InfPath");
+pub const REGSTR_VAL_INFPATH: ::windows::core::PCWSTR = ::windows::core::w!("InfPath");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_INFSECTION: ::windows::core::PCWSTR = ::windows::w!("InfSection");
+pub const REGSTR_VAL_INFSECTION: ::windows::core::PCWSTR = ::windows::core::w!("InfSection");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_INFSECTIONEXT: ::windows::core::PCWSTR = ::windows::w!("InfSectionExt");
+pub const REGSTR_VAL_INFSECTIONEXT: ::windows::core::PCWSTR = ::windows::core::w!("InfSectionExt");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_INHIBITRESULTS: ::windows::core::PCWSTR = ::windows::w!("InhibitResults");
+pub const REGSTR_VAL_INHIBITRESULTS: ::windows::core::PCWSTR = ::windows::core::w!("InhibitResults");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_INSICON: ::windows::core::PCWSTR = ::windows::w!("Icon");
+pub const REGSTR_VAL_INSICON: ::windows::core::PCWSTR = ::windows::core::w!("Icon");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_INSTALLER: ::windows::core::PCWSTR = ::windows::w!("Installer");
+pub const REGSTR_VAL_INSTALLER: ::windows::core::PCWSTR = ::windows::core::w!("Installer");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_INSTALLER_32: ::windows::core::PCWSTR = ::windows::w!("Installer32");
+pub const REGSTR_VAL_INSTALLER_32: ::windows::core::PCWSTR = ::windows::core::w!("Installer32");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_INSTALLTYPE: ::windows::core::PCWSTR = ::windows::w!("InstallType");
+pub const REGSTR_VAL_INSTALLTYPE: ::windows::core::PCWSTR = ::windows::core::w!("InstallType");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_INT13: ::windows::core::PCWSTR = ::windows::w!("Int13");
+pub const REGSTR_VAL_INT13: ::windows::core::PCWSTR = ::windows::core::w!("Int13");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_ISAPNP: ::windows::core::PCWSTR = ::windows::w!("ISAPNP");
+pub const REGSTR_VAL_ISAPNP: ::windows::core::PCWSTR = ::windows::core::w!("ISAPNP");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_ISAPNP_RDP_OVERRIDE: ::windows::core::PCWSTR = ::windows::w!("RDPOverRide");
+pub const REGSTR_VAL_ISAPNP_RDP_OVERRIDE: ::windows::core::PCWSTR = ::windows::core::w!("RDPOverRide");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYCALLOUT: ::windows::core::PCWSTR = ::windows::w!("JoystickCallout");
+pub const REGSTR_VAL_JOYCALLOUT: ::windows::core::PCWSTR = ::windows::core::w!("JoystickCallout");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYNCONFIG: ::windows::core::PCWSTR = ::windows::w!("Joystick%dConfiguration");
+pub const REGSTR_VAL_JOYNCONFIG: ::windows::core::PCWSTR = ::windows::core::w!("Joystick%dConfiguration");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYNOEMCALLOUT: ::windows::core::PCWSTR = ::windows::w!("Joystick%dOEMCallout");
+pub const REGSTR_VAL_JOYNOEMCALLOUT: ::windows::core::PCWSTR = ::windows::core::w!("Joystick%dOEMCallout");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYNOEMNAME: ::windows::core::PCWSTR = ::windows::w!("Joystick%dOEMName");
+pub const REGSTR_VAL_JOYNOEMNAME: ::windows::core::PCWSTR = ::windows::core::w!("Joystick%dOEMName");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMCAL1: ::windows::core::PCWSTR = ::windows::w!("OEMCal1");
+pub const REGSTR_VAL_JOYOEMCAL1: ::windows::core::PCWSTR = ::windows::core::w!("OEMCal1");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMCAL10: ::windows::core::PCWSTR = ::windows::w!("OEMCal10");
+pub const REGSTR_VAL_JOYOEMCAL10: ::windows::core::PCWSTR = ::windows::core::w!("OEMCal10");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMCAL11: ::windows::core::PCWSTR = ::windows::w!("OEMCal11");
+pub const REGSTR_VAL_JOYOEMCAL11: ::windows::core::PCWSTR = ::windows::core::w!("OEMCal11");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMCAL12: ::windows::core::PCWSTR = ::windows::w!("OEMCal12");
+pub const REGSTR_VAL_JOYOEMCAL12: ::windows::core::PCWSTR = ::windows::core::w!("OEMCal12");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMCAL2: ::windows::core::PCWSTR = ::windows::w!("OEMCal2");
+pub const REGSTR_VAL_JOYOEMCAL2: ::windows::core::PCWSTR = ::windows::core::w!("OEMCal2");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMCAL3: ::windows::core::PCWSTR = ::windows::w!("OEMCal3");
+pub const REGSTR_VAL_JOYOEMCAL3: ::windows::core::PCWSTR = ::windows::core::w!("OEMCal3");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMCAL4: ::windows::core::PCWSTR = ::windows::w!("OEMCal4");
+pub const REGSTR_VAL_JOYOEMCAL4: ::windows::core::PCWSTR = ::windows::core::w!("OEMCal4");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMCAL5: ::windows::core::PCWSTR = ::windows::w!("OEMCal5");
+pub const REGSTR_VAL_JOYOEMCAL5: ::windows::core::PCWSTR = ::windows::core::w!("OEMCal5");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMCAL6: ::windows::core::PCWSTR = ::windows::w!("OEMCal6");
+pub const REGSTR_VAL_JOYOEMCAL6: ::windows::core::PCWSTR = ::windows::core::w!("OEMCal6");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMCAL7: ::windows::core::PCWSTR = ::windows::w!("OEMCal7");
+pub const REGSTR_VAL_JOYOEMCAL7: ::windows::core::PCWSTR = ::windows::core::w!("OEMCal7");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMCAL8: ::windows::core::PCWSTR = ::windows::w!("OEMCal8");
+pub const REGSTR_VAL_JOYOEMCAL8: ::windows::core::PCWSTR = ::windows::core::w!("OEMCal8");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMCAL9: ::windows::core::PCWSTR = ::windows::w!("OEMCal9");
+pub const REGSTR_VAL_JOYOEMCAL9: ::windows::core::PCWSTR = ::windows::core::w!("OEMCal9");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMCALCAP: ::windows::core::PCWSTR = ::windows::w!("OEMCalCap");
+pub const REGSTR_VAL_JOYOEMCALCAP: ::windows::core::PCWSTR = ::windows::core::w!("OEMCalCap");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMCALLOUT: ::windows::core::PCWSTR = ::windows::w!("OEMCallout");
+pub const REGSTR_VAL_JOYOEMCALLOUT: ::windows::core::PCWSTR = ::windows::core::w!("OEMCallout");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMCALWINCAP: ::windows::core::PCWSTR = ::windows::w!("OEMCalWinCap");
+pub const REGSTR_VAL_JOYOEMCALWINCAP: ::windows::core::PCWSTR = ::windows::core::w!("OEMCalWinCap");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMDATA: ::windows::core::PCWSTR = ::windows::w!("OEMData");
+pub const REGSTR_VAL_JOYOEMDATA: ::windows::core::PCWSTR = ::windows::core::w!("OEMData");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMNAME: ::windows::core::PCWSTR = ::windows::w!("OEMName");
+pub const REGSTR_VAL_JOYOEMNAME: ::windows::core::PCWSTR = ::windows::core::w!("OEMName");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMPOVLABEL: ::windows::core::PCWSTR = ::windows::w!("OEMPOVLabel");
+pub const REGSTR_VAL_JOYOEMPOVLABEL: ::windows::core::PCWSTR = ::windows::core::w!("OEMPOVLabel");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMRLABEL: ::windows::core::PCWSTR = ::windows::w!("OEMRLabel");
+pub const REGSTR_VAL_JOYOEMRLABEL: ::windows::core::PCWSTR = ::windows::core::w!("OEMRLabel");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMTESTBUTTONCAP: ::windows::core::PCWSTR = ::windows::w!("OEMTestButtonCap");
+pub const REGSTR_VAL_JOYOEMTESTBUTTONCAP: ::windows::core::PCWSTR = ::windows::core::w!("OEMTestButtonCap");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMTESTBUTTONDESC: ::windows::core::PCWSTR = ::windows::w!("OEMTestButtonDesc");
+pub const REGSTR_VAL_JOYOEMTESTBUTTONDESC: ::windows::core::PCWSTR = ::windows::core::w!("OEMTestButtonDesc");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMTESTMOVECAP: ::windows::core::PCWSTR = ::windows::w!("OEMTestMoveCap");
+pub const REGSTR_VAL_JOYOEMTESTMOVECAP: ::windows::core::PCWSTR = ::windows::core::w!("OEMTestMoveCap");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMTESTMOVEDESC: ::windows::core::PCWSTR = ::windows::w!("OEMTestMoveDesc");
+pub const REGSTR_VAL_JOYOEMTESTMOVEDESC: ::windows::core::PCWSTR = ::windows::core::w!("OEMTestMoveDesc");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMTESTWINCAP: ::windows::core::PCWSTR = ::windows::w!("OEMTestWinCap");
+pub const REGSTR_VAL_JOYOEMTESTWINCAP: ::windows::core::PCWSTR = ::windows::core::w!("OEMTestWinCap");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMULABEL: ::windows::core::PCWSTR = ::windows::w!("OEMULabel");
+pub const REGSTR_VAL_JOYOEMULABEL: ::windows::core::PCWSTR = ::windows::core::w!("OEMULabel");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMVLABEL: ::windows::core::PCWSTR = ::windows::w!("OEMVLabel");
+pub const REGSTR_VAL_JOYOEMVLABEL: ::windows::core::PCWSTR = ::windows::core::w!("OEMVLabel");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMXYLABEL: ::windows::core::PCWSTR = ::windows::w!("OEMXYLabel");
+pub const REGSTR_VAL_JOYOEMXYLABEL: ::windows::core::PCWSTR = ::windows::core::w!("OEMXYLabel");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYOEMZLABEL: ::windows::core::PCWSTR = ::windows::w!("OEMZLabel");
+pub const REGSTR_VAL_JOYOEMZLABEL: ::windows::core::PCWSTR = ::windows::core::w!("OEMZLabel");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_JOYUSERVALUES: ::windows::core::PCWSTR = ::windows::w!("JoystickUserValues");
+pub const REGSTR_VAL_JOYUSERVALUES: ::windows::core::PCWSTR = ::windows::core::w!("JoystickUserValues");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LASTALIVEBT: ::windows::core::PCWSTR = ::windows::w!("LastAliveBT");
+pub const REGSTR_VAL_LASTALIVEBT: ::windows::core::PCWSTR = ::windows::core::w!("LastAliveBT");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LASTALIVEINTERVAL: ::windows::core::PCWSTR = ::windows::w!("TimeStampInterval");
+pub const REGSTR_VAL_LASTALIVEINTERVAL: ::windows::core::PCWSTR = ::windows::core::w!("TimeStampInterval");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LASTALIVEPMPOLICY: ::windows::core::PCWSTR = ::windows::w!("LastAlivePMPolicy");
+pub const REGSTR_VAL_LASTALIVEPMPOLICY: ::windows::core::PCWSTR = ::windows::core::w!("LastAlivePMPolicy");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LASTALIVESTAMP: ::windows::core::PCWSTR = ::windows::w!("LastAliveStamp");
+pub const REGSTR_VAL_LASTALIVESTAMP: ::windows::core::PCWSTR = ::windows::core::w!("LastAliveStamp");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LASTALIVESTAMPFORCED: ::windows::core::PCWSTR = ::windows::w!("LastAliveStampForced");
+pub const REGSTR_VAL_LASTALIVESTAMPFORCED: ::windows::core::PCWSTR = ::windows::core::w!("LastAliveStampForced");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LASTALIVESTAMPINTERVAL: ::windows::core::PCWSTR = ::windows::w!("LastAliveStampInterval");
+pub const REGSTR_VAL_LASTALIVESTAMPINTERVAL: ::windows::core::PCWSTR = ::windows::core::w!("LastAliveStampInterval");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LASTALIVESTAMPPOLICYINTERVAL: ::windows::core::PCWSTR = ::windows::w!("LastAliveStampPolicyInterval");
+pub const REGSTR_VAL_LASTALIVESTAMPPOLICYINTERVAL: ::windows::core::PCWSTR = ::windows::core::w!("LastAliveStampPolicyInterval");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LASTALIVEUPTIME: ::windows::core::PCWSTR = ::windows::w!("LastAliveUptime");
+pub const REGSTR_VAL_LASTALIVEUPTIME: ::windows::core::PCWSTR = ::windows::core::w!("LastAliveUptime");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LASTBOOTPMDRVS: ::windows::core::PCWSTR = ::windows::w!("LastBootPMDrvs");
+pub const REGSTR_VAL_LASTBOOTPMDRVS: ::windows::core::PCWSTR = ::windows::core::w!("LastBootPMDrvs");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LASTCOMPUTERNAME: ::windows::core::PCWSTR = ::windows::w!("LastComputerName");
+pub const REGSTR_VAL_LASTCOMPUTERNAME: ::windows::core::PCWSTR = ::windows::core::w!("LastComputerName");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LASTPCIBUSNUM: ::windows::core::PCWSTR = ::windows::w!("LastPCIBusNum");
+pub const REGSTR_VAL_LASTPCIBUSNUM: ::windows::core::PCWSTR = ::windows::core::w!("LastPCIBusNum");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LAST_UPDATE_TIME: ::windows::core::PCWSTR = ::windows::w!("LastUpdateTime");
+pub const REGSTR_VAL_LAST_UPDATE_TIME: ::windows::core::PCWSTR = ::windows::core::w!("LastUpdateTime");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LEGALNOTICECAPTION: ::windows::core::PCWSTR = ::windows::w!("LegalNoticeCaption");
+pub const REGSTR_VAL_LEGALNOTICECAPTION: ::windows::core::PCWSTR = ::windows::core::w!("LegalNoticeCaption");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LEGALNOTICETEXT: ::windows::core::PCWSTR = ::windows::w!("LegalNoticeText");
+pub const REGSTR_VAL_LEGALNOTICETEXT: ::windows::core::PCWSTR = ::windows::core::w!("LegalNoticeText");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LICENSINGINFO: ::windows::core::PCWSTR = ::windows::w!("LicensingInfo");
+pub const REGSTR_VAL_LICENSINGINFO: ::windows::core::PCWSTR = ::windows::core::w!("LicensingInfo");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LINKED: ::windows::core::PCWSTR = ::windows::w!("Linked");
+pub const REGSTR_VAL_LINKED: ::windows::core::PCWSTR = ::windows::core::w!("Linked");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LOADHI: ::windows::core::PCWSTR = ::windows::w!("LoadHi");
+pub const REGSTR_VAL_LOADHI: ::windows::core::PCWSTR = ::windows::core::w!("LoadHi");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LOADRMDRIVERS: ::windows::core::PCWSTR = ::windows::w!("LoadRMDrivers");
+pub const REGSTR_VAL_LOADRMDRIVERS: ::windows::core::PCWSTR = ::windows::core::w!("LoadRMDrivers");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LOCATION_INFORMATION: ::windows::core::PCWSTR = ::windows::w!("LocationInformation");
+pub const REGSTR_VAL_LOCATION_INFORMATION: ::windows::core::PCWSTR = ::windows::core::w!("LocationInformation");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LOCATION_INFORMATION_OVERRIDE: ::windows::core::PCWSTR = ::windows::w!("LocationInformationOverride");
+pub const REGSTR_VAL_LOCATION_INFORMATION_OVERRIDE: ::windows::core::PCWSTR = ::windows::core::w!("LocationInformationOverride");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LOWERFILTERS: ::windows::core::PCWSTR = ::windows::w!("LowerFilters");
+pub const REGSTR_VAL_LOWERFILTERS: ::windows::core::PCWSTR = ::windows::core::w!("LowerFilters");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LOWER_FILTER_DEFAULT_LEVEL: ::windows::core::PCWSTR = ::windows::w!("LowerFilterDefaultLevel");
+pub const REGSTR_VAL_LOWER_FILTER_DEFAULT_LEVEL: ::windows::core::PCWSTR = ::windows::core::w!("LowerFilterDefaultLevel");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_LOWER_FILTER_LEVELS: ::windows::core::PCWSTR = ::windows::w!("LowerFilterLevels");
+pub const REGSTR_VAL_LOWER_FILTER_LEVELS: ::windows::core::PCWSTR = ::windows::core::w!("LowerFilterLevels");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_MACHINETYPE: ::windows::core::PCWSTR = ::windows::w!("MachineType");
+pub const REGSTR_VAL_MACHINETYPE: ::windows::core::PCWSTR = ::windows::core::w!("MachineType");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_MANUFACTURER: ::windows::core::PCWSTR = ::windows::w!("Manufacturer");
+pub const REGSTR_VAL_MANUFACTURER: ::windows::core::PCWSTR = ::windows::core::w!("Manufacturer");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_MAP: ::windows::core::PCWSTR = ::windows::w!("Map");
+pub const REGSTR_VAL_MAP: ::windows::core::PCWSTR = ::windows::core::w!("Map");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_MATCHINGDEVID: ::windows::core::PCWSTR = ::windows::w!("MatchingDeviceId");
+pub const REGSTR_VAL_MATCHINGDEVID: ::windows::core::PCWSTR = ::windows::core::w!("MatchingDeviceId");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_MAXCONNECTIONS: ::windows::core::PCWSTR = ::windows::w!("MaxConnections");
+pub const REGSTR_VAL_MAXCONNECTIONS: ::windows::core::PCWSTR = ::windows::core::w!("MaxConnections");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_MAXLIP: ::windows::core::PCWSTR = ::windows::w!("MaxLIP");
+pub const REGSTR_VAL_MAXLIP: ::windows::core::PCWSTR = ::windows::core::w!("MaxLIP");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_MAXRES: ::windows::core::PCWSTR = ::windows::w!("MaxResolution");
+pub const REGSTR_VAL_MAXRES: ::windows::core::PCWSTR = ::windows::core::w!("MaxResolution");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_MAXRETRY: ::windows::core::PCWSTR = ::windows::w!("MaxRetry");
+pub const REGSTR_VAL_MAXRETRY: ::windows::core::PCWSTR = ::windows::core::w!("MaxRetry");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub const REGSTR_VAL_MAX_HCID_LEN: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_MEDIA: ::windows::core::PCWSTR = ::windows::w!("MediaPath");
+pub const REGSTR_VAL_MEDIA: ::windows::core::PCWSTR = ::windows::core::w!("MediaPath");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_MFG: ::windows::core::PCWSTR = ::windows::w!("Mfg");
+pub const REGSTR_VAL_MFG: ::windows::core::PCWSTR = ::windows::core::w!("Mfg");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_MF_FLAGS: ::windows::core::PCWSTR = ::windows::w!("MFFlags");
+pub const REGSTR_VAL_MF_FLAGS: ::windows::core::PCWSTR = ::windows::core::w!("MFFlags");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_MINIPORT_STAT: ::windows::core::PCWSTR = ::windows::w!("MiniportStatus");
+pub const REGSTR_VAL_MINIPORT_STAT: ::windows::core::PCWSTR = ::windows::core::w!("MiniportStatus");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_MINPWDLEN: ::windows::core::PCWSTR = ::windows::w!("MinPwdLen");
+pub const REGSTR_VAL_MINPWDLEN: ::windows::core::PCWSTR = ::windows::core::w!("MinPwdLen");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_MINRETRY: ::windows::core::PCWSTR = ::windows::w!("MinRetry");
+pub const REGSTR_VAL_MINRETRY: ::windows::core::PCWSTR = ::windows::core::w!("MinRetry");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_MODE: ::windows::core::PCWSTR = ::windows::w!("Mode");
+pub const REGSTR_VAL_MODE: ::windows::core::PCWSTR = ::windows::core::w!("Mode");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_MODEL: ::windows::core::PCWSTR = ::windows::w!("Model");
+pub const REGSTR_VAL_MODEL: ::windows::core::PCWSTR = ::windows::core::w!("Model");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_MSDOSMODE: ::windows::core::PCWSTR = ::windows::w!("MSDOSMode");
+pub const REGSTR_VAL_MSDOSMODE: ::windows::core::PCWSTR = ::windows::core::w!("MSDOSMode");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_MSDOSMODEDISCARD: ::windows::core::PCWSTR = ::windows::w!("Discard");
+pub const REGSTR_VAL_MSDOSMODEDISCARD: ::windows::core::PCWSTR = ::windows::core::w!("Discard");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_MUSTBEVALIDATED: ::windows::core::PCWSTR = ::windows::w!("MustBeValidated");
+pub const REGSTR_VAL_MUSTBEVALIDATED: ::windows::core::PCWSTR = ::windows::core::w!("MustBeValidated");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NAMECACHECOUNT: ::windows::core::PCWSTR = ::windows::w!("NameCache");
+pub const REGSTR_VAL_NAMECACHECOUNT: ::windows::core::PCWSTR = ::windows::core::w!("NameCache");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NAMENUMERICTAIL: ::windows::core::PCWSTR = ::windows::w!("NameNumericTail");
+pub const REGSTR_VAL_NAMENUMERICTAIL: ::windows::core::PCWSTR = ::windows::core::w!("NameNumericTail");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NCP_BROWSEMASTER: ::windows::core::PCWSTR = ::windows::w!("BrowseMaster");
+pub const REGSTR_VAL_NCP_BROWSEMASTER: ::windows::core::PCWSTR = ::windows::core::w!("BrowseMaster");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NCP_USEPEERBROWSING: ::windows::core::PCWSTR = ::windows::w!("Use_PeerBrowsing");
+pub const REGSTR_VAL_NCP_USEPEERBROWSING: ::windows::core::PCWSTR = ::windows::core::w!("Use_PeerBrowsing");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NCP_USESAP: ::windows::core::PCWSTR = ::windows::w!("Use_Sap");
+pub const REGSTR_VAL_NCP_USESAP: ::windows::core::PCWSTR = ::windows::core::w!("Use_Sap");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NDP: ::windows::core::PCWSTR = ::windows::w!("NDP");
+pub const REGSTR_VAL_NDP: ::windows::core::PCWSTR = ::windows::core::w!("NDP");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NETCARD: ::windows::core::PCWSTR = ::windows::w!("Netcard");
+pub const REGSTR_VAL_NETCARD: ::windows::core::PCWSTR = ::windows::core::w!("Netcard");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NETCLEAN: ::windows::core::PCWSTR = ::windows::w!("NetClean");
+pub const REGSTR_VAL_NETCLEAN: ::windows::core::PCWSTR = ::windows::core::w!("NetClean");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NETOSTYPE: ::windows::core::PCWSTR = ::windows::w!("NetOSType");
+pub const REGSTR_VAL_NETOSTYPE: ::windows::core::PCWSTR = ::windows::core::w!("NetOSType");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NETSETUP_DISABLE: ::windows::core::PCWSTR = ::windows::w!("NoNetSetup");
+pub const REGSTR_VAL_NETSETUP_DISABLE: ::windows::core::PCWSTR = ::windows::core::w!("NoNetSetup");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NETSETUP_NOCONFIGPAGE: ::windows::core::PCWSTR = ::windows::w!("NoNetSetupConfigPage");
+pub const REGSTR_VAL_NETSETUP_NOCONFIGPAGE: ::windows::core::PCWSTR = ::windows::core::w!("NoNetSetupConfigPage");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NETSETUP_NOIDPAGE: ::windows::core::PCWSTR = ::windows::w!("NoNetSetupIDPage");
+pub const REGSTR_VAL_NETSETUP_NOIDPAGE: ::windows::core::PCWSTR = ::windows::core::w!("NoNetSetupIDPage");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NETSETUP_NOSECURITYPAGE: ::windows::core::PCWSTR = ::windows::w!("NoNetSetupSecurityPage");
+pub const REGSTR_VAL_NETSETUP_NOSECURITYPAGE: ::windows::core::PCWSTR = ::windows::core::w!("NoNetSetupSecurityPage");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NOCMOSORFDPT: ::windows::core::PCWSTR = ::windows::w!("NoCMOSorFDPT");
+pub const REGSTR_VAL_NOCMOSORFDPT: ::windows::core::PCWSTR = ::windows::core::w!("NoCMOSorFDPT");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NODISPLAYCLASS: ::windows::core::PCWSTR = ::windows::w!("NoDisplayClass");
+pub const REGSTR_VAL_NODISPLAYCLASS: ::windows::core::PCWSTR = ::windows::core::w!("NoDisplayClass");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NOENTIRENETWORK: ::windows::core::PCWSTR = ::windows::w!("NoEntireNetwork");
+pub const REGSTR_VAL_NOENTIRENETWORK: ::windows::core::PCWSTR = ::windows::core::w!("NoEntireNetwork");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NOFILESHARING: ::windows::core::PCWSTR = ::windows::w!("NoFileSharing");
+pub const REGSTR_VAL_NOFILESHARING: ::windows::core::PCWSTR = ::windows::core::w!("NoFileSharing");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NOFILESHARINGCTRL: ::windows::core::PCWSTR = ::windows::w!("NoFileSharingControl");
+pub const REGSTR_VAL_NOFILESHARINGCTRL: ::windows::core::PCWSTR = ::windows::core::w!("NoFileSharingControl");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NOIDE: ::windows::core::PCWSTR = ::windows::w!("NoIDE");
+pub const REGSTR_VAL_NOIDE: ::windows::core::PCWSTR = ::windows::core::w!("NoIDE");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NOINSTALLCLASS: ::windows::core::PCWSTR = ::windows::w!("NoInstallClass");
+pub const REGSTR_VAL_NOINSTALLCLASS: ::windows::core::PCWSTR = ::windows::core::w!("NoInstallClass");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NONSTANDARD_ATAPI: ::windows::core::PCWSTR = ::windows::w!("NonStandardATAPI");
+pub const REGSTR_VAL_NONSTANDARD_ATAPI: ::windows::core::PCWSTR = ::windows::core::w!("NonStandardATAPI");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NOPRINTSHARING: ::windows::core::PCWSTR = ::windows::w!("NoPrintSharing");
+pub const REGSTR_VAL_NOPRINTSHARING: ::windows::core::PCWSTR = ::windows::core::w!("NoPrintSharing");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NOPRINTSHARINGCTRL: ::windows::core::PCWSTR = ::windows::w!("NoPrintSharingControl");
+pub const REGSTR_VAL_NOPRINTSHARINGCTRL: ::windows::core::PCWSTR = ::windows::core::w!("NoPrintSharingControl");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NOUSECLASS: ::windows::core::PCWSTR = ::windows::w!("NoUseClass");
+pub const REGSTR_VAL_NOUSECLASS: ::windows::core::PCWSTR = ::windows::core::w!("NoUseClass");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_NOWORKGROUPCONTENTS: ::windows::core::PCWSTR = ::windows::w!("NoWorkgroupContents");
+pub const REGSTR_VAL_NOWORKGROUPCONTENTS: ::windows::core::PCWSTR = ::windows::core::w!("NoWorkgroupContents");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_OLDMSDOSVER: ::windows::core::PCWSTR = ::windows::w!("OldMSDOSVer");
+pub const REGSTR_VAL_OLDMSDOSVER: ::windows::core::PCWSTR = ::windows::core::w!("OldMSDOSVer");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_OLDWINDIR: ::windows::core::PCWSTR = ::windows::w!("OldWinDir");
+pub const REGSTR_VAL_OLDWINDIR: ::windows::core::PCWSTR = ::windows::core::w!("OldWinDir");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_OPTIMIZESFN: ::windows::core::PCWSTR = ::windows::w!("OptimizeSFN");
+pub const REGSTR_VAL_OPTIMIZESFN: ::windows::core::PCWSTR = ::windows::core::w!("OptimizeSFN");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_OPTIONS: ::windows::core::PCWSTR = ::windows::w!("Options");
+pub const REGSTR_VAL_OPTIONS: ::windows::core::PCWSTR = ::windows::core::w!("Options");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_OPTORDER: ::windows::core::PCWSTR = ::windows::w!("Order");
+pub const REGSTR_VAL_OPTORDER: ::windows::core::PCWSTR = ::windows::core::w!("Order");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_P1284MDL: ::windows::core::PCWSTR = ::windows::w!("Model");
+pub const REGSTR_VAL_P1284MDL: ::windows::core::PCWSTR = ::windows::core::w!("Model");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_P1284MFG: ::windows::core::PCWSTR = ::windows::w!("Manufacturer");
+pub const REGSTR_VAL_P1284MFG: ::windows::core::PCWSTR = ::windows::core::w!("Manufacturer");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PATHCACHECOUNT: ::windows::core::PCWSTR = ::windows::w!("PathCache");
+pub const REGSTR_VAL_PATHCACHECOUNT: ::windows::core::PCWSTR = ::windows::core::w!("PathCache");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PCCARD_POWER: ::windows::core::PCWSTR = ::windows::w!("EnablePowerManagement");
+pub const REGSTR_VAL_PCCARD_POWER: ::windows::core::PCWSTR = ::windows::core::w!("EnablePowerManagement");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PCI: ::windows::core::PCWSTR = ::windows::w!("PCI");
+pub const REGSTR_VAL_PCI: ::windows::core::PCWSTR = ::windows::core::w!("PCI");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PCIBIOSVER: ::windows::core::PCWSTR = ::windows::w!("PCIBIOSVer");
+pub const REGSTR_VAL_PCIBIOSVER: ::windows::core::PCWSTR = ::windows::core::w!("PCIBIOSVer");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PCICIRQMAP: ::windows::core::PCWSTR = ::windows::w!("PCICIRQMap");
+pub const REGSTR_VAL_PCICIRQMAP: ::windows::core::PCWSTR = ::windows::core::w!("PCICIRQMap");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PCICOPTIONS: ::windows::core::PCWSTR = ::windows::w!("PCICOptions");
+pub const REGSTR_VAL_PCICOPTIONS: ::windows::core::PCWSTR = ::windows::core::w!("PCICOptions");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PCMCIA_ALLOC: ::windows::core::PCWSTR = ::windows::w!("AllocMemWin");
+pub const REGSTR_VAL_PCMCIA_ALLOC: ::windows::core::PCWSTR = ::windows::core::w!("AllocMemWin");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PCMCIA_ATAD: ::windows::core::PCWSTR = ::windows::w!("ATADelay");
+pub const REGSTR_VAL_PCMCIA_ATAD: ::windows::core::PCWSTR = ::windows::core::w!("ATADelay");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PCMCIA_MEM: ::windows::core::PCWSTR = ::windows::w!("Memory");
+pub const REGSTR_VAL_PCMCIA_MEM: ::windows::core::PCWSTR = ::windows::core::w!("Memory");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PCMCIA_OPT: ::windows::core::PCWSTR = ::windows::w!("Options");
+pub const REGSTR_VAL_PCMCIA_OPT: ::windows::core::PCWSTR = ::windows::core::w!("Options");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PCMCIA_SIZ: ::windows::core::PCWSTR = ::windows::w!("MinRegionSize");
+pub const REGSTR_VAL_PCMCIA_SIZ: ::windows::core::PCWSTR = ::windows::core::w!("MinRegionSize");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PCMTDRIVER: ::windows::core::PCWSTR = ::windows::w!("MTD");
+pub const REGSTR_VAL_PCMTDRIVER: ::windows::core::PCWSTR = ::windows::core::w!("MTD");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PCSSDRIVER: ::windows::core::PCWSTR = ::windows::w!("Driver");
+pub const REGSTR_VAL_PCSSDRIVER: ::windows::core::PCWSTR = ::windows::core::w!("Driver");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PHYSICALDEVICEOBJECT: ::windows::core::PCWSTR = ::windows::w!("PhysicalDeviceObject");
+pub const REGSTR_VAL_PHYSICALDEVICEOBJECT: ::windows::core::PCWSTR = ::windows::core::w!("PhysicalDeviceObject");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PMODE_INT13: ::windows::core::PCWSTR = ::windows::w!("PModeInt13");
+pub const REGSTR_VAL_PMODE_INT13: ::windows::core::PCWSTR = ::windows::core::w!("PModeInt13");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PNPBIOSVER: ::windows::core::PCWSTR = ::windows::w!("PnPBIOSVer");
+pub const REGSTR_VAL_PNPBIOSVER: ::windows::core::PCWSTR = ::windows::core::w!("PnPBIOSVer");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PNPSTRUCOFFSET: ::windows::core::PCWSTR = ::windows::w!("PnPStrucOffset");
+pub const REGSTR_VAL_PNPSTRUCOFFSET: ::windows::core::PCWSTR = ::windows::core::w!("PnPStrucOffset");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_POLICY: ::windows::core::PCWSTR = ::windows::w!("Policy");
+pub const REGSTR_VAL_POLICY: ::windows::core::PCWSTR = ::windows::core::w!("Policy");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_POLLING: ::windows::core::PCWSTR = ::windows::w!("Polling");
+pub const REGSTR_VAL_POLLING: ::windows::core::PCWSTR = ::windows::core::w!("Polling");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PORTNAME: ::windows::core::PCWSTR = ::windows::w!("PortName");
+pub const REGSTR_VAL_PORTNAME: ::windows::core::PCWSTR = ::windows::core::w!("PortName");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PORTSUBCLASS: ::windows::core::PCWSTR = ::windows::w!("PortSubClass");
+pub const REGSTR_VAL_PORTSUBCLASS: ::windows::core::PCWSTR = ::windows::core::w!("PortSubClass");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PREFREDIR: ::windows::core::PCWSTR = ::windows::w!("PreferredRedir");
+pub const REGSTR_VAL_PREFREDIR: ::windows::core::PCWSTR = ::windows::core::w!("PreferredRedir");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PRESERVECASE: ::windows::core::PCWSTR = ::windows::w!("PreserveCase");
+pub const REGSTR_VAL_PRESERVECASE: ::windows::core::PCWSTR = ::windows::core::w!("PreserveCase");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PRESERVELONGNAMES: ::windows::core::PCWSTR = ::windows::w!("PreserveLongNames");
+pub const REGSTR_VAL_PRESERVELONGNAMES: ::windows::core::PCWSTR = ::windows::core::w!("PreserveLongNames");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PRINTERS_HIDETABS: ::windows::core::PCWSTR = ::windows::w!("NoPrinterTabs");
+pub const REGSTR_VAL_PRINTERS_HIDETABS: ::windows::core::PCWSTR = ::windows::core::w!("NoPrinterTabs");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PRINTERS_MASK: ::windows::core::PCWSTR = ::windows::w!("PrintersMask");
+pub const REGSTR_VAL_PRINTERS_MASK: ::windows::core::PCWSTR = ::windows::core::w!("PrintersMask");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PRINTERS_NOADD: ::windows::core::PCWSTR = ::windows::w!("NoAddPrinter");
+pub const REGSTR_VAL_PRINTERS_NOADD: ::windows::core::PCWSTR = ::windows::core::w!("NoAddPrinter");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PRINTERS_NODELETE: ::windows::core::PCWSTR = ::windows::w!("NoDeletePrinter");
+pub const REGSTR_VAL_PRINTERS_NODELETE: ::windows::core::PCWSTR = ::windows::core::w!("NoDeletePrinter");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PRINTSHARING: ::windows::core::PCWSTR = ::windows::w!("PrintSharing");
+pub const REGSTR_VAL_PRINTSHARING: ::windows::core::PCWSTR = ::windows::core::w!("PrintSharing");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PRIORITY: ::windows::core::PCWSTR = ::windows::w!("Priority");
+pub const REGSTR_VAL_PRIORITY: ::windows::core::PCWSTR = ::windows::core::w!("Priority");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PRIVATE: ::windows::core::PCWSTR = ::windows::w!("Private");
+pub const REGSTR_VAL_PRIVATE: ::windows::core::PCWSTR = ::windows::core::w!("Private");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PRIVATEFUNC: ::windows::core::PCWSTR = ::windows::w!("PrivateFunc");
+pub const REGSTR_VAL_PRIVATEFUNC: ::windows::core::PCWSTR = ::windows::core::w!("PrivateFunc");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PRIVATEPROBLEM: ::windows::core::PCWSTR = ::windows::w!("PrivateProblem");
+pub const REGSTR_VAL_PRIVATEPROBLEM: ::windows::core::PCWSTR = ::windows::core::w!("PrivateProblem");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PRODUCTID: ::windows::core::PCWSTR = ::windows::w!("ProductId");
+pub const REGSTR_VAL_PRODUCTID: ::windows::core::PCWSTR = ::windows::core::w!("ProductId");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PRODUCTTYPE: ::windows::core::PCWSTR = ::windows::w!("ProductType");
+pub const REGSTR_VAL_PRODUCTTYPE: ::windows::core::PCWSTR = ::windows::core::w!("ProductType");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PROFILEFLAGS: ::windows::core::PCWSTR = ::windows::w!("ProfileFlags");
+pub const REGSTR_VAL_PROFILEFLAGS: ::windows::core::PCWSTR = ::windows::core::w!("ProfileFlags");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PROPERTIES: ::windows::core::PCWSTR = ::windows::w!("Properties");
+pub const REGSTR_VAL_PROPERTIES: ::windows::core::PCWSTR = ::windows::core::w!("Properties");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PROTINIPATH: ::windows::core::PCWSTR = ::windows::w!("ProtIniPath");
+pub const REGSTR_VAL_PROTINIPATH: ::windows::core::PCWSTR = ::windows::core::w!("ProtIniPath");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PROVIDER_NAME: ::windows::core::PCWSTR = ::windows::w!("ProviderName");
+pub const REGSTR_VAL_PROVIDER_NAME: ::windows::core::PCWSTR = ::windows::core::w!("ProviderName");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PWDEXPIRATION: ::windows::core::PCWSTR = ::windows::w!("PwdExpiration");
+pub const REGSTR_VAL_PWDEXPIRATION: ::windows::core::PCWSTR = ::windows::core::w!("PwdExpiration");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PWDPROVIDER_CHANGEORDER: ::windows::core::PCWSTR = ::windows::w!("ChangeOrder");
+pub const REGSTR_VAL_PWDPROVIDER_CHANGEORDER: ::windows::core::PCWSTR = ::windows::core::w!("ChangeOrder");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PWDPROVIDER_CHANGEPWD: ::windows::core::PCWSTR = ::windows::w!("ChangePassword");
+pub const REGSTR_VAL_PWDPROVIDER_CHANGEPWD: ::windows::core::PCWSTR = ::windows::core::w!("ChangePassword");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PWDPROVIDER_CHANGEPWDHWND: ::windows::core::PCWSTR = ::windows::w!("ChangePasswordHwnd");
+pub const REGSTR_VAL_PWDPROVIDER_CHANGEPWDHWND: ::windows::core::PCWSTR = ::windows::core::w!("ChangePasswordHwnd");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PWDPROVIDER_DESC: ::windows::core::PCWSTR = ::windows::w!("Description");
+pub const REGSTR_VAL_PWDPROVIDER_DESC: ::windows::core::PCWSTR = ::windows::core::w!("Description");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PWDPROVIDER_GETPWDSTATUS: ::windows::core::PCWSTR = ::windows::w!("GetPasswordStatus");
+pub const REGSTR_VAL_PWDPROVIDER_GETPWDSTATUS: ::windows::core::PCWSTR = ::windows::core::w!("GetPasswordStatus");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PWDPROVIDER_ISNP: ::windows::core::PCWSTR = ::windows::w!("NetworkProvider");
+pub const REGSTR_VAL_PWDPROVIDER_ISNP: ::windows::core::PCWSTR = ::windows::core::w!("NetworkProvider");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_PWDPROVIDER_PATH: ::windows::core::PCWSTR = ::windows::w!("ProviderPath");
+pub const REGSTR_VAL_PWDPROVIDER_PATH: ::windows::core::PCWSTR = ::windows::core::w!("ProviderPath");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_RDINTTHRESHOLD: ::windows::core::PCWSTR = ::windows::w!("RDIntThreshold");
+pub const REGSTR_VAL_RDINTTHRESHOLD: ::windows::core::PCWSTR = ::windows::core::w!("RDIntThreshold");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_READAHEADTHRESHOLD: ::windows::core::PCWSTR = ::windows::w!("ReadAheadThreshold");
+pub const REGSTR_VAL_READAHEADTHRESHOLD: ::windows::core::PCWSTR = ::windows::core::w!("ReadAheadThreshold");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_READCACHING: ::windows::core::PCWSTR = ::windows::w!("ReadCaching");
+pub const REGSTR_VAL_READCACHING: ::windows::core::PCWSTR = ::windows::core::w!("ReadCaching");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_REALNETSTART: ::windows::core::PCWSTR = ::windows::w!("RealNetStart");
+pub const REGSTR_VAL_REALNETSTART: ::windows::core::PCWSTR = ::windows::core::w!("RealNetStart");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_REASONCODE: ::windows::core::PCWSTR = ::windows::w!("ReasonCode");
+pub const REGSTR_VAL_REASONCODE: ::windows::core::PCWSTR = ::windows::core::w!("ReasonCode");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_REFRESHRATE: ::windows::core::PCWSTR = ::windows::w!("RefreshRate");
+pub const REGSTR_VAL_REFRESHRATE: ::windows::core::PCWSTR = ::windows::core::w!("RefreshRate");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_REGITEMDELETEMESSAGE: ::windows::core::PCWSTR = ::windows::w!("Removal Message");
+pub const REGSTR_VAL_REGITEMDELETEMESSAGE: ::windows::core::PCWSTR = ::windows::core::w!("Removal Message");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_REGORGANIZATION: ::windows::core::PCWSTR = ::windows::w!("RegisteredOrganization");
+pub const REGSTR_VAL_REGORGANIZATION: ::windows::core::PCWSTR = ::windows::core::w!("RegisteredOrganization");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_REGOWNER: ::windows::core::PCWSTR = ::windows::w!("RegisteredOwner");
+pub const REGSTR_VAL_REGOWNER: ::windows::core::PCWSTR = ::windows::core::w!("RegisteredOwner");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_REINSTALL_DEVICEINSTANCEIDS: ::windows::core::PCWSTR = ::windows::w!("DeviceInstanceIds");
+pub const REGSTR_VAL_REINSTALL_DEVICEINSTANCEIDS: ::windows::core::PCWSTR = ::windows::core::w!("DeviceInstanceIds");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_REINSTALL_DISPLAYNAME: ::windows::core::PCWSTR = ::windows::w!("DisplayName");
+pub const REGSTR_VAL_REINSTALL_DISPLAYNAME: ::windows::core::PCWSTR = ::windows::core::w!("DisplayName");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_REINSTALL_STRING: ::windows::core::PCWSTR = ::windows::w!("ReinstallString");
+pub const REGSTR_VAL_REINSTALL_STRING: ::windows::core::PCWSTR = ::windows::core::w!("ReinstallString");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_REMOTE_PATH: ::windows::core::PCWSTR = ::windows::w!("RemotePath");
+pub const REGSTR_VAL_REMOTE_PATH: ::windows::core::PCWSTR = ::windows::core::w!("RemotePath");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_REMOVABLE: ::windows::core::PCWSTR = ::windows::w!("Removable");
+pub const REGSTR_VAL_REMOVABLE: ::windows::core::PCWSTR = ::windows::core::w!("Removable");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_REMOVAL_POLICY: ::windows::core::PCWSTR = ::windows::w!("RemovalPolicy");
+pub const REGSTR_VAL_REMOVAL_POLICY: ::windows::core::PCWSTR = ::windows::core::w!("RemovalPolicy");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_REMOVEROMOKAY: ::windows::core::PCWSTR = ::windows::w!("RemoveRomOkay");
+pub const REGSTR_VAL_REMOVEROMOKAY: ::windows::core::PCWSTR = ::windows::core::w!("RemoveRomOkay");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_REMOVEROMOKAYFUNC: ::windows::core::PCWSTR = ::windows::w!("RemoveRomOkayFunc");
+pub const REGSTR_VAL_REMOVEROMOKAYFUNC: ::windows::core::PCWSTR = ::windows::core::w!("RemoveRomOkayFunc");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_RESERVED_DEVNODE: ::windows::core::PCWSTR = ::windows::w!("HTREE\\RESERVED\\0");
+pub const REGSTR_VAL_RESERVED_DEVNODE: ::windows::core::PCWSTR = ::windows::core::w!("HTREE\\RESERVED\\0");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_RESOLUTION: ::windows::core::PCWSTR = ::windows::w!("Resolution");
+pub const REGSTR_VAL_RESOLUTION: ::windows::core::PCWSTR = ::windows::core::w!("Resolution");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_RESOURCES: ::windows::core::PCWSTR = ::windows::w!("Resources");
+pub const REGSTR_VAL_RESOURCES: ::windows::core::PCWSTR = ::windows::core::w!("Resources");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_RESOURCE_MAP: ::windows::core::PCWSTR = ::windows::w!("ResourceMap");
+pub const REGSTR_VAL_RESOURCE_MAP: ::windows::core::PCWSTR = ::windows::core::w!("ResourceMap");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_RESOURCE_PICKER_EXCEPTIONS: ::windows::core::PCWSTR = ::windows::w!("ResourcePickerExceptions");
+pub const REGSTR_VAL_RESOURCE_PICKER_EXCEPTIONS: ::windows::core::PCWSTR = ::windows::core::w!("ResourcePickerExceptions");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_RESOURCE_PICKER_TAGS: ::windows::core::PCWSTR = ::windows::w!("ResourcePickerTags");
+pub const REGSTR_VAL_RESOURCE_PICKER_TAGS: ::windows::core::PCWSTR = ::windows::core::w!("ResourcePickerTags");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_RESTRICTRUN: ::windows::core::PCWSTR = ::windows::w!("RestrictRun");
+pub const REGSTR_VAL_RESTRICTRUN: ::windows::core::PCWSTR = ::windows::core::w!("RestrictRun");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_RESUMERESET: ::windows::core::PCWSTR = ::windows::w!("ResumeReset");
+pub const REGSTR_VAL_RESUMERESET: ::windows::core::PCWSTR = ::windows::core::w!("ResumeReset");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_REVISION: ::windows::core::PCWSTR = ::windows::w!("Revision");
+pub const REGSTR_VAL_REVISION: ::windows::core::PCWSTR = ::windows::core::w!("Revision");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_REVLEVEL: ::windows::core::PCWSTR = ::windows::w!("RevisionLevel");
+pub const REGSTR_VAL_REVLEVEL: ::windows::core::PCWSTR = ::windows::core::w!("RevisionLevel");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_ROOT_DEVNODE: ::windows::core::PCWSTR = ::windows::w!("HTREE\\ROOT\\0");
+pub const REGSTR_VAL_ROOT_DEVNODE: ::windows::core::PCWSTR = ::windows::core::w!("HTREE\\ROOT\\0");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_RUNLOGINSCRIPT: ::windows::core::PCWSTR = ::windows::w!("ProcessLoginScript");
+pub const REGSTR_VAL_RUNLOGINSCRIPT: ::windows::core::PCWSTR = ::windows::core::w!("ProcessLoginScript");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SCANNER: ::windows::core::PCWSTR = ::windows::w!("SCANNER");
+pub const REGSTR_VAL_SCANNER: ::windows::core::PCWSTR = ::windows::core::w!("SCANNER");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SCAN_ONLY_FIRST: ::windows::core::PCWSTR = ::windows::w!("ScanOnlyFirstDrive");
+pub const REGSTR_VAL_SCAN_ONLY_FIRST: ::windows::core::PCWSTR = ::windows::core::w!("ScanOnlyFirstDrive");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SCSI: ::windows::core::PCWSTR = ::windows::w!("SCSI\\");
+pub const REGSTR_VAL_SCSI: ::windows::core::PCWSTR = ::windows::core::w!("SCSI\\");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SCSILUN: ::windows::core::PCWSTR = ::windows::w!("SCSILUN");
+pub const REGSTR_VAL_SCSILUN: ::windows::core::PCWSTR = ::windows::core::w!("SCSILUN");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SCSITID: ::windows::core::PCWSTR = ::windows::w!("SCSITargetID");
+pub const REGSTR_VAL_SCSITID: ::windows::core::PCWSTR = ::windows::core::w!("SCSITargetID");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SEARCHMODE: ::windows::core::PCWSTR = ::windows::w!("SearchMode");
+pub const REGSTR_VAL_SEARCHMODE: ::windows::core::PCWSTR = ::windows::core::w!("SearchMode");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SEARCHOPTIONS: ::windows::core::PCWSTR = ::windows::w!("SearchOptions");
+pub const REGSTR_VAL_SEARCHOPTIONS: ::windows::core::PCWSTR = ::windows::core::w!("SearchOptions");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SECCPL_NOADMINPAGE: ::windows::core::PCWSTR = ::windows::w!("NoAdminPage");
+pub const REGSTR_VAL_SECCPL_NOADMINPAGE: ::windows::core::PCWSTR = ::windows::core::w!("NoAdminPage");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SECCPL_NOPROFILEPAGE: ::windows::core::PCWSTR = ::windows::w!("NoProfilePage");
+pub const REGSTR_VAL_SECCPL_NOPROFILEPAGE: ::windows::core::PCWSTR = ::windows::core::w!("NoProfilePage");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SECCPL_NOPWDPAGE: ::windows::core::PCWSTR = ::windows::w!("NoPwdPage");
+pub const REGSTR_VAL_SECCPL_NOPWDPAGE: ::windows::core::PCWSTR = ::windows::core::w!("NoPwdPage");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SECCPL_NOSECCPL: ::windows::core::PCWSTR = ::windows::w!("NoSecCPL");
+pub const REGSTR_VAL_SECCPL_NOSECCPL: ::windows::core::PCWSTR = ::windows::core::w!("NoSecCPL");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SERVICE: ::windows::core::PCWSTR = ::windows::w!("Service");
+pub const REGSTR_VAL_SERVICE: ::windows::core::PCWSTR = ::windows::core::w!("Service");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SETUPFLAGS: ::windows::core::PCWSTR = ::windows::w!("SetupFlags");
+pub const REGSTR_VAL_SETUPFLAGS: ::windows::core::PCWSTR = ::windows::core::w!("SetupFlags");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SETUPMACHINETYPE: ::windows::core::PCWSTR = ::windows::w!("SetupMachineType");
+pub const REGSTR_VAL_SETUPMACHINETYPE: ::windows::core::PCWSTR = ::windows::core::w!("SetupMachineType");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SETUPN: ::windows::core::PCWSTR = ::windows::w!("SetupN");
+pub const REGSTR_VAL_SETUPN: ::windows::core::PCWSTR = ::windows::core::w!("SetupN");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SETUPNPATH: ::windows::core::PCWSTR = ::windows::w!("SetupNPath");
+pub const REGSTR_VAL_SETUPNPATH: ::windows::core::PCWSTR = ::windows::core::w!("SetupNPath");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SETUPPROGRAMRAN: ::windows::core::PCWSTR = ::windows::w!("SetupProgramRan");
+pub const REGSTR_VAL_SETUPPROGRAMRAN: ::windows::core::PCWSTR = ::windows::core::w!("SetupProgramRan");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SHARES_FLAGS: ::windows::core::PCWSTR = ::windows::w!("Flags");
+pub const REGSTR_VAL_SHARES_FLAGS: ::windows::core::PCWSTR = ::windows::core::w!("Flags");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SHARES_PATH: ::windows::core::PCWSTR = ::windows::w!("Path");
+pub const REGSTR_VAL_SHARES_PATH: ::windows::core::PCWSTR = ::windows::core::w!("Path");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SHARES_REMARK: ::windows::core::PCWSTR = ::windows::w!("Remark");
+pub const REGSTR_VAL_SHARES_REMARK: ::windows::core::PCWSTR = ::windows::core::w!("Remark");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SHARES_RO_PASS: ::windows::core::PCWSTR = ::windows::w!("Parm2");
+pub const REGSTR_VAL_SHARES_RO_PASS: ::windows::core::PCWSTR = ::windows::core::w!("Parm2");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SHARES_RW_PASS: ::windows::core::PCWSTR = ::windows::w!("Parm1");
+pub const REGSTR_VAL_SHARES_RW_PASS: ::windows::core::PCWSTR = ::windows::core::w!("Parm1");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SHARES_TYPE: ::windows::core::PCWSTR = ::windows::w!("Type");
+pub const REGSTR_VAL_SHARES_TYPE: ::windows::core::PCWSTR = ::windows::core::w!("Type");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SHARE_IRQ: ::windows::core::PCWSTR = ::windows::w!("ForceIRQSharing");
+pub const REGSTR_VAL_SHARE_IRQ: ::windows::core::PCWSTR = ::windows::core::w!("ForceIRQSharing");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SHELLVERSION: ::windows::core::PCWSTR = ::windows::w!("ShellVersion");
+pub const REGSTR_VAL_SHELLVERSION: ::windows::core::PCWSTR = ::windows::core::w!("ShellVersion");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SHOWDOTS: ::windows::core::PCWSTR = ::windows::w!("ShowDots");
+pub const REGSTR_VAL_SHOWDOTS: ::windows::core::PCWSTR = ::windows::core::w!("ShowDots");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SHOWREASONUI: ::windows::core::PCWSTR = ::windows::w!("ShutdownReasonUI");
+pub const REGSTR_VAL_SHOWREASONUI: ::windows::core::PCWSTR = ::windows::core::w!("ShutdownReasonUI");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SHUTDOWNREASON: ::windows::core::PCWSTR = ::windows::w!("ShutdownReason");
+pub const REGSTR_VAL_SHUTDOWNREASON: ::windows::core::PCWSTR = ::windows::core::w!("ShutdownReason");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SHUTDOWNREASON_CODE: ::windows::core::PCWSTR = ::windows::w!("ShutdownReasonCode");
+pub const REGSTR_VAL_SHUTDOWNREASON_CODE: ::windows::core::PCWSTR = ::windows::core::w!("ShutdownReasonCode");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SHUTDOWNREASON_COMMENT: ::windows::core::PCWSTR = ::windows::w!("ShutdownReasonComment");
+pub const REGSTR_VAL_SHUTDOWNREASON_COMMENT: ::windows::core::PCWSTR = ::windows::core::w!("ShutdownReasonComment");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SHUTDOWNREASON_PROCESS: ::windows::core::PCWSTR = ::windows::w!("ShutdownReasonProcess");
+pub const REGSTR_VAL_SHUTDOWNREASON_PROCESS: ::windows::core::PCWSTR = ::windows::core::w!("ShutdownReasonProcess");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SHUTDOWNREASON_USERNAME: ::windows::core::PCWSTR = ::windows::w!("ShutdownReasonUserName");
+pub const REGSTR_VAL_SHUTDOWNREASON_USERNAME: ::windows::core::PCWSTR = ::windows::core::w!("ShutdownReasonUserName");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SHUTDOWN_FLAGS: ::windows::core::PCWSTR = ::windows::w!("ShutdownFlags");
+pub const REGSTR_VAL_SHUTDOWN_FLAGS: ::windows::core::PCWSTR = ::windows::core::w!("ShutdownFlags");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SHUTDOWN_IGNORE_PREDEFINED: ::windows::core::PCWSTR = ::windows::w!("ShutdownIgnorePredefinedReasons");
+pub const REGSTR_VAL_SHUTDOWN_IGNORE_PREDEFINED: ::windows::core::PCWSTR = ::windows::core::w!("ShutdownIgnorePredefinedReasons");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SHUTDOWN_STATE_SNAPSHOT: ::windows::core::PCWSTR = ::windows::w!("ShutdownStateSnapshot");
+pub const REGSTR_VAL_SHUTDOWN_STATE_SNAPSHOT: ::windows::core::PCWSTR = ::windows::core::w!("ShutdownStateSnapshot");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SILENTINSTALL: ::windows::core::PCWSTR = ::windows::w!("SilentInstall");
+pub const REGSTR_VAL_SILENTINSTALL: ::windows::core::PCWSTR = ::windows::core::w!("SilentInstall");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SLSUPPORT: ::windows::core::PCWSTR = ::windows::w!("SLSupport");
+pub const REGSTR_VAL_SLSUPPORT: ::windows::core::PCWSTR = ::windows::core::w!("SLSupport");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SOFTCOMPATMODE: ::windows::core::PCWSTR = ::windows::w!("SoftCompatMode");
+pub const REGSTR_VAL_SOFTCOMPATMODE: ::windows::core::PCWSTR = ::windows::core::w!("SoftCompatMode");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SRCPATH: ::windows::core::PCWSTR = ::windows::w!("SourcePath");
+pub const REGSTR_VAL_SRCPATH: ::windows::core::PCWSTR = ::windows::core::w!("SourcePath");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SRVNAMECACHE: ::windows::core::PCWSTR = ::windows::w!("ServerNameCache");
+pub const REGSTR_VAL_SRVNAMECACHE: ::windows::core::PCWSTR = ::windows::core::w!("ServerNameCache");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SRVNAMECACHECOUNT: ::windows::core::PCWSTR = ::windows::w!("ServerNameCacheMax");
+pub const REGSTR_VAL_SRVNAMECACHECOUNT: ::windows::core::PCWSTR = ::windows::core::w!("ServerNameCacheMax");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SRVNAMECACHENETPROV: ::windows::core::PCWSTR = ::windows::w!("ServerNameCacheNumNets");
+pub const REGSTR_VAL_SRVNAMECACHENETPROV: ::windows::core::PCWSTR = ::windows::core::w!("ServerNameCacheNumNets");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_START_ON_BOOT: ::windows::core::PCWSTR = ::windows::w!("StartOnBoot");
+pub const REGSTR_VAL_START_ON_BOOT: ::windows::core::PCWSTR = ::windows::core::w!("StartOnBoot");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_STAT: ::windows::core::PCWSTR = ::windows::w!("Status");
+pub const REGSTR_VAL_STAT: ::windows::core::PCWSTR = ::windows::core::w!("Status");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_STATICDRIVE: ::windows::core::PCWSTR = ::windows::w!("StaticDrive");
+pub const REGSTR_VAL_STATICDRIVE: ::windows::core::PCWSTR = ::windows::core::w!("StaticDrive");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_STATICVXD: ::windows::core::PCWSTR = ::windows::w!("StaticVxD");
+pub const REGSTR_VAL_STATICVXD: ::windows::core::PCWSTR = ::windows::core::w!("StaticVxD");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_STDDOSOPTION: ::windows::core::PCWSTR = ::windows::w!("StdOption");
+pub const REGSTR_VAL_STDDOSOPTION: ::windows::core::PCWSTR = ::windows::core::w!("StdOption");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SUBMODEL: ::windows::core::PCWSTR = ::windows::w!("Submodel");
+pub const REGSTR_VAL_SUBMODEL: ::windows::core::PCWSTR = ::windows::core::w!("Submodel");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SUPPORTBURST: ::windows::core::PCWSTR = ::windows::w!("SupportBurst");
+pub const REGSTR_VAL_SUPPORTBURST: ::windows::core::PCWSTR = ::windows::core::w!("SupportBurst");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SUPPORTLFN: ::windows::core::PCWSTR = ::windows::w!("SupportLFN");
+pub const REGSTR_VAL_SUPPORTLFN: ::windows::core::PCWSTR = ::windows::core::w!("SupportLFN");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SUPPORTTUNNELLING: ::windows::core::PCWSTR = ::windows::w!("SupportTunnelling");
+pub const REGSTR_VAL_SUPPORTTUNNELLING: ::windows::core::PCWSTR = ::windows::core::w!("SupportTunnelling");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SYMBOLIC_LINK: ::windows::core::PCWSTR = ::windows::w!("SymbolicLink");
+pub const REGSTR_VAL_SYMBOLIC_LINK: ::windows::core::PCWSTR = ::windows::core::w!("SymbolicLink");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SYNCDATAXFER: ::windows::core::PCWSTR = ::windows::w!("SyncDataXfer");
+pub const REGSTR_VAL_SYNCDATAXFER: ::windows::core::PCWSTR = ::windows::core::w!("SyncDataXfer");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SYSDM: ::windows::core::PCWSTR = ::windows::w!("SysDM");
+pub const REGSTR_VAL_SYSDM: ::windows::core::PCWSTR = ::windows::core::w!("SysDM");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SYSDMFUNC: ::windows::core::PCWSTR = ::windows::w!("SysDMFunc");
+pub const REGSTR_VAL_SYSDMFUNC: ::windows::core::PCWSTR = ::windows::core::w!("SysDMFunc");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SYSTEMCPL_NOCONFIGPAGE: ::windows::core::PCWSTR = ::windows::w!("NoConfigPage");
+pub const REGSTR_VAL_SYSTEMCPL_NOCONFIGPAGE: ::windows::core::PCWSTR = ::windows::core::w!("NoConfigPage");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SYSTEMCPL_NODEVMGRPAGE: ::windows::core::PCWSTR = ::windows::w!("NoDevMgrPage");
+pub const REGSTR_VAL_SYSTEMCPL_NODEVMGRPAGE: ::windows::core::PCWSTR = ::windows::core::w!("NoDevMgrPage");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SYSTEMCPL_NOFILESYSPAGE: ::windows::core::PCWSTR = ::windows::w!("NoFileSysPage");
+pub const REGSTR_VAL_SYSTEMCPL_NOFILESYSPAGE: ::windows::core::PCWSTR = ::windows::core::w!("NoFileSysPage");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SYSTEMCPL_NOVIRTMEMPAGE: ::windows::core::PCWSTR = ::windows::w!("NoVirtMemPage");
+pub const REGSTR_VAL_SYSTEMCPL_NOVIRTMEMPAGE: ::windows::core::PCWSTR = ::windows::core::w!("NoVirtMemPage");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SYSTEMROOT: ::windows::core::PCWSTR = ::windows::w!("SystemRoot");
+pub const REGSTR_VAL_SYSTEMROOT: ::windows::core::PCWSTR = ::windows::core::w!("SystemRoot");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SYSTRAYBATFLAGS: ::windows::core::PCWSTR = ::windows::w!("PowerFlags");
+pub const REGSTR_VAL_SYSTRAYBATFLAGS: ::windows::core::PCWSTR = ::windows::core::w!("PowerFlags");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SYSTRAYPCCARDFLAGS: ::windows::core::PCWSTR = ::windows::w!("PCMCIAFlags");
+pub const REGSTR_VAL_SYSTRAYPCCARDFLAGS: ::windows::core::PCWSTR = ::windows::core::w!("PCMCIAFlags");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_SYSTRAYSVCS: ::windows::core::PCWSTR = ::windows::w!("Services");
+pub const REGSTR_VAL_SYSTRAYSVCS: ::windows::core::PCWSTR = ::windows::core::w!("Services");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_TABLE_STAT: ::windows::core::PCWSTR = ::windows::w!("TableStatus");
+pub const REGSTR_VAL_TABLE_STAT: ::windows::core::PCWSTR = ::windows::core::w!("TableStatus");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_TAPE: ::windows::core::PCWSTR = ::windows::w!("TAPE");
+pub const REGSTR_VAL_TAPE: ::windows::core::PCWSTR = ::windows::core::w!("TAPE");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_TRANSITION: ::windows::core::PCWSTR = ::windows::w!("Transition");
+pub const REGSTR_VAL_TRANSITION: ::windows::core::PCWSTR = ::windows::core::w!("Transition");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_TRANSPORT: ::windows::core::PCWSTR = ::windows::w!("Transport");
+pub const REGSTR_VAL_TRANSPORT: ::windows::core::PCWSTR = ::windows::core::w!("Transport");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_TZACTBIAS: ::windows::core::PCWSTR = ::windows::w!("ActiveTimeBias");
+pub const REGSTR_VAL_TZACTBIAS: ::windows::core::PCWSTR = ::windows::core::w!("ActiveTimeBias");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_TZBIAS: ::windows::core::PCWSTR = ::windows::w!("Bias");
+pub const REGSTR_VAL_TZBIAS: ::windows::core::PCWSTR = ::windows::core::w!("Bias");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_TZDLTBIAS: ::windows::core::PCWSTR = ::windows::w!("DaylightBias");
+pub const REGSTR_VAL_TZDLTBIAS: ::windows::core::PCWSTR = ::windows::core::w!("DaylightBias");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_TZDLTFLAG: ::windows::core::PCWSTR = ::windows::w!("DaylightFlag");
+pub const REGSTR_VAL_TZDLTFLAG: ::windows::core::PCWSTR = ::windows::core::w!("DaylightFlag");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_TZDLTNAME: ::windows::core::PCWSTR = ::windows::w!("DaylightName");
+pub const REGSTR_VAL_TZDLTNAME: ::windows::core::PCWSTR = ::windows::core::w!("DaylightName");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_TZDLTSTART: ::windows::core::PCWSTR = ::windows::w!("DaylightStart");
+pub const REGSTR_VAL_TZDLTSTART: ::windows::core::PCWSTR = ::windows::core::w!("DaylightStart");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_TZNOAUTOTIME: ::windows::core::PCWSTR = ::windows::w!("DisableAutoDaylightTimeSet");
+pub const REGSTR_VAL_TZNOAUTOTIME: ::windows::core::PCWSTR = ::windows::core::w!("DisableAutoDaylightTimeSet");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_TZNOCHANGEEND: ::windows::core::PCWSTR = ::windows::w!("NoChangeEnd");
+pub const REGSTR_VAL_TZNOCHANGEEND: ::windows::core::PCWSTR = ::windows::core::w!("NoChangeEnd");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_TZNOCHANGESTART: ::windows::core::PCWSTR = ::windows::w!("NoChangeStart");
+pub const REGSTR_VAL_TZNOCHANGESTART: ::windows::core::PCWSTR = ::windows::core::w!("NoChangeStart");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_TZSTDBIAS: ::windows::core::PCWSTR = ::windows::w!("StandardBias");
+pub const REGSTR_VAL_TZSTDBIAS: ::windows::core::PCWSTR = ::windows::core::w!("StandardBias");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_TZSTDNAME: ::windows::core::PCWSTR = ::windows::w!("StandardName");
+pub const REGSTR_VAL_TZSTDNAME: ::windows::core::PCWSTR = ::windows::core::w!("StandardName");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_TZSTDSTART: ::windows::core::PCWSTR = ::windows::w!("StandardStart");
+pub const REGSTR_VAL_TZSTDSTART: ::windows::core::PCWSTR = ::windows::core::w!("StandardStart");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_UI_NUMBER: ::windows::core::PCWSTR = ::windows::w!("UINumber");
+pub const REGSTR_VAL_UI_NUMBER: ::windows::core::PCWSTR = ::windows::core::w!("UINumber");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_UI_NUMBER_DESC_FORMAT: ::windows::core::PCWSTR = ::windows::w!("UINumberDescFormat");
+pub const REGSTR_VAL_UI_NUMBER_DESC_FORMAT: ::windows::core::PCWSTR = ::windows::core::w!("UINumberDescFormat");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_UNDOCK_WITHOUT_LOGON: ::windows::core::PCWSTR = ::windows::w!("UndockWithoutLogon");
+pub const REGSTR_VAL_UNDOCK_WITHOUT_LOGON: ::windows::core::PCWSTR = ::windows::core::w!("UndockWithoutLogon");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_UNINSTALLER_COMMANDLINE: ::windows::core::PCWSTR = ::windows::w!("UninstallString");
+pub const REGSTR_VAL_UNINSTALLER_COMMANDLINE: ::windows::core::PCWSTR = ::windows::core::w!("UninstallString");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_UNINSTALLER_DISPLAYNAME: ::windows::core::PCWSTR = ::windows::w!("DisplayName");
+pub const REGSTR_VAL_UNINSTALLER_DISPLAYNAME: ::windows::core::PCWSTR = ::windows::core::w!("DisplayName");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_UPGRADE: ::windows::core::PCWSTR = ::windows::w!("Upgrade");
+pub const REGSTR_VAL_UPGRADE: ::windows::core::PCWSTR = ::windows::core::w!("Upgrade");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_UPPERFILTERS: ::windows::core::PCWSTR = ::windows::w!("UpperFilters");
+pub const REGSTR_VAL_UPPERFILTERS: ::windows::core::PCWSTR = ::windows::core::w!("UpperFilters");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_UPPER_FILTER_DEFAULT_LEVEL: ::windows::core::PCWSTR = ::windows::w!("UpperFilterDefaultLevel");
+pub const REGSTR_VAL_UPPER_FILTER_DEFAULT_LEVEL: ::windows::core::PCWSTR = ::windows::core::w!("UpperFilterDefaultLevel");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_UPPER_FILTER_LEVELS: ::windows::core::PCWSTR = ::windows::w!("UpperFilterLevels");
+pub const REGSTR_VAL_UPPER_FILTER_LEVELS: ::windows::core::PCWSTR = ::windows::core::w!("UpperFilterLevels");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_USERSETTINGS: ::windows::core::PCWSTR = ::windows::w!("AdapterSettings");
+pub const REGSTR_VAL_USERSETTINGS: ::windows::core::PCWSTR = ::windows::core::w!("AdapterSettings");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_USER_NAME: ::windows::core::PCWSTR = ::windows::w!("UserName");
+pub const REGSTR_VAL_USER_NAME: ::windows::core::PCWSTR = ::windows::core::w!("UserName");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_USRDRVLET: ::windows::core::PCWSTR = ::windows::w!("UserDriveLetterAssignment");
+pub const REGSTR_VAL_USRDRVLET: ::windows::core::PCWSTR = ::windows::core::w!("UserDriveLetterAssignment");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_VDD: ::windows::core::PCWSTR = ::windows::w!("vdd");
+pub const REGSTR_VAL_VDD: ::windows::core::PCWSTR = ::windows::core::w!("vdd");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_VER: ::windows::core::PCWSTR = ::windows::w!("Ver");
+pub const REGSTR_VAL_VER: ::windows::core::PCWSTR = ::windows::core::w!("Ver");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_VERIFYKEY: ::windows::core::PCWSTR = ::windows::w!("VerifyKey");
+pub const REGSTR_VAL_VERIFYKEY: ::windows::core::PCWSTR = ::windows::core::w!("VerifyKey");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_VIRTUALHDIRQ: ::windows::core::PCWSTR = ::windows::w!("VirtualHDIRQ");
+pub const REGSTR_VAL_VIRTUALHDIRQ: ::windows::core::PCWSTR = ::windows::core::w!("VirtualHDIRQ");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_VOLIDLETIMEOUT: ::windows::core::PCWSTR = ::windows::w!("VolumeIdleTimeout");
+pub const REGSTR_VAL_VOLIDLETIMEOUT: ::windows::core::PCWSTR = ::windows::core::w!("VolumeIdleTimeout");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_VPOWERDFLAGS: ::windows::core::PCWSTR = ::windows::w!("Flags");
+pub const REGSTR_VAL_VPOWERDFLAGS: ::windows::core::PCWSTR = ::windows::core::w!("Flags");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_VRES: ::windows::core::PCWSTR = ::windows::w!("VRes");
+pub const REGSTR_VAL_VRES: ::windows::core::PCWSTR = ::windows::core::w!("VRes");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_VXDGROUPS: ::windows::core::PCWSTR = ::windows::w!("VXDGroups");
+pub const REGSTR_VAL_VXDGROUPS: ::windows::core::PCWSTR = ::windows::core::w!("VXDGroups");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_WAITFORUNDOCK: ::windows::core::PCWSTR = ::windows::w!("WaitForUndock");
+pub const REGSTR_VAL_WAITFORUNDOCK: ::windows::core::PCWSTR = ::windows::core::w!("WaitForUndock");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_WAITFORUNDOCKFUNC: ::windows::core::PCWSTR = ::windows::w!("WaitForUndockFunc");
+pub const REGSTR_VAL_WAITFORUNDOCKFUNC: ::windows::core::PCWSTR = ::windows::core::w!("WaitForUndockFunc");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_WIN31FILESYSTEM: ::windows::core::PCWSTR = ::windows::w!("Win31FileSystem");
+pub const REGSTR_VAL_WIN31FILESYSTEM: ::windows::core::PCWSTR = ::windows::core::w!("Win31FileSystem");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_WIN31PROVIDER: ::windows::core::PCWSTR = ::windows::w!("Win31Provider");
+pub const REGSTR_VAL_WIN31PROVIDER: ::windows::core::PCWSTR = ::windows::core::w!("Win31Provider");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_WINBOOTDIR: ::windows::core::PCWSTR = ::windows::w!("WinbootDir");
+pub const REGSTR_VAL_WINBOOTDIR: ::windows::core::PCWSTR = ::windows::core::w!("WinbootDir");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_WINCP: ::windows::core::PCWSTR = ::windows::w!("ACP");
+pub const REGSTR_VAL_WINCP: ::windows::core::PCWSTR = ::windows::core::w!("ACP");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_WINDIR: ::windows::core::PCWSTR = ::windows::w!("WinDir");
+pub const REGSTR_VAL_WINDIR: ::windows::core::PCWSTR = ::windows::core::w!("WinDir");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_WINOLDAPP_DISABLED: ::windows::core::PCWSTR = ::windows::w!("Disabled");
+pub const REGSTR_VAL_WINOLDAPP_DISABLED: ::windows::core::PCWSTR = ::windows::core::w!("Disabled");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_WINOLDAPP_NOREALMODE: ::windows::core::PCWSTR = ::windows::w!("NoRealMode");
+pub const REGSTR_VAL_WINOLDAPP_NOREALMODE: ::windows::core::PCWSTR = ::windows::core::w!("NoRealMode");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_WORKGROUP: ::windows::core::PCWSTR = ::windows::w!("Workgroup");
+pub const REGSTR_VAL_WORKGROUP: ::windows::core::PCWSTR = ::windows::core::w!("Workgroup");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_WRAPPER: ::windows::core::PCWSTR = ::windows::w!("Wrapper");
+pub const REGSTR_VAL_WRAPPER: ::windows::core::PCWSTR = ::windows::core::w!("Wrapper");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_WRINTTHRESHOLD: ::windows::core::PCWSTR = ::windows::w!("WRIntThreshold");
+pub const REGSTR_VAL_WRINTTHRESHOLD: ::windows::core::PCWSTR = ::windows::core::w!("WRIntThreshold");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_WRKGRP_FORCEMAPPING: ::windows::core::PCWSTR = ::windows::w!("WrkgrpForceMapping");
+pub const REGSTR_VAL_WRKGRP_FORCEMAPPING: ::windows::core::PCWSTR = ::windows::core::w!("WrkgrpForceMapping");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REGSTR_VAL_WRKGRP_REQUIRED: ::windows::core::PCWSTR = ::windows::w!("WrkgrpRequired");
+pub const REGSTR_VAL_WRKGRP_REQUIRED: ::windows::core::PCWSTR = ::windows::core::w!("WrkgrpRequired");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const REG_KEY_INSTDEV: ::windows::core::PCWSTR = ::windows::w!("Installed");
+pub const REG_KEY_INSTDEV: ::windows::core::PCWSTR = ::windows::core::w!("Installed");
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub const REG_MUI_STRING_TRUNCATE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]

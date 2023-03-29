@@ -11,27 +11,27 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "avrt.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn AvRevertMmThreadCharacteristics ( avrthandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "avrt.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn AvRtCreateThreadOrderingGroup ( context : *mut super::super::Foundation:: HANDLE , period : *const i64 , threadorderingguid : *mut :: windows_sys::core::GUID , timeout : *const i64 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "avrt.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn AvRtCreateThreadOrderingGroup ( context : *mut super::super::Foundation:: HANDLE , period : *const i64 , threadorderingguid : *mut ::windows_sys::core::GUID , timeout : *const i64 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "avrt.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn AvRtCreateThreadOrderingGroupExA ( context : *mut super::super::Foundation:: HANDLE , period : *const i64 , threadorderingguid : *mut :: windows_sys::core::GUID , timeout : *const i64 , taskname : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "avrt.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn AvRtCreateThreadOrderingGroupExA ( context : *mut super::super::Foundation:: HANDLE , period : *const i64 , threadorderingguid : *mut ::windows_sys::core::GUID , timeout : *const i64 , taskname : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "avrt.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn AvRtCreateThreadOrderingGroupExW ( context : *mut super::super::Foundation:: HANDLE , period : *const i64 , threadorderingguid : *mut :: windows_sys::core::GUID , timeout : *const i64 , taskname : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "avrt.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn AvRtCreateThreadOrderingGroupExW ( context : *mut super::super::Foundation:: HANDLE , period : *const i64 , threadorderingguid : *mut ::windows_sys::core::GUID , timeout : *const i64 , taskname : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "avrt.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn AvRtDeleteThreadOrderingGroup ( context : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "avrt.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn AvRtJoinThreadOrderingGroup ( context : *mut super::super::Foundation:: HANDLE , threadorderingguid : *const :: windows_sys::core::GUID , before : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "avrt.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn AvRtJoinThreadOrderingGroup ( context : *mut super::super::Foundation:: HANDLE , threadorderingguid : *const ::windows_sys::core::GUID , before : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "avrt.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn AvRtLeaveThreadOrderingGroup ( context : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "avrt.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn AvRtWaitOnThreadOrderingGroup ( context : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "avrt.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn AvSetMmMaxThreadCharacteristicsA ( firsttask : :: windows_sys::core::PCSTR , secondtask : :: windows_sys::core::PCSTR , taskindex : *mut u32 ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "avrt.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn AvSetMmMaxThreadCharacteristicsA ( firsttask : ::windows_sys::core::PCSTR , secondtask : ::windows_sys::core::PCSTR , taskindex : *mut u32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "avrt.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn AvSetMmMaxThreadCharacteristicsW ( firsttask : :: windows_sys::core::PCWSTR , secondtask : :: windows_sys::core::PCWSTR , taskindex : *mut u32 ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "avrt.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn AvSetMmMaxThreadCharacteristicsW ( firsttask : ::windows_sys::core::PCWSTR , secondtask : ::windows_sys::core::PCWSTR , taskindex : *mut u32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "avrt.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn AvSetMmThreadCharacteristicsA ( taskname : :: windows_sys::core::PCSTR , taskindex : *mut u32 ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "avrt.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn AvSetMmThreadCharacteristicsA ( taskname : ::windows_sys::core::PCSTR , taskindex : *mut u32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "avrt.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn AvSetMmThreadCharacteristicsW ( taskname : :: windows_sys::core::PCWSTR , taskindex : *mut u32 ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "avrt.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn AvSetMmThreadCharacteristicsW ( taskname : ::windows_sys::core::PCWSTR , taskindex : *mut u32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "avrt.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn AvSetMmThreadPriority ( avrthandle : super::super::Foundation:: HANDLE , priority : AVRT_PRIORITY ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -55,54 +55,54 @@
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn ConvertFiberToThread ( ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn ConvertThreadToFiber ( lpparameter : *const ::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn ConvertThreadToFiberEx ( lpparameter : *const ::core::ffi::c_void , dwflags : u32 ) -> *mut ::core::ffi::c_void );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CreateBoundaryDescriptorA ( name : :: windows_sys::core::PCSTR , flags : u32 ) -> BoundaryDescriptorHandle );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CreateBoundaryDescriptorW ( name : :: windows_sys::core::PCWSTR , flags : u32 ) -> BoundaryDescriptorHandle );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CreateBoundaryDescriptorA ( name : ::windows_sys::core::PCSTR , flags : u32 ) -> BoundaryDescriptorHandle );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CreateBoundaryDescriptorW ( name : ::windows_sys::core::PCWSTR , flags : u32 ) -> BoundaryDescriptorHandle );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateEventA ( lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , bmanualreset : super::super::Foundation:: BOOL , binitialstate : super::super::Foundation:: BOOL , lpname : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateEventA ( lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , bmanualreset : super::super::Foundation:: BOOL , binitialstate : super::super::Foundation:: BOOL , lpname : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateEventExA ( lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : :: windows_sys::core::PCSTR , dwflags : CREATE_EVENT , dwdesiredaccess : u32 ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateEventExA ( lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : ::windows_sys::core::PCSTR , dwflags : CREATE_EVENT , dwdesiredaccess : u32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateEventExW ( lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : :: windows_sys::core::PCWSTR , dwflags : CREATE_EVENT , dwdesiredaccess : u32 ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateEventExW ( lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : ::windows_sys::core::PCWSTR , dwflags : CREATE_EVENT , dwdesiredaccess : u32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateEventW ( lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , bmanualreset : super::super::Foundation:: BOOL , binitialstate : super::super::Foundation:: BOOL , lpname : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateEventW ( lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , bmanualreset : super::super::Foundation:: BOOL , binitialstate : super::super::Foundation:: BOOL , lpname : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CreateFiber ( dwstacksize : usize , lpstartaddress : LPFIBER_START_ROUTINE , lpparameter : *const ::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CreateFiberEx ( dwstackcommitsize : usize , dwstackreservesize : usize , dwflags : u32 , lpstartaddress : LPFIBER_START_ROUTINE , lpparameter : *const ::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateMutexA ( lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , binitialowner : super::super::Foundation:: BOOL , lpname : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateMutexA ( lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , binitialowner : super::super::Foundation:: BOOL , lpname : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateMutexExA ( lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : :: windows_sys::core::PCSTR , dwflags : u32 , dwdesiredaccess : u32 ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateMutexExA ( lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : ::windows_sys::core::PCSTR , dwflags : u32 , dwdesiredaccess : u32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateMutexExW ( lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : :: windows_sys::core::PCWSTR , dwflags : u32 , dwdesiredaccess : u32 ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateMutexExW ( lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : ::windows_sys::core::PCWSTR , dwflags : u32 , dwdesiredaccess : u32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateMutexW ( lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , binitialowner : super::super::Foundation:: BOOL , lpname : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateMutexW ( lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , binitialowner : super::super::Foundation:: BOOL , lpname : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreatePrivateNamespaceA ( lpprivatenamespaceattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpboundarydescriptor : *const ::core::ffi::c_void , lpaliasprefix : :: windows_sys::core::PCSTR ) -> NamespaceHandle );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreatePrivateNamespaceA ( lpprivatenamespaceattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpboundarydescriptor : *const ::core::ffi::c_void , lpaliasprefix : ::windows_sys::core::PCSTR ) -> NamespaceHandle );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreatePrivateNamespaceW ( lpprivatenamespaceattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpboundarydescriptor : *const ::core::ffi::c_void , lpaliasprefix : :: windows_sys::core::PCWSTR ) -> NamespaceHandle );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreatePrivateNamespaceW ( lpprivatenamespaceattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpboundarydescriptor : *const ::core::ffi::c_void , lpaliasprefix : ::windows_sys::core::PCWSTR ) -> NamespaceHandle );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateProcessA ( lpapplicationname : :: windows_sys::core::PCSTR , lpcommandline : :: windows_sys::core::PSTR , lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , binherithandles : super::super::Foundation:: BOOL , dwcreationflags : PROCESS_CREATION_FLAGS , lpenvironment : *const ::core::ffi::c_void , lpcurrentdirectory : :: windows_sys::core::PCSTR , lpstartupinfo : *const STARTUPINFOA , lpprocessinformation : *mut PROCESS_INFORMATION ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateProcessA ( lpapplicationname : ::windows_sys::core::PCSTR , lpcommandline : ::windows_sys::core::PSTR , lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , binherithandles : super::super::Foundation:: BOOL , dwcreationflags : PROCESS_CREATION_FLAGS , lpenvironment : *const ::core::ffi::c_void , lpcurrentdirectory : ::windows_sys::core::PCSTR , lpstartupinfo : *const STARTUPINFOA , lpprocessinformation : *mut PROCESS_INFORMATION ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateProcessAsUserA ( htoken : super::super::Foundation:: HANDLE , lpapplicationname : :: windows_sys::core::PCSTR , lpcommandline : :: windows_sys::core::PSTR , lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , binherithandles : super::super::Foundation:: BOOL , dwcreationflags : PROCESS_CREATION_FLAGS , lpenvironment : *const ::core::ffi::c_void , lpcurrentdirectory : :: windows_sys::core::PCSTR , lpstartupinfo : *const STARTUPINFOA , lpprocessinformation : *mut PROCESS_INFORMATION ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateProcessAsUserA ( htoken : super::super::Foundation:: HANDLE , lpapplicationname : ::windows_sys::core::PCSTR , lpcommandline : ::windows_sys::core::PSTR , lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , binherithandles : super::super::Foundation:: BOOL , dwcreationflags : PROCESS_CREATION_FLAGS , lpenvironment : *const ::core::ffi::c_void , lpcurrentdirectory : ::windows_sys::core::PCSTR , lpstartupinfo : *const STARTUPINFOA , lpprocessinformation : *mut PROCESS_INFORMATION ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateProcessAsUserW ( htoken : super::super::Foundation:: HANDLE , lpapplicationname : :: windows_sys::core::PCWSTR , lpcommandline : :: windows_sys::core::PWSTR , lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , binherithandles : super::super::Foundation:: BOOL , dwcreationflags : PROCESS_CREATION_FLAGS , lpenvironment : *const ::core::ffi::c_void , lpcurrentdirectory : :: windows_sys::core::PCWSTR , lpstartupinfo : *const STARTUPINFOW , lpprocessinformation : *mut PROCESS_INFORMATION ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateProcessAsUserW ( htoken : super::super::Foundation:: HANDLE , lpapplicationname : ::windows_sys::core::PCWSTR , lpcommandline : ::windows_sys::core::PWSTR , lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , binherithandles : super::super::Foundation:: BOOL , dwcreationflags : PROCESS_CREATION_FLAGS , lpenvironment : *const ::core::ffi::c_void , lpcurrentdirectory : ::windows_sys::core::PCWSTR , lpstartupinfo : *const STARTUPINFOW , lpprocessinformation : *mut PROCESS_INFORMATION ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateProcessW ( lpapplicationname : :: windows_sys::core::PCWSTR , lpcommandline : :: windows_sys::core::PWSTR , lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , binherithandles : super::super::Foundation:: BOOL , dwcreationflags : PROCESS_CREATION_FLAGS , lpenvironment : *const ::core::ffi::c_void , lpcurrentdirectory : :: windows_sys::core::PCWSTR , lpstartupinfo : *const STARTUPINFOW , lpprocessinformation : *mut PROCESS_INFORMATION ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateProcessW ( lpapplicationname : ::windows_sys::core::PCWSTR , lpcommandline : ::windows_sys::core::PWSTR , lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , binherithandles : super::super::Foundation:: BOOL , dwcreationflags : PROCESS_CREATION_FLAGS , lpenvironment : *const ::core::ffi::c_void , lpcurrentdirectory : ::windows_sys::core::PCWSTR , lpstartupinfo : *const STARTUPINFOW , lpprocessinformation : *mut PROCESS_INFORMATION ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn CreateProcessWithLogonW ( lpusername : :: windows_sys::core::PCWSTR , lpdomain : :: windows_sys::core::PCWSTR , lppassword : :: windows_sys::core::PCWSTR , dwlogonflags : CREATE_PROCESS_LOGON_FLAGS , lpapplicationname : :: windows_sys::core::PCWSTR , lpcommandline : :: windows_sys::core::PWSTR , dwcreationflags : PROCESS_CREATION_FLAGS , lpenvironment : *const ::core::ffi::c_void , lpcurrentdirectory : :: windows_sys::core::PCWSTR , lpstartupinfo : *const STARTUPINFOW , lpprocessinformation : *mut PROCESS_INFORMATION ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn CreateProcessWithLogonW ( lpusername : ::windows_sys::core::PCWSTR , lpdomain : ::windows_sys::core::PCWSTR , lppassword : ::windows_sys::core::PCWSTR , dwlogonflags : CREATE_PROCESS_LOGON_FLAGS , lpapplicationname : ::windows_sys::core::PCWSTR , lpcommandline : ::windows_sys::core::PWSTR , dwcreationflags : PROCESS_CREATION_FLAGS , lpenvironment : *const ::core::ffi::c_void , lpcurrentdirectory : ::windows_sys::core::PCWSTR , lpstartupinfo : *const STARTUPINFOW , lpprocessinformation : *mut PROCESS_INFORMATION ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn CreateProcessWithTokenW ( htoken : super::super::Foundation:: HANDLE , dwlogonflags : CREATE_PROCESS_LOGON_FLAGS , lpapplicationname : :: windows_sys::core::PCWSTR , lpcommandline : :: windows_sys::core::PWSTR , dwcreationflags : PROCESS_CREATION_FLAGS , lpenvironment : *const ::core::ffi::c_void , lpcurrentdirectory : :: windows_sys::core::PCWSTR , lpstartupinfo : *const STARTUPINFOW , lpprocessinformation : *mut PROCESS_INFORMATION ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn CreateProcessWithTokenW ( htoken : super::super::Foundation:: HANDLE , dwlogonflags : CREATE_PROCESS_LOGON_FLAGS , lpapplicationname : ::windows_sys::core::PCWSTR , lpcommandline : ::windows_sys::core::PWSTR , dwcreationflags : PROCESS_CREATION_FLAGS , lpenvironment : *const ::core::ffi::c_void , lpcurrentdirectory : ::windows_sys::core::PCWSTR , lpstartupinfo : *const STARTUPINFOW , lpprocessinformation : *mut PROCESS_INFORMATION ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateRemoteThread ( hprocess : super::super::Foundation:: HANDLE , lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwstacksize : usize , lpstartaddress : LPTHREAD_START_ROUTINE , lpparameter : *const ::core::ffi::c_void , dwcreationflags : u32 , lpthreadid : *mut u32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateRemoteThreadEx ( hprocess : super::super::Foundation:: HANDLE , lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwstacksize : usize , lpstartaddress : LPTHREAD_START_ROUTINE , lpparameter : *const ::core::ffi::c_void , dwcreationflags : u32 , lpattributelist : LPPROC_THREAD_ATTRIBUTE_LIST , lpthreadid : *mut u32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateSemaphoreA ( lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , linitialcount : i32 , lmaximumcount : i32 , lpname : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateSemaphoreA ( lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , linitialcount : i32 , lmaximumcount : i32 , lpname : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateSemaphoreExA ( lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , linitialcount : i32 , lmaximumcount : i32 , lpname : :: windows_sys::core::PCSTR , dwflags : u32 , dwdesiredaccess : u32 ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateSemaphoreExA ( lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , linitialcount : i32 , lmaximumcount : i32 , lpname : ::windows_sys::core::PCSTR , dwflags : u32 , dwdesiredaccess : u32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateSemaphoreExW ( lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , linitialcount : i32 , lmaximumcount : i32 , lpname : :: windows_sys::core::PCWSTR , dwflags : u32 , dwdesiredaccess : u32 ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateSemaphoreExW ( lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , linitialcount : i32 , lmaximumcount : i32 , lpname : ::windows_sys::core::PCWSTR , dwflags : u32 , dwdesiredaccess : u32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateSemaphoreW ( lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , linitialcount : i32 , lmaximumcount : i32 , lpname : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateSemaphoreW ( lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , linitialcount : i32 , lmaximumcount : i32 , lpname : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateThread ( lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwstacksize : usize , lpstartaddress : LPTHREAD_START_ROUTINE , lpparameter : *const ::core::ffi::c_void , dwcreationflags : THREAD_CREATION_FLAGS , lpthreadid : *mut u32 ) -> super::super::Foundation:: HANDLE );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CreateThreadpool ( reserved : *const ::core::ffi::c_void ) -> PTP_POOL );
@@ -121,9 +121,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn CreateUmsThreadContext ( lpumsthread : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateWaitableTimerExW ( lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lptimername : :: windows_sys::core::PCWSTR , dwflags : u32 , dwdesiredaccess : u32 ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateWaitableTimerExW ( lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lptimername : ::windows_sys::core::PCWSTR , dwflags : u32 , dwdesiredaccess : u32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateWaitableTimerW ( lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , bmanualreset : super::super::Foundation:: BOOL , lptimername : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateWaitableTimerW ( lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , bmanualreset : super::super::Foundation:: BOOL , lptimername : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn DeleteBoundaryDescriptor ( boundarydescriptor : BoundaryDescriptorHandle ) -> ( ) );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"] fn DeleteCriticalSection ( lpcriticalsection : *mut RTL_CRITICAL_SECTION ) -> ( ) );
@@ -162,7 +162,7 @@
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn FlsSetValue ( dwflsindex : u32 , lpflsdata : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn FlushProcessWriteBuffers ( ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn FreeLibraryWhenCallbackReturns ( pci : PTP_CALLBACK_INSTANCE , r#mod : super::super::Foundation:: HINSTANCE ) -> ( ) );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn FreeLibraryWhenCallbackReturns ( pci : PTP_CALLBACK_INSTANCE , r#mod : super::super::Foundation:: HMODULE ) -> ( ) );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn GetActiveProcessorCount ( groupnumber : u16 ) -> u32 );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn GetActiveProcessorGroupCount ( ) -> u16 );
 #[cfg(feature = "Win32_Foundation")]
@@ -182,7 +182,7 @@
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn GetExitCodeThread ( hthread : super::super::Foundation:: HANDLE , lpexitcode : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn GetGuiResources ( hprocess : super::super::Foundation:: HANDLE , uiflags : GET_GUI_RESOURCES_FLAGS ) -> u32 );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn GetMachineTypeAttributes ( machine : u16 , machinetypeattributes : *mut MACHINE_ATTRIBUTES ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn GetMachineTypeAttributes ( machine : u16 , machinetypeattributes : *mut MACHINE_ATTRIBUTES ) -> ::windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn GetMaximumProcessorCount ( groupnumber : u16 ) -> u32 );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn GetMaximumProcessorGroupCount ( ) -> u16 );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn GetNextUmsListItem ( umscontext : *mut ::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
@@ -248,7 +248,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn GetSystemTimes ( lpidletime : *mut super::super::Foundation:: FILETIME , lpkerneltime : *mut super::super::Foundation:: FILETIME , lpusertime : *mut super::super::Foundation:: FILETIME ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn GetThreadDescription ( hthread : super::super::Foundation:: HANDLE , ppszthreaddescription : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn GetThreadDescription ( hthread : super::super::Foundation:: HANDLE , ppszthreaddescription : *mut ::windows_sys::core::PWSTR ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"] fn GetThreadGroupAffinity ( hthread : super::super::Foundation:: HANDLE , groupaffinity : *mut super::SystemInformation:: GROUP_AFFINITY ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -327,37 +327,37 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "ntdll.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn NtSetInformationThread ( threadhandle : super::super::Foundation:: HANDLE , threadinformationclass : THREADINFOCLASS , threadinformation : *const ::core::ffi::c_void , threadinformationlength : u32 ) -> super::super::Foundation:: NTSTATUS );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn OpenEventA ( dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS , binherithandle : super::super::Foundation:: BOOL , lpname : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn OpenEventA ( dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS , binherithandle : super::super::Foundation:: BOOL , lpname : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn OpenEventW ( dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS , binherithandle : super::super::Foundation:: BOOL , lpname : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn OpenEventW ( dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS , binherithandle : super::super::Foundation:: BOOL , lpname : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn OpenMutexW ( dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS , binherithandle : super::super::Foundation:: BOOL , lpname : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn OpenPrivateNamespaceA ( lpboundarydescriptor : *const ::core::ffi::c_void , lpaliasprefix : :: windows_sys::core::PCSTR ) -> NamespaceHandle );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn OpenPrivateNamespaceW ( lpboundarydescriptor : *const ::core::ffi::c_void , lpaliasprefix : :: windows_sys::core::PCWSTR ) -> NamespaceHandle );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn OpenMutexW ( dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS , binherithandle : super::super::Foundation:: BOOL , lpname : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn OpenPrivateNamespaceA ( lpboundarydescriptor : *const ::core::ffi::c_void , lpaliasprefix : ::windows_sys::core::PCSTR ) -> NamespaceHandle );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn OpenPrivateNamespaceW ( lpboundarydescriptor : *const ::core::ffi::c_void , lpaliasprefix : ::windows_sys::core::PCWSTR ) -> NamespaceHandle );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn OpenProcess ( dwdesiredaccess : PROCESS_ACCESS_RIGHTS , binherithandle : super::super::Foundation:: BOOL , dwprocessid : u32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn OpenProcessToken ( processhandle : super::super::Foundation:: HANDLE , desiredaccess : super::super::Security:: TOKEN_ACCESS_MASK , tokenhandle : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn OpenSemaphoreW ( dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS , binherithandle : super::super::Foundation:: BOOL , lpname : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn OpenSemaphoreW ( dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS , binherithandle : super::super::Foundation:: BOOL , lpname : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn OpenThread ( dwdesiredaccess : THREAD_ACCESS_RIGHTS , binherithandle : super::super::Foundation:: BOOL , dwthreadid : u32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn OpenThreadToken ( threadhandle : super::super::Foundation:: HANDLE , desiredaccess : super::super::Security:: TOKEN_ACCESS_MASK , openasself : super::super::Foundation:: BOOL , tokenhandle : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn OpenWaitableTimerW ( dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS , binherithandle : super::super::Foundation:: BOOL , lptimername : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn OpenWaitableTimerW ( dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS , binherithandle : super::super::Foundation:: BOOL , lptimername : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn PulseEvent ( hevent : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_System_Kernel")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_Kernel\"`*"] fn QueryDepthSList ( listhead : *const super::Kernel:: SLIST_HEADER ) -> u16 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn QueryFullProcessImageNameA ( hprocess : super::super::Foundation:: HANDLE , dwflags : PROCESS_NAME_FORMAT , lpexename : :: windows_sys::core::PSTR , lpdwsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn QueryFullProcessImageNameA ( hprocess : super::super::Foundation:: HANDLE , dwflags : PROCESS_NAME_FORMAT , lpexename : ::windows_sys::core::PSTR , lpdwsize : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn QueryFullProcessImageNameW ( hprocess : super::super::Foundation:: HANDLE , dwflags : PROCESS_NAME_FORMAT , lpexename : :: windows_sys::core::PWSTR , lpdwsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn QueryFullProcessImageNameW ( hprocess : super::super::Foundation:: HANDLE , dwflags : PROCESS_NAME_FORMAT , lpexename : ::windows_sys::core::PWSTR , lpdwsize : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn QueryProcessAffinityUpdateMode ( hprocess : super::super::Foundation:: HANDLE , lpdwflags : *mut PROCESS_AFFINITY_AUTO_UPDATE_FLAGS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn QueryProtectedPolicy ( policyguid : *const :: windows_sys::core::GUID , policyvalue : *mut usize ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn QueryProtectedPolicy ( policyguid : *const ::windows_sys::core::GUID , policyvalue : *mut usize ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn QueryThreadpoolStackInformation ( ptpp : PTP_POOL , ptpsi : *mut TP_POOL_STACK_INFORMATION ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -419,11 +419,11 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetProcessWorkingSetSize ( hprocess : super::super::Foundation:: HANDLE , dwminimumworkingsetsize : usize , dwmaximumworkingsetsize : usize ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetProtectedPolicy ( policyguid : *const :: windows_sys::core::GUID , policyvalue : usize , oldpolicyvalue : *mut usize ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetProtectedPolicy ( policyguid : *const ::windows_sys::core::GUID , policyvalue : usize , oldpolicyvalue : *mut usize ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetThreadAffinityMask ( hthread : super::super::Foundation:: HANDLE , dwthreadaffinitymask : usize ) -> usize );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetThreadDescription ( hthread : super::super::Foundation:: HANDLE , lpthreaddescription : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetThreadDescription ( hthread : super::super::Foundation:: HANDLE , lpthreaddescription : ::windows_sys::core::PCWSTR ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"] fn SetThreadGroupAffinity ( hthread : super::super::Foundation:: HANDLE , groupaffinity : *const super::SystemInformation:: GROUP_AFFINITY , previousgroupaffinity : *mut super::SystemInformation:: GROUP_AFFINITY ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -529,7 +529,7 @@
 ::windows_sys::core::link ! ( "api-ms-win-core-synch-l1-2-0.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn WakeByAddressAll ( address : *const ::core::ffi::c_void ) -> ( ) );
 ::windows_sys::core::link ! ( "api-ms-win-core-synch-l1-2-0.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn WakeByAddressSingle ( address : *const ::core::ffi::c_void ) -> ( ) );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn WakeConditionVariable ( conditionvariable : *mut RTL_CONDITION_VARIABLE ) -> ( ) );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn WinExec ( lpcmdline : :: windows_sys::core::PCSTR , ucmdshow : u32 ) -> u32 );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn WinExec ( lpcmdline : ::windows_sys::core::PCSTR , ucmdshow : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "api-ms-win-core-wow64-l1-1-1.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn Wow64SetThreadDefaultGuestMachine ( machine : u16 ) -> u16 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn Wow64SuspendThread ( hthread : super::super::Foundation:: HANDLE ) -> u32 );
@@ -543,6 +543,8 @@ pub const CREATE_WAITABLE_TIMER_HIGH_RESOLUTION: u32 = 2u32;
 pub const CREATE_WAITABLE_TIMER_MANUAL_RESET: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const FLS_OUT_OF_INDEXES: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const INFINITE: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const INIT_ONCE_ASYNC: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -1082,7 +1084,11 @@ pub const ProcessUserShadowStackPolicy: PROCESS_MITIGATION_POLICY = 15i32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const ProcessRedirectionTrustPolicy: PROCESS_MITIGATION_POLICY = 16i32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const MaxProcessMitigationPolicy: PROCESS_MITIGATION_POLICY = 17i32;
+pub const ProcessUserPointerAuthPolicy: PROCESS_MITIGATION_POLICY = 17i32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const ProcessSEHOPPolicy: PROCESS_MITIGATION_POLICY = 18i32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const MaxProcessMitigationPolicy: PROCESS_MITIGATION_POLICY = 19i32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub type PROCESS_NAME_FORMAT = u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -1154,11 +1160,15 @@ pub const ProcThreadAttributeComponentFilter: PROC_THREAD_ATTRIBUTE_NUM = 26u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const ProcThreadAttributeEnableOptionalXStateFeatures: PROC_THREAD_ATTRIBUTE_NUM = 27u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const ProcThreadAttributeTrustedApp: PROC_THREAD_ATTRIBUTE_NUM = 29u32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub type QUEUE_USER_APC_FLAGS = i32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const QUEUE_USER_APC_FLAGS_NONE: QUEUE_USER_APC_FLAGS = 0i32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const QUEUE_USER_APC_FLAGS_SPECIAL_USER_APC: QUEUE_USER_APC_FLAGS = 1i32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const QUEUE_USER_APC_CALLBACK_DATA_CONTEXT: QUEUE_USER_APC_FLAGS = 65536i32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub type RTL_UMS_THREAD_INFO_CLASS = i32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -1719,7 +1729,7 @@ impl ::core::clone::Clone for REASON_CONTEXT_0 {
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REASON_CONTEXT_0_0 {
-    pub LocalizedReasonModule: super::super::Foundation::HINSTANCE,
+    pub LocalizedReasonModule: super::super::Foundation::HMODULE,
     pub LocalizedReasonId: u32,
     pub ReasonStringCount: u32,
     pub ReasonStrings: *mut ::windows_sys::core::PWSTR,
@@ -1789,7 +1799,7 @@ pub struct RTL_CRITICAL_SECTION_DEBUG {
     pub ContentionCount: u32,
     pub Flags: u32,
     pub CreatorBackTraceIndexHigh: u16,
-    pub SpareWORD: u16,
+    pub Identifier: u16,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for RTL_CRITICAL_SECTION_DEBUG {}
@@ -2054,6 +2064,8 @@ impl ::core::clone::Clone for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub type APC_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ()>;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub type LPFIBER_START_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpfiberparameter: *mut ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub type LPTHREAD_START_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpthreadparameter: *mut ::core::ffi::c_void) -> u32>;
@@ -2084,3 +2096,5 @@ pub type PTP_WORK_CALLBACK = ::core::option::Option<unsafe extern "system" fn(in
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WAITORTIMERCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::BOOLEAN) -> ()>;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub type WORKERCALLBACKFUNC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> ()>;

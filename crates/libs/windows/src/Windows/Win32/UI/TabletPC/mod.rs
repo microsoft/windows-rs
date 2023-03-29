@@ -5,7 +5,7 @@ pub unsafe fn AddStroke<P0>(hrc: P0, ppacketdesc: *const PACKET_DESCRIPTION, cbp
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn AddStroke ( hrc : HRECOCONTEXT , ppacketdesc : *const PACKET_DESCRIPTION , cbpacket : u32 , ppacket : *const u8 , pxform : *const super::super::Graphics::Gdi:: XFORM ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn AddStroke ( hrc : HRECOCONTEXT , ppacketdesc : *const PACKET_DESCRIPTION , cbpacket : u32 , ppacket : *const u8 , pxform : *const super::super::Graphics::Gdi:: XFORM ) -> ::windows::core::HRESULT );
     AddStroke(hrc.into_param().abi(), ppacketdesc, cbpacket, ppacket, pxform).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -15,7 +15,7 @@ where
     P0: ::windows::core::IntoParam<HRECOWORDLIST>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn AddWordsToWordList ( hwl : HRECOWORDLIST , pwcwords : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn AddWordsToWordList ( hwl : HRECOWORDLIST , pwcwords : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     AddWordsToWordList(hwl.into_param().abi(), pwcwords.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
@@ -26,7 +26,7 @@ where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn AdviseInkChange ( hrc : HRECOCONTEXT , bnewstroke : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn AdviseInkChange ( hrc : HRECOCONTEXT , bnewstroke : super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     AdviseInkChange(hrc.into_param().abi(), bnewstroke.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -35,13 +35,13 @@ pub unsafe fn CreateContext<P0>(hrec: P0, phrc: *mut HRECOCONTEXT) -> ::windows:
 where
     P0: ::windows::core::IntoParam<HRECOGNIZER>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn CreateContext ( hrec : HRECOGNIZER , phrc : *mut HRECOCONTEXT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn CreateContext ( hrec : HRECOGNIZER , phrc : *mut HRECOCONTEXT ) -> ::windows::core::HRESULT );
     CreateContext(hrec.into_param().abi(), phrc).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn CreateRecognizer(pclsid: *mut ::windows::core::GUID, phrec: *mut HRECOGNIZER) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn CreateRecognizer ( pclsid : *mut :: windows::core::GUID , phrec : *mut HRECOGNIZER ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn CreateRecognizer ( pclsid : *mut ::windows::core::GUID , phrec : *mut HRECOGNIZER ) -> ::windows::core::HRESULT );
     CreateRecognizer(pclsid, phrec).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -50,7 +50,7 @@ pub unsafe fn DestroyContext<P0>(hrc: P0) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn DestroyContext ( hrc : HRECOCONTEXT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn DestroyContext ( hrc : HRECOCONTEXT ) -> ::windows::core::HRESULT );
     DestroyContext(hrc.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -59,7 +59,7 @@ pub unsafe fn DestroyRecognizer<P0>(hrec: P0) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<HRECOGNIZER>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn DestroyRecognizer ( hrec : HRECOGNIZER ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn DestroyRecognizer ( hrec : HRECOGNIZER ) -> ::windows::core::HRESULT );
     DestroyRecognizer(hrec.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -68,7 +68,7 @@ pub unsafe fn DestroyWordList<P0>(hwl: P0) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<HRECOWORDLIST>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn DestroyWordList ( hwl : HRECOWORDLIST ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn DestroyWordList ( hwl : HRECOWORDLIST ) -> ::windows::core::HRESULT );
     DestroyWordList(hwl.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -77,13 +77,13 @@ pub unsafe fn EndInkInput<P0>(hrc: P0) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn EndInkInput ( hrc : HRECOCONTEXT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn EndInkInput ( hrc : HRECOCONTEXT ) -> ::windows::core::HRESULT );
     EndInkInput(hrc.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn GetAllRecognizers(recognizerclsids: *mut *mut ::windows::core::GUID, count: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetAllRecognizers ( recognizerclsids : *mut *mut :: windows::core::GUID , count : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetAllRecognizers ( recognizerclsids : *mut *mut ::windows::core::GUID , count : *mut u32 ) -> ::windows::core::HRESULT );
     GetAllRecognizers(recognizerclsids, count).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -92,7 +92,7 @@ pub unsafe fn GetBestResultString<P0>(hrc: P0, pcsize: *mut u32, pwcbestresult: 
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetBestResultString ( hrc : HRECOCONTEXT , pcsize : *mut u32 , pwcbestresult : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetBestResultString ( hrc : HRECOCONTEXT , pcsize : *mut u32 , pwcbestresult : ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     GetBestResultString(hrc.into_param().abi(), pcsize, ::core::mem::transmute(pwcbestresult)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -101,7 +101,7 @@ pub unsafe fn GetLatticePtr<P0>(hrc: P0, pplattice: *mut *mut RECO_LATTICE) -> :
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetLatticePtr ( hrc : HRECOCONTEXT , pplattice : *mut *mut RECO_LATTICE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetLatticePtr ( hrc : HRECOCONTEXT , pplattice : *mut *mut RECO_LATTICE ) -> ::windows::core::HRESULT );
     GetLatticePtr(hrc.into_param().abi(), pplattice).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -110,7 +110,7 @@ pub unsafe fn GetLeftSeparator<P0>(hrc: P0, pcsize: *mut u32, pwcleftseparator: 
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetLeftSeparator ( hrc : HRECOCONTEXT , pcsize : *mut u32 , pwcleftseparator : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetLeftSeparator ( hrc : HRECOCONTEXT , pcsize : *mut u32 , pwcleftseparator : ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     GetLeftSeparator(hrc.into_param().abi(), pcsize, ::core::mem::transmute(pwcleftseparator)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -119,7 +119,7 @@ pub unsafe fn GetRecoAttributes<P0>(hrec: P0, precoattrs: *mut RECO_ATTRS) -> ::
 where
     P0: ::windows::core::IntoParam<HRECOGNIZER>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetRecoAttributes ( hrec : HRECOGNIZER , precoattrs : *mut RECO_ATTRS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetRecoAttributes ( hrec : HRECOGNIZER , precoattrs : *mut RECO_ATTRS ) -> ::windows::core::HRESULT );
     GetRecoAttributes(hrec.into_param().abi(), precoattrs).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -128,7 +128,7 @@ pub unsafe fn GetResultPropertyList<P0>(hrec: P0, ppropertycount: *mut u32, ppro
 where
     P0: ::windows::core::IntoParam<HRECOGNIZER>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetResultPropertyList ( hrec : HRECOGNIZER , ppropertycount : *mut u32 , ppropertyguid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetResultPropertyList ( hrec : HRECOGNIZER , ppropertycount : *mut u32 , ppropertyguid : *mut ::windows::core::GUID ) -> ::windows::core::HRESULT );
     GetResultPropertyList(hrec.into_param().abi(), ppropertycount, ppropertyguid).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -137,7 +137,7 @@ pub unsafe fn GetRightSeparator<P0>(hrc: P0, pcsize: *mut u32, pwcrightseparator
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetRightSeparator ( hrc : HRECOCONTEXT , pcsize : *mut u32 , pwcrightseparator : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetRightSeparator ( hrc : HRECOCONTEXT , pcsize : *mut u32 , pwcrightseparator : ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     GetRightSeparator(hrc.into_param().abi(), pcsize, ::core::mem::transmute(pwcrightseparator)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -146,7 +146,7 @@ pub unsafe fn GetUnicodeRanges<P0>(hrec: P0, pcranges: *mut u32, pcr: *mut CHARA
 where
     P0: ::windows::core::IntoParam<HRECOGNIZER>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetUnicodeRanges ( hrec : HRECOGNIZER , pcranges : *mut u32 , pcr : *mut CHARACTER_RANGE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetUnicodeRanges ( hrec : HRECOGNIZER , pcranges : *mut u32 , pcr : *mut CHARACTER_RANGE ) -> ::windows::core::HRESULT );
     GetUnicodeRanges(hrec.into_param().abi(), pcranges, pcr).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -156,13 +156,13 @@ where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn IsStringSupported ( hrc : HRECOCONTEXT , wcstring : u32 , pwcstring : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn IsStringSupported ( hrc : HRECOCONTEXT , wcstring : u32 , pwcstring : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     IsStringSupported(hrc.into_param().abi(), wcstring, pwcstring.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn LoadCachedAttributes(clsid: ::windows::core::GUID, precoattributes: *mut RECO_ATTRS) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn LoadCachedAttributes ( clsid : :: windows::core::GUID , precoattributes : *mut RECO_ATTRS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn LoadCachedAttributes ( clsid : ::windows::core::GUID , precoattributes : *mut RECO_ATTRS ) -> ::windows::core::HRESULT );
     LoadCachedAttributes(::core::mem::transmute(clsid), precoattributes).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -172,7 +172,7 @@ where
     P0: ::windows::core::IntoParam<HRECOGNIZER>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn MakeWordList ( hrec : HRECOGNIZER , pbuffer : :: windows::core::PCWSTR , phwl : *mut HRECOWORDLIST ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn MakeWordList ( hrec : HRECOGNIZER , pbuffer : ::windows::core::PCWSTR , phwl : *mut HRECOWORDLIST ) -> ::windows::core::HRESULT );
     MakeWordList(hrec.into_param().abi(), pbuffer.into_param().abi(), phwl).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
@@ -182,7 +182,7 @@ pub unsafe fn Process<P0>(hrc: P0, pbpartialprocessing: *mut super::super::Found
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn Process ( hrc : HRECOCONTEXT , pbpartialprocessing : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn Process ( hrc : HRECOCONTEXT , pbpartialprocessing : *mut super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     Process(hrc.into_param().abi(), pbpartialprocessing).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -191,7 +191,7 @@ pub unsafe fn SetEnabledUnicodeRanges<P0>(hrc: P0, cranges: u32, pcr: *mut CHARA
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetEnabledUnicodeRanges ( hrc : HRECOCONTEXT , cranges : u32 , pcr : *mut CHARACTER_RANGE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetEnabledUnicodeRanges ( hrc : HRECOCONTEXT , cranges : u32 , pcr : *mut CHARACTER_RANGE ) -> ::windows::core::HRESULT );
     SetEnabledUnicodeRanges(hrc.into_param().abi(), cranges, pcr).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -201,7 +201,7 @@ where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetFactoid ( hrc : HRECOCONTEXT , cwcfactoid : u32 , pwcfactoid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetFactoid ( hrc : HRECOCONTEXT , cwcfactoid : u32 , pwcfactoid : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     SetFactoid(hrc.into_param().abi(), cwcfactoid, pwcfactoid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -210,7 +210,7 @@ pub unsafe fn SetFlags<P0>(hrc: P0, dwflags: u32) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetFlags ( hrc : HRECOCONTEXT , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetFlags ( hrc : HRECOCONTEXT , dwflags : u32 ) -> ::windows::core::HRESULT );
     SetFlags(hrc.into_param().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -219,7 +219,7 @@ pub unsafe fn SetGuide<P0>(hrc: P0, pguide: *const RECO_GUIDE, iindex: u32) -> :
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetGuide ( hrc : HRECOCONTEXT , pguide : *const RECO_GUIDE , iindex : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetGuide ( hrc : HRECOCONTEXT , pguide : *const RECO_GUIDE , iindex : u32 ) -> ::windows::core::HRESULT );
     SetGuide(hrc.into_param().abi(), pguide, iindex).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -228,7 +228,7 @@ pub unsafe fn SetTextContext<P0>(hrc: P0, pwcbefore: &[u16], pwcafter: &[u16]) -
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetTextContext ( hrc : HRECOCONTEXT , cwcbefore : u32 , pwcbefore : :: windows::core::PCWSTR , cwcafter : u32 , pwcafter : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetTextContext ( hrc : HRECOCONTEXT , cwcbefore : u32 , pwcbefore : ::windows::core::PCWSTR , cwcafter : u32 , pwcafter : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     SetTextContext(hrc.into_param().abi(), pwcbefore.len() as _, ::core::mem::transmute(pwcbefore.as_ptr()), pwcafter.len() as _, ::core::mem::transmute(pwcafter.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -238,7 +238,7 @@ where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
     P1: ::windows::core::IntoParam<HRECOWORDLIST>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetWordList ( hrc : HRECOCONTEXT , hwl : HRECOWORDLIST ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetWordList ( hrc : HRECOCONTEXT , hwl : HRECOWORDLIST ) -> ::windows::core::HRESULT );
     SetWordList(hrc.into_param().abi(), hwl.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -9037,69 +9037,69 @@ pub const EM_SETUSEMOUSEFORINPUT: u32 = 1560u32;
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACILITY_INK: u32 = 40u32;
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_BOPOMOFO: ::windows::core::PCWSTR = ::windows::w!("BOPOMOFO");
+pub const FACTOID_BOPOMOFO: ::windows::core::PCWSTR = ::windows::core::w!("BOPOMOFO");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_CHINESESIMPLECOMMON: ::windows::core::PCWSTR = ::windows::w!("CHS_COMMON");
+pub const FACTOID_CHINESESIMPLECOMMON: ::windows::core::PCWSTR = ::windows::core::w!("CHS_COMMON");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_CHINESETRADITIONALCOMMON: ::windows::core::PCWSTR = ::windows::w!("CHT_COMMON");
+pub const FACTOID_CHINESETRADITIONALCOMMON: ::windows::core::PCWSTR = ::windows::core::w!("CHT_COMMON");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_CURRENCY: ::windows::core::PCWSTR = ::windows::w!("CURRENCY");
+pub const FACTOID_CURRENCY: ::windows::core::PCWSTR = ::windows::core::w!("CURRENCY");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_DATE: ::windows::core::PCWSTR = ::windows::w!("DATE");
+pub const FACTOID_DATE: ::windows::core::PCWSTR = ::windows::core::w!("DATE");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_DEFAULT: ::windows::core::PCWSTR = ::windows::w!("DEFAULT");
+pub const FACTOID_DEFAULT: ::windows::core::PCWSTR = ::windows::core::w!("DEFAULT");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_DIGIT: ::windows::core::PCWSTR = ::windows::w!("DIGIT");
+pub const FACTOID_DIGIT: ::windows::core::PCWSTR = ::windows::core::w!("DIGIT");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_EMAIL: ::windows::core::PCWSTR = ::windows::w!("EMAIL");
+pub const FACTOID_EMAIL: ::windows::core::PCWSTR = ::windows::core::w!("EMAIL");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_FILENAME: ::windows::core::PCWSTR = ::windows::w!("FILENAME");
+pub const FACTOID_FILENAME: ::windows::core::PCWSTR = ::windows::core::w!("FILENAME");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_HANGULCOMMON: ::windows::core::PCWSTR = ::windows::w!("HANGUL_COMMON");
+pub const FACTOID_HANGULCOMMON: ::windows::core::PCWSTR = ::windows::core::w!("HANGUL_COMMON");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_HANGULRARE: ::windows::core::PCWSTR = ::windows::w!("HANGUL_RARE");
+pub const FACTOID_HANGULRARE: ::windows::core::PCWSTR = ::windows::core::w!("HANGUL_RARE");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_HIRAGANA: ::windows::core::PCWSTR = ::windows::w!("HIRAGANA");
+pub const FACTOID_HIRAGANA: ::windows::core::PCWSTR = ::windows::core::w!("HIRAGANA");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_JAMO: ::windows::core::PCWSTR = ::windows::w!("JAMO");
+pub const FACTOID_JAMO: ::windows::core::PCWSTR = ::windows::core::w!("JAMO");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_JAPANESECOMMON: ::windows::core::PCWSTR = ::windows::w!("JPN_COMMON");
+pub const FACTOID_JAPANESECOMMON: ::windows::core::PCWSTR = ::windows::core::w!("JPN_COMMON");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_KANJICOMMON: ::windows::core::PCWSTR = ::windows::w!("KANJI_COMMON");
+pub const FACTOID_KANJICOMMON: ::windows::core::PCWSTR = ::windows::core::w!("KANJI_COMMON");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_KANJIRARE: ::windows::core::PCWSTR = ::windows::w!("KANJI_RARE");
+pub const FACTOID_KANJIRARE: ::windows::core::PCWSTR = ::windows::core::w!("KANJI_RARE");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_KATAKANA: ::windows::core::PCWSTR = ::windows::w!("KATAKANA");
+pub const FACTOID_KATAKANA: ::windows::core::PCWSTR = ::windows::core::w!("KATAKANA");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_KOREANCOMMON: ::windows::core::PCWSTR = ::windows::w!("KOR_COMMON");
+pub const FACTOID_KOREANCOMMON: ::windows::core::PCWSTR = ::windows::core::w!("KOR_COMMON");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_LOWERCHAR: ::windows::core::PCWSTR = ::windows::w!("LOWERCHAR");
+pub const FACTOID_LOWERCHAR: ::windows::core::PCWSTR = ::windows::core::w!("LOWERCHAR");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_NONE: ::windows::core::PCWSTR = ::windows::w!("NONE");
+pub const FACTOID_NONE: ::windows::core::PCWSTR = ::windows::core::w!("NONE");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_NUMBER: ::windows::core::PCWSTR = ::windows::w!("NUMBER");
+pub const FACTOID_NUMBER: ::windows::core::PCWSTR = ::windows::core::w!("NUMBER");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_NUMBERSIMPLE: ::windows::core::PCWSTR = ::windows::w!("NUMSIMPLE");
+pub const FACTOID_NUMBERSIMPLE: ::windows::core::PCWSTR = ::windows::core::w!("NUMSIMPLE");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_ONECHAR: ::windows::core::PCWSTR = ::windows::w!("ONECHAR");
+pub const FACTOID_ONECHAR: ::windows::core::PCWSTR = ::windows::core::w!("ONECHAR");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_PERCENT: ::windows::core::PCWSTR = ::windows::w!("PERCENT");
+pub const FACTOID_PERCENT: ::windows::core::PCWSTR = ::windows::core::w!("PERCENT");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_POSTALCODE: ::windows::core::PCWSTR = ::windows::w!("POSTALCODE");
+pub const FACTOID_POSTALCODE: ::windows::core::PCWSTR = ::windows::core::w!("POSTALCODE");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_PUNCCHAR: ::windows::core::PCWSTR = ::windows::w!("PUNCCHAR");
+pub const FACTOID_PUNCCHAR: ::windows::core::PCWSTR = ::windows::core::w!("PUNCCHAR");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_SYSTEMDICTIONARY: ::windows::core::PCWSTR = ::windows::w!("SYSDICT");
+pub const FACTOID_SYSTEMDICTIONARY: ::windows::core::PCWSTR = ::windows::core::w!("SYSDICT");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_TELEPHONE: ::windows::core::PCWSTR = ::windows::w!("TELEPHONE");
+pub const FACTOID_TELEPHONE: ::windows::core::PCWSTR = ::windows::core::w!("TELEPHONE");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_TIME: ::windows::core::PCWSTR = ::windows::w!("TIME");
+pub const FACTOID_TIME: ::windows::core::PCWSTR = ::windows::core::w!("TIME");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_UPPERCHAR: ::windows::core::PCWSTR = ::windows::w!("UPPERCHAR");
+pub const FACTOID_UPPERCHAR: ::windows::core::PCWSTR = ::windows::core::w!("UPPERCHAR");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_WEB: ::windows::core::PCWSTR = ::windows::w!("WEB");
+pub const FACTOID_WEB: ::windows::core::PCWSTR = ::windows::core::w!("WEB");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const FACTOID_WORDLIST: ::windows::core::PCWSTR = ::windows::w!("WORDLIST");
+pub const FACTOID_WORDLIST: ::windows::core::PCWSTR = ::windows::core::w!("WORDLIST");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICK_WM_HANDLED_MASK: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -9431,27 +9431,27 @@ pub const IECN__BASE: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IEC__BASE: u32 = 1536u32;
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const INKEDIT_CLASS: ::windows::core::PCWSTR = ::windows::w!("INKEDIT");
+pub const INKEDIT_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("INKEDIT");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const INKEDIT_CLASSW: ::windows::core::PCWSTR = ::windows::w!("INKEDIT");
+pub const INKEDIT_CLASSW: ::windows::core::PCWSTR = ::windows::core::w!("INKEDIT");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const INKRECOGNITIONPROPERTY_BOXNUMBER: ::windows::core::PCWSTR = ::windows::w!("{2C243E3A-F733-4EB6-B1F8-B5DC5C2C4CDA}");
+pub const INKRECOGNITIONPROPERTY_BOXNUMBER: ::windows::core::PCWSTR = ::windows::core::w!("{2C243E3A-F733-4EB6-B1F8-B5DC5C2C4CDA}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const INKRECOGNITIONPROPERTY_CONFIDENCELEVEL: ::windows::core::PCWSTR = ::windows::w!("{7DFE11A7-FB5D-4958-8765-154ADF0D833F}");
+pub const INKRECOGNITIONPROPERTY_CONFIDENCELEVEL: ::windows::core::PCWSTR = ::windows::core::w!("{7DFE11A7-FB5D-4958-8765-154ADF0D833F}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const INKRECOGNITIONPROPERTY_HOTPOINT: ::windows::core::PCWSTR = ::windows::w!("{CA6F40DC-5292-452a-91FB-2181C0BEC0DE}");
+pub const INKRECOGNITIONPROPERTY_HOTPOINT: ::windows::core::PCWSTR = ::windows::core::w!("{CA6F40DC-5292-452a-91FB-2181C0BEC0DE}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const INKRECOGNITIONPROPERTY_LINEMETRICS: ::windows::core::PCWSTR = ::windows::w!("{8CC24B27-30A9-4b96-9056-2D3A90DA0727}");
+pub const INKRECOGNITIONPROPERTY_LINEMETRICS: ::windows::core::PCWSTR = ::windows::core::w!("{8CC24B27-30A9-4b96-9056-2D3A90DA0727}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const INKRECOGNITIONPROPERTY_LINENUMBER: ::windows::core::PCWSTR = ::windows::w!("{DBF29F2C-5289-4BE8-B3D8-6EF63246253E}");
+pub const INKRECOGNITIONPROPERTY_LINENUMBER: ::windows::core::PCWSTR = ::windows::core::w!("{DBF29F2C-5289-4BE8-B3D8-6EF63246253E}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const INKRECOGNITIONPROPERTY_MAXIMUMSTROKECOUNT: ::windows::core::PCWSTR = ::windows::w!("{BF0EEC4E-4B7D-47a9-8CFA-234DD24BD22A}");
+pub const INKRECOGNITIONPROPERTY_MAXIMUMSTROKECOUNT: ::windows::core::PCWSTR = ::windows::core::w!("{BF0EEC4E-4B7D-47a9-8CFA-234DD24BD22A}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const INKRECOGNITIONPROPERTY_POINTSPERINCH: ::windows::core::PCWSTR = ::windows::w!("{7ED16B76-889C-468e-8276-0021B770187E}");
+pub const INKRECOGNITIONPROPERTY_POINTSPERINCH: ::windows::core::PCWSTR = ::windows::core::w!("{7ED16B76-889C-468e-8276-0021B770187E}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const INKRECOGNITIONPROPERTY_SEGMENTATION: ::windows::core::PCWSTR = ::windows::w!("{B3C0FE6C-FB51-4164-BA2F-844AF8F983DA}");
+pub const INKRECOGNITIONPROPERTY_SEGMENTATION: ::windows::core::PCWSTR = ::windows::core::w!("{B3C0FE6C-FB51-4164-BA2F-844AF8F983DA}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const INK_SERIALIZED_FORMAT: ::windows::core::PCWSTR = ::windows::w!("Ink Serialized Format");
+pub const INK_SERIALIZED_FORMAT: ::windows::core::PCWSTR = ::windows::core::w!("Ink Serialized Format");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IP_CURSOR_DOWN: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -9511,15 +9511,15 @@ pub const MAX_PACKET_PROPERTY_COUNT: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MAX_VENDORNAME: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const MICROSOFT_PENINPUT_PANEL_PROPERTY_T: ::windows::core::PCWSTR = ::windows::w!("Microsoft PenInputPanel 1.5");
+pub const MICROSOFT_PENINPUT_PANEL_PROPERTY_T: ::windows::core::PCWSTR = ::windows::core::w!("Microsoft PenInputPanel 1.5");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const MICROSOFT_TIP_COMBOBOXLIST_PROPERTY: ::windows::core::PCWSTR = ::windows::w!("Microsoft TIP ComboBox List Window Identifier");
+pub const MICROSOFT_TIP_COMBOBOXLIST_PROPERTY: ::windows::core::PCWSTR = ::windows::core::w!("Microsoft TIP ComboBox List Window Identifier");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const MICROSOFT_TIP_NO_INSERT_BUTTON_PROPERTY: ::windows::core::PCWSTR = ::windows::w!("Microsoft TIP No Insert Option");
+pub const MICROSOFT_TIP_NO_INSERT_BUTTON_PROPERTY: ::windows::core::PCWSTR = ::windows::core::w!("Microsoft TIP No Insert Option");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const MICROSOFT_TIP_OPENING_MSG: ::windows::core::PCWSTR = ::windows::w!("TabletInputPanelOpening");
+pub const MICROSOFT_TIP_OPENING_MSG: ::windows::core::PCWSTR = ::windows::core::w!("TabletInputPanelOpening");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const MICROSOFT_URL_EXPERIENCE_PROPERTY: ::windows::core::PCWSTR = ::windows::w!("Microsoft TIP URL Experience");
+pub const MICROSOFT_URL_EXPERIENCE_PROPERTY: ::windows::core::PCWSTR = ::windows::core::w!("Microsoft TIP URL Experience");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MathInputControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc561816c_14d8_4090_830c_98d994b21c7b);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -9589,47 +9589,47 @@ pub const RealTimeStylus: ::windows::core::GUID = ::windows::core::GUID::from_u1
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const SAFE_PARTIAL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const STR_GUID_ALTITUDEORIENTATION: ::windows::core::PCWSTR = ::windows::w!("{82DEC5C7-F6BA-4906-894F-66D68DFC456C}");
+pub const STR_GUID_ALTITUDEORIENTATION: ::windows::core::PCWSTR = ::windows::core::w!("{82DEC5C7-F6BA-4906-894F-66D68DFC456C}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const STR_GUID_AZIMUTHORIENTATION: ::windows::core::PCWSTR = ::windows::w!("{029123B4-8828-410B-B250-A0536595E5DC}");
+pub const STR_GUID_AZIMUTHORIENTATION: ::windows::core::PCWSTR = ::windows::core::w!("{029123B4-8828-410B-B250-A0536595E5DC}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const STR_GUID_BUTTONPRESSURE: ::windows::core::PCWSTR = ::windows::w!("{8B7FEFC4-96AA-4BFE-AC26-8A5F0BE07BF5}");
+pub const STR_GUID_BUTTONPRESSURE: ::windows::core::PCWSTR = ::windows::core::w!("{8B7FEFC4-96AA-4BFE-AC26-8A5F0BE07BF5}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const STR_GUID_DEVICE_CONTACT_ID: ::windows::core::PCWSTR = ::windows::w!("{02585B91-049B-4750-9615-DF8948AB3C9C}");
+pub const STR_GUID_DEVICE_CONTACT_ID: ::windows::core::PCWSTR = ::windows::core::w!("{02585B91-049B-4750-9615-DF8948AB3C9C}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const STR_GUID_FINGERCONTACTCONFIDENCE: ::windows::core::PCWSTR = ::windows::w!("{E706C804-57F0-4F00-8A0C-853D57789BE9}");
+pub const STR_GUID_FINGERCONTACTCONFIDENCE: ::windows::core::PCWSTR = ::windows::core::w!("{E706C804-57F0-4F00-8A0C-853D57789BE9}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const STR_GUID_HEIGHT: ::windows::core::PCWSTR = ::windows::w!("{E61858D2-E447-4218-9D3F-18865C203DF4}");
+pub const STR_GUID_HEIGHT: ::windows::core::PCWSTR = ::windows::core::w!("{E61858D2-E447-4218-9D3F-18865C203DF4}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const STR_GUID_NORMALPRESSURE: ::windows::core::PCWSTR = ::windows::w!("{7307502D-F9F4-4E18-B3F2-2CE1B1A3610C}");
+pub const STR_GUID_NORMALPRESSURE: ::windows::core::PCWSTR = ::windows::core::w!("{7307502D-F9F4-4E18-B3F2-2CE1B1A3610C}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const STR_GUID_PAKETSTATUS: ::windows::core::PCWSTR = ::windows::w!("{6E0E07BF-AFE7-4CF7-87D1-AF6446208418}");
+pub const STR_GUID_PAKETSTATUS: ::windows::core::PCWSTR = ::windows::core::w!("{6E0E07BF-AFE7-4CF7-87D1-AF6446208418}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const STR_GUID_PITCHROTATION: ::windows::core::PCWSTR = ::windows::w!("{7F7E57B7-BE37-4BE1-A356-7A84160E1893}");
+pub const STR_GUID_PITCHROTATION: ::windows::core::PCWSTR = ::windows::core::w!("{7F7E57B7-BE37-4BE1-A356-7A84160E1893}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const STR_GUID_ROLLROTATION: ::windows::core::PCWSTR = ::windows::w!("{5D5D5E56-6BA9-4C5B-9FB0-851C91714E56}");
+pub const STR_GUID_ROLLROTATION: ::windows::core::PCWSTR = ::windows::core::w!("{5D5D5E56-6BA9-4C5B-9FB0-851C91714E56}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const STR_GUID_SERIALNUMBER: ::windows::core::PCWSTR = ::windows::w!("{78A81B56-0935-4493-BAAE-00541A8A16C4}");
+pub const STR_GUID_SERIALNUMBER: ::windows::core::PCWSTR = ::windows::core::w!("{78A81B56-0935-4493-BAAE-00541A8A16C4}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const STR_GUID_TANGENTPRESSURE: ::windows::core::PCWSTR = ::windows::w!("{6DA4488B-5244-41EC-905B-32D89AB80809}");
+pub const STR_GUID_TANGENTPRESSURE: ::windows::core::PCWSTR = ::windows::core::w!("{6DA4488B-5244-41EC-905B-32D89AB80809}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const STR_GUID_TIMERTICK: ::windows::core::PCWSTR = ::windows::w!("{436510C5-FED3-45D1-8B76-71D3EA7A829D}");
+pub const STR_GUID_TIMERTICK: ::windows::core::PCWSTR = ::windows::core::w!("{436510C5-FED3-45D1-8B76-71D3EA7A829D}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const STR_GUID_TWISTORIENTATION: ::windows::core::PCWSTR = ::windows::w!("{0D324960-13B2-41E4-ACE6-7AE9D43D2D3B}");
+pub const STR_GUID_TWISTORIENTATION: ::windows::core::PCWSTR = ::windows::core::w!("{0D324960-13B2-41E4-ACE6-7AE9D43D2D3B}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const STR_GUID_WIDTH: ::windows::core::PCWSTR = ::windows::w!("{BAABE94D-2712-48F5-BE9D-8F8B5EA0711A}");
+pub const STR_GUID_WIDTH: ::windows::core::PCWSTR = ::windows::core::w!("{BAABE94D-2712-48F5-BE9D-8F8B5EA0711A}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const STR_GUID_X: ::windows::core::PCWSTR = ::windows::w!("{598A6A8F-52C0-4BA0-93AF-AF357411A561}");
+pub const STR_GUID_X: ::windows::core::PCWSTR = ::windows::core::w!("{598A6A8F-52C0-4BA0-93AF-AF357411A561}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const STR_GUID_XTILTORIENTATION: ::windows::core::PCWSTR = ::windows::w!("{A8D07B3A-8BF0-40B0-95A9-B80A6BB787BF}");
+pub const STR_GUID_XTILTORIENTATION: ::windows::core::PCWSTR = ::windows::core::w!("{A8D07B3A-8BF0-40B0-95A9-B80A6BB787BF}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const STR_GUID_Y: ::windows::core::PCWSTR = ::windows::w!("{B53F9F75-04E0-4498-A7EE-C30DBB5A9011}");
+pub const STR_GUID_Y: ::windows::core::PCWSTR = ::windows::core::w!("{B53F9F75-04E0-4498-A7EE-C30DBB5A9011}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const STR_GUID_YAWROTATION: ::windows::core::PCWSTR = ::windows::w!("{6A849980-7C3A-45B7-AA82-90A262950E89}");
+pub const STR_GUID_YAWROTATION: ::windows::core::PCWSTR = ::windows::core::w!("{6A849980-7C3A-45B7-AA82-90A262950E89}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const STR_GUID_YTILTORIENTATION: ::windows::core::PCWSTR = ::windows::w!("{0E932389-1D77-43AF-AC00-5B950D6D4B2D}");
+pub const STR_GUID_YTILTORIENTATION: ::windows::core::PCWSTR = ::windows::core::w!("{0E932389-1D77-43AF-AC00-5B950D6D4B2D}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const STR_GUID_Z: ::windows::core::PCWSTR = ::windows::w!("{735ADB30-0EBB-4788-A0E4-0F316490055D}");
+pub const STR_GUID_Z: ::windows::core::PCWSTR = ::windows::core::w!("{735ADB30-0EBB-4788-A0E4-0F316490055D}");
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const SketchInk: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0291081_e87c_4e07_97da_a0a03761e586);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]

@@ -1051,7 +1051,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn SQLInitEnumServers ( pwchservername : :: windows::core::PCWSTR , pwchinstancename : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "odbcbcp.dll""system" fn SQLInitEnumServers ( pwchservername : ::windows::core::PCWSTR , pwchinstancename : ::windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
     SQLInitEnumServers(pwchservername.into_param().abi(), pwchinstancename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -1060,7 +1060,7 @@ pub unsafe fn SQLLinkedCatalogsA<P0>(param0: *mut ::core::ffi::c_void, param1: P
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn SQLLinkedCatalogsA ( param0 : *mut ::core::ffi::c_void , param1 : :: windows::core::PCSTR , param2 : i16 ) -> i16 );
+    ::windows::imp::link ! ( "odbcbcp.dll""system" fn SQLLinkedCatalogsA ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCSTR , param2 : i16 ) -> i16 );
     SQLLinkedCatalogsA(param0, param1.into_param().abi(), param2)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -1069,7 +1069,7 @@ pub unsafe fn SQLLinkedCatalogsW<P0>(param0: *mut ::core::ffi::c_void, param1: P
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn SQLLinkedCatalogsW ( param0 : *mut ::core::ffi::c_void , param1 : :: windows::core::PCWSTR , param2 : i16 ) -> i16 );
+    ::windows::imp::link ! ( "odbcbcp.dll""system" fn SQLLinkedCatalogsW ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCWSTR , param2 : i16 ) -> i16 );
     SQLLinkedCatalogsW(param0, param1.into_param().abi(), param2)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -1753,7 +1753,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_initA ( param0 : *mut ::core::ffi::c_void , param1 : :: windows::core::PCSTR , param2 : :: windows::core::PCSTR , param3 : :: windows::core::PCSTR , param4 : i32 ) -> i16 );
+    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_initA ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCSTR , param2 : ::windows::core::PCSTR , param3 : ::windows::core::PCSTR , param4 : i32 ) -> i16 );
     bcp_initA(param0, param1.into_param().abi(), param2.into_param().abi(), param3.into_param().abi(), param4)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -1764,7 +1764,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_initW ( param0 : *mut ::core::ffi::c_void , param1 : :: windows::core::PCWSTR , param2 : :: windows::core::PCWSTR , param3 : :: windows::core::PCWSTR , param4 : i32 ) -> i16 );
+    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_initW ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCWSTR , param2 : ::windows::core::PCWSTR , param3 : ::windows::core::PCWSTR , param4 : i32 ) -> i16 );
     bcp_initW(param0, param1.into_param().abi(), param2.into_param().abi(), param3.into_param().abi(), param4)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -1779,7 +1779,7 @@ pub unsafe fn bcp_readfmtA<P0>(param0: *mut ::core::ffi::c_void, param1: P0) -> 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_readfmtA ( param0 : *mut ::core::ffi::c_void , param1 : :: windows::core::PCSTR ) -> i16 );
+    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_readfmtA ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCSTR ) -> i16 );
     bcp_readfmtA(param0, param1.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -1788,7 +1788,7 @@ pub unsafe fn bcp_readfmtW<P0>(param0: *mut ::core::ffi::c_void, param1: P0) -> 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_readfmtW ( param0 : *mut ::core::ffi::c_void , param1 : :: windows::core::PCWSTR ) -> i16 );
+    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_readfmtW ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCWSTR ) -> i16 );
     bcp_readfmtW(param0, param1.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -1809,7 +1809,7 @@ pub unsafe fn bcp_writefmtA<P0>(param0: *mut ::core::ffi::c_void, param1: P0) ->
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_writefmtA ( param0 : *mut ::core::ffi::c_void , param1 : :: windows::core::PCSTR ) -> i16 );
+    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_writefmtA ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCSTR ) -> i16 );
     bcp_writefmtA(param0, param1.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -1818,19 +1818,19 @@ pub unsafe fn bcp_writefmtW<P0>(param0: *mut ::core::ffi::c_void, param1: P0) ->
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_writefmtW ( param0 : *mut ::core::ffi::c_void , param1 : :: windows::core::PCWSTR ) -> i16 );
+    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_writefmtW ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCWSTR ) -> i16 );
     bcp_writefmtW(param0, param1.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn dbprtypeA(param0: i32) -> ::windows::core::PSTR {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn dbprtypeA ( param0 : i32 ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "odbcbcp.dll""system" fn dbprtypeA ( param0 : i32 ) -> ::windows::core::PSTR );
     dbprtypeA(param0)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn dbprtypeW(param0: i32) -> ::windows::core::PWSTR {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn dbprtypeW ( param0 : i32 ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "odbcbcp.dll""system" fn dbprtypeW ( param0 : i32 ) -> ::windows::core::PWSTR );
     dbprtypeW(param0)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -15858,7 +15858,7 @@ pub const MSS_E_INVALIDAPPNAME: i32 = -2147213056i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const MSS_E_UNICODEFILEHEADERMISSING: i32 = -2147213051i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub const MS_PERSIST_PROGID: ::windows::core::PCSTR = ::windows::s!("MSPersist");
+pub const MS_PERSIST_PROGID: ::windows::core::PCSTR = ::windows::core::s!("MSPersist");
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const NET_E_DISCONNECTED: i32 = -2147220733i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -16044,9 +16044,9 @@ pub const PRAllBits: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const PRAny: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub const PROGID_MSPersist_Version_W: ::windows::core::PCWSTR = ::windows::w!("MSPersist.1");
+pub const PROGID_MSPersist_Version_W: ::windows::core::PCWSTR = ::windows::core::w!("MSPersist.1");
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub const PROGID_MSPersist_W: ::windows::core::PCWSTR = ::windows::w!("MSPersist");
+pub const PROGID_MSPersist_W: ::windows::core::PCWSTR = ::windows::core::w!("MSPersist");
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const PROPID_DBBMK_BOOKMARK: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -16520,13 +16520,13 @@ pub const SQL_AF_SUM: i32 = 16i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQL_AGGREGATE_FUNCTIONS: u32 = 169u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub const SQL_ALL_CATALOGS: ::windows::core::PCSTR = ::windows::s!("%");
+pub const SQL_ALL_CATALOGS: ::windows::core::PCSTR = ::windows::core::s!("%");
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQL_ALL_EXCEPT_LIKE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub const SQL_ALL_SCHEMAS: ::windows::core::PCSTR = ::windows::s!("%");
+pub const SQL_ALL_SCHEMAS: ::windows::core::PCSTR = ::windows::core::s!("%");
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub const SQL_ALL_TABLE_TYPES: ::windows::core::PCSTR = ::windows::s!("%");
+pub const SQL_ALL_TABLE_TYPES: ::windows::core::PCSTR = ::windows::core::s!("%");
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQL_ALL_TYPES: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -17820,7 +17820,119 @@ pub const SQL_DIAG_CURSOR_ROW_COUNT: i32 = -1249i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQL_DIAG_DELETE_WHERE: u32 = 19u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_ALTER_DATABASE: i32 = -200i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQL_DIAG_DFC_SS_BASE: i32 = -200i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_CHECKPOINT: i32 = -201i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_CONDITION: i32 = -202i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_CREATE_DATABASE: i32 = -203i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_CREATE_DEFAULT: i32 = -204i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_CREATE_PROCEDURE: i32 = -205i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_CREATE_RULE: i32 = -206i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_CREATE_TRIGGER: i32 = -207i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_CURSOR_CLOSE: i32 = -211i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_CURSOR_DECLARE: i32 = -208i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_CURSOR_FETCH: i32 = -210i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_CURSOR_OPEN: i32 = -209i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_DBCC: i32 = -213i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_DEALLOCATE_CURSOR: i32 = -212i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_DENY: i32 = -254i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_DISK: i32 = -214i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_DROP_DATABASE: i32 = -215i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_DROP_DEFAULT: i32 = -216i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_DROP_PROCEDURE: i32 = -217i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_DROP_RULE: i32 = -218i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_DROP_TRIGGER: i32 = -219i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_DUMP_DATABASE: i32 = -220i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_DUMP_TABLE: i32 = -221i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_DUMP_TRANSACTION: i32 = -222i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_GOTO: i32 = -223i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_INSERT_BULK: i32 = -224i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_KILL: i32 = -225i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_LOAD_DATABASE: i32 = -226i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_LOAD_HEADERONLY: i32 = -227i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_LOAD_TABLE: i32 = -228i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_LOAD_TRANSACTION: i32 = -229i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_PRINT: i32 = -230i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_RAISERROR: i32 = -231i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_READTEXT: i32 = -232i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_RECONFIGURE: i32 = -233i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_RETURN: i32 = -234i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_SELECT_INTO: i32 = -235i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_SET: i32 = -236i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_SETUSER: i32 = -241i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_SET_IDENTITY_INSERT: i32 = -237i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_SET_ROW_COUNT: i32 = -238i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_SET_STATISTICS: i32 = -239i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_SET_TEXTSIZE: i32 = -240i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_SET_XCTLVL: i32 = -255i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_SHUTDOWN: i32 = -242i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_TRANS_BEGIN: i32 = -243i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_TRANS_COMMIT: i32 = -244i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_TRANS_PREPARE: i32 = -245i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_TRANS_ROLLBACK: i32 = -246i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_TRANS_SAVE: i32 = -247i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_TRUNCATE_TABLE: i32 = -248i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_UPDATETEXT: i32 = -250i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_UPDATE_STATISTICS: i32 = -249i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_USE: i32 = -251i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_WAITFOR: i32 = -252i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_DFC_SS_WRITETEXT: i32 = -253i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQL_DIAG_DROP_ASSERTION: u32 = 24u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -17874,7 +17986,15 @@ pub const SQL_DIAG_SQLSTATE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQL_DIAG_SS_BASE: i32 = -1150i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_SS_LINE: i32 = -1154i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQL_DIAG_SS_MSGSTATE: i32 = -1150i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_SS_PROCNAME: i32 = -1153i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_SS_SEVERITY: i32 = -1151i32;
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const SQL_DIAG_SS_SRVNAME: i32 = -1152i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQL_DIAG_SUBCLASS_ORIGIN: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -18748,7 +18868,7 @@ pub const SQL_ODBC_CURSORS: u32 = 110u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQL_ODBC_INTERFACE_CONFORMANCE: u32 = 152u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub const SQL_ODBC_KEYWORDS : :: windows::core::PCSTR =:: windows::s ! ( "ABSOLUTE,ACTION,ADA,ADD,ALL,ALLOCATE,ALTER,AND,ANY,ARE,AS,ASC,ASSERTION,AT,AUTHORIZATION,AVG,BEGIN,BETWEEN,BIT,BIT_LENGTH,BOTH,BY,CASCADE,CASCADED,CASE,CAST,CATALOG,CHAR,CHAR_LENGTH,CHARACTER,CHARACTER_LENGTH,CHECK,CLOSE,COALESCE,COLLATE,COLLATION,COLUMN,COMMIT,CONNECT,CONNECTION,CONSTRAINT,CONSTRAINTS,CONTINUE,CONVERT,CORRESPONDING,COUNT,CREATE,CROSS,CURRENT,CURRENT_DATE,CURRENT_TIME,CURRENT_TIMESTAMP,CURRENT_USER,CURSOR,DATE,DAY,DEALLOCATE,DEC,DECIMAL,DECLARE,DEFAULT,DEFERRABLE,DEFERRED,DELETE,DESC,DESCRIBE,DESCRIPTOR,DIAGNOSTICS,DISCONNECT,DISTINCT,DOMAIN,DOUBLE,DROP,ELSE,END,END-EXEC,ESCAPE,EXCEPT,EXCEPTION,EXEC,EXECUTE,EXISTS,EXTERNAL,EXTRACT,FALSE,FETCH,FIRST,FLOAT,FOR,FOREIGN,FORTRAN,FOUND,FROM,FULL,GET,GLOBAL,GO,GOTO,GRANT,GROUP,HAVING,HOUR,IDENTITY,IMMEDIATE,IN,INCLUDE,INDEX,INDICATOR,INITIALLY,INNER,INPUT,INSENSITIVE,INSERT,INT,INTEGER,INTERSECT,INTERVAL,INTO,IS,ISOLATION,JOIN,KEY,LANGUAGE,LAST,LEADING,LEFT,LEVEL,LIKE,LOCAL,LOWER,MATCH,MAX,MIN,MINUTE,MODULE,MONTH,NAMES,NATIONAL,NATURAL,NCHAR,NEXT,NO,NONE,NOT,NULL,NULLIF,NUMERIC,OCTET_LENGTH,OF,ON,ONLY,OPEN,OPTION,OR,ORDER,OUTER,OUTPUT,OVERLAPS,PAD,PARTIAL,PASCAL,PLI,POSITION,PRECISION,PREPARE,PRESERVE,PRIMARY,PRIOR,PRIVILEGES,PROCEDURE,PUBLIC,READ,REAL,REFERENCES,RELATIVE,RESTRICT,REVOKE,RIGHT,ROLLBACK,ROWSSCHEMA,SCROLL,SECOND,SECTION,SELECT,SESSION,SESSION_USER,SET,SIZE,SMALLINT,SOME,SPACE,SQL,SQLCA,SQLCODE,SQLERROR,SQLSTATE,SQLWARNING,SUBSTRING,SUM,SYSTEM_USER,TABLE,TEMPORARY,THEN,TIME,TIMESTAMP,TIMEZONE_HOUR,TIMEZONE_MINUTE,TO,TRAILING,TRANSACTION,TRANSLATE,TRANSLATION,TRIM,TRUE,UNION,UNIQUE,UNKNOWN,UPDATE,UPPER,USAGE,USER,USING,VALUE,VALUES,VARCHAR,VARYING,VIEW,WHEN,WHENEVER,WHERE,WITH,WORK,WRITE,YEAR,ZONE" ) ;
+pub const SQL_ODBC_KEYWORDS : ::windows::core::PCSTR = ::windows::core::s ! ( "ABSOLUTE,ACTION,ADA,ADD,ALL,ALLOCATE,ALTER,AND,ANY,ARE,AS,ASC,ASSERTION,AT,AUTHORIZATION,AVG,BEGIN,BETWEEN,BIT,BIT_LENGTH,BOTH,BY,CASCADE,CASCADED,CASE,CAST,CATALOG,CHAR,CHAR_LENGTH,CHARACTER,CHARACTER_LENGTH,CHECK,CLOSE,COALESCE,COLLATE,COLLATION,COLUMN,COMMIT,CONNECT,CONNECTION,CONSTRAINT,CONSTRAINTS,CONTINUE,CONVERT,CORRESPONDING,COUNT,CREATE,CROSS,CURRENT,CURRENT_DATE,CURRENT_TIME,CURRENT_TIMESTAMP,CURRENT_USER,CURSOR,DATE,DAY,DEALLOCATE,DEC,DECIMAL,DECLARE,DEFAULT,DEFERRABLE,DEFERRED,DELETE,DESC,DESCRIBE,DESCRIPTOR,DIAGNOSTICS,DISCONNECT,DISTINCT,DOMAIN,DOUBLE,DROP,ELSE,END,END-EXEC,ESCAPE,EXCEPT,EXCEPTION,EXEC,EXECUTE,EXISTS,EXTERNAL,EXTRACT,FALSE,FETCH,FIRST,FLOAT,FOR,FOREIGN,FORTRAN,FOUND,FROM,FULL,GET,GLOBAL,GO,GOTO,GRANT,GROUP,HAVING,HOUR,IDENTITY,IMMEDIATE,IN,INCLUDE,INDEX,INDICATOR,INITIALLY,INNER,INPUT,INSENSITIVE,INSERT,INT,INTEGER,INTERSECT,INTERVAL,INTO,IS,ISOLATION,JOIN,KEY,LANGUAGE,LAST,LEADING,LEFT,LEVEL,LIKE,LOCAL,LOWER,MATCH,MAX,MIN,MINUTE,MODULE,MONTH,NAMES,NATIONAL,NATURAL,NCHAR,NEXT,NO,NONE,NOT,NULL,NULLIF,NUMERIC,OCTET_LENGTH,OF,ON,ONLY,OPEN,OPTION,OR,ORDER,OUTER,OUTPUT,OVERLAPS,PAD,PARTIAL,PASCAL,PLI,POSITION,PRECISION,PREPARE,PRESERVE,PRIMARY,PRIOR,PRIVILEGES,PROCEDURE,PUBLIC,READ,REAL,REFERENCES,RELATIVE,RESTRICT,REVOKE,RIGHT,ROLLBACK,ROWSSCHEMA,SCROLL,SECOND,SECTION,SELECT,SESSION,SESSION_USER,SET,SIZE,SMALLINT,SOME,SPACE,SQL,SQLCA,SQLCODE,SQLERROR,SQLSTATE,SQLWARNING,SUBSTRING,SUM,SYSTEM_USER,TABLE,TEMPORARY,THEN,TIME,TIMESTAMP,TIMEZONE_HOUR,TIMEZONE_MINUTE,TO,TRAILING,TRANSACTION,TRANSLATE,TRANSLATION,TRIM,TRUE,UNION,UNIQUE,UNKNOWN,UPDATE,UPPER,USAGE,USER,USING,VALUE,VALUES,VARCHAR,VARYING,VIEW,WHEN,WHENEVER,WHERE,WITH,WORK,WRITE,YEAR,ZONE" ) ;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQL_ODBC_SAG_CLI_CONFORMANCE: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -18786,7 +18906,7 @@ pub const SQL_OPT_TRACEFILE: u32 = 105u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQL_OPT_TRACE_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub const SQL_OPT_TRACE_FILE_DEFAULT: ::windows::core::PCSTR = ::windows::s!("\\SQL.LOG");
+pub const SQL_OPT_TRACE_FILE_DEFAULT: ::windows::core::PCSTR = ::windows::core::s!("\\SQL.LOG");
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQL_OPT_TRACE_OFF: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -19214,7 +19334,7 @@ pub const SQL_SPEC_MAJOR: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQL_SPEC_MINOR: u32 = 80u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub const SQL_SPEC_STRING: ::windows::core::PCSTR = ::windows::s!("03.80");
+pub const SQL_SPEC_STRING: ::windows::core::PCSTR = ::windows::core::s!("03.80");
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQL_SP_BETWEEN: i32 = 2048i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -19360,11 +19480,11 @@ pub const SQL_SS_ADDITIONS: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQL_SS_DELETIONS: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub const SQL_SS_DL_DEFAULT: ::windows::core::PCWSTR = ::windows::w!("STATS.LOG");
+pub const SQL_SS_DL_DEFAULT: ::windows::core::PCWSTR = ::windows::core::w!("STATS.LOG");
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQL_SS_QI_DEFAULT: u32 = 30000u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub const SQL_SS_QL_DEFAULT: ::windows::core::PCWSTR = ::windows::w!("QUERY.LOG");
+pub const SQL_SS_QL_DEFAULT: ::windows::core::PCWSTR = ::windows::core::w!("QUERY.LOG");
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQL_SS_UPDATES: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]

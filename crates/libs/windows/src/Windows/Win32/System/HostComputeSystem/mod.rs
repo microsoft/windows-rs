@@ -5,7 +5,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsAttachLayerStorageFilter ( layerpath : :: windows::core::PCWSTR , layerdata : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsAttachLayerStorageFilter ( layerpath : ::windows::core::PCWSTR , layerdata : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsAttachLayerStorageFilter(layerpath.into_param().abi(), layerdata.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -14,7 +14,7 @@ pub unsafe fn HcsCancelOperation<P0>(operation: P0) -> ::windows::core::Result<(
 where
     P0: ::windows::core::IntoParam<HCS_OPERATION>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsCancelOperation ( operation : HCS_OPERATION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsCancelOperation ( operation : HCS_OPERATION ) -> ::windows::core::HRESULT );
     HcsCancelOperation(operation.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -52,7 +52,7 @@ where
     P1: ::windows::core::IntoParam<HCS_OPERATION>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsCrashComputeSystem ( computesystem : HCS_SYSTEM , operation : HCS_OPERATION , options : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsCrashComputeSystem ( computesystem : HCS_SYSTEM , operation : HCS_OPERATION , options : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsCrashComputeSystem(computesystem.into_param().abi(), operation.into_param().abi(), options.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -64,7 +64,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<HCS_OPERATION>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsCreateComputeSystem ( id : :: windows::core::PCWSTR , configuration : :: windows::core::PCWSTR , operation : HCS_OPERATION , securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR , computesystem : *mut HCS_SYSTEM ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsCreateComputeSystem ( id : ::windows::core::PCWSTR , configuration : ::windows::core::PCWSTR , operation : HCS_OPERATION , securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR , computesystem : *mut HCS_SYSTEM ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<HCS_SYSTEM>();
     HcsCreateComputeSystem(id.into_param().abi(), configuration.into_param().abi(), operation.into_param().abi(), ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
@@ -77,7 +77,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<HCS_OPERATION>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsCreateComputeSystemInNamespace ( idnamespace : :: windows::core::PCWSTR , id : :: windows::core::PCWSTR , configuration : :: windows::core::PCWSTR , operation : HCS_OPERATION , options : *const HCS_CREATE_OPTIONS , computesystem : *mut HCS_SYSTEM ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsCreateComputeSystemInNamespace ( idnamespace : ::windows::core::PCWSTR , id : ::windows::core::PCWSTR , configuration : ::windows::core::PCWSTR , operation : HCS_OPERATION , options : *const HCS_CREATE_OPTIONS , computesystem : *mut HCS_SYSTEM ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<HCS_SYSTEM>();
     HcsCreateComputeSystemInNamespace(idnamespace.into_param().abi(), id.into_param().abi(), configuration.into_param().abi(), operation.into_param().abi(), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
@@ -87,7 +87,7 @@ pub unsafe fn HcsCreateEmptyGuestStateFile<P0>(gueststatefilepath: P0) -> ::wind
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsCreateEmptyGuestStateFile ( gueststatefilepath : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsCreateEmptyGuestStateFile ( gueststatefilepath : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsCreateEmptyGuestStateFile(gueststatefilepath.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -96,7 +96,7 @@ pub unsafe fn HcsCreateEmptyRuntimeStateFile<P0>(runtimestatefilepath: P0) -> ::
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsCreateEmptyRuntimeStateFile ( runtimestatefilepath : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsCreateEmptyRuntimeStateFile ( runtimestatefilepath : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsCreateEmptyRuntimeStateFile(runtimestatefilepath.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -114,7 +114,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<HCS_OPERATION>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsCreateProcess ( computesystem : HCS_SYSTEM , processparameters : :: windows::core::PCWSTR , operation : HCS_OPERATION , securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR , process : *mut HCS_PROCESS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsCreateProcess ( computesystem : HCS_SYSTEM , processparameters : ::windows::core::PCWSTR , operation : HCS_OPERATION , securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR , process : *mut HCS_PROCESS ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<HCS_PROCESS>();
     HcsCreateProcess(computesystem.into_param().abi(), processparameters.into_param().abi(), operation.into_param().abi(), ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
@@ -124,7 +124,7 @@ pub unsafe fn HcsDestroyLayer<P0>(layerpath: P0) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsDestroyLayer ( layerpath : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsDestroyLayer ( layerpath : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsDestroyLayer(layerpath.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -133,7 +133,7 @@ pub unsafe fn HcsDetachLayerStorageFilter<P0>(layerpath: P0) -> ::windows::core:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsDetachLayerStorageFilter ( layerpath : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsDetachLayerStorageFilter ( layerpath : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsDetachLayerStorageFilter(layerpath.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -143,7 +143,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<HCS_OPERATION>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsEnumerateComputeSystems ( query : :: windows::core::PCWSTR , operation : HCS_OPERATION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsEnumerateComputeSystems ( query : ::windows::core::PCWSTR , operation : HCS_OPERATION ) -> ::windows::core::HRESULT );
     HcsEnumerateComputeSystems(query.into_param().abi(), operation.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -154,7 +154,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<HCS_OPERATION>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsEnumerateComputeSystemsInNamespace ( idnamespace : :: windows::core::PCWSTR , query : :: windows::core::PCWSTR , operation : HCS_OPERATION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsEnumerateComputeSystemsInNamespace ( idnamespace : ::windows::core::PCWSTR , query : ::windows::core::PCWSTR , operation : HCS_OPERATION ) -> ::windows::core::HRESULT );
     HcsEnumerateComputeSystemsInNamespace(idnamespace.into_param().abi(), query.into_param().abi(), operation.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -166,7 +166,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsExportLayer ( layerpath : :: windows::core::PCWSTR , exportfolderpath : :: windows::core::PCWSTR , layerdata : :: windows::core::PCWSTR , options : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsExportLayer ( layerpath : ::windows::core::PCWSTR , exportfolderpath : ::windows::core::PCWSTR , layerdata : ::windows::core::PCWSTR , options : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsExportLayer(layerpath.into_param().abi(), exportfolderpath.into_param().abi(), layerdata.into_param().abi(), options.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -178,7 +178,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsExportLegacyWritableLayer ( writablelayermountpath : :: windows::core::PCWSTR , writablelayerfolderpath : :: windows::core::PCWSTR , exportfolderpath : :: windows::core::PCWSTR , layerdata : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsExportLegacyWritableLayer ( writablelayermountpath : ::windows::core::PCWSTR , writablelayerfolderpath : ::windows::core::PCWSTR , exportfolderpath : ::windows::core::PCWSTR , layerdata : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsExportLegacyWritableLayer(writablelayermountpath.into_param().abi(), writablelayerfolderpath.into_param().abi(), exportfolderpath.into_param().abi(), layerdata.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
@@ -188,7 +188,7 @@ pub unsafe fn HcsFormatWritableLayerVhd<P0>(vhdhandle: P0) -> ::windows::core::R
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsFormatWritableLayerVhd ( vhdhandle : super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsFormatWritableLayerVhd ( vhdhandle : super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     HcsFormatWritableLayerVhd(vhdhandle.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -208,7 +208,7 @@ where
     P1: ::windows::core::IntoParam<HCS_OPERATION>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsGetComputeSystemProperties ( computesystem : HCS_SYSTEM , operation : HCS_OPERATION , propertyquery : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsGetComputeSystemProperties ( computesystem : HCS_SYSTEM , operation : HCS_OPERATION , propertyquery : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsGetComputeSystemProperties(computesystem.into_param().abi(), operation.into_param().abi(), propertyquery.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
@@ -218,7 +218,7 @@ pub unsafe fn HcsGetLayerVhdMountPath<P0>(vhdhandle: P0) -> ::windows::core::Res
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsGetLayerVhdMountPath ( vhdhandle : super::super::Foundation:: HANDLE , mountpath : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsGetLayerVhdMountPath ( vhdhandle : super::super::Foundation:: HANDLE , mountpath : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     HcsGetLayerVhdMountPath(vhdhandle.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -246,7 +246,7 @@ pub unsafe fn HcsGetOperationResult<P0>(operation: P0, resultdocument: ::core::o
 where
     P0: ::windows::core::IntoParam<HCS_OPERATION>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsGetOperationResult ( operation : HCS_OPERATION , resultdocument : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsGetOperationResult ( operation : HCS_OPERATION , resultdocument : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     HcsGetOperationResult(operation.into_param().abi(), ::core::mem::transmute(resultdocument.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
@@ -256,7 +256,7 @@ pub unsafe fn HcsGetOperationResultAndProcessInfo<P0>(operation: P0, processinfo
 where
     P0: ::windows::core::IntoParam<HCS_OPERATION>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsGetOperationResultAndProcessInfo ( operation : HCS_OPERATION , processinformation : *mut HCS_PROCESS_INFORMATION , resultdocument : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsGetOperationResultAndProcessInfo ( operation : HCS_OPERATION , processinformation : *mut HCS_PROCESS_INFORMATION , resultdocument : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     HcsGetOperationResultAndProcessInfo(operation.into_param().abi(), ::core::mem::transmute(processinformation.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(resultdocument.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -284,7 +284,7 @@ where
     P0: ::windows::core::IntoParam<HCS_PROCESS>,
     P1: ::windows::core::IntoParam<HCS_OPERATION>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsGetProcessInfo ( process : HCS_PROCESS , operation : HCS_OPERATION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsGetProcessInfo ( process : HCS_PROCESS , operation : HCS_OPERATION ) -> ::windows::core::HRESULT );
     HcsGetProcessInfo(process.into_param().abi(), operation.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -295,16 +295,16 @@ where
     P1: ::windows::core::IntoParam<HCS_OPERATION>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsGetProcessProperties ( process : HCS_PROCESS , operation : HCS_OPERATION , propertyquery : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsGetProcessProperties ( process : HCS_PROCESS , operation : HCS_OPERATION , propertyquery : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsGetProcessProperties(process.into_param().abi(), operation.into_param().abi(), propertyquery.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsGetProcessorCompatibilityFromSavedState<P0>(runtimefilename: P0, processorfeaturesstring: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
+pub unsafe fn HcsGetProcessorCompatibilityFromSavedState<P0>(runtimefilename: P0, processorfeaturesstring: ::core::option::Option<*mut ::windows::core::PCWSTR>) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsGetProcessorCompatibilityFromSavedState ( runtimefilename : :: windows::core::PCWSTR , processorfeaturesstring : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsGetProcessorCompatibilityFromSavedState ( runtimefilename : ::windows::core::PCWSTR , processorfeaturesstring : *mut ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsGetProcessorCompatibilityFromSavedState(runtimefilename.into_param().abi(), ::core::mem::transmute(processorfeaturesstring.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -313,7 +313,7 @@ pub unsafe fn HcsGetServiceProperties<P0>(propertyquery: P0) -> ::windows::core:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsGetServiceProperties ( propertyquery : :: windows::core::PCWSTR , result : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsGetServiceProperties ( propertyquery : ::windows::core::PCWSTR , result : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     HcsGetServiceProperties(propertyquery.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -324,7 +324,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsGrantVmAccess ( vmid : :: windows::core::PCWSTR , filepath : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsGrantVmAccess ( vmid : ::windows::core::PCWSTR , filepath : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsGrantVmAccess(vmid.into_param().abi(), filepath.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -333,7 +333,7 @@ pub unsafe fn HcsGrantVmGroupAccess<P0>(filepath: P0) -> ::windows::core::Result
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsGrantVmGroupAccess ( filepath : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsGrantVmGroupAccess ( filepath : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsGrantVmGroupAccess(filepath.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -344,7 +344,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsImportLayer ( layerpath : :: windows::core::PCWSTR , sourcefolderpath : :: windows::core::PCWSTR , layerdata : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsImportLayer ( layerpath : ::windows::core::PCWSTR , sourcefolderpath : ::windows::core::PCWSTR , layerdata : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsImportLayer(layerpath.into_param().abi(), sourcefolderpath.into_param().abi(), layerdata.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -356,7 +356,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsInitializeLegacyWritableLayer ( writablelayermountpath : :: windows::core::PCWSTR , writablelayerfolderpath : :: windows::core::PCWSTR , layerdata : :: windows::core::PCWSTR , options : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsInitializeLegacyWritableLayer ( writablelayermountpath : ::windows::core::PCWSTR , writablelayerfolderpath : ::windows::core::PCWSTR , layerdata : ::windows::core::PCWSTR , options : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsInitializeLegacyWritableLayer(writablelayermountpath.into_param().abi(), writablelayerfolderpath.into_param().abi(), layerdata.into_param().abi(), options.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -367,7 +367,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsInitializeWritableLayer ( writablelayerpath : :: windows::core::PCWSTR , layerdata : :: windows::core::PCWSTR , options : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsInitializeWritableLayer ( writablelayerpath : ::windows::core::PCWSTR , layerdata : ::windows::core::PCWSTR , options : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsInitializeWritableLayer(writablelayerpath.into_param().abi(), layerdata.into_param().abi(), options.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
@@ -380,7 +380,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsModifyComputeSystem ( computesystem : HCS_SYSTEM , operation : HCS_OPERATION , configuration : :: windows::core::PCWSTR , identity : super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsModifyComputeSystem ( computesystem : HCS_SYSTEM , operation : HCS_OPERATION , configuration : ::windows::core::PCWSTR , identity : super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     HcsModifyComputeSystem(computesystem.into_param().abi(), operation.into_param().abi(), configuration.into_param().abi(), identity.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -391,7 +391,7 @@ where
     P1: ::windows::core::IntoParam<HCS_OPERATION>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsModifyProcess ( process : HCS_PROCESS , operation : HCS_OPERATION , settings : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsModifyProcess ( process : HCS_PROCESS , operation : HCS_OPERATION , settings : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsModifyProcess(process.into_param().abi(), operation.into_param().abi(), settings.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -400,7 +400,7 @@ pub unsafe fn HcsModifyServiceSettings<P0>(settings: P0, result: ::core::option:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsModifyServiceSettings ( settings : :: windows::core::PCWSTR , result : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsModifyServiceSettings ( settings : ::windows::core::PCWSTR , result : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     HcsModifyServiceSettings(settings.into_param().abi(), ::core::mem::transmute(result.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -409,7 +409,7 @@ pub unsafe fn HcsOpenComputeSystem<P0>(id: P0, requestedaccess: u32) -> ::window
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsOpenComputeSystem ( id : :: windows::core::PCWSTR , requestedaccess : u32 , computesystem : *mut HCS_SYSTEM ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsOpenComputeSystem ( id : ::windows::core::PCWSTR , requestedaccess : u32 , computesystem : *mut HCS_SYSTEM ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<HCS_SYSTEM>();
     HcsOpenComputeSystem(id.into_param().abi(), requestedaccess, &mut result__).from_abi(result__)
 }
@@ -420,7 +420,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsOpenComputeSystemInNamespace ( idnamespace : :: windows::core::PCWSTR , id : :: windows::core::PCWSTR , requestedaccess : u32 , computesystem : *mut HCS_SYSTEM ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsOpenComputeSystemInNamespace ( idnamespace : ::windows::core::PCWSTR , id : ::windows::core::PCWSTR , requestedaccess : u32 , computesystem : *mut HCS_SYSTEM ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<HCS_SYSTEM>();
     HcsOpenComputeSystemInNamespace(idnamespace.into_param().abi(), id.into_param().abi(), requestedaccess, &mut result__).from_abi(result__)
 }
@@ -430,7 +430,7 @@ pub unsafe fn HcsOpenProcess<P0>(computesystem: P0, processid: u32, requestedacc
 where
     P0: ::windows::core::IntoParam<HCS_SYSTEM>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsOpenProcess ( computesystem : HCS_SYSTEM , processid : u32 , requestedaccess : u32 , process : *mut HCS_PROCESS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsOpenProcess ( computesystem : HCS_SYSTEM , processid : u32 , requestedaccess : u32 , process : *mut HCS_PROCESS ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<HCS_PROCESS>();
     HcsOpenProcess(computesystem.into_param().abi(), processid, requestedaccess, &mut result__).from_abi(result__)
 }
@@ -442,7 +442,7 @@ where
     P1: ::windows::core::IntoParam<HCS_OPERATION>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsPauseComputeSystem ( computesystem : HCS_SYSTEM , operation : HCS_OPERATION , options : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsPauseComputeSystem ( computesystem : HCS_SYSTEM , operation : HCS_OPERATION , options : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsPauseComputeSystem(computesystem.into_param().abi(), operation.into_param().abi(), options.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -453,7 +453,7 @@ where
     P1: ::windows::core::IntoParam<HCS_OPERATION>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsResumeComputeSystem ( computesystem : HCS_SYSTEM , operation : HCS_OPERATION , options : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsResumeComputeSystem ( computesystem : HCS_SYSTEM , operation : HCS_OPERATION , options : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsResumeComputeSystem(computesystem.into_param().abi(), operation.into_param().abi(), options.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -463,7 +463,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsRevokeVmAccess ( vmid : :: windows::core::PCWSTR , filepath : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsRevokeVmAccess ( vmid : ::windows::core::PCWSTR , filepath : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsRevokeVmAccess(vmid.into_param().abi(), filepath.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -472,7 +472,7 @@ pub unsafe fn HcsRevokeVmGroupAccess<P0>(filepath: P0) -> ::windows::core::Resul
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsRevokeVmGroupAccess ( filepath : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsRevokeVmGroupAccess ( filepath : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsRevokeVmGroupAccess(filepath.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -483,7 +483,7 @@ where
     P1: ::windows::core::IntoParam<HCS_OPERATION>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsSaveComputeSystem ( computesystem : HCS_SYSTEM , operation : HCS_OPERATION , options : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsSaveComputeSystem ( computesystem : HCS_SYSTEM , operation : HCS_OPERATION , options : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsSaveComputeSystem(computesystem.into_param().abi(), operation.into_param().abi(), options.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -492,7 +492,7 @@ pub unsafe fn HcsSetComputeSystemCallback<P0>(computesystem: P0, callbackoptions
 where
     P0: ::windows::core::IntoParam<HCS_SYSTEM>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsSetComputeSystemCallback ( computesystem : HCS_SYSTEM , callbackoptions : HCS_EVENT_OPTIONS , context : *const ::core::ffi::c_void , callback : HCS_EVENT_CALLBACK ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsSetComputeSystemCallback ( computesystem : HCS_SYSTEM , callbackoptions : HCS_EVENT_OPTIONS , context : *const ::core::ffi::c_void , callback : HCS_EVENT_CALLBACK ) -> ::windows::core::HRESULT );
     HcsSetComputeSystemCallback(computesystem.into_param().abi(), callbackoptions, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), callback).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -501,7 +501,7 @@ pub unsafe fn HcsSetOperationCallback<P0>(operation: P0, context: ::core::option
 where
     P0: ::windows::core::IntoParam<HCS_OPERATION>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsSetOperationCallback ( operation : HCS_OPERATION , context : *const ::core::ffi::c_void , callback : HCS_OPERATION_COMPLETION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsSetOperationCallback ( operation : HCS_OPERATION , context : *const ::core::ffi::c_void , callback : HCS_OPERATION_COMPLETION ) -> ::windows::core::HRESULT );
     HcsSetOperationCallback(operation.into_param().abi(), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), callback).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -510,7 +510,7 @@ pub unsafe fn HcsSetOperationContext<P0>(operation: P0, context: ::core::option:
 where
     P0: ::windows::core::IntoParam<HCS_OPERATION>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsSetOperationContext ( operation : HCS_OPERATION , context : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsSetOperationContext ( operation : HCS_OPERATION , context : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     HcsSetOperationContext(operation.into_param().abi(), ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -519,7 +519,7 @@ pub unsafe fn HcsSetProcessCallback<P0>(process: P0, callbackoptions: HCS_EVENT_
 where
     P0: ::windows::core::IntoParam<HCS_PROCESS>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsSetProcessCallback ( process : HCS_PROCESS , callbackoptions : HCS_EVENT_OPTIONS , context : *const ::core::ffi::c_void , callback : HCS_EVENT_CALLBACK ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsSetProcessCallback ( process : HCS_PROCESS , callbackoptions : HCS_EVENT_OPTIONS , context : *const ::core::ffi::c_void , callback : HCS_EVENT_CALLBACK ) -> ::windows::core::HRESULT );
     HcsSetProcessCallback(process.into_param().abi(), callbackoptions, context, callback).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
@@ -531,7 +531,7 @@ where
     P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsSetupBaseOSLayer ( layerpath : :: windows::core::PCWSTR , vhdhandle : super::super::Foundation:: HANDLE , options : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsSetupBaseOSLayer ( layerpath : ::windows::core::PCWSTR , vhdhandle : super::super::Foundation:: HANDLE , options : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsSetupBaseOSLayer(layerpath.into_param().abi(), vhdhandle.into_param().abi(), options.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -542,7 +542,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsSetupBaseOSVolume ( layerpath : :: windows::core::PCWSTR , volumepath : :: windows::core::PCWSTR , options : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computestorage.dll""system" fn HcsSetupBaseOSVolume ( layerpath : ::windows::core::PCWSTR , volumepath : ::windows::core::PCWSTR , options : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsSetupBaseOSVolume(layerpath.into_param().abi(), volumepath.into_param().abi(), options.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -553,7 +553,7 @@ where
     P1: ::windows::core::IntoParam<HCS_OPERATION>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsShutDownComputeSystem ( computesystem : HCS_SYSTEM , operation : HCS_OPERATION , options : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsShutDownComputeSystem ( computesystem : HCS_SYSTEM , operation : HCS_OPERATION , options : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsShutDownComputeSystem(computesystem.into_param().abi(), operation.into_param().abi(), options.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -564,7 +564,7 @@ where
     P1: ::windows::core::IntoParam<HCS_OPERATION>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsSignalProcess ( process : HCS_PROCESS , operation : HCS_OPERATION , options : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsSignalProcess ( process : HCS_PROCESS , operation : HCS_OPERATION , options : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsSignalProcess(process.into_param().abi(), operation.into_param().abi(), options.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -575,7 +575,7 @@ where
     P1: ::windows::core::IntoParam<HCS_OPERATION>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsStartComputeSystem ( computesystem : HCS_SYSTEM , operation : HCS_OPERATION , options : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsStartComputeSystem ( computesystem : HCS_SYSTEM , operation : HCS_OPERATION , options : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsStartComputeSystem(computesystem.into_param().abi(), operation.into_param().abi(), options.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -584,7 +584,7 @@ pub unsafe fn HcsSubmitWerReport<P0>(settings: P0) -> ::windows::core::Result<()
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsSubmitWerReport ( settings : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsSubmitWerReport ( settings : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsSubmitWerReport(settings.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -595,7 +595,7 @@ where
     P1: ::windows::core::IntoParam<HCS_OPERATION>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsTerminateComputeSystem ( computesystem : HCS_SYSTEM , operation : HCS_OPERATION , options : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsTerminateComputeSystem ( computesystem : HCS_SYSTEM , operation : HCS_OPERATION , options : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsTerminateComputeSystem(computesystem.into_param().abi(), operation.into_param().abi(), options.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -606,7 +606,7 @@ where
     P1: ::windows::core::IntoParam<HCS_OPERATION>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsTerminateProcess ( process : HCS_PROCESS , operation : HCS_OPERATION , options : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsTerminateProcess ( process : HCS_PROCESS , operation : HCS_OPERATION , options : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     HcsTerminateProcess(process.into_param().abi(), operation.into_param().abi(), options.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -615,7 +615,7 @@ pub unsafe fn HcsWaitForComputeSystemExit<P0>(computesystem: P0, timeoutms: u32,
 where
     P0: ::windows::core::IntoParam<HCS_SYSTEM>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsWaitForComputeSystemExit ( computesystem : HCS_SYSTEM , timeoutms : u32 , result : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsWaitForComputeSystemExit ( computesystem : HCS_SYSTEM , timeoutms : u32 , result : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     HcsWaitForComputeSystemExit(computesystem.into_param().abi(), timeoutms, ::core::mem::transmute(result.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -624,7 +624,7 @@ pub unsafe fn HcsWaitForOperationResult<P0>(operation: P0, timeoutms: u32, resul
 where
     P0: ::windows::core::IntoParam<HCS_OPERATION>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsWaitForOperationResult ( operation : HCS_OPERATION , timeoutms : u32 , resultdocument : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsWaitForOperationResult ( operation : HCS_OPERATION , timeoutms : u32 , resultdocument : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     HcsWaitForOperationResult(operation.into_param().abi(), timeoutms, ::core::mem::transmute(resultdocument.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
@@ -634,7 +634,7 @@ pub unsafe fn HcsWaitForOperationResultAndProcessInfo<P0>(operation: P0, timeout
 where
     P0: ::windows::core::IntoParam<HCS_OPERATION>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsWaitForOperationResultAndProcessInfo ( operation : HCS_OPERATION , timeoutms : u32 , processinformation : *mut HCS_PROCESS_INFORMATION , resultdocument : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsWaitForOperationResultAndProcessInfo ( operation : HCS_OPERATION , timeoutms : u32 , processinformation : *mut HCS_PROCESS_INFORMATION , resultdocument : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     HcsWaitForOperationResultAndProcessInfo(operation.into_param().abi(), timeoutms, ::core::mem::transmute(processinformation.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(resultdocument.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -643,7 +643,7 @@ pub unsafe fn HcsWaitForProcessExit<P0>(computesystem: P0, timeoutms: u32, resul
 where
     P0: ::windows::core::IntoParam<HCS_PROCESS>,
 {
-    ::windows::imp::link ! ( "computecore.dll""system" fn HcsWaitForProcessExit ( computesystem : HCS_PROCESS , timeoutms : u32 , result : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "computecore.dll""system" fn HcsWaitForProcessExit ( computesystem : HCS_PROCESS , timeoutms : u32 , result : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     HcsWaitForProcessExit(computesystem.into_param().abi(), timeoutms, ::core::mem::transmute(result.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -679,6 +679,8 @@ pub struct HCS_EVENT_OPTIONS(pub i32);
 pub const HcsEventOptionNone: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(0i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 pub const HcsEventOptionEnableOperationCallbacks: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(1i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventOptionEnableVmLifecycle: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(2i32);
 impl ::core::marker::Copy for HCS_EVENT_OPTIONS {}
 impl ::core::clone::Clone for HCS_EVENT_OPTIONS {
     fn clone(&self) -> Self {
@@ -755,6 +757,10 @@ pub const HcsEventProcessExited: HCS_EVENT_TYPE = HCS_EVENT_TYPE(65536i32);
 pub const HcsEventOperationCallback: HCS_EVENT_TYPE = HCS_EVENT_TYPE(16777216i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 pub const HcsEventServiceDisconnect: HCS_EVENT_TYPE = HCS_EVENT_TYPE(33554432i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventGroupVmLifecycle: HCS_EVENT_TYPE = HCS_EVENT_TYPE(-2147483646i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventGroupOperationInfo: HCS_EVENT_TYPE = HCS_EVENT_TYPE(-1073741823i32);
 impl ::core::marker::Copy for HCS_EVENT_TYPE {}
 impl ::core::clone::Clone for HCS_EVENT_TYPE {
     fn clone(&self) -> Self {
@@ -815,6 +821,8 @@ pub const HcsNotificationSystemOperationCompletion: HCS_NOTIFICATIONS = HCS_NOTI
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 pub const HcsNotificationSystemPassThru: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(16i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationOperationProgressUpdate: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(256i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 pub const HcsNotificationProcessExited: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(65536i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 pub const HcsNotificationServiceDisconnect: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(16777216i32);
@@ -864,6 +872,66 @@ impl ::windows::core::TypeKind for HCS_NOTIFICATION_FLAGS {
 impl ::core::fmt::Debug for HCS_NOTIFICATION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HCS_NOTIFICATION_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HCS_OPERATION_OPTIONS(pub i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationOptionNone: HCS_OPERATION_OPTIONS = HCS_OPERATION_OPTIONS(0i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationOptionProgressUpdate: HCS_OPERATION_OPTIONS = HCS_OPERATION_OPTIONS(1i32);
+impl ::core::marker::Copy for HCS_OPERATION_OPTIONS {}
+impl ::core::clone::Clone for HCS_OPERATION_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HCS_OPERATION_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for HCS_OPERATION_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for HCS_OPERATION_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCS_OPERATION_OPTIONS").field(&self.0).finish()
+    }
+}
+impl HCS_OPERATION_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for HCS_OPERATION_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for HCS_OPERATION_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for HCS_OPERATION_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for HCS_OPERATION_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for HCS_OPERATION_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -921,6 +989,35 @@ impl ::windows::core::TypeKind for HCS_OPERATION_TYPE {
 impl ::core::fmt::Debug for HCS_OPERATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HCS_OPERATION_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HCS_RESOURCE_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsResourceTypeNone: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsResourceTypeFile: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsResourceTypeJob: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(2i32);
+impl ::core::marker::Copy for HCS_RESOURCE_TYPE {}
+impl ::core::clone::Clone for HCS_RESOURCE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HCS_RESOURCE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for HCS_RESOURCE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for HCS_RESOURCE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCS_RESOURCE_TYPE").field(&self.0).finish()
     }
 }
 #[repr(C)]

@@ -43,9 +43,9 @@
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminDeregisterConnectionNotification ( hmprserver : isize , heventnotification : super::super::Foundation:: HANDLE ) -> u32 );
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminDeviceEnum ( hmprserver : isize , dwlevel : u32 , lplpbbuffer : *mut *mut u8 , lpdwtotalentries : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminEstablishDomainRasServer ( pszdomain : :: windows_sys::core::PCWSTR , pszmachine : :: windows_sys::core::PCWSTR , benable : super::super::Foundation:: BOOL ) -> u32 );
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminGetErrorString ( dwerror : u32 , lplpwserrorstring : *mut :: windows_sys::core::PWSTR ) -> u32 );
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminGetPDCServer ( lpszdomain : :: windows_sys::core::PCWSTR , lpszserver : :: windows_sys::core::PCWSTR , lpszpdcserver : :: windows_sys::core::PWSTR ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminEstablishDomainRasServer ( pszdomain : ::windows_sys::core::PCWSTR , pszmachine : ::windows_sys::core::PCWSTR , benable : super::super::Foundation:: BOOL ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminGetErrorString ( dwerror : u32 , lplpwserrorstring : *mut ::windows_sys::core::PWSTR ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminGetPDCServer ( lpszdomain : ::windows_sys::core::PCWSTR , lpszserver : ::windows_sys::core::PCWSTR , lpszpdcserver : ::windows_sys::core::PWSTR ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminInterfaceConnect ( hmprserver : isize , hinterface : super::super::Foundation:: HANDLE , hevent : super::super::Foundation:: HANDLE , fsynchronous : super::super::Foundation:: BOOL ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -59,18 +59,18 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminInterfaceDisconnect ( hmprserver : isize , hinterface : super::super::Foundation:: HANDLE ) -> u32 );
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminInterfaceEnum ( hmprserver : isize , dwlevel : u32 , lplpbbuffer : *mut *mut u8 , dwprefmaxlen : u32 , lpdwentriesread : *mut u32 , lpdwtotalentries : *mut u32 , lpdwresumehandle : *const u32 ) -> u32 );
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminInterfaceGetCredentials ( lpwsserver : :: windows_sys::core::PCWSTR , lpwsinterfacename : :: windows_sys::core::PCWSTR , lpwsusername : :: windows_sys::core::PWSTR , lpwspassword : :: windows_sys::core::PWSTR , lpwsdomainname : :: windows_sys::core::PWSTR ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminInterfaceGetCredentials ( lpwsserver : ::windows_sys::core::PCWSTR , lpwsinterfacename : ::windows_sys::core::PCWSTR , lpwsusername : ::windows_sys::core::PWSTR , lpwspassword : ::windows_sys::core::PWSTR , lpwsdomainname : ::windows_sys::core::PWSTR ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminInterfaceGetCredentialsEx ( hmprserver : isize , hinterface : super::super::Foundation:: HANDLE , dwlevel : u32 , lplpbbuffer : *mut *mut u8 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`*"] fn MprAdminInterfaceGetCustomInfoEx ( hmprserver : isize , hinterface : super::super::Foundation:: HANDLE , pcustominfo : *mut MPR_IF_CUSTOMINFOEX2 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminInterfaceGetHandle ( hmprserver : isize , lpwsinterfacename : :: windows_sys::core::PCWSTR , phinterface : *mut super::super::Foundation:: HANDLE , fincludeclientinterfaces : super::super::Foundation:: BOOL ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminInterfaceGetHandle ( hmprserver : isize , lpwsinterfacename : ::windows_sys::core::PCWSTR , phinterface : *mut super::super::Foundation:: HANDLE , fincludeclientinterfaces : super::super::Foundation:: BOOL ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminInterfaceGetInfo ( hmprserver : isize , hinterface : super::super::Foundation:: HANDLE , dwlevel : u32 , lplpbbuffer : *const *const u8 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminInterfaceQueryUpdateResult ( hmprserver : isize , hinterface : super::super::Foundation:: HANDLE , dwprotocolid : u32 , lpdwupdateresult : *mut u32 ) -> u32 );
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminInterfaceSetCredentials ( lpwsserver : :: windows_sys::core::PCWSTR , lpwsinterfacename : :: windows_sys::core::PCWSTR , lpwsusername : :: windows_sys::core::PCWSTR , lpwsdomainname : :: windows_sys::core::PCWSTR , lpwspassword : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminInterfaceSetCredentials ( lpwsserver : ::windows_sys::core::PCWSTR , lpwsinterfacename : ::windows_sys::core::PCWSTR , lpwsusername : ::windows_sys::core::PCWSTR , lpwsdomainname : ::windows_sys::core::PCWSTR , lpwspassword : ::windows_sys::core::PCWSTR ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminInterfaceSetCredentialsEx ( hmprserver : isize , hinterface : super::super::Foundation:: HANDLE , dwlevel : u32 , lpbbuffer : *const u8 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
@@ -90,11 +90,11 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminInterfaceUpdateRoutes ( hmprserver : isize , hinterface : super::super::Foundation:: HANDLE , dwprotocolid : u32 , hevent : super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminIsDomainRasServer ( pszdomain : :: windows_sys::core::PCWSTR , pszmachine : :: windows_sys::core::PCWSTR , pbisrasserver : *mut super::super::Foundation:: BOOL ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminIsDomainRasServer ( pszdomain : ::windows_sys::core::PCWSTR , pszmachine : ::windows_sys::core::PCWSTR , pbisrasserver : *mut super::super::Foundation:: BOOL ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminIsServiceInitialized ( lpwsservername : :: windows_sys::core::PCWSTR , fisserviceinitialized : *const super::super::Foundation:: BOOL ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminIsServiceInitialized ( lpwsservername : ::windows_sys::core::PCWSTR , fisserviceinitialized : *const super::super::Foundation:: BOOL ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminIsServiceRunning ( lpwsservername : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminIsServiceRunning ( lpwsservername : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminMIBBufferFree ( pbuffer : *const ::core::ffi::c_void ) -> u32 );
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminMIBEntryCreate ( hmibserver : isize , dwpid : u32 , dwroutingpid : u32 , lpentry : *const ::core::ffi::c_void , dwentrysize : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminMIBEntryDelete ( hmibserver : isize , dwprotocolid : u32 , dwroutingpid : u32 , lpentry : *const ::core::ffi::c_void , dwentrysize : u32 ) -> u32 );
@@ -102,7 +102,7 @@
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminMIBEntryGetFirst ( hmibserver : isize , dwprotocolid : u32 , dwroutingpid : u32 , lpinentry : *const ::core::ffi::c_void , dwinentrysize : u32 , lplpoutentry : *mut *mut ::core::ffi::c_void , lpoutentrysize : *mut u32 ) -> u32 );
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminMIBEntryGetNext ( hmibserver : isize , dwprotocolid : u32 , dwroutingpid : u32 , lpinentry : *const ::core::ffi::c_void , dwinentrysize : u32 , lplpoutentry : *mut *mut ::core::ffi::c_void , lpoutentrysize : *mut u32 ) -> u32 );
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminMIBEntrySet ( hmibserver : isize , dwprotocolid : u32 , dwroutingpid : u32 , lpentry : *const ::core::ffi::c_void , dwentrysize : u32 ) -> u32 );
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminMIBServerConnect ( lpwsservername : :: windows_sys::core::PCWSTR , phmibserver : *mut isize ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminMIBServerConnect ( lpwsservername : ::windows_sys::core::PCWSTR , phmibserver : *mut isize ) -> u32 );
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminMIBServerDisconnect ( hmibserver : isize ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminPortClearStats ( hrasserver : isize , hport : super::super::Foundation:: HANDLE ) -> u32 );
@@ -117,8 +117,8 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminRegisterConnectionNotification ( hmprserver : isize , heventnotification : super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminSendUserMessage ( hmprserver : isize , hconnection : super::super::Foundation:: HANDLE , lpwszmessage : :: windows_sys::core::PCWSTR ) -> u32 );
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminServerConnect ( lpwsservername : :: windows_sys::core::PCWSTR , phmprserver : *mut isize ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminSendUserMessage ( hmprserver : isize , hconnection : super::super::Foundation:: HANDLE , lpwszmessage : ::windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminServerConnect ( lpwsservername : ::windows_sys::core::PCWSTR , phmprserver : *mut isize ) -> u32 );
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminServerDisconnect ( hmprserver : isize ) -> ( ) );
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminServerGetCredentials ( hmprserver : isize , dwlevel : u32 , lplpbbuffer : *const *const u8 ) -> u32 );
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminServerGetInfo ( hmprserver : isize , dwlevel : u32 , lplpbbuffer : *mut *mut u8 ) -> u32 );
@@ -128,22 +128,22 @@
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminServerSetInfo ( hmprserver : isize , dwlevel : u32 , lpbbuffer : *const u8 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"] fn MprAdminServerSetInfoEx ( hmprserver : isize , pserverinfo : *const MPR_SERVER_SET_CONFIG_EX1 ) -> u32 );
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminTransportCreate ( hmprserver : isize , dwtransportid : u32 , lpwstransportname : :: windows_sys::core::PCWSTR , pglobalinfo : *const u8 , dwglobalinfosize : u32 , pclientinterfaceinfo : *const u8 , dwclientinterfaceinfosize : u32 , lpwsdllpath : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminTransportCreate ( hmprserver : isize , dwtransportid : u32 , lpwstransportname : ::windows_sys::core::PCWSTR , pglobalinfo : *const u8 , dwglobalinfosize : u32 , pclientinterfaceinfo : *const u8 , dwclientinterfaceinfosize : u32 , lpwsdllpath : ::windows_sys::core::PCWSTR ) -> u32 );
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminTransportGetInfo ( hmprserver : isize , dwtransportid : u32 , ppglobalinfo : *mut *mut u8 , lpdwglobalinfosize : *mut u32 , ppclientinterfaceinfo : *mut *mut u8 , lpdwclientinterfaceinfosize : *mut u32 ) -> u32 );
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminTransportSetInfo ( hmprserver : isize , dwtransportid : u32 , pglobalinfo : *const u8 , dwglobalinfosize : u32 , pclientinterfaceinfo : *const u8 , dwclientinterfaceinfosize : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprAdminUpdateConnection ( hrasserver : isize , hrasconnection : super::super::Foundation:: HANDLE , prasupdateconnection : *const RAS_UPDATE_CONNECTION ) -> u32 );
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminUserGetInfo ( lpszserver : :: windows_sys::core::PCWSTR , lpszuser : :: windows_sys::core::PCWSTR , dwlevel : u32 , lpbbuffer : *mut u8 ) -> u32 );
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminUserSetInfo ( lpszserver : :: windows_sys::core::PCWSTR , lpszuser : :: windows_sys::core::PCWSTR , dwlevel : u32 , lpbbuffer : *const u8 ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminUserGetInfo ( lpszserver : ::windows_sys::core::PCWSTR , lpszuser : ::windows_sys::core::PCWSTR , dwlevel : u32 , lpbbuffer : *mut u8 ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprAdminUserSetInfo ( lpszserver : ::windows_sys::core::PCWSTR , lpszuser : ::windows_sys::core::PCWSTR , dwlevel : u32 , lpbbuffer : *const u8 ) -> u32 );
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprConfigBufferFree ( pbuffer : *const ::core::ffi::c_void ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigFilterGetInfo ( hmprconfig : super::super::Foundation:: HANDLE , dwlevel : u32 , dwtransportid : u32 , lpbuffer : *mut u8 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigFilterSetInfo ( hmprconfig : super::super::Foundation:: HANDLE , dwlevel : u32 , dwtransportid : u32 , lpbuffer : *const u8 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigGetFriendlyName ( hmprconfig : super::super::Foundation:: HANDLE , pszguidname : :: windows_sys::core::PCWSTR , pszbuffer : :: windows_sys::core::PWSTR , dwbuffersize : u32 ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigGetFriendlyName ( hmprconfig : super::super::Foundation:: HANDLE , pszguidname : ::windows_sys::core::PCWSTR , pszbuffer : ::windows_sys::core::PWSTR , dwbuffersize : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigGetGuidName ( hmprconfig : super::super::Foundation:: HANDLE , pszfriendlyname : :: windows_sys::core::PCWSTR , pszbuffer : :: windows_sys::core::PWSTR , dwbuffersize : u32 ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigGetGuidName ( hmprconfig : super::super::Foundation:: HANDLE , pszfriendlyname : ::windows_sys::core::PCWSTR , pszbuffer : ::windows_sys::core::PWSTR , dwbuffersize : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigInterfaceCreate ( hmprconfig : super::super::Foundation:: HANDLE , dwlevel : u32 , lpbbuffer : *const u8 , phrouterinterface : *mut super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -153,7 +153,7 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`*"] fn MprConfigInterfaceGetCustomInfoEx ( hmprconfig : super::super::Foundation:: HANDLE , hrouterinterface : super::super::Foundation:: HANDLE , pcustominfo : *mut MPR_IF_CUSTOMINFOEX2 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigInterfaceGetHandle ( hmprconfig : super::super::Foundation:: HANDLE , lpwsinterfacename : :: windows_sys::core::PCWSTR , phrouterinterface : *mut super::super::Foundation:: HANDLE ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigInterfaceGetHandle ( hmprconfig : super::super::Foundation:: HANDLE , lpwsinterfacename : ::windows_sys::core::PCWSTR , phrouterinterface : *mut super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigInterfaceGetInfo ( hmprconfig : super::super::Foundation:: HANDLE , hrouterinterface : super::super::Foundation:: HANDLE , dwlevel : u32 , lplpbuffer : *mut *mut u8 , lpdwbuffersize : *mut u32 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
@@ -161,7 +161,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigInterfaceSetInfo ( hmprconfig : super::super::Foundation:: HANDLE , hrouterinterface : super::super::Foundation:: HANDLE , dwlevel : u32 , lpbbuffer : *const u8 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigInterfaceTransportAdd ( hmprconfig : super::super::Foundation:: HANDLE , hrouterinterface : super::super::Foundation:: HANDLE , dwtransportid : u32 , lpwstransportname : :: windows_sys::core::PCWSTR , pinterfaceinfo : *const u8 , dwinterfaceinfosize : u32 , phrouteriftransport : *mut super::super::Foundation:: HANDLE ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigInterfaceTransportAdd ( hmprconfig : super::super::Foundation:: HANDLE , hrouterinterface : super::super::Foundation:: HANDLE , dwtransportid : u32 , lpwstransportname : ::windows_sys::core::PCWSTR , pinterfaceinfo : *const u8 , dwinterfaceinfosize : u32 , phrouteriftransport : *mut super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigInterfaceTransportEnum ( hmprconfig : super::super::Foundation:: HANDLE , hrouterinterface : super::super::Foundation:: HANDLE , dwlevel : u32 , lplpbuffer : *mut *mut u8 , dwprefmaxlen : u32 , lpdwentriesread : *mut u32 , lpdwtotalentries : *mut u32 , lpdwresumehandle : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -173,9 +173,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigInterfaceTransportSetInfo ( hmprconfig : super::super::Foundation:: HANDLE , hrouterinterface : super::super::Foundation:: HANDLE , hrouteriftransport : super::super::Foundation:: HANDLE , pinterfaceinfo : *const u8 , dwinterfaceinfosize : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigServerBackup ( hmprconfig : super::super::Foundation:: HANDLE , lpwspath : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigServerBackup ( hmprconfig : super::super::Foundation:: HANDLE , lpwspath : ::windows_sys::core::PCWSTR ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigServerConnect ( lpwsservername : :: windows_sys::core::PCWSTR , phmprconfig : *mut super::super::Foundation:: HANDLE ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigServerConnect ( lpwsservername : ::windows_sys::core::PCWSTR , phmprconfig : *mut super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigServerDisconnect ( hmprconfig : super::super::Foundation:: HANDLE ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
@@ -186,12 +186,12 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigServerRefresh ( hmprconfig : super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigServerRestore ( hmprconfig : super::super::Foundation:: HANDLE , lpwspath : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigServerRestore ( hmprconfig : super::super::Foundation:: HANDLE , lpwspath : ::windows_sys::core::PCWSTR ) -> u32 );
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprConfigServerSetInfo ( hmprserver : isize , dwlevel : u32 , lpbbuffer : *const u8 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"] fn MprConfigServerSetInfoEx ( hmprconfig : super::super::Foundation:: HANDLE , psetserverconfig : *const MPR_SERVER_SET_CONFIG_EX1 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigTransportCreate ( hmprconfig : super::super::Foundation:: HANDLE , dwtransportid : u32 , lpwstransportname : :: windows_sys::core::PCWSTR , pglobalinfo : *const u8 , dwglobalinfosize : u32 , pclientinterfaceinfo : *const u8 , dwclientinterfaceinfosize : u32 , lpwsdllpath : :: windows_sys::core::PCWSTR , phroutertransport : *mut super::super::Foundation:: HANDLE ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigTransportCreate ( hmprconfig : super::super::Foundation:: HANDLE , dwtransportid : u32 , lpwstransportname : ::windows_sys::core::PCWSTR , pglobalinfo : *const u8 , dwglobalinfosize : u32 , pclientinterfaceinfo : *const u8 , dwclientinterfaceinfosize : u32 , lpwsdllpath : ::windows_sys::core::PCWSTR , phroutertransport : *mut super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigTransportDelete ( hmprconfig : super::super::Foundation:: HANDLE , hroutertransport : super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -199,9 +199,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigTransportGetHandle ( hmprconfig : super::super::Foundation:: HANDLE , dwtransportid : u32 , phroutertransport : *mut super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigTransportGetInfo ( hmprconfig : super::super::Foundation:: HANDLE , hroutertransport : super::super::Foundation:: HANDLE , ppglobalinfo : *mut *mut u8 , lpdwglobalinfosize : *mut u32 , ppclientinterfaceinfo : *mut *mut u8 , lpdwclientinterfaceinfosize : *mut u32 , lplpwsdllpath : *mut :: windows_sys::core::PWSTR ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigTransportGetInfo ( hmprconfig : super::super::Foundation:: HANDLE , hroutertransport : super::super::Foundation:: HANDLE , ppglobalinfo : *mut *mut u8 , lpdwglobalinfosize : *mut u32 , ppclientinterfaceinfo : *mut *mut u8 , lpdwclientinterfaceinfosize : *mut u32 , lplpwsdllpath : *mut ::windows_sys::core::PWSTR ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigTransportSetInfo ( hmprconfig : super::super::Foundation:: HANDLE , hroutertransport : super::super::Foundation:: HANDLE , pglobalinfo : *const u8 , dwglobalinfosize : u32 , pclientinterfaceinfo : *const u8 , dwclientinterfaceinfosize : u32 , lpwsdllpath : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn MprConfigTransportSetInfo ( hmprconfig : super::super::Foundation:: HANDLE , hroutertransport : super::super::Foundation:: HANDLE , pglobalinfo : *const u8 , dwglobalinfosize : u32 , pclientinterfaceinfo : *const u8 , dwclientinterfaceinfosize : u32 , lpwsdllpath : ::windows_sys::core::PCWSTR ) -> u32 );
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprInfoBlockAdd ( lpheader : *const ::core::ffi::c_void , dwinfotype : u32 , dwitemsize : u32 , dwitemcount : u32 , lpitemdata : *const u8 , lplpnewheader : *mut *mut ::core::ffi::c_void ) -> u32 );
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprInfoBlockFind ( lpheader : *const ::core::ffi::c_void , dwinfotype : u32 , lpdwitemsize : *mut u32 , lpdwitemcount : *mut u32 , lplpitemdata : *mut *mut u8 ) -> u32 );
 ::windows_sys::core::link ! ( "mprapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn MprInfoBlockQuerySize ( lpheader : *const ::core::ffi::c_void ) -> u32 );
@@ -218,104 +218,96 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasConnectionNotificationW ( param0 : HRASCONN , param1 : super::super::Foundation:: HANDLE , param2 : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasCreatePhonebookEntryA ( param0 : super::super::Foundation:: HWND , param1 : :: windows_sys::core::PCSTR ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasCreatePhonebookEntryA ( param0 : super::super::Foundation:: HWND , param1 : ::windows_sys::core::PCSTR ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasCreatePhonebookEntryW ( param0 : super::super::Foundation:: HWND , param1 : :: windows_sys::core::PCWSTR ) -> u32 );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasDeleteEntryA ( param0 : :: windows_sys::core::PCSTR , param1 : :: windows_sys::core::PCSTR ) -> u32 );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasDeleteEntryW ( param0 : :: windows_sys::core::PCWSTR , param1 : :: windows_sys::core::PCWSTR ) -> u32 );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasDeleteSubEntryA ( pszphonebook : :: windows_sys::core::PCSTR , pszentry : :: windows_sys::core::PCSTR , dwsubentryid : u32 ) -> u32 );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasDeleteSubEntryW ( pszphonebook : :: windows_sys::core::PCWSTR , pszentry : :: windows_sys::core::PCWSTR , dwsubentryid : u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasCreatePhonebookEntryW ( param0 : super::super::Foundation:: HWND , param1 : ::windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasDeleteEntryA ( param0 : ::windows_sys::core::PCSTR , param1 : ::windows_sys::core::PCSTR ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasDeleteEntryW ( param0 : ::windows_sys::core::PCWSTR , param1 : ::windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasDeleteSubEntryA ( pszphonebook : ::windows_sys::core::PCSTR , pszentry : ::windows_sys::core::PCSTR , dwsubentryid : u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasDeleteSubEntryW ( pszphonebook : ::windows_sys::core::PCWSTR , pszentry : ::windows_sys::core::PCWSTR , dwsubentryid : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasDialA ( param0 : *const RASDIALEXTENSIONS , param1 : :: windows_sys::core::PCSTR , param2 : *const RASDIALPARAMSA , param3 : u32 , param4 : *const ::core::ffi::c_void , param5 : *mut HRASCONN ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasDialA ( param0 : *const RASDIALEXTENSIONS , param1 : ::windows_sys::core::PCSTR , param2 : *const RASDIALPARAMSA , param3 : u32 , param4 : *const ::core::ffi::c_void , param5 : *mut HRASCONN ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasdlg.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasDialDlgA ( lpszphonebook : :: windows_sys::core::PCSTR , lpszentry : :: windows_sys::core::PCSTR , lpszphonenumber : :: windows_sys::core::PCSTR , lpinfo : *mut RASDIALDLG ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "rasdlg.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasDialDlgA ( lpszphonebook : ::windows_sys::core::PCSTR , lpszentry : ::windows_sys::core::PCSTR , lpszphonenumber : ::windows_sys::core::PCSTR , lpinfo : *mut RASDIALDLG ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasdlg.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasDialDlgW ( lpszphonebook : :: windows_sys::core::PCWSTR , lpszentry : :: windows_sys::core::PCWSTR , lpszphonenumber : :: windows_sys::core::PCWSTR , lpinfo : *mut RASDIALDLG ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "rasdlg.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasDialDlgW ( lpszphonebook : ::windows_sys::core::PCWSTR , lpszentry : ::windows_sys::core::PCWSTR , lpszphonenumber : ::windows_sys::core::PCWSTR , lpinfo : *mut RASDIALDLG ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasDialW ( param0 : *const RASDIALEXTENSIONS , param1 : :: windows_sys::core::PCWSTR , param2 : *const RASDIALPARAMSW , param3 : u32 , param4 : *const ::core::ffi::c_void , param5 : *mut HRASCONN ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasDialW ( param0 : *const RASDIALEXTENSIONS , param1 : ::windows_sys::core::PCWSTR , param2 : *const RASDIALPARAMSW , param3 : u32 , param4 : *const ::core::ffi::c_void , param5 : *mut HRASCONN ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasEditPhonebookEntryA ( param0 : super::super::Foundation:: HWND , param1 : :: windows_sys::core::PCSTR , param2 : :: windows_sys::core::PCSTR ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasEditPhonebookEntryA ( param0 : super::super::Foundation:: HWND , param1 : ::windows_sys::core::PCSTR , param2 : ::windows_sys::core::PCSTR ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasEditPhonebookEntryW ( param0 : super::super::Foundation:: HWND , param1 : :: windows_sys::core::PCWSTR , param2 : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasEditPhonebookEntryW ( param0 : super::super::Foundation:: HWND , param1 : ::windows_sys::core::PCWSTR , param2 : ::windows_sys::core::PCWSTR ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasdlg.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasEntryDlgA ( lpszphonebook : :: windows_sys::core::PCSTR , lpszentry : :: windows_sys::core::PCSTR , lpinfo : *mut RASENTRYDLGA ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "rasdlg.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasEntryDlgA ( lpszphonebook : ::windows_sys::core::PCSTR , lpszentry : ::windows_sys::core::PCSTR , lpinfo : *mut RASENTRYDLGA ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasdlg.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasEntryDlgW ( lpszphonebook : :: windows_sys::core::PCWSTR , lpszentry : :: windows_sys::core::PCWSTR , lpinfo : *mut RASENTRYDLGW ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasEnumAutodialAddressesA ( lpprasautodialaddresses : *mut :: windows_sys::core::PSTR , lpdwcbrasautodialaddresses : *mut u32 , lpdwcrasautodialaddresses : *mut u32 ) -> u32 );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasEnumAutodialAddressesW ( lpprasautodialaddresses : *mut :: windows_sys::core::PWSTR , lpdwcbrasautodialaddresses : *mut u32 , lpdwcrasautodialaddresses : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasdlg.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasEntryDlgW ( lpszphonebook : ::windows_sys::core::PCWSTR , lpszentry : ::windows_sys::core::PCWSTR , lpinfo : *mut RASENTRYDLGW ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasEnumAutodialAddressesA ( lpprasautodialaddresses : *mut ::windows_sys::core::PSTR , lpdwcbrasautodialaddresses : *mut u32 , lpdwcrasautodialaddresses : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasEnumAutodialAddressesW ( lpprasautodialaddresses : *mut ::windows_sys::core::PWSTR , lpdwcbrasautodialaddresses : *mut u32 , lpdwcrasautodialaddresses : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasEnumConnectionsA ( param0 : *mut RASCONNA , param1 : *mut u32 , param2 : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasEnumConnectionsW ( param0 : *mut RASCONNW , param1 : *mut u32 , param2 : *mut u32 ) -> u32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasEnumDevicesA ( param0 : *mut RASDEVINFOA , param1 : *mut u32 , param2 : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasEnumDevicesA ( param0 : *mut RASDEVINFOA , param1 : *mut u32 , param2 : *mut u32 ) -> u32 );
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasEnumDevicesW ( param0 : *mut RASDEVINFOW , param1 : *mut u32 , param2 : *mut u32 ) -> u32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasEnumEntriesA ( param0 : :: windows_sys::core::PCSTR , param1 : :: windows_sys::core::PCSTR , param2 : *mut RASENTRYNAMEA , param3 : *mut u32 , param4 : *mut u32 ) -> u32 );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasEnumEntriesW ( param0 : :: windows_sys::core::PCWSTR , param1 : :: windows_sys::core::PCWSTR , param2 : *mut RASENTRYNAMEW , param3 : *mut u32 , param4 : *mut u32 ) -> u32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasFreeEapUserIdentityA ( praseapuseridentity : *const RASEAPUSERIDENTITYA ) -> ( ) );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasEnumEntriesA ( param0 : ::windows_sys::core::PCSTR , param1 : ::windows_sys::core::PCSTR , param2 : *mut RASENTRYNAMEA , param3 : *mut u32 , param4 : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasEnumEntriesW ( param0 : ::windows_sys::core::PCWSTR , param1 : ::windows_sys::core::PCWSTR , param2 : *mut RASENTRYNAMEW , param3 : *mut u32 , param4 : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasFreeEapUserIdentityA ( praseapuseridentity : *const RASEAPUSERIDENTITYA ) -> ( ) );
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasFreeEapUserIdentityW ( praseapuseridentity : *const RASEAPUSERIDENTITYW ) -> ( ) );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasGetAutodialAddressA ( param0 : :: windows_sys::core::PCSTR , param1 : *const u32 , param2 : *mut RASAUTODIALENTRYA , param3 : *mut u32 , param4 : *mut u32 ) -> u32 );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetAutodialAddressW ( param0 : :: windows_sys::core::PCWSTR , param1 : *const u32 , param2 : *mut RASAUTODIALENTRYW , param3 : *mut u32 , param4 : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetAutodialAddressA ( param0 : ::windows_sys::core::PCSTR , param1 : *const u32 , param2 : *mut RASAUTODIALENTRYA , param3 : *mut u32 , param4 : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetAutodialAddressW ( param0 : ::windows_sys::core::PCWSTR , param1 : *const u32 , param2 : *mut RASAUTODIALENTRYW , param3 : *mut u32 , param4 : *mut u32 ) -> u32 );
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetAutodialEnableA ( param0 : u32 , param1 : *mut i32 ) -> u32 );
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetAutodialEnableW ( param0 : u32 , param1 : *mut i32 ) -> u32 );
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetAutodialParamA ( param0 : u32 , param1 : *mut ::core::ffi::c_void , param2 : *mut u32 ) -> u32 );
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetAutodialParamW ( param0 : u32 , param1 : *mut ::core::ffi::c_void , param2 : *mut u32 ) -> u32 );
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"] fn RasGetConnectStatusA ( param0 : HRASCONN , param1 : *mut RASCONNSTATUSA ) -> u32 );
+#[cfg(feature = "Win32_Networking_WinSock")]
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"] fn RasGetConnectStatusA ( param0 : HRASCONN , param1 : *mut RASCONNSTATUSA ) -> u32 );
 #[cfg(feature = "Win32_Networking_WinSock")]
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"] fn RasGetConnectStatusW ( param0 : HRASCONN , param1 : *mut RASCONNSTATUSW ) -> u32 );
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetConnectionStatistics ( hrasconn : HRASCONN , lpstatistics : *mut RAS_STATS ) -> u32 );
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetCountryInfoA ( param0 : *mut RASCTRYINFO , param1 : *mut u32 ) -> u32 );
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetCountryInfoW ( param0 : *mut RASCTRYINFO , param1 : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetCredentialsA ( param0 : ::windows_sys::core::PCSTR , param1 : ::windows_sys::core::PCSTR , param2 : *mut RASCREDENTIALSA ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetCredentialsW ( param0 : ::windows_sys::core::PCWSTR , param1 : ::windows_sys::core::PCWSTR , param2 : *mut RASCREDENTIALSW ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetCustomAuthDataA ( pszphonebook : ::windows_sys::core::PCSTR , pszentry : ::windows_sys::core::PCSTR , pbcustomauthdata : *mut u8 , pdwsizeofcustomauthdata : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetCustomAuthDataW ( pszphonebook : ::windows_sys::core::PCWSTR , pszentry : ::windows_sys::core::PCWSTR , pbcustomauthdata : *mut u8 , pdwsizeofcustomauthdata : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasGetCredentialsA ( param0 : :: windows_sys::core::PCSTR , param1 : :: windows_sys::core::PCSTR , param2 : *mut RASCREDENTIALSA ) -> u32 );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetCredentialsW ( param0 : :: windows_sys::core::PCWSTR , param1 : :: windows_sys::core::PCWSTR , param2 : *mut RASCREDENTIALSW ) -> u32 );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetCustomAuthDataA ( pszphonebook : :: windows_sys::core::PCSTR , pszentry : :: windows_sys::core::PCSTR , pbcustomauthdata : *mut u8 , pdwsizeofcustomauthdata : *mut u32 ) -> u32 );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetCustomAuthDataW ( pszphonebook : :: windows_sys::core::PCWSTR , pszentry : :: windows_sys::core::PCWSTR , pbcustomauthdata : *mut u8 , pdwsizeofcustomauthdata : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasGetEapUserDataA ( htoken : super::super::Foundation:: HANDLE , pszphonebook : ::windows_sys::core::PCSTR , pszentry : ::windows_sys::core::PCSTR , pbeapdata : *mut u8 , pdwsizeofeapdata : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasGetEapUserDataA ( htoken : super::super::Foundation:: HANDLE , pszphonebook : :: windows_sys::core::PCSTR , pszentry : :: windows_sys::core::PCSTR , pbeapdata : *mut u8 , pdwsizeofeapdata : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasGetEapUserDataW ( htoken : super::super::Foundation:: HANDLE , pszphonebook : ::windows_sys::core::PCWSTR , pszentry : ::windows_sys::core::PCWSTR , pbeapdata : *mut u8 , pdwsizeofeapdata : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasGetEapUserDataW ( htoken : super::super::Foundation:: HANDLE , pszphonebook : :: windows_sys::core::PCWSTR , pszentry : :: windows_sys::core::PCWSTR , pbeapdata : *mut u8 , pdwsizeofeapdata : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasGetEapUserIdentityA ( pszphonebook : ::windows_sys::core::PCSTR , pszentry : ::windows_sys::core::PCSTR , dwflags : u32 , hwnd : super::super::Foundation:: HWND , ppraseapuseridentity : *mut *mut RASEAPUSERIDENTITYA ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasGetEapUserIdentityA ( pszphonebook : :: windows_sys::core::PCSTR , pszentry : :: windows_sys::core::PCSTR , dwflags : u32 , hwnd : super::super::Foundation:: HWND , ppraseapuseridentity : *mut *mut RASEAPUSERIDENTITYA ) -> u32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasGetEapUserIdentityW ( pszphonebook : :: windows_sys::core::PCWSTR , pszentry : :: windows_sys::core::PCWSTR , dwflags : u32 , hwnd : super::super::Foundation:: HWND , ppraseapuseridentity : *mut *mut RASEAPUSERIDENTITYW ) -> u32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasGetEntryDialParamsA ( param0 : :: windows_sys::core::PCSTR , param1 : *mut RASDIALPARAMSA , param2 : *mut i32 ) -> u32 );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetEntryDialParamsW ( param0 : :: windows_sys::core::PCWSTR , param1 : *mut RASDIALPARAMSW , param2 : *mut i32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasGetEapUserIdentityW ( pszphonebook : ::windows_sys::core::PCWSTR , pszentry : ::windows_sys::core::PCWSTR , dwflags : u32 , hwnd : super::super::Foundation:: HWND , ppraseapuseridentity : *mut *mut RASEAPUSERIDENTITYW ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetEntryDialParamsA ( param0 : ::windows_sys::core::PCSTR , param1 : *mut RASDIALPARAMSA , param2 : *mut i32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetEntryDialParamsW ( param0 : ::windows_sys::core::PCWSTR , param1 : *mut RASDIALPARAMSW , param2 : *mut i32 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"] fn RasGetEntryPropertiesA ( param0 : :: windows_sys::core::PCSTR , param1 : :: windows_sys::core::PCSTR , param2 : *mut RASENTRYA , param3 : *mut u32 , param4 : *mut u8 , param5 : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"] fn RasGetEntryPropertiesA ( param0 : ::windows_sys::core::PCSTR , param1 : ::windows_sys::core::PCSTR , param2 : *mut RASENTRYA , param3 : *mut u32 , param4 : *mut u8 , param5 : *mut u32 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"] fn RasGetEntryPropertiesW ( param0 : :: windows_sys::core::PCWSTR , param1 : :: windows_sys::core::PCWSTR , param2 : *mut RASENTRYW , param3 : *mut u32 , param4 : *mut u8 , param5 : *mut u32 ) -> u32 );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetErrorStringA ( resourceid : u32 , lpszstring : :: windows_sys::core::PSTR , inbufsize : u32 ) -> u32 );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetErrorStringW ( resourceid : u32 , lpszstring : :: windows_sys::core::PWSTR , inbufsize : u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"] fn RasGetEntryPropertiesW ( param0 : ::windows_sys::core::PCWSTR , param1 : ::windows_sys::core::PCWSTR , param2 : *mut RASENTRYW , param3 : *mut u32 , param4 : *mut u8 , param5 : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetErrorStringA ( resourceid : u32 , lpszstring : ::windows_sys::core::PSTR , inbufsize : u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetErrorStringW ( resourceid : u32 , lpszstring : ::windows_sys::core::PWSTR , inbufsize : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetLinkStatistics ( hrasconn : HRASCONN , dwsubentry : u32 , lpstatistics : *mut RAS_STATS ) -> u32 );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetPCscf ( lpszpcscf : :: windows_sys::core::PWSTR ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetPCscf ( lpszpcscf : ::windows_sys::core::PWSTR ) -> u32 );
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetProjectionInfoA ( param0 : HRASCONN , param1 : RASPROJECTION , param2 : *mut ::core::ffi::c_void , param3 : *mut u32 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"] fn RasGetProjectionInfoEx ( hrasconn : HRASCONN , prasprojection : *mut RAS_PROJECTION_INFO , lpdwsize : *mut u32 ) -> u32 );
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetProjectionInfoW ( param0 : HRASCONN , param1 : RASPROJECTION , param2 : *mut ::core::ffi::c_void , param3 : *mut u32 ) -> u32 );
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetSubEntryHandleA ( param0 : HRASCONN , param1 : u32 , param2 : *mut HRASCONN ) -> u32 );
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetSubEntryHandleW ( param0 : HRASCONN , param1 : u32 , param2 : *mut HRASCONN ) -> u32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasGetSubEntryPropertiesA ( param0 : :: windows_sys::core::PCSTR , param1 : :: windows_sys::core::PCSTR , param2 : u32 , param3 : *mut RASSUBENTRYA , param4 : *mut u32 , param5 : *mut u8 , param6 : *mut u32 ) -> u32 );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetSubEntryPropertiesW ( param0 : :: windows_sys::core::PCWSTR , param1 : :: windows_sys::core::PCWSTR , param2 : u32 , param3 : *mut RASSUBENTRYW , param4 : *mut u32 , param5 : *mut u8 , param6 : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetSubEntryPropertiesA ( param0 : ::windows_sys::core::PCSTR , param1 : ::windows_sys::core::PCSTR , param2 : u32 , param3 : *mut RASSUBENTRYA , param4 : *mut u32 , param5 : *mut u8 , param6 : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasGetSubEntryPropertiesW ( param0 : ::windows_sys::core::PCWSTR , param1 : ::windows_sys::core::PCWSTR , param2 : u32 , param3 : *mut RASSUBENTRYW , param4 : *mut u32 , param5 : *mut u8 , param6 : *mut u32 ) -> u32 );
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasHangUpA ( param0 : HRASCONN ) -> u32 );
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasHangUpW ( param0 : HRASCONN ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasInvokeEapUI ( param0 : HRASCONN , param1 : u32 , param2 : *const RASDIALEXTENSIONS , param3 : super::super::Foundation:: HWND ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasdlg.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasPhonebookDlgA ( lpszphonebook : :: windows_sys::core::PCSTR , lpszentry : :: windows_sys::core::PCSTR , lpinfo : *mut RASPBDLGA ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "rasdlg.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasPhonebookDlgA ( lpszphonebook : ::windows_sys::core::PCSTR , lpszentry : ::windows_sys::core::PCSTR , lpinfo : *mut RASPBDLGA ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasdlg.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasPhonebookDlgW ( lpszphonebook : :: windows_sys::core::PCWSTR , lpszentry : :: windows_sys::core::PCWSTR , lpinfo : *mut RASPBDLGW ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasRenameEntryA ( param0 : :: windows_sys::core::PCSTR , param1 : :: windows_sys::core::PCSTR , param2 : :: windows_sys::core::PCSTR ) -> u32 );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasRenameEntryW ( param0 : :: windows_sys::core::PCWSTR , param1 : :: windows_sys::core::PCWSTR , param2 : :: windows_sys::core::PCWSTR ) -> u32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasSetAutodialAddressA ( param0 : :: windows_sys::core::PCSTR , param1 : u32 , param2 : *const RASAUTODIALENTRYA , param3 : u32 , param4 : u32 ) -> u32 );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasSetAutodialAddressW ( param0 : :: windows_sys::core::PCWSTR , param1 : u32 , param2 : *const RASAUTODIALENTRYW , param3 : u32 , param4 : u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasdlg.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasPhonebookDlgW ( lpszphonebook : ::windows_sys::core::PCWSTR , lpszentry : ::windows_sys::core::PCWSTR , lpinfo : *mut RASPBDLGW ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasRenameEntryA ( param0 : ::windows_sys::core::PCSTR , param1 : ::windows_sys::core::PCSTR , param2 : ::windows_sys::core::PCSTR ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasRenameEntryW ( param0 : ::windows_sys::core::PCWSTR , param1 : ::windows_sys::core::PCWSTR , param2 : ::windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasSetAutodialAddressA ( param0 : ::windows_sys::core::PCSTR , param1 : u32 , param2 : *const RASAUTODIALENTRYA , param3 : u32 , param4 : u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasSetAutodialAddressW ( param0 : ::windows_sys::core::PCWSTR , param1 : u32 , param2 : *const RASAUTODIALENTRYW , param3 : u32 , param4 : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasSetAutodialEnableA ( param0 : u32 , param1 : super::super::Foundation:: BOOL ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -323,30 +315,29 @@
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasSetAutodialParamA ( param0 : u32 , param1 : *const ::core::ffi::c_void , param2 : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasSetAutodialParamW ( param0 : u32 , param1 : *const ::core::ffi::c_void , param2 : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasSetCredentialsA ( param0 : :: windows_sys::core::PCSTR , param1 : :: windows_sys::core::PCSTR , param2 : *const RASCREDENTIALSA , param3 : super::super::Foundation:: BOOL ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasSetCredentialsA ( param0 : ::windows_sys::core::PCSTR , param1 : ::windows_sys::core::PCSTR , param2 : *const RASCREDENTIALSA , param3 : super::super::Foundation:: BOOL ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasSetCredentialsW ( param0 : :: windows_sys::core::PCWSTR , param1 : :: windows_sys::core::PCWSTR , param2 : *const RASCREDENTIALSW , param3 : super::super::Foundation:: BOOL ) -> u32 );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasSetCustomAuthDataA ( pszphonebook : :: windows_sys::core::PCSTR , pszentry : :: windows_sys::core::PCSTR , pbcustomauthdata : *const u8 , dwsizeofcustomauthdata : u32 ) -> u32 );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasSetCustomAuthDataW ( pszphonebook : :: windows_sys::core::PCWSTR , pszentry : :: windows_sys::core::PCWSTR , pbcustomauthdata : *const u8 , dwsizeofcustomauthdata : u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasSetCredentialsW ( param0 : ::windows_sys::core::PCWSTR , param1 : ::windows_sys::core::PCWSTR , param2 : *const RASCREDENTIALSW , param3 : super::super::Foundation:: BOOL ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasSetCustomAuthDataA ( pszphonebook : ::windows_sys::core::PCSTR , pszentry : ::windows_sys::core::PCSTR , pbcustomauthdata : *const u8 , dwsizeofcustomauthdata : u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasSetCustomAuthDataW ( pszphonebook : ::windows_sys::core::PCWSTR , pszentry : ::windows_sys::core::PCWSTR , pbcustomauthdata : *const u8 , dwsizeofcustomauthdata : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasSetEapUserDataA ( htoken : super::super::Foundation:: HANDLE , pszphonebook : :: windows_sys::core::PCSTR , pszentry : :: windows_sys::core::PCSTR , pbeapdata : *const u8 , dwsizeofeapdata : u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasSetEapUserDataA ( htoken : super::super::Foundation:: HANDLE , pszphonebook : ::windows_sys::core::PCSTR , pszentry : ::windows_sys::core::PCSTR , pbeapdata : *const u8 , dwsizeofeapdata : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasSetEapUserDataW ( htoken : super::super::Foundation:: HANDLE , pszphonebook : :: windows_sys::core::PCWSTR , pszentry : :: windows_sys::core::PCWSTR , pbeapdata : *const u8 , dwsizeofeapdata : u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasSetEapUserDataW ( htoken : super::super::Foundation:: HANDLE , pszphonebook : ::windows_sys::core::PCWSTR , pszentry : ::windows_sys::core::PCWSTR , pbeapdata : *const u8 , dwsizeofeapdata : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasSetEntryDialParamsA ( param0 : :: windows_sys::core::PCSTR , param1 : *const RASDIALPARAMSA , param2 : super::super::Foundation:: BOOL ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasSetEntryDialParamsA ( param0 : ::windows_sys::core::PCSTR , param1 : *const RASDIALPARAMSA , param2 : super::super::Foundation:: BOOL ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasSetEntryDialParamsW ( param0 : :: windows_sys::core::PCWSTR , param1 : *const RASDIALPARAMSW , param2 : super::super::Foundation:: BOOL ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasSetEntryDialParamsW ( param0 : ::windows_sys::core::PCWSTR , param1 : *const RASDIALPARAMSW , param2 : super::super::Foundation:: BOOL ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"] fn RasSetEntryPropertiesA ( param0 : :: windows_sys::core::PCSTR , param1 : :: windows_sys::core::PCSTR , param2 : *const RASENTRYA , param3 : u32 , param4 : *const u8 , param5 : u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"] fn RasSetEntryPropertiesA ( param0 : ::windows_sys::core::PCSTR , param1 : ::windows_sys::core::PCSTR , param2 : *const RASENTRYA , param3 : u32 , param4 : *const u8 , param5 : u32 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"] fn RasSetEntryPropertiesW ( param0 : :: windows_sys::core::PCWSTR , param1 : :: windows_sys::core::PCWSTR , param2 : *const RASENTRYW , param3 : u32 , param4 : *const u8 , param5 : u32 ) -> u32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"] fn RasSetSubEntryPropertiesA ( param0 : :: windows_sys::core::PCSTR , param1 : :: windows_sys::core::PCSTR , param2 : u32 , param3 : *const RASSUBENTRYA , param4 : u32 , param5 : *const u8 , param6 : u32 ) -> u32 );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasSetSubEntryPropertiesW ( param0 : :: windows_sys::core::PCWSTR , param1 : :: windows_sys::core::PCWSTR , param2 : u32 , param3 : *const RASSUBENTRYW , param4 : u32 , param5 : *const u8 , param6 : u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"] fn RasSetEntryPropertiesW ( param0 : ::windows_sys::core::PCWSTR , param1 : ::windows_sys::core::PCWSTR , param2 : *const RASENTRYW , param3 : u32 , param4 : *const u8 , param5 : u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasSetSubEntryPropertiesA ( param0 : ::windows_sys::core::PCSTR , param1 : ::windows_sys::core::PCSTR , param2 : u32 , param3 : *const RASSUBENTRYA , param4 : u32 , param5 : *const u8 , param6 : u32 ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasSetSubEntryPropertiesW ( param0 : ::windows_sys::core::PCWSTR , param1 : ::windows_sys::core::PCWSTR , param2 : u32 , param3 : *const RASSUBENTRYW , param4 : u32 , param5 : *const u8 , param6 : u32 ) -> u32 );
 #[cfg(feature = "Win32_Networking_WinSock")]
 ::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"] fn RasUpdateConnection ( hrasconn : HRASCONN , lprasupdateconn : *const RASUPDATECONN ) -> u32 );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasValidateEntryNameA ( param0 : :: windows_sys::core::PCSTR , param1 : :: windows_sys::core::PCSTR ) -> u32 );
-::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasValidateEntryNameW ( param0 : :: windows_sys::core::PCWSTR , param1 : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasValidateEntryNameA ( param0 : ::windows_sys::core::PCSTR , param1 : ::windows_sys::core::PCSTR ) -> u32 );
+::windows_sys::core::link ! ( "rasapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RasValidateEntryNameW ( param0 : ::windows_sys::core::PCWSTR , param1 : ::windows_sys::core::PCWSTR ) -> u32 );
 ::windows_sys::core::link ! ( "rtm.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RtmAddNextHop ( rtmreghandle : isize , nexthopinfo : *mut RTM_NEXTHOP_INFO , nexthophandle : *mut isize , changeflags : *mut u32 ) -> u32 );
 ::windows_sys::core::link ! ( "rtm.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"] fn RtmAddRouteToDest ( rtmreghandle : isize , routehandle : *mut isize , destaddress : *mut RTM_NET_ADDRESS , routeinfo : *mut RTM_ROUTE_INFO , timetolive : u32 , routelisthandle : isize , notifytype : u32 , notifyhandle : isize , changeflags : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -1087,31 +1078,31 @@ pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_PPTP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_SSTP: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Atm: ::windows_sys::core::PCWSTR = ::windows_sys::w!("ATM");
+pub const MPRDT_Atm: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ATM");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_FrameRelay: ::windows_sys::core::PCWSTR = ::windows_sys::w!("FRAMERELAY");
+pub const MPRDT_FrameRelay: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("FRAMERELAY");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Generic: ::windows_sys::core::PCWSTR = ::windows_sys::w!("GENERIC");
+pub const MPRDT_Generic: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("GENERIC");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Irda: ::windows_sys::core::PCWSTR = ::windows_sys::w!("IRDA");
+pub const MPRDT_Irda: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IRDA");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Isdn: ::windows_sys::core::PCWSTR = ::windows_sys::w!("isdn");
+pub const MPRDT_Isdn: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("isdn");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Modem: ::windows_sys::core::PCWSTR = ::windows_sys::w!("modem");
+pub const MPRDT_Modem: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("modem");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Pad: ::windows_sys::core::PCWSTR = ::windows_sys::w!("pad");
+pub const MPRDT_Pad: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("pad");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Parallel: ::windows_sys::core::PCWSTR = ::windows_sys::w!("PARALLEL");
+pub const MPRDT_Parallel: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PARALLEL");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_SW56: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SW56");
+pub const MPRDT_SW56: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SW56");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Serial: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SERIAL");
+pub const MPRDT_Serial: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SERIAL");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Sonet: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SONET");
+pub const MPRDT_Sonet: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SONET");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Vpn: ::windows_sys::core::PCWSTR = ::windows_sys::w!("vpn");
+pub const MPRDT_Vpn: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("vpn");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_X25: ::windows_sys::core::PCWSTR = ::windows_sys::w!("x25");
+pub const MPRDT_X25: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("x25");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const MPRET_Direct: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
@@ -1351,35 +1342,35 @@ pub const RASDDFLAG_NoPrompt: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const RASDDFLAG_PositionDlg: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDIALEVENT: ::windows_sys::core::PCSTR = ::windows_sys::s!("RasDialEvent");
+pub const RASDIALEVENT: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("RasDialEvent");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Atm: ::windows_sys::core::PCWSTR = ::windows_sys::w!("ATM");
+pub const RASDT_Atm: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ATM");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_FrameRelay: ::windows_sys::core::PCWSTR = ::windows_sys::w!("FRAMERELAY");
+pub const RASDT_FrameRelay: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("FRAMERELAY");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Generic: ::windows_sys::core::PCWSTR = ::windows_sys::w!("GENERIC");
+pub const RASDT_Generic: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("GENERIC");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Irda: ::windows_sys::core::PCWSTR = ::windows_sys::w!("IRDA");
+pub const RASDT_Irda: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IRDA");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Isdn: ::windows_sys::core::PCWSTR = ::windows_sys::w!("isdn");
+pub const RASDT_Isdn: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("isdn");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Modem: ::windows_sys::core::PCWSTR = ::windows_sys::w!("modem");
+pub const RASDT_Modem: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("modem");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_PPPoE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("PPPoE");
+pub const RASDT_PPPoE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PPPoE");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Pad: ::windows_sys::core::PCWSTR = ::windows_sys::w!("pad");
+pub const RASDT_Pad: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("pad");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Parallel: ::windows_sys::core::PCWSTR = ::windows_sys::w!("PARALLEL");
+pub const RASDT_Parallel: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PARALLEL");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_SW56: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SW56");
+pub const RASDT_SW56: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SW56");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Serial: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SERIAL");
+pub const RASDT_Serial: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SERIAL");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Sonet: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SONET");
+pub const RASDT_Sonet: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SONET");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Vpn: ::windows_sys::core::PCWSTR = ::windows_sys::w!("vpn");
+pub const RASDT_Vpn: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("vpn");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_X25: ::windows_sys::core::PCWSTR = ::windows_sys::w!("x25");
+pub const RASDT_X25: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("x25");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const RASEAPF_Logon: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
@@ -1713,7 +1704,7 @@ pub const REN_AllUsers: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const REN_User: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RRAS_SERVICE_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("RemoteAccess");
+pub const RRAS_SERVICE_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("RemoteAccess");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const RTM_BLOCK_METHODS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
@@ -3319,17 +3310,14 @@ impl ::core::clone::Clone for RASADPARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub struct RASAMBA {
     pub dwSize: u32,
     pub dwError: u32,
-    pub szNetBiosError: [super::super::Foundation::CHAR; 17],
+    pub szNetBiosError: [u8; 17],
     pub bLana: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RASAMBA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RASAMBA {
     fn clone(&self) -> Self {
         *self
@@ -3350,17 +3338,14 @@ impl ::core::clone::Clone for RASAMBW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub struct RASAUTODIALENTRYA {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwDialingLocation: u32,
-    pub szEntry: [super::super::Foundation::CHAR; 257],
+    pub szEntry: [u8; 257],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RASAUTODIALENTRYA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RASAUTODIALENTRYA {
     fn clone(&self) -> Self {
         *self
@@ -3401,10 +3386,10 @@ impl ::core::clone::Clone for RASCOMMSETTINGS {
 pub struct RASCONNA {
     pub dwSize: u32,
     pub hrasconn: HRASCONN,
-    pub szEntryName: [super::super::Foundation::CHAR; 257],
-    pub szDeviceType: [super::super::Foundation::CHAR; 17],
-    pub szDeviceName: [super::super::Foundation::CHAR; 129],
-    pub szPhonebook: [super::super::Foundation::CHAR; 260],
+    pub szEntryName: [u8; 257],
+    pub szDeviceType: [u8; 17],
+    pub szDeviceName: [u8; 129],
+    pub szPhonebook: [u8; 260],
     pub dwSubEntry: u32,
     pub guidEntry: ::windows_sys::core::GUID,
     pub dwFlags: u32,
@@ -3420,22 +3405,22 @@ impl ::core::clone::Clone for RASCONNA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RASCONNSTATUSA {
     pub dwSize: u32,
     pub rasconnstate: RASCONNSTATE,
     pub dwError: u32,
-    pub szDeviceType: [super::super::Foundation::CHAR; 17],
-    pub szDeviceName: [super::super::Foundation::CHAR; 129],
-    pub szPhoneNumber: [super::super::Foundation::CHAR; 129],
+    pub szDeviceType: [u8; 17],
+    pub szDeviceName: [u8; 129],
+    pub szPhoneNumber: [u8; 129],
     pub localEndPoint: RASTUNNELENDPOINT,
     pub remoteEndPoint: RASTUNNELENDPOINT,
     pub rasconnsubstate: RASCONNSUBSTATE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for RASCONNSTATUSA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for RASCONNSTATUSA {
     fn clone(&self) -> Self {
         *self
@@ -3488,18 +3473,15 @@ impl ::core::clone::Clone for RASCONNW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub struct RASCREDENTIALSA {
     pub dwSize: u32,
     pub dwMask: u32,
-    pub szUserName: [super::super::Foundation::CHAR; 257],
-    pub szPassword: [super::super::Foundation::CHAR; 257],
-    pub szDomain: [super::super::Foundation::CHAR; 16],
+    pub szUserName: [u8; 257],
+    pub szPassword: [u8; 257],
+    pub szDomain: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RASCREDENTIALSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RASCREDENTIALSA {
     fn clone(&self) -> Self {
         *self
@@ -3551,16 +3533,13 @@ impl ::core::clone::Clone for RASCUSTOMSCRIPTEXTENSIONS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub struct RASDEVINFOA {
     pub dwSize: u32,
-    pub szDeviceType: [super::super::Foundation::CHAR; 17],
-    pub szDeviceName: [super::super::Foundation::CHAR; 129],
+    pub szDeviceType: [u8; 17],
+    pub szDeviceName: [u8; 129],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RASDEVINFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RASDEVINFOA {
     fn clone(&self) -> Self {
         *self
@@ -3635,24 +3614,21 @@ impl ::core::clone::Clone for RASDIALEXTENSIONS {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub struct RASDIALPARAMSA {
     pub dwSize: u32,
-    pub szEntryName: [super::super::Foundation::CHAR; 257],
-    pub szPhoneNumber: [super::super::Foundation::CHAR; 129],
-    pub szCallbackNumber: [super::super::Foundation::CHAR; 129],
-    pub szUserName: [super::super::Foundation::CHAR; 257],
-    pub szPassword: [super::super::Foundation::CHAR; 257],
-    pub szDomain: [super::super::Foundation::CHAR; 16],
+    pub szEntryName: [u8; 257],
+    pub szPhoneNumber: [u8; 129],
+    pub szCallbackNumber: [u8; 129],
+    pub szUserName: [u8; 257],
+    pub szPassword: [u8; 257],
+    pub szDomain: [u8; 16],
     pub dwSubEntry: u32,
     pub dwCallbackId: usize,
     pub dwIfIndex: u32,
     pub szEncPassword: ::windows_sys::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RASDIALPARAMSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RASDIALPARAMSA {
     fn clone(&self) -> Self {
         *self
@@ -3692,16 +3668,13 @@ impl ::core::clone::Clone for RASEAPINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub struct RASEAPUSERIDENTITYA {
-    pub szUserName: [super::super::Foundation::CHAR; 257],
+    pub szUserName: [u8; 257],
     pub dwSizeofEapInfo: u32,
     pub pbEapInfo: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RASEAPUSERIDENTITYA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RASEAPUSERIDENTITYA {
     fn clone(&self) -> Self {
         *self
@@ -3728,8 +3701,8 @@ pub struct RASENTRYA {
     pub dwfOptions: u32,
     pub dwCountryID: u32,
     pub dwCountryCode: u32,
-    pub szAreaCode: [super::super::Foundation::CHAR; 11],
-    pub szLocalPhoneNumber: [super::super::Foundation::CHAR; 129],
+    pub szAreaCode: [u8; 11],
+    pub szLocalPhoneNumber: [u8; 129],
     pub dwAlternateOffset: u32,
     pub ipaddr: RASIPADDR,
     pub ipaddrDns: RASIPADDR,
@@ -3739,15 +3712,15 @@ pub struct RASENTRYA {
     pub dwFrameSize: u32,
     pub dwfNetProtocols: u32,
     pub dwFramingProtocol: u32,
-    pub szScript: [super::super::Foundation::CHAR; 260],
-    pub szAutodialDll: [super::super::Foundation::CHAR; 260],
-    pub szAutodialFunc: [super::super::Foundation::CHAR; 260],
-    pub szDeviceType: [super::super::Foundation::CHAR; 17],
-    pub szDeviceName: [super::super::Foundation::CHAR; 129],
-    pub szX25PadType: [super::super::Foundation::CHAR; 33],
-    pub szX25Address: [super::super::Foundation::CHAR; 201],
-    pub szX25Facilities: [super::super::Foundation::CHAR; 201],
-    pub szX25UserData: [super::super::Foundation::CHAR; 201],
+    pub szScript: [u8; 260],
+    pub szAutodialDll: [u8; 260],
+    pub szAutodialFunc: [u8; 260],
+    pub szDeviceType: [u8; 17],
+    pub szDeviceName: [u8; 129],
+    pub szX25PadType: [u8; 33],
+    pub szX25Address: [u8; 201],
+    pub szX25Facilities: [u8; 201],
+    pub szX25UserData: [u8; 201],
     pub dwChannels: u32,
     pub dwReserved1: u32,
     pub dwReserved2: u32,
@@ -3762,14 +3735,14 @@ pub struct RASENTRYA {
     pub dwEncryptionType: u32,
     pub dwCustomAuthKey: u32,
     pub guidId: ::windows_sys::core::GUID,
-    pub szCustomDialDll: [super::super::Foundation::CHAR; 260],
+    pub szCustomDialDll: [u8; 260],
     pub dwVpnStrategy: u32,
     pub dwfOptions2: u32,
     pub dwfOptions3: u32,
-    pub szDnsSuffix: [super::super::Foundation::CHAR; 256],
+    pub szDnsSuffix: [u8; 256],
     pub dwTcpWindowSize: u32,
-    pub szPrerequisitePbk: [super::super::Foundation::CHAR; 260],
-    pub szPrerequisiteEntry: [super::super::Foundation::CHAR; 257],
+    pub szPrerequisitePbk: [u8; 260],
+    pub szPrerequisiteEntry: [u8; 257],
     pub dwRedialCount: u32,
     pub dwRedialPause: u32,
     pub ipv6addrDns: super::super::Networking::WinSock::IN6_ADDR,
@@ -3779,8 +3752,8 @@ pub struct RASENTRYA {
     pub ipv6addr: super::super::Networking::WinSock::IN6_ADDR,
     pub dwIPv6PrefixLength: u32,
     pub dwNetworkOutageTime: u32,
-    pub szIDi: [super::super::Foundation::CHAR; 257],
-    pub szIDr: [super::super::Foundation::CHAR; 257],
+    pub szIDi: [u8; 257],
+    pub szIDr: [u8; 257],
     pub fIsImsConfig: super::super::Foundation::BOOL,
     pub IdiType: IKEV2_ID_PAYLOAD_TYPE,
     pub IdrType: IKEV2_ID_PAYLOAD_TYPE,
@@ -3803,7 +3776,7 @@ pub struct RASENTRYDLGA {
     pub dwFlags: u32,
     pub xDlg: i32,
     pub yDlg: i32,
-    pub szEntry: [super::super::Foundation::CHAR; 257],
+    pub szEntry: [u8; 257],
     pub dwError: u32,
     pub reserved: usize,
     pub reserved2: usize,
@@ -3839,17 +3812,14 @@ impl ::core::clone::Clone for RASENTRYDLGW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub struct RASENTRYNAMEA {
     pub dwSize: u32,
-    pub szEntryName: [super::super::Foundation::CHAR; 257],
+    pub szEntryName: [u8; 257],
     pub dwFlags: u32,
-    pub szPhonebookPath: [super::super::Foundation::CHAR; 261],
+    pub szPhonebookPath: [u8; 261],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RASENTRYNAMEA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RASENTRYNAMEA {
     fn clone(&self) -> Self {
         *self
@@ -3999,19 +3969,16 @@ impl ::core::clone::Clone for RASIPXW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub struct RASNOUSERA {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwTimeoutMs: u32,
-    pub szUserName: [super::super::Foundation::CHAR; 257],
-    pub szPassword: [super::super::Foundation::CHAR; 257],
-    pub szDomain: [super::super::Foundation::CHAR; 16],
+    pub szUserName: [u8; 257],
+    pub szPassword: [u8; 257],
+    pub szDomain: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RASNOUSERA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RASNOUSERA {
     fn clone(&self) -> Self {
         *self
@@ -4096,19 +4063,16 @@ impl ::core::clone::Clone for RASPPPCCP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub struct RASPPPIPA {
     pub dwSize: u32,
     pub dwError: u32,
-    pub szIpAddress: [super::super::Foundation::CHAR; 16],
-    pub szServerIpAddress: [super::super::Foundation::CHAR; 16],
+    pub szIpAddress: [u8; 16],
+    pub szServerIpAddress: [u8; 16],
     pub dwOptions: u32,
     pub dwServerOptions: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RASPPPIPA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RASPPPIPA {
     fn clone(&self) -> Self {
         *self
@@ -4147,16 +4111,13 @@ impl ::core::clone::Clone for RASPPPIPW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub struct RASPPPIPXA {
     pub dwSize: u32,
     pub dwError: u32,
-    pub szIpxAddress: [super::super::Foundation::CHAR; 22],
+    pub szIpxAddress: [u8; 22],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RASPPPIPXA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RASPPPIPXA {
     fn clone(&self) -> Self {
         *self
@@ -4178,7 +4139,7 @@ pub struct RASPPPLCPA {
     pub fMultilink: super::super::Foundation::BOOL,
     pub dwTerminateReason: u32,
     pub dwServerTerminateReason: u32,
-    pub szReplyMessage: [super::super::Foundation::CHAR; 1024],
+    pub szReplyMessage: [u8; 1024],
     pub dwOptions: u32,
     pub dwServerOptions: u32,
 }
@@ -4219,19 +4180,16 @@ impl ::core::clone::Clone for RASPPPLCPW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub struct RASPPPNBFA {
     pub dwSize: u32,
     pub dwError: u32,
     pub dwNetBiosError: u32,
-    pub szNetBiosError: [super::super::Foundation::CHAR; 17],
-    pub szWorkstationName: [super::super::Foundation::CHAR; 17],
+    pub szNetBiosError: [u8; 17],
+    pub szWorkstationName: [u8; 17],
     pub bLana: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RASPPPNBFA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RASPPPNBFA {
     fn clone(&self) -> Self {
         *self
@@ -4290,19 +4248,16 @@ impl ::core::clone::Clone for RASPPP_PROJECTION_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub struct RASSUBENTRYA {
     pub dwSize: u32,
     pub dwfFlags: u32,
-    pub szDeviceType: [super::super::Foundation::CHAR; 17],
-    pub szDeviceName: [super::super::Foundation::CHAR; 129],
-    pub szLocalPhoneNumber: [super::super::Foundation::CHAR; 129],
+    pub szDeviceType: [u8; 17],
+    pub szDeviceName: [u8; 129],
+    pub szLocalPhoneNumber: [u8; 129],
     pub dwAlternateOffset: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RASSUBENTRYA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RASSUBENTRYA {
     fn clone(&self) -> Self {
         *self
@@ -4671,16 +4626,13 @@ impl ::core::clone::Clone for RAS_PROJECTION_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub struct RAS_SECURITY_INFO {
     pub LastError: u32,
     pub BytesReceived: u32,
-    pub DeviceName: [super::super::Foundation::CHAR; 129],
+    pub DeviceName: [u8; 129],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RAS_SECURITY_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RAS_SECURITY_INFO {
     fn clone(&self) -> Self {
         *self
@@ -5058,18 +5010,15 @@ impl ::core::clone::Clone for RTM_ROUTE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub struct SECURITY_MESSAGE {
     pub dwMsgId: SECURITY_MESSAGE_MSG_ID,
     pub hPort: isize,
     pub dwError: u32,
-    pub UserName: [super::super::Foundation::CHAR; 257],
-    pub Domain: [super::super::Foundation::CHAR; 16],
+    pub UserName: [u8; 257],
+    pub Domain: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SECURITY_MESSAGE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SECURITY_MESSAGE {
     fn clone(&self) -> Self {
         *self
@@ -5273,13 +5222,13 @@ pub type RTM_EVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(r
 pub type RasCustomDeleteEntryNotifyFn = ::core::option::Option<unsafe extern "system" fn(lpszphonebook: ::windows_sys::core::PCWSTR, lpszentry: ::windows_sys::core::PCWSTR, dwflags: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type RasCustomDialDlgFn = ::core::option::Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HINSTANCE, dwflags: u32, lpszphonebook: ::windows_sys::core::PCWSTR, lpszentry: ::windows_sys::core::PCWSTR, lpszphonenumber: ::windows_sys::core::PCWSTR, lpinfo: *mut RASDIALDLG, pvinfo: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type RasCustomDialDlgFn = ::core::option::Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HMODULE, dwflags: u32, lpszphonebook: ::windows_sys::core::PCWSTR, lpszentry: ::windows_sys::core::PCWSTR, lpszphonenumber: ::windows_sys::core::PCWSTR, lpinfo: *mut RASDIALDLG, pvinfo: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type RasCustomDialFn = ::core::option::Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HINSTANCE, lprasdialextensions: *mut RASDIALEXTENSIONS, lpszphonebook: ::windows_sys::core::PCWSTR, lprasdialparams: *mut RASDIALPARAMSA, dwnotifiertype: u32, lpvnotifier: *mut ::core::ffi::c_void, lphrasconn: *mut HRASCONN, dwflags: u32) -> u32>;
+pub type RasCustomDialFn = ::core::option::Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HMODULE, lprasdialextensions: *mut RASDIALEXTENSIONS, lpszphonebook: ::windows_sys::core::PCWSTR, lprasdialparams: *mut RASDIALPARAMSA, dwnotifiertype: u32, lpvnotifier: *mut ::core::ffi::c_void, lphrasconn: *mut HRASCONN, dwflags: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type RasCustomEntryDlgFn = ::core::option::Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HINSTANCE, lpszphonebook: ::windows_sys::core::PCWSTR, lpszentry: ::windows_sys::core::PCWSTR, lpinfo: *mut RASENTRYDLGA, dwflags: u32) -> super::super::Foundation::BOOL>;
+pub type RasCustomEntryDlgFn = ::core::option::Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HMODULE, lpszphonebook: ::windows_sys::core::PCWSTR, lpszentry: ::windows_sys::core::PCWSTR, lpinfo: *mut RASENTRYDLGA, dwflags: u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub type RasCustomHangUpFn = ::core::option::Option<unsafe extern "system" fn(hrasconn: HRASCONN) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]

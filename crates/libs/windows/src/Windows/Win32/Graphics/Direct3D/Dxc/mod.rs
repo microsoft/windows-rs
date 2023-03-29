@@ -4,7 +4,7 @@ pub unsafe fn DxcCreateInstance<T>(rclsid: *const ::windows::core::GUID) -> ::wi
 where
     T: ::windows::core::ComInterface,
 {
-    ::windows::imp::link ! ( "dxcompiler.dll""system" fn DxcCreateInstance ( rclsid : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxcompiler.dll""system" fn DxcCreateInstance ( rclsid : *const ::windows::core::GUID , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     DxcCreateInstance(rclsid, &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
@@ -16,7 +16,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::System::Com::IMalloc>,
     T: ::windows::core::ComInterface,
 {
-    ::windows::imp::link ! ( "dxcompiler.dll""system" fn DxcCreateInstance2 ( pmalloc : * mut::core::ffi::c_void , rclsid : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxcompiler.dll""system" fn DxcCreateInstance2 ( pmalloc : * mut::core::ffi::c_void , rclsid : *const ::windows::core::GUID , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     DxcCreateInstance2(pmalloc.into_param().abi(), rclsid, &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
@@ -165,7 +165,7 @@ impl IDxcBlobUtf16 {
     pub unsafe fn GetEncoding(&self, pknown: *mut super::super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetEncoding)(::windows::core::Interface::as_raw(self), pknown, pcodepage).ok()
     }
-    pub unsafe fn GetStringPointer(&self) -> ::windows::core::PWSTR {
+    pub unsafe fn GetStringPointer(&self) -> ::windows::core::PCWSTR {
         (::windows::core::Interface::vtable(self).GetStringPointer)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetStringLength(&self) -> usize {
@@ -199,7 +199,7 @@ unsafe impl ::windows::core::ComInterface for IDxcBlobUtf16 {
 #[doc(hidden)]
 pub struct IDxcBlobUtf16_Vtbl {
     pub base__: IDxcBlobEncoding_Vtbl,
-    pub GetStringPointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::PWSTR,
+    pub GetStringPointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::PCWSTR,
     pub GetStringLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> usize,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
@@ -217,7 +217,7 @@ impl IDxcBlobUtf8 {
     pub unsafe fn GetEncoding(&self, pknown: *mut super::super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetEncoding)(::windows::core::Interface::as_raw(self), pknown, pcodepage).ok()
     }
-    pub unsafe fn GetStringPointer(&self) -> ::windows::core::PSTR {
+    pub unsafe fn GetStringPointer(&self) -> ::windows::core::PCSTR {
         (::windows::core::Interface::vtable(self).GetStringPointer)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetStringLength(&self) -> usize {
@@ -251,7 +251,7 @@ unsafe impl ::windows::core::ComInterface for IDxcBlobUtf8 {
 #[doc(hidden)]
 pub struct IDxcBlobUtf8_Vtbl {
     pub base__: IDxcBlobEncoding_Vtbl,
-    pub GetStringPointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::PSTR,
+    pub GetStringPointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::PCSTR,
     pub GetStringLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> usize,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
@@ -457,7 +457,7 @@ pub struct IDxcCompiler3_Vtbl {
 #[repr(transparent)]
 pub struct IDxcCompilerArgs(::windows::core::IUnknown);
 impl IDxcCompilerArgs {
-    pub unsafe fn GetArguments(&self) -> *mut ::windows::core::PWSTR {
+    pub unsafe fn GetArguments(&self) -> *mut ::windows::core::PCWSTR {
         (::windows::core::Interface::vtable(self).GetArguments)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetCount(&self) -> u32 {
@@ -500,7 +500,7 @@ unsafe impl ::windows::core::ComInterface for IDxcCompilerArgs {
 #[doc(hidden)]
 pub struct IDxcCompilerArgs_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetArguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut ::windows::core::PWSTR,
+    pub GetArguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut ::windows::core::PCWSTR,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub AddArguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parguments: *const ::windows::core::PCWSTR, argcount: u32) -> ::windows::core::HRESULT,
     pub AddArgumentsUTF8: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parguments: *const ::windows::core::PCSTR, argcount: u32) -> ::windows::core::HRESULT,
@@ -1636,47 +1636,47 @@ pub const CLSID_DxcPdbUtils: ::windows::core::GUID = ::windows::core::GUID::from
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const CLSID_DxcValidator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ca3e215_f728_4cf3_8cdd_88af917587a1);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_ALL_RESOURCES_BOUND: ::windows::core::PCWSTR = ::windows::w!("-all_resources_bound");
+pub const DXC_ARG_ALL_RESOURCES_BOUND: ::windows::core::PCWSTR = ::windows::core::w!("-all_resources_bound");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_AVOID_FLOW_CONTROL: ::windows::core::PCWSTR = ::windows::w!("-Gfa");
+pub const DXC_ARG_AVOID_FLOW_CONTROL: ::windows::core::PCWSTR = ::windows::core::w!("-Gfa");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_DEBUG: ::windows::core::PCWSTR = ::windows::w!("-Zi");
+pub const DXC_ARG_DEBUG: ::windows::core::PCWSTR = ::windows::core::w!("-Zi");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_DEBUG_NAME_FOR_BINARY: ::windows::core::PCWSTR = ::windows::w!("-Zsb");
+pub const DXC_ARG_DEBUG_NAME_FOR_BINARY: ::windows::core::PCWSTR = ::windows::core::w!("-Zsb");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_DEBUG_NAME_FOR_SOURCE: ::windows::core::PCWSTR = ::windows::w!("-Zss");
+pub const DXC_ARG_DEBUG_NAME_FOR_SOURCE: ::windows::core::PCWSTR = ::windows::core::w!("-Zss");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_ENABLE_BACKWARDS_COMPATIBILITY: ::windows::core::PCWSTR = ::windows::w!("-Gec");
+pub const DXC_ARG_ENABLE_BACKWARDS_COMPATIBILITY: ::windows::core::PCWSTR = ::windows::core::w!("-Gec");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_ENABLE_STRICTNESS: ::windows::core::PCWSTR = ::windows::w!("-Ges");
+pub const DXC_ARG_ENABLE_STRICTNESS: ::windows::core::PCWSTR = ::windows::core::w!("-Ges");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_IEEE_STRICTNESS: ::windows::core::PCWSTR = ::windows::w!("-Gis");
+pub const DXC_ARG_IEEE_STRICTNESS: ::windows::core::PCWSTR = ::windows::core::w!("-Gis");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_OPTIMIZATION_LEVEL0: ::windows::core::PCWSTR = ::windows::w!("-O0");
+pub const DXC_ARG_OPTIMIZATION_LEVEL0: ::windows::core::PCWSTR = ::windows::core::w!("-O0");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_OPTIMIZATION_LEVEL1: ::windows::core::PCWSTR = ::windows::w!("-O1");
+pub const DXC_ARG_OPTIMIZATION_LEVEL1: ::windows::core::PCWSTR = ::windows::core::w!("-O1");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_OPTIMIZATION_LEVEL2: ::windows::core::PCWSTR = ::windows::w!("-O2");
+pub const DXC_ARG_OPTIMIZATION_LEVEL2: ::windows::core::PCWSTR = ::windows::core::w!("-O2");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_OPTIMIZATION_LEVEL3: ::windows::core::PCWSTR = ::windows::w!("-O3");
+pub const DXC_ARG_OPTIMIZATION_LEVEL3: ::windows::core::PCWSTR = ::windows::core::w!("-O3");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_PACK_MATRIX_COLUMN_MAJOR: ::windows::core::PCWSTR = ::windows::w!("-Zpc");
+pub const DXC_ARG_PACK_MATRIX_COLUMN_MAJOR: ::windows::core::PCWSTR = ::windows::core::w!("-Zpc");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_PACK_MATRIX_ROW_MAJOR: ::windows::core::PCWSTR = ::windows::w!("-Zpr");
+pub const DXC_ARG_PACK_MATRIX_ROW_MAJOR: ::windows::core::PCWSTR = ::windows::core::w!("-Zpr");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_PREFER_FLOW_CONTROL: ::windows::core::PCWSTR = ::windows::w!("-Gfp");
+pub const DXC_ARG_PREFER_FLOW_CONTROL: ::windows::core::PCWSTR = ::windows::core::w!("-Gfp");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_RESOURCES_MAY_ALIAS: ::windows::core::PCWSTR = ::windows::w!("-res_may_alias");
+pub const DXC_ARG_RESOURCES_MAY_ALIAS: ::windows::core::PCWSTR = ::windows::core::w!("-res_may_alias");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_SKIP_OPTIMIZATIONS: ::windows::core::PCWSTR = ::windows::w!("-Od");
+pub const DXC_ARG_SKIP_OPTIMIZATIONS: ::windows::core::PCWSTR = ::windows::core::w!("-Od");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_SKIP_VALIDATION: ::windows::core::PCWSTR = ::windows::w!("-Vd");
+pub const DXC_ARG_SKIP_VALIDATION: ::windows::core::PCWSTR = ::windows::core::w!("-Vd");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_WARNINGS_ARE_ERRORS: ::windows::core::PCWSTR = ::windows::w!("-WX");
+pub const DXC_ARG_WARNINGS_ARE_ERRORS: ::windows::core::PCWSTR = ::windows::core::w!("-WX");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_EXTRA_OUTPUT_NAME_STDERR: ::windows::core::PCWSTR = ::windows::w!("*stderr*");
+pub const DXC_EXTRA_OUTPUT_NAME_STDERR: ::windows::core::PCWSTR = ::windows::core::w!("*stderr*");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_EXTRA_OUTPUT_NAME_STDOUT: ::windows::core::PCWSTR = ::windows::w!("*stdout*");
+pub const DXC_EXTRA_OUTPUT_NAME_STDOUT: ::windows::core::PCWSTR = ::windows::core::w!("*stdout*");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_HASHFLAG_INCLUDES_SOURCE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]

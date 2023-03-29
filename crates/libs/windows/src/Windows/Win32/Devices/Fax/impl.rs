@@ -7389,7 +7389,7 @@ impl IFaxServerNotify2_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub trait IStiDevice_Impl: Sized {
-    fn Initialize(&self, hinst: super::super::Foundation::HINSTANCE, pwszdevicename: &::windows::core::PCWSTR, dwversion: u32, dwmode: u32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, hinst: super::super::Foundation::HMODULE, pwszdevicename: &::windows::core::PCWSTR, dwversion: u32, dwmode: u32) -> ::windows::core::Result<()>;
     fn GetCapabilities(&self, pdevcaps: *mut STI_DEV_CAPS) -> ::windows::core::Result<()>;
     fn GetStatus(&self, pdevstatus: *mut STI_DEVICE_STATUS) -> ::windows::core::Result<()>;
     fn DeviceReset(&self) -> ::windows::core::Result<()>;
@@ -7412,7 +7412,7 @@ impl ::windows::core::RuntimeName for IStiDevice {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl IStiDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStiDevice_Impl, const OFFSET: isize>() -> IStiDevice_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStiDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hinst: super::super::Foundation::HINSTANCE, pwszdevicename: ::windows::core::PCWSTR, dwversion: u32, dwmode: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStiDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hinst: super::super::Foundation::HMODULE, pwszdevicename: ::windows::core::PCWSTR, dwversion: u32, dwmode: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute_copy(&hinst), ::core::mem::transmute(&pwszdevicename), ::core::mem::transmute_copy(&dwversion), ::core::mem::transmute_copy(&dwmode)).into()
@@ -7766,7 +7766,7 @@ impl IStiUSD_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IStillImageW_Impl: Sized {
-    fn Initialize(&self, hinst: super::super::Foundation::HINSTANCE, dwversion: u32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, hinst: super::super::Foundation::HMODULE, dwversion: u32) -> ::windows::core::Result<()>;
     fn GetDeviceList(&self, dwtype: u32, dwflags: u32, pdwitemsreturned: *mut u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetDeviceInfo(&self, pwszdevicename: &::windows::core::PCWSTR, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateDevice(&self, pwszdevicename: &::windows::core::PCWSTR, dwmode: u32, pdevice: *mut ::core::option::Option<IStiDevice>, punkouter: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
@@ -7787,7 +7787,7 @@ impl ::windows::core::RuntimeName for IStillImageW {}
 #[cfg(feature = "Win32_Foundation")]
 impl IStillImageW_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStillImageW_Impl, const OFFSET: isize>() -> IStillImageW_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hinst: super::super::Foundation::HINSTANCE, dwversion: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hinst: super::super::Foundation::HMODULE, dwversion: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute_copy(&hinst), ::core::mem::transmute_copy(&dwversion)).into()

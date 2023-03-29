@@ -9,36 +9,36 @@ pub mod RichEdit;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn BeginPanningFeedback ( hwnd : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn BufferedPaintClear ( hbufferedpaint : isize , prc : *const super::super::Foundation:: RECT ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn BufferedPaintInit ( ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn BufferedPaintClear ( hbufferedpaint : isize , prc : *const super::super::Foundation:: RECT ) -> ::windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn BufferedPaintInit ( ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn BufferedPaintRenderAnimation ( hwnd : super::super::Foundation:: HWND , hdctarget : super::super::Graphics::Gdi:: HDC ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn BufferedPaintSetAlpha ( hbufferedpaint : isize , prc : *const super::super::Foundation:: RECT , alpha : u8 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn BufferedPaintSetAlpha ( hbufferedpaint : isize , prc : *const super::super::Foundation:: RECT , alpha : u8 ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn BufferedPaintStopAllAnimations ( hwnd : super::super::Foundation:: HWND ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn BufferedPaintUnInit ( ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn BufferedPaintStopAllAnimations ( hwnd : super::super::Foundation:: HWND ) -> ::windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn BufferedPaintUnInit ( ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn CheckDlgButton ( hdlg : super::super::Foundation:: HWND , nidbutton : i32 , ucheck : DLG_BUTTON_CHECK_STATE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn CheckRadioButton ( hdlg : super::super::Foundation:: HWND , nidfirstbutton : i32 , nidlastbutton : i32 , nidcheckbutton : i32 ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn CloseThemeData ( htheme : HTHEME ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn CloseThemeData ( htheme : HTHEME ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn CreateMappedBitmap ( hinstance : super::super::Foundation:: HINSTANCE , idbitmap : isize , wflags : u32 , lpcolormap : *const COLORMAP , inummaps : i32 ) -> super::super::Graphics::Gdi:: HBITMAP );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn CreateMappedBitmap ( hinstance : super::super::Foundation:: HMODULE , idbitmap : isize , wflags : u32 , lpcolormap : *const COLORMAP , inummaps : i32 ) -> super::super::Graphics::Gdi:: HBITMAP );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn CreatePropertySheetPageA ( constpropsheetpagepointer : *mut PROPSHEETPAGEA ) -> HPROPSHEETPAGE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn CreatePropertySheetPageW ( constpropsheetpagepointer : *mut PROPSHEETPAGEW ) -> HPROPSHEETPAGE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn CreateStatusWindowA ( style : i32 , lpsztext : :: windows_sys::core::PCSTR , hwndparent : super::super::Foundation:: HWND , wid : u32 ) -> super::super::Foundation:: HWND );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn CreateStatusWindowA ( style : i32 , lpsztext : ::windows_sys::core::PCSTR , hwndparent : super::super::Foundation:: HWND , wid : u32 ) -> super::super::Foundation:: HWND );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn CreateStatusWindowW ( style : i32 , lpsztext : :: windows_sys::core::PCWSTR , hwndparent : super::super::Foundation:: HWND , wid : u32 ) -> super::super::Foundation:: HWND );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn CreateStatusWindowW ( style : i32 , lpsztext : ::windows_sys::core::PCWSTR , hwndparent : super::super::Foundation:: HWND , wid : u32 ) -> super::super::Foundation:: HWND );
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn CreateSyntheticPointerDevice ( pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE , maxcount : u32 , mode : POINTER_FEEDBACK_MODE ) -> HSYNTHETICPOINTERDEVICE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn CreateToolbarEx ( hwnd : super::super::Foundation:: HWND , ws : u32 , wid : u32 , nbitmaps : i32 , hbminst : super::super::Foundation:: HINSTANCE , wbmid : usize , lpbuttons : *mut TBBUTTON , inumbuttons : i32 , dxbutton : i32 , dybutton : i32 , dxbitmap : i32 , dybitmap : i32 , ustructsize : u32 ) -> super::super::Foundation:: HWND );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn CreateToolbarEx ( hwnd : super::super::Foundation:: HWND , ws : u32 , wid : u32 , nbitmaps : i32 , hbminst : super::super::Foundation:: HMODULE , wbmid : usize , lpbuttons : *mut TBBUTTON , inumbuttons : i32 , dxbutton : i32 , dybutton : i32 , dxbitmap : i32 , dybitmap : i32 , ustructsize : u32 ) -> super::super::Foundation:: HWND );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn CreateUpDownControl ( dwstyle : u32 , x : i32 , y : i32 , cx : i32 , cy : i32 , hparent : super::super::Foundation:: HWND , nid : i32 , hinst : super::super::Foundation:: HINSTANCE , hbuddy : super::super::Foundation:: HWND , nupper : i32 , nlower : i32 , npos : i32 ) -> super::super::Foundation:: HWND );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn CreateUpDownControl ( dwstyle : u32 , x : i32 , y : i32 , cx : i32 , cy : i32 , hparent : super::super::Foundation:: HWND , nid : i32 , hinst : super::super::Foundation:: HMODULE , hbuddy : super::super::Foundation:: HWND , nupper : i32 , nlower : i32 , npos : i32 ) -> super::super::Foundation:: HWND );
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn DPA_Clone ( hdpa : HDPA , hdpanew : HDPA ) -> HDPA );
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn DPA_Create ( citemgrow : i32 ) -> HDPA );
 #[cfg(feature = "Win32_Foundation")]
@@ -57,11 +57,11 @@ pub mod RichEdit;
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn DPA_Grow ( pdpa : HDPA , cp : i32 ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn DPA_InsertPtr ( hdpa : HDPA , i : i32 , p : *const ::core::ffi::c_void ) -> i32 );
 #[cfg(feature = "Win32_System_Com")]
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_System_Com\"`*"] fn DPA_LoadStream ( phdpa : *mut HDPA , pfn : PFNDPASTREAM , pstream : super::super::System::Com:: IStream , pvinstdata : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_System_Com\"`*"] fn DPA_LoadStream ( phdpa : *mut HDPA , pfn : PFNDPASTREAM , pstream : super::super::System::Com:: IStream , pvinstdata : *const ::core::ffi::c_void ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn DPA_Merge ( hdpadest : HDPA , hdpasrc : HDPA , dwflags : u32 , pfncompare : PFNDACOMPARE , pfnmerge : PFNDPAMERGE , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_System_Com")]
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_System_Com\"`*"] fn DPA_SaveStream ( hdpa : HDPA , pfn : PFNDPASTREAM , pstream : super::super::System::Com:: IStream , pvinstdata : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_System_Com\"`*"] fn DPA_SaveStream ( hdpa : HDPA , pfn : PFNDPASTREAM , pstream : super::super::System::Com:: IStream , pvinstdata : *const ::core::ffi::c_void ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn DPA_Search ( hdpa : HDPA , pfind : *const ::core::ffi::c_void , istart : i32 , pfncompare : PFNDACOMPARE , lparam : super::super::Foundation:: LPARAM , options : u32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -91,55 +91,55 @@ pub mod RichEdit;
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn DestroyPropertySheetPage ( param0 : HPROPSHEETPAGE ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn DestroySyntheticPointerDevice ( device : HSYNTHETICPOINTERDEVICE ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn DlgDirListA ( hdlg : super::super::Foundation:: HWND , lppathspec : :: windows_sys::core::PSTR , nidlistbox : i32 , nidstaticpath : i32 , ufiletype : DLG_DIR_LIST_FILE_TYPE ) -> i32 );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn DlgDirListA ( hdlg : super::super::Foundation:: HWND , lppathspec : ::windows_sys::core::PSTR , nidlistbox : i32 , nidstaticpath : i32 , ufiletype : DLG_DIR_LIST_FILE_TYPE ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn DlgDirListComboBoxA ( hdlg : super::super::Foundation:: HWND , lppathspec : :: windows_sys::core::PSTR , nidcombobox : i32 , nidstaticpath : i32 , ufiletype : DLG_DIR_LIST_FILE_TYPE ) -> i32 );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn DlgDirListComboBoxA ( hdlg : super::super::Foundation:: HWND , lppathspec : ::windows_sys::core::PSTR , nidcombobox : i32 , nidstaticpath : i32 , ufiletype : DLG_DIR_LIST_FILE_TYPE ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn DlgDirListComboBoxW ( hdlg : super::super::Foundation:: HWND , lppathspec : :: windows_sys::core::PWSTR , nidcombobox : i32 , nidstaticpath : i32 , ufiletype : DLG_DIR_LIST_FILE_TYPE ) -> i32 );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn DlgDirListComboBoxW ( hdlg : super::super::Foundation:: HWND , lppathspec : ::windows_sys::core::PWSTR , nidcombobox : i32 , nidstaticpath : i32 , ufiletype : DLG_DIR_LIST_FILE_TYPE ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn DlgDirListW ( hdlg : super::super::Foundation:: HWND , lppathspec : :: windows_sys::core::PWSTR , nidlistbox : i32 , nidstaticpath : i32 , ufiletype : DLG_DIR_LIST_FILE_TYPE ) -> i32 );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn DlgDirListW ( hdlg : super::super::Foundation:: HWND , lppathspec : ::windows_sys::core::PWSTR , nidlistbox : i32 , nidstaticpath : i32 , ufiletype : DLG_DIR_LIST_FILE_TYPE ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn DlgDirSelectComboBoxExA ( hwnddlg : super::super::Foundation:: HWND , lpstring : :: windows_sys::core::PSTR , cchout : i32 , idcombobox : i32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn DlgDirSelectComboBoxExA ( hwnddlg : super::super::Foundation:: HWND , lpstring : ::windows_sys::core::PSTR , cchout : i32 , idcombobox : i32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn DlgDirSelectComboBoxExW ( hwnddlg : super::super::Foundation:: HWND , lpstring : :: windows_sys::core::PWSTR , cchout : i32 , idcombobox : i32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn DlgDirSelectComboBoxExW ( hwnddlg : super::super::Foundation:: HWND , lpstring : ::windows_sys::core::PWSTR , cchout : i32 , idcombobox : i32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn DlgDirSelectExA ( hwnddlg : super::super::Foundation:: HWND , lpstring : :: windows_sys::core::PSTR , chcount : i32 , idlistbox : i32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn DlgDirSelectExA ( hwnddlg : super::super::Foundation:: HWND , lpstring : ::windows_sys::core::PSTR , chcount : i32 , idlistbox : i32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn DlgDirSelectExW ( hwnddlg : super::super::Foundation:: HWND , lpstring : :: windows_sys::core::PWSTR , chcount : i32 , idlistbox : i32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn DlgDirSelectExW ( hwnddlg : super::super::Foundation:: HWND , lpstring : ::windows_sys::core::PWSTR , chcount : i32 , idlistbox : i32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn DrawInsert ( handparent : super::super::Foundation:: HWND , hlb : super::super::Foundation:: HWND , nitem : i32 ) -> ( ) );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DrawShadowText ( hdc : super::super::Graphics::Gdi:: HDC , psztext : :: windows_sys::core::PCWSTR , cch : u32 , prc : *const super::super::Foundation:: RECT , dwflags : u32 , crtext : super::super::Foundation:: COLORREF , crshadow : super::super::Foundation:: COLORREF , ixoffset : i32 , iyoffset : i32 ) -> i32 );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DrawShadowText ( hdc : super::super::Graphics::Gdi:: HDC , psztext : ::windows_sys::core::PCWSTR , cch : u32 , prc : *const super::super::Foundation:: RECT , dwflags : u32 , crtext : super::super::Foundation:: COLORREF , crshadow : super::super::Foundation:: COLORREF , ixoffset : i32 , iyoffset : i32 ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DrawStatusTextA ( hdc : super::super::Graphics::Gdi:: HDC , lprc : *mut super::super::Foundation:: RECT , psztext : :: windows_sys::core::PCSTR , uflags : u32 ) -> ( ) );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DrawStatusTextA ( hdc : super::super::Graphics::Gdi:: HDC , lprc : *mut super::super::Foundation:: RECT , psztext : ::windows_sys::core::PCSTR , uflags : u32 ) -> ( ) );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DrawStatusTextW ( hdc : super::super::Graphics::Gdi:: HDC , lprc : *mut super::super::Foundation:: RECT , psztext : :: windows_sys::core::PCWSTR , uflags : u32 ) -> ( ) );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DrawStatusTextW ( hdc : super::super::Graphics::Gdi:: HDC , lprc : *mut super::super::Foundation:: RECT , psztext : ::windows_sys::core::PCWSTR , uflags : u32 ) -> ( ) );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DrawThemeBackground ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , prect : *const super::super::Foundation:: RECT , pcliprect : *const super::super::Foundation:: RECT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DrawThemeBackground ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , prect : *const super::super::Foundation:: RECT , pcliprect : *const super::super::Foundation:: RECT ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DrawThemeBackgroundEx ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , prect : *const super::super::Foundation:: RECT , poptions : *const DTBGOPTS ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DrawThemeBackgroundEx ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , prect : *const super::super::Foundation:: RECT , poptions : *const DTBGOPTS ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DrawThemeEdge ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , pdestrect : *const super::super::Foundation:: RECT , uedge : super::super::Graphics::Gdi:: DRAWEDGE_FLAGS , uflags : super::super::Graphics::Gdi:: DRAW_EDGE_FLAGS , pcontentrect : *mut super::super::Foundation:: RECT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DrawThemeEdge ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , pdestrect : *const super::super::Foundation:: RECT , uedge : super::super::Graphics::Gdi:: DRAWEDGE_FLAGS , uflags : super::super::Graphics::Gdi:: DRAW_EDGE_FLAGS , pcontentrect : *mut super::super::Foundation:: RECT ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DrawThemeIcon ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , prect : *const super::super::Foundation:: RECT , himl : HIMAGELIST , iimageindex : i32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DrawThemeIcon ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , prect : *const super::super::Foundation:: RECT , himl : HIMAGELIST , iimageindex : i32 ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DrawThemeParentBackground ( hwnd : super::super::Foundation:: HWND , hdc : super::super::Graphics::Gdi:: HDC , prc : *const super::super::Foundation:: RECT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DrawThemeParentBackground ( hwnd : super::super::Foundation:: HWND , hdc : super::super::Graphics::Gdi:: HDC , prc : *const super::super::Foundation:: RECT ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DrawThemeParentBackgroundEx ( hwnd : super::super::Foundation:: HWND , hdc : super::super::Graphics::Gdi:: HDC , dwflags : DRAW_THEME_PARENT_BACKGROUND_FLAGS , prc : *const super::super::Foundation:: RECT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DrawThemeParentBackgroundEx ( hwnd : super::super::Foundation:: HWND , hdc : super::super::Graphics::Gdi:: HDC , dwflags : DRAW_THEME_PARENT_BACKGROUND_FLAGS , prc : *const super::super::Foundation:: RECT ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DrawThemeText ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , psztext : :: windows_sys::core::PCWSTR , cchtext : i32 , dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT , dwtextflags2 : u32 , prect : *const super::super::Foundation:: RECT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DrawThemeText ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , psztext : ::windows_sys::core::PCWSTR , cchtext : i32 , dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT , dwtextflags2 : u32 , prect : *const super::super::Foundation:: RECT ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DrawThemeTextEx ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , psztext : :: windows_sys::core::PCWSTR , cchtext : i32 , dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT , prect : *mut super::super::Foundation:: RECT , poptions : *const DTTOPTS ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DrawThemeTextEx ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , psztext : ::windows_sys::core::PCWSTR , cchtext : i32 , dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT , prect : *mut super::super::Foundation:: RECT , poptions : *const DTTOPTS ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn EnableScrollBar ( hwnd : super::super::Foundation:: HWND , wsbflags : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS , warrows : ENABLE_SCROLL_BAR_ARROWS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn EnableThemeDialogTexture ( hwnd : super::super::Foundation:: HWND , dwflags : u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn EnableThemeDialogTexture ( hwnd : super::super::Foundation:: HWND , dwflags : u32 ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn EnableTheming ( fenable : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn EnableTheming ( fenable : super::super::Foundation:: BOOL ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn EndBufferedAnimation ( hbpanimation : isize , fupdatetarget : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn EndBufferedAnimation ( hbpanimation : isize , fupdatetarget : super::super::Foundation:: BOOL ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn EndBufferedPaint ( hbufferedpaint : isize , fupdatetarget : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn EndBufferedPaint ( hbufferedpaint : isize , fupdatetarget : super::super::Foundation:: BOOL ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn EndPanningFeedback ( hwnd : super::super::Foundation:: HWND , fanimateback : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -167,57 +167,57 @@ pub mod RichEdit;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn FlatSB_ShowScrollBar ( param0 : super::super::Foundation:: HWND , code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS , param2 : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetBufferedPaintBits ( hbufferedpaint : isize , ppbbuffer : *mut *mut super::super::Graphics::Gdi:: RGBQUAD , pcxrow : *mut i32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetBufferedPaintBits ( hbufferedpaint : isize , ppbbuffer : *mut *mut super::super::Graphics::Gdi:: RGBQUAD , pcxrow : *mut i32 ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetBufferedPaintDC ( hbufferedpaint : isize ) -> super::super::Graphics::Gdi:: HDC );
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetBufferedPaintTargetDC ( hbufferedpaint : isize ) -> super::super::Graphics::Gdi:: HDC );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn GetBufferedPaintTargetRect ( hbufferedpaint : isize , prc : *mut super::super::Foundation:: RECT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn GetBufferedPaintTargetRect ( hbufferedpaint : isize , prc : *mut super::super::Foundation:: RECT ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn GetComboBoxInfo ( hwndcombo : super::super::Foundation:: HWND , pcbi : *mut COMBOBOXINFO ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetCurrentThemeName ( pszthemefilename : :: windows_sys::core::PWSTR , cchmaxnamechars : i32 , pszcolorbuff : :: windows_sys::core::PWSTR , cchmaxcolorchars : i32 , pszsizebuff : :: windows_sys::core::PWSTR , cchmaxsizechars : i32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetCurrentThemeName ( pszthemefilename : ::windows_sys::core::PWSTR , cchmaxnamechars : i32 , pszcolorbuff : ::windows_sys::core::PWSTR , cchmaxcolorchars : i32 , pszsizebuff : ::windows_sys::core::PWSTR , cchmaxsizechars : i32 ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn GetEffectiveClientRect ( hwnd : super::super::Foundation:: HWND , lprc : *mut super::super::Foundation:: RECT , lpinfo : *const i32 ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn GetListBoxInfo ( hwnd : super::super::Foundation:: HWND ) -> u32 );
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetMUILanguage ( ) -> u16 );
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeAnimationProperty ( htheme : HTHEME , istoryboardid : i32 , itargetid : i32 , eproperty : TA_PROPERTY , pvproperty : *mut ::core::ffi::c_void , cbsize : u32 , pcbsizeout : *mut u32 ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeAnimationTransform ( htheme : HTHEME , istoryboardid : i32 , itargetid : i32 , dwtransformindex : u32 , ptransform : *mut TA_TRANSFORM , cbsize : u32 , pcbsizeout : *mut u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeAnimationProperty ( htheme : HTHEME , istoryboardid : i32 , itargetid : i32 , eproperty : TA_PROPERTY , pvproperty : *mut ::core::ffi::c_void , cbsize : u32 , pcbsizeout : *mut u32 ) -> ::windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeAnimationTransform ( htheme : HTHEME , istoryboardid : i32 , itargetid : i32 , dwtransformindex : u32 , ptransform : *mut TA_TRANSFORM , cbsize : u32 , pcbsizeout : *mut u32 ) -> ::windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeAppProperties ( ) -> SET_THEME_APP_PROPERTIES_FLAGS );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemeBackgroundContentRect ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , pboundingrect : *const super::super::Foundation:: RECT , pcontentrect : *mut super::super::Foundation:: RECT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemeBackgroundContentRect ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , pboundingrect : *const super::super::Foundation:: RECT , pcontentrect : *mut super::super::Foundation:: RECT ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemeBackgroundExtent ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , pcontentrect : *const super::super::Foundation:: RECT , pextentrect : *mut super::super::Foundation:: RECT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemeBackgroundExtent ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , pcontentrect : *const super::super::Foundation:: RECT , pextentrect : *mut super::super::Foundation:: RECT ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemeBackgroundRegion ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , prect : *const super::super::Foundation:: RECT , pregion : *mut super::super::Graphics::Gdi:: HRGN ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemeBackgroundRegion ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , prect : *const super::super::Foundation:: RECT , pregion : *mut super::super::Graphics::Gdi:: HRGN ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemeBitmap ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : THEME_PROPERTY_SYMBOL_ID , dwflags : GET_THEME_BITMAP_FLAGS , phbitmap : *mut super::super::Graphics::Gdi:: HBITMAP ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemeBitmap ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : THEME_PROPERTY_SYMBOL_ID , dwflags : GET_THEME_BITMAP_FLAGS , phbitmap : *mut super::super::Graphics::Gdi:: HBITMAP ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn GetThemeBool ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : THEME_PROPERTY_SYMBOL_ID , pfval : *mut super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn GetThemeBool ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : THEME_PROPERTY_SYMBOL_ID , pfval : *mut super::super::Foundation:: BOOL ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn GetThemeColor ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : THEME_PROPERTY_SYMBOL_ID , pcolor : *mut super::super::Foundation:: COLORREF ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeDocumentationProperty ( pszthemename : :: windows_sys::core::PCWSTR , pszpropertyname : :: windows_sys::core::PCWSTR , pszvaluebuff : :: windows_sys::core::PWSTR , cchmaxvalchars : i32 ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeEnumValue ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : THEME_PROPERTY_SYMBOL_ID , pival : *mut i32 ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeFilename ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : THEME_PROPERTY_SYMBOL_ID , pszthemefilename : :: windows_sys::core::PWSTR , cchmaxbuffchars : i32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn GetThemeColor ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : THEME_PROPERTY_SYMBOL_ID , pcolor : *mut super::super::Foundation:: COLORREF ) -> ::windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeDocumentationProperty ( pszthemename : ::windows_sys::core::PCWSTR , pszpropertyname : ::windows_sys::core::PCWSTR , pszvaluebuff : ::windows_sys::core::PWSTR , cchmaxvalchars : i32 ) -> ::windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeEnumValue ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : THEME_PROPERTY_SYMBOL_ID , pival : *mut i32 ) -> ::windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeFilename ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : THEME_PROPERTY_SYMBOL_ID , pszthemefilename : ::windows_sys::core::PWSTR , cchmaxbuffchars : i32 ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemeFont ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , ipropid : i32 , pfont : *mut super::super::Graphics::Gdi:: LOGFONTW ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeInt ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : THEME_PROPERTY_SYMBOL_ID , pival : *mut i32 ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeIntList ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : THEME_PROPERTY_SYMBOL_ID , pintlist : *mut INTLIST ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemeFont ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , ipropid : i32 , pfont : *mut super::super::Graphics::Gdi:: LOGFONTW ) -> ::windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeInt ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : THEME_PROPERTY_SYMBOL_ID , pival : *mut i32 ) -> ::windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeIntList ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : THEME_PROPERTY_SYMBOL_ID , pintlist : *mut INTLIST ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemeMargins ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , ipropid : THEME_PROPERTY_SYMBOL_ID , prc : *const super::super::Foundation:: RECT , pmargins : *mut MARGINS ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemeMargins ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , ipropid : THEME_PROPERTY_SYMBOL_ID , prc : *const super::super::Foundation:: RECT , pmargins : *mut MARGINS ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemeMetric ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , ipropid : THEME_PROPERTY_SYMBOL_ID , pival : *mut i32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemeMetric ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , ipropid : THEME_PROPERTY_SYMBOL_ID , pival : *mut i32 ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemePartSize ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , prc : *const super::super::Foundation:: RECT , esize : THEMESIZE , psz : *mut super::super::Foundation:: SIZE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemePartSize ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , prc : *const super::super::Foundation:: RECT , esize : THEMESIZE , psz : *mut super::super::Foundation:: SIZE ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn GetThemePosition ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : THEME_PROPERTY_SYMBOL_ID , ppoint : *mut super::super::Foundation:: POINT ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemePropertyOrigin ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : i32 , porigin : *mut PROPERTYORIGIN ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn GetThemePosition ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : THEME_PROPERTY_SYMBOL_ID , ppoint : *mut super::super::Foundation:: POINT ) -> ::windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemePropertyOrigin ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : i32 , porigin : *mut PROPERTYORIGIN ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn GetThemeRect ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : i32 , prect : *mut super::super::Foundation:: RECT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn GetThemeRect ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : i32 , prect : *mut super::super::Foundation:: RECT ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn GetThemeStream ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : i32 , ppvstream : *mut *mut ::core::ffi::c_void , pcbstream : *mut u32 , hinst : super::super::Foundation:: HINSTANCE ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeString ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : i32 , pszbuff : :: windows_sys::core::PWSTR , cchmaxbuffchars : i32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn GetThemeStream ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : i32 , ppvstream : *mut *mut ::core::ffi::c_void , pcbstream : *mut u32 , hinst : super::super::Foundation:: HMODULE ) -> ::windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeString ( htheme : HTHEME , ipartid : i32 , istateid : i32 , ipropid : i32 , pszbuff : ::windows_sys::core::PWSTR , cchmaxbuffchars : i32 ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn GetThemeSysBool ( htheme : HTHEME , iboolid : THEME_PROPERTY_SYMBOL_ID ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -225,30 +225,30 @@ pub mod RichEdit;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemeSysColorBrush ( htheme : HTHEME , icolorid : THEME_PROPERTY_SYMBOL_ID ) -> super::super::Graphics::Gdi:: HBRUSH );
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemeSysFont ( htheme : HTHEME , ifontid : THEME_PROPERTY_SYMBOL_ID , plf : *mut super::super::Graphics::Gdi:: LOGFONTW ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeSysInt ( htheme : HTHEME , iintid : THEME_PROPERTY_SYMBOL_ID , pivalue : *mut i32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemeSysFont ( htheme : HTHEME , ifontid : THEME_PROPERTY_SYMBOL_ID , plf : *mut super::super::Graphics::Gdi:: LOGFONTW ) -> ::windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeSysInt ( htheme : HTHEME , iintid : THEME_PROPERTY_SYMBOL_ID , pivalue : *mut i32 ) -> ::windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeSysSize ( htheme : HTHEME , isizeid : i32 ) -> i32 );
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeSysString ( htheme : HTHEME , istringid : THEME_PROPERTY_SYMBOL_ID , pszstringbuff : :: windows_sys::core::PWSTR , cchmaxstringchars : i32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeSysString ( htheme : HTHEME , istringid : THEME_PROPERTY_SYMBOL_ID , pszstringbuff : ::windows_sys::core::PWSTR , cchmaxstringchars : i32 ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemeTextExtent ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , psztext : :: windows_sys::core::PCWSTR , cchcharcount : i32 , dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT , pboundingrect : *const super::super::Foundation:: RECT , pextentrect : *mut super::super::Foundation:: RECT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemeTextExtent ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , psztext : ::windows_sys::core::PCWSTR , cchcharcount : i32 , dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT , pboundingrect : *const super::super::Foundation:: RECT , pextentrect : *mut super::super::Foundation:: RECT ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemeTextMetrics ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , ptm : *mut super::super::Graphics::Gdi:: TEXTMETRICW ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeTimingFunction ( htheme : HTHEME , itimingfunctionid : i32 , ptimingfunction : *mut TA_TIMINGFUNCTION , cbsize : u32 , pcbsizeout : *mut u32 ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeTransitionDuration ( htheme : HTHEME , ipartid : i32 , istateidfrom : i32 , istateidto : i32 , ipropid : i32 , pdwduration : *mut u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetThemeTextMetrics ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , ptm : *mut super::super::Graphics::Gdi:: TEXTMETRICW ) -> ::windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeTimingFunction ( htheme : HTHEME , itimingfunctionid : i32 , ptimingfunction : *mut TA_TIMINGFUNCTION , cbsize : u32 , pcbsizeout : *mut u32 ) -> ::windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn GetThemeTransitionDuration ( htheme : HTHEME , ipartid : i32 , istateidfrom : i32 , istateidto : i32 , ipropid : i32 , pdwduration : *mut u32 ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn GetWindowFeedbackSetting ( hwnd : super::super::Foundation:: HWND , feedback : FEEDBACK_TYPE , dwflags : u32 , psize : *mut u32 , config : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn GetWindowTheme ( hwnd : super::super::Foundation:: HWND ) -> HTHEME );
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn HIMAGELIST_QueryInterface ( himl : HIMAGELIST , riid : *const :: windows_sys::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn HIMAGELIST_QueryInterface ( himl : HIMAGELIST , riid : *const ::windows_sys::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn HitTestThemeBackground ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , dwoptions : HIT_TEST_BACKGROUND_OPTIONS , prect : *const super::super::Foundation:: RECT , hrgn : super::super::Graphics::Gdi:: HRGN , pttest : super::super::Foundation:: POINT , pwhittestcode : *mut u16 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn HitTestThemeBackground ( htheme : HTHEME , hdc : super::super::Graphics::Gdi:: HDC , ipartid : i32 , istateid : i32 , dwoptions : HIT_TEST_BACKGROUND_OPTIONS , prect : *const super::super::Foundation:: RECT , hrgn : super::super::Graphics::Gdi:: HRGN , pttest : super::super::Foundation:: POINT , pwhittestcode : *mut u16 ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"] fn ImageList_Add ( himl : HIMAGELIST , hbmimage : super::super::Graphics::Gdi:: HBITMAP , hbmmask : super::super::Graphics::Gdi:: HBITMAP ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn ImageList_AddMasked ( himl : HIMAGELIST , hbmimage : super::super::Graphics::Gdi:: HBITMAP , crmask : super::super::Foundation:: COLORREF ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn ImageList_BeginDrag ( himltrack : HIMAGELIST , itrack : i32 , dxhotspot : i32 , dyhotspot : i32 ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn ImageList_CoCreateInstance ( rclsid : *const :: windows_sys::core::GUID , punkouter : :: windows_sys::core::IUnknown , riid : *const :: windows_sys::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn ImageList_CoCreateInstance ( rclsid : *const ::windows_sys::core::GUID , punkouter : ::windows_sys::core::IUnknown , riid : *const ::windows_sys::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn ImageList_Copy ( himldst : HIMAGELIST , idst : i32 , himlsrc : HIMAGELIST , isrc : i32 , uflags : IMAGE_LIST_COPY_FLAGS ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn ImageList_Create ( cx : i32 , cy : i32 , flags : IMAGELIST_CREATION_FLAGS , cinitial : i32 , cgrow : i32 ) -> HIMAGELIST );
@@ -282,14 +282,14 @@ pub mod RichEdit;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn ImageList_GetImageInfo ( himl : HIMAGELIST , i : i32 , pimageinfo : *mut IMAGEINFO ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ImageList_LoadImageA ( hi : super::super::Foundation:: HINSTANCE , lpbmp : :: windows_sys::core::PCSTR , cx : i32 , cgrow : i32 , crmask : super::super::Foundation:: COLORREF , utype : u32 , uflags : super::WindowsAndMessaging:: IMAGE_FLAGS ) -> HIMAGELIST );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ImageList_LoadImageA ( hi : super::super::Foundation:: HMODULE , lpbmp : ::windows_sys::core::PCSTR , cx : i32 , cgrow : i32 , crmask : super::super::Foundation:: COLORREF , utype : u32 , uflags : super::WindowsAndMessaging:: IMAGE_FLAGS ) -> HIMAGELIST );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ImageList_LoadImageW ( hi : super::super::Foundation:: HINSTANCE , lpbmp : :: windows_sys::core::PCWSTR , cx : i32 , cgrow : i32 , crmask : super::super::Foundation:: COLORREF , utype : u32 , uflags : super::WindowsAndMessaging:: IMAGE_FLAGS ) -> HIMAGELIST );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ImageList_LoadImageW ( hi : super::super::Foundation:: HMODULE , lpbmp : ::windows_sys::core::PCWSTR , cx : i32 , cgrow : i32 , crmask : super::super::Foundation:: COLORREF , utype : u32 , uflags : super::WindowsAndMessaging:: IMAGE_FLAGS ) -> HIMAGELIST );
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn ImageList_Merge ( himl1 : HIMAGELIST , i1 : i32 , himl2 : HIMAGELIST , i2 : i32 , dx : i32 , dy : i32 ) -> HIMAGELIST );
 #[cfg(feature = "Win32_System_Com")]
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_System_Com\"`*"] fn ImageList_Read ( pstm : super::super::System::Com:: IStream ) -> HIMAGELIST );
 #[cfg(feature = "Win32_System_Com")]
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_System_Com\"`*"] fn ImageList_ReadEx ( dwflags : u32 , pstm : super::super::System::Com:: IStream , riid : *const :: windows_sys::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_System_Com\"`*"] fn ImageList_ReadEx ( dwflags : u32 , pstm : super::super::System::Com:: IStream , riid : *const ::windows_sys::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn ImageList_Remove ( himl : HIMAGELIST , i : i32 ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -309,7 +309,7 @@ pub mod RichEdit;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn ImageList_Write ( himl : HIMAGELIST , pstm : super::super::System::Com:: IStream ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_System_Com")]
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_System_Com\"`*"] fn ImageList_WriteEx ( himl : HIMAGELIST , dwflags : IMAGE_LIST_WRITE_STREAM_FLAGS , pstm : super::super::System::Com:: IStream ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_System_Com\"`*"] fn ImageList_WriteEx ( himl : HIMAGELIST , dwflags : IMAGE_LIST_WRITE_STREAM_FLAGS , pstm : super::super::System::Com:: IStream ) -> ::windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`*"] fn InitCommonControls ( ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn InitCommonControlsEx ( picce : *const INITCOMMONCONTROLSEX ) -> super::super::Foundation:: BOOL );
@@ -335,17 +335,17 @@ pub mod RichEdit;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn LBItemFromPt ( hlb : super::super::Foundation:: HWND , pt : super::super::Foundation:: POINT , bautoscroll : super::super::Foundation:: BOOL ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn LoadIconMetric ( hinst : super::super::Foundation:: HINSTANCE , pszname : :: windows_sys::core::PCWSTR , lims : _LI_METRIC , phico : *mut super::WindowsAndMessaging:: HICON ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn LoadIconMetric ( hinst : super::super::Foundation:: HMODULE , pszname : ::windows_sys::core::PCWSTR , lims : _LI_METRIC , phico : *mut super::WindowsAndMessaging:: HICON ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn LoadIconWithScaleDown ( hinst : super::super::Foundation:: HINSTANCE , pszname : :: windows_sys::core::PCWSTR , cx : i32 , cy : i32 , phico : *mut super::WindowsAndMessaging:: HICON ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn LoadIconWithScaleDown ( hinst : super::super::Foundation:: HMODULE , pszname : ::windows_sys::core::PCWSTR , cx : i32 , cy : i32 , phico : *mut super::WindowsAndMessaging:: HICON ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn MakeDragList ( hlb : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn MenuHelp ( umsg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM , hmainmenu : super::WindowsAndMessaging:: HMENU , hinst : super::super::Foundation:: HINSTANCE , hwndstatus : super::super::Foundation:: HWND , lpwids : *const u32 ) -> ( ) );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn MenuHelp ( umsg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM , hmainmenu : super::WindowsAndMessaging:: HMENU , hinst : super::super::Foundation:: HMODULE , hwndstatus : super::super::Foundation:: HWND , lpwids : *const u32 ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn OpenThemeData ( hwnd : super::super::Foundation:: HWND , pszclasslist : :: windows_sys::core::PCWSTR ) -> HTHEME );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn OpenThemeData ( hwnd : super::super::Foundation:: HWND , pszclasslist : ::windows_sys::core::PCWSTR ) -> HTHEME );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn OpenThemeDataEx ( hwnd : super::super::Foundation:: HWND , pszclasslist : :: windows_sys::core::PCWSTR , dwflags : OPEN_THEME_DATA_FLAGS ) -> HTHEME );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn OpenThemeDataEx ( hwnd : super::super::Foundation:: HWND , pszclasslist : ::windows_sys::core::PCWSTR , dwflags : OPEN_THEME_DATA_FLAGS ) -> HTHEME );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn PackTouchHitTestingProximityEvaluation ( phittestinginput : *const TOUCH_HIT_TESTING_INPUT , pproximityeval : *const TOUCH_HIT_TESTING_PROXIMITY_EVALUATION ) -> super::super::Foundation:: LRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -366,21 +366,21 @@ pub mod RichEdit;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn SetWindowFeedbackSetting ( hwnd : super::super::Foundation:: HWND , feedback : FEEDBACK_TYPE , dwflags : u32 , size : u32 , configuration : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn SetWindowTheme ( hwnd : super::super::Foundation:: HWND , pszsubappname : :: windows_sys::core::PCWSTR , pszsubidlist : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn SetWindowTheme ( hwnd : super::super::Foundation:: HWND , pszsubappname : ::windows_sys::core::PCWSTR , pszsubidlist : ::windows_sys::core::PCWSTR ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn SetWindowThemeAttribute ( hwnd : super::super::Foundation:: HWND , eattribute : WINDOWTHEMEATTRIBUTETYPE , pvattribute : *const ::core::ffi::c_void , cbattribute : u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn SetWindowThemeAttribute ( hwnd : super::super::Foundation:: HWND , eattribute : WINDOWTHEMEATTRIBUTETYPE , pvattribute : *const ::core::ffi::c_void , cbattribute : u32 ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn ShowHideMenuCtl ( hwnd : super::super::Foundation:: HWND , uflags : usize , lpinfo : *const i32 ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ShowScrollBar ( hwnd : super::super::Foundation:: HWND , wbar : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS , bshow : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn Str_SetPtrW ( ppsz : *mut :: windows_sys::core::PWSTR , psz : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn Str_SetPtrW ( ppsz : *mut ::windows_sys::core::PWSTR , psz : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn TaskDialog ( hwndowner : super::super::Foundation:: HWND , hinstance : super::super::Foundation:: HINSTANCE , pszwindowtitle : :: windows_sys::core::PCWSTR , pszmaininstruction : :: windows_sys::core::PCWSTR , pszcontent : :: windows_sys::core::PCWSTR , dwcommonbuttons : TASKDIALOG_COMMON_BUTTON_FLAGS , pszicon : :: windows_sys::core::PCWSTR , pnbutton : *mut i32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn TaskDialog ( hwndowner : super::super::Foundation:: HWND , hinstance : super::super::Foundation:: HMODULE , pszwindowtitle : ::windows_sys::core::PCWSTR , pszmaininstruction : ::windows_sys::core::PCWSTR , pszcontent : ::windows_sys::core::PCWSTR , dwcommonbuttons : TASKDIALOG_COMMON_BUTTON_FLAGS , pszicon : ::windows_sys::core::PCWSTR , pnbutton : *mut i32 ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn TaskDialogIndirect ( ptaskconfig : *const TASKDIALOGCONFIG , pnbutton : *mut i32 , pnradiobutton : *mut i32 , pfverificationflagchecked : *mut super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn TaskDialogIndirect ( ptaskconfig : *const TASKDIALOGCONFIG , pnbutton : *mut i32 , pnradiobutton : *mut i32 , pfverificationflagchecked : *mut super::super::Foundation:: BOOL ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn UninitializeFlatSB ( param0 : super::super::Foundation:: HWND ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn UninitializeFlatSB ( param0 : super::super::Foundation:: HWND ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"] fn UpdatePanningFeedback ( hwnd : super::super::Foundation:: HWND , ltotaloverpanoffsetx : i32 , ltotaloverpanoffsety : i32 , fininertia : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
 pub type IImageList = *mut ::core::ffi::c_void;
@@ -410,11 +410,11 @@ pub const ACS_TIMER: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ACS_TRANSPARENT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ANIMATE_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SysAnimate32");
+pub const ANIMATE_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysAnimate32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ANIMATE_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::s!("SysAnimate32");
+pub const ANIMATE_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SysAnimate32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ANIMATE_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SysAnimate32");
+pub const ANIMATE_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysAnimate32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const BCM_FIRST: u32 = 5632u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -447,6 +447,8 @@ pub const BCN_DROPDOWN: u32 = 4294966048u32;
 pub const BCN_FIRST: u32 = 4294966046u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const BCN_HOTITEMCHANGE: u32 = 4294966047u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BCN_LAST: u32 = 4294965946u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const BCSIF_GLYPH: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -546,6 +548,32 @@ pub const CBENF_KILLFOCUS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CBENF_RETURN: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBEN_BEGINEDIT: u32 = 4294966492u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBEN_DELETEITEM: u32 = 4294966494u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBEN_DRAGBEGIN: u32 = 4294966487u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBEN_DRAGBEGINA: u32 = 4294966488u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBEN_DRAGBEGINW: u32 = 4294966487u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBEN_ENDEDIT: u32 = 4294966490u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBEN_ENDEDITA: u32 = 4294966491u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBEN_ENDEDITW: u32 = 4294966490u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBEN_FIRST: u32 = 4294966496u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBEN_GETDISPINFOA: u32 = 4294966496u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBEN_GETDISPINFOW: u32 = 4294966489u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBEN_INSERTITEM: u32 = 4294966495u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBEN_LAST: u32 = 4294966466u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CBES_EX_CASESENSITIVE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CBES_EX_NOEDITIMAGE: u32 = 1u32;
@@ -622,6 +650,10 @@ pub const CDDS_ITEM: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CDDS_POSTERASE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDN_FIRST: u32 = 4294966695u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDN_LAST: u32 = 4294966597u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CDRF_DODEFAULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CDRF_DOERASE: u32 = 8u32;
@@ -652,11 +684,11 @@ pub const COLORMGMTDLGORD: u32 = 1551u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const COMCTL32_VERSION: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DATETIMEPICK_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SysDateTimePick32");
+pub const DATETIMEPICK_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysDateTimePick32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DATETIMEPICK_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::s!("SysDateTimePick32");
+pub const DATETIMEPICK_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SysDateTimePick32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DATETIMEPICK_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SysDateTimePick32");
+pub const DATETIMEPICK_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysDateTimePick32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DA_ERR: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -688,7 +720,7 @@ pub const DPA_APPEND: u32 = 2147483647u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DPA_ERR: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DRAGLISTMSGSTRING: ::windows_sys::core::PCWSTR = ::windows_sys::w!("commctrl_DragListMsg");
+pub const DRAGLISTMSGSTRING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("commctrl_DragListMsg");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DSA_APPEND: u32 = 2147483647u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -743,6 +775,44 @@ pub const DTM_SETMCSTYLE: u32 = 4107u32;
 pub const DTM_SETRANGE: u32 = 4100u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DTM_SETSYSTEMTIME: u32 = 4098u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTN_CLOSEUP: u32 = 4294966543u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTN_DATETIMECHANGE: u32 = 4294966537u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTN_DROPDOWN: u32 = 4294966542u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTN_FIRST: u32 = 4294966556u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTN_FIRST2: u32 = 4294966543u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTN_FORMAT: u32 = 4294966553u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTN_FORMATA: u32 = 4294966540u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTN_FORMATQUERY: u32 = 4294966554u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTN_FORMATQUERYA: u32 = 4294966541u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTN_FORMATQUERYW: u32 = 4294966554u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTN_FORMATW: u32 = 4294966553u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTN_LAST: u32 = 4294966551u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTN_LAST2: u32 = 4294966497u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTN_USERSTRING: u32 = 4294966551u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTN_USERSTRINGA: u32 = 4294966538u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTN_USERSTRINGW: u32 = 4294966551u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTN_WMKEYDOWN: u32 = 4294966552u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTN_WMKEYDOWNA: u32 = 4294966539u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTN_WMKEYDOWNW: u32 = 4294966552u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DTS_APPCANPARSE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -888,6 +958,12 @@ pub const EM_TAKEFOCUS: u32 = 5384u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const EM_UNDO: u32 = 199u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EN_FIRST: u32 = 4294965776u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EN_LAST: u32 = 4294965756u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EN_SEARCHWEB: u32 = 4294965776u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ES_EX_ALLOWEOL_CR: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ES_EX_ALLOWEOL_LF: i32 = 2i32;
@@ -996,6 +1072,84 @@ pub const HDM_SETORDERARRAY: u32 = 4626u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HDM_SETUNICODEFORMAT: u32 = 8197u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_BEGINDRAG: u32 = 4294966986u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_BEGINFILTEREDIT: u32 = 4294966982u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_BEGINTRACK: u32 = 4294966970u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_BEGINTRACKA: u32 = 4294966990u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_BEGINTRACKW: u32 = 4294966970u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_DIVIDERDBLCLICK: u32 = 4294966971u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_DIVIDERDBLCLICKA: u32 = 4294966991u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_DIVIDERDBLCLICKW: u32 = 4294966971u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_DROPDOWN: u32 = 4294966978u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_ENDDRAG: u32 = 4294966985u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_ENDFILTEREDIT: u32 = 4294966981u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_ENDTRACK: u32 = 4294966969u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_ENDTRACKA: u32 = 4294966989u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_ENDTRACKW: u32 = 4294966969u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_FILTERBTNCLICK: u32 = 4294966983u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_FILTERCHANGE: u32 = 4294966984u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_FIRST: u32 = 4294966996u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_GETDISPINFO: u32 = 4294966967u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_GETDISPINFOA: u32 = 4294966987u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_GETDISPINFOW: u32 = 4294966967u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_ITEMCHANGED: u32 = 4294966975u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_ITEMCHANGEDA: u32 = 4294966995u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_ITEMCHANGEDW: u32 = 4294966975u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_ITEMCHANGING: u32 = 4294966976u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_ITEMCHANGINGA: u32 = 4294966996u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_ITEMCHANGINGW: u32 = 4294966976u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_ITEMCLICK: u32 = 4294966974u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_ITEMCLICKA: u32 = 4294966994u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_ITEMCLICKW: u32 = 4294966974u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_ITEMDBLCLICK: u32 = 4294966973u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_ITEMDBLCLICKA: u32 = 4294966993u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_ITEMDBLCLICKW: u32 = 4294966973u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_ITEMKEYDOWN: u32 = 4294966979u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_ITEMSTATEICONCLICK: u32 = 4294966980u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_LAST: u32 = 4294966897u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_OVERFLOWCLICK: u32 = 4294966977u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_TRACK: u32 = 4294966968u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_TRACKA: u32 = 4294966988u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDN_TRACKW: u32 = 4294966968u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HDSIL_NORMAL: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HDSIL_STATE: u32 = 1u32;
@@ -1062,11 +1216,11 @@ pub const HOTKEYF_EXT: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HOTKEYF_SHIFT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HOTKEY_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("msctls_hotkey32");
+pub const HOTKEY_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("msctls_hotkey32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HOTKEY_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::s!("msctls_hotkey32");
+pub const HOTKEY_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("msctls_hotkey32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HOTKEY_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("msctls_hotkey32");
+pub const HOTKEY_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("msctls_hotkey32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HOVER_DEFAULT: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -1161,6 +1315,12 @@ pub const IPM_SETADDRESS: u32 = 1125u32;
 pub const IPM_SETFOCUS: u32 = 1128u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const IPM_SETRANGE: u32 = 1127u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const IPN_FIELDCHANGED: u32 = 4294966436u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const IPN_FIRST: u32 = 4294966436u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const IPN_LAST: u32 = 4294966417u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const I_IMAGECALLBACK: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -1590,6 +1750,92 @@ pub const LVNSCH_ERROR: i32 = -2i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVNSCH_IGNORE: i32 = -3i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_BEGINDRAG: u32 = 4294967187u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_BEGINLABELEDIT: u32 = 4294967121u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_BEGINLABELEDITA: u32 = 4294967191u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_BEGINLABELEDITW: u32 = 4294967121u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_BEGINRDRAG: u32 = 4294967185u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_BEGINSCROLL: u32 = 4294967116u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_COLUMNCLICK: u32 = 4294967188u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_COLUMNDROPDOWN: u32 = 4294967132u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_COLUMNOVERFLOWCLICK: u32 = 4294967130u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_DELETEALLITEMS: u32 = 4294967192u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_DELETEITEM: u32 = 4294967193u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_ENDLABELEDIT: u32 = 4294967120u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_ENDLABELEDITA: u32 = 4294967190u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_ENDLABELEDITW: u32 = 4294967120u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_ENDSCROLL: u32 = 4294967115u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_FIRST: u32 = 4294967196u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_GETDISPINFO: u32 = 4294967119u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_GETDISPINFOA: u32 = 4294967146u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_GETDISPINFOW: u32 = 4294967119u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_GETEMPTYMARKUP: u32 = 4294967109u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_GETINFOTIP: u32 = 4294967138u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_GETINFOTIPA: u32 = 4294967139u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_GETINFOTIPW: u32 = 4294967138u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_HOTTRACK: u32 = 4294967175u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_INCREMENTALSEARCH: u32 = 4294967133u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_INCREMENTALSEARCHA: u32 = 4294967134u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_INCREMENTALSEARCHW: u32 = 4294967133u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_INSERTITEM: u32 = 4294967194u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_ITEMACTIVATE: u32 = 4294967182u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_ITEMCHANGED: u32 = 4294967195u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_ITEMCHANGING: u32 = 4294967196u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_KEYDOWN: u32 = 4294967141u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_LAST: u32 = 4294967097u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_LINKCLICK: u32 = 4294967112u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_MARQUEEBEGIN: u32 = 4294967140u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_ODCACHEHINT: u32 = 4294967183u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_ODFINDITEM: u32 = 4294967117u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_ODFINDITEMA: u32 = 4294967144u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_ODFINDITEMW: u32 = 4294967117u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_ODSTATECHANGED: u32 = 4294967181u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_SETDISPINFO: u32 = 4294967118u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_SETDISPINFOA: u32 = 4294967145u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVN_SETDISPINFOW: u32 = 4294967118u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVSCW_AUTOSIZE: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVSCW_AUTOSIZE_USEHEADER: i32 = -2i32;
@@ -1814,6 +2060,18 @@ pub const MCM_SETUNICODEFORMAT: u32 = 8197u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MCM_SIZERECTTOMIN: u32 = 4125u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCN_FIRST: u32 = 4294966550u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCN_GETDAYSTATE: u32 = 4294966549u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCN_LAST: u32 = 4294966544u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCN_SELCHANGE: u32 = 4294966547u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCN_SELECT: u32 = 4294966550u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCN_VIEWCHANGE: u32 = 4294966546u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MCSC_BACKGROUND: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MCSC_MONTHBK: u32 = 4u32;
@@ -1842,11 +2100,11 @@ pub const MCS_SHORTDAYSOFWEEK: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MCS_WEEKNUMBERS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MONTHCAL_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SysMonthCal32");
+pub const MONTHCAL_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysMonthCal32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MONTHCAL_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::s!("SysMonthCal32");
+pub const MONTHCAL_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SysMonthCal32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MONTHCAL_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SysMonthCal32");
+pub const MONTHCAL_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysMonthCal32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MSGF_COMMCTRL_BEGINDRAG: u32 = 16896u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -1878,7 +2136,55 @@ pub const NFS_STATIC: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const NFS_USEFONTASSOC: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_CHAR: u32 = 4294967278u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_CLICK: u32 = 4294967294u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_CUSTOMDRAW: u32 = 4294967284u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_CUSTOMTEXT: u32 = 4294967272u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_DBLCLK: u32 = 4294967293u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_FIRST: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_FONTCHANGED: u32 = 4294967273u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const NM_GETCUSTOMSPLITRECT: u32 = 4294966049u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_HOVER: u32 = 4294967283u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_KEYDOWN: u32 = 4294967281u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_KILLFOCUS: u32 = 4294967288u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_LAST: u32 = 4294967197u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_LDOWN: u32 = 4294967276u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_NCHITTEST: u32 = 4294967282u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_OUTOFMEMORY: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_RCLICK: u32 = 4294967291u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_RDBLCLK: u32 = 4294967290u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_RDOWN: u32 = 4294967275u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_RELEASEDCAPTURE: u32 = 4294967280u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_RETURN: u32 = 4294967292u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_SETCURSOR: u32 = 4294967279u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_SETFOCUS: u32 = 4294967289u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_THEMECHANGED: u32 = 4294967274u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_TOOLTIPSCREATED: u32 = 4294967277u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NM_TVSTATEIMAGECHANGING: u32 = 4294967272u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ODT_HEADER: u32 = 100u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -1976,6 +2282,16 @@ pub const PGM_SETPOS: u32 = 5128u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PGM_SETSCROLLINFO: u32 = 5133u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PGN_CALCSIZE: u32 = 4294966394u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PGN_FIRST: u32 = 4294966396u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PGN_HOTITEMCHANGE: u32 = 4294966393u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PGN_LAST: u32 = 4294966346u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PGN_SCROLL: u32 = 4294966395u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PGS_AUTOSCROLL: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PGS_DRAGNDROP: u32 = 4u32;
@@ -1990,11 +2306,11 @@ pub const PRINTDLGORD: u32 = 1538u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PRNSETUPDLGORD: u32 = 1539u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PROGRESS_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("msctls_progress32");
+pub const PROGRESS_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("msctls_progress32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PROGRESS_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::s!("msctls_progress32");
+pub const PROGRESS_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("msctls_progress32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PROGRESS_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("msctls_progress32");
+pub const PROGRESS_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("msctls_progress32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PROP_LG_CXDLG: u32 = 252u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -2180,6 +2496,34 @@ pub const PSNRET_MESSAGEHANDLED: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PSNRET_NOERROR: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PSN_APPLY: u32 = 4294967094u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PSN_FIRST: u32 = 4294967096u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PSN_GETOBJECT: u32 = 4294967086u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PSN_HELP: u32 = 4294967091u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PSN_KILLACTIVE: u32 = 4294967095u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PSN_LAST: u32 = 4294966997u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PSN_QUERYCANCEL: u32 = 4294967087u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PSN_QUERYINITIALFOCUS: u32 = 4294967083u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PSN_RESET: u32 = 4294967093u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PSN_SETACTIVE: u32 = 4294967096u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PSN_TRANSLATEACCELERATOR: u32 = 4294967084u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PSN_WIZBACK: u32 = 4294967090u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PSN_WIZFINISH: u32 = 4294967088u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PSN_WIZNEXT: u32 = 4294967089u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PSP_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PSP_DLGINDIRECT: u32 = 1u32;
@@ -2293,6 +2637,36 @@ pub const RBHT_NOWHERE: u32 = 1u32;
 pub const RBHT_SPLITTER: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const RBIM_IMAGELIST: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBN_AUTOBREAK: u32 = 4294966443u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBN_AUTOSIZE: u32 = 4294966462u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBN_BEGINDRAG: u32 = 4294966461u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBN_CHEVRONPUSHED: u32 = 4294966455u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBN_CHILDSIZE: u32 = 4294966457u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBN_DELETEDBAND: u32 = 4294966458u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBN_DELETINGBAND: u32 = 4294966459u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBN_ENDDRAG: u32 = 4294966460u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBN_FIRST: u32 = 4294966465u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBN_GETOBJECT: u32 = 4294966464u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBN_HEIGHTCHANGE: u32 = 4294966465u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBN_LAST: u32 = 4294966437u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBN_LAYOUTCHANGED: u32 = 4294966463u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBN_MINMAX: u32 = 4294966444u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBN_SPLITTERDRAG: u32 = 4294966454u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const RBSTR_CHANGERECT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -2408,11 +2782,11 @@ pub const RB_SHOWBAND: u32 = 1059u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const RB_SIZETORECT: u32 = 1047u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const REBARCLASSNAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("ReBarWindow32");
+pub const REBARCLASSNAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ReBarWindow32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const REBARCLASSNAMEA: ::windows_sys::core::PCSTR = ::windows_sys::s!("ReBarWindow32");
+pub const REBARCLASSNAMEA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ReBarWindow32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const REBARCLASSNAMEW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("ReBarWindow32");
+pub const REBARCLASSNAMEW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ReBarWindow32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const REPLACEDLGORD: u32 = 1541u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -2421,6 +2795,12 @@ pub const RUNDLGORD: u32 = 1545u32;
 pub const SBARS_SIZEGRIP: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const SBARS_TOOLTIPS: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBN_FIRST: u32 = 4294966416u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBN_LAST: u32 = 4294966397u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBN_SIMPLEMODECHANGE: u32 = 4294966416u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const SBT_NOBORDERS: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -2486,11 +2866,11 @@ pub const SB_SIMPLE: u32 = 1033u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const SB_SIMPLEID: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const STATUSCLASSNAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("msctls_statusbar32");
+pub const STATUSCLASSNAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("msctls_statusbar32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const STATUSCLASSNAMEA: ::windows_sys::core::PCSTR = ::windows_sys::s!("msctls_statusbar32");
+pub const STATUSCLASSNAMEA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("msctls_statusbar32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const STATUSCLASSNAMEW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("msctls_statusbar32");
+pub const STATUSCLASSNAMEW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("msctls_statusbar32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const STD_COPY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -2522,13 +2902,13 @@ pub const STD_REPLACE: u32 = 13u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const STD_UNDO: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SZ_THDOCPROP_AUTHOR: ::windows_sys::core::PCWSTR = ::windows_sys::w!("author");
+pub const SZ_THDOCPROP_AUTHOR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("author");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SZ_THDOCPROP_CANONICALNAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("ThemeName");
+pub const SZ_THDOCPROP_CANONICALNAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ThemeName");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SZ_THDOCPROP_DISPLAYNAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("DisplayName");
+pub const SZ_THDOCPROP_DISPLAYNAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DisplayName");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SZ_THDOCPROP_TOOLTIP: ::windows_sys::core::PCWSTR = ::windows_sys::w!("ToolTip");
+pub const SZ_THDOCPROP_TOOLTIP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ToolTip");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TBBF_LARGE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -2639,6 +3019,72 @@ pub const TBM_SETUNICODEFORMAT: u32 = 8197u32;
 pub const TBNRF_ENDCUSTOMIZE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TBNRF_HIDEHELP: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_BEGINADJUST: u32 = 4294966593u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_BEGINDRAG: u32 = 4294966595u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_CUSTHELP: u32 = 4294966587u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_DELETINGBUTTON: u32 = 4294966581u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_DRAGOUT: u32 = 4294966582u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_DRAGOVER: u32 = 4294966569u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_DROPDOWN: u32 = 4294966586u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_DUPACCELERATOR: u32 = 4294966571u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_ENDADJUST: u32 = 4294966592u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_ENDDRAG: u32 = 4294966594u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_FIRST: u32 = 4294966596u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_GETBUTTONINFO: u32 = 4294966576u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_GETBUTTONINFOA: u32 = 4294966596u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_GETBUTTONINFOW: u32 = 4294966576u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_GETDISPINFO: u32 = 4294966579u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_GETDISPINFOA: u32 = 4294966580u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_GETDISPINFOW: u32 = 4294966579u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_GETINFOTIP: u32 = 4294966577u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_GETINFOTIPA: u32 = 4294966578u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_GETINFOTIPW: u32 = 4294966577u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_GETOBJECT: u32 = 4294966584u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_HOTITEMCHANGE: u32 = 4294966583u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_INITCUSTOMIZE: u32 = 4294966573u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_LAST: u32 = 4294966576u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_MAPACCELERATOR: u32 = 4294966568u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_QUERYDELETE: u32 = 4294966589u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_QUERYINSERT: u32 = 4294966590u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_RESET: u32 = 4294966591u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_RESTORE: u32 = 4294966575u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_SAVE: u32 = 4294966574u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_TOOLBARCHANGE: u32 = 4294966588u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_WRAPACCELERATOR: u32 = 4294966570u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBN_WRAPHOTITEM: u32 = 4294966572u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TBSTATE_CHECKED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -3052,6 +3498,20 @@ pub const TCM_SETTOOLTIPS: u32 = 4910u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TCM_SETUNICODEFORMAT: u32 = 8197u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TCN_FIRST: u32 = 4294966746u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TCN_FOCUSCHANGE: u32 = 4294966742u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TCN_GETOBJECT: u32 = 4294966743u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TCN_KEYDOWN: u32 = 4294966746u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TCN_LAST: u32 = 4294966716u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TCN_SELCHANGE: u32 = 4294966745u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TCN_SELCHANGING: u32 = 4294966744u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TCS_BOTTOM: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TCS_BUTTONS: u32 = 256u32;
@@ -3096,35 +3556,41 @@ pub const TCS_TOOLTIPS: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TCS_VERTICAL: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TD_ERROR_ICON: ::windows_sys::core::PCWSTR = -2i32 as u16 as _;
+pub const TD_ERROR_ICON: ::windows_sys::core::PCWSTR = -2i16 as u16 as _;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TD_INFORMATION_ICON: ::windows_sys::core::PCWSTR = -3i32 as u16 as _;
+pub const TD_INFORMATION_ICON: ::windows_sys::core::PCWSTR = -3i16 as u16 as _;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TD_SHIELD_ICON: ::windows_sys::core::PCWSTR = -4i32 as u16 as _;
+pub const TD_SHIELD_ICON: ::windows_sys::core::PCWSTR = -4i16 as u16 as _;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TD_WARNING_ICON: ::windows_sys::core::PCWSTR = -1i32 as u16 as _;
+pub const TD_WARNING_ICON: ::windows_sys::core::PCWSTR = -1i16 as u16 as _;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TMTVS_RESERVEDHIGH: u32 = 19999u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TMTVS_RESERVEDLOW: u32 = 100000u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TOOLBARCLASSNAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("ToolbarWindow32");
+pub const TOOLBARCLASSNAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ToolbarWindow32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TOOLBARCLASSNAMEA: ::windows_sys::core::PCSTR = ::windows_sys::s!("ToolbarWindow32");
+pub const TOOLBARCLASSNAMEA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ToolbarWindow32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TOOLBARCLASSNAMEW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("ToolbarWindow32");
+pub const TOOLBARCLASSNAMEW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ToolbarWindow32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TOOLTIPS_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("tooltips_class32");
+pub const TOOLTIPS_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("tooltips_class32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TOOLTIPS_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::s!("tooltips_class32");
+pub const TOOLTIPS_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("tooltips_class32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TOOLTIPS_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("tooltips_class32");
+pub const TOOLTIPS_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("tooltips_class32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TRACKBAR_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("msctls_trackbar32");
+pub const TRACKBAR_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("msctls_trackbar32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TRACKBAR_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::s!("msctls_trackbar32");
+pub const TRACKBAR_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("msctls_trackbar32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TRACKBAR_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("msctls_trackbar32");
+pub const TRACKBAR_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("msctls_trackbar32");
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TRBN_FIRST: u32 = 4294965795u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TRBN_LAST: u32 = 4294965777u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TRBN_THUMBPOSCHANGING: u32 = 4294965794u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TTDT_AUTOMATIC: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -3245,6 +3711,28 @@ pub const TTM_UPDATETIPTEXTA: u32 = 1036u32;
 pub const TTM_UPDATETIPTEXTW: u32 = 1081u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TTM_WINDOWFROMPOINT: u32 = 1040u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTN_FIRST: u32 = 4294966776u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTN_GETDISPINFO: u32 = 4294966766u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTN_GETDISPINFOA: u32 = 4294966776u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTN_GETDISPINFOW: u32 = 4294966766u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTN_LAST: u32 = 4294966747u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTN_LINKCLICK: u32 = 4294966773u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTN_NEEDTEXT: u32 = 4294966766u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTN_NEEDTEXTA: u32 = 4294966776u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTN_NEEDTEXTW: u32 = 4294966766u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTN_POP: u32 = 4294966774u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTN_SHOW: u32 = 4294966775u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TTS_ALWAYSTIP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -3422,6 +3910,100 @@ pub const TVNRET_SKIPNEW: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TVNRET_SKIPOLD: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_ASYNCDRAW: u32 = 4294966876u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_BEGINDRAG: u32 = 4294966840u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_BEGINDRAGA: u32 = 4294966889u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_BEGINDRAGW: u32 = 4294966840u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_BEGINLABELEDIT: u32 = 4294966837u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_BEGINLABELEDITA: u32 = 4294966886u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_BEGINLABELEDITW: u32 = 4294966837u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_BEGINRDRAG: u32 = 4294966839u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_BEGINRDRAGA: u32 = 4294966888u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_BEGINRDRAGW: u32 = 4294966839u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_DELETEITEM: u32 = 4294966838u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_DELETEITEMA: u32 = 4294966887u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_DELETEITEMW: u32 = 4294966838u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_ENDLABELEDIT: u32 = 4294966836u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_ENDLABELEDITA: u32 = 4294966885u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_ENDLABELEDITW: u32 = 4294966836u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_FIRST: u32 = 4294966896u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_GETDISPINFO: u32 = 4294966844u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_GETDISPINFOA: u32 = 4294966893u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_GETDISPINFOW: u32 = 4294966844u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_GETINFOTIP: u32 = 4294966882u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_GETINFOTIPA: u32 = 4294966883u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_GETINFOTIPW: u32 = 4294966882u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_ITEMCHANGED: u32 = 4294966877u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_ITEMCHANGEDA: u32 = 4294966878u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_ITEMCHANGEDW: u32 = 4294966877u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_ITEMCHANGING: u32 = 4294966879u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_ITEMCHANGINGA: u32 = 4294966880u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_ITEMCHANGINGW: u32 = 4294966879u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_ITEMEXPANDED: u32 = 4294966841u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_ITEMEXPANDEDA: u32 = 4294966890u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_ITEMEXPANDEDW: u32 = 4294966841u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_ITEMEXPANDING: u32 = 4294966842u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_ITEMEXPANDINGA: u32 = 4294966891u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_ITEMEXPANDINGW: u32 = 4294966842u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_KEYDOWN: u32 = 4294966884u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_LAST: u32 = 4294966797u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_SELCHANGED: u32 = 4294966845u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_SELCHANGEDA: u32 = 4294966894u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_SELCHANGEDW: u32 = 4294966845u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_SELCHANGING: u32 = 4294966846u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_SELCHANGINGA: u32 = 4294966895u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_SELCHANGINGW: u32 = 4294966846u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_SETDISPINFO: u32 = 4294966843u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_SETDISPINFOA: u32 = 4294966892u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_SETDISPINFOW: u32 = 4294966843u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVN_SINGLEEXPAND: u32 = 4294966881u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TVSBF_XBORDER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TVSBF_YBORDER: u32 = 2u32;
@@ -3520,6 +4102,12 @@ pub const UDM_SETRANGE32: u32 = 1135u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const UDM_SETUNICODEFORMAT: u32 = 8197u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UDN_DELTAPOS: u32 = 4294966574u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UDN_FIRST: u32 = 4294966575u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UDN_LAST: u32 = 4294966567u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const UDS_ALIGNLEFT: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const UDS_ALIGNRIGHT: u32 = 4u32;
@@ -3540,11 +4128,11 @@ pub const UDS_WRAP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const UD_MAXVAL: u32 = 32767u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const UPDOWN_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("msctls_updown32");
+pub const UPDOWN_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("msctls_updown32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const UPDOWN_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::s!("msctls_updown32");
+pub const UPDOWN_CLASSA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("msctls_updown32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const UPDOWN_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("msctls_updown32");
+pub const UPDOWN_CLASSW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("msctls_updown32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const VIEW_DETAILS: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -3572,225 +4160,225 @@ pub const VIEW_SORTTYPE: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const VIEW_VIEWMENU: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_AEROWIZARD: ::windows_sys::core::PCWSTR = ::windows_sys::w!("AEROWIZARD");
+pub const VSCLASS_AEROWIZARD: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("AEROWIZARD");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_AEROWIZARDSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("AEROWIZARDSTYLE");
+pub const VSCLASS_AEROWIZARDSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("AEROWIZARDSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_BUTTON: ::windows_sys::core::PCWSTR = ::windows_sys::w!("BUTTON");
+pub const VSCLASS_BUTTON: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("BUTTON");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_BUTTONSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("BUTTONSTYLE");
+pub const VSCLASS_BUTTONSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("BUTTONSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_CLOCK: ::windows_sys::core::PCWSTR = ::windows_sys::w!("CLOCK");
+pub const VSCLASS_CLOCK: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("CLOCK");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_COMBOBOX: ::windows_sys::core::PCWSTR = ::windows_sys::w!("COMBOBOX");
+pub const VSCLASS_COMBOBOX: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("COMBOBOX");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_COMBOBOXSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("COMBOBOXSTYLE");
+pub const VSCLASS_COMBOBOXSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("COMBOBOXSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_COMMUNICATIONS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("COMMUNICATIONS");
+pub const VSCLASS_COMMUNICATIONS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("COMMUNICATIONS");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_COMMUNICATIONSSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("COMMUNICATIONSSTYLE");
+pub const VSCLASS_COMMUNICATIONSSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("COMMUNICATIONSSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_CONTROLPANEL: ::windows_sys::core::PCWSTR = ::windows_sys::w!("CONTROLPANEL");
+pub const VSCLASS_CONTROLPANEL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("CONTROLPANEL");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_CONTROLPANELSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("CONTROLPANELSTYLE");
+pub const VSCLASS_CONTROLPANELSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("CONTROLPANELSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_DATEPICKER: ::windows_sys::core::PCWSTR = ::windows_sys::w!("DATEPICKER");
+pub const VSCLASS_DATEPICKER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DATEPICKER");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_DATEPICKERSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("DATEPICKERSTYLE");
+pub const VSCLASS_DATEPICKERSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DATEPICKERSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_DRAGDROP: ::windows_sys::core::PCWSTR = ::windows_sys::w!("DRAGDROP");
+pub const VSCLASS_DRAGDROP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DRAGDROP");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_DRAGDROPSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("DRAGDROPSTYLE");
+pub const VSCLASS_DRAGDROPSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DRAGDROPSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_EDIT: ::windows_sys::core::PCWSTR = ::windows_sys::w!("EDIT");
+pub const VSCLASS_EDIT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EDIT");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_EDITSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("EDITSTYLE");
+pub const VSCLASS_EDITSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EDITSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_EMPTYMARKUP: ::windows_sys::core::PCWSTR = ::windows_sys::w!("EMPTYMARKUP");
+pub const VSCLASS_EMPTYMARKUP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EMPTYMARKUP");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_EXPLORERBAR: ::windows_sys::core::PCWSTR = ::windows_sys::w!("EXPLORERBAR");
+pub const VSCLASS_EXPLORERBAR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EXPLORERBAR");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_EXPLORERBARSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("EXPLORERBARSTYLE");
+pub const VSCLASS_EXPLORERBARSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EXPLORERBARSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_FLYOUT: ::windows_sys::core::PCWSTR = ::windows_sys::w!("FLYOUT");
+pub const VSCLASS_FLYOUT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("FLYOUT");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_FLYOUTSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("FLYOUTSTYLE");
+pub const VSCLASS_FLYOUTSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("FLYOUTSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_HEADER: ::windows_sys::core::PCWSTR = ::windows_sys::w!("HEADER");
+pub const VSCLASS_HEADER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("HEADER");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_HEADERSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("HEADERSTYLE");
+pub const VSCLASS_HEADERSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("HEADERSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_LINK: ::windows_sys::core::PCWSTR = ::windows_sys::w!("LINK");
+pub const VSCLASS_LINK: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("LINK");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_LISTBOX: ::windows_sys::core::PCWSTR = ::windows_sys::w!("LISTBOX");
+pub const VSCLASS_LISTBOX: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("LISTBOX");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_LISTBOXSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("LISTBOXSTYLE");
+pub const VSCLASS_LISTBOXSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("LISTBOXSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_LISTVIEW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("LISTVIEW");
+pub const VSCLASS_LISTVIEW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("LISTVIEW");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_LISTVIEWSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("LISTVIEWSTYLE");
+pub const VSCLASS_LISTVIEWSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("LISTVIEWSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_MENU: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MENU");
+pub const VSCLASS_MENU: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MENU");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_MENUBAND: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MENUBAND");
+pub const VSCLASS_MENUBAND: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MENUBAND");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_MENUSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MENUSTYLE");
+pub const VSCLASS_MENUSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MENUSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_MONTHCAL: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MONTHCAL");
+pub const VSCLASS_MONTHCAL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MONTHCAL");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_NAVIGATION: ::windows_sys::core::PCWSTR = ::windows_sys::w!("NAVIGATION");
+pub const VSCLASS_NAVIGATION: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("NAVIGATION");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_PAGE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("PAGE");
+pub const VSCLASS_PAGE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PAGE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_PROGRESS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("PROGRESS");
+pub const VSCLASS_PROGRESS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PROGRESS");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_PROGRESSSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("PROGRESSSTYLE");
+pub const VSCLASS_PROGRESSSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PROGRESSSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_REBAR: ::windows_sys::core::PCWSTR = ::windows_sys::w!("REBAR");
+pub const VSCLASS_REBAR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("REBAR");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_REBARSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("REBARSTYLE");
+pub const VSCLASS_REBARSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("REBARSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_SCROLLBAR: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SCROLLBAR");
+pub const VSCLASS_SCROLLBAR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SCROLLBAR");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_SCROLLBARSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SCROLLBARSTYLE");
+pub const VSCLASS_SCROLLBARSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SCROLLBARSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_SPIN: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SPIN");
+pub const VSCLASS_SPIN: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SPIN");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_SPINSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SPINSTYLE");
+pub const VSCLASS_SPINSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SPINSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_STARTPANEL: ::windows_sys::core::PCWSTR = ::windows_sys::w!("STARTPANEL");
+pub const VSCLASS_STARTPANEL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("STARTPANEL");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_STATIC: ::windows_sys::core::PCWSTR = ::windows_sys::w!("STATIC");
+pub const VSCLASS_STATIC: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("STATIC");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_STATUS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("STATUS");
+pub const VSCLASS_STATUS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("STATUS");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_STATUSSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("STATUSSTYLE");
+pub const VSCLASS_STATUSSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("STATUSSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TAB: ::windows_sys::core::PCWSTR = ::windows_sys::w!("TAB");
+pub const VSCLASS_TAB: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TAB");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TABSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("TABSTYLE");
+pub const VSCLASS_TABSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TABSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TASKBAND: ::windows_sys::core::PCWSTR = ::windows_sys::w!("TASKBAND");
+pub const VSCLASS_TASKBAND: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TASKBAND");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TASKBAR: ::windows_sys::core::PCWSTR = ::windows_sys::w!("TASKBAR");
+pub const VSCLASS_TASKBAR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TASKBAR");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TASKDIALOG: ::windows_sys::core::PCWSTR = ::windows_sys::w!("TASKDIALOG");
+pub const VSCLASS_TASKDIALOG: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TASKDIALOG");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TASKDIALOGSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("TASKDIALOGSTYLE");
+pub const VSCLASS_TASKDIALOGSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TASKDIALOGSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TEXTSELECTIONGRIPPER: ::windows_sys::core::PCWSTR = ::windows_sys::w!("TEXTSELECTIONGRIPPER");
+pub const VSCLASS_TEXTSELECTIONGRIPPER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TEXTSELECTIONGRIPPER");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TEXTSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("TEXTSTYLE");
+pub const VSCLASS_TEXTSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TEXTSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TOOLBAR: ::windows_sys::core::PCWSTR = ::windows_sys::w!("TOOLBAR");
+pub const VSCLASS_TOOLBAR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TOOLBAR");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TOOLBARSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("TOOLBARSTYLE");
+pub const VSCLASS_TOOLBARSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TOOLBARSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TOOLTIP: ::windows_sys::core::PCWSTR = ::windows_sys::w!("TOOLTIP");
+pub const VSCLASS_TOOLTIP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TOOLTIP");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TOOLTIPSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("TOOLTIPSTYLE");
+pub const VSCLASS_TOOLTIPSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TOOLTIPSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TRACKBAR: ::windows_sys::core::PCWSTR = ::windows_sys::w!("TRACKBAR");
+pub const VSCLASS_TRACKBAR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TRACKBAR");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TRACKBARSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("TRACKBARSTYLE");
+pub const VSCLASS_TRACKBARSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TRACKBARSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TRAYNOTIFY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("TRAYNOTIFY");
+pub const VSCLASS_TRAYNOTIFY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TRAYNOTIFY");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TREEVIEW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("TREEVIEW");
+pub const VSCLASS_TREEVIEW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TREEVIEW");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TREEVIEWSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("TREEVIEWSTYLE");
+pub const VSCLASS_TREEVIEWSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TREEVIEWSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_USERTILE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("USERTILE");
+pub const VSCLASS_USERTILE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("USERTILE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_WINDOW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("WINDOW");
+pub const VSCLASS_WINDOW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("WINDOW");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_WINDOWSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("WINDOWSTYLE");
+pub const VSCLASS_WINDOWSTYLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("WINDOWSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_BUTTON: ::windows_sys::core::PCWSTR = ::windows_sys::w!("Button");
+pub const WC_BUTTON: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Button");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_BUTTONA: ::windows_sys::core::PCSTR = ::windows_sys::s!("Button");
+pub const WC_BUTTONA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Button");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_BUTTONW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("Button");
+pub const WC_BUTTONW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Button");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_COMBOBOX: ::windows_sys::core::PCWSTR = ::windows_sys::w!("ComboBox");
+pub const WC_COMBOBOX: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ComboBox");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_COMBOBOXA: ::windows_sys::core::PCSTR = ::windows_sys::s!("ComboBox");
+pub const WC_COMBOBOXA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ComboBox");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_COMBOBOXEX: ::windows_sys::core::PCWSTR = ::windows_sys::w!("ComboBoxEx32");
+pub const WC_COMBOBOXEX: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ComboBoxEx32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_COMBOBOXEXA: ::windows_sys::core::PCSTR = ::windows_sys::s!("ComboBoxEx32");
+pub const WC_COMBOBOXEXA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ComboBoxEx32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_COMBOBOXEXW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("ComboBoxEx32");
+pub const WC_COMBOBOXEXW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ComboBoxEx32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_COMBOBOXW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("ComboBox");
+pub const WC_COMBOBOXW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ComboBox");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_EDIT: ::windows_sys::core::PCWSTR = ::windows_sys::w!("Edit");
+pub const WC_EDIT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Edit");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_EDITA: ::windows_sys::core::PCSTR = ::windows_sys::s!("Edit");
+pub const WC_EDITA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Edit");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_EDITW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("Edit");
+pub const WC_EDITW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Edit");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_HEADER: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SysHeader32");
+pub const WC_HEADER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysHeader32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_HEADERA: ::windows_sys::core::PCSTR = ::windows_sys::s!("SysHeader32");
+pub const WC_HEADERA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SysHeader32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_HEADERW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SysHeader32");
+pub const WC_HEADERW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysHeader32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_IPADDRESS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SysIPAddress32");
+pub const WC_IPADDRESS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysIPAddress32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_IPADDRESSA: ::windows_sys::core::PCSTR = ::windows_sys::s!("SysIPAddress32");
+pub const WC_IPADDRESSA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SysIPAddress32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_IPADDRESSW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SysIPAddress32");
+pub const WC_IPADDRESSW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysIPAddress32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_LINK: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SysLink");
+pub const WC_LINK: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysLink");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_LISTBOX: ::windows_sys::core::PCWSTR = ::windows_sys::w!("ListBox");
+pub const WC_LISTBOX: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ListBox");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_LISTBOXA: ::windows_sys::core::PCSTR = ::windows_sys::s!("ListBox");
+pub const WC_LISTBOXA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ListBox");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_LISTBOXW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("ListBox");
+pub const WC_LISTBOXW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ListBox");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_LISTVIEW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SysListView32");
+pub const WC_LISTVIEW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysListView32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_LISTVIEWA: ::windows_sys::core::PCSTR = ::windows_sys::s!("SysListView32");
+pub const WC_LISTVIEWA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SysListView32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_LISTVIEWW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SysListView32");
+pub const WC_LISTVIEWW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysListView32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_NATIVEFONTCTL: ::windows_sys::core::PCWSTR = ::windows_sys::w!("NativeFontCtl");
+pub const WC_NATIVEFONTCTL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("NativeFontCtl");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_NATIVEFONTCTLA: ::windows_sys::core::PCSTR = ::windows_sys::s!("NativeFontCtl");
+pub const WC_NATIVEFONTCTLA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("NativeFontCtl");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_NATIVEFONTCTLW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("NativeFontCtl");
+pub const WC_NATIVEFONTCTLW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("NativeFontCtl");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_PAGESCROLLER: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SysPager");
+pub const WC_PAGESCROLLER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysPager");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_PAGESCROLLERA: ::windows_sys::core::PCSTR = ::windows_sys::s!("SysPager");
+pub const WC_PAGESCROLLERA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SysPager");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_PAGESCROLLERW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SysPager");
+pub const WC_PAGESCROLLERW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysPager");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_SCROLLBAR: ::windows_sys::core::PCWSTR = ::windows_sys::w!("ScrollBar");
+pub const WC_SCROLLBAR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ScrollBar");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_SCROLLBARA: ::windows_sys::core::PCSTR = ::windows_sys::s!("ScrollBar");
+pub const WC_SCROLLBARA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ScrollBar");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_SCROLLBARW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("ScrollBar");
+pub const WC_SCROLLBARW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ScrollBar");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_STATIC: ::windows_sys::core::PCWSTR = ::windows_sys::w!("Static");
+pub const WC_STATIC: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Static");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_STATICA: ::windows_sys::core::PCSTR = ::windows_sys::s!("Static");
+pub const WC_STATICA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Static");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_STATICW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("Static");
+pub const WC_STATICW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Static");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_TABCONTROL: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SysTabControl32");
+pub const WC_TABCONTROL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysTabControl32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_TABCONTROLA: ::windows_sys::core::PCSTR = ::windows_sys::s!("SysTabControl32");
+pub const WC_TABCONTROLA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SysTabControl32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_TABCONTROLW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SysTabControl32");
+pub const WC_TABCONTROLW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysTabControl32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_TREEVIEW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SysTreeView32");
+pub const WC_TREEVIEW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysTreeView32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_TREEVIEWA: ::windows_sys::core::PCSTR = ::windows_sys::s!("SysTreeView32");
+pub const WC_TREEVIEWA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SysTreeView32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_TREEVIEWW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SysTreeView32");
+pub const WC_TREEVIEWW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SysTreeView32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const WIZ_BODYCX: u32 = 184u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -3801,6 +4389,10 @@ pub const WIZ_CXBMP: u32 = 80u32;
 pub const WIZ_CXDLG: u32 = 276u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const WIZ_CYDLG: u32 = 140u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WMN_FIRST: u32 = 4294966296u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WMN_LAST: u32 = 4294966096u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const WM_CTLCOLOR: u32 = 25u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -6318,6 +6910,20 @@ pub const MENU_SYSTEMMINIMIZE: MENUPARTS = 19i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MENU_SYSTEMRESTORE: MENUPARTS = 20i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_SYSTEMCLOSE_HCHOT: MENUPARTS = 22i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_SYSTEMMAXIMIZE_HCHOT: MENUPARTS = 23i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_SYSTEMMINIMIZE_HCHOT: MENUPARTS = 24i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_SYSTEMRESTORE_HCHOT: MENUPARTS = 25i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPITEMKBFOCUS: MENUPARTS = 26i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPITEM_FOCUSABLE: MENUPARTS = 27i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPSUBMENU_HCHOT: MENUPARTS = 21i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub type MINBUTTONSTATES = i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MINBS_NORMAL: MINBUTTONSTATES = 1i32;
@@ -6776,6 +7382,20 @@ pub const MC_BULLETNORMAL: POPUPCHECKSTATES = 3i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MC_BULLETDISABLED: POPUPCHECKSTATES = 4i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub type POPUPITEMFOCUSABLESTATES = i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPIF_NORMAL: POPUPITEMFOCUSABLESTATES = 1i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPIF_HOT: POPUPITEMFOCUSABLESTATES = 2i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPIF_DISABLED: POPUPITEMFOCUSABLESTATES = 3i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPIF_DISABLEDHOT: POPUPITEMFOCUSABLESTATES = 4i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub type POPUPITEMKBFOCUSSTATES = i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPIKBFOCUS_NORMAL: POPUPITEMKBFOCUSSTATES = 1i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub type POPUPITEMSTATES = i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MPI_NORMAL: POPUPITEMSTATES = 1i32;
@@ -6785,6 +7405,10 @@ pub const MPI_HOT: POPUPITEMSTATES = 2i32;
 pub const MPI_DISABLED: POPUPITEMSTATES = 3i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MPI_DISABLEDHOT: POPUPITEMSTATES = 4i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub type POPUPSUBMENUHCHOTSTATES = i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSMHC_HOT: POPUPSUBMENUHCHOTSTATES = 1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub type POPUPSUBMENUSTATES = i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -7162,11 +7786,19 @@ pub const SBS_PUSHED: SYSBUTTONSTATES = 3i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const SBS_DISABLED: SYSBUTTONSTATES = 4i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub type SYSTEMCLOSEHCHOTSTATES = i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSCHC_HOT: SYSTEMCLOSEHCHOTSTATES = 1i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub type SYSTEMCLOSESTATES = i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MSYSC_NORMAL: SYSTEMCLOSESTATES = 1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MSYSC_DISABLED: SYSTEMCLOSESTATES = 2i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub type SYSTEMMAXIMIZEHCHOTSTATES = i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSMXHC_HOT: SYSTEMMAXIMIZEHCHOTSTATES = 1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub type SYSTEMMAXIMIZESTATES = i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -7174,11 +7806,19 @@ pub const MSYSMX_NORMAL: SYSTEMMAXIMIZESTATES = 1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MSYSMX_DISABLED: SYSTEMMAXIMIZESTATES = 2i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub type SYSTEMMINIMIZEHCHOTSTATES = i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSMNHC_HOT: SYSTEMMINIMIZEHCHOTSTATES = 1i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub type SYSTEMMINIMIZESTATES = i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MSYSMN_NORMAL: SYSTEMMINIMIZESTATES = 1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MSYSMN_DISABLED: SYSTEMMINIMIZESTATES = 2i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub type SYSTEMRESTOREHCHOTSTATES = i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSRHC_HOT: SYSTEMRESTOREHCHOTSTATES = 1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub type SYSTEMRESTORESTATES = i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -8829,15 +9469,15 @@ impl ::core::clone::Clone for BUTTON_SPLITINFO {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CCINFOA {
-    pub szClass: [super::super::Foundation::CHAR; 32],
+    pub szClass: [u8; 32],
     pub flOptions: u32,
-    pub szDesc: [super::super::Foundation::CHAR; 32],
+    pub szDesc: [u8; 32],
     pub cxDefault: u32,
     pub cyDefault: u32,
     pub flStyleDefault: u32,
     pub flExtStyleDefault: u32,
     pub flCtrlTypeMask: u32,
-    pub szTextDefault: [super::super::Foundation::CHAR; 256],
+    pub szTextDefault: [u8; 256],
     pub cStyleFlags: i32,
     pub aStyleFlags: *mut CCSTYLEFLAGA,
     pub lpfnStyle: LPFNCCSTYLEA,
@@ -8882,18 +9522,15 @@ impl ::core::clone::Clone for CCINFOW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub struct CCSTYLEA {
     pub flStyle: u32,
     pub flExtStyle: u32,
-    pub szText: [super::super::Foundation::CHAR; 256],
+    pub szText: [u8; 256],
     pub lgid: u16,
     pub wReserved1: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CCSTYLEA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CCSTYLEA {
     fn clone(&self) -> Self {
         *self
@@ -9911,7 +10548,7 @@ impl ::core::clone::Clone for NMBCHOTITEM {
 pub struct NMCBEDRAGBEGINA {
     pub hdr: NMHDR,
     pub iItemid: i32,
-    pub szText: [super::super::Foundation::CHAR; 260],
+    pub szText: [u8; 260],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NMCBEDRAGBEGINA {}
@@ -9944,7 +10581,7 @@ pub struct NMCBEENDEDITA {
     pub hdr: NMHDR,
     pub fChanged: super::super::Foundation::BOOL,
     pub iNewSelection: i32,
-    pub szText: [super::super::Foundation::CHAR; 260],
+    pub szText: [u8; 260],
     pub iWhy: i32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10101,7 +10738,7 @@ pub struct NMDATETIMEFORMATA {
     pub pszFormat: ::windows_sys::core::PCSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
     pub pszDisplay: ::windows_sys::core::PCSTR,
-    pub szDisplay: [super::super::Foundation::CHAR; 64],
+    pub szDisplay: [u8; 64],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NMDATETIMEFORMATA {}
@@ -11203,8 +11840,8 @@ impl ::core::clone::Clone for NMTTCUSTOMDRAW {
 pub struct NMTTDISPINFOA {
     pub hdr: NMHDR,
     pub lpszText: ::windows_sys::core::PSTR,
-    pub szText: [super::super::Foundation::CHAR; 80],
-    pub hinst: super::super::Foundation::HINSTANCE,
+    pub szText: [u8; 80],
+    pub hinst: super::super::Foundation::HMODULE,
     pub uFlags: TOOLTIP_FLAGS,
     pub lParam: super::super::Foundation::LPARAM,
 }
@@ -11223,7 +11860,7 @@ pub struct NMTTDISPINFOW {
     pub hdr: NMHDR,
     pub lpszText: ::windows_sys::core::PWSTR,
     pub szText: [u16; 80],
-    pub hinst: super::super::Foundation::HINSTANCE,
+    pub hinst: super::super::Foundation::HMODULE,
     pub uFlags: TOOLTIP_FLAGS,
     pub lParam: super::super::Foundation::LPARAM,
 }
@@ -11551,7 +12188,7 @@ pub struct PROPSHEETHEADERA_V1 {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETHEADERA_V1_0,
     pub pszCaption: ::windows_sys::core::PCSTR,
     pub nPages: u32,
@@ -11619,7 +12256,7 @@ pub struct PROPSHEETHEADERA_V2 {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETHEADERA_V2_0,
     pub pszCaption: ::windows_sys::core::PCSTR,
     pub nPages: u32,
@@ -11720,7 +12357,7 @@ pub struct PROPSHEETHEADERW_V1 {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETHEADERW_V1_0,
     pub pszCaption: ::windows_sys::core::PCWSTR,
     pub nPages: u32,
@@ -11788,7 +12425,7 @@ pub struct PROPSHEETHEADERW_V2 {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETHEADERW_V2_0,
     pub pszCaption: ::windows_sys::core::PCWSTR,
     pub nPages: u32,
@@ -11888,7 +12525,7 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V2_4 {
 pub struct PROPSHEETPAGEA {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETPAGEA_0,
     pub Anonymous2: PROPSHEETPAGEA_1,
     pub pszTitle: ::windows_sys::core::PCSTR,
@@ -11960,7 +12597,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_2 {
 pub struct PROPSHEETPAGEA_V1 {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETPAGEA_V1_0,
     pub Anonymous2: PROPSHEETPAGEA_V1_1,
     pub pszTitle: ::windows_sys::core::PCSTR,
@@ -12013,7 +12650,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V1_1 {
 pub struct PROPSHEETPAGEA_V2 {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETPAGEA_V2_0,
     pub Anonymous2: PROPSHEETPAGEA_V2_1,
     pub pszTitle: ::windows_sys::core::PCSTR,
@@ -12068,7 +12705,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V2_1 {
 pub struct PROPSHEETPAGEA_V3 {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETPAGEA_V3_0,
     pub Anonymous2: PROPSHEETPAGEA_V3_1,
     pub pszTitle: ::windows_sys::core::PCSTR,
@@ -12124,7 +12761,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V3_1 {
 pub struct PROPSHEETPAGEW {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETPAGEW_0,
     pub Anonymous2: PROPSHEETPAGEW_1,
     pub pszTitle: ::windows_sys::core::PCWSTR,
@@ -12196,7 +12833,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_2 {
 pub struct PROPSHEETPAGEW_V1 {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETPAGEW_V1_0,
     pub Anonymous2: PROPSHEETPAGEW_V1_1,
     pub pszTitle: ::windows_sys::core::PCWSTR,
@@ -12249,7 +12886,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V1_1 {
 pub struct PROPSHEETPAGEW_V2 {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETPAGEW_V2_0,
     pub Anonymous2: PROPSHEETPAGEW_V2_1,
     pub pszTitle: ::windows_sys::core::PCWSTR,
@@ -12304,7 +12941,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V2_1 {
 pub struct PROPSHEETPAGEW_V3 {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETPAGEW_V3_0,
     pub Anonymous2: PROPSHEETPAGEW_V3_1,
     pub pszTitle: ::windows_sys::core::PCWSTR,
@@ -12474,7 +13111,7 @@ impl ::core::clone::Clone for REBARINFO {
 pub struct TASKDIALOGCONFIG {
     pub cbSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub dwFlags: TASKDIALOG_FLAGS,
     pub dwCommonButtons: TASKDIALOG_COMMON_BUTTON_FLAGS,
     pub pszWindowTitle: ::windows_sys::core::PCWSTR,
@@ -12641,7 +13278,7 @@ impl ::core::clone::Clone for TA_TRANSFORM_OPACITY {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TBADDBITMAP {
-    pub hInst: super::super::Foundation::HINSTANCE,
+    pub hInst: super::super::Foundation::HMODULE,
     pub nID: usize,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12766,9 +13403,9 @@ impl ::core::clone::Clone for TBMETRICS {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TBREPLACEBITMAP {
-    pub hInstOld: super::super::Foundation::HINSTANCE,
+    pub hInstOld: super::super::Foundation::HMODULE,
     pub nIDOld: usize,
-    pub hInstNew: super::super::Foundation::HINSTANCE,
+    pub hInstNew: super::super::Foundation::HMODULE,
     pub nIDNew: usize,
     pub nButtons: i32,
 }
@@ -12987,7 +13624,7 @@ pub struct TTTOOLINFOA {
     pub hwnd: super::super::Foundation::HWND,
     pub uId: usize,
     pub rect: super::super::Foundation::RECT,
-    pub hinst: super::super::Foundation::HINSTANCE,
+    pub hinst: super::super::Foundation::HMODULE,
     pub lpszText: ::windows_sys::core::PSTR,
     pub lParam: super::super::Foundation::LPARAM,
     pub lpReserved: *mut ::core::ffi::c_void,
@@ -13009,7 +13646,7 @@ pub struct TTTOOLINFOW {
     pub hwnd: super::super::Foundation::HWND,
     pub uId: usize,
     pub rect: super::super::Foundation::RECT,
-    pub hinst: super::super::Foundation::HINSTANCE,
+    pub hinst: super::super::Foundation::HMODULE,
     pub lpszText: ::windows_sys::core::PWSTR,
     pub lParam: super::super::Foundation::LPARAM,
     pub lpReserved: *mut ::core::ffi::c_void,

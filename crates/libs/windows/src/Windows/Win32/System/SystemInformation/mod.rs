@@ -5,7 +5,7 @@ pub unsafe fn DnsHostnameToComputerNameExW<P0>(hostname: P0, computername: ::win
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn DnsHostnameToComputerNameExW ( hostname : :: windows::core::PCWSTR , computername : :: windows::core::PWSTR , nsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn DnsHostnameToComputerNameExW ( hostname : ::windows::core::PCWSTR , computername : ::windows::core::PWSTR , nsize : *mut u32 ) -> super::super::Foundation:: BOOL );
     DnsHostnameToComputerNameExW(hostname.into_param().abi(), ::core::mem::transmute(computername), nsize)
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
@@ -18,14 +18,14 @@ pub unsafe fn EnumSystemFirmwareTables(firmwaretableprovidersignature: FIRMWARE_
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: ::windows::core::PSTR, nsize: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetComputerNameExA ( nametype : COMPUTER_NAME_FORMAT , lpbuffer : :: windows::core::PSTR , nsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetComputerNameExA ( nametype : COMPUTER_NAME_FORMAT , lpbuffer : ::windows::core::PSTR , nsize : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetComputerNameExA(nametype, ::core::mem::transmute(lpbuffer), nsize)
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetComputerNameExW ( nametype : COMPUTER_NAME_FORMAT , lpbuffer : :: windows::core::PWSTR , nsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetComputerNameExW ( nametype : COMPUTER_NAME_FORMAT , lpbuffer : ::windows::core::PWSTR , nsize : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetComputerNameExW(nametype, ::core::mem::transmute(lpbuffer), nsize)
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
@@ -38,7 +38,7 @@ pub unsafe fn GetFirmwareType(firmwaretype: *mut FIRMWARE_TYPE) -> super::super:
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
 pub unsafe fn GetIntegratedDisplaySize() -> ::windows::core::Result<f64> {
-    ::windows::imp::link ! ( "api-ms-win-core-sysinfo-l1-2-3.dll""system" fn GetIntegratedDisplaySize ( sizeininches : *mut f64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-sysinfo-l1-2-3.dll""system" fn GetIntegratedDisplaySize ( sizeininches : *mut f64 ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<f64>();
     GetIntegratedDisplaySize(&mut result__).from_abi(result__)
 }
@@ -126,13 +126,13 @@ pub unsafe fn GetSystemDEPPolicy() -> DEP_SYSTEM_POLICY_TYPE {
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
 pub unsafe fn GetSystemDirectoryA(lpbuffer: ::core::option::Option<&mut [u8]>) -> u32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetSystemDirectoryA ( lpbuffer : :: windows::core::PSTR , usize : u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetSystemDirectoryA ( lpbuffer : ::windows::core::PSTR , usize : u32 ) -> u32 );
     GetSystemDirectoryA(::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
 pub unsafe fn GetSystemDirectoryW(lpbuffer: ::core::option::Option<&mut [u16]>) -> u32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetSystemDirectoryW ( lpbuffer : :: windows::core::PWSTR , usize : u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetSystemDirectoryW ( lpbuffer : ::windows::core::PWSTR , usize : u32 ) -> u32 );
     GetSystemDirectoryW(::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
@@ -202,37 +202,37 @@ pub unsafe fn GetSystemTimePreciseAsFileTime() -> super::super::Foundation::FILE
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
 pub unsafe fn GetSystemWindowsDirectoryA(lpbuffer: ::core::option::Option<&mut [u8]>) -> u32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetSystemWindowsDirectoryA ( lpbuffer : :: windows::core::PSTR , usize : u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetSystemWindowsDirectoryA ( lpbuffer : ::windows::core::PSTR , usize : u32 ) -> u32 );
     GetSystemWindowsDirectoryA(::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
 pub unsafe fn GetSystemWindowsDirectoryW(lpbuffer: ::core::option::Option<&mut [u16]>) -> u32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetSystemWindowsDirectoryW ( lpbuffer : :: windows::core::PWSTR , usize : u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetSystemWindowsDirectoryW ( lpbuffer : ::windows::core::PWSTR , usize : u32 ) -> u32 );
     GetSystemWindowsDirectoryW(::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
 pub unsafe fn GetSystemWow64Directory2A(lpbuffer: ::core::option::Option<&mut [u8]>, imagefilemachinetype: IMAGE_FILE_MACHINE) -> u32 {
-    ::windows::imp::link ! ( "api-ms-win-core-wow64-l1-1-1.dll""system" fn GetSystemWow64Directory2A ( lpbuffer : :: windows::core::PSTR , usize : u32 , imagefilemachinetype : IMAGE_FILE_MACHINE ) -> u32 );
+    ::windows::imp::link ! ( "api-ms-win-core-wow64-l1-1-1.dll""system" fn GetSystemWow64Directory2A ( lpbuffer : ::windows::core::PSTR , usize : u32 , imagefilemachinetype : IMAGE_FILE_MACHINE ) -> u32 );
     GetSystemWow64Directory2A(::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), imagefilemachinetype)
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
 pub unsafe fn GetSystemWow64Directory2W(lpbuffer: ::core::option::Option<&mut [u16]>, imagefilemachinetype: IMAGE_FILE_MACHINE) -> u32 {
-    ::windows::imp::link ! ( "api-ms-win-core-wow64-l1-1-1.dll""system" fn GetSystemWow64Directory2W ( lpbuffer : :: windows::core::PWSTR , usize : u32 , imagefilemachinetype : IMAGE_FILE_MACHINE ) -> u32 );
+    ::windows::imp::link ! ( "api-ms-win-core-wow64-l1-1-1.dll""system" fn GetSystemWow64Directory2W ( lpbuffer : ::windows::core::PWSTR , usize : u32 , imagefilemachinetype : IMAGE_FILE_MACHINE ) -> u32 );
     GetSystemWow64Directory2W(::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), imagefilemachinetype)
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
 pub unsafe fn GetSystemWow64DirectoryA(lpbuffer: ::core::option::Option<&mut [u8]>) -> u32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetSystemWow64DirectoryA ( lpbuffer : :: windows::core::PSTR , usize : u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetSystemWow64DirectoryA ( lpbuffer : ::windows::core::PSTR , usize : u32 ) -> u32 );
     GetSystemWow64DirectoryA(::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
 pub unsafe fn GetSystemWow64DirectoryW(lpbuffer: ::core::option::Option<&mut [u16]>) -> u32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetSystemWow64DirectoryW ( lpbuffer : :: windows::core::PWSTR , usize : u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetSystemWow64DirectoryW ( lpbuffer : ::windows::core::PWSTR , usize : u32 ) -> u32 );
     GetSystemWow64DirectoryW(::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
@@ -270,13 +270,13 @@ pub unsafe fn GetVersionExW(lpversioninformation: *mut OSVERSIONINFOW) -> super:
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
 pub unsafe fn GetWindowsDirectoryA(lpbuffer: ::core::option::Option<&mut [u8]>) -> u32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetWindowsDirectoryA ( lpbuffer : :: windows::core::PSTR , usize : u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetWindowsDirectoryA ( lpbuffer : ::windows::core::PSTR , usize : u32 ) -> u32 );
     GetWindowsDirectoryA(::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
 pub unsafe fn GetWindowsDirectoryW(lpbuffer: ::core::option::Option<&mut [u16]>) -> u32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetWindowsDirectoryW ( lpbuffer : :: windows::core::PWSTR , usize : u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetWindowsDirectoryW ( lpbuffer : ::windows::core::PWSTR , usize : u32 ) -> u32 );
     GetWindowsDirectoryW(::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
@@ -303,14 +303,14 @@ pub unsafe fn IsUserCetAvailableInEnvironment(usercetenvironment: USER_CET_ENVIR
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: IMAGE_FILE_MACHINE) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn IsWow64GuestMachineSupported ( wowguestmachine : IMAGE_FILE_MACHINE , machineissupported : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn IsWow64GuestMachineSupported ( wowguestmachine : IMAGE_FILE_MACHINE , machineissupported : *mut super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
     IsWow64GuestMachineSupported(wowguestmachine, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
 pub unsafe fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: *mut u32, puldeviceformbuffersize: *mut u32, devicefamily: ::windows::core::PWSTR, deviceform: ::windows::core::PWSTR) -> u32 {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlConvertDeviceFamilyInfoToString ( puldevicefamilybuffersize : *mut u32 , puldeviceformbuffersize : *mut u32 , devicefamily : :: windows::core::PWSTR , deviceform : :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlConvertDeviceFamilyInfoToString ( puldevicefamilybuffersize : *mut u32 , puldeviceformbuffersize : *mut u32 , devicefamily : ::windows::core::PWSTR , deviceform : ::windows::core::PWSTR ) -> u32 );
     RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize, puldeviceformbuffersize, ::core::mem::transmute(devicefamily), ::core::mem::transmute(deviceform))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
@@ -351,7 +351,7 @@ pub unsafe fn SetComputerNameA<P0>(lpcomputername: P0) -> super::super::Foundati
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn SetComputerNameA ( lpcomputername : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetComputerNameA ( lpcomputername : ::windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     SetComputerNameA(lpcomputername.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
@@ -361,7 +361,7 @@ pub unsafe fn SetComputerNameEx2W<P0>(nametype: COMPUTER_NAME_FORMAT, flags: u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn SetComputerNameEx2W ( nametype : COMPUTER_NAME_FORMAT , flags : u32 , lpbuffer : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetComputerNameEx2W ( nametype : COMPUTER_NAME_FORMAT , flags : u32 , lpbuffer : ::windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     SetComputerNameEx2W(nametype, flags, lpbuffer.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
@@ -371,7 +371,7 @@ pub unsafe fn SetComputerNameExA<P0>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: P
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn SetComputerNameExA ( nametype : COMPUTER_NAME_FORMAT , lpbuffer : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetComputerNameExA ( nametype : COMPUTER_NAME_FORMAT , lpbuffer : ::windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     SetComputerNameExA(nametype, lpbuffer.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
@@ -381,7 +381,7 @@ pub unsafe fn SetComputerNameExW<P0>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: P
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn SetComputerNameExW ( nametype : COMPUTER_NAME_FORMAT , lpbuffer : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetComputerNameExW ( nametype : COMPUTER_NAME_FORMAT , lpbuffer : ::windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     SetComputerNameExW(nametype, lpbuffer.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
@@ -391,7 +391,7 @@ pub unsafe fn SetComputerNameW<P0>(lpcomputername: P0) -> super::super::Foundati
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn SetComputerNameW ( lpcomputername : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetComputerNameW ( lpcomputername : ::windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     SetComputerNameW(lpcomputername.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
@@ -451,7 +451,7 @@ pub unsafe fn VerifyVersionInfoW(lpversioninformation: *mut OSVERSIONINFOEXW, dw
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const NTDDI_LONGHORN: u32 = 100663296u32;
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-pub const NTDDI_VERSION: u32 = 167772171u32;
+pub const NTDDI_VERSION: u32 = 167772172u32;
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const NTDDI_VISTA: u32 = 100663296u32;
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
@@ -472,6 +472,8 @@ pub const NTDDI_WIN10_CO: u32 = 167772171u32;
 pub const NTDDI_WIN10_FE: u32 = 167772170u32;
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const NTDDI_WIN10_MN: u32 = 167772169u32;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const NTDDI_WIN10_NI: u32 = 167772172u32;
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const NTDDI_WIN10_RS1: u32 = 167772162u32;
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
@@ -561,7 +563,7 @@ pub const SYSTEM_CPU_SET_INFORMATION_PARKED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const SYSTEM_CPU_SET_INFORMATION_REALTIME: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-pub const WDK_NTDDI_VERSION: u32 = 167772171u32;
+pub const WDK_NTDDI_VERSION: u32 = 167772172u32;
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const _WIN32_IE_IE100: u32 = 2560u32;
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
@@ -850,7 +852,7 @@ pub const DEVICEFAMILYDEVICEFORM_XBOX_SERIES_X: DEVICEFAMILYDEVICEFORM = DEVICEF
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const DEVICEFAMILYDEVICEFORM_XBOX_SERIES_X_DEVKIT: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(35u32);
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_00: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(36u32);
+pub const DEVICEFAMILYDEVICEFORM_XBOX_SERIES_S: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(36u32);
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_01: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(37u32);
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
@@ -1444,6 +1446,18 @@ pub const GlobalDataIdCyclesPerYield: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLO
 pub const GlobalDataIdSafeBootMode: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(12i32);
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const GlobalDataIdLastSystemRITEventTickCount: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(13i32);
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const GlobalDataIdConsoleSharedDataFlags: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(14i32);
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const GlobalDataIdNtSystemRootDrive: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(15i32);
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const GlobalDataIdQpcShift: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(16i32);
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const GlobalDataIdQpcBypassEnabled: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(17i32);
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const GlobalDataIdQpcData: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(18i32);
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const GlobalDataIdQpcBias: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(19i32);
 impl ::core::marker::Copy for RTL_SYSTEM_GLOBAL_DATA_ID {}
 impl ::core::clone::Clone for RTL_SYSTEM_GLOBAL_DATA_ID {
     fn clone(&self) -> Self {
@@ -1851,73 +1865,61 @@ impl ::core::default::Default for NUMA_NODE_RELATIONSHIP_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub struct OSVERSIONINFOA {
     pub dwOSVersionInfoSize: u32,
     pub dwMajorVersion: u32,
     pub dwMinorVersion: u32,
     pub dwBuildNumber: u32,
     pub dwPlatformId: u32,
-    pub szCSDVersion: [super::super::Foundation::CHAR; 128],
+    pub szCSDVersion: [u8; 128],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OSVERSIONINFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OSVERSIONINFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for OSVERSIONINFOA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("OSVERSIONINFOA").field("dwOSVersionInfoSize", &self.dwOSVersionInfoSize).field("dwMajorVersion", &self.dwMajorVersion).field("dwMinorVersion", &self.dwMinorVersion).field("dwBuildNumber", &self.dwBuildNumber).field("dwPlatformId", &self.dwPlatformId).field("szCSDVersion", &self.szCSDVersion).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for OSVERSIONINFOA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OSVERSIONINFOA {
     fn eq(&self, other: &Self) -> bool {
         self.dwOSVersionInfoSize == other.dwOSVersionInfoSize && self.dwMajorVersion == other.dwMajorVersion && self.dwMinorVersion == other.dwMinorVersion && self.dwBuildNumber == other.dwBuildNumber && self.dwPlatformId == other.dwPlatformId && self.szCSDVersion == other.szCSDVersion
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OSVERSIONINFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OSVERSIONINFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub struct OSVERSIONINFOEXA {
     pub dwOSVersionInfoSize: u32,
     pub dwMajorVersion: u32,
     pub dwMinorVersion: u32,
     pub dwBuildNumber: u32,
     pub dwPlatformId: u32,
-    pub szCSDVersion: [super::super::Foundation::CHAR; 128],
+    pub szCSDVersion: [u8; 128],
     pub wServicePackMajor: u16,
     pub wServicePackMinor: u16,
     pub wSuiteMask: u16,
     pub wProductType: u8,
     pub wReserved: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OSVERSIONINFOEXA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OSVERSIONINFOEXA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for OSVERSIONINFOEXA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("OSVERSIONINFOEXA")
@@ -1935,19 +1937,15 @@ impl ::core::fmt::Debug for OSVERSIONINFOEXA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for OSVERSIONINFOEXA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OSVERSIONINFOEXA {
     fn eq(&self, other: &Self) -> bool {
         self.dwOSVersionInfoSize == other.dwOSVersionInfoSize && self.dwMajorVersion == other.dwMajorVersion && self.dwMinorVersion == other.dwMinorVersion && self.dwBuildNumber == other.dwBuildNumber && self.dwPlatformId == other.dwPlatformId && self.szCSDVersion == other.szCSDVersion && self.wServicePackMajor == other.wServicePackMajor && self.wServicePackMinor == other.wServicePackMinor && self.wSuiteMask == other.wSuiteMask && self.wProductType == other.wProductType && self.wReserved == other.wReserved
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OSVERSIONINFOEXA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OSVERSIONINFOEXA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

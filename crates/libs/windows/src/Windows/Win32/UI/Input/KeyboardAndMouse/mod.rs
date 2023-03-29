@@ -82,13 +82,13 @@ pub unsafe fn GetKBCodePage() -> u32 {
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
 pub unsafe fn GetKeyNameTextA(lparam: i32, lpstring: &mut [u8]) -> i32 {
-    ::windows::imp::link ! ( "user32.dll""system" fn GetKeyNameTextA ( lparam : i32 , lpstring : :: windows::core::PSTR , cchsize : i32 ) -> i32 );
+    ::windows::imp::link ! ( "user32.dll""system" fn GetKeyNameTextA ( lparam : i32 , lpstring : ::windows::core::PSTR , cchsize : i32 ) -> i32 );
     GetKeyNameTextA(lparam, ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
 pub unsafe fn GetKeyNameTextW(lparam: i32, lpstring: &mut [u16]) -> i32 {
-    ::windows::imp::link ! ( "user32.dll""system" fn GetKeyNameTextW ( lparam : i32 , lpstring : :: windows::core::PWSTR , cchsize : i32 ) -> i32 );
+    ::windows::imp::link ! ( "user32.dll""system" fn GetKeyNameTextW ( lparam : i32 , lpstring : ::windows::core::PWSTR , cchsize : i32 ) -> i32 );
     GetKeyNameTextW(lparam, ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
@@ -115,14 +115,14 @@ pub unsafe fn GetKeyboardLayoutList(lplist: ::core::option::Option<&mut [super::
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetKeyboardLayoutNameA(pwszklid: &mut [u8; 9]) -> super::super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "user32.dll""system" fn GetKeyboardLayoutNameA ( pwszklid : :: windows::core::PSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "user32.dll""system" fn GetKeyboardLayoutNameA ( pwszklid : ::windows::core::PSTR ) -> super::super::super::Foundation:: BOOL );
     GetKeyboardLayoutNameA(::core::mem::transmute(pwszklid.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetKeyboardLayoutNameW(pwszklid: &mut [u16; 9]) -> super::super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "user32.dll""system" fn GetKeyboardLayoutNameW ( pwszklid : :: windows::core::PWSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "user32.dll""system" fn GetKeyboardLayoutNameW ( pwszklid : ::windows::core::PWSTR ) -> super::super::super::Foundation:: BOOL );
     GetKeyboardLayoutNameW(::core::mem::transmute(pwszklid.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
@@ -168,7 +168,7 @@ pub unsafe fn LoadKeyboardLayoutA<P0>(pwszklid: P0, flags: ACTIVATE_KEYBOARD_LAY
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn LoadKeyboardLayoutA ( pwszklid : :: windows::core::PCSTR , flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS ) -> super::super::TextServices:: HKL );
+    ::windows::imp::link ! ( "user32.dll""system" fn LoadKeyboardLayoutA ( pwszklid : ::windows::core::PCSTR , flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS ) -> super::super::TextServices:: HKL );
     let result__ = LoadKeyboardLayoutA(pwszklid.into_param().abi(), flags);
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -179,7 +179,7 @@ pub unsafe fn LoadKeyboardLayoutW<P0>(pwszklid: P0, flags: ACTIVATE_KEYBOARD_LAY
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn LoadKeyboardLayoutW ( pwszklid : :: windows::core::PCWSTR , flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS ) -> super::super::TextServices:: HKL );
+    ::windows::imp::link ! ( "user32.dll""system" fn LoadKeyboardLayoutW ( pwszklid : ::windows::core::PCWSTR , flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS ) -> super::super::TextServices:: HKL );
     let result__ = LoadKeyboardLayoutW(pwszklid.into_param().abi(), flags);
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -317,7 +317,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
 pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: ::core::option::Option<&[u8; 256]>, pwszbuff: &mut [u16], wflags: u32) -> i32 {
-    ::windows::imp::link ! ( "user32.dll""system" fn ToUnicode ( wvirtkey : u32 , wscancode : u32 , lpkeystate : *const u8 , pwszbuff : :: windows::core::PWSTR , cchbuff : i32 , wflags : u32 ) -> i32 );
+    ::windows::imp::link ! ( "user32.dll""system" fn ToUnicode ( wvirtkey : u32 , wscancode : u32 , lpkeystate : *const u8 , pwszbuff : ::windows::core::PWSTR , cchbuff : i32 , wflags : u32 ) -> i32 );
     ToUnicode(wvirtkey, wscancode, ::core::mem::transmute(lpkeystate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pwszbuff.as_ptr()), pwszbuff.len() as _, wflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
@@ -327,7 +327,7 @@ pub unsafe fn ToUnicodeEx<P0>(wvirtkey: u32, wscancode: u32, lpkeystate: &[u8; 2
 where
     P0: ::windows::core::IntoParam<super::super::TextServices::HKL>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn ToUnicodeEx ( wvirtkey : u32 , wscancode : u32 , lpkeystate : *const u8 , pwszbuff : :: windows::core::PWSTR , cchbuff : i32 , wflags : u32 , dwhkl : super::super::TextServices:: HKL ) -> i32 );
+    ::windows::imp::link ! ( "user32.dll""system" fn ToUnicodeEx ( wvirtkey : u32 , wscancode : u32 , lpkeystate : *const u8 , pwszbuff : ::windows::core::PWSTR , cchbuff : i32 , wflags : u32 , dwhkl : super::super::TextServices:: HKL ) -> i32 );
     ToUnicodeEx(wvirtkey, wscancode, ::core::mem::transmute(lpkeystate.as_ptr()), ::core::mem::transmute(pwszbuff.as_ptr()), pwszbuff.len() as _, wflags, dwhkl.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
@@ -357,26 +357,21 @@ where
     ::windows::imp::link ! ( "user32.dll""system" fn UnregisterHotKey ( hwnd : super::super::super::Foundation:: HWND , id : i32 ) -> super::super::super::Foundation:: BOOL );
     UnregisterHotKey(hwnd.into_param().abi(), id)
 }
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
-pub unsafe fn VkKeyScanA<P0>(ch: P0) -> i16
-where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::CHAR>,
-{
-    ::windows::imp::link ! ( "user32.dll""system" fn VkKeyScanA ( ch : super::super::super::Foundation:: CHAR ) -> i16 );
-    VkKeyScanA(ch.into_param().abi())
+pub unsafe fn VkKeyScanA(ch: u8) -> i16 {
+    ::windows::imp::link ! ( "user32.dll""system" fn VkKeyScanA ( ch : u8 ) -> i16 );
+    VkKeyScanA(ch)
 }
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
+#[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn VkKeyScanExA<P0, P1>(ch: P0, dwhkl: P1) -> i16
+pub unsafe fn VkKeyScanExA<P0>(ch: u8, dwhkl: P0) -> i16
 where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::CHAR>,
-    P1: ::windows::core::IntoParam<super::super::TextServices::HKL>,
+    P0: ::windows::core::IntoParam<super::super::TextServices::HKL>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn VkKeyScanExA ( ch : super::super::super::Foundation:: CHAR , dwhkl : super::super::TextServices:: HKL ) -> i16 );
-    VkKeyScanExA(ch.into_param().abi(), dwhkl.into_param().abi())
+    ::windows::imp::link ! ( "user32.dll""system" fn VkKeyScanExA ( ch : u8 , dwhkl : super::super::TextServices:: HKL ) -> i16 );
+    VkKeyScanExA(ch, dwhkl.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -646,39 +641,39 @@ pub const WCH_LGTR: u32 = 61442u32;
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 pub const WCH_NONE: u32 = 61440u32;
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszACUTE: ::windows::core::PCWSTR = ::windows::w!("\u{301}");
+pub const wszACUTE: ::windows::core::PCWSTR = ::windows::core::w!("\u{301}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszBREVE: ::windows::core::PCWSTR = ::windows::w!("\u{306}");
+pub const wszBREVE: ::windows::core::PCWSTR = ::windows::core::w!("\u{306}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszCEDILLA: ::windows::core::PCWSTR = ::windows::w!("\u{327}");
+pub const wszCEDILLA: ::windows::core::PCWSTR = ::windows::core::w!("\u{327}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszCIRCUMFLEX: ::windows::core::PCWSTR = ::windows::w!("\u{302}");
+pub const wszCIRCUMFLEX: ::windows::core::PCWSTR = ::windows::core::w!("\u{302}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszDIARESIS_TONOS: ::windows::core::PCWSTR = ::windows::w!("\u{385}");
+pub const wszDIARESIS_TONOS: ::windows::core::PCWSTR = ::windows::core::w!("\u{385}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszDOT_ABOVE: ::windows::core::PCWSTR = ::windows::w!("\u{307}");
+pub const wszDOT_ABOVE: ::windows::core::PCWSTR = ::windows::core::w!("\u{307}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszDOUBLE_ACUTE: ::windows::core::PCWSTR = ::windows::w!("\u{30b}");
+pub const wszDOUBLE_ACUTE: ::windows::core::PCWSTR = ::windows::core::w!("\u{30b}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszGRAVE: ::windows::core::PCWSTR = ::windows::w!("\u{300}");
+pub const wszGRAVE: ::windows::core::PCWSTR = ::windows::core::w!("\u{300}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszHACEK: ::windows::core::PCWSTR = ::windows::w!("\u{30c}");
+pub const wszHACEK: ::windows::core::PCWSTR = ::windows::core::w!("\u{30c}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszHOOK_ABOVE: ::windows::core::PCWSTR = ::windows::w!("\u{309}");
+pub const wszHOOK_ABOVE: ::windows::core::PCWSTR = ::windows::core::w!("\u{309}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszMACRON: ::windows::core::PCWSTR = ::windows::w!("\u{304}");
+pub const wszMACRON: ::windows::core::PCWSTR = ::windows::core::w!("\u{304}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszOGONEK: ::windows::core::PCWSTR = ::windows::w!("\u{328}");
+pub const wszOGONEK: ::windows::core::PCWSTR = ::windows::core::w!("\u{328}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszOVERSCORE: ::windows::core::PCWSTR = ::windows::w!("\u{305}");
+pub const wszOVERSCORE: ::windows::core::PCWSTR = ::windows::core::w!("\u{305}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszRING: ::windows::core::PCWSTR = ::windows::w!("\u{30a}");
+pub const wszRING: ::windows::core::PCWSTR = ::windows::core::w!("\u{30a}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszTILDE: ::windows::core::PCWSTR = ::windows::w!("\u{303}");
+pub const wszTILDE: ::windows::core::PCWSTR = ::windows::core::w!("\u{303}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszTONOS: ::windows::core::PCWSTR = ::windows::w!("\u{384}");
+pub const wszTONOS: ::windows::core::PCWSTR = ::windows::core::w!("\u{384}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszUMLAUT: ::windows::core::PCWSTR = ::windows::w!("\u{308}");
+pub const wszUMLAUT: ::windows::core::PCWSTR = ::windows::core::w!("\u{308}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

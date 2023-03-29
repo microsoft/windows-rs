@@ -56,7 +56,7 @@ pub unsafe fn FaxConnectFaxServerA<P0>(machinename: P0, faxhandle: *mut super::s
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "winfax.dll""system" fn FaxConnectFaxServerA ( machinename : :: windows::core::PCSTR , faxhandle : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winfax.dll""system" fn FaxConnectFaxServerA ( machinename : ::windows::core::PCSTR , faxhandle : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     FaxConnectFaxServerA(machinename.into_param().abi(), faxhandle)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
@@ -66,7 +66,7 @@ pub unsafe fn FaxConnectFaxServerW<P0>(machinename: P0, faxhandle: *mut super::s
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "winfax.dll""system" fn FaxConnectFaxServerW ( machinename : :: windows::core::PCWSTR , faxhandle : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winfax.dll""system" fn FaxConnectFaxServerW ( machinename : ::windows::core::PCWSTR , faxhandle : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     FaxConnectFaxServerW(machinename.into_param().abi(), faxhandle)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
@@ -78,7 +78,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "winfax.dll""system" fn FaxEnableRoutingMethodA ( faxporthandle : super::super::Foundation:: HANDLE , routingguid : :: windows::core::PCSTR , enabled : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winfax.dll""system" fn FaxEnableRoutingMethodA ( faxporthandle : super::super::Foundation:: HANDLE , routingguid : ::windows::core::PCSTR , enabled : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     FaxEnableRoutingMethodA(faxporthandle.into_param().abi(), routingguid.into_param().abi(), enabled.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
@@ -90,7 +90,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "winfax.dll""system" fn FaxEnableRoutingMethodW ( faxporthandle : super::super::Foundation:: HANDLE , routingguid : :: windows::core::PCWSTR , enabled : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winfax.dll""system" fn FaxEnableRoutingMethodW ( faxporthandle : super::super::Foundation:: HANDLE , routingguid : ::windows::core::PCWSTR , enabled : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     FaxEnableRoutingMethodW(faxporthandle.into_param().abi(), routingguid.into_param().abi(), enabled.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
@@ -297,7 +297,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "winfax.dll""system" fn FaxGetRoutingInfoA ( faxporthandle : super::super::Foundation:: HANDLE , routingguid : :: windows::core::PCSTR , routinginfobuffer : *mut *mut u8 , routinginfobuffersize : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winfax.dll""system" fn FaxGetRoutingInfoA ( faxporthandle : super::super::Foundation:: HANDLE , routingguid : ::windows::core::PCSTR , routinginfobuffer : *mut *mut u8 , routinginfobuffersize : *mut u32 ) -> super::super::Foundation:: BOOL );
     FaxGetRoutingInfoA(faxporthandle.into_param().abi(), routingguid.into_param().abi(), routinginfobuffer, routinginfobuffersize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
@@ -308,7 +308,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "winfax.dll""system" fn FaxGetRoutingInfoW ( faxporthandle : super::super::Foundation:: HANDLE , routingguid : :: windows::core::PCWSTR , routinginfobuffer : *mut *mut u8 , routinginfobuffersize : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winfax.dll""system" fn FaxGetRoutingInfoW ( faxporthandle : super::super::Foundation:: HANDLE , routingguid : ::windows::core::PCWSTR , routinginfobuffer : *mut *mut u8 , routinginfobuffersize : *mut u32 ) -> super::super::Foundation:: BOOL );
     FaxGetRoutingInfoW(faxporthandle.into_param().abi(), routingguid.into_param().abi(), routinginfobuffer, routinginfobuffersize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
@@ -357,7 +357,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "winfax.dll""system" fn FaxRegisterRoutingExtensionW ( faxhandle : super::super::Foundation:: HANDLE , extensionname : :: windows::core::PCWSTR , friendlyname : :: windows::core::PCWSTR , imagename : :: windows::core::PCWSTR , callback : PFAX_ROUTING_INSTALLATION_CALLBACKW , context : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winfax.dll""system" fn FaxRegisterRoutingExtensionW ( faxhandle : super::super::Foundation:: HANDLE , extensionname : ::windows::core::PCWSTR , friendlyname : ::windows::core::PCWSTR , imagename : ::windows::core::PCWSTR , callback : PFAX_ROUTING_INSTALLATION_CALLBACKW , context : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     FaxRegisterRoutingExtensionW(faxhandle.into_param().abi(), extensionname.into_param().abi(), friendlyname.into_param().abi(), imagename.into_param().abi(), callback, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
@@ -370,7 +370,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "winfax.dll""system" fn FaxRegisterServiceProviderW ( deviceprovider : :: windows::core::PCWSTR , friendlyname : :: windows::core::PCWSTR , imagename : :: windows::core::PCWSTR , tspname : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winfax.dll""system" fn FaxRegisterServiceProviderW ( deviceprovider : ::windows::core::PCWSTR , friendlyname : ::windows::core::PCWSTR , imagename : ::windows::core::PCWSTR , tspname : ::windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     FaxRegisterServiceProviderW(deviceprovider.into_param().abi(), friendlyname.into_param().abi(), imagename.into_param().abi(), tspname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
@@ -381,7 +381,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "winfax.dll""system" fn FaxSendDocumentA ( faxhandle : super::super::Foundation:: HANDLE , filename : :: windows::core::PCSTR , jobparams : *mut FAX_JOB_PARAMA , coverpageinfo : *const FAX_COVERPAGE_INFOA , faxjobid : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winfax.dll""system" fn FaxSendDocumentA ( faxhandle : super::super::Foundation:: HANDLE , filename : ::windows::core::PCSTR , jobparams : *mut FAX_JOB_PARAMA , coverpageinfo : *const FAX_COVERPAGE_INFOA , faxjobid : *mut u32 ) -> super::super::Foundation:: BOOL );
     FaxSendDocumentA(faxhandle.into_param().abi(), filename.into_param().abi(), jobparams, coverpageinfo, faxjobid)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
@@ -392,7 +392,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "winfax.dll""system" fn FaxSendDocumentForBroadcastA ( faxhandle : super::super::Foundation:: HANDLE , filename : :: windows::core::PCSTR , faxjobid : *mut u32 , faxrecipientcallback : PFAX_RECIPIENT_CALLBACKA , context : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winfax.dll""system" fn FaxSendDocumentForBroadcastA ( faxhandle : super::super::Foundation:: HANDLE , filename : ::windows::core::PCSTR , faxjobid : *mut u32 , faxrecipientcallback : PFAX_RECIPIENT_CALLBACKA , context : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     FaxSendDocumentForBroadcastA(faxhandle.into_param().abi(), filename.into_param().abi(), faxjobid, faxrecipientcallback, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
@@ -403,7 +403,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "winfax.dll""system" fn FaxSendDocumentForBroadcastW ( faxhandle : super::super::Foundation:: HANDLE , filename : :: windows::core::PCWSTR , faxjobid : *mut u32 , faxrecipientcallback : PFAX_RECIPIENT_CALLBACKW , context : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winfax.dll""system" fn FaxSendDocumentForBroadcastW ( faxhandle : super::super::Foundation:: HANDLE , filename : ::windows::core::PCWSTR , faxjobid : *mut u32 , faxrecipientcallback : PFAX_RECIPIENT_CALLBACKW , context : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     FaxSendDocumentForBroadcastW(faxhandle.into_param().abi(), filename.into_param().abi(), faxjobid, faxrecipientcallback, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
@@ -414,7 +414,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "winfax.dll""system" fn FaxSendDocumentW ( faxhandle : super::super::Foundation:: HANDLE , filename : :: windows::core::PCWSTR , jobparams : *mut FAX_JOB_PARAMW , coverpageinfo : *const FAX_COVERPAGE_INFOW , faxjobid : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winfax.dll""system" fn FaxSendDocumentW ( faxhandle : super::super::Foundation:: HANDLE , filename : ::windows::core::PCWSTR , jobparams : *mut FAX_JOB_PARAMW , coverpageinfo : *const FAX_COVERPAGE_INFOW , faxjobid : *mut u32 ) -> super::super::Foundation:: BOOL );
     FaxSendDocumentW(faxhandle.into_param().abi(), filename.into_param().abi(), jobparams, coverpageinfo, faxjobid)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
@@ -525,7 +525,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "winfax.dll""system" fn FaxSetRoutingInfoA ( faxporthandle : super::super::Foundation:: HANDLE , routingguid : :: windows::core::PCSTR , routinginfobuffer : *const u8 , routinginfobuffersize : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winfax.dll""system" fn FaxSetRoutingInfoA ( faxporthandle : super::super::Foundation:: HANDLE , routingguid : ::windows::core::PCSTR , routinginfobuffer : *const u8 , routinginfobuffersize : u32 ) -> super::super::Foundation:: BOOL );
     FaxSetRoutingInfoA(faxporthandle.into_param().abi(), routingguid.into_param().abi(), routinginfobuffer, routinginfobuffersize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
@@ -536,7 +536,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "winfax.dll""system" fn FaxSetRoutingInfoW ( faxporthandle : super::super::Foundation:: HANDLE , routingguid : :: windows::core::PCWSTR , routinginfobuffer : *const u8 , routinginfobuffersize : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winfax.dll""system" fn FaxSetRoutingInfoW ( faxporthandle : super::super::Foundation:: HANDLE , routingguid : ::windows::core::PCWSTR , routinginfobuffer : *const u8 , routinginfobuffersize : u32 ) -> super::super::Foundation:: BOOL );
     FaxSetRoutingInfoW(faxporthandle.into_param().abi(), routingguid.into_param().abi(), routinginfobuffer, routinginfobuffersize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -546,7 +546,7 @@ pub unsafe fn FaxStartPrintJobA<P0>(printername: P0, printinfo: *const FAX_PRINT
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "winfax.dll""system" fn FaxStartPrintJobA ( printername : :: windows::core::PCSTR , printinfo : *const FAX_PRINT_INFOA , faxjobid : *mut u32 , faxcontextinfo : *mut FAX_CONTEXT_INFOA ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winfax.dll""system" fn FaxStartPrintJobA ( printername : ::windows::core::PCSTR , printinfo : *const FAX_PRINT_INFOA , faxjobid : *mut u32 , faxcontextinfo : *mut FAX_CONTEXT_INFOA ) -> super::super::Foundation:: BOOL );
     FaxStartPrintJobA(printername.into_param().abi(), printinfo, faxjobid, faxcontextinfo)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -556,7 +556,7 @@ pub unsafe fn FaxStartPrintJobW<P0>(printername: P0, printinfo: *const FAX_PRINT
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "winfax.dll""system" fn FaxStartPrintJobW ( printername : :: windows::core::PCWSTR , printinfo : *const FAX_PRINT_INFOW , faxjobid : *mut u32 , faxcontextinfo : *mut FAX_CONTEXT_INFOW ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winfax.dll""system" fn FaxStartPrintJobW ( printername : ::windows::core::PCWSTR , printinfo : *const FAX_PRINT_INFOW , faxjobid : *mut u32 , faxcontextinfo : *mut FAX_CONTEXT_INFOW ) -> super::super::Foundation:: BOOL );
     FaxStartPrintJobW(printername.into_param().abi(), printinfo, faxjobid, faxcontextinfo)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
@@ -566,7 +566,7 @@ pub unsafe fn FaxUnregisterServiceProviderW<P0>(deviceprovider: P0) -> super::su
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "winfax.dll""system" fn FaxUnregisterServiceProviderW ( deviceprovider : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winfax.dll""system" fn FaxUnregisterServiceProviderW ( deviceprovider : ::windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     FaxUnregisterServiceProviderW(deviceprovider.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
@@ -575,7 +575,7 @@ pub unsafe fn SendToFaxRecipient<P0>(sndmode: SendToMode, lpfilename: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "fxsutility.dll""system" fn SendToFaxRecipient ( sndmode : SendToMode , lpfilename : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "fxsutility.dll""system" fn SendToFaxRecipient ( sndmode : SendToMode , lpfilename : ::windows::core::PCWSTR ) -> u32 );
     SendToFaxRecipient(sndmode, lpfilename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
@@ -583,10 +583,10 @@ where
 #[inline]
 pub unsafe fn StiCreateInstanceW<P0, P1>(hinst: P0, dwver: u32, ppsti: *mut ::core::option::Option<IStillImageW>, punkouter: P1) -> ::windows::core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "sti.dll""system" fn StiCreateInstanceW ( hinst : super::super::Foundation:: HINSTANCE , dwver : u32 , ppsti : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "sti.dll""system" fn StiCreateInstanceW ( hinst : super::super::Foundation:: HMODULE , dwver : u32 , ppsti : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     StiCreateInstanceW(hinst.into_param().abi(), dwver, ::core::mem::transmute(ppsti), punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
@@ -7909,7 +7909,7 @@ impl IStiDevice {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0, P1>(&self, hinst: P0, pwszdevicename: P1, dwversion: u32, dwmode: u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
         P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), hinst.into_param().abi(), pwszdevicename.into_param().abi(), dwversion, dwmode).ok()
@@ -8002,7 +8002,7 @@ unsafe impl ::windows::core::ComInterface for IStiDevice {
 pub struct IStiDevice_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hinst: super::super::Foundation::HINSTANCE, pwszdevicename: ::windows::core::PCWSTR, dwversion: u32, dwmode: u32) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hinst: super::super::Foundation::HMODULE, pwszdevicename: ::windows::core::PCWSTR, dwversion: u32, dwmode: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
     pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevcaps: *mut STI_DEV_CAPS) -> ::windows::core::HRESULT,
@@ -8289,7 +8289,7 @@ impl IStillImageW {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, hinst: P0, dwversion: u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), hinst.into_param().abi(), dwversion).ok()
     }
@@ -8408,7 +8408,7 @@ unsafe impl ::windows::core::ComInterface for IStillImageW {
 pub struct IStillImageW_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hinst: super::super::Foundation::HINSTANCE, dwversion: u32) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hinst: super::super::Foundation::HMODULE, dwversion: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
     pub GetDeviceList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtype: u32, dwflags: u32, pdwitemsreturned: *mut u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -8433,15 +8433,15 @@ pub struct IStillImageW_Vtbl {
     pub WriteToErrorLog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmessagetype: u32, pszmessage: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const CF_MSFAXSRV_DEVICE_ID: ::windows::core::PCWSTR = ::windows::w!("FAXSRV_DeviceID");
+pub const CF_MSFAXSRV_DEVICE_ID: ::windows::core::PCWSTR = ::windows::core::w!("FAXSRV_DeviceID");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const CF_MSFAXSRV_FSP_GUID: ::windows::core::PCWSTR = ::windows::w!("FAXSRV_FSPGuid");
+pub const CF_MSFAXSRV_FSP_GUID: ::windows::core::PCWSTR = ::windows::core::w!("FAXSRV_FSPGuid");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const CF_MSFAXSRV_ROUTEEXT_NAME: ::windows::core::PCWSTR = ::windows::w!("FAXSRV_RoutingExtName");
+pub const CF_MSFAXSRV_ROUTEEXT_NAME: ::windows::core::PCWSTR = ::windows::core::w!("FAXSRV_RoutingExtName");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const CF_MSFAXSRV_ROUTING_METHOD_GUID: ::windows::core::PCWSTR = ::windows::w!("FAXSRV_RoutingMethodGuid");
+pub const CF_MSFAXSRV_ROUTING_METHOD_GUID: ::windows::core::PCWSTR = ::windows::core::w!("FAXSRV_RoutingMethodGuid");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const CF_MSFAXSRV_SERVER_NAME: ::windows::core::PCWSTR = ::windows::w!("FAXSRV_ServerName");
+pub const CF_MSFAXSRV_SERVER_NAME: ::windows::core::PCWSTR = ::windows::core::w!("FAXSRV_ServerName");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const CLSID_Sti: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb323f8e0_2e68_11d0_90ea_00aa0060f86c);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Devices_Properties\"`*"]
@@ -8787,7 +8787,7 @@ pub const GUID_ScanImage: ::windows::core::GUID = ::windows::core::GUID::from_u1
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const GUID_ScanPrintImage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb441f425_8c6e_11d2_977a_0000f87a926f);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const IS_DIGITAL_CAMERA_STR: ::windows::core::PCWSTR = ::windows::w!("IsDigitalCamera");
+pub const IS_DIGITAL_CAMERA_STR: ::windows::core::PCWSTR = ::windows::core::w!("IsDigitalCamera");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const IS_DIGITAL_CAMERA_VAL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
@@ -8819,55 +8819,55 @@ pub const JT_UNKNOWN: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const MAX_NOTIFICATION_DATA: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const MS_FAXROUTE_EMAIL_GUID: ::windows::core::PCWSTR = ::windows::w!("{6bbf7bfe-9af2-11d0-abf7-00c04fd91a4e}");
+pub const MS_FAXROUTE_EMAIL_GUID: ::windows::core::PCWSTR = ::windows::core::w!("{6bbf7bfe-9af2-11d0-abf7-00c04fd91a4e}");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const MS_FAXROUTE_FOLDER_GUID: ::windows::core::PCWSTR = ::windows::w!("{92041a90-9af2-11d0-abf7-00c04fd91a4e}");
+pub const MS_FAXROUTE_FOLDER_GUID: ::windows::core::PCWSTR = ::windows::core::w!("{92041a90-9af2-11d0-abf7-00c04fd91a4e}");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const MS_FAXROUTE_PRINTING_GUID: ::windows::core::PCWSTR = ::windows::w!("{aec1b37c-9af2-11d0-abf7-00c04fd91a4e}");
+pub const MS_FAXROUTE_PRINTING_GUID: ::windows::core::PCWSTR = ::windows::core::w!("{aec1b37c-9af2-11d0-abf7-00c04fd91a4e}");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const REGSTR_VAL_BAUDRATE: ::windows::core::PCWSTR = ::windows::w!("BaudRate");
+pub const REGSTR_VAL_BAUDRATE: ::windows::core::PCWSTR = ::windows::core::w!("BaudRate");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const REGSTR_VAL_BAUDRATE_A: ::windows::core::PCSTR = ::windows::s!("BaudRate");
+pub const REGSTR_VAL_BAUDRATE_A: ::windows::core::PCSTR = ::windows::core::s!("BaudRate");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const REGSTR_VAL_DATA_W: ::windows::core::PCWSTR = ::windows::w!("DeviceData");
+pub const REGSTR_VAL_DATA_W: ::windows::core::PCWSTR = ::windows::core::w!("DeviceData");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const REGSTR_VAL_DEVICESUBTYPE_W: ::windows::core::PCWSTR = ::windows::w!("DeviceSubType");
+pub const REGSTR_VAL_DEVICESUBTYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("DeviceSubType");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const REGSTR_VAL_DEVICETYPE_W: ::windows::core::PCWSTR = ::windows::w!("DeviceType");
+pub const REGSTR_VAL_DEVICETYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("DeviceType");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const REGSTR_VAL_DEVICE_NAME_W: ::windows::core::PCWSTR = ::windows::w!("DriverDesc");
+pub const REGSTR_VAL_DEVICE_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!("DriverDesc");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const REGSTR_VAL_DEV_NAME_W: ::windows::core::PCWSTR = ::windows::w!("DeviceName");
+pub const REGSTR_VAL_DEV_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!("DeviceName");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const REGSTR_VAL_DRIVER_DESC_W: ::windows::core::PCWSTR = ::windows::w!("DriverDesc");
+pub const REGSTR_VAL_DRIVER_DESC_W: ::windows::core::PCWSTR = ::windows::core::w!("DriverDesc");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const REGSTR_VAL_FRIENDLY_NAME_W: ::windows::core::PCWSTR = ::windows::w!("FriendlyName");
+pub const REGSTR_VAL_FRIENDLY_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!("FriendlyName");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const REGSTR_VAL_GENERIC_CAPS_W: ::windows::core::PCWSTR = ::windows::w!("Capabilities");
+pub const REGSTR_VAL_GENERIC_CAPS_W: ::windows::core::PCWSTR = ::windows::core::w!("Capabilities");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const REGSTR_VAL_GUID: ::windows::core::PCWSTR = ::windows::w!("GUID");
+pub const REGSTR_VAL_GUID: ::windows::core::PCWSTR = ::windows::core::w!("GUID");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const REGSTR_VAL_GUID_W: ::windows::core::PCWSTR = ::windows::w!("GUID");
+pub const REGSTR_VAL_GUID_W: ::windows::core::PCWSTR = ::windows::core::w!("GUID");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const REGSTR_VAL_HARDWARE: ::windows::core::PCWSTR = ::windows::w!("HardwareConfig");
+pub const REGSTR_VAL_HARDWARE: ::windows::core::PCWSTR = ::windows::core::w!("HardwareConfig");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const REGSTR_VAL_HARDWARE_W: ::windows::core::PCWSTR = ::windows::w!("HardwareConfig");
+pub const REGSTR_VAL_HARDWARE_W: ::windows::core::PCWSTR = ::windows::core::w!("HardwareConfig");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const REGSTR_VAL_LAUNCHABLE: ::windows::core::PCWSTR = ::windows::w!("Launchable");
+pub const REGSTR_VAL_LAUNCHABLE: ::windows::core::PCWSTR = ::windows::core::w!("Launchable");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const REGSTR_VAL_LAUNCHABLE_W: ::windows::core::PCWSTR = ::windows::w!("Launchable");
+pub const REGSTR_VAL_LAUNCHABLE_W: ::windows::core::PCWSTR = ::windows::core::w!("Launchable");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const REGSTR_VAL_LAUNCH_APPS: ::windows::core::PCWSTR = ::windows::w!("LaunchApplications");
+pub const REGSTR_VAL_LAUNCH_APPS: ::windows::core::PCWSTR = ::windows::core::w!("LaunchApplications");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const REGSTR_VAL_LAUNCH_APPS_W: ::windows::core::PCWSTR = ::windows::w!("LaunchApplications");
+pub const REGSTR_VAL_LAUNCH_APPS_W: ::windows::core::PCWSTR = ::windows::core::w!("LaunchApplications");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const REGSTR_VAL_SHUTDOWNDELAY: ::windows::core::PCWSTR = ::windows::w!("ShutdownIfUnusedDelay");
+pub const REGSTR_VAL_SHUTDOWNDELAY: ::windows::core::PCWSTR = ::windows::core::w!("ShutdownIfUnusedDelay");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const REGSTR_VAL_SHUTDOWNDELAY_W: ::windows::core::PCWSTR = ::windows::w!("ShutdownIfUnusedDelay");
+pub const REGSTR_VAL_SHUTDOWNDELAY_W: ::windows::core::PCWSTR = ::windows::core::w!("ShutdownIfUnusedDelay");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const REGSTR_VAL_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("Type");
+pub const REGSTR_VAL_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("Type");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const REGSTR_VAL_VENDOR_NAME_W: ::windows::core::PCWSTR = ::windows::w!("Vendor");
+pub const REGSTR_VAL_VENDOR_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!("Vendor");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const STIEDFL_ALLDEVICES: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
@@ -8917,9 +8917,9 @@ pub const STIERR_SHARING_VIOLATION: ::windows::core::HRESULT = ::windows::core::
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const STIERR_UNSUPPORTED: i32 = -2147467263i32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const STI_ADD_DEVICE_BROADCAST_ACTION: ::windows::core::PCSTR = ::windows::s!("Arrival");
+pub const STI_ADD_DEVICE_BROADCAST_ACTION: ::windows::core::PCSTR = ::windows::core::s!("Arrival");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const STI_ADD_DEVICE_BROADCAST_STRING: ::windows::core::PCSTR = ::windows::s!("STI\\");
+pub const STI_ADD_DEVICE_BROADCAST_STRING: ::windows::core::PCSTR = ::windows::core::s!("STI\\");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const STI_CHANGENOEFFECT: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
@@ -8933,29 +8933,29 @@ pub const STI_DEVICE_CREATE_MASK: u32 = 65535u32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const STI_DEVICE_CREATE_STATUS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const STI_DEVICE_VALUE_DEFAULT_LAUNCHAPP: ::windows::core::PCWSTR = ::windows::w!("DefaultLaunchApp");
+pub const STI_DEVICE_VALUE_DEFAULT_LAUNCHAPP: ::windows::core::PCWSTR = ::windows::core::w!("DefaultLaunchApp");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const STI_DEVICE_VALUE_DEFAULT_LAUNCHAPP_A: ::windows::core::PCSTR = ::windows::s!("DefaultLaunchApp");
+pub const STI_DEVICE_VALUE_DEFAULT_LAUNCHAPP_A: ::windows::core::PCSTR = ::windows::core::s!("DefaultLaunchApp");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const STI_DEVICE_VALUE_DISABLE_NOTIFICATIONS: ::windows::core::PCWSTR = ::windows::w!("DisableNotifications");
+pub const STI_DEVICE_VALUE_DISABLE_NOTIFICATIONS: ::windows::core::PCWSTR = ::windows::core::w!("DisableNotifications");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const STI_DEVICE_VALUE_DISABLE_NOTIFICATIONS_A: ::windows::core::PCSTR = ::windows::s!("DisableNotifications");
+pub const STI_DEVICE_VALUE_DISABLE_NOTIFICATIONS_A: ::windows::core::PCSTR = ::windows::core::s!("DisableNotifications");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const STI_DEVICE_VALUE_ICM_PROFILE: ::windows::core::PCWSTR = ::windows::w!("ICMProfile");
+pub const STI_DEVICE_VALUE_ICM_PROFILE: ::windows::core::PCWSTR = ::windows::core::w!("ICMProfile");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const STI_DEVICE_VALUE_ICM_PROFILE_A: ::windows::core::PCSTR = ::windows::s!("ICMProfile");
+pub const STI_DEVICE_VALUE_ICM_PROFILE_A: ::windows::core::PCSTR = ::windows::core::s!("ICMProfile");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const STI_DEVICE_VALUE_ISIS_NAME: ::windows::core::PCWSTR = ::windows::w!("ISISDriverName");
+pub const STI_DEVICE_VALUE_ISIS_NAME: ::windows::core::PCWSTR = ::windows::core::w!("ISISDriverName");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const STI_DEVICE_VALUE_ISIS_NAME_A: ::windows::core::PCSTR = ::windows::s!("ISISDriverName");
+pub const STI_DEVICE_VALUE_ISIS_NAME_A: ::windows::core::PCSTR = ::windows::core::s!("ISISDriverName");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const STI_DEVICE_VALUE_TIMEOUT: ::windows::core::PCWSTR = ::windows::w!("PollTimeout");
+pub const STI_DEVICE_VALUE_TIMEOUT: ::windows::core::PCWSTR = ::windows::core::w!("PollTimeout");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const STI_DEVICE_VALUE_TIMEOUT_A: ::windows::core::PCSTR = ::windows::s!("PollTimeout");
+pub const STI_DEVICE_VALUE_TIMEOUT_A: ::windows::core::PCSTR = ::windows::core::s!("PollTimeout");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const STI_DEVICE_VALUE_TWAIN_NAME: ::windows::core::PCWSTR = ::windows::w!("TwainDS");
+pub const STI_DEVICE_VALUE_TWAIN_NAME: ::windows::core::PCWSTR = ::windows::core::w!("TwainDS");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const STI_DEVICE_VALUE_TWAIN_NAME_A: ::windows::core::PCSTR = ::windows::s!("TwainDS");
+pub const STI_DEVICE_VALUE_TWAIN_NAME_A: ::windows::core::PCSTR = ::windows::core::s!("TwainDS");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const STI_DEVSTATUS_EVENTS_STATE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
@@ -9031,9 +9031,9 @@ pub const STI_ONLINESTATE_WARMING_UP: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const STI_RAW_RESERVED: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const STI_REMOVE_DEVICE_BROADCAST_ACTION: ::windows::core::PCSTR = ::windows::s!("Removal");
+pub const STI_REMOVE_DEVICE_BROADCAST_ACTION: ::windows::core::PCSTR = ::windows::core::s!("Removal");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const STI_REMOVE_DEVICE_BROADCAST_STRING: ::windows::core::PCSTR = ::windows::s!("STI\\");
+pub const STI_REMOVE_DEVICE_BROADCAST_STRING: ::windows::core::PCSTR = ::windows::core::s!("STI\\");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const STI_SUBSCRIBE_FLAG_EVENT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
@@ -9059,7 +9059,7 @@ pub const STI_VERSION_MIN_ALLOWED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const STI_VERSION_REAL: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-pub const SUPPORTS_MSCPLUS_STR: ::windows::core::PCWSTR = ::windows::w!("SupportsMSCPlus");
+pub const SUPPORTS_MSCPLUS_STR: ::windows::core::PCWSTR = ::windows::core::w!("SupportsMSCPlus");
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const SUPPORTS_MSCPLUS_VAL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
@@ -10195,40 +10195,40 @@ impl ::core::default::Default for FAX_CONFIGURATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct FAX_CONTEXT_INFOA {
     pub SizeOfStruct: u32,
     pub hDC: super::super::Graphics::Gdi::HDC,
-    pub ServerName: [super::super::Foundation::CHAR; 16],
+    pub ServerName: [u8; 16],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for FAX_CONTEXT_INFOA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for FAX_CONTEXT_INFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::fmt::Debug for FAX_CONTEXT_INFOA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FAX_CONTEXT_INFOA").field("SizeOfStruct", &self.SizeOfStruct).field("hDC", &self.hDC).field("ServerName", &self.ServerName).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::windows::core::TypeKind for FAX_CONTEXT_INFOA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for FAX_CONTEXT_INFOA {
     fn eq(&self, other: &Self) -> bool {
         self.SizeOfStruct == other.SizeOfStruct && self.hDC == other.hDC && self.ServerName == other.ServerName
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for FAX_CONTEXT_INFOA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::default::Default for FAX_CONTEXT_INFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12327,10 +12327,10 @@ pub type PFAX_EXT_GET_DATA = ::core::option::Option<unsafe extern "system" fn(pa
 pub type PFAX_EXT_INITIALIZE_CONFIG = ::core::option::Option<unsafe extern "system" fn(param0: PFAX_EXT_GET_DATA, param1: PFAX_EXT_SET_DATA, param2: PFAX_EXT_REGISTER_FOR_EVENTS, param3: PFAX_EXT_UNREGISTER_FOR_EVENTS, param4: PFAX_EXT_FREE_BUFFER) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAX_EXT_REGISTER_FOR_EVENTS = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HINSTANCE, param1: u32, param2: FAX_ENUM_DEVICE_ID_SOURCE, param3: ::windows::core::PCWSTR, param4: PFAX_EXT_CONFIG_CHANGE) -> super::super::Foundation::HANDLE>;
+pub type PFAX_EXT_REGISTER_FOR_EVENTS = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HMODULE, param1: u32, param2: FAX_ENUM_DEVICE_ID_SOURCE, param3: ::windows::core::PCWSTR, param4: PFAX_EXT_CONFIG_CHANGE) -> super::super::Foundation::HANDLE>;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAX_EXT_SET_DATA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HINSTANCE, param1: u32, param2: FAX_ENUM_DEVICE_ID_SOURCE, param3: ::windows::core::PCWSTR, param4: *mut u8, param5: u32) -> u32>;
+pub type PFAX_EXT_SET_DATA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HMODULE, param1: u32, param2: FAX_ENUM_DEVICE_ID_SOURCE, param3: ::windows::core::PCWSTR, param4: *mut u8, param5: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFAX_EXT_UNREGISTER_FOR_EVENTS = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> u32>;

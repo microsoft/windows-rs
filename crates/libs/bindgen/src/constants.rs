@@ -2,7 +2,7 @@ use super::*;
 
 pub fn gen(gen: &Gen, def: Field) -> TokenStream {
     let name = to_ident(gen.reader.field_name(def));
-    let ty = gen.reader.field_type(def, None).to_const();
+    let ty = gen.reader.field_type(def, None).to_const_type();
     let cfg = gen.reader.field_cfg(def);
     let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
@@ -18,14 +18,14 @@ pub fn gen(gen: &Gen, def: Field) -> TokenStream {
                     quote! {
                         #doc
                         #features
-                        pub const #name: ::#crate_name::core::PCSTR = ::#crate_name::s!(#value);
+                        pub const #name: #crate_name PCSTR = #crate_name s!(#value);
                     }
                 } else {
                     let value = gen.value(&gen.reader.constant_value(constant));
                     quote! {
                         #doc
                         #features
-                        pub const #name: ::#crate_name::core::PCWSTR = ::#crate_name::w!(#value);
+                        pub const #name: #crate_name PCWSTR = #crate_name w!(#value);
                     }
                 }
             } else {

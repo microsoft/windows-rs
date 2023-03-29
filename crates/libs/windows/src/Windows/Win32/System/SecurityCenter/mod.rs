@@ -1,33 +1,33 @@
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[inline]
 pub unsafe fn WscGetAntiMalwareUri() -> ::windows::core::Result<::windows::core::PWSTR> {
-    ::windows::imp::link ! ( "wscapi.dll""system" fn WscGetAntiMalwareUri ( ppszuri : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wscapi.dll""system" fn WscGetAntiMalwareUri ( ppszuri : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     WscGetAntiMalwareUri(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[inline]
 pub unsafe fn WscGetSecurityProviderHealth(providers: u32, phealth: *mut WSC_SECURITY_PROVIDER_HEALTH) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "wscapi.dll""system" fn WscGetSecurityProviderHealth ( providers : u32 , phealth : *mut WSC_SECURITY_PROVIDER_HEALTH ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wscapi.dll""system" fn WscGetSecurityProviderHealth ( providers : u32 , phealth : *mut WSC_SECURITY_PROVIDER_HEALTH ) -> ::windows::core::HRESULT );
     WscGetSecurityProviderHealth(providers, phealth).ok()
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[inline]
 pub unsafe fn WscQueryAntiMalwareUri() -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "wscapi.dll""system" fn WscQueryAntiMalwareUri ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wscapi.dll""system" fn WscQueryAntiMalwareUri ( ) -> ::windows::core::HRESULT );
     WscQueryAntiMalwareUri().ok()
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 #[inline]
 pub unsafe fn WscRegisterForChanges(reserved: *mut ::core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: super::Threading::LPTHREAD_START_ROUTINE, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "wscapi.dll""system" fn WscRegisterForChanges ( reserved : *mut ::core::ffi::c_void , phcallbackregistration : *mut super::super::Foundation:: HANDLE , lpcallbackaddress : super::Threading:: LPTHREAD_START_ROUTINE , pcontext : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wscapi.dll""system" fn WscRegisterForChanges ( reserved : *mut ::core::ffi::c_void , phcallbackregistration : *mut super::super::Foundation:: HANDLE , lpcallbackaddress : super::Threading:: LPTHREAD_START_ROUTINE , pcontext : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     WscRegisterForChanges(reserved, phcallbackregistration, lpcallbackaddress, pcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[inline]
 pub unsafe fn WscRegisterForUserNotifications() -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "wscapi.dll""system" fn WscRegisterForUserNotifications ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wscapi.dll""system" fn WscRegisterForUserNotifications ( ) -> ::windows::core::HRESULT );
     WscRegisterForUserNotifications().ok()
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
@@ -37,7 +37,7 @@ pub unsafe fn WscUnRegisterChanges<P0>(hregistrationhandle: P0) -> ::windows::co
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "wscapi.dll""system" fn WscUnRegisterChanges ( hregistrationhandle : super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wscapi.dll""system" fn WscUnRegisterChanges ( hregistrationhandle : super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     WscUnRegisterChanges(hregistrationhandle.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_System_Com\"`*"]

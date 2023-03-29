@@ -4,7 +4,7 @@ pub mod Provider;
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn AcceptSecurityContext(phcredential: ::core::option::Option<*const super::super::Credentials::SecHandle>, phcontext: ::core::option::Option<*const super::super::Credentials::SecHandle>, pinput: ::core::option::Option<*const SecBufferDesc>, fcontextreq: ASC_REQ_FLAGS, targetdatarep: u32, phnewcontext: ::core::option::Option<*mut super::super::Credentials::SecHandle>, poutput: ::core::option::Option<*mut SecBufferDesc>, pfcontextattr: *mut u32, ptsexpiry: ::core::option::Option<*mut i64>) -> ::windows::core::HRESULT {
-    ::windows::imp::link ! ( "secur32.dll""system" fn AcceptSecurityContext ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , pinput : *const SecBufferDesc , fcontextreq : ASC_REQ_FLAGS , targetdatarep : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn AcceptSecurityContext ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , pinput : *const SecBufferDesc , fcontextreq : ASC_REQ_FLAGS , targetdatarep : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> ::windows::core::HRESULT );
     AcceptSecurityContext(::core::mem::transmute(phcredential.unwrap_or(::std::ptr::null())), ::core::mem::transmute(phcontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pinput.unwrap_or(::std::ptr::null())), fcontextreq, targetdatarep, ::core::mem::transmute(phnewcontext.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(poutput.unwrap_or(::std::ptr::null_mut())), pfcontextattr, ::core::mem::transmute(ptsexpiry.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
@@ -15,7 +15,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn AcquireCredentialsHandleA ( pszprincipal : :: windows::core::PCSTR , pszpackage : :: windows::core::PCSTR , fcredentialuse : SECPKG_CRED , pvlogonid : *const ::core::ffi::c_void , pauthdata : *const ::core::ffi::c_void , pgetkeyfn : SEC_GET_KEY_FN , pvgetkeyargument : *const ::core::ffi::c_void , phcredential : *mut super::super::Credentials:: SecHandle , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn AcquireCredentialsHandleA ( pszprincipal : ::windows::core::PCSTR , pszpackage : ::windows::core::PCSTR , fcredentialuse : SECPKG_CRED , pvlogonid : *const ::core::ffi::c_void , pauthdata : *const ::core::ffi::c_void , pgetkeyfn : SEC_GET_KEY_FN , pvgetkeyargument : *const ::core::ffi::c_void , phcredential : *mut super::super::Credentials:: SecHandle , ptsexpiry : *mut i64 ) -> ::windows::core::HRESULT );
     AcquireCredentialsHandleA(pszprincipal.into_param().abi(), pszpackage.into_param().abi(), fcredentialuse, ::core::mem::transmute(pvlogonid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pauthdata.unwrap_or(::std::ptr::null())), pgetkeyfn, ::core::mem::transmute(pvgetkeyargument.unwrap_or(::std::ptr::null())), phcredential, ::core::mem::transmute(ptsexpiry.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
@@ -26,7 +26,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn AcquireCredentialsHandleW ( pszprincipal : :: windows::core::PCWSTR , pszpackage : :: windows::core::PCWSTR , fcredentialuse : SECPKG_CRED , pvlogonid : *const ::core::ffi::c_void , pauthdata : *const ::core::ffi::c_void , pgetkeyfn : SEC_GET_KEY_FN , pvgetkeyargument : *const ::core::ffi::c_void , phcredential : *mut super::super::Credentials:: SecHandle , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn AcquireCredentialsHandleW ( pszprincipal : ::windows::core::PCWSTR , pszpackage : ::windows::core::PCWSTR , fcredentialuse : SECPKG_CRED , pvlogonid : *const ::core::ffi::c_void , pauthdata : *const ::core::ffi::c_void , pgetkeyfn : SEC_GET_KEY_FN , pvgetkeyargument : *const ::core::ffi::c_void , phcredential : *mut super::super::Credentials:: SecHandle , ptsexpiry : *mut i64 ) -> ::windows::core::HRESULT );
     AcquireCredentialsHandleW(pszprincipal.into_param().abi(), pszpackage.into_param().abi(), fcredentialuse, ::core::mem::transmute(pvlogonid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pauthdata.unwrap_or(::std::ptr::null())), pgetkeyfn, ::core::mem::transmute(pvgetkeyargument.unwrap_or(::std::ptr::null())), phcredential, ::core::mem::transmute(ptsexpiry.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
@@ -37,7 +37,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn AddCredentialsA ( hcredentials : *const super::super::Credentials:: SecHandle , pszprincipal : :: windows::core::PCSTR , pszpackage : :: windows::core::PCSTR , fcredentialuse : u32 , pauthdata : *const ::core::ffi::c_void , pgetkeyfn : SEC_GET_KEY_FN , pvgetkeyargument : *const ::core::ffi::c_void , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn AddCredentialsA ( hcredentials : *const super::super::Credentials:: SecHandle , pszprincipal : ::windows::core::PCSTR , pszpackage : ::windows::core::PCSTR , fcredentialuse : u32 , pauthdata : *const ::core::ffi::c_void , pgetkeyfn : SEC_GET_KEY_FN , pvgetkeyargument : *const ::core::ffi::c_void , ptsexpiry : *mut i64 ) -> ::windows::core::HRESULT );
     AddCredentialsA(hcredentials, pszprincipal.into_param().abi(), pszpackage.into_param().abi(), fcredentialuse, ::core::mem::transmute(pauthdata.unwrap_or(::std::ptr::null())), pgetkeyfn, ::core::mem::transmute(pvgetkeyargument.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ptsexpiry.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
@@ -48,7 +48,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn AddCredentialsW ( hcredentials : *const super::super::Credentials:: SecHandle , pszprincipal : :: windows::core::PCWSTR , pszpackage : :: windows::core::PCWSTR , fcredentialuse : u32 , pauthdata : *const ::core::ffi::c_void , pgetkeyfn : SEC_GET_KEY_FN , pvgetkeyargument : *const ::core::ffi::c_void , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn AddCredentialsW ( hcredentials : *const super::super::Credentials:: SecHandle , pszprincipal : ::windows::core::PCWSTR , pszpackage : ::windows::core::PCWSTR , fcredentialuse : u32 , pauthdata : *const ::core::ffi::c_void , pgetkeyfn : SEC_GET_KEY_FN , pvgetkeyargument : *const ::core::ffi::c_void , ptsexpiry : *mut i64 ) -> ::windows::core::HRESULT );
     AddCredentialsW(hcredentials, pszprincipal.into_param().abi(), pszpackage.into_param().abi(), fcredentialuse, ::core::mem::transmute(pauthdata.unwrap_or(::std::ptr::null())), pgetkeyfn, ::core::mem::transmute(pvgetkeyargument.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ptsexpiry.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -57,7 +57,7 @@ pub unsafe fn AddSecurityPackageA<P0>(pszpackagename: P0, poptions: ::core::opti
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn AddSecurityPackageA ( pszpackagename : :: windows::core::PCSTR , poptions : *const SECURITY_PACKAGE_OPTIONS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn AddSecurityPackageA ( pszpackagename : ::windows::core::PCSTR , poptions : *const SECURITY_PACKAGE_OPTIONS ) -> ::windows::core::HRESULT );
     AddSecurityPackageA(pszpackagename.into_param().abi(), ::core::mem::transmute(poptions.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -66,14 +66,14 @@ pub unsafe fn AddSecurityPackageW<P0>(pszpackagename: P0, poptions: ::core::opti
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn AddSecurityPackageW ( pszpackagename : :: windows::core::PCWSTR , poptions : *const SECURITY_PACKAGE_OPTIONS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn AddSecurityPackageW ( pszpackagename : ::windows::core::PCWSTR , poptions : *const SECURITY_PACKAGE_OPTIONS ) -> ::windows::core::HRESULT );
     AddSecurityPackageW(pszpackagename.into_param().abi(), ::core::mem::transmute(poptions.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn ApplyControlToken(phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn ApplyControlToken ( phcontext : *const super::super::Credentials:: SecHandle , pinput : *const SecBufferDesc ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn ApplyControlToken ( phcontext : *const super::super::Credentials:: SecHandle , pinput : *const SecBufferDesc ) -> ::windows::core::HRESULT );
     ApplyControlToken(phcontext, pinput).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -83,7 +83,7 @@ pub unsafe fn AuditComputeEffectivePolicyBySid<P0>(psid: P0, psubcategoryguids: 
 where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::PSID>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditComputeEffectivePolicyBySid ( psid : super::super::super::Foundation:: PSID , psubcategoryguids : *const :: windows::core::GUID , dwpolicycount : u32 , ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditComputeEffectivePolicyBySid ( psid : super::super::super::Foundation:: PSID , psubcategoryguids : *const ::windows::core::GUID , dwpolicycount : u32 , ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION ) -> super::super::super::Foundation:: BOOLEAN );
     AuditComputeEffectivePolicyBySid(psid.into_param().abi(), ::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len() as _, ppauditpolicy)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -93,14 +93,14 @@ pub unsafe fn AuditComputeEffectivePolicyByToken<P0>(htokenhandle: P0, psubcateg
 where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditComputeEffectivePolicyByToken ( htokenhandle : super::super::super::Foundation:: HANDLE , psubcategoryguids : *const :: windows::core::GUID , dwpolicycount : u32 , ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditComputeEffectivePolicyByToken ( htokenhandle : super::super::super::Foundation:: HANDLE , psubcategoryguids : *const ::windows::core::GUID , dwpolicycount : u32 , ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION ) -> super::super::super::Foundation:: BOOLEAN );
     AuditComputeEffectivePolicyByToken(htokenhandle.into_param().abi(), ::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len() as _, ppauditpolicy)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditEnumerateCategories(ppauditcategoriesarray: *mut *mut ::windows::core::GUID, pdwcountreturned: *mut u32) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditEnumerateCategories ( ppauditcategoriesarray : *mut *mut :: windows::core::GUID , pdwcountreturned : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditEnumerateCategories ( ppauditcategoriesarray : *mut *mut ::windows::core::GUID , pdwcountreturned : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
     AuditEnumerateCategories(ppauditcategoriesarray, pdwcountreturned)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -117,7 +117,7 @@ pub unsafe fn AuditEnumerateSubCategories<P0>(pauditcategoryguid: ::core::option
 where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOLEAN>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditEnumerateSubCategories ( pauditcategoryguid : *const :: windows::core::GUID , bretrieveallsubcategories : super::super::super::Foundation:: BOOLEAN , ppauditsubcategoriesarray : *mut *mut :: windows::core::GUID , pdwcountreturned : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditEnumerateSubCategories ( pauditcategoryguid : *const ::windows::core::GUID , bretrieveallsubcategories : super::super::super::Foundation:: BOOLEAN , ppauditsubcategoriesarray : *mut *mut ::windows::core::GUID , pdwcountreturned : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
     AuditEnumerateSubCategories(::core::mem::transmute(pauditcategoryguid.unwrap_or(::std::ptr::null())), bretrieveallsubcategories.into_param().abi(), ppauditsubcategoriesarray, pdwcountreturned)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -130,42 +130,42 @@ pub unsafe fn AuditFree(buffer: *const ::core::ffi::c_void) {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditLookupCategoryGuidFromCategoryId(auditcategoryid: POLICY_AUDIT_EVENT_TYPE, pauditcategoryguid: *mut ::windows::core::GUID) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditLookupCategoryGuidFromCategoryId ( auditcategoryid : POLICY_AUDIT_EVENT_TYPE , pauditcategoryguid : *mut :: windows::core::GUID ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditLookupCategoryGuidFromCategoryId ( auditcategoryid : POLICY_AUDIT_EVENT_TYPE , pauditcategoryguid : *mut ::windows::core::GUID ) -> super::super::super::Foundation:: BOOLEAN );
     AuditLookupCategoryGuidFromCategoryId(auditcategoryid, pauditcategoryguid)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid: *const ::windows::core::GUID, pauditcategoryid: *mut POLICY_AUDIT_EVENT_TYPE) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditLookupCategoryIdFromCategoryGuid ( pauditcategoryguid : *const :: windows::core::GUID , pauditcategoryid : *mut POLICY_AUDIT_EVENT_TYPE ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditLookupCategoryIdFromCategoryGuid ( pauditcategoryguid : *const ::windows::core::GUID , pauditcategoryid : *mut POLICY_AUDIT_EVENT_TYPE ) -> super::super::super::Foundation:: BOOLEAN );
     AuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid, pauditcategoryid)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditLookupCategoryNameA(pauditcategoryguid: *const ::windows::core::GUID, ppszcategoryname: *mut ::windows::core::PSTR) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditLookupCategoryNameA ( pauditcategoryguid : *const :: windows::core::GUID , ppszcategoryname : *mut :: windows::core::PSTR ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditLookupCategoryNameA ( pauditcategoryguid : *const ::windows::core::GUID , ppszcategoryname : *mut ::windows::core::PSTR ) -> super::super::super::Foundation:: BOOLEAN );
     AuditLookupCategoryNameA(pauditcategoryguid, ppszcategoryname)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditLookupCategoryNameW(pauditcategoryguid: *const ::windows::core::GUID, ppszcategoryname: *mut ::windows::core::PWSTR) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditLookupCategoryNameW ( pauditcategoryguid : *const :: windows::core::GUID , ppszcategoryname : *mut :: windows::core::PWSTR ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditLookupCategoryNameW ( pauditcategoryguid : *const ::windows::core::GUID , ppszcategoryname : *mut ::windows::core::PWSTR ) -> super::super::super::Foundation:: BOOLEAN );
     AuditLookupCategoryNameW(pauditcategoryguid, ppszcategoryname)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditLookupSubCategoryNameA(pauditsubcategoryguid: *const ::windows::core::GUID, ppszsubcategoryname: *mut ::windows::core::PSTR) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditLookupSubCategoryNameA ( pauditsubcategoryguid : *const :: windows::core::GUID , ppszsubcategoryname : *mut :: windows::core::PSTR ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditLookupSubCategoryNameA ( pauditsubcategoryguid : *const ::windows::core::GUID , ppszsubcategoryname : *mut ::windows::core::PSTR ) -> super::super::super::Foundation:: BOOLEAN );
     AuditLookupSubCategoryNameA(pauditsubcategoryguid, ppszsubcategoryname)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditLookupSubCategoryNameW(pauditsubcategoryguid: *const ::windows::core::GUID, ppszsubcategoryname: *mut ::windows::core::PWSTR) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditLookupSubCategoryNameW ( pauditsubcategoryguid : *const :: windows::core::GUID , ppszsubcategoryname : *mut :: windows::core::PWSTR ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditLookupSubCategoryNameW ( pauditsubcategoryguid : *const ::windows::core::GUID , ppszsubcategoryname : *mut ::windows::core::PWSTR ) -> super::super::super::Foundation:: BOOLEAN );
     AuditLookupSubCategoryNameW(pauditsubcategoryguid, ppszsubcategoryname)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -175,7 +175,7 @@ pub unsafe fn AuditQueryGlobalSaclA<P0>(objecttypename: P0, acl: *mut *mut super
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditQueryGlobalSaclA ( objecttypename : :: windows::core::PCSTR , acl : *mut *mut super::super:: ACL ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditQueryGlobalSaclA ( objecttypename : ::windows::core::PCSTR , acl : *mut *mut super::super:: ACL ) -> super::super::super::Foundation:: BOOLEAN );
     AuditQueryGlobalSaclA(objecttypename.into_param().abi(), acl)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -185,7 +185,7 @@ pub unsafe fn AuditQueryGlobalSaclW<P0>(objecttypename: P0, acl: *mut *mut super
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditQueryGlobalSaclW ( objecttypename : :: windows::core::PCWSTR , acl : *mut *mut super::super:: ACL ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditQueryGlobalSaclW ( objecttypename : ::windows::core::PCWSTR , acl : *mut *mut super::super:: ACL ) -> super::super::super::Foundation:: BOOLEAN );
     AuditQueryGlobalSaclW(objecttypename.into_param().abi(), acl)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -195,7 +195,7 @@ pub unsafe fn AuditQueryPerUserPolicy<P0>(psid: P0, psubcategoryguids: &[::windo
 where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::PSID>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditQueryPerUserPolicy ( psid : super::super::super::Foundation:: PSID , psubcategoryguids : *const :: windows::core::GUID , dwpolicycount : u32 , ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditQueryPerUserPolicy ( psid : super::super::super::Foundation:: PSID , psubcategoryguids : *const ::windows::core::GUID , dwpolicycount : u32 , ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION ) -> super::super::super::Foundation:: BOOLEAN );
     AuditQueryPerUserPolicy(psid.into_param().abi(), ::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len() as _, ppauditpolicy)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -209,7 +209,7 @@ pub unsafe fn AuditQuerySecurity(securityinformation: u32, ppsecuritydescriptor:
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditQuerySystemPolicy(psubcategoryguids: &[::windows::core::GUID], ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditQuerySystemPolicy ( psubcategoryguids : *const :: windows::core::GUID , dwpolicycount : u32 , ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditQuerySystemPolicy ( psubcategoryguids : *const ::windows::core::GUID , dwpolicycount : u32 , ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION ) -> super::super::super::Foundation:: BOOLEAN );
     AuditQuerySystemPolicy(::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len() as _, ppauditpolicy)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -219,7 +219,7 @@ pub unsafe fn AuditSetGlobalSaclA<P0>(objecttypename: P0, acl: ::core::option::O
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditSetGlobalSaclA ( objecttypename : :: windows::core::PCSTR , acl : *const super::super:: ACL ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditSetGlobalSaclA ( objecttypename : ::windows::core::PCSTR , acl : *const super::super:: ACL ) -> super::super::super::Foundation:: BOOLEAN );
     AuditSetGlobalSaclA(objecttypename.into_param().abi(), ::core::mem::transmute(acl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -229,7 +229,7 @@ pub unsafe fn AuditSetGlobalSaclW<P0>(objecttypename: P0, acl: ::core::option::O
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditSetGlobalSaclW ( objecttypename : :: windows::core::PCWSTR , acl : *const super::super:: ACL ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditSetGlobalSaclW ( objecttypename : ::windows::core::PCWSTR , acl : *const super::super:: ACL ) -> super::super::super::Foundation:: BOOLEAN );
     AuditSetGlobalSaclW(objecttypename.into_param().abi(), ::core::mem::transmute(acl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -266,7 +266,7 @@ pub unsafe fn ChangeAccountPasswordA<P0>(pszpackagename: *const i8, pszdomainnam
 where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOLEAN>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn ChangeAccountPasswordA ( pszpackagename : *const i8 , pszdomainname : *const i8 , pszaccountname : *const i8 , pszoldpassword : *const i8 , psznewpassword : *const i8 , bimpersonating : super::super::super::Foundation:: BOOLEAN , dwreserved : u32 , poutput : *mut SecBufferDesc ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn ChangeAccountPasswordA ( pszpackagename : *const i8 , pszdomainname : *const i8 , pszaccountname : *const i8 , pszoldpassword : *const i8 , psznewpassword : *const i8 , bimpersonating : super::super::super::Foundation:: BOOLEAN , dwreserved : u32 , poutput : *mut SecBufferDesc ) -> ::windows::core::HRESULT );
     ChangeAccountPasswordA(pszpackagename, pszdomainname, pszaccountname, pszoldpassword, psznewpassword, bimpersonating.into_param().abi(), dwreserved, poutput).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -276,14 +276,14 @@ pub unsafe fn ChangeAccountPasswordW<P0>(pszpackagename: *const u16, pszdomainna
 where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOLEAN>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn ChangeAccountPasswordW ( pszpackagename : *const u16 , pszdomainname : *const u16 , pszaccountname : *const u16 , pszoldpassword : *const u16 , psznewpassword : *const u16 , bimpersonating : super::super::super::Foundation:: BOOLEAN , dwreserved : u32 , poutput : *mut SecBufferDesc ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn ChangeAccountPasswordW ( pszpackagename : *const u16 , pszdomainname : *const u16 , pszaccountname : *const u16 , pszoldpassword : *const u16 , psznewpassword : *const u16 , bimpersonating : super::super::super::Foundation:: BOOLEAN , dwreserved : u32 , poutput : *mut SecBufferDesc ) -> ::windows::core::HRESULT );
     ChangeAccountPasswordW(pszpackagename, pszdomainname, pszaccountname, pszoldpassword, psznewpassword, bimpersonating.into_param().abi(), dwreserved, poutput).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn CompleteAuthToken(phcontext: *const super::super::Credentials::SecHandle, ptoken: *const SecBufferDesc) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn CompleteAuthToken ( phcontext : *const super::super::Credentials:: SecHandle , ptoken : *const SecBufferDesc ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn CompleteAuthToken ( phcontext : *const super::super::Credentials:: SecHandle , ptoken : *const SecBufferDesc ) -> ::windows::core::HRESULT );
     CompleteAuthToken(phcontext, ptoken).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Credentials\"`*"]
@@ -304,14 +304,14 @@ pub unsafe fn CredUnmarshalTargetInfo(buffer: *const u16, buffersize: u32, retta
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn DecryptMessage(phcontext: *const super::super::Credentials::SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32, pfqop: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
-    ::windows::imp::link ! ( "secur32.dll""system" fn DecryptMessage ( phcontext : *const super::super::Credentials:: SecHandle , pmessage : *const SecBufferDesc , messageseqno : u32 , pfqop : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn DecryptMessage ( phcontext : *const super::super::Credentials:: SecHandle , pmessage : *const SecBufferDesc , messageseqno : u32 , pfqop : *mut u32 ) -> ::windows::core::HRESULT );
     DecryptMessage(phcontext, pmessage, messageseqno, ::core::mem::transmute(pfqop.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn DeleteSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn DeleteSecurityContext ( phcontext : *const super::super::Credentials:: SecHandle ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn DeleteSecurityContext ( phcontext : *const super::super::Credentials:: SecHandle ) -> ::windows::core::HRESULT );
     DeleteSecurityContext(phcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -320,7 +320,7 @@ pub unsafe fn DeleteSecurityPackageA<P0>(pszpackagename: P0) -> ::windows::core:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn DeleteSecurityPackageA ( pszpackagename : :: windows::core::PCSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn DeleteSecurityPackageA ( pszpackagename : ::windows::core::PCSTR ) -> ::windows::core::HRESULT );
     DeleteSecurityPackageA(pszpackagename.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -329,81 +329,81 @@ pub unsafe fn DeleteSecurityPackageW<P0>(pszpackagename: P0) -> ::windows::core:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn DeleteSecurityPackageW ( pszpackagename : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn DeleteSecurityPackageW ( pszpackagename : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     DeleteSecurityPackageW(pszpackagename.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn EncryptMessage(phcontext: *const super::super::Credentials::SecHandle, fqop: u32, pmessage: *const SecBufferDesc, messageseqno: u32) -> ::windows::core::HRESULT {
-    ::windows::imp::link ! ( "secur32.dll""system" fn EncryptMessage ( phcontext : *const super::super::Credentials:: SecHandle , fqop : u32 , pmessage : *const SecBufferDesc , messageseqno : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn EncryptMessage ( phcontext : *const super::super::Credentials:: SecHandle , fqop : u32 , pmessage : *const SecBufferDesc , messageseqno : u32 ) -> ::windows::core::HRESULT );
     EncryptMessage(phcontext, fqop, pmessage, messageseqno)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn EnumerateSecurityPackagesA(pcpackages: *mut u32, pppackageinfo: *mut *mut SecPkgInfoA) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn EnumerateSecurityPackagesA ( pcpackages : *mut u32 , pppackageinfo : *mut *mut SecPkgInfoA ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn EnumerateSecurityPackagesA ( pcpackages : *mut u32 , pppackageinfo : *mut *mut SecPkgInfoA ) -> ::windows::core::HRESULT );
     EnumerateSecurityPackagesA(pcpackages, pppackageinfo).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn EnumerateSecurityPackagesW(pcpackages: *mut u32, pppackageinfo: *mut *mut SecPkgInfoW) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn EnumerateSecurityPackagesW ( pcpackages : *mut u32 , pppackageinfo : *mut *mut SecPkgInfoW ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn EnumerateSecurityPackagesW ( pcpackages : *mut u32 , pppackageinfo : *mut *mut SecPkgInfoW ) -> ::windows::core::HRESULT );
     EnumerateSecurityPackagesW(pcpackages, pppackageinfo).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn ExportSecurityContext(phcontext: *const super::super::Credentials::SecHandle, fflags: EXPORT_SECURITY_CONTEXT_FLAGS, ppackedcontext: *mut SecBuffer, ptoken: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn ExportSecurityContext ( phcontext : *const super::super::Credentials:: SecHandle , fflags : EXPORT_SECURITY_CONTEXT_FLAGS , ppackedcontext : *mut SecBuffer , ptoken : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn ExportSecurityContext ( phcontext : *const super::super::Credentials:: SecHandle , fflags : EXPORT_SECURITY_CONTEXT_FLAGS , ppackedcontext : *mut SecBuffer , ptoken : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     ExportSecurityContext(phcontext, fflags, ppackedcontext, ptoken).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn FreeContextBuffer(pvcontextbuffer: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn FreeContextBuffer ( pvcontextbuffer : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn FreeContextBuffer ( pvcontextbuffer : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     FreeContextBuffer(pvcontextbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn FreeCredentialsHandle(phcredential: *const super::super::Credentials::SecHandle) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn FreeCredentialsHandle ( phcredential : *const super::super::Credentials:: SecHandle ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn FreeCredentialsHandle ( phcredential : *const super::super::Credentials:: SecHandle ) -> ::windows::core::HRESULT );
     FreeCredentialsHandle(phcredential).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetComputerObjectNameA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: ::windows::core::PSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::imp::link ! ( "secur32.dll""system" fn GetComputerObjectNameA ( nameformat : EXTENDED_NAME_FORMAT , lpnamebuffer : :: windows::core::PSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "secur32.dll""system" fn GetComputerObjectNameA ( nameformat : EXTENDED_NAME_FORMAT , lpnamebuffer : ::windows::core::PSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
     GetComputerObjectNameA(nameformat, ::core::mem::transmute(lpnamebuffer), nsize)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetComputerObjectNameW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::imp::link ! ( "secur32.dll""system" fn GetComputerObjectNameW ( nameformat : EXTENDED_NAME_FORMAT , lpnamebuffer : :: windows::core::PWSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "secur32.dll""system" fn GetComputerObjectNameW ( nameformat : EXTENDED_NAME_FORMAT , lpnamebuffer : ::windows::core::PWSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
     GetComputerObjectNameW(nameformat, ::core::mem::transmute(lpnamebuffer), nsize)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUserNameExA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: ::windows::core::PSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::imp::link ! ( "secur32.dll""system" fn GetUserNameExA ( nameformat : EXTENDED_NAME_FORMAT , lpnamebuffer : :: windows::core::PSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "secur32.dll""system" fn GetUserNameExA ( nameformat : EXTENDED_NAME_FORMAT , lpnamebuffer : ::windows::core::PSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
     GetUserNameExA(nameformat, ::core::mem::transmute(lpnamebuffer), nsize)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUserNameExW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::imp::link ! ( "secur32.dll""system" fn GetUserNameExW ( nameformat : EXTENDED_NAME_FORMAT , lpnamebuffer : :: windows::core::PWSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "secur32.dll""system" fn GetUserNameExW ( nameformat : EXTENDED_NAME_FORMAT , lpnamebuffer : ::windows::core::PWSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
     GetUserNameExW(nameformat, ::core::mem::transmute(lpnamebuffer), nsize)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn ImpersonateSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn ImpersonateSecurityContext ( phcontext : *const super::super::Credentials:: SecHandle ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn ImpersonateSecurityContext ( phcontext : *const super::super::Credentials:: SecHandle ) -> ::windows::core::HRESULT );
     ImpersonateSecurityContext(phcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
@@ -413,7 +413,7 @@ pub unsafe fn ImportSecurityContextA<P0>(pszpackage: P0, ppackedcontext: *const 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn ImportSecurityContextA ( pszpackage : :: windows::core::PCSTR , ppackedcontext : *const SecBuffer , token : *const ::core::ffi::c_void , phcontext : *mut super::super::Credentials:: SecHandle ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn ImportSecurityContextA ( pszpackage : ::windows::core::PCSTR , ppackedcontext : *const SecBuffer , token : *const ::core::ffi::c_void , phcontext : *mut super::super::Credentials:: SecHandle ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Credentials::SecHandle>();
     ImportSecurityContextA(pszpackage.into_param().abi(), ppackedcontext, token, &mut result__).from_abi(result__)
 }
@@ -424,7 +424,7 @@ pub unsafe fn ImportSecurityContextW<P0>(pszpackage: P0, ppackedcontext: *const 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn ImportSecurityContextW ( pszpackage : :: windows::core::PCWSTR , ppackedcontext : *const SecBuffer , token : *const ::core::ffi::c_void , phcontext : *mut super::super::Credentials:: SecHandle ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn ImportSecurityContextW ( pszpackage : ::windows::core::PCWSTR , ppackedcontext : *const SecBuffer , token : *const ::core::ffi::c_void , phcontext : *mut super::super::Credentials:: SecHandle ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Credentials::SecHandle>();
     ImportSecurityContextW(pszpackage.into_param().abi(), ppackedcontext, token, &mut result__).from_abi(result__)
 }
@@ -446,7 +446,7 @@ pub unsafe fn InitSecurityInterfaceW() -> *mut SecurityFunctionTableW {
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn InitializeSecurityContextA(phcredential: ::core::option::Option<*const super::super::Credentials::SecHandle>, phcontext: ::core::option::Option<*const super::super::Credentials::SecHandle>, psztargetname: ::core::option::Option<*const i8>, fcontextreq: ISC_REQ_FLAGS, reserved1: u32, targetdatarep: u32, pinput: ::core::option::Option<*const SecBufferDesc>, reserved2: u32, phnewcontext: ::core::option::Option<*mut super::super::Credentials::SecHandle>, poutput: ::core::option::Option<*mut SecBufferDesc>, pfcontextattr: *mut u32, ptsexpiry: ::core::option::Option<*mut i64>) -> ::windows::core::HRESULT {
-    ::windows::imp::link ! ( "secur32.dll""system" fn InitializeSecurityContextA ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , psztargetname : *const i8 , fcontextreq : ISC_REQ_FLAGS , reserved1 : u32 , targetdatarep : u32 , pinput : *const SecBufferDesc , reserved2 : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn InitializeSecurityContextA ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , psztargetname : *const i8 , fcontextreq : ISC_REQ_FLAGS , reserved1 : u32 , targetdatarep : u32 , pinput : *const SecBufferDesc , reserved2 : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> ::windows::core::HRESULT );
     InitializeSecurityContextA(
         ::core::mem::transmute(phcredential.unwrap_or(::std::ptr::null())),
         ::core::mem::transmute(phcontext.unwrap_or(::std::ptr::null())),
@@ -466,7 +466,7 @@ pub unsafe fn InitializeSecurityContextA(phcredential: ::core::option::Option<*c
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn InitializeSecurityContextW(phcredential: ::core::option::Option<*const super::super::Credentials::SecHandle>, phcontext: ::core::option::Option<*const super::super::Credentials::SecHandle>, psztargetname: ::core::option::Option<*const u16>, fcontextreq: ISC_REQ_FLAGS, reserved1: u32, targetdatarep: u32, pinput: ::core::option::Option<*const SecBufferDesc>, reserved2: u32, phnewcontext: ::core::option::Option<*mut super::super::Credentials::SecHandle>, poutput: ::core::option::Option<*mut SecBufferDesc>, pfcontextattr: *mut u32, ptsexpiry: ::core::option::Option<*mut i64>) -> ::windows::core::HRESULT {
-    ::windows::imp::link ! ( "secur32.dll""system" fn InitializeSecurityContextW ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , psztargetname : *const u16 , fcontextreq : ISC_REQ_FLAGS , reserved1 : u32 , targetdatarep : u32 , pinput : *const SecBufferDesc , reserved2 : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn InitializeSecurityContextW ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , psztargetname : *const u16 , fcontextreq : ISC_REQ_FLAGS , reserved1 : u32 , targetdatarep : u32 , pinput : *const SecBufferDesc , reserved2 : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> ::windows::core::HRESULT );
     InitializeSecurityContextW(
         ::core::mem::transmute(phcredential.unwrap_or(::std::ptr::null())),
         ::core::mem::transmute(phcontext.unwrap_or(::std::ptr::null())),
@@ -894,70 +894,70 @@ where
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn MakeSignature(phcontext: *const super::super::Credentials::SecHandle, fqop: u32, pmessage: *const SecBufferDesc, messageseqno: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn MakeSignature ( phcontext : *const super::super::Credentials:: SecHandle , fqop : u32 , pmessage : *const SecBufferDesc , messageseqno : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn MakeSignature ( phcontext : *const super::super::Credentials:: SecHandle , fqop : u32 , pmessage : *const SecBufferDesc , messageseqno : u32 ) -> ::windows::core::HRESULT );
     MakeSignature(phcontext, fqop, pmessage, messageseqno).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryContextAttributesA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn QueryContextAttributesA ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn QueryContextAttributesA ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     QueryContextAttributesA(phcontext, ulattribute, pbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryContextAttributesExA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "sspicli.dll""system" fn QueryContextAttributesExA ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *mut ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "sspicli.dll""system" fn QueryContextAttributesExA ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *mut ::core::ffi::c_void , cbbuffer : u32 ) -> ::windows::core::HRESULT );
     QueryContextAttributesExA(phcontext, ulattribute, pbuffer, cbbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryContextAttributesExW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "sspicli.dll""system" fn QueryContextAttributesExW ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *mut ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "sspicli.dll""system" fn QueryContextAttributesExW ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *mut ::core::ffi::c_void , cbbuffer : u32 ) -> ::windows::core::HRESULT );
     QueryContextAttributesExW(phcontext, ulattribute, pbuffer, cbbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryContextAttributesW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn QueryContextAttributesW ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn QueryContextAttributesW ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     QueryContextAttributesW(phcontext, ulattribute, pbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryCredentialsAttributesA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn QueryCredentialsAttributesA ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn QueryCredentialsAttributesA ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     QueryCredentialsAttributesA(phcredential, ulattribute, pbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryCredentialsAttributesExA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "sspicli.dll""system" fn QueryCredentialsAttributesExA ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *mut ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "sspicli.dll""system" fn QueryCredentialsAttributesExA ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *mut ::core::ffi::c_void , cbbuffer : u32 ) -> ::windows::core::HRESULT );
     QueryCredentialsAttributesExA(phcredential, ulattribute, pbuffer, cbbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryCredentialsAttributesExW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "sspicli.dll""system" fn QueryCredentialsAttributesExW ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *mut ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "sspicli.dll""system" fn QueryCredentialsAttributesExW ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *mut ::core::ffi::c_void , cbbuffer : u32 ) -> ::windows::core::HRESULT );
     QueryCredentialsAttributesExW(phcredential, ulattribute, pbuffer, cbbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryCredentialsAttributesW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn QueryCredentialsAttributesW ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn QueryCredentialsAttributesW ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     QueryCredentialsAttributesW(phcredential, ulattribute, pbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QuerySecurityContextToken(phcontext: *const super::super::Credentials::SecHandle, token: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn QuerySecurityContextToken ( phcontext : *const super::super::Credentials:: SecHandle , token : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn QuerySecurityContextToken ( phcontext : *const super::super::Credentials:: SecHandle , token : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     QuerySecurityContextToken(phcontext, token).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -966,7 +966,7 @@ pub unsafe fn QuerySecurityPackageInfoA<P0>(pszpackagename: P0) -> ::windows::co
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn QuerySecurityPackageInfoA ( pszpackagename : :: windows::core::PCSTR , pppackageinfo : *mut *mut SecPkgInfoA ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn QuerySecurityPackageInfoA ( pszpackagename : ::windows::core::PCSTR , pppackageinfo : *mut *mut SecPkgInfoA ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut SecPkgInfoA>();
     QuerySecurityPackageInfoA(pszpackagename.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -976,7 +976,7 @@ pub unsafe fn QuerySecurityPackageInfoW<P0>(pszpackagename: P0) -> ::windows::co
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn QuerySecurityPackageInfoW ( pszpackagename : :: windows::core::PCWSTR , pppackageinfo : *mut *mut SecPkgInfoW ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn QuerySecurityPackageInfoW ( pszpackagename : ::windows::core::PCWSTR , pppackageinfo : *mut *mut SecPkgInfoW ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut SecPkgInfoW>();
     QuerySecurityPackageInfoW(pszpackagename.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -984,7 +984,7 @@ where
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn RevertSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn RevertSecurityContext ( phcontext : *const super::super::Credentials:: SecHandle ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn RevertSecurityContext ( phcontext : *const super::super::Credentials:: SecHandle ) -> ::windows::core::HRESULT );
     RevertSecurityContext(phcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -995,7 +995,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "slcext.dll""system" fn SLAcquireGenuineTicket ( ppticketblob : *mut *mut ::core::ffi::c_void , pcbticketblob : *mut u32 , pwsztemplateid : :: windows::core::PCWSTR , pwszserverurl : :: windows::core::PCWSTR , pwszclienttoken : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slcext.dll""system" fn SLAcquireGenuineTicket ( ppticketblob : *mut *mut ::core::ffi::c_void , pcbticketblob : *mut u32 , pwsztemplateid : ::windows::core::PCWSTR , pwszserverurl : ::windows::core::PCWSTR , pwszclienttoken : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     SLAcquireGenuineTicket(ppticketblob, pcbticketblob, pwsztemplateid.into_param().abi(), pwszserverurl.into_param().abi(), pwszclienttoken.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1004,13 +1004,13 @@ pub unsafe fn SLActivateProduct<P0>(hslc: *const ::core::ffi::c_void, pproductsk
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "slcext.dll""system" fn SLActivateProduct ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , cbappspecificdata : u32 , pvappspecificdata : *const ::core::ffi::c_void , pactivationinfo : *const SL_ACTIVATION_INFO_HEADER , pwszproxyserver : :: windows::core::PCWSTR , wproxyport : u16 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slcext.dll""system" fn SLActivateProduct ( hslc : *const ::core::ffi::c_void , pproductskuid : *const ::windows::core::GUID , cbappspecificdata : u32 , pvappspecificdata : *const ::core::ffi::c_void , pactivationinfo : *const SL_ACTIVATION_INFO_HEADER , pwszproxyserver : ::windows::core::PCWSTR , wproxyport : u16 ) -> ::windows::core::HRESULT );
     SLActivateProduct(hslc, pproductskuid, cbappspecificdata, ::core::mem::transmute(pvappspecificdata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pactivationinfo.unwrap_or(::std::ptr::null())), pwszproxyserver.into_param().abi(), wproxyport).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLClose(hslc: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLClose ( hslc : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLClose ( hslc : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     SLClose(hslc).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1019,7 +1019,7 @@ pub unsafe fn SLConsumeRight<P0>(hslc: *const ::core::ffi::c_void, pappid: *cons
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLConsumeRight ( hslc : *const ::core::ffi::c_void , pappid : *const :: windows::core::GUID , pproductskuid : *const :: windows::core::GUID , pwszrightname : :: windows::core::PCWSTR , pvreserved : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLConsumeRight ( hslc : *const ::core::ffi::c_void , pappid : *const ::windows::core::GUID , pproductskuid : *const ::windows::core::GUID , pwszrightname : ::windows::core::PCWSTR , pvreserved : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     SLConsumeRight(hslc, pappid, ::core::mem::transmute(pproductskuid.unwrap_or(::std::ptr::null())), pwszrightname.into_param().abi(), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1029,7 +1029,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLDepositOfflineConfirmationId ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , pwszinstallationid : :: windows::core::PCWSTR , pwszconfirmationid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLDepositOfflineConfirmationId ( hslc : *const ::core::ffi::c_void , pproductskuid : *const ::windows::core::GUID , pwszinstallationid : ::windows::core::PCWSTR , pwszconfirmationid : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     SLDepositOfflineConfirmationId(hslc, pproductskuid, pwszinstallationid.into_param().abi(), pwszconfirmationid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1039,7 +1039,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLDepositOfflineConfirmationIdEx ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , pactivationinfo : *const SL_ACTIVATION_INFO_HEADER , pwszinstallationid : :: windows::core::PCWSTR , pwszconfirmationid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLDepositOfflineConfirmationIdEx ( hslc : *const ::core::ffi::c_void , pproductskuid : *const ::windows::core::GUID , pactivationinfo : *const SL_ACTIVATION_INFO_HEADER , pwszinstallationid : ::windows::core::PCWSTR , pwszconfirmationid : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     SLDepositOfflineConfirmationIdEx(hslc, ::core::mem::transmute(pproductskuid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pactivationinfo.unwrap_or(::std::ptr::null())), pwszinstallationid.into_param().abi(), pwszconfirmationid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1048,20 +1048,20 @@ pub unsafe fn SLFireEvent<P0>(hslc: *const ::core::ffi::c_void, pwszeventid: P0,
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLFireEvent ( hslc : *const ::core::ffi::c_void , pwszeventid : :: windows::core::PCWSTR , papplicationid : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLFireEvent ( hslc : *const ::core::ffi::c_void , pwszeventid : ::windows::core::PCWSTR , papplicationid : *const ::windows::core::GUID ) -> ::windows::core::HRESULT );
     SLFireEvent(hslc, pwszeventid.into_param().abi(), papplicationid).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGenerateOfflineInstallationId(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::PWSTR> {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLGenerateOfflineInstallationId ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , ppwszinstallationid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGenerateOfflineInstallationId ( hslc : *const ::core::ffi::c_void , pproductskuid : *const ::windows::core::GUID , ppwszinstallationid : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     SLGenerateOfflineInstallationId(hslc, pproductskuid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGenerateOfflineInstallationIdEx(hslc: *const ::core::ffi::c_void, pproductskuid: ::core::option::Option<*const ::windows::core::GUID>, pactivationinfo: ::core::option::Option<*const SL_ACTIVATION_INFO_HEADER>) -> ::windows::core::Result<::windows::core::PWSTR> {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLGenerateOfflineInstallationIdEx ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , pactivationinfo : *const SL_ACTIVATION_INFO_HEADER , ppwszinstallationid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGenerateOfflineInstallationIdEx ( hslc : *const ::core::ffi::c_void , pproductskuid : *const ::windows::core::GUID , pactivationinfo : *const SL_ACTIVATION_INFO_HEADER , ppwszinstallationid : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     SLGenerateOfflineInstallationIdEx(hslc, ::core::mem::transmute(pproductskuid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pactivationinfo.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
@@ -1071,7 +1071,7 @@ pub unsafe fn SLGetApplicationInformation<P0>(hslc: *const ::core::ffi::c_void, 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLGetApplicationInformation ( hslc : *const ::core::ffi::c_void , papplicationid : *const :: windows::core::GUID , pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetApplicationInformation ( hslc : *const ::core::ffi::c_void , papplicationid : *const ::windows::core::GUID , pwszvaluename : ::windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> ::windows::core::HRESULT );
     SLGetApplicationInformation(hslc, papplicationid, pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1080,25 +1080,25 @@ pub unsafe fn SLGetGenuineInformation<P0>(pqueryid: *const ::windows::core::GUID
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLGetGenuineInformation ( pqueryid : *const :: windows::core::GUID , pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetGenuineInformation ( pqueryid : *const ::windows::core::GUID , pwszvaluename : ::windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> ::windows::core::HRESULT );
     SLGetGenuineInformation(pqueryid, pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetInstalledProductKeyIds(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pnproductkeyids: *mut u32, ppproductkeyids: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLGetInstalledProductKeyIds ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , pnproductkeyids : *mut u32 , ppproductkeyids : *mut *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetInstalledProductKeyIds ( hslc : *const ::core::ffi::c_void , pproductskuid : *const ::windows::core::GUID , pnproductkeyids : *mut u32 , ppproductkeyids : *mut *mut ::windows::core::GUID ) -> ::windows::core::HRESULT );
     SLGetInstalledProductKeyIds(hslc, pproductskuid, pnproductkeyids, ppproductkeyids).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetLicense(hslc: *const ::core::ffi::c_void, plicensefileid: *const ::windows::core::GUID, pcblicensefile: *mut u32, ppblicensefile: *mut *mut u8) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLGetLicense ( hslc : *const ::core::ffi::c_void , plicensefileid : *const :: windows::core::GUID , pcblicensefile : *mut u32 , ppblicensefile : *mut *mut u8 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetLicense ( hslc : *const ::core::ffi::c_void , plicensefileid : *const ::windows::core::GUID , pcblicensefile : *mut u32 , ppblicensefile : *mut *mut u8 ) -> ::windows::core::HRESULT );
     SLGetLicense(hslc, plicensefileid, pcblicensefile, ppblicensefile).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetLicenseFileId(hslc: *const ::core::ffi::c_void, pblicenseblob: &[u8]) -> ::windows::core::Result<::windows::core::GUID> {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLGetLicenseFileId ( hslc : *const ::core::ffi::c_void , cblicenseblob : u32 , pblicenseblob : *const u8 , plicensefileid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetLicenseFileId ( hslc : *const ::core::ffi::c_void , cblicenseblob : u32 , pblicenseblob : *const u8 , plicensefileid : *mut ::windows::core::GUID ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     SLGetLicenseFileId(hslc, pblicenseblob.len() as _, ::core::mem::transmute(pblicenseblob.as_ptr()), &mut result__).from_abi(result__)
 }
@@ -1108,7 +1108,7 @@ pub unsafe fn SLGetLicenseInformation<P0>(hslc: *const ::core::ffi::c_void, psll
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLGetLicenseInformation ( hslc : *const ::core::ffi::c_void , psllicenseid : *const :: windows::core::GUID , pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetLicenseInformation ( hslc : *const ::core::ffi::c_void , psllicenseid : *const ::windows::core::GUID , pwszvaluename : ::windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> ::windows::core::HRESULT );
     SLGetLicenseInformation(hslc, psllicenseid, pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1117,7 +1117,7 @@ pub unsafe fn SLGetLicensingStatusInformation<P0>(hslc: *const ::core::ffi::c_vo
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLGetLicensingStatusInformation ( hslc : *const ::core::ffi::c_void , pappid : *const :: windows::core::GUID , pproductskuid : *const :: windows::core::GUID , pwszrightname : :: windows::core::PCWSTR , pnstatuscount : *mut u32 , pplicensingstatus : *mut *mut SL_LICENSING_STATUS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetLicensingStatusInformation ( hslc : *const ::core::ffi::c_void , pappid : *const ::windows::core::GUID , pproductskuid : *const ::windows::core::GUID , pwszrightname : ::windows::core::PCWSTR , pnstatuscount : *mut u32 , pplicensingstatus : *mut *mut SL_LICENSING_STATUS ) -> ::windows::core::HRESULT );
     SLGetLicensingStatusInformation(hslc, ::core::mem::transmute(pappid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pproductskuid.unwrap_or(::std::ptr::null())), pwszrightname.into_param().abi(), pnstatuscount, pplicensingstatus).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1127,7 +1127,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLGetPKeyId ( hslc : *const ::core::ffi::c_void , pwszpkeyalgorithm : :: windows::core::PCWSTR , pwszpkeystring : :: windows::core::PCWSTR , cbpkeyspecificdata : u32 , pbpkeyspecificdata : *const u8 , ppkeyid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetPKeyId ( hslc : *const ::core::ffi::c_void , pwszpkeyalgorithm : ::windows::core::PCWSTR , pwszpkeystring : ::windows::core::PCWSTR , cbpkeyspecificdata : u32 , pbpkeyspecificdata : *const u8 , ppkeyid : *mut ::windows::core::GUID ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     SLGetPKeyId(hslc, pwszpkeyalgorithm.into_param().abi(), pwszpkeystring.into_param().abi(), pbpkeyspecificdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbpkeyspecificdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &mut result__).from_abi(result__)
 }
@@ -1137,7 +1137,7 @@ pub unsafe fn SLGetPKeyInformation<P0>(hslc: *const ::core::ffi::c_void, ppkeyid
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLGetPKeyInformation ( hslc : *const ::core::ffi::c_void , ppkeyid : *const :: windows::core::GUID , pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetPKeyInformation ( hslc : *const ::core::ffi::c_void , ppkeyid : *const ::windows::core::GUID , pwszvaluename : ::windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> ::windows::core::HRESULT );
     SLGetPKeyInformation(hslc, ppkeyid, pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1146,7 +1146,7 @@ pub unsafe fn SLGetPolicyInformation<P0>(hslc: *const ::core::ffi::c_void, pwszv
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLGetPolicyInformation ( hslc : *const ::core::ffi::c_void , pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetPolicyInformation ( hslc : *const ::core::ffi::c_void , pwszvaluename : ::windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> ::windows::core::HRESULT );
     SLGetPolicyInformation(hslc, pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1155,7 +1155,7 @@ pub unsafe fn SLGetPolicyInformationDWORD<P0>(hslc: *const ::core::ffi::c_void, 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLGetPolicyInformationDWORD ( hslc : *const ::core::ffi::c_void , pwszvaluename : :: windows::core::PCWSTR , pdwvalue : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetPolicyInformationDWORD ( hslc : *const ::core::ffi::c_void , pwszvaluename : ::windows::core::PCWSTR , pdwvalue : *mut u32 ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     SLGetPolicyInformationDWORD(hslc, pwszvaluename.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -1165,7 +1165,7 @@ pub unsafe fn SLGetProductSkuInformation<P0>(hslc: *const ::core::ffi::c_void, p
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLGetProductSkuInformation ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetProductSkuInformation ( hslc : *const ::core::ffi::c_void , pproductskuid : *const ::windows::core::GUID , pwszvaluename : ::windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> ::windows::core::HRESULT );
     SLGetProductSkuInformation(hslc, pproductskuid, pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1174,14 +1174,14 @@ pub unsafe fn SLGetReferralInformation<P0>(hslc: *const ::core::ffi::c_void, ere
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "slcext.dll""system" fn SLGetReferralInformation ( hslc : *const ::core::ffi::c_void , ereferraltype : SLREFERRALTYPE , pskuorappid : *const :: windows::core::GUID , pwszvaluename : :: windows::core::PCWSTR , ppwszvalue : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slcext.dll""system" fn SLGetReferralInformation ( hslc : *const ::core::ffi::c_void , ereferraltype : SLREFERRALTYPE , pskuorappid : *const ::windows::core::GUID , pwszvaluename : ::windows::core::PCWSTR , ppwszvalue : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     SLGetReferralInformation(hslc, ereferraltype, pskuorappid, pwszvaluename.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetSLIDList(hslc: *const ::core::ffi::c_void, equeryidtype: SLIDTYPE, pqueryid: ::core::option::Option<*const ::windows::core::GUID>, ereturnidtype: SLIDTYPE, pnreturnids: *mut u32, ppreturnids: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLGetSLIDList ( hslc : *const ::core::ffi::c_void , equeryidtype : SLIDTYPE , pqueryid : *const :: windows::core::GUID , ereturnidtype : SLIDTYPE , pnreturnids : *mut u32 , ppreturnids : *mut *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetSLIDList ( hslc : *const ::core::ffi::c_void , equeryidtype : SLIDTYPE , pqueryid : *const ::windows::core::GUID , ereturnidtype : SLIDTYPE , pnreturnids : *mut u32 , ppreturnids : *mut *mut ::windows::core::GUID ) -> ::windows::core::HRESULT );
     SLGetSLIDList(hslc, equeryidtype, ::core::mem::transmute(pqueryid.unwrap_or(::std::ptr::null())), ereturnidtype, pnreturnids, ppreturnids).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1192,7 +1192,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "slcext.dll""system" fn SLGetServerStatus ( pwszserverurl : :: windows::core::PCWSTR , pwszacquisitiontype : :: windows::core::PCWSTR , pwszproxyserver : :: windows::core::PCWSTR , wproxyport : u16 , phrstatus : *mut :: windows::core::HRESULT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slcext.dll""system" fn SLGetServerStatus ( pwszserverurl : ::windows::core::PCWSTR , pwszacquisitiontype : ::windows::core::PCWSTR , pwszproxyserver : ::windows::core::PCWSTR , wproxyport : u16 , phrstatus : *mut ::windows::core::HRESULT ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
     SLGetServerStatus(pwszserverurl.into_param().abi(), pwszacquisitiontype.into_param().abi(), pwszproxyserver.into_param().abi(), wproxyport, &mut result__).from_abi(result__)
 }
@@ -1202,7 +1202,7 @@ pub unsafe fn SLGetServiceInformation<P0>(hslc: *const ::core::ffi::c_void, pwsz
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLGetServiceInformation ( hslc : *const ::core::ffi::c_void , pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetServiceInformation ( hslc : *const ::core::ffi::c_void , pwszvaluename : ::windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> ::windows::core::HRESULT );
     SLGetServiceInformation(hslc, pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1211,7 +1211,7 @@ pub unsafe fn SLGetWindowsInformation<P0>(pwszvaluename: P0, pedatatype: ::core:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLGetWindowsInformation ( pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetWindowsInformation ( pwszvaluename : ::windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> ::windows::core::HRESULT );
     SLGetWindowsInformation(pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1220,14 +1220,14 @@ pub unsafe fn SLGetWindowsInformationDWORD<P0>(pwszvaluename: P0) -> ::windows::
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLGetWindowsInformationDWORD ( pwszvaluename : :: windows::core::PCWSTR , pdwvalue : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetWindowsInformationDWORD ( pwszvaluename : ::windows::core::PCWSTR , pdwvalue : *mut u32 ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     SLGetWindowsInformationDWORD(pwszvaluename.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLInstallLicense(hslc: *const ::core::ffi::c_void, pblicenseblob: &[u8]) -> ::windows::core::Result<::windows::core::GUID> {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLInstallLicense ( hslc : *const ::core::ffi::c_void , cblicenseblob : u32 , pblicenseblob : *const u8 , plicensefileid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLInstallLicense ( hslc : *const ::core::ffi::c_void , cblicenseblob : u32 , pblicenseblob : *const u8 , plicensefileid : *mut ::windows::core::GUID ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     SLInstallLicense(hslc, pblicenseblob.len() as _, ::core::mem::transmute(pblicenseblob.as_ptr()), &mut result__).from_abi(result__)
 }
@@ -1238,20 +1238,20 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLInstallProofOfPurchase ( hslc : *const ::core::ffi::c_void , pwszpkeyalgorithm : :: windows::core::PCWSTR , pwszpkeystring : :: windows::core::PCWSTR , cbpkeyspecificdata : u32 , pbpkeyspecificdata : *const u8 , ppkeyid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLInstallProofOfPurchase ( hslc : *const ::core::ffi::c_void , pwszpkeyalgorithm : ::windows::core::PCWSTR , pwszpkeystring : ::windows::core::PCWSTR , cbpkeyspecificdata : u32 , pbpkeyspecificdata : *const u8 , ppkeyid : *mut ::windows::core::GUID ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     SLInstallProofOfPurchase(hslc, pwszpkeyalgorithm.into_param().abi(), pwszpkeystring.into_param().abi(), pbpkeyspecificdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbpkeyspecificdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLIsGenuineLocal(pappid: *const ::windows::core::GUID, pgenuinestate: *mut SL_GENUINE_STATE, puioptions: ::core::option::Option<*mut SL_NONGENUINE_UI_OPTIONS>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "slwga.dll""system" fn SLIsGenuineLocal ( pappid : *const :: windows::core::GUID , pgenuinestate : *mut SL_GENUINE_STATE , puioptions : *mut SL_NONGENUINE_UI_OPTIONS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slwga.dll""system" fn SLIsGenuineLocal ( pappid : *const ::windows::core::GUID , pgenuinestate : *mut SL_GENUINE_STATE , puioptions : *mut SL_NONGENUINE_UI_OPTIONS ) -> ::windows::core::HRESULT );
     SLIsGenuineLocal(pappid, pgenuinestate, ::core::mem::transmute(puioptions.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLOpen(phslc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLOpen ( phslc : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLOpen ( phslc : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     SLOpen(phslc).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1260,7 +1260,7 @@ pub unsafe fn SLQueryLicenseValueFromApp<P0>(valuename: P0, valuetype: ::core::o
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "api-ms-win-core-slapi-l1-1-0.dll""system" fn SLQueryLicenseValueFromApp ( valuename : :: windows::core::PCWSTR , valuetype : *mut u32 , databuffer : *mut ::core::ffi::c_void , datasize : u32 , resultdatasize : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-slapi-l1-1-0.dll""system" fn SLQueryLicenseValueFromApp ( valuename : ::windows::core::PCWSTR , valuetype : *mut u32 , databuffer : *mut ::core::ffi::c_void , datasize : u32 , resultdatasize : *mut u32 ) -> ::windows::core::HRESULT );
     SLQueryLicenseValueFromApp(valuename.into_param().abi(), ::core::mem::transmute(valuetype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(databuffer.unwrap_or(::std::ptr::null_mut())), datasize, resultdatasize).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -1271,13 +1271,13 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLRegisterEvent ( hslc : *const ::core::ffi::c_void , pwszeventid : :: windows::core::PCWSTR , papplicationid : *const :: windows::core::GUID , hevent : super::super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLRegisterEvent ( hslc : *const ::core::ffi::c_void , pwszeventid : ::windows::core::PCWSTR , papplicationid : *const ::windows::core::GUID , hevent : super::super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     SLRegisterEvent(::core::mem::transmute(hslc.unwrap_or(::std::ptr::null())), pwszeventid.into_param().abi(), papplicationid, hevent.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLSetCurrentProductKey(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pproductkeyid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLSetCurrentProductKey ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , pproductkeyid : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLSetCurrentProductKey ( hslc : *const ::core::ffi::c_void , pproductskuid : *const ::windows::core::GUID , pproductkeyid : *const ::windows::core::GUID ) -> ::windows::core::HRESULT );
     SLSetCurrentProductKey(hslc, pproductskuid, pproductkeyid).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1286,19 +1286,19 @@ pub unsafe fn SLSetGenuineInformation<P0>(pqueryid: *const ::windows::core::GUID
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLSetGenuineInformation ( pqueryid : *const :: windows::core::GUID , pwszvaluename : :: windows::core::PCWSTR , edatatype : SLDATATYPE , cbvalue : u32 , pbvalue : *const u8 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLSetGenuineInformation ( pqueryid : *const ::windows::core::GUID , pwszvaluename : ::windows::core::PCWSTR , edatatype : SLDATATYPE , cbvalue : u32 , pbvalue : *const u8 ) -> ::windows::core::HRESULT );
     SLSetGenuineInformation(pqueryid, pwszvaluename.into_param().abi(), edatatype, pbvalue.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbvalue.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLUninstallLicense(hslc: *const ::core::ffi::c_void, plicensefileid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLUninstallLicense ( hslc : *const ::core::ffi::c_void , plicensefileid : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLUninstallLicense ( hslc : *const ::core::ffi::c_void , plicensefileid : *const ::windows::core::GUID ) -> ::windows::core::HRESULT );
     SLUninstallLicense(hslc, plicensefileid).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLUninstallProofOfPurchase(hslc: *const ::core::ffi::c_void, ppkeyid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLUninstallProofOfPurchase ( hslc : *const ::core::ffi::c_void , ppkeyid : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLUninstallProofOfPurchase ( hslc : *const ::core::ffi::c_void , ppkeyid : *const ::windows::core::GUID ) -> ::windows::core::HRESULT );
     SLUninstallProofOfPurchase(hslc, ppkeyid).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -1309,33 +1309,33 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "slc.dll""system" fn SLUnregisterEvent ( hslc : *const ::core::ffi::c_void , pwszeventid : :: windows::core::PCWSTR , papplicationid : *const :: windows::core::GUID , hevent : super::super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLUnregisterEvent ( hslc : *const ::core::ffi::c_void , pwszeventid : ::windows::core::PCWSTR , papplicationid : *const ::windows::core::GUID , hevent : super::super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     SLUnregisterEvent(::core::mem::transmute(hslc.unwrap_or(::std::ptr::null())), pwszeventid.into_param().abi(), papplicationid, hevent.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SaslAcceptSecurityContext(phcredential: ::core::option::Option<*const super::super::Credentials::SecHandle>, phcontext: ::core::option::Option<*const super::super::Credentials::SecHandle>, pinput: ::core::option::Option<*const SecBufferDesc>, fcontextreq: ASC_REQ_FLAGS, targetdatarep: u32, phnewcontext: ::core::option::Option<*mut super::super::Credentials::SecHandle>, poutput: ::core::option::Option<*mut SecBufferDesc>, pfcontextattr: *mut u32, ptsexpiry: ::core::option::Option<*mut i64>) -> ::windows::core::HRESULT {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SaslAcceptSecurityContext ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , pinput : *const SecBufferDesc , fcontextreq : ASC_REQ_FLAGS , targetdatarep : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SaslAcceptSecurityContext ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , pinput : *const SecBufferDesc , fcontextreq : ASC_REQ_FLAGS , targetdatarep : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> ::windows::core::HRESULT );
     SaslAcceptSecurityContext(::core::mem::transmute(phcredential.unwrap_or(::std::ptr::null())), ::core::mem::transmute(phcontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pinput.unwrap_or(::std::ptr::null())), fcontextreq, targetdatarep, ::core::mem::transmute(phnewcontext.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(poutput.unwrap_or(::std::ptr::null_mut())), pfcontextattr, ::core::mem::transmute(ptsexpiry.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SaslEnumerateProfilesA(profilelist: *mut ::windows::core::PSTR, profilecount: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SaslEnumerateProfilesA ( profilelist : *mut :: windows::core::PSTR , profilecount : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SaslEnumerateProfilesA ( profilelist : *mut ::windows::core::PSTR , profilecount : *mut u32 ) -> ::windows::core::HRESULT );
     SaslEnumerateProfilesA(profilelist, profilecount).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SaslEnumerateProfilesW(profilelist: *mut ::windows::core::PWSTR, profilecount: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SaslEnumerateProfilesW ( profilelist : *mut :: windows::core::PWSTR , profilecount : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SaslEnumerateProfilesW ( profilelist : *mut ::windows::core::PWSTR , profilecount : *mut u32 ) -> ::windows::core::HRESULT );
     SaslEnumerateProfilesW(profilelist, profilecount).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SaslGetContextOption(contexthandle: *const super::super::Credentials::SecHandle, option: u32, value: *mut ::core::ffi::c_void, size: u32, needed: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SaslGetContextOption ( contexthandle : *const super::super::Credentials:: SecHandle , option : u32 , value : *mut ::core::ffi::c_void , size : u32 , needed : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SaslGetContextOption ( contexthandle : *const super::super::Credentials:: SecHandle , option : u32 , value : *mut ::core::ffi::c_void , size : u32 , needed : *mut u32 ) -> ::windows::core::HRESULT );
     SaslGetContextOption(contexthandle, option, value, size, ::core::mem::transmute(needed.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1344,7 +1344,7 @@ pub unsafe fn SaslGetProfilePackageA<P0>(profilename: P0) -> ::windows::core::Re
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SaslGetProfilePackageA ( profilename : :: windows::core::PCSTR , packageinfo : *mut *mut SecPkgInfoA ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SaslGetProfilePackageA ( profilename : ::windows::core::PCSTR , packageinfo : *mut *mut SecPkgInfoA ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut SecPkgInfoA>();
     SaslGetProfilePackageA(profilename.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -1354,21 +1354,21 @@ pub unsafe fn SaslGetProfilePackageW<P0>(profilename: P0) -> ::windows::core::Re
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SaslGetProfilePackageW ( profilename : :: windows::core::PCWSTR , packageinfo : *mut *mut SecPkgInfoW ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SaslGetProfilePackageW ( profilename : ::windows::core::PCWSTR , packageinfo : *mut *mut SecPkgInfoW ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut SecPkgInfoW>();
     SaslGetProfilePackageW(profilename.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SaslIdentifyPackageA(pinput: *const SecBufferDesc) -> ::windows::core::Result<*mut SecPkgInfoA> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SaslIdentifyPackageA ( pinput : *const SecBufferDesc , packageinfo : *mut *mut SecPkgInfoA ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SaslIdentifyPackageA ( pinput : *const SecBufferDesc , packageinfo : *mut *mut SecPkgInfoA ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut SecPkgInfoA>();
     SaslIdentifyPackageA(pinput, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SaslIdentifyPackageW(pinput: *const SecBufferDesc) -> ::windows::core::Result<*mut SecPkgInfoW> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SaslIdentifyPackageW ( pinput : *const SecBufferDesc , packageinfo : *mut *mut SecPkgInfoW ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SaslIdentifyPackageW ( pinput : *const SecBufferDesc , packageinfo : *mut *mut SecPkgInfoW ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut SecPkgInfoW>();
     SaslIdentifyPackageW(pinput, &mut result__).from_abi(result__)
 }
@@ -1379,7 +1379,7 @@ pub unsafe fn SaslInitializeSecurityContextA<P0>(phcredential: ::core::option::O
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SaslInitializeSecurityContextA ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , psztargetname : :: windows::core::PCSTR , fcontextreq : ISC_REQ_FLAGS , reserved1 : u32 , targetdatarep : u32 , pinput : *const SecBufferDesc , reserved2 : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SaslInitializeSecurityContextA ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , psztargetname : ::windows::core::PCSTR , fcontextreq : ISC_REQ_FLAGS , reserved1 : u32 , targetdatarep : u32 , pinput : *const SecBufferDesc , reserved2 : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> ::windows::core::HRESULT );
     SaslInitializeSecurityContextA(
         ::core::mem::transmute(phcredential.unwrap_or(::std::ptr::null())),
         ::core::mem::transmute(phcontext.unwrap_or(::std::ptr::null())),
@@ -1402,7 +1402,7 @@ pub unsafe fn SaslInitializeSecurityContextW<P0>(phcredential: ::core::option::O
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SaslInitializeSecurityContextW ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , psztargetname : :: windows::core::PCWSTR , fcontextreq : ISC_REQ_FLAGS , reserved1 : u32 , targetdatarep : u32 , pinput : *const SecBufferDesc , reserved2 : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SaslInitializeSecurityContextW ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , psztargetname : ::windows::core::PCWSTR , fcontextreq : ISC_REQ_FLAGS , reserved1 : u32 , targetdatarep : u32 , pinput : *const SecBufferDesc , reserved2 : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> ::windows::core::HRESULT );
     SaslInitializeSecurityContextW(
         ::core::mem::transmute(phcredential.unwrap_or(::std::ptr::null())),
         ::core::mem::transmute(phcontext.unwrap_or(::std::ptr::null())),
@@ -1422,7 +1422,7 @@ where
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SaslSetContextOption(contexthandle: *const super::super::Credentials::SecHandle, option: u32, value: *const ::core::ffi::c_void, size: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SaslSetContextOption ( contexthandle : *const super::super::Credentials:: SecHandle , option : u32 , value : *const ::core::ffi::c_void , size : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SaslSetContextOption ( contexthandle : *const super::super::Credentials:: SecHandle , option : u32 , value : *const ::core::ffi::c_void , size : u32 ) -> ::windows::core::HRESULT );
     SaslSetContextOption(contexthandle, option, value, size).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -1439,28 +1439,28 @@ where
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SetContextAttributesA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SetContextAttributesA ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *const ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SetContextAttributesA ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *const ::core::ffi::c_void , cbbuffer : u32 ) -> ::windows::core::HRESULT );
     SetContextAttributesA(phcontext, ulattribute, pbuffer, cbbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SetContextAttributesW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SetContextAttributesW ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *const ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SetContextAttributesW ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *const ::core::ffi::c_void , cbbuffer : u32 ) -> ::windows::core::HRESULT );
     SetContextAttributesW(phcontext, ulattribute, pbuffer, cbbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SetCredentialsAttributesA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SetCredentialsAttributesA ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *const ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SetCredentialsAttributesA ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *const ::core::ffi::c_void , cbbuffer : u32 ) -> ::windows::core::HRESULT );
     SetCredentialsAttributesA(phcredential, ulattribute, pbuffer, cbbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SetCredentialsAttributesW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SetCredentialsAttributesW ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *const ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SetCredentialsAttributesW ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *const ::core::ffi::c_void , cbbuffer : u32 ) -> ::windows::core::HRESULT );
     SetCredentialsAttributesW(phcredential, ulattribute, pbuffer, cbbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -1477,7 +1477,7 @@ pub unsafe fn SslEmptyCacheA<P0>(psztargetname: P0, dwflags: u32) -> super::supe
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "schannel.dll""system" fn SslEmptyCacheA ( psztargetname : :: windows::core::PCSTR , dwflags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "schannel.dll""system" fn SslEmptyCacheA ( psztargetname : ::windows::core::PCSTR , dwflags : u32 ) -> super::super::super::Foundation:: BOOL );
     SslEmptyCacheA(psztargetname.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -1487,7 +1487,7 @@ pub unsafe fn SslEmptyCacheW<P0>(psztargetname: P0, dwflags: u32) -> super::supe
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "schannel.dll""system" fn SslEmptyCacheW ( psztargetname : :: windows::core::PCWSTR , dwflags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "schannel.dll""system" fn SslEmptyCacheW ( psztargetname : ::windows::core::PCWSTR , dwflags : u32 ) -> super::super::super::Foundation:: BOOL );
     SslEmptyCacheW(psztargetname.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -1506,7 +1506,7 @@ pub unsafe fn SslGenerateRandomBits(prandomdata: *mut u8, crandomdata: i32) {
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SslGetExtensions(clienthello: &[u8], genericextensions: &mut [SCH_EXTENSION_DATA], bytestoread: *mut u32, flags: SchGetExtensionsOptions) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "schannel.dll""system" fn SslGetExtensions ( clienthello : *const u8 , clienthellobytesize : u32 , genericextensions : *mut SCH_EXTENSION_DATA , genericextensionscount : u8 , bytestoread : *mut u32 , flags : SchGetExtensionsOptions ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "schannel.dll""system" fn SslGetExtensions ( clienthello : *const u8 , clienthellobytesize : u32 , genericextensions : *mut SCH_EXTENSION_DATA , genericextensionscount : u8 , bytestoread : *mut u32 , flags : SchGetExtensionsOptions ) -> ::windows::core::HRESULT );
     SslGetExtensions(::core::mem::transmute(clienthello.as_ptr()), clienthello.len() as _, ::core::mem::transmute(genericextensions.as_ptr()), genericextensions.len() as _, bytestoread, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1518,38 +1518,38 @@ pub unsafe fn SslGetMaximumKeySize(reserved: u32) -> u32 {
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SslGetServerIdentity(clienthello: &[u8], serveridentity: *mut *mut u8, serveridentitysize: *mut u32, flags: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "schannel.dll""system" fn SslGetServerIdentity ( clienthello : *const u8 , clienthellosize : u32 , serveridentity : *mut *mut u8 , serveridentitysize : *mut u32 , flags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "schannel.dll""system" fn SslGetServerIdentity ( clienthello : *const u8 , clienthellosize : u32 , serveridentity : *mut *mut u8 , serveridentitysize : *mut u32 , flags : u32 ) -> ::windows::core::HRESULT );
     SslGetServerIdentity(::core::mem::transmute(clienthello.as_ptr()), clienthello.len() as _, serveridentity, serveridentitysize, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SspiCompareAuthIdentities(authidentity1: ::core::option::Option<*const ::core::ffi::c_void>, authidentity2: ::core::option::Option<*const ::core::ffi::c_void>, samesupplieduser: ::core::option::Option<*mut super::super::super::Foundation::BOOLEAN>, samesuppliedidentity: ::core::option::Option<*mut super::super::super::Foundation::BOOLEAN>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SspiCompareAuthIdentities ( authidentity1 : *const ::core::ffi::c_void , authidentity2 : *const ::core::ffi::c_void , samesupplieduser : *mut super::super::super::Foundation:: BOOLEAN , samesuppliedidentity : *mut super::super::super::Foundation:: BOOLEAN ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiCompareAuthIdentities ( authidentity1 : *const ::core::ffi::c_void , authidentity2 : *const ::core::ffi::c_void , samesupplieduser : *mut super::super::super::Foundation:: BOOLEAN , samesuppliedidentity : *mut super::super::super::Foundation:: BOOLEAN ) -> ::windows::core::HRESULT );
     SspiCompareAuthIdentities(::core::mem::transmute(authidentity1.unwrap_or(::std::ptr::null())), ::core::mem::transmute(authidentity2.unwrap_or(::std::ptr::null())), ::core::mem::transmute(samesupplieduser.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(samesuppliedidentity.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiCopyAuthIdentity(authdata: *const ::core::ffi::c_void, authdatacopy: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SspiCopyAuthIdentity ( authdata : *const ::core::ffi::c_void , authdatacopy : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiCopyAuthIdentity ( authdata : *const ::core::ffi::c_void , authdatacopy : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     SspiCopyAuthIdentity(authdata, authdatacopy).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiDecryptAuthIdentity(encryptedauthdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SspiDecryptAuthIdentity ( encryptedauthdata : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiDecryptAuthIdentity ( encryptedauthdata : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     SspiDecryptAuthIdentity(encryptedauthdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiDecryptAuthIdentityEx(options: u32, encryptedauthdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "sspicli.dll""system" fn SspiDecryptAuthIdentityEx ( options : u32 , encryptedauthdata : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "sspicli.dll""system" fn SspiDecryptAuthIdentityEx ( options : u32 , encryptedauthdata : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     SspiDecryptAuthIdentityEx(options, encryptedauthdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
-pub unsafe fn SspiEncodeAuthIdentityAsStrings(pauthidentity: *const ::core::ffi::c_void, ppszusername: *mut ::windows::core::PWSTR, ppszdomainname: *mut ::windows::core::PWSTR, ppszpackedcredentialsstring: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SspiEncodeAuthIdentityAsStrings ( pauthidentity : *const ::core::ffi::c_void , ppszusername : *mut :: windows::core::PWSTR , ppszdomainname : *mut :: windows::core::PWSTR , ppszpackedcredentialsstring : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+pub unsafe fn SspiEncodeAuthIdentityAsStrings(pauthidentity: *const ::core::ffi::c_void, ppszusername: *mut ::windows::core::PCWSTR, ppszdomainname: *mut ::windows::core::PCWSTR, ppszpackedcredentialsstring: ::core::option::Option<*mut ::windows::core::PCWSTR>) -> ::windows::core::Result<()> {
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiEncodeAuthIdentityAsStrings ( pauthidentity : *const ::core::ffi::c_void , ppszusername : *mut ::windows::core::PCWSTR , ppszdomainname : *mut ::windows::core::PCWSTR , ppszpackedcredentialsstring : *mut ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     SspiEncodeAuthIdentityAsStrings(pauthidentity, ppszusername, ppszdomainname, ::core::mem::transmute(ppszpackedcredentialsstring.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1560,19 +1560,19 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SspiEncodeStringsAsAuthIdentity ( pszusername : :: windows::core::PCWSTR , pszdomainname : :: windows::core::PCWSTR , pszpackedcredentialsstring : :: windows::core::PCWSTR , ppauthidentity : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiEncodeStringsAsAuthIdentity ( pszusername : ::windows::core::PCWSTR , pszdomainname : ::windows::core::PCWSTR , pszpackedcredentialsstring : ::windows::core::PCWSTR , ppauthidentity : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     SspiEncodeStringsAsAuthIdentity(pszusername.into_param().abi(), pszdomainname.into_param().abi(), pszpackedcredentialsstring.into_param().abi(), ppauthidentity).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiEncryptAuthIdentity(authdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SspiEncryptAuthIdentity ( authdata : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiEncryptAuthIdentity ( authdata : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     SspiEncryptAuthIdentity(authdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiEncryptAuthIdentityEx(options: u32, authdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "sspicli.dll""system" fn SspiEncryptAuthIdentityEx ( options : u32 , authdata : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "sspicli.dll""system" fn SspiEncryptAuthIdentityEx ( options : u32 , authdata : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     SspiEncryptAuthIdentityEx(options, authdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1581,7 +1581,7 @@ pub unsafe fn SspiExcludePackage<P0>(authidentity: ::core::option::Option<*const
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SspiExcludePackage ( authidentity : *const ::core::ffi::c_void , pszpackagename : :: windows::core::PCWSTR , ppnewauthidentity : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiExcludePackage ( authidentity : *const ::core::ffi::c_void , pszpackagename : ::windows::core::PCWSTR , ppnewauthidentity : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     SspiExcludePackage(::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), pszpackagename.into_param().abi(), ppnewauthidentity).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1596,7 +1596,7 @@ pub unsafe fn SspiGetTargetHostName<P0>(psztargetname: P0) -> ::windows::core::R
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SspiGetTargetHostName ( psztargetname : :: windows::core::PCWSTR , pszhostname : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiGetTargetHostName ( psztargetname : ::windows::core::PCWSTR , pszhostname : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     SspiGetTargetHostName(psztargetname.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -1623,25 +1623,25 @@ pub unsafe fn SspiLocalFree(databuffer: ::core::option::Option<*const ::core::ff
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiMarshalAuthIdentity(authidentity: *const ::core::ffi::c_void, authidentitylength: *mut u32, authidentitybytearray: *mut *mut i8) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SspiMarshalAuthIdentity ( authidentity : *const ::core::ffi::c_void , authidentitylength : *mut u32 , authidentitybytearray : *mut *mut i8 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiMarshalAuthIdentity ( authidentity : *const ::core::ffi::c_void , authidentitylength : *mut u32 , authidentitybytearray : *mut *mut i8 ) -> ::windows::core::HRESULT );
     SspiMarshalAuthIdentity(authidentity, authidentitylength, authidentitybytearray).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
-pub unsafe fn SspiPrepareForCredRead<P0>(authidentity: *const ::core::ffi::c_void, psztargetname: P0, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>
+pub unsafe fn SspiPrepareForCredRead<P0>(authidentity: *const ::core::ffi::c_void, psztargetname: P0, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut ::windows::core::PCWSTR) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SspiPrepareForCredRead ( authidentity : *const ::core::ffi::c_void , psztargetname : :: windows::core::PCWSTR , pcredmancredentialtype : *mut u32 , ppszcredmantargetname : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiPrepareForCredRead ( authidentity : *const ::core::ffi::c_void , psztargetname : ::windows::core::PCWSTR , pcredmancredentialtype : *mut u32 , ppszcredmantargetname : *mut ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     SspiPrepareForCredRead(authidentity, psztargetname.into_param().abi(), pcredmancredentialtype, ppszcredmantargetname).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
-pub unsafe fn SspiPrepareForCredWrite<P0>(authidentity: *const ::core::ffi::c_void, psztargetname: P0, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut ::windows::core::PWSTR, ppszcredmanusername: *mut ::windows::core::PWSTR, ppcredentialblob: *mut *mut u8, pcredentialblobsize: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn SspiPrepareForCredWrite<P0>(authidentity: *const ::core::ffi::c_void, psztargetname: P0, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut ::windows::core::PCWSTR, ppszcredmanusername: *mut ::windows::core::PCWSTR, ppcredentialblob: *mut *mut u8, pcredentialblobsize: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SspiPrepareForCredWrite ( authidentity : *const ::core::ffi::c_void , psztargetname : :: windows::core::PCWSTR , pcredmancredentialtype : *mut u32 , ppszcredmantargetname : *mut :: windows::core::PWSTR , ppszcredmanusername : *mut :: windows::core::PWSTR , ppcredentialblob : *mut *mut u8 , pcredentialblobsize : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiPrepareForCredWrite ( authidentity : *const ::core::ffi::c_void , psztargetname : ::windows::core::PCWSTR , pcredmancredentialtype : *mut u32 , ppszcredmantargetname : *mut ::windows::core::PCWSTR , ppszcredmanusername : *mut ::windows::core::PCWSTR , ppcredentialblob : *mut *mut u8 , pcredentialblobsize : *mut u32 ) -> ::windows::core::HRESULT );
     SspiPrepareForCredWrite(authidentity, psztargetname.into_param().abi(), pcredmancredentialtype, ppszcredmantargetname, ppszcredmanusername, ppcredentialblob, pcredentialblobsize).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1651,7 +1651,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "credui.dll""system" fn SspiPromptForCredentialsA ( psztargetname : :: windows::core::PCSTR , puiinfo : *const ::core::ffi::c_void , dwautherror : u32 , pszpackage : :: windows::core::PCSTR , pinputauthidentity : *const ::core::ffi::c_void , ppauthidentity : *mut *mut ::core::ffi::c_void , pfsave : *mut i32 , dwflags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "credui.dll""system" fn SspiPromptForCredentialsA ( psztargetname : ::windows::core::PCSTR , puiinfo : *const ::core::ffi::c_void , dwautherror : u32 , pszpackage : ::windows::core::PCSTR , pinputauthidentity : *const ::core::ffi::c_void , ppauthidentity : *mut *mut ::core::ffi::c_void , pfsave : *mut i32 , dwflags : u32 ) -> u32 );
     SspiPromptForCredentialsA(psztargetname.into_param().abi(), ::core::mem::transmute(puiinfo.unwrap_or(::std::ptr::null())), dwautherror, pszpackage.into_param().abi(), ::core::mem::transmute(pinputauthidentity.unwrap_or(::std::ptr::null())), ppauthidentity, ::core::mem::transmute(pfsave.unwrap_or(::std::ptr::null_mut())), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1661,19 +1661,19 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "credui.dll""system" fn SspiPromptForCredentialsW ( psztargetname : :: windows::core::PCWSTR , puiinfo : *const ::core::ffi::c_void , dwautherror : u32 , pszpackage : :: windows::core::PCWSTR , pinputauthidentity : *const ::core::ffi::c_void , ppauthidentity : *mut *mut ::core::ffi::c_void , pfsave : *mut i32 , dwflags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "credui.dll""system" fn SspiPromptForCredentialsW ( psztargetname : ::windows::core::PCWSTR , puiinfo : *const ::core::ffi::c_void , dwautherror : u32 , pszpackage : ::windows::core::PCWSTR , pinputauthidentity : *const ::core::ffi::c_void , ppauthidentity : *mut *mut ::core::ffi::c_void , pfsave : *mut i32 , dwflags : u32 ) -> u32 );
     SspiPromptForCredentialsW(psztargetname.into_param().abi(), ::core::mem::transmute(puiinfo.unwrap_or(::std::ptr::null())), dwautherror, pszpackage.into_param().abi(), ::core::mem::transmute(pinputauthidentity.unwrap_or(::std::ptr::null())), ppauthidentity, ::core::mem::transmute(pfsave.unwrap_or(::std::ptr::null_mut())), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiUnmarshalAuthIdentity(authidentitybytearray: &[u8], ppauthidentity: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SspiUnmarshalAuthIdentity ( authidentitylength : u32 , authidentitybytearray : :: windows::core::PCSTR , ppauthidentity : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiUnmarshalAuthIdentity ( authidentitylength : u32 , authidentitybytearray : ::windows::core::PCSTR , ppauthidentity : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     SspiUnmarshalAuthIdentity(authidentitybytearray.len() as _, ::core::mem::transmute(authidentitybytearray.as_ptr()), ppauthidentity).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiValidateAuthIdentity(authdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn SspiValidateAuthIdentity ( authdata : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiValidateAuthIdentity ( authdata : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     SspiValidateAuthIdentity(authdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1706,7 +1706,7 @@ pub unsafe fn SystemFunction041(memory: *mut ::core::ffi::c_void, memorysize: u3
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingDeleteAllBindings() -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingDeleteAllBindings ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingDeleteAllBindings ( ) -> ::windows::core::HRESULT );
     TokenBindingDeleteAllBindings().ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1715,7 +1715,7 @@ pub unsafe fn TokenBindingDeleteBinding<P0>(targeturl: P0) -> ::windows::core::R
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingDeleteBinding ( targeturl : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingDeleteBinding ( targeturl : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     TokenBindingDeleteBinding(targeturl.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1724,13 +1724,13 @@ pub unsafe fn TokenBindingGenerateBinding<P0>(keytype: TOKENBINDING_KEY_PARAMETE
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingGenerateBinding ( keytype : TOKENBINDING_KEY_PARAMETERS_TYPE , targeturl : :: windows::core::PCWSTR , bindingtype : TOKENBINDING_TYPE , tlsekm : *const ::core::ffi::c_void , tlsekmsize : u32 , extensionformat : TOKENBINDING_EXTENSION_FORMAT , extensiondata : *const ::core::ffi::c_void , tokenbinding : *mut *mut ::core::ffi::c_void , tokenbindingsize : *mut u32 , resultdata : *mut *mut TOKENBINDING_RESULT_DATA ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingGenerateBinding ( keytype : TOKENBINDING_KEY_PARAMETERS_TYPE , targeturl : ::windows::core::PCWSTR , bindingtype : TOKENBINDING_TYPE , tlsekm : *const ::core::ffi::c_void , tlsekmsize : u32 , extensionformat : TOKENBINDING_EXTENSION_FORMAT , extensiondata : *const ::core::ffi::c_void , tokenbinding : *mut *mut ::core::ffi::c_void , tokenbindingsize : *mut u32 , resultdata : *mut *mut TOKENBINDING_RESULT_DATA ) -> ::windows::core::HRESULT );
     TokenBindingGenerateBinding(keytype, targeturl.into_param().abi(), bindingtype, tlsekm, tlsekmsize, extensionformat, extensiondata, tokenbinding, tokenbindingsize, ::core::mem::transmute(resultdata.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingGenerateID(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, publickey: *const ::core::ffi::c_void, publickeysize: u32) -> ::windows::core::Result<*mut TOKENBINDING_RESULT_DATA> {
-    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingGenerateID ( keytype : TOKENBINDING_KEY_PARAMETERS_TYPE , publickey : *const ::core::ffi::c_void , publickeysize : u32 , resultdata : *mut *mut TOKENBINDING_RESULT_DATA ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingGenerateID ( keytype : TOKENBINDING_KEY_PARAMETERS_TYPE , publickey : *const ::core::ffi::c_void , publickeysize : u32 , resultdata : *mut *mut TOKENBINDING_RESULT_DATA ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut TOKENBINDING_RESULT_DATA>();
     TokenBindingGenerateID(keytype, publickey, publickeysize, &mut result__).from_abi(result__)
 }
@@ -1740,40 +1740,40 @@ pub unsafe fn TokenBindingGenerateIDForUri<P0>(keytype: TOKENBINDING_KEY_PARAMET
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingGenerateIDForUri ( keytype : TOKENBINDING_KEY_PARAMETERS_TYPE , targeturi : :: windows::core::PCWSTR , resultdata : *mut *mut TOKENBINDING_RESULT_DATA ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingGenerateIDForUri ( keytype : TOKENBINDING_KEY_PARAMETERS_TYPE , targeturi : ::windows::core::PCWSTR , resultdata : *mut *mut TOKENBINDING_RESULT_DATA ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut TOKENBINDING_RESULT_DATA>();
     TokenBindingGenerateIDForUri(keytype, targeturi.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingGenerateMessage(tokenbindings: *const *const ::core::ffi::c_void, tokenbindingssize: *const u32, tokenbindingscount: u32, tokenbindingmessage: *mut *mut ::core::ffi::c_void, tokenbindingmessagesize: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingGenerateMessage ( tokenbindings : *const *const ::core::ffi::c_void , tokenbindingssize : *const u32 , tokenbindingscount : u32 , tokenbindingmessage : *mut *mut ::core::ffi::c_void , tokenbindingmessagesize : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingGenerateMessage ( tokenbindings : *const *const ::core::ffi::c_void , tokenbindingssize : *const u32 , tokenbindingscount : u32 , tokenbindingmessage : *mut *mut ::core::ffi::c_void , tokenbindingmessagesize : *mut u32 ) -> ::windows::core::HRESULT );
     TokenBindingGenerateMessage(tokenbindings, tokenbindingssize, tokenbindingscount, tokenbindingmessage, tokenbindingmessagesize).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingGetHighestSupportedVersion(majorversion: *mut u8, minorversion: *mut u8) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingGetHighestSupportedVersion ( majorversion : *mut u8 , minorversion : *mut u8 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingGetHighestSupportedVersion ( majorversion : *mut u8 , minorversion : *mut u8 ) -> ::windows::core::HRESULT );
     TokenBindingGetHighestSupportedVersion(majorversion, minorversion).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingGetKeyTypesClient() -> ::windows::core::Result<*mut TOKENBINDING_KEY_TYPES> {
-    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingGetKeyTypesClient ( keytypes : *mut *mut TOKENBINDING_KEY_TYPES ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingGetKeyTypesClient ( keytypes : *mut *mut TOKENBINDING_KEY_TYPES ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut TOKENBINDING_KEY_TYPES>();
     TokenBindingGetKeyTypesClient(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingGetKeyTypesServer() -> ::windows::core::Result<*mut TOKENBINDING_KEY_TYPES> {
-    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingGetKeyTypesServer ( keytypes : *mut *mut TOKENBINDING_KEY_TYPES ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingGetKeyTypesServer ( keytypes : *mut *mut TOKENBINDING_KEY_TYPES ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut TOKENBINDING_KEY_TYPES>();
     TokenBindingGetKeyTypesServer(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingVerifyMessage(tokenbindingmessage: *const ::core::ffi::c_void, tokenbindingmessagesize: u32, keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, tlsekm: *const ::core::ffi::c_void, tlsekmsize: u32) -> ::windows::core::Result<*mut TOKENBINDING_RESULT_LIST> {
-    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingVerifyMessage ( tokenbindingmessage : *const ::core::ffi::c_void , tokenbindingmessagesize : u32 , keytype : TOKENBINDING_KEY_PARAMETERS_TYPE , tlsekm : *const ::core::ffi::c_void , tlsekmsize : u32 , resultlist : *mut *mut TOKENBINDING_RESULT_LIST ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingVerifyMessage ( tokenbindingmessage : *const ::core::ffi::c_void , tokenbindingmessagesize : u32 , keytype : TOKENBINDING_KEY_PARAMETERS_TYPE , tlsekm : *const ::core::ffi::c_void , tlsekmsize : u32 , resultlist : *mut *mut TOKENBINDING_RESULT_LIST ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut TOKENBINDING_RESULT_LIST>();
     TokenBindingVerifyMessage(tokenbindingmessage, tokenbindingmessagesize, keytype, tlsekm, tlsekmsize, &mut result__).from_abi(result__)
 }
@@ -1784,7 +1784,7 @@ pub unsafe fn TranslateNameA<P0>(lpaccountname: P0, accountnameformat: EXTENDED_
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn TranslateNameA ( lpaccountname : :: windows::core::PCSTR , accountnameformat : EXTENDED_NAME_FORMAT , desirednameformat : EXTENDED_NAME_FORMAT , lptranslatedname : :: windows::core::PSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "secur32.dll""system" fn TranslateNameA ( lpaccountname : ::windows::core::PCSTR , accountnameformat : EXTENDED_NAME_FORMAT , desirednameformat : EXTENDED_NAME_FORMAT , lptranslatedname : ::windows::core::PSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
     TranslateNameA(lpaccountname.into_param().abi(), accountnameformat, desirednameformat, ::core::mem::transmute(lptranslatedname), nsize)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -1794,14 +1794,14 @@ pub unsafe fn TranslateNameW<P0>(lpaccountname: P0, accountnameformat: EXTENDED_
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "secur32.dll""system" fn TranslateNameW ( lpaccountname : :: windows::core::PCWSTR , accountnameformat : EXTENDED_NAME_FORMAT , desirednameformat : EXTENDED_NAME_FORMAT , lptranslatedname : :: windows::core::PWSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "secur32.dll""system" fn TranslateNameW ( lpaccountname : ::windows::core::PCWSTR , accountnameformat : EXTENDED_NAME_FORMAT , desirednameformat : EXTENDED_NAME_FORMAT , lptranslatedname : ::windows::core::PWSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
     TranslateNameW(lpaccountname.into_param().abi(), accountnameformat, desirednameformat, ::core::mem::transmute(lptranslatedname), nsize)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn VerifySignature(phcontext: *const super::super::Credentials::SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32) -> ::windows::core::Result<u32> {
-    ::windows::imp::link ! ( "secur32.dll""system" fn VerifySignature ( phcontext : *const super::super::Credentials:: SecHandle , pmessage : *const SecBufferDesc , messageseqno : u32 , pfqop : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn VerifySignature ( phcontext : *const super::super::Credentials:: SecHandle , pmessage : *const SecBufferDesc , messageseqno : u32 , pfqop : *mut u32 ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     VerifySignature(phcontext, pmessage, messageseqno, &mut result__).from_abi(result__)
 }
@@ -2086,9 +2086,9 @@ pub const CENTRAL_ACCESS_POLICY_STAGED_OWNER_RIGHTS_PRESENT_FLAG: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const CLEAR_BLOCK_LENGTH: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const CLOUDAP_NAME: ::windows::core::PCWSTR = ::windows::w!("CloudAP");
+pub const CLOUDAP_NAME: ::windows::core::PCWSTR = ::windows::core::w!("CloudAP");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const CLOUDAP_NAME_W: ::windows::core::PCWSTR = ::windows::w!("CloudAP");
+pub const CLOUDAP_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!("CloudAP");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const CREDP_FLAGS_CLEAR_PASSWORD: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -2108,13 +2108,13 @@ pub const CRED_MARSHALED_TI_SIZE_SIZE: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const CYPHER_BLOCK_LENGTH: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ClOUDAP_NAME_A: ::windows::core::PCSTR = ::windows::s!("CloudAP");
+pub const ClOUDAP_NAME_A: ::windows::core::PCSTR = ::windows::core::s!("CloudAP");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const DEFAULT_TLS_SSP_NAME: ::windows::core::PCWSTR = ::windows::w!("Default TLS SSP");
+pub const DEFAULT_TLS_SSP_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Default TLS SSP");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const DEFAULT_TLS_SSP_NAME_A: ::windows::core::PCSTR = ::windows::s!("Default TLS SSP");
+pub const DEFAULT_TLS_SSP_NAME_A: ::windows::core::PCSTR = ::windows::core::s!("Default TLS SSP");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const DEFAULT_TLS_SSP_NAME_W: ::windows::core::PCWSTR = ::windows::w!("Default TLS SSP");
+pub const DEFAULT_TLS_SSP_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!("Default TLS SSP");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const DOMAIN_NO_LM_OWF_CHANGE: i32 = 64i32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -2126,7 +2126,7 @@ pub const E_RM_UNKNOWN_ERROR: ::windows::core::HRESULT = ::windows::core::HRESUL
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const FACILITY_SL_ITF: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ID_CAP_SLAPI: ::windows::core::PCWSTR = ::windows::w!("slapiQueryLicenseValue");
+pub const ID_CAP_SLAPI: ::windows::core::PCWSTR = ::windows::core::w!("slapiQueryLicenseValue");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const ISC_RET_ALLOCATED_MEMORY: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -2163,6 +2163,8 @@ pub const ISC_RET_MESSAGES: u64 = 4294967296u64;
 pub const ISC_RET_MUTUAL_AUTH: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const ISC_RET_NO_ADDITIONAL_TOKEN: u32 = 33554432u32;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const ISC_RET_NO_POST_HANDSHAKE_AUTH: u64 = 17179869184u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const ISC_RET_NULL_SESSION: u32 = 262144u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -2252,7 +2254,13 @@ pub const KERB_CHECKSUM_SHA1: i32 = -131i32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const KERB_CHECKSUM_SHA1_NEW: u32 = 14u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const KERB_CLOUD_KERBEROS_DEBUG_DATA_VERSION: u32 = 0u32;
+pub const KERB_CHECKSUM_SHA256: i32 = -139i32;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const KERB_CHECKSUM_SHA384: i32 = -140i32;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const KERB_CHECKSUM_SHA512: i32 = -141i32;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const KERB_CLOUD_KERBEROS_DEBUG_DATA_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const KERB_DECRYPT_FLAG_DEFAULT_KEY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -2382,7 +2390,7 @@ pub const KERB_WRAP_NO_ENCRYPT: u32 = 2147483649u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const KERN_CONTEXT_CERT_INFO_V1: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const KRB_ANONYMOUS_STRING: ::windows::core::PCWSTR = ::windows::w!("ANONYMOUS");
+pub const KRB_ANONYMOUS_STRING: ::windows::core::PCWSTR = ::windows::core::w!("ANONYMOUS");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const KRB_NT_ENTERPRISE_PRINCIPAL: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -2414,7 +2422,7 @@ pub const KRB_NT_WELLKNOWN: u32 = 11u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const KRB_NT_X500_PRINCIPAL: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const KRB_WELLKNOWN_STRING: ::windows::core::PCWSTR = ::windows::w!("WELLKNOWN");
+pub const KRB_WELLKNOWN_STRING: ::windows::core::PCWSTR = ::windows::core::w!("WELLKNOWN");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const LCRED_CRED_EXISTS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -2448,29 +2456,37 @@ pub const LOOKUP_TRANSLATE_NAMES: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const LOOKUP_VIEW_LOCAL_INFORMATION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const LSAD_AES_BLOCK_SIZE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const LSAD_AES_CRYPT_SHA512_HASH_SIZE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const LSAD_AES_KEY_SIZE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const LSAD_AES_SALT_SIZE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const LSASETCAPS_RELOAD_FLAG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const LSASETCAPS_VALID_FLAG_MASK: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const LSA_ADT_LEGACY_SECURITY_SOURCE_NAME: ::windows::core::PCWSTR = ::windows::w!("Security");
+pub const LSA_ADT_LEGACY_SECURITY_SOURCE_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Security");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const LSA_ADT_SECURITY_SOURCE_NAME: ::windows::core::PCWSTR = ::windows::w!("Microsoft-Windows-Security-Auditing");
+pub const LSA_ADT_SECURITY_SOURCE_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Microsoft-Windows-Security-Auditing");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const LSA_AP_NAME_CALL_PACKAGE: ::windows::core::PCSTR = ::windows::s!("LsaApCallPackage\u{0}");
+pub const LSA_AP_NAME_CALL_PACKAGE: ::windows::core::PCSTR = ::windows::core::s!("LsaApCallPackage\u{0}");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const LSA_AP_NAME_CALL_PACKAGE_PASSTHROUGH: ::windows::core::PCSTR = ::windows::s!("LsaApCallPackagePassthrough\u{0}");
+pub const LSA_AP_NAME_CALL_PACKAGE_PASSTHROUGH: ::windows::core::PCSTR = ::windows::core::s!("LsaApCallPackagePassthrough\u{0}");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const LSA_AP_NAME_CALL_PACKAGE_UNTRUSTED: ::windows::core::PCSTR = ::windows::s!("LsaApCallPackageUntrusted\u{0}");
+pub const LSA_AP_NAME_CALL_PACKAGE_UNTRUSTED: ::windows::core::PCSTR = ::windows::core::s!("LsaApCallPackageUntrusted\u{0}");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const LSA_AP_NAME_INITIALIZE_PACKAGE: ::windows::core::PCSTR = ::windows::s!("LsaApInitializePackage\u{0}");
+pub const LSA_AP_NAME_INITIALIZE_PACKAGE: ::windows::core::PCSTR = ::windows::core::s!("LsaApInitializePackage\u{0}");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const LSA_AP_NAME_LOGON_TERMINATED: ::windows::core::PCSTR = ::windows::s!("LsaApLogonTerminated\u{0}");
+pub const LSA_AP_NAME_LOGON_TERMINATED: ::windows::core::PCSTR = ::windows::core::s!("LsaApLogonTerminated\u{0}");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const LSA_AP_NAME_LOGON_USER: ::windows::core::PCSTR = ::windows::s!("LsaApLogonUser\u{0}");
+pub const LSA_AP_NAME_LOGON_USER: ::windows::core::PCSTR = ::windows::core::s!("LsaApLogonUser\u{0}");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const LSA_AP_NAME_LOGON_USER_EX: ::windows::core::PCSTR = ::windows::s!("LsaApLogonUserEx\u{0}");
+pub const LSA_AP_NAME_LOGON_USER_EX: ::windows::core::PCSTR = ::windows::core::s!("LsaApLogonUserEx\u{0}");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const LSA_AP_NAME_LOGON_USER_EX2: ::windows::core::PCSTR = ::windows::s!("LsaApLogonUserEx2\u{0}");
+pub const LSA_AP_NAME_LOGON_USER_EX2: ::windows::core::PCSTR = ::windows::core::s!("LsaApLogonUserEx2\u{0}");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const LSA_CALL_LICENSE_SERVER: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -2478,11 +2494,11 @@ pub const LSA_FOREST_TRUST_RECORD_TYPE_UNRECOGNIZED: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const LSA_FTRECORD_DISABLED_REASONS: i32 = 65535i32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const LSA_GLOBAL_SECRET_PREFIX: ::windows::core::PCWSTR = ::windows::w!("G$");
+pub const LSA_GLOBAL_SECRET_PREFIX: ::windows::core::PCWSTR = ::windows::core::w!("G$");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const LSA_GLOBAL_SECRET_PREFIX_LENGTH: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const LSA_LOCAL_SECRET_PREFIX: ::windows::core::PCWSTR = ::windows::w!("L$");
+pub const LSA_LOCAL_SECRET_PREFIX: ::windows::core::PCWSTR = ::windows::core::w!("L$");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const LSA_LOCAL_SECRET_PREFIX_LENGTH: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -2492,7 +2508,7 @@ pub const LSA_LOOKUP_ISOLATED_AS_LOCAL: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const LSA_LOOKUP_PREFER_INTERNET_NAMES: u32 = 1073741824u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const LSA_MACHINE_SECRET_PREFIX: ::windows::core::PCWSTR = ::windows::w!("M$");
+pub const LSA_MACHINE_SECRET_PREFIX: ::windows::core::PCWSTR = ::windows::core::w!("M$");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const LSA_MAXIMUM_ENUMERATION_LENGTH: u32 = 32000u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -2511,6 +2527,10 @@ pub const LSA_NB_DISABLED_ADMIN: i32 = 4i32;
 pub const LSA_NB_DISABLED_CONFLICT: i32 = 8i32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const LSA_QUERY_CLIENT_PRELOGON_SESSION_ID: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const LSA_SCANNER_INFO_ADMIN_ALL_FLAGS: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const LSA_SCANNER_INFO_DISABLE_AUTH_TARGET_VALIDATION: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const LSA_SECRET_MAXIMUM_COUNT: i32 = 4096i32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -2536,11 +2556,11 @@ pub const MAX_RECORDS_IN_FOREST_TRUST_INFO: u32 = 4000u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const MAX_USER_RECORDS: u32 = 1000u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const MICROSOFT_KERBEROS_NAME: ::windows::core::PCWSTR = ::windows::w!("Kerberos");
+pub const MICROSOFT_KERBEROS_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Kerberos");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const MICROSOFT_KERBEROS_NAME_A: ::windows::core::PCSTR = ::windows::s!("Kerberos");
+pub const MICROSOFT_KERBEROS_NAME_A: ::windows::core::PCSTR = ::windows::core::s!("Kerberos");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const MICROSOFT_KERBEROS_NAME_W: ::windows::core::PCWSTR = ::windows::w!("Kerberos");
+pub const MICROSOFT_KERBEROS_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!("Kerberos");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const MSV1_0_ALLOW_FORCE_GUEST: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -2598,9 +2618,9 @@ pub const MSV1_0_NTLM3_RESPONSE_LENGTH: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const MSV1_0_OWF_PASSWORD_LENGTH: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const MSV1_0_PACKAGE_NAME: ::windows::core::PCSTR = ::windows::s!("MICROSOFT_AUTHENTICATION_PACKAGE_V1_0");
+pub const MSV1_0_PACKAGE_NAME: ::windows::core::PCSTR = ::windows::core::s!("MICROSOFT_AUTHENTICATION_PACKAGE_V1_0");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const MSV1_0_PACKAGE_NAMEW: ::windows::core::PCWSTR = ::windows::w!("MICROSOFT_AUTHENTICATION_PACKAGE_V1_0");
+pub const MSV1_0_PACKAGE_NAMEW: ::windows::core::PCWSTR = ::windows::core::w!("MICROSOFT_AUTHENTICATION_PACKAGE_V1_0");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const MSV1_0_S4U2SELF: u32 = 131072u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -2620,9 +2640,9 @@ pub const MSV1_0_SUBAUTHENTICATION_DLL_SHIFT: u32 = 24u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const MSV1_0_SUBAUTHENTICATION_FLAGS: u32 = 4278190080u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const MSV1_0_SUBAUTHENTICATION_KEY: ::windows::core::PCSTR = ::windows::s!("SYSTEM\\CurrentControlSet\\Control\\Lsa\\MSV1_0");
+pub const MSV1_0_SUBAUTHENTICATION_KEY: ::windows::core::PCSTR = ::windows::core::s!("SYSTEM\\CurrentControlSet\\Control\\Lsa\\MSV1_0");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const MSV1_0_SUBAUTHENTICATION_VALUE: ::windows::core::PCSTR = ::windows::s!("Auth");
+pub const MSV1_0_SUBAUTHENTICATION_VALUE: ::windows::core::PCSTR = ::windows::core::s!("Auth");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const MSV1_0_SUBAUTH_ACCOUNT_DISABLED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -2660,11 +2680,11 @@ pub const MSV1_0_VALIDATION_USER_FLAGS: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const MSV1_0_VALIDATION_USER_ID: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const NEGOSSP_NAME: ::windows::core::PCWSTR = ::windows::w!("Negotiate");
+pub const NEGOSSP_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Negotiate");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const NEGOSSP_NAME_A: ::windows::core::PCSTR = ::windows::s!("Negotiate");
+pub const NEGOSSP_NAME_A: ::windows::core::PCSTR = ::windows::core::s!("Negotiate");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const NEGOSSP_NAME_W: ::windows::core::PCWSTR = ::windows::w!("Negotiate");
+pub const NEGOSSP_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!("Negotiate");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const NEGOTIATE_ALLOW_NTLM: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -2706,15 +2726,15 @@ pub const NOTIFY_CLASS_ROLE_CHANGE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const NO_LONG_NAMES: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const NTLMSP_NAME: ::windows::core::PCWSTR = ::windows::w!("NTLM");
+pub const NTLMSP_NAME: ::windows::core::PCWSTR = ::windows::core::w!("NTLM");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const NTLMSP_NAME_A: ::windows::core::PCSTR = ::windows::s!("NTLM");
+pub const NTLMSP_NAME_A: ::windows::core::PCSTR = ::windows::core::s!("NTLM");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const PCT1SP_NAME: ::windows::core::PCWSTR = ::windows::w!("Microsoft PCT 1.0");
+pub const PCT1SP_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Microsoft PCT 1.0");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const PCT1SP_NAME_A: ::windows::core::PCSTR = ::windows::s!("Microsoft PCT 1.0");
+pub const PCT1SP_NAME_A: ::windows::core::PCSTR = ::windows::core::s!("Microsoft PCT 1.0");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const PCT1SP_NAME_W: ::windows::core::PCWSTR = ::windows::w!("Microsoft PCT 1.0");
+pub const PCT1SP_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!("Microsoft PCT 1.0");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const PER_USER_AUDIT_FAILURE_EXCLUDE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -2728,11 +2748,11 @@ pub const PER_USER_AUDIT_SUCCESS_INCLUDE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const PER_USER_POLICY_UNCHANGED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const PKU2U_PACKAGE_NAME: ::windows::core::PCWSTR = ::windows::w!("pku2u");
+pub const PKU2U_PACKAGE_NAME: ::windows::core::PCWSTR = ::windows::core::w!("pku2u");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const PKU2U_PACKAGE_NAME_A: ::windows::core::PCSTR = ::windows::s!("pku2u");
+pub const PKU2U_PACKAGE_NAME_A: ::windows::core::PCSTR = ::windows::core::s!("pku2u");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const PKU2U_PACKAGE_NAME_W: ::windows::core::PCWSTR = ::windows::w!("pku2u");
+pub const PKU2U_PACKAGE_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!("pku2u");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const POLICY_AUDIT_EVENT_FAILURE: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -2850,21 +2870,21 @@ pub const RTL_ENCRYPT_OPTION_FOR_SYSTEM: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const RTL_ENCRYPT_OPTION_SAME_LOGON: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SAM_CREDENTIAL_UPDATE_FREE_ROUTINE: ::windows::core::PCSTR = ::windows::s!("CredentialUpdateFree");
+pub const SAM_CREDENTIAL_UPDATE_FREE_ROUTINE: ::windows::core::PCSTR = ::windows::core::s!("CredentialUpdateFree");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE: ::windows::core::PCSTR = ::windows::s!("CredentialUpdateNotify");
+pub const SAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE: ::windows::core::PCSTR = ::windows::core::s!("CredentialUpdateNotify");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINE: ::windows::core::PCSTR = ::windows::s!("RegisterMappedEntrypoints");
+pub const SAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINE: ::windows::core::PCSTR = ::windows::core::s!("RegisterMappedEntrypoints");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SAM_CREDENTIAL_UPDATE_REGISTER_ROUTINE: ::windows::core::PCSTR = ::windows::s!("CredentialUpdateRegister");
+pub const SAM_CREDENTIAL_UPDATE_REGISTER_ROUTINE: ::windows::core::PCSTR = ::windows::core::s!("CredentialUpdateRegister");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SAM_DAYS_PER_WEEK: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SAM_INIT_NOTIFICATION_ROUTINE: ::windows::core::PCSTR = ::windows::s!("InitializeChangeNotify");
+pub const SAM_INIT_NOTIFICATION_ROUTINE: ::windows::core::PCSTR = ::windows::core::s!("InitializeChangeNotify");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SAM_PASSWORD_CHANGE_NOTIFY_ROUTINE: ::windows::core::PCSTR = ::windows::s!("PasswordChangeNotify");
+pub const SAM_PASSWORD_CHANGE_NOTIFY_ROUTINE: ::windows::core::PCSTR = ::windows::core::s!("PasswordChangeNotify");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SAM_PASSWORD_FILTER_ROUTINE: ::windows::core::PCSTR = ::windows::s!("PasswordFilter");
+pub const SAM_PASSWORD_FILTER_ROUTINE: ::windows::core::PCSTR = ::windows::core::s!("PasswordFilter");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SASL_OPTION_AUTHZ_PROCESSING: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -2878,11 +2898,11 @@ pub const SCHANNEL_ALERT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SCHANNEL_CRED_VERSION: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SCHANNEL_NAME: ::windows::core::PCWSTR = ::windows::w!("Schannel");
+pub const SCHANNEL_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Schannel");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SCHANNEL_NAME_A: ::windows::core::PCSTR = ::windows::s!("Schannel");
+pub const SCHANNEL_NAME_A: ::windows::core::PCSTR = ::windows::core::s!("Schannel");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SCHANNEL_NAME_W: ::windows::core::PCWSTR = ::windows::w!("Schannel");
+pub const SCHANNEL_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!("Schannel");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SCHANNEL_RENEGOTIATE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -2959,6 +2979,8 @@ pub const SECBUFFER_ALERT: u32 = 17u32;
 pub const SECBUFFER_APPLICATION_PROTOCOLS: u32 = 18u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SECBUFFER_ATTRMASK: u32 = 4026531840u32;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const SECBUFFER_CERTIFICATE_REQUEST_CONTEXT: u32 = 29u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SECBUFFER_CHANGE_PASS_RESPONSE: u32 = 15u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -3093,6 +3115,10 @@ pub const SECPKG_ATTR_REMOTE_CERT_CHAIN: u32 = 103u32;
 pub const SECPKG_ATTR_REMOTE_CRED: u32 = 81u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SECPKG_ATTR_SASL_CONTEXT: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const SECPKG_ATTR_SERIALIZED_REMOTE_CERT_CONTEXT: u32 = 117u32;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const SECPKG_ATTR_SERIALIZED_REMOTE_CERT_CONTEXT_INPROC: u32 = 116u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SECPKG_ATTR_SESSION_TICKET_KEYS: u32 = 115u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -3262,6 +3288,8 @@ pub const SECPKG_INTERFACE_VERSION: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SECPKG_INTERFACE_VERSION_10: u32 = 33554432u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const SECPKG_INTERFACE_VERSION_11: u32 = 67108864u32;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SECPKG_INTERFACE_VERSION_2: u32 = 131072u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SECPKG_INTERFACE_VERSION_3: u32 = 262144u32;
@@ -3278,9 +3306,13 @@ pub const SECPKG_INTERFACE_VERSION_8: u32 = 8388608u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SECPKG_INTERFACE_VERSION_9: u32 = 16777216u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SECPKG_LSAMODEINIT_NAME: ::windows::core::PCSTR = ::windows::s!("SpLsaModeInitialize");
+pub const SECPKG_LSAMODEINIT_NAME: ::windows::core::PCSTR = ::windows::core::s!("SpLsaModeInitialize");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SECPKG_MAX_OID_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const SECPKG_MSVAV_FLAGS_VALID: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const SECPKG_MSVAV_TIMESTAMP_VALID: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SECPKG_NEGOTIATION_COMPLETE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -3316,7 +3348,7 @@ pub const SECPKG_SURROGATE_LOGON_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SECPKG_UNICODE_ATTRIBUTE: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SECPKG_USERMODEINIT_NAME: ::windows::core::PCSTR = ::windows::s!("SpUserModeInitialize");
+pub const SECPKG_USERMODEINIT_NAME: ::windows::core::PCSTR = ::windows::core::s!("SpUserModeInitialize");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SECQOP_WRAP_NO_ENCRYPT: u32 = 2147483649u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -3326,15 +3358,15 @@ pub const SECRET_QUERY_VALUE: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SECRET_SET_VALUE: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SECURITY_ENTRYPOINT: ::windows::core::PCWSTR = ::windows::w!("INITSECURITYINTERFACEA");
+pub const SECURITY_ENTRYPOINT: ::windows::core::PCWSTR = ::windows::core::w!("INITSECURITYINTERFACEA");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SECURITY_ENTRYPOINT16: ::windows::core::PCSTR = ::windows::s!("INITSECURITYINTERFACEA");
+pub const SECURITY_ENTRYPOINT16: ::windows::core::PCSTR = ::windows::core::s!("INITSECURITYINTERFACEA");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SECURITY_ENTRYPOINT_ANSI: ::windows::core::PCWSTR = ::windows::w!("InitSecurityInterfaceW");
+pub const SECURITY_ENTRYPOINT_ANSI: ::windows::core::PCWSTR = ::windows::core::w!("InitSecurityInterfaceW");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SECURITY_ENTRYPOINT_ANSIA: ::windows::core::PCSTR = ::windows::s!("InitSecurityInterfaceA");
+pub const SECURITY_ENTRYPOINT_ANSIA: ::windows::core::PCSTR = ::windows::core::s!("InitSecurityInterfaceA");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SECURITY_ENTRYPOINT_ANSIW: ::windows::core::PCSTR = ::windows::s!("InitSecurityInterfaceW");
+pub const SECURITY_ENTRYPOINT_ANSIW: ::windows::core::PCSTR = ::windows::core::s!("InitSecurityInterfaceW");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SECURITY_NATIVE_DREP: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -3410,39 +3442,39 @@ pub const SE_ADT_PARAMETER_WRITE_SYNCHRONOUS: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SE_ADT_POLICY_AUDIT_EVENT_TYPE_EX_BEGIN: u32 = 100u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SE_BATCH_LOGON_NAME: ::windows::core::PCWSTR = ::windows::w!("SeBatchLogonRight");
+pub const SE_BATCH_LOGON_NAME: ::windows::core::PCWSTR = ::windows::core::w!("SeBatchLogonRight");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SE_DENY_BATCH_LOGON_NAME: ::windows::core::PCWSTR = ::windows::w!("SeDenyBatchLogonRight");
+pub const SE_DENY_BATCH_LOGON_NAME: ::windows::core::PCWSTR = ::windows::core::w!("SeDenyBatchLogonRight");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SE_DENY_INTERACTIVE_LOGON_NAME: ::windows::core::PCWSTR = ::windows::w!("SeDenyInteractiveLogonRight");
+pub const SE_DENY_INTERACTIVE_LOGON_NAME: ::windows::core::PCWSTR = ::windows::core::w!("SeDenyInteractiveLogonRight");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SE_DENY_NETWORK_LOGON_NAME: ::windows::core::PCWSTR = ::windows::w!("SeDenyNetworkLogonRight");
+pub const SE_DENY_NETWORK_LOGON_NAME: ::windows::core::PCWSTR = ::windows::core::w!("SeDenyNetworkLogonRight");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SE_DENY_REMOTE_INTERACTIVE_LOGON_NAME: ::windows::core::PCWSTR = ::windows::w!("SeDenyRemoteInteractiveLogonRight");
+pub const SE_DENY_REMOTE_INTERACTIVE_LOGON_NAME: ::windows::core::PCWSTR = ::windows::core::w!("SeDenyRemoteInteractiveLogonRight");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SE_DENY_SERVICE_LOGON_NAME: ::windows::core::PCWSTR = ::windows::w!("SeDenyServiceLogonRight");
+pub const SE_DENY_SERVICE_LOGON_NAME: ::windows::core::PCWSTR = ::windows::core::w!("SeDenyServiceLogonRight");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SE_INTERACTIVE_LOGON_NAME: ::windows::core::PCWSTR = ::windows::w!("SeInteractiveLogonRight");
+pub const SE_INTERACTIVE_LOGON_NAME: ::windows::core::PCWSTR = ::windows::core::w!("SeInteractiveLogonRight");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SE_MAX_AUDIT_PARAMETERS: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SE_MAX_GENERIC_AUDIT_PARAMETERS: u32 = 28u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SE_NETWORK_LOGON_NAME: ::windows::core::PCWSTR = ::windows::w!("SeNetworkLogonRight");
+pub const SE_NETWORK_LOGON_NAME: ::windows::core::PCWSTR = ::windows::core::w!("SeNetworkLogonRight");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SE_REMOTE_INTERACTIVE_LOGON_NAME: ::windows::core::PCWSTR = ::windows::w!("SeRemoteInteractiveLogonRight");
+pub const SE_REMOTE_INTERACTIVE_LOGON_NAME: ::windows::core::PCWSTR = ::windows::core::w!("SeRemoteInteractiveLogonRight");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SE_SERVICE_LOGON_NAME: ::windows::core::PCWSTR = ::windows::w!("SeServiceLogonRight");
+pub const SE_SERVICE_LOGON_NAME: ::windows::core::PCWSTR = ::windows::core::w!("SeServiceLogonRight");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SL_CLIENTAPI_ZONE: u32 = 61440u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_DEFAULT_MIGRATION_ENCRYPTOR_URI: ::windows::core::PCWSTR = ::windows::w!("msft:spp/migrationencryptor/tokenact/1.0");
+pub const SL_DEFAULT_MIGRATION_ENCRYPTOR_URI: ::windows::core::PCWSTR = ::windows::core::w!("msft:spp/migrationencryptor/tokenact/1.0");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_EVENT_LICENSING_STATE_CHANGED: ::windows::core::PCWSTR = ::windows::w!("msft:rm/event/licensingstatechanged");
+pub const SL_EVENT_LICENSING_STATE_CHANGED: ::windows::core::PCWSTR = ::windows::core::w!("msft:rm/event/licensingstatechanged");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_EVENT_POLICY_CHANGED: ::windows::core::PCWSTR = ::windows::w!("msft:rm/event/policychanged");
+pub const SL_EVENT_POLICY_CHANGED: ::windows::core::PCWSTR = ::windows::core::w!("msft:rm/event/policychanged");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_EVENT_USER_NOTIFICATION: ::windows::core::PCWSTR = ::windows::w!("msft:rm/event/usernotification");
+pub const SL_EVENT_USER_NOTIFICATION: ::windows::core::PCWSTR = ::windows::core::w!("msft:rm/event/usernotification");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SL_E_ACTIVATION_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073422296i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -4012,75 +4044,75 @@ pub const SL_E_WINDOWS_INVALID_LICENSE_STATE: ::windows::core::HRESULT = ::windo
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SL_E_WINDOWS_VERSION_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073422297i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_ACTIVE_PLUGINS: ::windows::core::PCWSTR = ::windows::w!("ActivePlugins");
+pub const SL_INFO_KEY_ACTIVE_PLUGINS: ::windows::core::PCWSTR = ::windows::core::w!("ActivePlugins");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_AUTHOR: ::windows::core::PCWSTR = ::windows::w!("Author");
+pub const SL_INFO_KEY_AUTHOR: ::windows::core::PCWSTR = ::windows::core::w!("Author");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_BIOS_OA2_MINOR_VERSION: ::windows::core::PCWSTR = ::windows::w!("BiosOA2MinorVersion");
+pub const SL_INFO_KEY_BIOS_OA2_MINOR_VERSION: ::windows::core::PCWSTR = ::windows::core::w!("BiosOA2MinorVersion");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_BIOS_PKEY: ::windows::core::PCWSTR = ::windows::w!("BiosProductKey");
+pub const SL_INFO_KEY_BIOS_PKEY: ::windows::core::PCWSTR = ::windows::core::w!("BiosProductKey");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_BIOS_PKEY_DESCRIPTION: ::windows::core::PCWSTR = ::windows::w!("BiosProductKeyDescription");
+pub const SL_INFO_KEY_BIOS_PKEY_DESCRIPTION: ::windows::core::PCWSTR = ::windows::core::w!("BiosProductKeyDescription");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_BIOS_PKEY_PKPN: ::windows::core::PCWSTR = ::windows::w!("BiosProductKeyPkPn");
+pub const SL_INFO_KEY_BIOS_PKEY_PKPN: ::windows::core::PCWSTR = ::windows::core::w!("BiosProductKeyPkPn");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_BIOS_SLIC_STATE: ::windows::core::PCWSTR = ::windows::w!("BiosSlicState");
+pub const SL_INFO_KEY_BIOS_SLIC_STATE: ::windows::core::PCWSTR = ::windows::core::w!("BiosSlicState");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_CHANNEL: ::windows::core::PCWSTR = ::windows::w!("Channel");
+pub const SL_INFO_KEY_CHANNEL: ::windows::core::PCWSTR = ::windows::core::w!("Channel");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_DESCRIPTION: ::windows::core::PCWSTR = ::windows::w!("Description");
+pub const SL_INFO_KEY_DESCRIPTION: ::windows::core::PCWSTR = ::windows::core::w!("Description");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_DIGITAL_PID: ::windows::core::PCWSTR = ::windows::w!("DigitalPID");
+pub const SL_INFO_KEY_DIGITAL_PID: ::windows::core::PCWSTR = ::windows::core::w!("DigitalPID");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_DIGITAL_PID2: ::windows::core::PCWSTR = ::windows::w!("DigitalPID2");
+pub const SL_INFO_KEY_DIGITAL_PID2: ::windows::core::PCWSTR = ::windows::core::w!("DigitalPID2");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_IS_KMS: ::windows::core::PCWSTR = ::windows::w!("IsKeyManagementService");
+pub const SL_INFO_KEY_IS_KMS: ::windows::core::PCWSTR = ::windows::core::w!("IsKeyManagementService");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_IS_PRS: ::windows::core::PCWSTR = ::windows::w!("IsPRS");
+pub const SL_INFO_KEY_IS_PRS: ::windows::core::PCWSTR = ::windows::core::w!("IsPRS");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_KMS_CURRENT_COUNT: ::windows::core::PCWSTR = ::windows::w!("KeyManagementServiceCurrentCount");
+pub const SL_INFO_KEY_KMS_CURRENT_COUNT: ::windows::core::PCWSTR = ::windows::core::w!("KeyManagementServiceCurrentCount");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_KMS_FAILED_REQUESTS: ::windows::core::PCWSTR = ::windows::w!("KeyManagementServiceFailedRequests");
+pub const SL_INFO_KEY_KMS_FAILED_REQUESTS: ::windows::core::PCWSTR = ::windows::core::w!("KeyManagementServiceFailedRequests");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_KMS_LICENSED_REQUESTS: ::windows::core::PCWSTR = ::windows::w!("KeyManagementServiceLicensedRequests");
+pub const SL_INFO_KEY_KMS_LICENSED_REQUESTS: ::windows::core::PCWSTR = ::windows::core::w!("KeyManagementServiceLicensedRequests");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_KMS_NON_GENUINE_GRACE_REQUESTS: ::windows::core::PCWSTR = ::windows::w!("KeyManagementServiceNonGenuineGraceRequests");
+pub const SL_INFO_KEY_KMS_NON_GENUINE_GRACE_REQUESTS: ::windows::core::PCWSTR = ::windows::core::w!("KeyManagementServiceNonGenuineGraceRequests");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_KMS_NOTIFICATION_REQUESTS: ::windows::core::PCWSTR = ::windows::w!("KeyManagementServiceNotificationRequests");
+pub const SL_INFO_KEY_KMS_NOTIFICATION_REQUESTS: ::windows::core::PCWSTR = ::windows::core::w!("KeyManagementServiceNotificationRequests");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_KMS_OOB_GRACE_REQUESTS: ::windows::core::PCWSTR = ::windows::w!("KeyManagementServiceOOBGraceRequests");
+pub const SL_INFO_KEY_KMS_OOB_GRACE_REQUESTS: ::windows::core::PCWSTR = ::windows::core::w!("KeyManagementServiceOOBGraceRequests");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_KMS_OOT_GRACE_REQUESTS: ::windows::core::PCWSTR = ::windows::w!("KeyManagementServiceOOTGraceRequests");
+pub const SL_INFO_KEY_KMS_OOT_GRACE_REQUESTS: ::windows::core::PCWSTR = ::windows::core::w!("KeyManagementServiceOOTGraceRequests");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_KMS_REQUIRED_CLIENT_COUNT: ::windows::core::PCWSTR = ::windows::w!("KeyManagementServiceRequiredClientCount");
+pub const SL_INFO_KEY_KMS_REQUIRED_CLIENT_COUNT: ::windows::core::PCWSTR = ::windows::core::w!("KeyManagementServiceRequiredClientCount");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_KMS_TOTAL_REQUESTS: ::windows::core::PCWSTR = ::windows::w!("KeyManagementServiceTotalRequests");
+pub const SL_INFO_KEY_KMS_TOTAL_REQUESTS: ::windows::core::PCWSTR = ::windows::core::w!("KeyManagementServiceTotalRequests");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_KMS_UNLICENSED_REQUESTS: ::windows::core::PCWSTR = ::windows::w!("KeyManagementServiceUnlicensedRequests");
+pub const SL_INFO_KEY_KMS_UNLICENSED_REQUESTS: ::windows::core::PCWSTR = ::windows::core::w!("KeyManagementServiceUnlicensedRequests");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_LICENSE_TYPE: ::windows::core::PCWSTR = ::windows::w!("LicenseType");
+pub const SL_INFO_KEY_LICENSE_TYPE: ::windows::core::PCWSTR = ::windows::core::w!("LicenseType");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_LICENSOR_URL: ::windows::core::PCWSTR = ::windows::w!("LicensorUrl");
+pub const SL_INFO_KEY_LICENSOR_URL: ::windows::core::PCWSTR = ::windows::core::w!("LicensorUrl");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_NAME: ::windows::core::PCWSTR = ::windows::w!("Name");
+pub const SL_INFO_KEY_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Name");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_PARTIAL_PRODUCT_KEY: ::windows::core::PCWSTR = ::windows::w!("PartialProductKey");
+pub const SL_INFO_KEY_PARTIAL_PRODUCT_KEY: ::windows::core::PCWSTR = ::windows::core::w!("PartialProductKey");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_PRODUCT_KEY_ACTIVATION_URL: ::windows::core::PCWSTR = ::windows::w!("PKCURL");
+pub const SL_INFO_KEY_PRODUCT_KEY_ACTIVATION_URL: ::windows::core::PCWSTR = ::windows::core::w!("PKCURL");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_PRODUCT_SKU_ID: ::windows::core::PCWSTR = ::windows::w!("ProductSkuId");
+pub const SL_INFO_KEY_PRODUCT_SKU_ID: ::windows::core::PCWSTR = ::windows::core::w!("ProductSkuId");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_RIGHT_ACCOUNT_ACTIVATION_URL: ::windows::core::PCWSTR = ::windows::w!("RACURL");
+pub const SL_INFO_KEY_RIGHT_ACCOUNT_ACTIVATION_URL: ::windows::core::PCWSTR = ::windows::core::w!("RACURL");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_SECURE_PROCESSOR_ACTIVATION_URL: ::windows::core::PCWSTR = ::windows::w!("SPCURL");
+pub const SL_INFO_KEY_SECURE_PROCESSOR_ACTIVATION_URL: ::windows::core::PCWSTR = ::windows::core::w!("SPCURL");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_SECURE_STORE_ID: ::windows::core::PCWSTR = ::windows::w!("SecureStoreId");
+pub const SL_INFO_KEY_SECURE_STORE_ID: ::windows::core::PCWSTR = ::windows::core::w!("SecureStoreId");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_SYSTEM_STATE: ::windows::core::PCWSTR = ::windows::w!("SystemState");
+pub const SL_INFO_KEY_SYSTEM_STATE: ::windows::core::PCWSTR = ::windows::core::w!("SystemState");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_USE_LICENSE_ACTIVATION_URL: ::windows::core::PCWSTR = ::windows::w!("EULURL");
+pub const SL_INFO_KEY_USE_LICENSE_ACTIVATION_URL: ::windows::core::PCWSTR = ::windows::core::w!("EULURL");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_INFO_KEY_VERSION: ::windows::core::PCWSTR = ::windows::w!("Version");
+pub const SL_INFO_KEY_VERSION: ::windows::core::PCWSTR = ::windows::core::w!("Version");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SL_INTERNAL_ZONE: u32 = 57344u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -4104,33 +4136,33 @@ pub const SL_MDOLLAR_ZONE: u32 = 40960u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SL_MSCH_ZONE: u32 = 49152u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_PKEY_DETECT: ::windows::core::PCWSTR = ::windows::w!("msft:rm/algorithm/pkey/detect");
+pub const SL_PKEY_DETECT: ::windows::core::PCWSTR = ::windows::core::w!("msft:rm/algorithm/pkey/detect");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_PKEY_MS2005: ::windows::core::PCWSTR = ::windows::w!("msft:rm/algorithm/pkey/2005");
+pub const SL_PKEY_MS2005: ::windows::core::PCWSTR = ::windows::core::w!("msft:rm/algorithm/pkey/2005");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_PKEY_MS2009: ::windows::core::PCWSTR = ::windows::w!("msft:rm/algorithm/pkey/2009");
+pub const SL_PKEY_MS2009: ::windows::core::PCWSTR = ::windows::core::w!("msft:rm/algorithm/pkey/2009");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_POLICY_EVALUATION_MODE_ENABLED: ::windows::core::PCWSTR = ::windows::w!("Security-SPP-EvaluationModeEnabled");
+pub const SL_POLICY_EVALUATION_MODE_ENABLED: ::windows::core::PCWSTR = ::windows::core::w!("Security-SPP-EvaluationModeEnabled");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_PROP_ACTIVATION_VALIDATION_IN_PROGRESS: ::windows::core::PCWSTR = ::windows::w!("SL_ACTIVATION_VALIDATION_IN_PROGRESS");
+pub const SL_PROP_ACTIVATION_VALIDATION_IN_PROGRESS: ::windows::core::PCWSTR = ::windows::core::w!("SL_ACTIVATION_VALIDATION_IN_PROGRESS");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_PROP_BRT_COMMIT: ::windows::core::PCWSTR = ::windows::w!("SL_BRT_COMMIT");
+pub const SL_PROP_BRT_COMMIT: ::windows::core::PCWSTR = ::windows::core::w!("SL_BRT_COMMIT");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_PROP_BRT_DATA: ::windows::core::PCWSTR = ::windows::w!("SL_BRT_DATA");
+pub const SL_PROP_BRT_DATA: ::windows::core::PCWSTR = ::windows::core::w!("SL_BRT_DATA");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_PROP_GENUINE_RESULT: ::windows::core::PCWSTR = ::windows::w!("SL_GENUINE_RESULT");
+pub const SL_PROP_GENUINE_RESULT: ::windows::core::PCWSTR = ::windows::core::w!("SL_GENUINE_RESULT");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_PROP_GET_GENUINE_AUTHZ: ::windows::core::PCWSTR = ::windows::w!("SL_GET_GENUINE_AUTHZ");
+pub const SL_PROP_GET_GENUINE_AUTHZ: ::windows::core::PCWSTR = ::windows::core::w!("SL_GET_GENUINE_AUTHZ");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_PROP_GET_GENUINE_SERVER_AUTHZ: ::windows::core::PCWSTR = ::windows::w!("SL_GET_GENUINE_SERVER_AUTHZ");
+pub const SL_PROP_GET_GENUINE_SERVER_AUTHZ: ::windows::core::PCWSTR = ::windows::core::w!("SL_GET_GENUINE_SERVER_AUTHZ");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_PROP_LAST_ACT_ATTEMPT_HRESULT: ::windows::core::PCWSTR = ::windows::w!("SL_LAST_ACT_ATTEMPT_HRESULT");
+pub const SL_PROP_LAST_ACT_ATTEMPT_HRESULT: ::windows::core::PCWSTR = ::windows::core::w!("SL_LAST_ACT_ATTEMPT_HRESULT");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_PROP_LAST_ACT_ATTEMPT_SERVER_FLAGS: ::windows::core::PCWSTR = ::windows::w!("SL_LAST_ACT_ATTEMPT_SERVER_FLAGS");
+pub const SL_PROP_LAST_ACT_ATTEMPT_SERVER_FLAGS: ::windows::core::PCWSTR = ::windows::core::w!("SL_LAST_ACT_ATTEMPT_SERVER_FLAGS");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_PROP_LAST_ACT_ATTEMPT_TIME: ::windows::core::PCWSTR = ::windows::w!("SL_LAST_ACT_ATTEMPT_TIME");
+pub const SL_PROP_LAST_ACT_ATTEMPT_TIME: ::windows::core::PCWSTR = ::windows::core::w!("SL_LAST_ACT_ATTEMPT_TIME");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SL_PROP_NONGENUINE_GRACE_FLAG: ::windows::core::PCWSTR = ::windows::w!("SL_NONGENUINE_GRACE_FLAG");
+pub const SL_PROP_NONGENUINE_GRACE_FLAG: ::windows::core::PCWSTR = ::windows::core::w!("SL_NONGENUINE_GRACE_FLAG");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SL_REARM_REBOOT_REQUIRED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -4376,7 +4408,7 @@ pub const SPP_MIGRATION_GATHER_ALL: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SPP_MIGRATION_GATHER_MIGRATABLE_APPS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SP_ACCEPT_CREDENTIALS_NAME: ::windows::core::PCSTR = ::windows::s!("SpAcceptCredentials\u{0}");
+pub const SP_ACCEPT_CREDENTIALS_NAME: ::windows::core::PCSTR = ::windows::core::s!("SpAcceptCredentials\u{0}");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SP_PROT_ALL: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -4434,21 +4466,21 @@ pub const SP_PROT_UNI_CLIENT: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SP_PROT_UNI_SERVER: u32 = 1073741824u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SSL2SP_NAME: ::windows::core::PCWSTR = ::windows::w!("Microsoft SSL 2.0");
+pub const SSL2SP_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Microsoft SSL 2.0");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SSL2SP_NAME_A: ::windows::core::PCSTR = ::windows::s!("Microsoft SSL 2.0");
+pub const SSL2SP_NAME_A: ::windows::core::PCSTR = ::windows::core::s!("Microsoft SSL 2.0");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SSL2SP_NAME_W: ::windows::core::PCWSTR = ::windows::w!("Microsoft SSL 2.0");
+pub const SSL2SP_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!("Microsoft SSL 2.0");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SSL3SP_NAME: ::windows::core::PCWSTR = ::windows::w!("Microsoft SSL 3.0");
+pub const SSL3SP_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Microsoft SSL 3.0");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SSL3SP_NAME_A: ::windows::core::PCSTR = ::windows::s!("Microsoft SSL 3.0");
+pub const SSL3SP_NAME_A: ::windows::core::PCSTR = ::windows::core::s!("Microsoft SSL 3.0");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SSL3SP_NAME_W: ::windows::core::PCWSTR = ::windows::w!("Microsoft SSL 3.0");
+pub const SSL3SP_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!("Microsoft SSL 3.0");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SSL_CRACK_CERTIFICATE_NAME: ::windows::core::PCWSTR = ::windows::w!("SslCrackCertificate");
+pub const SSL_CRACK_CERTIFICATE_NAME: ::windows::core::PCWSTR = ::windows::core::w!("SslCrackCertificate");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SSL_FREE_CERTIFICATE_NAME: ::windows::core::PCWSTR = ::windows::w!("SslFreeCertificate");
+pub const SSL_FREE_CERTIFICATE_NAME: ::windows::core::PCWSTR = ::windows::core::w!("SslFreeCertificate");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SSL_SESSION_RECONNECT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -4464,11 +4496,11 @@ pub const SSPIPFC_USE_CREDUIBROKER: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SZ_ALG_MAX_SIZE: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const TLS1SP_NAME: ::windows::core::PCWSTR = ::windows::w!("Microsoft TLS 1.0");
+pub const TLS1SP_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Microsoft TLS 1.0");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const TLS1SP_NAME_A: ::windows::core::PCSTR = ::windows::s!("Microsoft TLS 1.0");
+pub const TLS1SP_NAME_A: ::windows::core::PCSTR = ::windows::core::s!("Microsoft TLS 1.0");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const TLS1SP_NAME_W: ::windows::core::PCWSTR = ::windows::w!("Microsoft TLS 1.0");
+pub const TLS1SP_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!("Microsoft TLS 1.0");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const TLS1_ALERT_ACCESS_DENIED: u32 = 49u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -4546,6 +4578,8 @@ pub const TRUST_ATTRIBUTE_CROSS_ORGANIZATION_ENABLE_TGT_DELEGATION: u32 = 2048u3
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const TRUST_ATTRIBUTE_CROSS_ORGANIZATION_NO_TGT_DELEGATION: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const TRUST_ATTRIBUTE_DISABLE_AUTH_TARGET_VALIDATION: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const TRUST_ATTRIBUTE_PIM_TRUST: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const TRUST_ATTRIBUTE_QUARANTINED_DOMAIN: u32 = 4u32;
@@ -4560,11 +4594,11 @@ pub const TRUST_ATTRIBUTE_TRUST_USES_RC4_ENCRYPTION: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const UNDERSTANDS_LONG_NAMES: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const UNISP_NAME: ::windows::core::PCWSTR = ::windows::w!("Microsoft Unified Security Protocol Provider");
+pub const UNISP_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Microsoft Unified Security Protocol Provider");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const UNISP_NAME_A: ::windows::core::PCSTR = ::windows::s!("Microsoft Unified Security Protocol Provider");
+pub const UNISP_NAME_A: ::windows::core::PCSTR = ::windows::core::s!("Microsoft Unified Security Protocol Provider");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const UNISP_NAME_W: ::windows::core::PCWSTR = ::windows::w!("Microsoft Unified Security Protocol Provider");
+pub const UNISP_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!("Microsoft Unified Security Protocol Provider");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const UNISP_RPC_ID: u32 = 14u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -4614,11 +4648,11 @@ pub const USER_USE_DES_KEY_ONLY: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const USER_WORKSTATION_TRUST_ACCOUNT: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const WDIGEST_SP_NAME: ::windows::core::PCWSTR = ::windows::w!("WDigest");
+pub const WDIGEST_SP_NAME: ::windows::core::PCWSTR = ::windows::core::w!("WDigest");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const WDIGEST_SP_NAME_A: ::windows::core::PCSTR = ::windows::s!("WDigest");
+pub const WDIGEST_SP_NAME_A: ::windows::core::PCSTR = ::windows::core::s!("WDigest");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const WDIGEST_SP_NAME_W: ::windows::core::PCWSTR = ::windows::w!("WDigest");
+pub const WDIGEST_SP_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!("WDigest");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const WINDOWS_SLID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55c92734_d682_4d71_983e_d6ec3f16059f);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -5111,6 +5145,8 @@ pub struct ISC_REQ_HIGH_FLAGS(pub u64);
 pub const ISC_REQ_MESSAGES: ISC_REQ_HIGH_FLAGS = ISC_REQ_HIGH_FLAGS(4294967296u64);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const ISC_REQ_DEFERRED_CRED_VALIDATION: ISC_REQ_HIGH_FLAGS = ISC_REQ_HIGH_FLAGS(8589934592u64);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const ISC_REQ_NO_POST_HANDSHAKE_AUTH: ISC_REQ_HIGH_FLAGS = ISC_REQ_HIGH_FLAGS(17179869184u64);
 impl ::core::marker::Copy for ISC_REQ_HIGH_FLAGS {}
 impl ::core::clone::Clone for ISC_REQ_HIGH_FLAGS {
     fn clone(&self) -> Self {
@@ -5636,7 +5672,11 @@ pub const ForestTrustTopLevelNameEx: LSA_FOREST_TRUST_RECORD_TYPE = LSA_FOREST_T
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const ForestTrustDomainInfo: LSA_FOREST_TRUST_RECORD_TYPE = LSA_FOREST_TRUST_RECORD_TYPE(2i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ForestTrustRecordTypeLast: LSA_FOREST_TRUST_RECORD_TYPE = LSA_FOREST_TRUST_RECORD_TYPE(2i32);
+pub const ForestTrustBinaryInfo: LSA_FOREST_TRUST_RECORD_TYPE = LSA_FOREST_TRUST_RECORD_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const ForestTrustScannerInfo: LSA_FOREST_TRUST_RECORD_TYPE = LSA_FOREST_TRUST_RECORD_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const ForestTrustRecordTypeLast: LSA_FOREST_TRUST_RECORD_TYPE = LSA_FOREST_TRUST_RECORD_TYPE(4i32);
 impl ::core::marker::Copy for LSA_FOREST_TRUST_RECORD_TYPE {}
 impl ::core::clone::Clone for LSA_FOREST_TRUST_RECORD_TYPE {
     fn clone(&self) -> Self {
@@ -7705,6 +7745,10 @@ pub const TrustedDomainInformationEx2Internal: TRUSTED_INFORMATION_CLASS = TRUST
 pub const TrustedDomainFullInformation2Internal: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(12i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const TrustedDomainSupportedEncryptionTypes: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(13i32);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const TrustedDomainAuthInformationInternalAes: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(14i32);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const TrustedDomainFullInformationInternalAes: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(15i32);
 impl ::core::marker::Copy for TRUSTED_INFORMATION_CLASS {}
 impl ::core::clone::Clone for TRUSTED_INFORMATION_CLASS {
     fn clone(&self) -> Self {
@@ -7916,38 +7960,30 @@ impl ::core::default::Default for CENTRAL_ACCESS_POLICY_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub struct CLEAR_BLOCK {
-    pub data: [super::super::super::Foundation::CHAR; 8],
+    pub data: [u8; 8],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CLEAR_BLOCK {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CLEAR_BLOCK {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CLEAR_BLOCK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CLEAR_BLOCK").field("data", &self.data).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for CLEAR_BLOCK {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CLEAR_BLOCK {
     fn eq(&self, other: &Self) -> bool {
         self.data == other.data
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CLEAR_BLOCK {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CLEAR_BLOCK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8587,8 +8623,38 @@ impl ::core::default::Default for KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub struct KERB_CLOUD_KERBEROS_DEBUG_DATA {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for KERB_CLOUD_KERBEROS_DEBUG_DATA {}
+impl ::core::clone::Clone for KERB_CLOUD_KERBEROS_DEBUG_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for KERB_CLOUD_KERBEROS_DEBUG_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KERB_CLOUD_KERBEROS_DEBUG_DATA").field("_bitfield", &self._bitfield).finish()
+    }
+}
+impl ::windows::core::TypeKind for KERB_CLOUD_KERBEROS_DEBUG_DATA {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for KERB_CLOUD_KERBEROS_DEBUG_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        self._bitfield == other._bitfield
+    }
+}
+impl ::core::cmp::Eq for KERB_CLOUD_KERBEROS_DEBUG_DATA {}
+impl ::core::default::Default for KERB_CLOUD_KERBEROS_DEBUG_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub struct KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
-    pub _bitfield: i32,
+    pub _bitfield: u32,
 }
 impl ::core::marker::Copy for KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {}
 impl ::core::clone::Clone for KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
@@ -11223,6 +11289,45 @@ impl ::core::default::Default for LSA_FOREST_TRUST_INFORMATION {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
+pub struct LSA_FOREST_TRUST_INFORMATION2 {
+    pub RecordCount: u32,
+    pub Entries: *mut *mut LSA_FOREST_TRUST_RECORD2,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LSA_FOREST_TRUST_INFORMATION2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LSA_FOREST_TRUST_INFORMATION2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LSA_FOREST_TRUST_INFORMATION2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LSA_FOREST_TRUST_INFORMATION2").field("RecordCount", &self.RecordCount).field("Entries", &self.Entries).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for LSA_FOREST_TRUST_INFORMATION2 {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for LSA_FOREST_TRUST_INFORMATION2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.RecordCount == other.RecordCount && self.Entries == other.Entries
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for LSA_FOREST_TRUST_INFORMATION2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for LSA_FOREST_TRUST_INFORMATION2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct LSA_FOREST_TRUST_RECORD {
     pub Flags: u32,
     pub ForestTrustType: LSA_FOREST_TRUST_RECORD_TYPE,
@@ -11269,6 +11374,100 @@ impl ::windows::core::TypeKind for LSA_FOREST_TRUST_RECORD_0 {
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LSA_FOREST_TRUST_RECORD_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct LSA_FOREST_TRUST_RECORD2 {
+    pub Flags: u32,
+    pub ForestTrustType: LSA_FOREST_TRUST_RECORD_TYPE,
+    pub Time: i64,
+    pub ForestTrustData: LSA_FOREST_TRUST_RECORD2_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LSA_FOREST_TRUST_RECORD2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LSA_FOREST_TRUST_RECORD2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for LSA_FOREST_TRUST_RECORD2 {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for LSA_FOREST_TRUST_RECORD2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub union LSA_FOREST_TRUST_RECORD2_0 {
+    pub TopLevelName: super::super::super::Foundation::UNICODE_STRING,
+    pub DomainInfo: LSA_FOREST_TRUST_DOMAIN_INFO,
+    pub BinaryData: LSA_FOREST_TRUST_BINARY_DATA,
+    pub ScannerInfo: LSA_FOREST_TRUST_SCANNER_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LSA_FOREST_TRUST_RECORD2_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LSA_FOREST_TRUST_RECORD2_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for LSA_FOREST_TRUST_RECORD2_0 {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for LSA_FOREST_TRUST_RECORD2_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct LSA_FOREST_TRUST_SCANNER_INFO {
+    pub DomainSid: super::super::super::Foundation::PSID,
+    pub DnsName: super::super::super::Foundation::UNICODE_STRING,
+    pub NetbiosName: super::super::super::Foundation::UNICODE_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LSA_FOREST_TRUST_SCANNER_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LSA_FOREST_TRUST_SCANNER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LSA_FOREST_TRUST_SCANNER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LSA_FOREST_TRUST_SCANNER_INFO").field("DomainSid", &self.DomainSid).field("DnsName", &self.DnsName).field("NetbiosName", &self.NetbiosName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for LSA_FOREST_TRUST_SCANNER_INFO {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for LSA_FOREST_TRUST_SCANNER_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.DomainSid == other.DomainSid && self.DnsName == other.DnsName && self.NetbiosName == other.NetbiosName
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for LSA_FOREST_TRUST_SCANNER_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for LSA_FOREST_TRUST_SCANNER_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -11438,6 +11637,7 @@ pub struct LSA_SECPKG_FUNCTION_TABLE {
     pub QueryClientRequest: PLSA_QUERY_CLIENT_REQUEST,
     pub GetAppModeInfo: PLSA_GET_APP_MODE_INFO,
     pub SetAppModeInfo: PLSA_SET_APP_MODE_INFO,
+    pub GetClientInfoEx: PLSA_GET_CLIENT_INFO_EX,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 impl ::core::marker::Copy for LSA_SECPKG_FUNCTION_TABLE {}
@@ -14474,6 +14674,66 @@ impl ::core::default::Default for SECPKG_CLIENT_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SECPKG_CLIENT_INFO_EX {
+    pub LogonId: super::super::super::Foundation::LUID,
+    pub ProcessID: u32,
+    pub ThreadID: u32,
+    pub HasTcbPrivilege: super::super::super::Foundation::BOOLEAN,
+    pub Impersonating: super::super::super::Foundation::BOOLEAN,
+    pub Restricted: super::super::super::Foundation::BOOLEAN,
+    pub ClientFlags: u8,
+    pub ImpersonationLevel: super::super::SECURITY_IMPERSONATION_LEVEL,
+    pub ClientToken: super::super::super::Foundation::HANDLE,
+    pub IdentificationLogonId: super::super::super::Foundation::LUID,
+    pub IdentificationToken: super::super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SECPKG_CLIENT_INFO_EX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SECPKG_CLIENT_INFO_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SECPKG_CLIENT_INFO_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SECPKG_CLIENT_INFO_EX")
+            .field("LogonId", &self.LogonId)
+            .field("ProcessID", &self.ProcessID)
+            .field("ThreadID", &self.ThreadID)
+            .field("HasTcbPrivilege", &self.HasTcbPrivilege)
+            .field("Impersonating", &self.Impersonating)
+            .field("Restricted", &self.Restricted)
+            .field("ClientFlags", &self.ClientFlags)
+            .field("ImpersonationLevel", &self.ImpersonationLevel)
+            .field("ClientToken", &self.ClientToken)
+            .field("IdentificationLogonId", &self.IdentificationLogonId)
+            .field("IdentificationToken", &self.IdentificationToken)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for SECPKG_CLIENT_INFO_EX {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SECPKG_CLIENT_INFO_EX {
+    fn eq(&self, other: &Self) -> bool {
+        self.LogonId == other.LogonId && self.ProcessID == other.ProcessID && self.ThreadID == other.ThreadID && self.HasTcbPrivilege == other.HasTcbPrivilege && self.Impersonating == other.Impersonating && self.Restricted == other.Restricted && self.ClientFlags == other.ClientFlags && self.ImpersonationLevel == other.ImpersonationLevel && self.ClientToken == other.ClientToken && self.IdentificationLogonId == other.IdentificationLogonId && self.IdentificationToken == other.IdentificationToken
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SECPKG_CLIENT_INFO_EX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for SECPKG_CLIENT_INFO_EX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub struct SECPKG_CONTEXT_THUNKS {
     pub InfoLevelCount: u32,
@@ -14839,6 +15099,7 @@ pub struct SECPKG_FUNCTION_TABLE {
     pub LogonUserEx3: PLSA_AP_LOGON_USER_EX3,
     pub PreLogonUserSurrogate: PLSA_AP_PRE_LOGON_USER_SURROGATE,
     pub PostLogonUserSurrogate: PLSA_AP_POST_LOGON_USER_SURROGATE,
+    pub ExtractTargetInfo: SpExtractTargetInfoFn,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 impl ::core::marker::Copy for SECPKG_FUNCTION_TABLE {}
@@ -15034,6 +15295,52 @@ impl ::core::cmp::PartialEq for SECPKG_NEGO2_INFO {
 }
 impl ::core::cmp::Eq for SECPKG_NEGO2_INFO {}
 impl ::core::default::Default for SECPKG_NEGO2_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SECPKG_NTLM_TARGETINFO {
+    pub Flags: u32,
+    pub MsvAvNbComputerName: ::windows::core::PWSTR,
+    pub MsvAvNbDomainName: ::windows::core::PWSTR,
+    pub MsvAvDnsComputerName: ::windows::core::PWSTR,
+    pub MsvAvDnsDomainName: ::windows::core::PWSTR,
+    pub MsvAvDnsTreeName: ::windows::core::PWSTR,
+    pub MsvAvFlags: u32,
+    pub MsvAvTimestamp: super::super::super::Foundation::FILETIME,
+    pub MsvAvTargetName: ::windows::core::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SECPKG_NTLM_TARGETINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SECPKG_NTLM_TARGETINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SECPKG_NTLM_TARGETINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SECPKG_NTLM_TARGETINFO").field("Flags", &self.Flags).field("MsvAvNbComputerName", &self.MsvAvNbComputerName).field("MsvAvNbDomainName", &self.MsvAvNbDomainName).field("MsvAvDnsComputerName", &self.MsvAvDnsComputerName).field("MsvAvDnsDomainName", &self.MsvAvDnsDomainName).field("MsvAvDnsTreeName", &self.MsvAvDnsTreeName).field("MsvAvFlags", &self.MsvAvFlags).field("MsvAvTimestamp", &self.MsvAvTimestamp).field("MsvAvTargetName", &self.MsvAvTargetName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for SECPKG_NTLM_TARGETINFO {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SECPKG_NTLM_TARGETINFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.Flags == other.Flags && self.MsvAvNbComputerName == other.MsvAvNbComputerName && self.MsvAvNbDomainName == other.MsvAvNbDomainName && self.MsvAvDnsComputerName == other.MsvAvDnsComputerName && self.MsvAvDnsDomainName == other.MsvAvDnsDomainName && self.MsvAvDnsTreeName == other.MsvAvDnsTreeName && self.MsvAvFlags == other.MsvAvFlags && self.MsvAvTimestamp == other.MsvAvTimestamp && self.MsvAvTargetName == other.MsvAvTargetName
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SECPKG_NTLM_TARGETINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for SECPKG_NTLM_TARGETINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -15271,6 +15578,7 @@ pub struct SECPKG_REDIRECTED_LOGON_BUFFER {
     pub CleanupCallback: PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK,
     pub GetLogonCreds: PLSA_REDIRECTED_LOGON_GET_LOGON_CREDS,
     pub GetSupplementalCreds: PLSA_REDIRECTED_LOGON_GET_SUPP_CREDS,
+    pub GetRedirectedLogonSid: PLSA_REDIRECTED_LOGON_GET_SID,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SECPKG_REDIRECTED_LOGON_BUFFER {}
@@ -15906,6 +16214,37 @@ impl ::core::cmp::PartialEq for SEC_APPLICATION_PROTOCOL_LIST {
 }
 impl ::core::cmp::Eq for SEC_APPLICATION_PROTOCOL_LIST {}
 impl ::core::default::Default for SEC_APPLICATION_PROTOCOL_LIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub struct SEC_CERTIFICATE_REQUEST_CONTEXT {
+    pub cbCertificateRequestContext: u8,
+    pub rgCertificateRequestContext: [u8; 1],
+}
+impl ::core::marker::Copy for SEC_CERTIFICATE_REQUEST_CONTEXT {}
+impl ::core::clone::Clone for SEC_CERTIFICATE_REQUEST_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SEC_CERTIFICATE_REQUEST_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SEC_CERTIFICATE_REQUEST_CONTEXT").field("cbCertificateRequestContext", &self.cbCertificateRequestContext).field("rgCertificateRequestContext", &self.rgCertificateRequestContext).finish()
+    }
+}
+impl ::windows::core::TypeKind for SEC_CERTIFICATE_REQUEST_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for SEC_CERTIFICATE_REQUEST_CONTEXT {
+    fn eq(&self, other: &Self) -> bool {
+        self.cbCertificateRequestContext == other.cbCertificateRequestContext && self.rgCertificateRequestContext == other.rgCertificateRequestContext
+    }
+}
+impl ::core::cmp::Eq for SEC_CERTIFICATE_REQUEST_CONTEXT {}
+impl ::core::default::Default for SEC_CERTIFICATE_REQUEST_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -20273,38 +20612,38 @@ impl ::core::default::Default for USER_ALL_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_System_PasswordManagement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_System_PasswordManagement\"`*"]
+#[cfg(feature = "Win32_System_PasswordManagement")]
 pub struct USER_SESSION_KEY {
     pub data: [super::super::super::System::PasswordManagement::CYPHER_BLOCK; 2],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
+#[cfg(feature = "Win32_System_PasswordManagement")]
 impl ::core::marker::Copy for USER_SESSION_KEY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
+#[cfg(feature = "Win32_System_PasswordManagement")]
 impl ::core::clone::Clone for USER_SESSION_KEY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
+#[cfg(feature = "Win32_System_PasswordManagement")]
 impl ::core::fmt::Debug for USER_SESSION_KEY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("USER_SESSION_KEY").field("data", &self.data).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
+#[cfg(feature = "Win32_System_PasswordManagement")]
 impl ::windows::core::TypeKind for USER_SESSION_KEY {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
+#[cfg(feature = "Win32_System_PasswordManagement")]
 impl ::core::cmp::PartialEq for USER_SESSION_KEY {
     fn eq(&self, other: &Self) -> bool {
         self.data == other.data
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
+#[cfg(feature = "Win32_System_PasswordManagement")]
 impl ::core::cmp::Eq for USER_SESSION_KEY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
+#[cfg(feature = "Win32_System_PasswordManagement")]
 impl ::core::default::Default for USER_SESSION_KEY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -20705,6 +21044,9 @@ pub type PLSA_GET_CALL_INFO = ::core::option::Option<unsafe extern "system" fn(i
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_GET_CLIENT_INFO = ::core::option::Option<unsafe extern "system" fn(clientinfo: *mut SECPKG_CLIENT_INFO) -> super::super::super::Foundation::NTSTATUS>;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PLSA_GET_CLIENT_INFO_EX = ::core::option::Option<unsafe extern "system" fn(clientinfo: *mut SECPKG_CLIENT_INFO_EX, structsize: u32) -> super::super::super::Foundation::NTSTATUS>;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type PLSA_GET_CREDENTIALS = ::core::option::Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, authenticationpackage: u32, querycontext: *mut u32, retrieveallcredentials: super::super::super::Foundation::BOOLEAN, primarykeyvalue: *const super::super::super::System::Kernel::STRING, primarykeylength: *mut u32, credentials: *const super::super::super::System::Kernel::STRING) -> super::super::super::Foundation::NTSTATUS>;
@@ -20748,6 +21090,9 @@ pub type PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK = ::core::option::Option<unsafe 
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_REDIRECTED_LOGON_GET_LOGON_CREDS = ::core::option::Option<unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE, logonbuffer: *mut *mut u8, logonbufferlength: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PLSA_REDIRECTED_LOGON_GET_SID = ::core::option::Option<unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE, sid: *mut super::super::super::Foundation::PSID) -> super::super::super::Foundation::NTSTATUS>;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_REDIRECTED_LOGON_GET_SUPP_CREDS = ::core::option::Option<unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE, supplementalcredentials: *mut *mut SECPKG_SUPPLEMENTAL_CRED_ARRAY) -> super::super::super::Foundation::NTSTATUS>;
@@ -20887,6 +21232,9 @@ pub type SpExchangeMetaDataFn = ::core::option::Option<unsafe extern "system" fn
 pub type SpExportSecurityContextFn = ::core::option::Option<unsafe extern "system" fn(phcontext: usize, fflags: u32, ppackedcontext: *mut SecBuffer, ptoken: *mut super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS>;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
+pub type SpExtractTargetInfoFn = ::core::option::Option<unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, protocolsubmitbuffer: *const ::core::ffi::c_void, clientbufferbase: *const ::core::ffi::c_void, submitbufferlength: u32, ppvtargetinfo: *mut *mut ::core::ffi::c_void, pcbtargetinfo: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub type SpFormatCredentialsFn = ::core::option::Option<unsafe extern "system" fn(credentials: *const SecBuffer, formattedcredentials: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -20987,6 +21335,9 @@ pub type SpValidateTargetInfoFn = ::core::option::Option<unsafe extern "system" 
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpVerifySignatureFn = ::core::option::Option<unsafe extern "system" fn(contexthandle: usize, messagebuffers: *const SecBufferDesc, messagesequencenumber: u32, qualityofprotection: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+pub type SslDeserializeCertificateStoreFn = ::core::option::Option<unsafe extern "system" fn(serializedcertificatestore: super::super::Cryptography::CRYPT_INTEGER_BLOB, ppcertcontext: *mut *mut super::super::Cryptography::CERT_CONTEXT) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub type SslGetExtensionsFn = ::core::option::Option<unsafe extern "system" fn(clienthello: *const u8, clienthellobytesize: u32, genericextensions: *mut SCH_EXTENSION_DATA, genericextensionscount: u8, bytestoread: *mut u32, flags: SchGetExtensionsOptions) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]

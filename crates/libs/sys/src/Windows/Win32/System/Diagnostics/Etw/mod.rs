@@ -1,43 +1,43 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn CloseTrace ( tracehandle : PROCESSTRACE_HANDLE ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn ControlTraceA ( tracehandle : CONTROLTRACE_HANDLE , instancename : :: windows_sys::core::PCSTR , properties : *mut EVENT_TRACE_PROPERTIES , controlcode : EVENT_TRACE_CONTROL ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn ControlTraceA ( tracehandle : CONTROLTRACE_HANDLE , instancename : ::windows_sys::core::PCSTR , properties : *mut EVENT_TRACE_PROPERTIES , controlcode : EVENT_TRACE_CONTROL ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn ControlTraceW ( tracehandle : CONTROLTRACE_HANDLE , instancename : :: windows_sys::core::PCWSTR , properties : *mut EVENT_TRACE_PROPERTIES , controlcode : EVENT_TRACE_CONTROL ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn ControlTraceW ( tracehandle : CONTROLTRACE_HANDLE , instancename : ::windows_sys::core::PCWSTR , properties : *mut EVENT_TRACE_PROPERTIES , controlcode : EVENT_TRACE_CONTROL ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn CreateTraceInstanceId ( reghandle : super::super::super::Foundation:: HANDLE , instinfo : *mut EVENT_INSTANCE_INFO ) -> super::super::super::Foundation:: WIN32_ERROR );
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn CveEventWrite ( cveid : :: windows_sys::core::PCWSTR , additionaldetails : :: windows_sys::core::PCWSTR ) -> i32 );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn CveEventWrite ( cveid : ::windows_sys::core::PCWSTR , additionaldetails : ::windows_sys::core::PCWSTR ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn EnableTrace ( enable : u32 , enableflag : u32 , enablelevel : u32 , controlguid : *const :: windows_sys::core::GUID , tracehandle : CONTROLTRACE_HANDLE ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn EnableTrace ( enable : u32 , enableflag : u32 , enablelevel : u32 , controlguid : *const ::windows_sys::core::GUID , tracehandle : CONTROLTRACE_HANDLE ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn EnableTraceEx ( providerid : *const :: windows_sys::core::GUID , sourceid : *const :: windows_sys::core::GUID , tracehandle : CONTROLTRACE_HANDLE , isenabled : u32 , level : u8 , matchanykeyword : u64 , matchallkeyword : u64 , enableproperty : u32 , enablefilterdesc : *const EVENT_FILTER_DESCRIPTOR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn EnableTraceEx ( providerid : *const ::windows_sys::core::GUID , sourceid : *const ::windows_sys::core::GUID , tracehandle : CONTROLTRACE_HANDLE , isenabled : u32 , level : u8 , matchanykeyword : u64 , matchallkeyword : u64 , enableproperty : u32 , enablefilterdesc : *const EVENT_FILTER_DESCRIPTOR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn EnableTraceEx2 ( tracehandle : CONTROLTRACE_HANDLE , providerid : *const :: windows_sys::core::GUID , controlcode : u32 , level : u8 , matchanykeyword : u64 , matchallkeyword : u64 , timeout : u32 , enableparameters : *const ENABLE_TRACE_PARAMETERS ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn EnableTraceEx2 ( tracehandle : CONTROLTRACE_HANDLE , providerid : *const ::windows_sys::core::GUID , controlcode : u32 , level : u8 , matchanykeyword : u64 , matchallkeyword : u64 , timeout : u32 , enableparameters : *const ENABLE_TRACE_PARAMETERS ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn EnumerateTraceGuids ( guidpropertiesarray : *mut *mut TRACE_GUID_PROPERTIES , propertyarraycount : u32 , guidcount : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn EnumerateTraceGuidsEx ( tracequeryinfoclass : TRACE_QUERY_INFO_CLASS , inbuffer : *const ::core::ffi::c_void , inbuffersize : u32 , outbuffer : *mut ::core::ffi::c_void , outbuffersize : u32 , returnlength : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn EventAccessControl ( guid : *const :: windows_sys::core::GUID , operation : u32 , sid : super::super::super::Foundation:: PSID , rights : u32 , allowordeny : super::super::super::Foundation:: BOOLEAN ) -> u32 );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn EventAccessControl ( guid : *const ::windows_sys::core::GUID , operation : u32 , sid : super::super::super::Foundation:: PSID , rights : u32 , allowordeny : super::super::super::Foundation:: BOOLEAN ) -> u32 );
 #[cfg(feature = "Win32_Security")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Security\"`*"] fn EventAccessQuery ( guid : *const :: windows_sys::core::GUID , buffer : super::super::super::Security:: PSECURITY_DESCRIPTOR , buffersize : *mut u32 ) -> u32 );
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn EventAccessRemove ( guid : *const :: windows_sys::core::GUID ) -> u32 );
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn EventActivityIdControl ( controlcode : u32 , activityid : *mut :: windows_sys::core::GUID ) -> u32 );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Security\"`*"] fn EventAccessQuery ( guid : *const ::windows_sys::core::GUID , buffer : super::super::super::Security:: PSECURITY_DESCRIPTOR , buffersize : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn EventAccessRemove ( guid : *const ::windows_sys::core::GUID ) -> u32 );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn EventActivityIdControl ( controlcode : u32 , activityid : *mut ::windows_sys::core::GUID ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn EventEnabled ( reghandle : u64 , eventdescriptor : *const EVENT_DESCRIPTOR ) -> super::super::super::Foundation:: BOOLEAN );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn EventProviderEnabled ( reghandle : u64 , level : u8 , keyword : u64 ) -> super::super::super::Foundation:: BOOLEAN );
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn EventRegister ( providerid : *const :: windows_sys::core::GUID , enablecallback : PENABLECALLBACK , callbackcontext : *const ::core::ffi::c_void , reghandle : *mut u64 ) -> u32 );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn EventRegister ( providerid : *const ::windows_sys::core::GUID , enablecallback : PENABLECALLBACK , callbackcontext : *const ::core::ffi::c_void , reghandle : *mut u64 ) -> u32 );
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn EventSetInformation ( reghandle : u64 , informationclass : EVENT_INFO_CLASS , eventinformation : *const ::core::ffi::c_void , informationlength : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn EventUnregister ( reghandle : u64 ) -> u32 );
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn EventWrite ( reghandle : u64 , eventdescriptor : *const EVENT_DESCRIPTOR , userdatacount : u32 , userdata : *const EVENT_DATA_DESCRIPTOR ) -> u32 );
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn EventWriteEx ( reghandle : u64 , eventdescriptor : *const EVENT_DESCRIPTOR , filter : u64 , flags : u32 , activityid : *const :: windows_sys::core::GUID , relatedactivityid : *const :: windows_sys::core::GUID , userdatacount : u32 , userdata : *const EVENT_DATA_DESCRIPTOR ) -> u32 );
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn EventWriteString ( reghandle : u64 , level : u8 , keyword : u64 , string : :: windows_sys::core::PCWSTR ) -> u32 );
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn EventWriteTransfer ( reghandle : u64 , eventdescriptor : *const EVENT_DESCRIPTOR , activityid : *const :: windows_sys::core::GUID , relatedactivityid : *const :: windows_sys::core::GUID , userdatacount : u32 , userdata : *const EVENT_DATA_DESCRIPTOR ) -> u32 );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn EventWriteEx ( reghandle : u64 , eventdescriptor : *const EVENT_DESCRIPTOR , filter : u64 , flags : u32 , activityid : *const ::windows_sys::core::GUID , relatedactivityid : *const ::windows_sys::core::GUID , userdatacount : u32 , userdata : *const EVENT_DATA_DESCRIPTOR ) -> u32 );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn EventWriteString ( reghandle : u64 , level : u8 , keyword : u64 , string : ::windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn EventWriteTransfer ( reghandle : u64 , eventdescriptor : *const EVENT_DESCRIPTOR , activityid : *const ::windows_sys::core::GUID , relatedactivityid : *const ::windows_sys::core::GUID , userdatacount : u32 , userdata : *const EVENT_DATA_DESCRIPTOR ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn FlushTraceA ( tracehandle : CONTROLTRACE_HANDLE , instancename : :: windows_sys::core::PCSTR , properties : *mut EVENT_TRACE_PROPERTIES ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn FlushTraceA ( tracehandle : CONTROLTRACE_HANDLE , instancename : ::windows_sys::core::PCSTR , properties : *mut EVENT_TRACE_PROPERTIES ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn FlushTraceW ( tracehandle : CONTROLTRACE_HANDLE , instancename : :: windows_sys::core::PCWSTR , properties : *mut EVENT_TRACE_PROPERTIES ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn FlushTraceW ( tracehandle : CONTROLTRACE_HANDLE , instancename : ::windows_sys::core::PCWSTR , properties : *mut EVENT_TRACE_PROPERTIES ) -> super::super::super::Foundation:: WIN32_ERROR );
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn GetTraceEnableFlags ( tracehandle : u64 ) -> u32 );
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn GetTraceEnableLevel ( tracehandle : u64 ) -> u8 );
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn GetTraceLoggerHandle ( buffer : *const ::core::ffi::c_void ) -> u64 );
@@ -52,73 +52,73 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn QueryAllTracesW ( propertyarray : *mut *mut EVENT_TRACE_PROPERTIES , propertyarraycount : u32 , loggercount : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn QueryTraceA ( tracehandle : CONTROLTRACE_HANDLE , instancename : :: windows_sys::core::PCSTR , properties : *mut EVENT_TRACE_PROPERTIES ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn QueryTraceA ( tracehandle : CONTROLTRACE_HANDLE , instancename : ::windows_sys::core::PCSTR , properties : *mut EVENT_TRACE_PROPERTIES ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn QueryTraceProcessingHandle ( processinghandle : PROCESSTRACE_HANDLE , informationclass : ETW_PROCESS_HANDLE_INFO_TYPE , inbuffer : *const ::core::ffi::c_void , inbuffersize : u32 , outbuffer : *mut ::core::ffi::c_void , outbuffersize : u32 , returnlength : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn QueryTraceW ( tracehandle : CONTROLTRACE_HANDLE , instancename : :: windows_sys::core::PCWSTR , properties : *mut EVENT_TRACE_PROPERTIES ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn QueryTraceW ( tracehandle : CONTROLTRACE_HANDLE , instancename : ::windows_sys::core::PCWSTR , properties : *mut EVENT_TRACE_PROPERTIES ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn RegisterTraceGuidsA ( requestaddress : WMIDPREQUEST , requestcontext : *const ::core::ffi::c_void , controlguid : *const :: windows_sys::core::GUID , guidcount : u32 , traceguidreg : *const TRACE_GUID_REGISTRATION , mofimagepath : :: windows_sys::core::PCSTR , mofresourcename : :: windows_sys::core::PCSTR , registrationhandle : *mut u64 ) -> u32 );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn RegisterTraceGuidsA ( requestaddress : WMIDPREQUEST , requestcontext : *const ::core::ffi::c_void , controlguid : *const ::windows_sys::core::GUID , guidcount : u32 , traceguidreg : *const TRACE_GUID_REGISTRATION , mofimagepath : ::windows_sys::core::PCSTR , mofresourcename : ::windows_sys::core::PCSTR , registrationhandle : *mut u64 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn RegisterTraceGuidsW ( requestaddress : WMIDPREQUEST , requestcontext : *const ::core::ffi::c_void , controlguid : *const :: windows_sys::core::GUID , guidcount : u32 , traceguidreg : *const TRACE_GUID_REGISTRATION , mofimagepath : :: windows_sys::core::PCWSTR , mofresourcename : :: windows_sys::core::PCWSTR , registrationhandle : *mut u64 ) -> u32 );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn RegisterTraceGuidsW ( requestaddress : WMIDPREQUEST , requestcontext : *const ::core::ffi::c_void , controlguid : *const ::windows_sys::core::GUID , guidcount : u32 , traceguidreg : *const TRACE_GUID_REGISTRATION , mofimagepath : ::windows_sys::core::PCWSTR , mofresourcename : ::windows_sys::core::PCWSTR , registrationhandle : *mut u64 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn RemoveTraceCallback ( pguid : *const :: windows_sys::core::GUID ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn RemoveTraceCallback ( pguid : *const ::windows_sys::core::GUID ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn SetTraceCallback ( pguid : *const :: windows_sys::core::GUID , eventcallback : PEVENT_CALLBACK ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn SetTraceCallback ( pguid : *const ::windows_sys::core::GUID , eventcallback : PEVENT_CALLBACK ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn StartTraceA ( tracehandle : *mut CONTROLTRACE_HANDLE , instancename : :: windows_sys::core::PCSTR , properties : *mut EVENT_TRACE_PROPERTIES ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn StartTraceA ( tracehandle : *mut CONTROLTRACE_HANDLE , instancename : ::windows_sys::core::PCSTR , properties : *mut EVENT_TRACE_PROPERTIES ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn StartTraceW ( tracehandle : *mut CONTROLTRACE_HANDLE , instancename : :: windows_sys::core::PCWSTR , properties : *mut EVENT_TRACE_PROPERTIES ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn StartTraceW ( tracehandle : *mut CONTROLTRACE_HANDLE , instancename : ::windows_sys::core::PCWSTR , properties : *mut EVENT_TRACE_PROPERTIES ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn StopTraceA ( tracehandle : CONTROLTRACE_HANDLE , instancename : :: windows_sys::core::PCSTR , properties : *mut EVENT_TRACE_PROPERTIES ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn StopTraceA ( tracehandle : CONTROLTRACE_HANDLE , instancename : ::windows_sys::core::PCSTR , properties : *mut EVENT_TRACE_PROPERTIES ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn StopTraceW ( tracehandle : CONTROLTRACE_HANDLE , instancename : :: windows_sys::core::PCWSTR , properties : *mut EVENT_TRACE_PROPERTIES ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn StopTraceW ( tracehandle : CONTROLTRACE_HANDLE , instancename : ::windows_sys::core::PCWSTR , properties : *mut EVENT_TRACE_PROPERTIES ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn TdhAggregatePayloadFilters ( payloadfiltercount : u32 , payloadfilterptrs : *const *const ::core::ffi::c_void , eventmatchallflags : *const super::super::super::Foundation:: BOOLEAN , eventfilterdescriptor : *mut EVENT_FILTER_DESCRIPTOR ) -> u32 );
 ::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhCleanupPayloadEventFilterDescriptor ( eventfilterdescriptor : *mut EVENT_FILTER_DESCRIPTOR ) -> u32 );
 ::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhCloseDecodingHandle ( handle : TDH_HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn TdhCreatePayloadFilter ( providerguid : *const :: windows_sys::core::GUID , eventdescriptor : *const EVENT_DESCRIPTOR , eventmatchany : super::super::super::Foundation:: BOOLEAN , payloadpredicatecount : u32 , payloadpredicates : *const PAYLOAD_FILTER_PREDICATE , payloadfilter : *mut *mut ::core::ffi::c_void ) -> u32 );
+::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn TdhCreatePayloadFilter ( providerguid : *const ::windows_sys::core::GUID , eventdescriptor : *const EVENT_DESCRIPTOR , eventmatchany : super::super::super::Foundation:: BOOLEAN , payloadpredicatecount : u32 , payloadpredicates : *const PAYLOAD_FILTER_PREDICATE , payloadfilter : *mut *mut ::core::ffi::c_void ) -> u32 );
 ::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhDeletePayloadFilter ( payloadfilter : *mut *mut ::core::ffi::c_void ) -> u32 );
-::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhEnumerateManifestProviderEvents ( providerguid : *const :: windows_sys::core::GUID , buffer : *mut PROVIDER_EVENT_INFO , buffersize : *mut u32 ) -> u32 );
-::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhEnumerateProviderFieldInformation ( pguid : *const :: windows_sys::core::GUID , eventfieldtype : EVENT_FIELD_TYPE , pbuffer : *mut PROVIDER_FIELD_INFOARRAY , pbuffersize : *mut u32 ) -> u32 );
-::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhEnumerateProviderFilters ( guid : *const :: windows_sys::core::GUID , tdhcontextcount : u32 , tdhcontext : *const TDH_CONTEXT , filtercount : *mut u32 , buffer : *mut *mut PROVIDER_FILTER_INFO , buffersize : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhEnumerateManifestProviderEvents ( providerguid : *const ::windows_sys::core::GUID , buffer : *mut PROVIDER_EVENT_INFO , buffersize : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhEnumerateProviderFieldInformation ( pguid : *const ::windows_sys::core::GUID , eventfieldtype : EVENT_FIELD_TYPE , pbuffer : *mut PROVIDER_FIELD_INFOARRAY , pbuffersize : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhEnumerateProviderFilters ( guid : *const ::windows_sys::core::GUID , tdhcontextcount : u32 , tdhcontext : *const TDH_CONTEXT , filtercount : *mut u32 , buffer : *mut *mut PROVIDER_FILTER_INFO , buffersize : *mut u32 ) -> u32 );
 ::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhEnumerateProviders ( pbuffer : *mut PROVIDER_ENUMERATION_INFO , pbuffersize : *mut u32 ) -> u32 );
 ::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhEnumerateProvidersForDecodingSource ( filter : DECODING_SOURCE , buffer : *mut PROVIDER_ENUMERATION_INFO , buffersize : u32 , bufferrequired : *mut u32 ) -> u32 );
-::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhFormatProperty ( eventinfo : *const TRACE_EVENT_INFO , mapinfo : *const EVENT_MAP_INFO , pointersize : u32 , propertyintype : u16 , propertyouttype : u16 , propertylength : u16 , userdatalength : u16 , userdata : *const u8 , buffersize : *mut u32 , buffer : :: windows_sys::core::PWSTR , userdataconsumed : *mut u16 ) -> u32 );
+::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhFormatProperty ( eventinfo : *const TRACE_EVENT_INFO , mapinfo : *const EVENT_MAP_INFO , pointersize : u32 , propertyintype : u16 , propertyouttype : u16 , propertylength : u16 , userdatalength : u16 , userdata : *const u8 , buffersize : *mut u32 , buffer : ::windows_sys::core::PWSTR , userdataconsumed : *mut u16 ) -> u32 );
 ::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhGetDecodingParameter ( handle : TDH_HANDLE , tdhcontext : *mut TDH_CONTEXT ) -> u32 );
 ::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhGetEventInformation ( event : *const EVENT_RECORD , tdhcontextcount : u32 , tdhcontext : *const TDH_CONTEXT , buffer : *mut TRACE_EVENT_INFO , buffersize : *mut u32 ) -> u32 );
-::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhGetEventMapInformation ( pevent : *const EVENT_RECORD , pmapname : :: windows_sys::core::PCWSTR , pbuffer : *mut EVENT_MAP_INFO , pbuffersize : *mut u32 ) -> u32 );
-::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhGetManifestEventInformation ( providerguid : *const :: windows_sys::core::GUID , eventdescriptor : *const EVENT_DESCRIPTOR , buffer : *mut TRACE_EVENT_INFO , buffersize : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhGetEventMapInformation ( pevent : *const EVENT_RECORD , pmapname : ::windows_sys::core::PCWSTR , pbuffer : *mut EVENT_MAP_INFO , pbuffersize : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhGetManifestEventInformation ( providerguid : *const ::windows_sys::core::GUID , eventdescriptor : *const EVENT_DESCRIPTOR , buffer : *mut TRACE_EVENT_INFO , buffersize : *mut u32 ) -> u32 );
 ::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhGetProperty ( pevent : *const EVENT_RECORD , tdhcontextcount : u32 , ptdhcontext : *const TDH_CONTEXT , propertydatacount : u32 , ppropertydata : *const PROPERTY_DATA_DESCRIPTOR , buffersize : u32 , pbuffer : *mut u8 ) -> u32 );
 ::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhGetPropertySize ( pevent : *const EVENT_RECORD , tdhcontextcount : u32 , ptdhcontext : *const TDH_CONTEXT , propertydatacount : u32 , ppropertydata : *const PROPERTY_DATA_DESCRIPTOR , ppropertysize : *mut u32 ) -> u32 );
 ::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhGetWppMessage ( handle : TDH_HANDLE , eventrecord : *const EVENT_RECORD , buffersize : *mut u32 , buffer : *mut u8 ) -> u32 );
-::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhGetWppProperty ( handle : TDH_HANDLE , eventrecord : *const EVENT_RECORD , propertyname : :: windows_sys::core::PCWSTR , buffersize : *mut u32 , buffer : *mut u8 ) -> u32 );
-::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhLoadManifest ( manifest : :: windows_sys::core::PCWSTR ) -> u32 );
-::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhLoadManifestFromBinary ( binarypath : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhGetWppProperty ( handle : TDH_HANDLE , eventrecord : *const EVENT_RECORD , propertyname : ::windows_sys::core::PCWSTR , buffersize : *mut u32 , buffer : *mut u8 ) -> u32 );
+::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhLoadManifest ( manifest : ::windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhLoadManifestFromBinary ( binarypath : ::windows_sys::core::PCWSTR ) -> u32 );
 ::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhLoadManifestFromMemory ( pdata : *const ::core::ffi::c_void , cbdata : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhOpenDecodingHandle ( handle : *mut TDH_HANDLE ) -> u32 );
-::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhQueryProviderFieldInformation ( pguid : *const :: windows_sys::core::GUID , eventfieldvalue : u64 , eventfieldtype : EVENT_FIELD_TYPE , pbuffer : *mut PROVIDER_FIELD_INFOARRAY , pbuffersize : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhQueryProviderFieldInformation ( pguid : *const ::windows_sys::core::GUID , eventfieldvalue : u64 , eventfieldtype : EVENT_FIELD_TYPE , pbuffer : *mut PROVIDER_FIELD_INFOARRAY , pbuffersize : *mut u32 ) -> u32 );
 ::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhSetDecodingParameter ( handle : TDH_HANDLE , tdhcontext : *const TDH_CONTEXT ) -> u32 );
-::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhUnloadManifest ( manifest : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhUnloadManifest ( manifest : ::windows_sys::core::PCWSTR ) -> u32 );
 ::windows_sys::core::link ! ( "tdh.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn TdhUnloadManifestFromMemory ( pdata : *const ::core::ffi::c_void , cbdata : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn TraceEvent ( tracehandle : u64 , eventtrace : *const EVENT_TRACE_HEADER ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn TraceEventInstance ( tracehandle : u64 , eventtrace : *const EVENT_INSTANCE_HEADER , instinfo : *const EVENT_INSTANCE_INFO , parentinstinfo : *const EVENT_INSTANCE_INFO ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""cdecl" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn TraceMessage ( loggerhandle : u64 , messageflags : TRACE_MESSAGE_FLAGS , messageguid : *const :: windows_sys::core::GUID , messagenumber : u16 ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "advapi32.dll""cdecl" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn TraceMessage ( loggerhandle : u64 , messageflags : TRACE_MESSAGE_FLAGS , messageguid : *const ::windows_sys::core::GUID , messagenumber : u16 ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn TraceMessageVa ( loggerhandle : u64 , messageflags : TRACE_MESSAGE_FLAGS , messageguid : *const :: windows_sys::core::GUID , messagenumber : u16 , messagearglist : *const i8 ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn TraceMessageVa ( loggerhandle : u64 , messageflags : TRACE_MESSAGE_FLAGS , messageguid : *const ::windows_sys::core::GUID , messagenumber : u16 , messagearglist : *const i8 ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn TraceQueryInformation ( sessionhandle : CONTROLTRACE_HANDLE , informationclass : TRACE_QUERY_INFO_CLASS , traceinformation : *mut ::core::ffi::c_void , informationlength : u32 , returnlength : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn TraceSetInformation ( sessionhandle : CONTROLTRACE_HANDLE , informationclass : TRACE_QUERY_INFO_CLASS , traceinformation : *const ::core::ffi::c_void , informationlength : u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn UnregisterTraceGuids ( registrationhandle : u64 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn UpdateTraceA ( tracehandle : CONTROLTRACE_HANDLE , instancename : :: windows_sys::core::PCSTR , properties : *mut EVENT_TRACE_PROPERTIES ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn UpdateTraceA ( tracehandle : CONTROLTRACE_HANDLE , instancename : ::windows_sys::core::PCSTR , properties : *mut EVENT_TRACE_PROPERTIES ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn UpdateTraceW ( tracehandle : CONTROLTRACE_HANDLE , instancename : :: windows_sys::core::PCWSTR , properties : *mut EVENT_TRACE_PROPERTIES ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn UpdateTraceW ( tracehandle : CONTROLTRACE_HANDLE , instancename : ::windows_sys::core::PCWSTR , properties : *mut EVENT_TRACE_PROPERTIES ) -> super::super::super::Foundation:: WIN32_ERROR );
 pub type ITraceEvent = *mut ::core::ffi::c_void;
 pub type ITraceEventCallback = *mut ::core::ffi::c_void;
 pub type ITraceRelogger = *mut ::core::ffi::c_void;
@@ -129,9 +129,9 @@ pub const CLSID_TraceRelogger: ::windows_sys::core::GUID = ::windows_sys::core::
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const CTraceRelogger: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
-pub const DIAG_LOGGER_NAMEA: ::windows_sys::core::PCSTR = ::windows_sys::s!("DiagLog");
+pub const DIAG_LOGGER_NAMEA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("DiagLog");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
-pub const DIAG_LOGGER_NAMEW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("DiagLog");
+pub const DIAG_LOGGER_NAMEW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DiagLog");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const DefaultTraceSecurityGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0811c1af_7a07_4a06_82ed_869455cdf713);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
@@ -351,11 +351,11 @@ pub const EVENT_HEADER_PROPERTY_RELOGGABLE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const EVENT_HEADER_PROPERTY_XML: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
-pub const EVENT_LOGGER_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("EventLog");
+pub const EVENT_LOGGER_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EventLog");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
-pub const EVENT_LOGGER_NAMEA: ::windows_sys::core::PCSTR = ::windows_sys::s!("EventLog");
+pub const EVENT_LOGGER_NAMEA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("EventLog");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
-pub const EVENT_LOGGER_NAMEW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("EventLog");
+pub const EVENT_LOGGER_NAMEW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EventLog");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const EVENT_MAX_LEVEL: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
@@ -464,6 +464,8 @@ pub const EVENT_TRACE_TYPE_CONFIG_NUMANODE: u32 = 24u32;
 pub const EVENT_TRACE_TYPE_CONFIG_OPTICALMEDIA: u32 = 18u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_PHYSICALDISK: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+pub const EVENT_TRACE_TYPE_CONFIG_PHYSICALDISK_EX: u32 = 19u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_PLATFORM: u32 = 25u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
@@ -659,19 +661,19 @@ pub const EventTraceGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID:
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const FileIoGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x90cbdc39_4a3e_11d1_84f4_0000f80464e3);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
-pub const GLOBAL_LOGGER_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("GlobalLogger");
+pub const GLOBAL_LOGGER_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("GlobalLogger");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
-pub const GLOBAL_LOGGER_NAMEA: ::windows_sys::core::PCSTR = ::windows_sys::s!("GlobalLogger");
+pub const GLOBAL_LOGGER_NAMEA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("GlobalLogger");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
-pub const GLOBAL_LOGGER_NAMEW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("GlobalLogger");
+pub const GLOBAL_LOGGER_NAMEW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("GlobalLogger");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const ImageLoadGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2cb15d1d_5fc1_11d2_abe1_00a0c911f518);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
-pub const KERNEL_LOGGER_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("NT Kernel Logger");
+pub const KERNEL_LOGGER_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("NT Kernel Logger");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
-pub const KERNEL_LOGGER_NAMEA: ::windows_sys::core::PCSTR = ::windows_sys::s!("NT Kernel Logger");
+pub const KERNEL_LOGGER_NAMEA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("NT Kernel Logger");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
-pub const KERNEL_LOGGER_NAMEW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("NT Kernel Logger");
+pub const KERNEL_LOGGER_NAMEW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("NT Kernel Logger");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const MAX_EVENT_DATA_DESCRIPTORS: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
@@ -1135,7 +1137,15 @@ pub const EtwQueryPartitionInformationV2: ETW_PROCESS_HANDLE_INFO_TYPE = 2i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const EtwQueryLastDroppedTimes: ETW_PROCESS_HANDLE_INFO_TYPE = 3i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
-pub const EtwQueryProcessHandleInfoMax: ETW_PROCESS_HANDLE_INFO_TYPE = 4i32;
+pub const EtwQueryLogFileHeader: ETW_PROCESS_HANDLE_INFO_TYPE = 4i32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+pub const EtwQueryProcessHandleInfoMax: ETW_PROCESS_HANDLE_INFO_TYPE = 5i32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+pub type ETW_PROCESS_TRACE_MODES = i32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+pub const ETW_PROCESS_TRACE_MODE_NONE: ETW_PROCESS_TRACE_MODES = 0i32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+pub const ETW_PROCESS_TRACE_MODE_RAW_TIMESTAMP: ETW_PROCESS_TRACE_MODES = 1i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub type ETW_PROVIDER_TRAIT_TYPE = i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
@@ -1409,7 +1419,9 @@ pub const TracePmcCounterOwners: TRACE_QUERY_INFO_CLASS = 25i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const TraceUnifiedStackCachingInfo: TRACE_QUERY_INFO_CLASS = 26i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
-pub const MaxTraceSetInfoClass: TRACE_QUERY_INFO_CLASS = 27i32;
+pub const TracePmcSessionInformation: TRACE_QUERY_INFO_CLASS = 27i32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+pub const MaxTraceSetInfoClass: TRACE_QUERY_INFO_CLASS = 28i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub type WMIDPREQUESTCODE = i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
@@ -1640,6 +1652,22 @@ impl ::core::clone::Clone for ENABLE_TRACE_PARAMETERS_V1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+pub struct ETW_BUFFER_CALLBACK_INFORMATION {
+    pub TraceHandle: u64,
+    pub LogfileHeader: *const TRACE_LOGFILE_HEADER,
+    pub BuffersRead: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::marker::Copy for ETW_BUFFER_CALLBACK_INFORMATION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::clone::Clone for ETW_BUFFER_CALLBACK_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub struct ETW_BUFFER_CONTEXT {
     pub Anonymous: ETW_BUFFER_CONTEXT_0,
@@ -1677,6 +1705,41 @@ impl ::core::clone::Clone for ETW_BUFFER_CONTEXT_0_0 {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+pub struct ETW_BUFFER_HEADER {
+    pub Reserved1: [u32; 4],
+    pub TimeStamp: i64,
+    pub Reserved2: [u32; 4],
+    pub ClientContext: ETW_BUFFER_CONTEXT,
+    pub Reserved3: u32,
+    pub FilledBytes: u32,
+    pub Reserved4: [u32; 5],
+}
+impl ::core::marker::Copy for ETW_BUFFER_HEADER {}
+impl ::core::clone::Clone for ETW_BUFFER_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+pub struct ETW_OPEN_TRACE_OPTIONS {
+    pub ProcessTraceModes: ETW_PROCESS_TRACE_MODES,
+    pub EventCallback: PEVENT_RECORD_CALLBACK,
+    pub EventCallbackContext: *mut ::core::ffi::c_void,
+    pub BufferCallback: PETW_BUFFER_CALLBACK,
+    pub BufferCallbackContext: *mut ::core::ffi::c_void,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::marker::Copy for ETW_OPEN_TRACE_OPTIONS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::clone::Clone for ETW_OPEN_TRACE_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub struct ETW_PMC_COUNTER_OWNER {
     pub OwnerType: ETW_PMC_COUNTER_OWNER_TYPE,
     pub ProfileSource: u32,
@@ -1697,6 +1760,21 @@ pub struct ETW_PMC_COUNTER_OWNERSHIP_STATUS {
 }
 impl ::core::marker::Copy for ETW_PMC_COUNTER_OWNERSHIP_STATUS {}
 impl ::core::clone::Clone for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+pub struct ETW_PMC_SESSION_INFO {
+    pub NextEntryOffset: u32,
+    pub LoggerId: u16,
+    pub Reserved: u16,
+    pub ProfileSourceCount: u32,
+    pub HookIdCount: u32,
+}
+impl ::core::marker::Copy for ETW_PMC_SESSION_INFO {}
+impl ::core::clone::Clone for ETW_PMC_SESSION_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3705,6 +3783,11 @@ impl ::core::clone::Clone for WNODE_TOO_SMALL {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub type PENABLECALLBACK = ::core::option::Option<unsafe extern "system" fn(sourceid: *const ::windows_sys::core::GUID, isenabled: ENABLECALLBACK_ENABLED_STATE, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut ::core::ffi::c_void) -> ()>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+pub type PETW_BUFFER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(buffer: *const ETW_BUFFER_HEADER, buffersize: u32, consumerinfo: *const ETW_BUFFER_CALLBACK_INFORMATION, callbackcontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+pub type PETW_BUFFER_COMPLETION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(buffer: *const ETW_BUFFER_HEADER, callbackcontext: *const ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub type PEVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pevent: *mut EVENT_TRACE) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]

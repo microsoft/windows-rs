@@ -5,13 +5,13 @@ pub unsafe fn EapHostPeerBeginSession<P0>(dwflags: u32, eaptype: EAP_METHOD_TYPE
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "eappprxy.dll""system" fn EapHostPeerBeginSession ( dwflags : u32 , eaptype : EAP_METHOD_TYPE , pattributearray : *const EAP_ATTRIBUTES , htokenimpersonateuser : super::super::Foundation:: HANDLE , dwsizeofconnectiondata : u32 , pconnectiondata : *const u8 , dwsizeofuserdata : u32 , puserdata : *const u8 , dwmaxsendpacketsize : u32 , pconnectionid : *const :: windows::core::GUID , func : NotificationHandler , pcontextdata : *mut ::core::ffi::c_void , psessionid : *mut u32 , ppeaperror : *mut *mut EAP_ERROR ) -> u32 );
+    ::windows::imp::link ! ( "eappprxy.dll""system" fn EapHostPeerBeginSession ( dwflags : u32 , eaptype : EAP_METHOD_TYPE , pattributearray : *const EAP_ATTRIBUTES , htokenimpersonateuser : super::super::Foundation:: HANDLE , dwsizeofconnectiondata : u32 , pconnectiondata : *const u8 , dwsizeofuserdata : u32 , puserdata : *const u8 , dwmaxsendpacketsize : u32 , pconnectionid : *const ::windows::core::GUID , func : NotificationHandler , pcontextdata : *mut ::core::ffi::c_void , psessionid : *mut u32 , ppeaperror : *mut *mut EAP_ERROR ) -> u32 );
     EapHostPeerBeginSession(dwflags, ::core::mem::transmute(eaptype), pattributearray, htokenimpersonateuser.into_param().abi(), dwsizeofconnectiondata, pconnectiondata, dwsizeofuserdata, puserdata, dwmaxsendpacketsize, pconnectionid, func, pcontextdata, psessionid, ppeaperror)
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]
 pub unsafe fn EapHostPeerClearConnection(pconnectionid: *mut ::windows::core::GUID, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
-    ::windows::imp::link ! ( "eappprxy.dll""system" fn EapHostPeerClearConnection ( pconnectionid : *mut :: windows::core::GUID , ppeaperror : *mut *mut EAP_ERROR ) -> u32 );
+    ::windows::imp::link ! ( "eappprxy.dll""system" fn EapHostPeerClearConnection ( pconnectionid : *mut ::windows::core::GUID , ppeaperror : *mut *mut EAP_ERROR ) -> u32 );
     EapHostPeerClearConnection(pconnectionid, ppeaperror)
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
@@ -81,7 +81,7 @@ pub unsafe fn EapHostPeerGetAuthStatus(sessionhandle: u32, authparam: EapHostPee
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedcreds: *mut ::windows::core::GUID, phcredentialimpersonationtoken: *mut isize, sessionhandle: u32, ppeaperror: *mut *mut EAP_ERROR, fsavetocredman: *mut super::super::Foundation::BOOL) -> u32 {
-    ::windows::imp::link ! ( "eappprxy.dll""system" fn EapHostPeerGetDataToUnplumbCredentials ( pconnectionidthatlastsavedcreds : *mut :: windows::core::GUID , phcredentialimpersonationtoken : *mut isize , sessionhandle : u32 , ppeaperror : *mut *mut EAP_ERROR , fsavetocredman : *mut super::super::Foundation:: BOOL ) -> u32 );
+    ::windows::imp::link ! ( "eappprxy.dll""system" fn EapHostPeerGetDataToUnplumbCredentials ( pconnectionidthatlastsavedcreds : *mut ::windows::core::GUID , phcredentialimpersonationtoken : *mut isize , sessionhandle : u32 , ppeaperror : *mut *mut EAP_ERROR , fsavetocredman : *mut super::super::Foundation:: BOOL ) -> u32 );
     EapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedcreds, phcredentialimpersonationtoken, sessionhandle, ppeaperror, fsavetocredman)
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
@@ -90,7 +90,7 @@ pub unsafe fn EapHostPeerGetEncryptedPassword<P0>(dwsizeofpassword: u32, szpassw
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "eappprxy.dll""system" fn EapHostPeerGetEncryptedPassword ( dwsizeofpassword : u32 , szpassword : :: windows::core::PCWSTR , ppszencpassword : *mut :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "eappprxy.dll""system" fn EapHostPeerGetEncryptedPassword ( dwsizeofpassword : u32 , szpassword : ::windows::core::PCWSTR , ppszencpassword : *mut ::windows::core::PWSTR ) -> u32 );
     EapHostPeerGetEncryptedPassword(dwsizeofpassword, szpassword.into_param().abi(), ppszencpassword)
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
@@ -100,7 +100,7 @@ pub unsafe fn EapHostPeerGetIdentity<P0>(dwversion: u32, dwflags: u32, eapmethod
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "eappprxy.dll""system" fn EapHostPeerGetIdentity ( dwversion : u32 , dwflags : u32 , eapmethodtype : EAP_METHOD_TYPE , dwsizeofconnectiondata : u32 , pconnectiondata : *const u8 , dwsizeofuserdata : u32 , puserdata : *const u8 , htokenimpersonateuser : super::super::Foundation:: HANDLE , pfinvokeui : *mut super::super::Foundation:: BOOL , pdwsizeofuserdataout : *mut u32 , ppuserdataout : *mut *mut u8 , ppwszidentity : *mut :: windows::core::PWSTR , ppeaperror : *mut *mut EAP_ERROR , ppvreserved : *mut *mut u8 ) -> u32 );
+    ::windows::imp::link ! ( "eappprxy.dll""system" fn EapHostPeerGetIdentity ( dwversion : u32 , dwflags : u32 , eapmethodtype : EAP_METHOD_TYPE , dwsizeofconnectiondata : u32 , pconnectiondata : *const u8 , dwsizeofuserdata : u32 , puserdata : *const u8 , htokenimpersonateuser : super::super::Foundation:: HANDLE , pfinvokeui : *mut super::super::Foundation:: BOOL , pdwsizeofuserdataout : *mut u32 , ppuserdataout : *mut *mut u8 , ppwszidentity : *mut ::windows::core::PWSTR , ppeaperror : *mut *mut EAP_ERROR , ppvreserved : *mut *mut u8 ) -> u32 );
     EapHostPeerGetIdentity(dwversion, dwflags, ::core::mem::transmute(eapmethodtype), pconnectiondata.len() as _, ::core::mem::transmute(pconnectiondata.as_ptr()), puserdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(puserdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), htokenimpersonateuser.into_param().abi(), pfinvokeui, pdwsizeofuserdataout, ppuserdataout, ppwszidentity, ppeaperror, ppvreserved)
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
@@ -167,7 +167,7 @@ pub unsafe fn EapHostPeerInvokeIdentityUI<P0>(dwversion: u32, eapmethodtype: EAP
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows::imp::link ! ( "eappcfg.dll""system" fn EapHostPeerInvokeIdentityUI ( dwversion : u32 , eapmethodtype : EAP_METHOD_TYPE , dwflags : u32 , hwndparent : super::super::Foundation:: HWND , dwsizeofconnectiondata : u32 , pconnectiondata : *const u8 , dwsizeofuserdata : u32 , puserdata : *const u8 , pdwsizeofuserdataout : *mut u32 , ppuserdataout : *mut *mut u8 , ppwszidentity : *mut :: windows::core::PWSTR , ppeaperror : *mut *mut EAP_ERROR , ppvreserved : *mut *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "eappcfg.dll""system" fn EapHostPeerInvokeIdentityUI ( dwversion : u32 , eapmethodtype : EAP_METHOD_TYPE , dwflags : u32 , hwndparent : super::super::Foundation:: HWND , dwsizeofconnectiondata : u32 , pconnectiondata : *const u8 , dwsizeofuserdata : u32 , puserdata : *const u8 , pdwsizeofuserdataout : *mut u32 , ppuserdataout : *mut *mut u8 , ppwszidentity : *mut ::windows::core::PWSTR , ppeaperror : *mut *mut EAP_ERROR , ppvreserved : *mut *mut ::core::ffi::c_void ) -> u32 );
     EapHostPeerInvokeIdentityUI(dwversion, ::core::mem::transmute(eapmethodtype), dwflags, hwndparent.into_param().abi(), pconnectiondata.len() as _, ::core::mem::transmute(pconnectiondata.as_ptr()), puserdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(puserdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdwsizeofuserdataout, ppuserdataout, ppwszidentity, ppeaperror, ppvreserved)
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
@@ -696,13 +696,13 @@ pub const EAPHOST_METHOD_API_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAPHOST_PEER_API_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_AUTHENTICATOR_VALUENAME_CONFIGUI: ::windows::core::PCWSTR = ::windows::w!("AuthenticatorConfigUIPath");
+pub const EAP_AUTHENTICATOR_VALUENAME_CONFIGUI: ::windows::core::PCWSTR = ::windows::core::w!("AuthenticatorConfigUIPath");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_AUTHENTICATOR_VALUENAME_DLL_PATH: ::windows::core::PCWSTR = ::windows::w!("AuthenticatorDllPath");
+pub const EAP_AUTHENTICATOR_VALUENAME_DLL_PATH: ::windows::core::PCWSTR = ::windows::core::w!("AuthenticatorDllPath");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_AUTHENTICATOR_VALUENAME_FRIENDLY_NAME: ::windows::core::PCWSTR = ::windows::w!("AuthenticatorFriendlyName");
+pub const EAP_AUTHENTICATOR_VALUENAME_FRIENDLY_NAME: ::windows::core::PCWSTR = ::windows::core::w!("AuthenticatorFriendlyName");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_AUTHENTICATOR_VALUENAME_PROPERTIES: ::windows::core::PCWSTR = ::windows::w!("Properties");
+pub const EAP_AUTHENTICATOR_VALUENAME_PROPERTIES: ::windows::core::PCWSTR = ::windows::core::w!("Properties");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_CONFIG_INPUT_FIELD_PROPS_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
@@ -870,25 +870,25 @@ pub const EAP_PEER_FLAG_GUEST_ACCESS: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_PEER_FLAG_HEALTH_STATE_CHANGE: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_PEER_VALUENAME_CONFIGUI: ::windows::core::PCWSTR = ::windows::w!("PeerConfigUIPath");
+pub const EAP_PEER_VALUENAME_CONFIGUI: ::windows::core::PCWSTR = ::windows::core::w!("PeerConfigUIPath");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_PEER_VALUENAME_DLL_PATH: ::windows::core::PCWSTR = ::windows::w!("PeerDllPath");
+pub const EAP_PEER_VALUENAME_DLL_PATH: ::windows::core::PCWSTR = ::windows::core::w!("PeerDllPath");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_PEER_VALUENAME_FRIENDLY_NAME: ::windows::core::PCWSTR = ::windows::w!("PeerFriendlyName");
+pub const EAP_PEER_VALUENAME_FRIENDLY_NAME: ::windows::core::PCWSTR = ::windows::core::w!("PeerFriendlyName");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_PEER_VALUENAME_IDENTITY: ::windows::core::PCWSTR = ::windows::w!("PeerIdentityPath");
+pub const EAP_PEER_VALUENAME_IDENTITY: ::windows::core::PCWSTR = ::windows::core::w!("PeerIdentityPath");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_PEER_VALUENAME_INTERACTIVEUI: ::windows::core::PCWSTR = ::windows::w!("PeerInteractiveUIPath");
+pub const EAP_PEER_VALUENAME_INTERACTIVEUI: ::windows::core::PCWSTR = ::windows::core::w!("PeerInteractiveUIPath");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_PEER_VALUENAME_INVOKE_NAMEDLG: ::windows::core::PCWSTR = ::windows::w!("PeerInvokeUsernameDialog");
+pub const EAP_PEER_VALUENAME_INVOKE_NAMEDLG: ::windows::core::PCWSTR = ::windows::core::w!("PeerInvokeUsernameDialog");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_PEER_VALUENAME_INVOKE_PWDDLG: ::windows::core::PCWSTR = ::windows::w!("PeerInvokePasswordDialog");
+pub const EAP_PEER_VALUENAME_INVOKE_PWDDLG: ::windows::core::PCWSTR = ::windows::core::w!("PeerInvokePasswordDialog");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_PEER_VALUENAME_PROPERTIES: ::windows::core::PCWSTR = ::windows::w!("Properties");
+pub const EAP_PEER_VALUENAME_PROPERTIES: ::windows::core::PCWSTR = ::windows::core::w!("Properties");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_PEER_VALUENAME_REQUIRE_CONFIGUI: ::windows::core::PCWSTR = ::windows::w!("PeerRequireConfigUI");
+pub const EAP_PEER_VALUENAME_REQUIRE_CONFIGUI: ::windows::core::PCWSTR = ::windows::core::w!("PeerRequireConfigUI");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_REGISTRY_LOCATION: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Services\\EapHost\\Methods");
+pub const EAP_REGISTRY_LOCATION: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Services\\EapHost\\Methods");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_UI_INPUT_FIELD_PROPS_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
@@ -898,7 +898,7 @@ pub const EAP_UI_INPUT_FIELD_PROPS_NON_PERSIST: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_UI_INPUT_FIELD_PROPS_READ_ONLY: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_VALUENAME_PROPERTIES: ::windows::core::PCWSTR = ::windows::w!("Properties");
+pub const EAP_VALUENAME_PROPERTIES: ::windows::core::PCWSTR = ::windows::core::w!("Properties");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const FACILITY_EAP_MESSAGE: u32 = 2114u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
@@ -1054,7 +1054,7 @@ pub const RAS_EAP_FLAG_SAVE_CREDMAN: u32 = 2097152u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_FLAG_SERVER_VALIDATION_REQUIRED: u32 = 33554432u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_REGISTRY_LOCATION: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Services\\Rasman\\PPP\\EAP");
+pub const RAS_EAP_REGISTRY_LOCATION: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Services\\Rasman\\PPP\\EAP");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_ROLE_AUTHENTICATEE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
@@ -1066,37 +1066,37 @@ pub const RAS_EAP_ROLE_EXCLUDE_IN_PEAP: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_ROLE_EXCLUDE_IN_VPN: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_CONFIGUI: ::windows::core::PCWSTR = ::windows::w!("ConfigUIPath");
+pub const RAS_EAP_VALUENAME_CONFIGUI: ::windows::core::PCWSTR = ::windows::core::w!("ConfigUIPath");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_CONFIG_CLSID: ::windows::core::PCWSTR = ::windows::w!("ConfigCLSID");
+pub const RAS_EAP_VALUENAME_CONFIG_CLSID: ::windows::core::PCWSTR = ::windows::core::w!("ConfigCLSID");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_DEFAULT_DATA: ::windows::core::PCWSTR = ::windows::w!("ConfigData");
+pub const RAS_EAP_VALUENAME_DEFAULT_DATA: ::windows::core::PCWSTR = ::windows::core::w!("ConfigData");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_ENCRYPTION: ::windows::core::PCWSTR = ::windows::w!("MPPEEncryptionSupported");
+pub const RAS_EAP_VALUENAME_ENCRYPTION: ::windows::core::PCWSTR = ::windows::core::w!("MPPEEncryptionSupported");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_FILTER_INNERMETHODS: ::windows::core::PCWSTR = ::windows::w!("FilterInnerMethods");
+pub const RAS_EAP_VALUENAME_FILTER_INNERMETHODS: ::windows::core::PCWSTR = ::windows::core::w!("FilterInnerMethods");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_FRIENDLY_NAME: ::windows::core::PCWSTR = ::windows::w!("FriendlyName");
+pub const RAS_EAP_VALUENAME_FRIENDLY_NAME: ::windows::core::PCWSTR = ::windows::core::w!("FriendlyName");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_IDENTITY: ::windows::core::PCWSTR = ::windows::w!("IdentityPath");
+pub const RAS_EAP_VALUENAME_IDENTITY: ::windows::core::PCWSTR = ::windows::core::w!("IdentityPath");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_INTERACTIVEUI: ::windows::core::PCWSTR = ::windows::w!("InteractiveUIPath");
+pub const RAS_EAP_VALUENAME_INTERACTIVEUI: ::windows::core::PCWSTR = ::windows::core::w!("InteractiveUIPath");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_INVOKE_NAMEDLG: ::windows::core::PCWSTR = ::windows::w!("InvokeUsernameDialog");
+pub const RAS_EAP_VALUENAME_INVOKE_NAMEDLG: ::windows::core::PCWSTR = ::windows::core::w!("InvokeUsernameDialog");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_INVOKE_PWDDLG: ::windows::core::PCWSTR = ::windows::w!("InvokePasswordDialog");
+pub const RAS_EAP_VALUENAME_INVOKE_PWDDLG: ::windows::core::PCWSTR = ::windows::core::w!("InvokePasswordDialog");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_ISTUNNEL_METHOD: ::windows::core::PCWSTR = ::windows::w!("IsTunnelMethod");
+pub const RAS_EAP_VALUENAME_ISTUNNEL_METHOD: ::windows::core::PCWSTR = ::windows::core::w!("IsTunnelMethod");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_PATH: ::windows::core::PCWSTR = ::windows::w!("Path");
+pub const RAS_EAP_VALUENAME_PATH: ::windows::core::PCWSTR = ::windows::core::w!("Path");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_PER_POLICY_CONFIG: ::windows::core::PCWSTR = ::windows::w!("PerPolicyConfig");
+pub const RAS_EAP_VALUENAME_PER_POLICY_CONFIG: ::windows::core::PCWSTR = ::windows::core::w!("PerPolicyConfig");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_REQUIRE_CONFIGUI: ::windows::core::PCWSTR = ::windows::w!("RequireConfigUI");
+pub const RAS_EAP_VALUENAME_REQUIRE_CONFIGUI: ::windows::core::PCWSTR = ::windows::core::w!("RequireConfigUI");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_ROLES_SUPPORTED: ::windows::core::PCWSTR = ::windows::w!("RolesSupported");
+pub const RAS_EAP_VALUENAME_ROLES_SUPPORTED: ::windows::core::PCWSTR = ::windows::core::w!("RolesSupported");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_STANDALONE_SUPPORTED: ::windows::core::PCWSTR = ::windows::w!("StandaloneSupported");
+pub const RAS_EAP_VALUENAME_STANDALONE_SUPPORTED: ::windows::core::PCWSTR = ::windows::core::w!("StandaloneSupported");
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropCertifiedMethod: u32 = 4194304u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]

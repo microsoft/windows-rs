@@ -775,11 +775,11 @@ impl ITargetInfo {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LoadModule<P0>(&self, module: P0) -> ::windows::core::Result<super::super::Foundation::HINSTANCE>
+    pub unsafe fn LoadModule<P0>(&self, module: P0) -> ::windows::core::Result<super::super::Foundation::HMODULE>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HINSTANCE>();
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HMODULE>();
         (::windows::core::Interface::vtable(self).LoadModule)(::windows::core::Interface::as_raw(self), module.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetWow64Context<P0>(&self, installermodule: P0, wow64context: *const u8) -> ::windows::core::Result<()>
@@ -871,7 +871,7 @@ pub struct ITargetInfo_Vtbl {
     ExpandTargetPath: usize,
     pub SetModulePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, module: ::windows::core::PCWSTR, path: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub LoadModule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, module: ::windows::core::PCWSTR, modulehandle: *mut super::super::Foundation::HINSTANCE) -> ::windows::core::HRESULT,
+    pub LoadModule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, module: ::windows::core::PCWSTR, modulehandle: *mut super::super::Foundation::HMODULE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     LoadModule: usize,
     pub SetWow64Context: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, installermodule: ::windows::core::PCWSTR, wow64context: *const u8) -> ::windows::core::HRESULT,
@@ -978,23 +978,23 @@ pub const WCM_E_VALUETOOBIG: ::windows::core::HRESULT = ::windows::core::HRESULT
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_WRONGESCAPESTRING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255412i32);
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const WCM_SETTINGS_ID_ARCHITECTURE: ::windows::core::PCWSTR = ::windows::w!("architecture");
+pub const WCM_SETTINGS_ID_ARCHITECTURE: ::windows::core::PCWSTR = ::windows::core::w!("architecture");
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_SETTINGS_ID_FLAG_DEFINITION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_SETTINGS_ID_FLAG_REFERENCE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const WCM_SETTINGS_ID_LANGUAGE: ::windows::core::PCWSTR = ::windows::w!("language");
+pub const WCM_SETTINGS_ID_LANGUAGE: ::windows::core::PCWSTR = ::windows::core::w!("language");
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const WCM_SETTINGS_ID_NAME: ::windows::core::PCWSTR = ::windows::w!("name");
+pub const WCM_SETTINGS_ID_NAME: ::windows::core::PCWSTR = ::windows::core::w!("name");
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const WCM_SETTINGS_ID_TOKEN: ::windows::core::PCWSTR = ::windows::w!("token");
+pub const WCM_SETTINGS_ID_TOKEN: ::windows::core::PCWSTR = ::windows::core::w!("token");
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const WCM_SETTINGS_ID_URI: ::windows::core::PCWSTR = ::windows::w!("uri");
+pub const WCM_SETTINGS_ID_URI: ::windows::core::PCWSTR = ::windows::core::w!("uri");
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const WCM_SETTINGS_ID_VERSION: ::windows::core::PCWSTR = ::windows::w!("version");
+pub const WCM_SETTINGS_ID_VERSION: ::windows::core::PCWSTR = ::windows::core::w!("version");
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const WCM_SETTINGS_ID_VERSION_SCOPE: ::windows::core::PCWSTR = ::windows::w!("versionScope");
+pub const WCM_SETTINGS_ID_VERSION_SCOPE: ::windows::core::PCWSTR = ::windows::core::w!("versionScope");
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_S_ATTRIBUTENOTALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(2232325i32);
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]

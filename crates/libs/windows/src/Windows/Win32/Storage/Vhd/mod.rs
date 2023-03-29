@@ -6,7 +6,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "virtdisk.dll""system" fn AddVirtualDiskParent ( virtualdiskhandle : super::super::Foundation:: HANDLE , parentpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "virtdisk.dll""system" fn AddVirtualDiskParent ( virtualdiskhandle : super::super::Foundation:: HANDLE , parentpath : ::windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
     AddVirtualDiskParent(virtualdiskhandle.into_param().abi(), parentpath.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
@@ -68,7 +68,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::imp::link ! ( "virtdisk.dll""system" fn CreateVirtualDisk ( virtualstoragetype : *const VIRTUAL_STORAGE_TYPE , path : :: windows::core::PCWSTR , virtualdiskaccessmask : VIRTUAL_DISK_ACCESS_MASK , securitydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , flags : CREATE_VIRTUAL_DISK_FLAG , providerspecificflags : u32 , parameters : *const CREATE_VIRTUAL_DISK_PARAMETERS , overlapped : *const super::super::System::IO:: OVERLAPPED , handle : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "virtdisk.dll""system" fn CreateVirtualDisk ( virtualstoragetype : *const VIRTUAL_STORAGE_TYPE , path : ::windows::core::PCWSTR , virtualdiskaccessmask : VIRTUAL_DISK_ACCESS_MASK , securitydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , flags : CREATE_VIRTUAL_DISK_FLAG , providerspecificflags : u32 , parameters : *const CREATE_VIRTUAL_DISK_PARAMETERS , overlapped : *const super::super::System::IO:: OVERLAPPED , handle : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: WIN32_ERROR );
     CreateVirtualDisk(virtualstoragetype, path.into_param().abi(), virtualdiskaccessmask, securitydescriptor.into_param().abi(), flags, providerspecificflags, parameters, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())), handle)
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
@@ -88,7 +88,7 @@ pub unsafe fn DeleteVirtualDiskMetadata<P0>(virtualdiskhandle: P0, item: *const 
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "virtdisk.dll""system" fn DeleteVirtualDiskMetadata ( virtualdiskhandle : super::super::Foundation:: HANDLE , item : *const :: windows::core::GUID ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "virtdisk.dll""system" fn DeleteVirtualDiskMetadata ( virtualdiskhandle : super::super::Foundation:: HANDLE , item : *const ::windows::core::GUID ) -> super::super::Foundation:: WIN32_ERROR );
     DeleteVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), item)
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
@@ -108,7 +108,7 @@ pub unsafe fn EnumerateVirtualDiskMetadata<P0>(virtualdiskhandle: P0, numberofit
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "virtdisk.dll""system" fn EnumerateVirtualDiskMetadata ( virtualdiskhandle : super::super::Foundation:: HANDLE , numberofitems : *mut u32 , items : *mut :: windows::core::GUID ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "virtdisk.dll""system" fn EnumerateVirtualDiskMetadata ( virtualdiskhandle : super::super::Foundation:: HANDLE , numberofitems : *mut u32 , items : *mut ::windows::core::GUID ) -> super::super::Foundation:: WIN32_ERROR );
     EnumerateVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), numberofitems, items)
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -135,7 +135,7 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes: *mut u32, pathsbuffer: ::windows::core::PWSTR) -> super::super::Foundation::WIN32_ERROR {
-    ::windows::imp::link ! ( "virtdisk.dll""system" fn GetAllAttachedVirtualDiskPhysicalPaths ( pathsbuffersizeinbytes : *mut u32 , pathsbuffer : :: windows::core::PWSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "virtdisk.dll""system" fn GetAllAttachedVirtualDiskPhysicalPaths ( pathsbuffersizeinbytes : *mut u32 , pathsbuffer : ::windows::core::PWSTR ) -> super::super::Foundation:: WIN32_ERROR );
     GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes, ::core::mem::transmute(pathsbuffer))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
@@ -165,7 +165,7 @@ pub unsafe fn GetVirtualDiskMetadata<P0>(virtualdiskhandle: P0, item: *const ::w
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "virtdisk.dll""system" fn GetVirtualDiskMetadata ( virtualdiskhandle : super::super::Foundation:: HANDLE , item : *const :: windows::core::GUID , metadatasize : *mut u32 , metadata : *mut ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "virtdisk.dll""system" fn GetVirtualDiskMetadata ( virtualdiskhandle : super::super::Foundation:: HANDLE , item : *const ::windows::core::GUID , metadatasize : *mut u32 , metadata : *mut ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
     GetVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), item, metadatasize, metadata)
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -185,7 +185,7 @@ pub unsafe fn GetVirtualDiskPhysicalPath<P0>(virtualdiskhandle: P0, diskpathsize
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "virtdisk.dll""system" fn GetVirtualDiskPhysicalPath ( virtualdiskhandle : super::super::Foundation:: HANDLE , diskpathsizeinbytes : *mut u32 , diskpath : :: windows::core::PWSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "virtdisk.dll""system" fn GetVirtualDiskPhysicalPath ( virtualdiskhandle : super::super::Foundation:: HANDLE , diskpathsizeinbytes : *mut u32 , diskpath : ::windows::core::PWSTR ) -> super::super::Foundation:: WIN32_ERROR );
     GetVirtualDiskPhysicalPath(virtualdiskhandle.into_param().abi(), diskpathsizeinbytes, ::core::mem::transmute(diskpath))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -225,7 +225,7 @@ pub unsafe fn OpenVirtualDisk<P0>(virtualstoragetype: *const VIRTUAL_STORAGE_TYP
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "virtdisk.dll""system" fn OpenVirtualDisk ( virtualstoragetype : *const VIRTUAL_STORAGE_TYPE , path : :: windows::core::PCWSTR , virtualdiskaccessmask : VIRTUAL_DISK_ACCESS_MASK , flags : OPEN_VIRTUAL_DISK_FLAG , parameters : *const OPEN_VIRTUAL_DISK_PARAMETERS , handle : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "virtdisk.dll""system" fn OpenVirtualDisk ( virtualstoragetype : *const VIRTUAL_STORAGE_TYPE , path : ::windows::core::PCWSTR , virtualdiskaccessmask : VIRTUAL_DISK_ACCESS_MASK , flags : OPEN_VIRTUAL_DISK_FLAG , parameters : *const OPEN_VIRTUAL_DISK_PARAMETERS , handle : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: WIN32_ERROR );
     OpenVirtualDisk(virtualstoragetype, path.into_param().abi(), virtualdiskaccessmask, flags, ::core::mem::transmute(parameters.unwrap_or(::std::ptr::null())), handle)
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
@@ -236,7 +236,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "virtdisk.dll""system" fn QueryChangesVirtualDisk ( virtualdiskhandle : super::super::Foundation:: HANDLE , changetrackingid : :: windows::core::PCWSTR , byteoffset : u64 , bytelength : u64 , flags : QUERY_CHANGES_VIRTUAL_DISK_FLAG , ranges : *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE , rangecount : *mut u32 , processedlength : *mut u64 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "virtdisk.dll""system" fn QueryChangesVirtualDisk ( virtualdiskhandle : super::super::Foundation:: HANDLE , changetrackingid : ::windows::core::PCWSTR , byteoffset : u64 , bytelength : u64 , flags : QUERY_CHANGES_VIRTUAL_DISK_FLAG , ranges : *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE , rangecount : *mut u32 , processedlength : *mut u64 ) -> super::super::Foundation:: WIN32_ERROR );
     QueryChangesVirtualDisk(virtualdiskhandle.into_param().abi(), changetrackingid.into_param().abi(), byteoffset, bytelength, flags, ranges, rangecount, processedlength)
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
@@ -276,7 +276,7 @@ pub unsafe fn SetVirtualDiskMetadata<P0>(virtualdiskhandle: P0, item: *const ::w
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "virtdisk.dll""system" fn SetVirtualDiskMetadata ( virtualdiskhandle : super::super::Foundation:: HANDLE , item : *const :: windows::core::GUID , metadatasize : u32 , metadata : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "virtdisk.dll""system" fn SetVirtualDiskMetadata ( virtualdiskhandle : super::super::Foundation:: HANDLE , item : *const ::windows::core::GUID , metadatasize : u32 , metadata : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
     SetVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), item, metadatasize, metadata)
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]

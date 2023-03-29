@@ -474,7 +474,7 @@ pub const POOL_CUE_NULL: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const REFRESH_F_LASTBUFFER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const REGSTR_PATH_SOFTWARESYNTHS: ::windows_sys::core::PCSTR = ::windows_sys::s!("Software\\Microsoft\\DirectMusic\\SoftwareSynths");
+pub const REGSTR_PATH_SOFTWARESYNTHS: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Software\\Microsoft\\DirectMusic\\SoftwareSynths");
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const SIZE_DVINFO: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
@@ -1025,22 +1025,19 @@ impl ::core::clone::Clone for DMUS_WAVES_REVERB_PARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     pub DeviceId: ::windows_sys::core::GUID,
-    pub DescriptionA: [super::super::super::Foundation::CHAR; 256],
+    pub DescriptionA: [u8; 256],
     pub DescriptionW: [u16; 256],
-    pub ModuleA: [super::super::super::Foundation::CHAR; 260],
+    pub ModuleA: [u8; 260],
     pub ModuleW: [u16; 260],
     pub Type: DIRECTSOUNDDEVICE_TYPE,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
     pub WaveDeviceId: u32,
     pub Devnode: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     fn clone(&self) -> Self {
         *self

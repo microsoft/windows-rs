@@ -74,7 +74,9 @@ pub struct IWICImageEncoder_Vtbl {
 #[repr(transparent)]
 pub struct IWICImagingFactory2(::windows::core::IUnknown);
 impl IWICImagingFactory2 {
-    pub unsafe fn CreateDecoderFromFilename<P0>(&self, wzfilename: P0, pguidvendor: ::core::option::Option<*const ::windows::core::GUID>, dwdesiredaccess: u32, metadataoptions: super::WICDecodeOptions) -> ::windows::core::Result<super::IWICBitmapDecoder>
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateDecoderFromFilename<P0>(&self, wzfilename: P0, pguidvendor: ::core::option::Option<*const ::windows::core::GUID>, dwdesiredaccess: super::super::super::Foundation::GENERIC_ACCESS_RIGHTS, metadataoptions: super::WICDecodeOptions) -> ::windows::core::Result<super::IWICBitmapDecoder>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {

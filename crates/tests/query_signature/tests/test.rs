@@ -1,4 +1,4 @@
-use windows::Win32::System::Diagnostics::Debug::*;
+use windows::Win32::System::Diagnostics::Debug::Extensions::*;
 
 #[test]
 fn test() {

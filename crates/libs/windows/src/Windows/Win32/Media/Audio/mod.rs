@@ -16,7 +16,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<IActivateAudioInterfaceCompletionHandler>,
 {
-    ::windows::imp::link ! ( "mmdevapi.dll""system" fn ActivateAudioInterfaceAsync ( deviceinterfacepath : :: windows::core::PCWSTR , riid : *const :: windows::core::GUID , activationparams : *const super::super::System::Com::StructuredStorage:: PROPVARIANT , completionhandler : * mut::core::ffi::c_void , activationoperation : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mmdevapi.dll""system" fn ActivateAudioInterfaceAsync ( deviceinterfacepath : ::windows::core::PCWSTR , riid : *const ::windows::core::GUID , activationparams : *const super::super::System::Com::StructuredStorage:: PROPVARIANT , completionhandler : * mut::core::ffi::c_void , activationoperation : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IActivateAudioInterfaceAsyncOperation>();
     ActivateAudioInterfaceAsync(deviceinterfacepath.into_param().abi(), riid, ::core::mem::transmute(activationparams.unwrap_or(::std::ptr::null())), completionhandler.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -26,20 +26,20 @@ pub unsafe fn CoRegisterMessageFilter<P0>(lpmessagefilter: P0, lplpmessagefilter
 where
     P0: ::windows::core::IntoParam<IMessageFilter>,
 {
-    ::windows::imp::link ! ( "ole32.dll""system" fn CoRegisterMessageFilter ( lpmessagefilter : * mut::core::ffi::c_void , lplpmessagefilter : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoRegisterMessageFilter ( lpmessagefilter : * mut::core::ffi::c_void , lplpmessagefilter : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     CoRegisterMessageFilter(lpmessagefilter.into_param().abi(), ::core::mem::transmute(lplpmessagefilter.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn CreateCaptureAudioStateMonitor() -> ::windows::core::Result<IAudioStateMonitor> {
-    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateCaptureAudioStateMonitor ( audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateCaptureAudioStateMonitor ( audiostatemonitor : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IAudioStateMonitor>();
     CreateCaptureAudioStateMonitor(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn CreateCaptureAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY) -> ::windows::core::Result<IAudioStateMonitor> {
-    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateCaptureAudioStateMonitorForCategory ( category : AUDIO_STREAM_CATEGORY , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateCaptureAudioStateMonitorForCategory ( category : AUDIO_STREAM_CATEGORY , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IAudioStateMonitor>();
     CreateCaptureAudioStateMonitorForCategory(category, &mut result__).from_abi(result__)
 }
@@ -49,28 +49,28 @@ pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId<P0>(category:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId ( category : AUDIO_STREAM_CATEGORY , deviceid : :: windows::core::PCWSTR , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId ( category : AUDIO_STREAM_CATEGORY , deviceid : ::windows::core::PCWSTR , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IAudioStateMonitor>();
     CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category, deviceid.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole) -> ::windows::core::Result<IAudioStateMonitor> {
-    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole ( category : AUDIO_STREAM_CATEGORY , role : ERole , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole ( category : AUDIO_STREAM_CATEGORY , role : ERole , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IAudioStateMonitor>();
     CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category, role, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn CreateRenderAudioStateMonitor() -> ::windows::core::Result<IAudioStateMonitor> {
-    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateRenderAudioStateMonitor ( audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateRenderAudioStateMonitor ( audiostatemonitor : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IAudioStateMonitor>();
     CreateRenderAudioStateMonitor(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn CreateRenderAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY) -> ::windows::core::Result<IAudioStateMonitor> {
-    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateRenderAudioStateMonitorForCategory ( category : AUDIO_STREAM_CATEGORY , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateRenderAudioStateMonitorForCategory ( category : AUDIO_STREAM_CATEGORY , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IAudioStateMonitor>();
     CreateRenderAudioStateMonitorForCategory(category, &mut result__).from_abi(result__)
 }
@@ -80,14 +80,14 @@ pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceId<P0>(category: 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceId ( category : AUDIO_STREAM_CATEGORY , deviceid : :: windows::core::PCWSTR , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceId ( category : AUDIO_STREAM_CATEGORY , deviceid : ::windows::core::PCWSTR , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IAudioStateMonitor>();
     CreateRenderAudioStateMonitorForCategoryAndDeviceId(category, deviceid.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole) -> ::windows::core::Result<IAudioStateMonitor> {
-    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole ( category : AUDIO_STREAM_CATEGORY , role : ERole , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole ( category : AUDIO_STREAM_CATEGORY , role : ERole , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IAudioStateMonitor>();
     CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category, role, &mut result__).from_abi(result__)
 }
@@ -97,9 +97,9 @@ pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category: AU
 pub unsafe fn PlaySoundA<P0, P1>(pszsound: P0, hmod: P1, fdwsound: SND_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn PlaySoundA ( pszsound : :: windows::core::PCSTR , hmod : super::super::Foundation:: HINSTANCE , fdwsound : SND_FLAGS ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winmm.dll""system" fn PlaySoundA ( pszsound : ::windows::core::PCSTR , hmod : super::super::Foundation:: HMODULE , fdwsound : SND_FLAGS ) -> super::super::Foundation:: BOOL );
     PlaySoundA(pszsound.into_param().abi(), hmod.into_param().abi(), fdwsound)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -108,9 +108,9 @@ where
 pub unsafe fn PlaySoundW<P0, P1>(pszsound: P0, hmod: P1, fdwsound: SND_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn PlaySoundW ( pszsound : :: windows::core::PCWSTR , hmod : super::super::Foundation:: HINSTANCE , fdwsound : SND_FLAGS ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winmm.dll""system" fn PlaySoundW ( pszsound : ::windows::core::PCWSTR , hmod : super::super::Foundation:: HMODULE , fdwsound : SND_FLAGS ) -> super::super::Foundation:: BOOL );
     PlaySoundW(pszsound.into_param().abi(), hmod.into_param().abi(), fdwsound)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -118,10 +118,10 @@ where
 #[inline]
 pub unsafe fn acmDriverAddA<P0, P1>(phadid: *mut isize, hinstmodule: P0, lparam: P1, dwpriority: u32, fdwadd: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P1: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows::imp::link ! ( "msacm32.dll""system" fn acmDriverAddA ( phadid : *mut isize , hinstmodule : super::super::Foundation:: HINSTANCE , lparam : super::super::Foundation:: LPARAM , dwpriority : u32 , fdwadd : u32 ) -> u32 );
+    ::windows::imp::link ! ( "msacm32.dll""system" fn acmDriverAddA ( phadid : *mut isize , hinstmodule : super::super::Foundation:: HMODULE , lparam : super::super::Foundation:: LPARAM , dwpriority : u32 , fdwadd : u32 ) -> u32 );
     acmDriverAddA(phadid, hinstmodule.into_param().abi(), lparam.into_param().abi(), dwpriority, fdwadd)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -129,10 +129,10 @@ where
 #[inline]
 pub unsafe fn acmDriverAddW<P0, P1>(phadid: *mut isize, hinstmodule: P0, lparam: P1, dwpriority: u32, fdwadd: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P1: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows::imp::link ! ( "msacm32.dll""system" fn acmDriverAddW ( phadid : *mut isize , hinstmodule : super::super::Foundation:: HINSTANCE , lparam : super::super::Foundation:: LPARAM , dwpriority : u32 , fdwadd : u32 ) -> u32 );
+    ::windows::imp::link ! ( "msacm32.dll""system" fn acmDriverAddW ( phadid : *mut isize , hinstmodule : super::super::Foundation:: HMODULE , lparam : super::super::Foundation:: LPARAM , dwpriority : u32 , fdwadd : u32 ) -> u32 );
     acmDriverAddW(phadid, hinstmodule.into_param().abi(), lparam.into_param().abi(), dwpriority, fdwadd)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -144,8 +144,8 @@ where
     ::windows::imp::link ! ( "msacm32.dll""system" fn acmDriverClose ( had : HACMDRIVER , fdwclose : u32 ) -> u32 );
     acmDriverClose(had.into_param().abi(), fdwclose)
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn acmDriverDetailsA<P0>(hadid: P0, padd: *mut ACMDRIVERDETAILSA, fdwdetails: u32) -> u32
 where
@@ -233,8 +233,7 @@ pub unsafe fn acmFilterChooseW(pafltrc: *mut ACMFILTERCHOOSEW) -> u32 {
     ::windows::imp::link ! ( "msacm32.dll""system" fn acmFilterChooseW ( pafltrc : *mut ACMFILTERCHOOSEW ) -> u32 );
     acmFilterChooseW(pafltrc)
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn acmFilterDetailsA<P0>(had: P0, pafd: *mut ACMFILTERDETAILSA, fdwdetails: u32) -> u32
 where
@@ -272,8 +271,7 @@ where
     ::windows::imp::link ! ( "msacm32.dll""system" fn acmFilterEnumW ( had : HACMDRIVER , pafd : *mut ACMFILTERDETAILSW , fncallback : ACMFILTERENUMCBW , dwinstance : usize , fdwenum : u32 ) -> u32 );
     acmFilterEnumW(had.into_param().abi(), pafd, fncallback, dwinstance, fdwenum)
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn acmFilterTagDetailsA<P0>(had: P0, paftd: *mut ACMFILTERTAGDETAILSA, fdwdetails: u32) -> u32
 where
@@ -325,8 +323,7 @@ pub unsafe fn acmFormatChooseW(pafmtc: *mut ACMFORMATCHOOSEW) -> u32 {
     ::windows::imp::link ! ( "msacm32.dll""system" fn acmFormatChooseW ( pafmtc : *mut ACMFORMATCHOOSEW ) -> u32 );
     acmFormatChooseW(pafmtc)
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn acmFormatDetailsA<P0>(had: P0, pafd: *mut ACMFORMATDETAILSA, fdwdetails: u32) -> u32
 where
@@ -373,8 +370,7 @@ where
     ::windows::imp::link ! ( "msacm32.dll""system" fn acmFormatSuggest ( had : HACMDRIVER , pwfxsrc : *mut WAVEFORMATEX , pwfxdst : *mut WAVEFORMATEX , cbwfxdst : u32 , fdwsuggest : u32 ) -> u32 );
     acmFormatSuggest(had.into_param().abi(), pwfxsrc, pwfxdst, cbwfxdst, fdwsuggest)
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn acmFormatTagDetailsA<P0>(had: P0, paftd: *mut ACMFORMATTAGDETAILSA, fdwdetails: u32) -> u32
 where
@@ -502,8 +498,7 @@ where
     ::windows::imp::link ! ( "msacm32.dll""system" fn acmStreamUnprepareHeader ( has : HACMSTREAM , pash : *mut ACMSTREAMHEADER , fdwunprepare : u32 ) -> u32 );
     acmStreamUnprepareHeader(has.into_param().abi(), pash, fdwunprepare)
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) -> u32 {
     ::windows::imp::link ! ( "winmm.dll""system" fn auxGetDevCapsA ( udeviceid : usize , pac : *mut AUXCAPSA , cbac : u32 ) -> u32 );
@@ -577,8 +572,7 @@ where
     ::windows::imp::link ! ( "winmm.dll""system" fn midiInClose ( hmi : HMIDIIN ) -> u32 );
     midiInClose(hmi.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic: u32) -> u32 {
     ::windows::imp::link ! ( "winmm.dll""system" fn midiInGetDevCapsA ( udeviceid : usize , pmic : *mut MIDIINCAPSA , cbmic : u32 ) -> u32 );
@@ -593,13 +587,13 @@ pub unsafe fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic:
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn midiInGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn midiInGetErrorTextA ( mmrerror : u32 , psztext : :: windows::core::PSTR , cchtext : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn midiInGetErrorTextA ( mmrerror : u32 , psztext : ::windows::core::PSTR , cchtext : u32 ) -> u32 );
     midiInGetErrorTextA(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn midiInGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn midiInGetErrorTextW ( mmrerror : u32 , psztext : :: windows::core::PWSTR , cchtext : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn midiInGetErrorTextW ( mmrerror : u32 , psztext : ::windows::core::PWSTR , cchtext : u32 ) -> u32 );
     midiInGetErrorTextW(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -704,8 +698,7 @@ where
     ::windows::imp::link ! ( "winmm.dll""system" fn midiOutClose ( hmo : HMIDIOUT ) -> u32 );
     midiOutClose(hmo.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmoc: u32) -> u32 {
     ::windows::imp::link ! ( "winmm.dll""system" fn midiOutGetDevCapsA ( udeviceid : usize , pmoc : *mut MIDIOUTCAPSA , cbmoc : u32 ) -> u32 );
@@ -720,13 +713,13 @@ pub unsafe fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmo
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn midiOutGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn midiOutGetErrorTextA ( mmrerror : u32 , psztext : :: windows::core::PSTR , cchtext : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn midiOutGetErrorTextA ( mmrerror : u32 , psztext : ::windows::core::PSTR , cchtext : u32 ) -> u32 );
     midiOutGetErrorTextA(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn midiOutGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn midiOutGetErrorTextW ( mmrerror : u32 , psztext : :: windows::core::PWSTR , cchtext : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn midiOutGetErrorTextW ( mmrerror : u32 , psztext : ::windows::core::PWSTR , cchtext : u32 ) -> u32 );
     midiOutGetErrorTextW(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -920,8 +913,7 @@ where
     ::windows::imp::link ! ( "winmm.dll""system" fn mixerGetControlDetailsW ( hmxobj : HMIXEROBJ , pmxcd : *mut MIXERCONTROLDETAILS , fdwdetails : u32 ) -> u32 );
     mixerGetControlDetailsW(hmxobj.into_param().abi(), pmxcd, fdwdetails)
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn mixerGetDevCapsA(umxid: usize, pmxcaps: *mut MIXERCAPSA, cbmxcaps: u32) -> u32 {
     ::windows::imp::link ! ( "winmm.dll""system" fn mixerGetDevCapsA ( umxid : usize , pmxcaps : *mut MIXERCAPSA , cbmxcaps : u32 ) -> u32 );
@@ -942,8 +934,7 @@ where
     ::windows::imp::link ! ( "winmm.dll""system" fn mixerGetID ( hmxobj : HMIXEROBJ , pumxid : *mut u32 , fdwid : u32 ) -> u32 );
     mixerGetID(hmxobj.into_param().abi(), pumxid, fdwid)
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn mixerGetLineControlsA<P0>(hmxobj: P0, pmxlc: *mut MIXERLINECONTROLSA, fdwcontrols: u32) -> u32
 where
@@ -961,8 +952,7 @@ where
     ::windows::imp::link ! ( "winmm.dll""system" fn mixerGetLineControlsW ( hmxobj : HMIXEROBJ , pmxlc : *mut MIXERLINECONTROLSW , fdwcontrols : u32 ) -> u32 );
     mixerGetLineControlsW(hmxobj.into_param().abi(), pmxlc, fdwcontrols)
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn mixerGetLineInfoA<P0>(hmxobj: P0, pmxl: *mut MIXERLINEA, fdwinfo: u32) -> u32
 where
@@ -1018,7 +1008,7 @@ pub unsafe fn sndPlaySoundA<P0>(pszsound: P0, fusound: u32) -> super::super::Fou
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn sndPlaySoundA ( pszsound : :: windows::core::PCSTR , fusound : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winmm.dll""system" fn sndPlaySoundA ( pszsound : ::windows::core::PCSTR , fusound : u32 ) -> super::super::Foundation:: BOOL );
     sndPlaySoundA(pszsound.into_param().abi(), fusound)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -1028,7 +1018,7 @@ pub unsafe fn sndPlaySoundW<P0>(pszsound: P0, fusound: u32) -> super::super::Fou
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn sndPlaySoundW ( pszsound : :: windows::core::PCWSTR , fusound : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winmm.dll""system" fn sndPlaySoundW ( pszsound : ::windows::core::PCWSTR , fusound : u32 ) -> super::super::Foundation:: BOOL );
     sndPlaySoundW(pszsound.into_param().abi(), fusound)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1049,8 +1039,7 @@ where
     ::windows::imp::link ! ( "winmm.dll""system" fn waveInClose ( hwi : HWAVEIN ) -> u32 );
     waveInClose(hwi.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic: u32) -> u32 {
     ::windows::imp::link ! ( "winmm.dll""system" fn waveInGetDevCapsA ( udeviceid : usize , pwic : *mut WAVEINCAPSA , cbwic : u32 ) -> u32 );
@@ -1065,13 +1054,13 @@ pub unsafe fn waveInGetDevCapsW(udeviceid: usize, pwic: *mut WAVEINCAPSW, cbwic:
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn waveInGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn waveInGetErrorTextA ( mmrerror : u32 , psztext : :: windows::core::PSTR , cchtext : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn waveInGetErrorTextA ( mmrerror : u32 , psztext : ::windows::core::PSTR , cchtext : u32 ) -> u32 );
     waveInGetErrorTextA(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn waveInGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn waveInGetErrorTextW ( mmrerror : u32 , psztext : :: windows::core::PWSTR , cchtext : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn waveInGetErrorTextW ( mmrerror : u32 , psztext : ::windows::core::PWSTR , cchtext : u32 ) -> u32 );
     waveInGetErrorTextW(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1176,8 +1165,7 @@ where
     ::windows::imp::link ! ( "winmm.dll""system" fn waveOutClose ( hwo : HWAVEOUT ) -> u32 );
     waveOutClose(hwo.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwoc: u32) -> u32 {
     ::windows::imp::link ! ( "winmm.dll""system" fn waveOutGetDevCapsA ( udeviceid : usize , pwoc : *mut WAVEOUTCAPSA , cbwoc : u32 ) -> u32 );
@@ -1192,13 +1180,13 @@ pub unsafe fn waveOutGetDevCapsW(udeviceid: usize, pwoc: *mut WAVEOUTCAPSW, cbwo
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn waveOutGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn waveOutGetErrorTextA ( mmrerror : u32 , psztext : :: windows::core::PSTR , cchtext : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn waveOutGetErrorTextA ( mmrerror : u32 , psztext : ::windows::core::PSTR , cchtext : u32 ) -> u32 );
     waveOutGetErrorTextA(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn waveOutGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn waveOutGetErrorTextW ( mmrerror : u32 , psztext : :: windows::core::PWSTR , cchtext : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn waveOutGetErrorTextW ( mmrerror : u32 , psztext : ::windows::core::PWSTR , cchtext : u32 ) -> u32 );
     waveOutGetErrorTextW(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1347,6 +1335,46 @@ where
 {
     ::windows::imp::link ! ( "winmm.dll""system" fn waveOutWrite ( hwo : HWAVEOUT , pwh : *mut WAVEHDR , cbwh : u32 ) -> u32 );
     waveOutWrite(hwo.into_param().abi(), pwh, cbwh)
+}
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+#[repr(transparent)]
+pub struct IAcousticEchoCancellationControl(::windows::core::IUnknown);
+impl IAcousticEchoCancellationControl {
+    pub unsafe fn SetEchoCancellationRenderEndpoint<P0>(&self, endpointid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetEchoCancellationRenderEndpoint)(::windows::core::Interface::as_raw(self), endpointid.into_param().abi()).ok()
+    }
+}
+::windows::imp::interface_hierarchy!(IAcousticEchoCancellationControl, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IAcousticEchoCancellationControl {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IAcousticEchoCancellationControl {}
+impl ::core::fmt::Debug for IAcousticEchoCancellationControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAcousticEchoCancellationControl").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IAcousticEchoCancellationControl {
+    type Vtable = IAcousticEchoCancellationControl_Vtbl;
+}
+impl ::core::clone::Clone for IAcousticEchoCancellationControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IAcousticEchoCancellationControl {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4ae25b5_aaa3_437d_b6b3_dbbe2d0e9549);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAcousticEchoCancellationControl_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub SetEchoCancellationRenderEndpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpointid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
@@ -3388,6 +3416,51 @@ pub struct IAudioTreble_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+pub struct IAudioViewManagerService(::windows::core::IUnknown);
+impl IAudioViewManagerService {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetAudioStreamWindow<P0>(&self, hwnd: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    {
+        (::windows::core::Interface::vtable(self).SetAudioStreamWindow)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi()).ok()
+    }
+}
+::windows::imp::interface_hierarchy!(IAudioViewManagerService, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IAudioViewManagerService {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IAudioViewManagerService {}
+impl ::core::fmt::Debug for IAudioViewManagerService {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioViewManagerService").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IAudioViewManagerService {
+    type Vtable = IAudioViewManagerService_Vtbl;
+}
+impl ::core::clone::Clone for IAudioViewManagerService {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IAudioViewManagerService {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7a7ef10_1f49_45e0_ad35_612057cc8f74);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAudioViewManagerService_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetAudioStreamWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetAudioStreamWindow: usize,
+}
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+#[repr(transparent)]
 pub struct IAudioVolumeDuckNotification(::windows::core::IUnknown);
 impl IAudioVolumeDuckNotification {
     pub unsafe fn OnVolumeDuckNotification<P0>(&self, sessionid: P0, countcommunicationsessions: u32) -> ::windows::core::Result<()>
@@ -3827,6 +3900,54 @@ pub struct IDeviceTopology_Vtbl {
     pub GetSignalPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pipartfrom: *mut ::core::ffi::c_void, pipartto: *mut ::core::ffi::c_void, brejectmixedpaths: super::super::Foundation::BOOL, ppparts: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetSignalPath: usize,
+}
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+#[repr(transparent)]
+pub struct IKsJackDescription3(::windows::core::IUnknown);
+impl IKsJackDescription3 {
+    pub unsafe fn GetJackCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetJackCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+    #[cfg(feature = "Win32_Media_KernelStreaming")]
+    pub unsafe fn GetJackDescription3(&self, njack: u32) -> ::windows::core::Result<super::KernelStreaming::KSJACK_DESCRIPTION3> {
+        let mut result__ = ::windows::core::zeroed::<super::KernelStreaming::KSJACK_DESCRIPTION3>();
+        (::windows::core::Interface::vtable(self).GetJackDescription3)(::windows::core::Interface::as_raw(self), njack, &mut result__).from_abi(result__)
+    }
+}
+::windows::imp::interface_hierarchy!(IKsJackDescription3, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IKsJackDescription3 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IKsJackDescription3 {}
+impl ::core::fmt::Debug for IKsJackDescription3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsJackDescription3").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IKsJackDescription3 {
+    type Vtable = IKsJackDescription3_Vtbl;
+}
+impl ::core::clone::Clone for IKsJackDescription3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IKsJackDescription3 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3f6778b_6660_4cc8_a291_ecc4192d9967);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKsJackDescription3_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub GetJackCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcjacks: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Media_KernelStreaming")]
+    pub GetJackDescription3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, njack: u32, pdescription3: *mut super::KernelStreaming::KSJACK_DESCRIPTION3) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Media_KernelStreaming"))]
+    GetJackDescription3: usize,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
@@ -5712,23 +5833,23 @@ pub const ACMFORMATDETAILS_FORMAT_CHARS: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const ACMFORMATTAGDETAILS_FORMATTAG_CHARS: u32 = 48u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGCONTEXTHELP: ::windows::core::PCWSTR = ::windows::w!("acmchoose_contexthelp");
+pub const ACMHELPMSGCONTEXTHELP: ::windows::core::PCWSTR = ::windows::core::w!("acmchoose_contexthelp");
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGCONTEXTHELPA: ::windows::core::PCSTR = ::windows::s!("acmchoose_contexthelp");
+pub const ACMHELPMSGCONTEXTHELPA: ::windows::core::PCSTR = ::windows::core::s!("acmchoose_contexthelp");
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGCONTEXTHELPW: ::windows::core::PCWSTR = ::windows::w!("acmchoose_contexthelp");
+pub const ACMHELPMSGCONTEXTHELPW: ::windows::core::PCWSTR = ::windows::core::w!("acmchoose_contexthelp");
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGCONTEXTMENU: ::windows::core::PCWSTR = ::windows::w!("acmchoose_contextmenu");
+pub const ACMHELPMSGCONTEXTMENU: ::windows::core::PCWSTR = ::windows::core::w!("acmchoose_contextmenu");
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGCONTEXTMENUA: ::windows::core::PCSTR = ::windows::s!("acmchoose_contextmenu");
+pub const ACMHELPMSGCONTEXTMENUA: ::windows::core::PCSTR = ::windows::core::s!("acmchoose_contextmenu");
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGCONTEXTMENUW: ::windows::core::PCWSTR = ::windows::w!("acmchoose_contextmenu");
+pub const ACMHELPMSGCONTEXTMENUW: ::windows::core::PCWSTR = ::windows::core::w!("acmchoose_contextmenu");
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGSTRING: ::windows::core::PCWSTR = ::windows::w!("acmchoose_help");
+pub const ACMHELPMSGSTRING: ::windows::core::PCWSTR = ::windows::core::w!("acmchoose_help");
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGSTRINGA: ::windows::core::PCSTR = ::windows::s!("acmchoose_help");
+pub const ACMHELPMSGSTRINGA: ::windows::core::PCSTR = ::windows::core::s!("acmchoose_help");
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGSTRINGW: ::windows::core::PCWSTR = ::windows::w!("acmchoose_help");
+pub const ACMHELPMSGSTRINGW: ::windows::core::PCWSTR = ::windows::core::w!("acmchoose_help");
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const ACMSTREAMHEADER_STATUSF_DONE: i32 = 65536i32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -6460,7 +6581,7 @@ pub const SPTLAUD_MD_CLNT_E_OBJECT_NOT_INITIALIZED: ::windows::core::HRESULT = :
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SPTLAUD_MD_CLNT_E_VALUE_BUFFER_INCORRECT_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286972i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const VIRTUAL_AUDIO_DEVICE_PROCESS_LOOPBACK: ::windows::core::PCWSTR = ::windows::w!("VAD\\Process_Loopback");
+pub const VIRTUAL_AUDIO_DEVICE_PROCESS_LOOPBACK: ::windows::core::PCWSTR = ::windows::core::w!("VAD\\Process_Loopback");
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const WAVECAPS_LRVOLUME: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -7807,8 +7928,8 @@ impl ::core::fmt::Debug for _AUDCLNT_BUFFERFLAGS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct ACMDRIVERDETAILSA {
     pub cbStruct: u32,
     pub fccType: u32,
@@ -7821,25 +7942,25 @@ pub struct ACMDRIVERDETAILSA {
     pub cFormatTags: u32,
     pub cFilterTags: u32,
     pub hicon: super::super::UI::WindowsAndMessaging::HICON,
-    pub szShortName: [super::super::Foundation::CHAR; 32],
-    pub szLongName: [super::super::Foundation::CHAR; 128],
-    pub szCopyright: [super::super::Foundation::CHAR; 80],
-    pub szLicensing: [super::super::Foundation::CHAR; 128],
-    pub szFeatures: [super::super::Foundation::CHAR; 512],
+    pub szShortName: [u8; 32],
+    pub szLongName: [u8; 128],
+    pub szCopyright: [u8; 80],
+    pub szLicensing: [u8; 128],
+    pub szFeatures: [u8; 512],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::marker::Copy for ACMDRIVERDETAILSA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::clone::Clone for ACMDRIVERDETAILSA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::windows::core::TypeKind for ACMDRIVERDETAILSA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::default::Default for ACMDRIVERDETAILSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8061,13 +8182,13 @@ pub struct ACMFILTERCHOOSEA {
     pub pwfltr: *mut WAVEFILTER,
     pub cbwfltr: u32,
     pub pszTitle: ::windows::core::PCSTR,
-    pub szFilterTag: [super::super::Foundation::CHAR; 48],
-    pub szFilter: [super::super::Foundation::CHAR; 128],
+    pub szFilterTag: [u8; 48],
+    pub szFilter: [u8; 128],
     pub pszName: ::windows::core::PSTR,
     pub cchName: u32,
     pub fdwEnum: u32,
     pub pwfltrEnum: *mut WAVEFILTER,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub pszTemplateName: ::windows::core::PCSTR,
     pub lCustData: super::super::Foundation::LPARAM,
     pub pfnHook: ACMFILTERCHOOSEHOOKPROCA,
@@ -8106,7 +8227,7 @@ pub struct ACMFILTERCHOOSEW {
     pub cchName: u32,
     pub fdwEnum: u32,
     pub pwfltrEnum: *mut WAVEFILTER,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub pszTemplateName: ::windows::core::PCWSTR,
     pub lCustData: super::super::Foundation::LPARAM,
     pub pfnHook: ACMFILTERCHOOSEHOOKPROCW,
@@ -8130,8 +8251,7 @@ impl ::core::default::Default for ACMFILTERCHOOSEW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct ACMFILTERDETAILSA {
     pub cbStruct: u32,
     pub dwFilterIndex: u32,
@@ -8139,21 +8259,17 @@ pub struct ACMFILTERDETAILSA {
     pub fdwSupport: u32,
     pub pwfltr: *mut WAVEFILTER,
     pub cbwfltr: u32,
-    pub szFilter: [super::super::Foundation::CHAR; 128],
+    pub szFilter: [u8; 128],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACMFILTERDETAILSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ACMFILTERDETAILSA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for ACMFILTERDETAILSA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ACMFILTERDETAILSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8185,8 +8301,7 @@ impl ::core::default::Default for ACMFILTERDETAILSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct ACMFILTERTAGDETAILSA {
     pub cbStruct: u32,
     pub dwFilterTagIndex: u32,
@@ -8194,21 +8309,17 @@ pub struct ACMFILTERTAGDETAILSA {
     pub cbFilterSize: u32,
     pub fdwSupport: u32,
     pub cStandardFilters: u32,
-    pub szFilterTag: [super::super::Foundation::CHAR; 48],
+    pub szFilterTag: [u8; 48],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACMFILTERTAGDETAILSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ACMFILTERTAGDETAILSA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for ACMFILTERTAGDETAILSA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ACMFILTERTAGDETAILSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8249,13 +8360,13 @@ pub struct ACMFORMATCHOOSEA {
     pub pwfx: *mut WAVEFORMATEX,
     pub cbwfx: u32,
     pub pszTitle: ::windows::core::PCSTR,
-    pub szFormatTag: [super::super::Foundation::CHAR; 48],
-    pub szFormat: [super::super::Foundation::CHAR; 128],
+    pub szFormatTag: [u8; 48],
+    pub szFormat: [u8; 128],
     pub pszName: ::windows::core::PSTR,
     pub cchName: u32,
     pub fdwEnum: u32,
     pub pwfxEnum: *mut WAVEFORMATEX,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub pszTemplateName: ::windows::core::PCSTR,
     pub lCustData: super::super::Foundation::LPARAM,
     pub pfnHook: ACMFORMATCHOOSEHOOKPROCA,
@@ -8294,7 +8405,7 @@ pub struct ACMFORMATCHOOSEW {
     pub cchName: u32,
     pub fdwEnum: u32,
     pub pwfxEnum: *mut WAVEFORMATEX,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub pszTemplateName: ::windows::core::PCWSTR,
     pub lCustData: super::super::Foundation::LPARAM,
     pub pfnHook: ACMFORMATCHOOSEHOOKPROCW,
@@ -8318,8 +8429,7 @@ impl ::core::default::Default for ACMFORMATCHOOSEW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct ACMFORMATDETAILSA {
     pub cbStruct: u32,
     pub dwFormatIndex: u32,
@@ -8327,29 +8437,24 @@ pub struct ACMFORMATDETAILSA {
     pub fdwSupport: u32,
     pub pwfx: *mut WAVEFORMATEX,
     pub cbwfx: u32,
-    pub szFormat: [super::super::Foundation::CHAR; 128],
+    pub szFormat: [u8; 128],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACMFORMATDETAILSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ACMFORMATDETAILSA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for ACMFORMATDETAILSA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ACMFORMATDETAILSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct ACMFORMATTAGDETAILSA {
     pub cbStruct: u32,
     pub dwFormatTagIndex: u32,
@@ -8357,21 +8462,17 @@ pub struct ACMFORMATTAGDETAILSA {
     pub cbFormatSize: u32,
     pub fdwSupport: u32,
     pub cStandardFormats: u32,
-    pub szFormatTag: [super::super::Foundation::CHAR; 48],
+    pub szFormatTag: [u8; 48],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACMFORMATTAGDETAILSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ACMFORMATTAGDETAILSA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for ACMFORMATTAGDETAILSA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ACMFORMATTAGDETAILSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8662,13 +8763,12 @@ impl ::core::default::Default for AUDIO_VOLUME_NOTIFICATION_DATA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct AUXCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub wTechnology: u16,
     pub wReserved1: u16,
     pub dwSupport: u32,
@@ -8676,19 +8776,15 @@ pub struct AUXCAPS2A {
     pub ProductGuid: ::windows::core::GUID,
     pub NameGuid: ::windows::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for AUXCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUXCAPS2A {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for AUXCAPS2A {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for AUXCAPS2A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8723,30 +8819,25 @@ impl ::core::default::Default for AUXCAPS2W {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct AUXCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub wTechnology: u16,
     pub wReserved1: u16,
     pub dwSupport: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for AUXCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUXCAPSA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for AUXCAPSA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for AUXCAPSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9341,31 +9432,26 @@ impl ::core::default::Default for MIDIHDR {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIDIINCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub dwSupport: u32,
     pub ManufacturerGuid: ::windows::core::GUID,
     pub ProductGuid: ::windows::core::GUID,
     pub NameGuid: ::windows::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIDIINCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIDIINCAPS2A {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for MIDIINCAPS2A {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MIDIINCAPS2A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9398,28 +9484,23 @@ impl ::core::default::Default for MIDIINCAPS2W {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIDIINCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub dwSupport: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIDIINCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIDIINCAPSA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for MIDIINCAPSA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MIDIINCAPSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9449,13 +9530,12 @@ impl ::core::default::Default for MIDIINCAPSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIDIOUTCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub wTechnology: u16,
     pub wVoices: u16,
     pub wNotes: u16,
@@ -9465,19 +9545,15 @@ pub struct MIDIOUTCAPS2A {
     pub ProductGuid: ::windows::core::GUID,
     pub NameGuid: ::windows::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIDIOUTCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIDIOUTCAPS2A {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for MIDIOUTCAPS2A {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MIDIOUTCAPS2A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9514,32 +9590,27 @@ impl ::core::default::Default for MIDIOUTCAPS2W {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIDIOUTCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub wTechnology: u16,
     pub wVoices: u16,
     pub wNotes: u16,
     pub wChannelMask: u16,
     pub dwSupport: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIDIOUTCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIDIOUTCAPSA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for MIDIOUTCAPSA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MIDIOUTCAPSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9634,32 +9705,27 @@ impl ::core::default::Default for MIDISTRMBUFFVER {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIXERCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub fdwSupport: u32,
     pub cDestinations: u32,
     pub ManufacturerGuid: ::windows::core::GUID,
     pub ProductGuid: ::windows::core::GUID,
     pub NameGuid: ::windows::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCAPS2A {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for MIXERCAPS2A {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MIXERCAPS2A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9693,29 +9759,24 @@ impl ::core::default::Default for MIXERCAPS2W {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIXERCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub fdwSupport: u32,
     pub cDestinations: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCAPSA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for MIXERCAPSA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MIXERCAPSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9746,134 +9807,109 @@ impl ::core::default::Default for MIXERCAPSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIXERCONTROLA {
     pub cbStruct: u32,
     pub dwControlID: u32,
     pub dwControlType: u32,
     pub fdwControl: u32,
     pub cMultipleItems: u32,
-    pub szShortName: [super::super::Foundation::CHAR; 16],
-    pub szName: [super::super::Foundation::CHAR; 64],
+    pub szShortName: [u8; 16],
+    pub szName: [u8; 64],
     pub Bounds: MIXERCONTROLA_0,
     pub Metrics: MIXERCONTROLA_1,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERCONTROLA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCONTROLA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for MIXERCONTROLA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MIXERCONTROLA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub union MIXERCONTROLA_0 {
     pub Anonymous1: MIXERCONTROLA_0_0,
     pub Anonymous2: MIXERCONTROLA_0_1,
     pub dwReserved: [u32; 6],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERCONTROLA_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCONTROLA_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for MIXERCONTROLA_0 {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MIXERCONTROLA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIXERCONTROLA_0_0 {
     pub lMinimum: i32,
     pub lMaximum: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERCONTROLA_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCONTROLA_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for MIXERCONTROLA_0_0 {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MIXERCONTROLA_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIXERCONTROLA_0_1 {
     pub dwMinimum: u32,
     pub dwMaximum: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERCONTROLA_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCONTROLA_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for MIXERCONTROLA_0_1 {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MIXERCONTROLA_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub union MIXERCONTROLA_1 {
     pub cSteps: u32,
     pub cbCustomData: u32,
     pub dwReserved: [u32; 6],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERCONTROLA_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCONTROLA_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for MIXERCONTROLA_1 {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MIXERCONTROLA_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9953,26 +9989,21 @@ impl ::core::default::Default for MIXERCONTROLDETAILS_BOOLEAN {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIXERCONTROLDETAILS_LISTTEXTA {
     pub dwParam1: u32,
     pub dwParam2: u32,
-    pub szName: [super::super::Foundation::CHAR; 64],
+    pub szName: [u8; 64],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERCONTROLDETAILS_LISTTEXTA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCONTROLDETAILS_LISTTEXTA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for MIXERCONTROLDETAILS_LISTTEXTA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MIXERCONTROLDETAILS_LISTTEXTA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10147,8 +10178,7 @@ impl ::core::default::Default for MIXERCONTROLW_1 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIXERLINEA {
     pub cbStruct: u32,
     pub dwDestination: u32,
@@ -10160,60 +10190,50 @@ pub struct MIXERLINEA {
     pub cChannels: u32,
     pub cConnections: u32,
     pub cControls: u32,
-    pub szShortName: [super::super::Foundation::CHAR; 16],
-    pub szName: [super::super::Foundation::CHAR; 64],
+    pub szShortName: [u8; 16],
+    pub szName: [u8; 64],
     pub Target: MIXERLINEA_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERLINEA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERLINEA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for MIXERLINEA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MIXERLINEA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIXERLINEA_0 {
     pub dwType: u32,
     pub dwDeviceID: u32,
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERLINEA_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERLINEA_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for MIXERLINEA_0 {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MIXERLINEA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIXERLINECONTROLSA {
     pub cbStruct: u32,
     pub dwLineID: u32,
@@ -10222,44 +10242,35 @@ pub struct MIXERLINECONTROLSA {
     pub cbmxctrl: u32,
     pub pamxctrl: *mut MIXERCONTROLA,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERLINECONTROLSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERLINECONTROLSA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for MIXERLINECONTROLSA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MIXERLINECONTROLSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub union MIXERLINECONTROLSA_0 {
     pub dwControlID: u32,
     pub dwControlType: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERLINECONTROLSA_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERLINECONTROLSA_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for MIXERLINECONTROLSA_0 {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MIXERLINECONTROLSA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10855,13 +10866,12 @@ impl ::core::default::Default for WAVEHDR {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct WAVEINCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub dwFormats: u32,
     pub wChannels: u16,
     pub wReserved1: u16,
@@ -10869,19 +10879,15 @@ pub struct WAVEINCAPS2A {
     pub ProductGuid: ::windows::core::GUID,
     pub NameGuid: ::windows::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WAVEINCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WAVEINCAPS2A {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for WAVEINCAPS2A {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WAVEINCAPS2A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10916,30 +10922,25 @@ impl ::core::default::Default for WAVEINCAPS2W {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct WAVEINCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub dwFormats: u32,
     pub wChannels: u16,
     pub wReserved1: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WAVEINCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WAVEINCAPSA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for WAVEINCAPSA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WAVEINCAPSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10971,13 +10972,12 @@ impl ::core::default::Default for WAVEINCAPSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct WAVEOUTCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub dwFormats: u32,
     pub wChannels: u16,
     pub wReserved1: u16,
@@ -10986,19 +10986,15 @@ pub struct WAVEOUTCAPS2A {
     pub ProductGuid: ::windows::core::GUID,
     pub NameGuid: ::windows::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WAVEOUTCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WAVEOUTCAPS2A {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for WAVEOUTCAPS2A {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WAVEOUTCAPS2A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11034,31 +11030,26 @@ impl ::core::default::Default for WAVEOUTCAPS2W {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct WAVEOUTCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub dwFormats: u32,
     pub wChannels: u16,
     pub wReserved1: u16,
     pub dwSupport: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WAVEOUTCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WAVEOUTCAPSA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for WAVEOUTCAPSA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WAVEOUTCAPSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

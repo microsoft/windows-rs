@@ -107,9 +107,9 @@ pub struct MODULEENTRY32 {
     pub ProccntUsage: u32,
     pub modBaseAddr: *mut u8,
     pub modBaseSize: u32,
-    pub hModule: super::super::super::Foundation::HINSTANCE,
-    pub szModule: [super::super::super::Foundation::CHAR; 256],
-    pub szExePath: [super::super::super::Foundation::CHAR; 260],
+    pub hModule: super::super::super::Foundation::HMODULE,
+    pub szModule: [u8; 256],
+    pub szExePath: [u8; 260],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MODULEENTRY32 {}
@@ -130,7 +130,7 @@ pub struct MODULEENTRY32W {
     pub ProccntUsage: u32,
     pub modBaseAddr: *mut u8,
     pub modBaseSize: u32,
-    pub hModule: super::super::super::Foundation::HINSTANCE,
+    pub hModule: super::super::super::Foundation::HMODULE,
     pub szModule: [u16; 256],
     pub szExePath: [u16; 260],
 }
@@ -143,8 +143,7 @@ impl ::core::clone::Clone for MODULEENTRY32W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 pub struct PROCESSENTRY32 {
     pub dwSize: u32,
     pub cntUsage: u32,
@@ -155,11 +154,9 @@ pub struct PROCESSENTRY32 {
     pub th32ParentProcessID: u32,
     pub pcPriClassBase: i32,
     pub dwFlags: u32,
-    pub szExeFile: [super::super::super::Foundation::CHAR; 260],
+    pub szExeFile: [u8; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROCESSENTRY32 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROCESSENTRY32 {
     fn clone(&self) -> Self {
         *self

@@ -286,6 +286,119 @@ pub struct INetwork_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+pub struct INetwork2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl INetwork2 {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn SetName<P0>(&self, sznetworknewname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), sznetworknewname.into_param().abi()).ok()
+    }
+    pub unsafe fn GetDescription(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Interface::vtable(self).base__.GetDescription)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn SetDescription<P0>(&self, szdescription: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), szdescription.into_param().abi()).ok()
+    }
+    pub unsafe fn GetNetworkId(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetNetworkId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetDomainType(&self) -> ::windows::core::Result<NLM_DOMAIN_TYPE> {
+        let mut result__ = ::windows::core::zeroed::<NLM_DOMAIN_TYPE>();
+        (::windows::core::Interface::vtable(self).base__.GetDomainType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetNetworkConnections(&self) -> ::windows::core::Result<IEnumNetworkConnections> {
+        let mut result__ = ::windows::core::zeroed::<IEnumNetworkConnections>();
+        (::windows::core::Interface::vtable(self).base__.GetNetworkConnections)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetTimeCreatedAndConnected(&self, pdwlowdatetimecreated: *mut u32, pdwhighdatetimecreated: *mut u32, pdwlowdatetimeconnected: *mut u32, pdwhighdatetimeconnected: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetTimeCreatedAndConnected)(::windows::core::Interface::as_raw(self), pdwlowdatetimecreated, pdwhighdatetimecreated, pdwlowdatetimeconnected, pdwhighdatetimeconnected).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsConnectedToInternet(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows::core::Interface::vtable(self).base__.IsConnectedToInternet)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsConnected(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows::core::Interface::vtable(self).base__.IsConnected)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetConnectivity(&self) -> ::windows::core::Result<NLM_CONNECTIVITY> {
+        let mut result__ = ::windows::core::zeroed::<NLM_CONNECTIVITY>();
+        (::windows::core::Interface::vtable(self).base__.GetConnectivity)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetCategory(&self) -> ::windows::core::Result<NLM_NETWORK_CATEGORY> {
+        let mut result__ = ::windows::core::zeroed::<NLM_NETWORK_CATEGORY>();
+        (::windows::core::Interface::vtable(self).base__.GetCategory)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn SetCategory(&self, newcategory: NLM_NETWORK_CATEGORY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetCategory)(::windows::core::Interface::as_raw(self), newcategory).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsDomainAuthenticatedBy(&self, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).IsDomainAuthenticatedBy)(::windows::core::Interface::as_raw(self), domainauthenticationkind, &mut result__).from_abi(result__)
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+::windows::imp::interface_hierarchy!(INetwork2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, INetwork);
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for INetwork2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for INetwork2 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for INetwork2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetwork2").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for INetwork2 {
+    type Vtable = INetwork2_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for INetwork2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::ComInterface for INetwork2 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5550abb_3391_4310_804f_25dcc325ed81);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct INetwork2_Vtbl {
+    pub base__: INetwork_Vtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub IsDomainAuthenticatedBy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND, pvalue: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    IsDomainAuthenticatedBy: usize,
+}
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
 pub struct INetworkConnection(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetworkConnection {
@@ -375,6 +488,93 @@ pub struct INetworkConnection_Vtbl {
     pub GetConnectionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgdconnectionid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetAdapterId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgdadapterid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetDomainType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdomaintype: *mut NLM_DOMAIN_TYPE) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct INetworkConnection2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl INetworkConnection2 {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetNetwork(&self) -> ::windows::core::Result<INetwork> {
+        let mut result__ = ::windows::core::zeroed::<INetwork>();
+        (::windows::core::Interface::vtable(self).base__.GetNetwork)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsConnectedToInternet(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows::core::Interface::vtable(self).base__.IsConnectedToInternet)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsConnected(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows::core::Interface::vtable(self).base__.IsConnected)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetConnectivity(&self) -> ::windows::core::Result<NLM_CONNECTIVITY> {
+        let mut result__ = ::windows::core::zeroed::<NLM_CONNECTIVITY>();
+        (::windows::core::Interface::vtable(self).base__.GetConnectivity)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetConnectionId(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetConnectionId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetAdapterId(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetAdapterId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetDomainType(&self) -> ::windows::core::Result<NLM_DOMAIN_TYPE> {
+        let mut result__ = ::windows::core::zeroed::<NLM_DOMAIN_TYPE>();
+        (::windows::core::Interface::vtable(self).base__.GetDomainType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsDomainAuthenticatedBy(&self, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).IsDomainAuthenticatedBy)(::windows::core::Interface::as_raw(self), domainauthenticationkind, &mut result__).from_abi(result__)
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+::windows::imp::interface_hierarchy!(INetworkConnection2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, INetworkConnection);
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for INetworkConnection2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for INetworkConnection2 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for INetworkConnection2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetworkConnection2").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for INetworkConnection2 {
+    type Vtable = INetworkConnection2_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for INetworkConnection2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::ComInterface for INetworkConnection2 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00e676ed_5a35_4738_92eb_8581738d0f0a);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct INetworkConnection2_Vtbl {
+    pub base__: INetworkConnection_Vtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub IsDomainAuthenticatedBy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND, pvalue: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    IsDomainAuthenticatedBy: usize,
 }
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 #[repr(transparent)]
@@ -807,31 +1007,31 @@ pub struct INetworkListManagerEvents_Vtbl {
     pub ConnectivityChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_AllowMerge: ::windows::core::PCWSTR = ::windows::w!("NA_AllowMerge");
+pub const NA_AllowMerge: ::windows::core::PCWSTR = ::windows::core::w!("NA_AllowMerge");
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_CategoryReadOnly: ::windows::core::PCWSTR = ::windows::w!("NA_CategoryReadOnly");
+pub const NA_CategoryReadOnly: ::windows::core::PCWSTR = ::windows::core::w!("NA_CategoryReadOnly");
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_CategorySetByPolicy: ::windows::core::PCWSTR = ::windows::w!("NA_CategorySetByPolicy");
+pub const NA_CategorySetByPolicy: ::windows::core::PCWSTR = ::windows::core::w!("NA_CategorySetByPolicy");
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_DescriptionReadOnly: ::windows::core::PCWSTR = ::windows::w!("NA_DescriptionReadOnly");
+pub const NA_DescriptionReadOnly: ::windows::core::PCWSTR = ::windows::core::w!("NA_DescriptionReadOnly");
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_DescriptionSetByPolicy: ::windows::core::PCWSTR = ::windows::w!("NA_DescriptionSetByPolicy");
+pub const NA_DescriptionSetByPolicy: ::windows::core::PCWSTR = ::windows::core::w!("NA_DescriptionSetByPolicy");
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_DomainAuthenticationFailed: ::windows::core::PCWSTR = ::windows::w!("NA_DomainAuthenticationFailed");
+pub const NA_DomainAuthenticationFailed: ::windows::core::PCWSTR = ::windows::core::w!("NA_DomainAuthenticationFailed");
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_IconReadOnly: ::windows::core::PCWSTR = ::windows::w!("NA_IconReadOnly");
+pub const NA_IconReadOnly: ::windows::core::PCWSTR = ::windows::core::w!("NA_IconReadOnly");
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_IconSetByPolicy: ::windows::core::PCWSTR = ::windows::w!("NA_IconSetByPolicy");
+pub const NA_IconSetByPolicy: ::windows::core::PCWSTR = ::windows::core::w!("NA_IconSetByPolicy");
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_InternetConnectivityV4: ::windows::core::PCWSTR = ::windows::w!("NA_InternetConnectivityV4");
+pub const NA_InternetConnectivityV4: ::windows::core::PCWSTR = ::windows::core::w!("NA_InternetConnectivityV4");
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_InternetConnectivityV6: ::windows::core::PCWSTR = ::windows::w!("NA_InternetConnectivityV6");
+pub const NA_InternetConnectivityV6: ::windows::core::PCWSTR = ::windows::core::w!("NA_InternetConnectivityV6");
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_NameReadOnly: ::windows::core::PCWSTR = ::windows::w!("NA_NameReadOnly");
+pub const NA_NameReadOnly: ::windows::core::PCWSTR = ::windows::core::w!("NA_NameReadOnly");
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_NameSetByPolicy: ::windows::core::PCWSTR = ::windows::w!("NA_NameSetByPolicy");
+pub const NA_NameSetByPolicy: ::windows::core::PCWSTR = ::windows::core::w!("NA_NameSetByPolicy");
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_NetworkClass: ::windows::core::PCWSTR = ::windows::w!("NA_NetworkClass");
+pub const NA_NetworkClass: ::windows::core::PCWSTR = ::windows::core::w!("NA_NetworkClass");
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 pub const NLM_MAX_ADDRESS_LIST_SIZE: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
@@ -941,6 +1141,35 @@ impl ::windows::core::TypeKind for NLM_CONNECTIVITY {
 impl ::core::fmt::Debug for NLM_CONNECTIVITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NLM_CONNECTIVITY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NLM_DOMAIN_AUTHENTICATION_KIND(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_DOMAIN_AUTHENTICATION_KIND_NONE: NLM_DOMAIN_AUTHENTICATION_KIND = NLM_DOMAIN_AUTHENTICATION_KIND(0i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_DOMAIN_AUTHENTICATION_KIND_LDAP: NLM_DOMAIN_AUTHENTICATION_KIND = NLM_DOMAIN_AUTHENTICATION_KIND(1i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_DOMAIN_AUTHENTICATION_KIND_TLS: NLM_DOMAIN_AUTHENTICATION_KIND = NLM_DOMAIN_AUTHENTICATION_KIND(2i32);
+impl ::core::marker::Copy for NLM_DOMAIN_AUTHENTICATION_KIND {}
+impl ::core::clone::Clone for NLM_DOMAIN_AUTHENTICATION_KIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NLM_DOMAIN_AUTHENTICATION_KIND {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for NLM_DOMAIN_AUTHENTICATION_KIND {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for NLM_DOMAIN_AUTHENTICATION_KIND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NLM_DOMAIN_AUTHENTICATION_KIND").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]

@@ -1488,7 +1488,7 @@ pub const POOL_CUE_NULL: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const REFRESH_F_LASTBUFFER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const REGSTR_PATH_SOFTWARESYNTHS: ::windows::core::PCSTR = ::windows::s!("Software\\Microsoft\\DirectMusic\\SoftwareSynths");
+pub const REGSTR_PATH_SOFTWARESYNTHS: ::windows::core::PCSTR = ::windows::core::s!("Software\\Microsoft\\DirectMusic\\SoftwareSynths");
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const SIZE_DVINFO: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
@@ -2762,46 +2762,38 @@ impl ::core::default::Default for DMUS_WAVES_REVERB_PARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     pub DeviceId: ::windows::core::GUID,
-    pub DescriptionA: [super::super::super::Foundation::CHAR; 256],
+    pub DescriptionA: [u8; 256],
     pub DescriptionW: [u16; 256],
-    pub ModuleA: [super::super::super::Foundation::CHAR; 260],
+    pub ModuleA: [u8; 260],
     pub ModuleW: [u16; 260],
     pub Type: DIRECTSOUNDDEVICE_TYPE,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
     pub WaveDeviceId: u32,
     pub Devnode: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA").field("DeviceId", &self.DeviceId).field("DescriptionA", &self.DescriptionA).field("DescriptionW", &self.DescriptionW).field("ModuleA", &self.ModuleA).field("ModuleW", &self.ModuleW).field("Type", &self.Type).field("DataFlow", &self.DataFlow).field("WaveDeviceId", &self.WaveDeviceId).field("Devnode", &self.Devnode).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.DeviceId == other.DeviceId && self.DescriptionA == other.DescriptionA && self.DescriptionW == other.DescriptionW && self.ModuleA == other.ModuleA && self.ModuleW == other.ModuleW && self.Type == other.Type && self.DataFlow == other.DataFlow && self.WaveDeviceId == other.WaveDeviceId && self.Devnode == other.Devnode
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

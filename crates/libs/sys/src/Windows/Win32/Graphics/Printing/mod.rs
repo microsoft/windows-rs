@@ -11,47 +11,47 @@ pub mod PrintTicket;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddJobW ( hprinter : super::super::Foundation:: HANDLE , level : u32 , pdata : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddMonitorA ( pname : :: windows_sys::core::PCSTR , level : u32 , pmonitors : *const u8 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddMonitorA ( pname : ::windows_sys::core::PCSTR , level : u32 , pmonitors : *const u8 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddMonitorW ( pname : :: windows_sys::core::PCWSTR , level : u32 , pmonitors : *const u8 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddMonitorW ( pname : ::windows_sys::core::PCWSTR , level : u32 , pmonitors : *const u8 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPortA ( pname : :: windows_sys::core::PCSTR , hwnd : super::super::Foundation:: HWND , pmonitorname : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPortA ( pname : ::windows_sys::core::PCSTR , hwnd : super::super::Foundation:: HWND , pmonitorname : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPortW ( pname : :: windows_sys::core::PCWSTR , hwnd : super::super::Foundation:: HWND , pmonitorname : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPortW ( pname : ::windows_sys::core::PCWSTR , hwnd : super::super::Foundation:: HWND , pmonitorname : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "spoolss.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrintDeviceObject ( hprinter : super::super::Foundation:: HANDLE , phdeviceobject : *mut super::super::Foundation:: HANDLE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "spoolss.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrintDeviceObject ( hprinter : super::super::Foundation:: HANDLE , phdeviceobject : *mut super::super::Foundation:: HANDLE ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrintProcessorA ( pname : :: windows_sys::core::PCSTR , penvironment : :: windows_sys::core::PCSTR , ppathname : :: windows_sys::core::PCSTR , pprintprocessorname : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrintProcessorA ( pname : ::windows_sys::core::PCSTR , penvironment : ::windows_sys::core::PCSTR , ppathname : ::windows_sys::core::PCSTR , pprintprocessorname : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrintProcessorW ( pname : :: windows_sys::core::PCWSTR , penvironment : :: windows_sys::core::PCWSTR , ppathname : :: windows_sys::core::PCWSTR , pprintprocessorname : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrintProcessorW ( pname : ::windows_sys::core::PCWSTR , penvironment : ::windows_sys::core::PCWSTR , ppathname : ::windows_sys::core::PCWSTR , pprintprocessorname : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrintProvidorA ( pname : :: windows_sys::core::PCSTR , level : u32 , pprovidorinfo : *const u8 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrintProvidorA ( pname : ::windows_sys::core::PCSTR , level : u32 , pprovidorinfo : *const u8 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrintProvidorW ( pname : :: windows_sys::core::PCWSTR , level : u32 , pprovidorinfo : *const u8 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrintProvidorW ( pname : ::windows_sys::core::PCWSTR , level : u32 , pprovidorinfo : *const u8 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrinterA ( pname : :: windows_sys::core::PCSTR , level : u32 , pprinter : *const u8 ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrinterA ( pname : ::windows_sys::core::PCSTR , level : u32 , pprinter : *const u8 ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrinterConnection2A ( hwnd : super::super::Foundation:: HWND , pszname : :: windows_sys::core::PCSTR , dwlevel : u32 , pconnectioninfo : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrinterConnection2A ( hwnd : super::super::Foundation:: HWND , pszname : ::windows_sys::core::PCSTR , dwlevel : u32 , pconnectioninfo : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrinterConnection2W ( hwnd : super::super::Foundation:: HWND , pszname : :: windows_sys::core::PCWSTR , dwlevel : u32 , pconnectioninfo : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrinterConnection2W ( hwnd : super::super::Foundation:: HWND , pszname : ::windows_sys::core::PCWSTR , dwlevel : u32 , pconnectioninfo : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrinterConnectionA ( pname : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrinterConnectionA ( pname : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrinterConnectionW ( pname : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrinterConnectionW ( pname : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrinterDriverA ( pname : :: windows_sys::core::PCSTR , level : u32 , pdriverinfo : *const u8 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrinterDriverA ( pname : ::windows_sys::core::PCSTR , level : u32 , pdriverinfo : *const u8 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrinterDriverExA ( pname : :: windows_sys::core::PCSTR , level : u32 , lpbdriverinfo : *const u8 , dwfilecopyflags : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrinterDriverExA ( pname : ::windows_sys::core::PCSTR , level : u32 , lpbdriverinfo : *const u8 , dwfilecopyflags : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrinterDriverExW ( pname : :: windows_sys::core::PCWSTR , level : u32 , lpbdriverinfo : *const u8 , dwfilecopyflags : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrinterDriverExW ( pname : ::windows_sys::core::PCWSTR , level : u32 , lpbdriverinfo : *const u8 , dwfilecopyflags : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrinterDriverW ( pname : :: windows_sys::core::PCWSTR , level : u32 , pdriverinfo : *const u8 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrinterDriverW ( pname : ::windows_sys::core::PCWSTR , level : u32 , pdriverinfo : *const u8 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrinterW ( pname : :: windows_sys::core::PCWSTR , level : u32 , pprinter : *const u8 ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AddPrinterW ( pname : ::windows_sys::core::PCWSTR , level : u32 , pprinter : *const u8 ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn AdvancedDocumentPropertiesA ( hwnd : super::super::Foundation:: HWND , hprinter : super::super::Foundation:: HANDLE , pdevicename : :: windows_sys::core::PCSTR , pdevmodeoutput : *mut super::Gdi:: DEVMODEA , pdevmodeinput : *const super::Gdi:: DEVMODEA ) -> i32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn AdvancedDocumentPropertiesA ( hwnd : super::super::Foundation:: HWND , hprinter : super::super::Foundation:: HANDLE , pdevicename : ::windows_sys::core::PCSTR , pdevmodeoutput : *mut super::Gdi:: DEVMODEA , pdevmodeinput : *const super::Gdi:: DEVMODEA ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn AdvancedDocumentPropertiesW ( hwnd : super::super::Foundation:: HWND , hprinter : super::super::Foundation:: HANDLE , pdevicename : :: windows_sys::core::PCWSTR , pdevmodeoutput : *mut super::Gdi:: DEVMODEW , pdevmodeinput : *const super::Gdi:: DEVMODEW ) -> i32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn AdvancedDocumentPropertiesW ( hwnd : super::super::Foundation:: HWND , hprinter : super::super::Foundation:: HANDLE , pdevicename : ::windows_sys::core::PCWSTR , pdevmodeoutput : *mut super::Gdi:: DEVMODEW , pdevmodeinput : *const super::Gdi:: DEVMODEW ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "spoolss.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn AppendPrinterNotifyInfoData ( pinfodest : *const PRINTER_NOTIFY_INFO , pdatasrc : *const PRINTER_NOTIFY_INFO_DATA , fdwflags : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -67,78 +67,78 @@ pub mod PrintTicket;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "compstui.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn CommonPropertySheetUIW ( hwndowner : super::super::Foundation:: HWND , pfnpropsheetui : PFNPROPSHEETUI , lparam : super::super::Foundation:: LPARAM , presult : *mut u32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn ConfigurePortA ( pname : :: windows_sys::core::PCSTR , hwnd : super::super::Foundation:: HWND , pportname : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn ConfigurePortA ( pname : ::windows_sys::core::PCSTR , hwnd : super::super::Foundation:: HWND , pportname : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn ConfigurePortW ( pname : :: windows_sys::core::PCWSTR , hwnd : super::super::Foundation:: HWND , pportname : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn ConfigurePortW ( pname : ::windows_sys::core::PCWSTR , hwnd : super::super::Foundation:: HWND , pportname : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn ConnectToPrinterDlg ( hwnd : super::super::Foundation:: HWND , flags : u32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn CorePrinterDriverInstalledA ( pszserver : :: windows_sys::core::PCSTR , pszenvironment : :: windows_sys::core::PCSTR , coredriverguid : :: windows_sys::core::GUID , ftdriverdate : super::super::Foundation:: FILETIME , dwldriverversion : u64 , pbdriverinstalled : *mut super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn CorePrinterDriverInstalledA ( pszserver : ::windows_sys::core::PCSTR , pszenvironment : ::windows_sys::core::PCSTR , coredriverguid : ::windows_sys::core::GUID , ftdriverdate : super::super::Foundation:: FILETIME , dwldriverversion : u64 , pbdriverinstalled : *mut super::super::Foundation:: BOOL ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn CorePrinterDriverInstalledW ( pszserver : :: windows_sys::core::PCWSTR , pszenvironment : :: windows_sys::core::PCWSTR , coredriverguid : :: windows_sys::core::GUID , ftdriverdate : super::super::Foundation:: FILETIME , dwldriverversion : u64 , pbdriverinstalled : *mut super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"] fn CreatePrintAsyncNotifyChannel ( pszname : :: windows_sys::core::PCWSTR , pnotificationtype : *const :: windows_sys::core::GUID , euserfilter : PrintAsyncNotifyUserFilter , econversationstyle : PrintAsyncNotifyConversationStyle , pcallback : IPrintAsyncNotifyCallback , ppiasynchnotification : *mut IPrintAsyncNotifyChannel ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn CorePrinterDriverInstalledW ( pszserver : ::windows_sys::core::PCWSTR , pszenvironment : ::windows_sys::core::PCWSTR , coredriverguid : ::windows_sys::core::GUID , ftdriverdate : super::super::Foundation:: FILETIME , dwldriverversion : u64 , pbdriverinstalled : *mut super::super::Foundation:: BOOL ) -> ::windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"] fn CreatePrintAsyncNotifyChannel ( pszname : ::windows_sys::core::PCWSTR , pnotificationtype : *const ::windows_sys::core::GUID , euserfilter : PrintAsyncNotifyUserFilter , econversationstyle : PrintAsyncNotifyConversationStyle , pcallback : IPrintAsyncNotifyCallback , ppiasynchnotification : *mut IPrintAsyncNotifyChannel ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn CreatePrinterIC ( hprinter : super::super::Foundation:: HANDLE , pdevmode : *const super::Gdi:: DEVMODEW ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeleteFormA ( hprinter : super::super::Foundation:: HANDLE , pformname : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeleteFormA ( hprinter : super::super::Foundation:: HANDLE , pformname : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeleteFormW ( hprinter : super::super::Foundation:: HANDLE , pformname : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeleteFormW ( hprinter : super::super::Foundation:: HANDLE , pformname : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeleteJobNamedProperty ( hprinter : super::super::Foundation:: HANDLE , jobid : u32 , pszname : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeleteJobNamedProperty ( hprinter : super::super::Foundation:: HANDLE , jobid : u32 , pszname : ::windows_sys::core::PCWSTR ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeleteMonitorA ( pname : :: windows_sys::core::PCSTR , penvironment : :: windows_sys::core::PCSTR , pmonitorname : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeleteMonitorA ( pname : ::windows_sys::core::PCSTR , penvironment : ::windows_sys::core::PCSTR , pmonitorname : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeleteMonitorW ( pname : :: windows_sys::core::PCWSTR , penvironment : :: windows_sys::core::PCWSTR , pmonitorname : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeleteMonitorW ( pname : ::windows_sys::core::PCWSTR , penvironment : ::windows_sys::core::PCWSTR , pmonitorname : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePortA ( pname : :: windows_sys::core::PCSTR , hwnd : super::super::Foundation:: HWND , pportname : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePortA ( pname : ::windows_sys::core::PCSTR , hwnd : super::super::Foundation:: HWND , pportname : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePortW ( pname : :: windows_sys::core::PCWSTR , hwnd : super::super::Foundation:: HWND , pportname : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePortW ( pname : ::windows_sys::core::PCWSTR , hwnd : super::super::Foundation:: HWND , pportname : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrintProcessorA ( pname : :: windows_sys::core::PCSTR , penvironment : :: windows_sys::core::PCSTR , pprintprocessorname : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrintProcessorA ( pname : ::windows_sys::core::PCSTR , penvironment : ::windows_sys::core::PCSTR , pprintprocessorname : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrintProcessorW ( pname : :: windows_sys::core::PCWSTR , penvironment : :: windows_sys::core::PCWSTR , pprintprocessorname : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrintProcessorW ( pname : ::windows_sys::core::PCWSTR , penvironment : ::windows_sys::core::PCWSTR , pprintprocessorname : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrintProvidorA ( pname : :: windows_sys::core::PCSTR , penvironment : :: windows_sys::core::PCSTR , pprintprovidorname : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrintProvidorA ( pname : ::windows_sys::core::PCSTR , penvironment : ::windows_sys::core::PCSTR , pprintprovidorname : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrintProvidorW ( pname : :: windows_sys::core::PCWSTR , penvironment : :: windows_sys::core::PCWSTR , pprintprovidorname : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrintProvidorW ( pname : ::windows_sys::core::PCWSTR , penvironment : ::windows_sys::core::PCWSTR , pprintprovidorname : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinter ( hprinter : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterConnectionA ( pname : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterConnectionA ( pname : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterConnectionW ( pname : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterConnectionW ( pname : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterDataA ( hprinter : super::super::Foundation:: HANDLE , pvaluename : :: windows_sys::core::PCSTR ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterDataA ( hprinter : super::super::Foundation:: HANDLE , pvaluename : ::windows_sys::core::PCSTR ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterDataExA ( hprinter : super::super::Foundation:: HANDLE , pkeyname : :: windows_sys::core::PCSTR , pvaluename : :: windows_sys::core::PCSTR ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterDataExA ( hprinter : super::super::Foundation:: HANDLE , pkeyname : ::windows_sys::core::PCSTR , pvaluename : ::windows_sys::core::PCSTR ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterDataExW ( hprinter : super::super::Foundation:: HANDLE , pkeyname : :: windows_sys::core::PCWSTR , pvaluename : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterDataExW ( hprinter : super::super::Foundation:: HANDLE , pkeyname : ::windows_sys::core::PCWSTR , pvaluename : ::windows_sys::core::PCWSTR ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterDataW ( hprinter : super::super::Foundation:: HANDLE , pvaluename : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterDataW ( hprinter : super::super::Foundation:: HANDLE , pvaluename : ::windows_sys::core::PCWSTR ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterDriverA ( pname : :: windows_sys::core::PCSTR , penvironment : :: windows_sys::core::PCSTR , pdrivername : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterDriverA ( pname : ::windows_sys::core::PCSTR , penvironment : ::windows_sys::core::PCSTR , pdrivername : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterDriverExA ( pname : :: windows_sys::core::PCSTR , penvironment : :: windows_sys::core::PCSTR , pdrivername : :: windows_sys::core::PCSTR , dwdeleteflag : u32 , dwversionflag : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterDriverExA ( pname : ::windows_sys::core::PCSTR , penvironment : ::windows_sys::core::PCSTR , pdrivername : ::windows_sys::core::PCSTR , dwdeleteflag : u32 , dwversionflag : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterDriverExW ( pname : :: windows_sys::core::PCWSTR , penvironment : :: windows_sys::core::PCWSTR , pdrivername : :: windows_sys::core::PCWSTR , dwdeleteflag : u32 , dwversionflag : u32 ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"] fn DeletePrinterDriverPackageA ( pszserver : :: windows_sys::core::PCSTR , pszinfpath : :: windows_sys::core::PCSTR , pszenvironment : :: windows_sys::core::PCSTR ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"] fn DeletePrinterDriverPackageW ( pszserver : :: windows_sys::core::PCWSTR , pszinfpath : :: windows_sys::core::PCWSTR , pszenvironment : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterDriverExW ( pname : ::windows_sys::core::PCWSTR , penvironment : ::windows_sys::core::PCWSTR , pdrivername : ::windows_sys::core::PCWSTR , dwdeleteflag : u32 , dwversionflag : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"] fn DeletePrinterDriverPackageA ( pszserver : ::windows_sys::core::PCSTR , pszinfpath : ::windows_sys::core::PCSTR , pszenvironment : ::windows_sys::core::PCSTR ) -> ::windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"] fn DeletePrinterDriverPackageW ( pszserver : ::windows_sys::core::PCWSTR , pszinfpath : ::windows_sys::core::PCWSTR , pszenvironment : ::windows_sys::core::PCWSTR ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterDriverW ( pname : :: windows_sys::core::PCWSTR , penvironment : :: windows_sys::core::PCWSTR , pdrivername : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterDriverW ( pname : ::windows_sys::core::PCWSTR , penvironment : ::windows_sys::core::PCWSTR , pdrivername : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterIC ( hprinteric : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterKeyA ( hprinter : super::super::Foundation:: HANDLE , pkeyname : :: windows_sys::core::PCSTR ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterKeyA ( hprinter : super::super::Foundation:: HANDLE , pkeyname : ::windows_sys::core::PCSTR ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterKeyW ( hprinter : super::super::Foundation:: HANDLE , pkeyname : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn DeletePrinterKeyW ( hprinter : super::super::Foundation:: HANDLE , pkeyname : ::windows_sys::core::PCWSTR ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DevQueryPrint ( hprinter : super::super::Foundation:: HANDLE , pdevmode : *const super::Gdi:: DEVMODEA , presid : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DevQueryPrintEx ( pdqpinfo : *mut DEVQUERYPRINT_INFO ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DocumentPropertiesA ( hwnd : super::super::Foundation:: HWND , hprinter : super::super::Foundation:: HANDLE , pdevicename : :: windows_sys::core::PCSTR , pdevmodeoutput : *mut super::Gdi:: DEVMODEA , pdevmodeinput : *const super::Gdi:: DEVMODEA , fmode : u32 ) -> i32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DocumentPropertiesA ( hwnd : super::super::Foundation:: HWND , hprinter : super::super::Foundation:: HANDLE , pdevicename : ::windows_sys::core::PCSTR , pdevmodeoutput : *mut super::Gdi:: DEVMODEA , pdevmodeinput : *const super::Gdi:: DEVMODEA , fmode : u32 ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DocumentPropertiesW ( hwnd : super::super::Foundation:: HWND , hprinter : super::super::Foundation:: HANDLE , pdevicename : :: windows_sys::core::PCWSTR , pdevmodeoutput : *mut super::Gdi:: DEVMODEW , pdevmodeinput : *const super::Gdi:: DEVMODEW , fmode : u32 ) -> i32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DocumentPropertiesW ( hwnd : super::super::Foundation:: HWND , hprinter : super::super::Foundation:: HANDLE , pdevicename : ::windows_sys::core::PCWSTR , pdevmodeoutput : *mut super::Gdi:: DEVMODEW , pdevmodeinput : *const super::Gdi:: DEVMODEW , fmode : u32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EndDocPrinter ( hprinter : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -154,43 +154,43 @@ pub mod PrintTicket;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumJobsW ( hprinter : super::super::Foundation:: HANDLE , firstjob : u32 , nojobs : u32 , level : u32 , pjob : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumMonitorsA ( pname : :: windows_sys::core::PCSTR , level : u32 , pmonitor : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumMonitorsA ( pname : ::windows_sys::core::PCSTR , level : u32 , pmonitor : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumMonitorsW ( pname : :: windows_sys::core::PCWSTR , level : u32 , pmonitor : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumMonitorsW ( pname : ::windows_sys::core::PCWSTR , level : u32 , pmonitor : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPortsA ( pname : :: windows_sys::core::PCSTR , level : u32 , pport : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPortsA ( pname : ::windows_sys::core::PCSTR , level : u32 , pport : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPortsW ( pname : :: windows_sys::core::PCWSTR , level : u32 , pport : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPortsW ( pname : ::windows_sys::core::PCWSTR , level : u32 , pport : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrintProcessorDatatypesA ( pname : :: windows_sys::core::PCSTR , pprintprocessorname : :: windows_sys::core::PCSTR , level : u32 , pdatatypes : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrintProcessorDatatypesA ( pname : ::windows_sys::core::PCSTR , pprintprocessorname : ::windows_sys::core::PCSTR , level : u32 , pdatatypes : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrintProcessorDatatypesW ( pname : :: windows_sys::core::PCWSTR , pprintprocessorname : :: windows_sys::core::PCWSTR , level : u32 , pdatatypes : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrintProcessorDatatypesW ( pname : ::windows_sys::core::PCWSTR , pprintprocessorname : ::windows_sys::core::PCWSTR , level : u32 , pdatatypes : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrintProcessorsA ( pname : :: windows_sys::core::PCSTR , penvironment : :: windows_sys::core::PCSTR , level : u32 , pprintprocessorinfo : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrintProcessorsA ( pname : ::windows_sys::core::PCSTR , penvironment : ::windows_sys::core::PCSTR , level : u32 , pprintprocessorinfo : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrintProcessorsW ( pname : :: windows_sys::core::PCWSTR , penvironment : :: windows_sys::core::PCWSTR , level : u32 , pprintprocessorinfo : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrintProcessorsW ( pname : ::windows_sys::core::PCWSTR , penvironment : ::windows_sys::core::PCWSTR , level : u32 , pprintprocessorinfo : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrinterDataA ( hprinter : super::super::Foundation:: HANDLE , dwindex : u32 , pvaluename : :: windows_sys::core::PSTR , cbvaluename : u32 , pcbvaluename : *mut u32 , ptype : *mut u32 , pdata : *mut u8 , cbdata : u32 , pcbdata : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrinterDataA ( hprinter : super::super::Foundation:: HANDLE , dwindex : u32 , pvaluename : ::windows_sys::core::PSTR , cbvaluename : u32 , pcbvaluename : *mut u32 , ptype : *mut u32 , pdata : *mut u8 , cbdata : u32 , pcbdata : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrinterDataExA ( hprinter : super::super::Foundation:: HANDLE , pkeyname : :: windows_sys::core::PCSTR , penumvalues : *mut u8 , cbenumvalues : u32 , pcbenumvalues : *mut u32 , pnenumvalues : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrinterDataExA ( hprinter : super::super::Foundation:: HANDLE , pkeyname : ::windows_sys::core::PCSTR , penumvalues : *mut u8 , cbenumvalues : u32 , pcbenumvalues : *mut u32 , pnenumvalues : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrinterDataExW ( hprinter : super::super::Foundation:: HANDLE , pkeyname : :: windows_sys::core::PCWSTR , penumvalues : *mut u8 , cbenumvalues : u32 , pcbenumvalues : *mut u32 , pnenumvalues : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrinterDataExW ( hprinter : super::super::Foundation:: HANDLE , pkeyname : ::windows_sys::core::PCWSTR , penumvalues : *mut u8 , cbenumvalues : u32 , pcbenumvalues : *mut u32 , pnenumvalues : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrinterDataW ( hprinter : super::super::Foundation:: HANDLE , dwindex : u32 , pvaluename : :: windows_sys::core::PWSTR , cbvaluename : u32 , pcbvaluename : *mut u32 , ptype : *mut u32 , pdata : *mut u8 , cbdata : u32 , pcbdata : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrinterDataW ( hprinter : super::super::Foundation:: HANDLE , dwindex : u32 , pvaluename : ::windows_sys::core::PWSTR , cbvaluename : u32 , pcbvaluename : *mut u32 , ptype : *mut u32 , pdata : *mut u8 , cbdata : u32 , pcbdata : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrinterDriversA ( pname : :: windows_sys::core::PCSTR , penvironment : :: windows_sys::core::PCSTR , level : u32 , pdriverinfo : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrinterDriversA ( pname : ::windows_sys::core::PCSTR , penvironment : ::windows_sys::core::PCSTR , level : u32 , pdriverinfo : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrinterDriversW ( pname : :: windows_sys::core::PCWSTR , penvironment : :: windows_sys::core::PCWSTR , level : u32 , pdriverinfo : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrinterDriversW ( pname : ::windows_sys::core::PCWSTR , penvironment : ::windows_sys::core::PCWSTR , level : u32 , pdriverinfo : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrinterKeyA ( hprinter : super::super::Foundation:: HANDLE , pkeyname : :: windows_sys::core::PCSTR , psubkey : :: windows_sys::core::PSTR , cbsubkey : u32 , pcbsubkey : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrinterKeyA ( hprinter : super::super::Foundation:: HANDLE , pkeyname : ::windows_sys::core::PCSTR , psubkey : ::windows_sys::core::PSTR , cbsubkey : u32 , pcbsubkey : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrinterKeyW ( hprinter : super::super::Foundation:: HANDLE , pkeyname : :: windows_sys::core::PCWSTR , psubkey : :: windows_sys::core::PWSTR , cbsubkey : u32 , pcbsubkey : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrinterKeyW ( hprinter : super::super::Foundation:: HANDLE , pkeyname : ::windows_sys::core::PCWSTR , psubkey : ::windows_sys::core::PWSTR , cbsubkey : u32 , pcbsubkey : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrintersA ( flags : u32 , name : :: windows_sys::core::PCSTR , level : u32 , pprinterenum : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrintersA ( flags : u32 , name : ::windows_sys::core::PCSTR , level : u32 , pprinterenum : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrintersW ( flags : u32 , name : :: windows_sys::core::PCWSTR , level : u32 , pprinterenum : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn EnumPrintersW ( flags : u32 , name : ::windows_sys::core::PCWSTR , level : u32 , pprinterenum : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 , pcreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn ExtDeviceMode ( hwnd : super::super::Foundation:: HWND , hinst : super::super::Foundation:: HANDLE , pdevmodeoutput : *mut super::Gdi:: DEVMODEA , pdevicename : :: windows_sys::core::PCSTR , pport : :: windows_sys::core::PCSTR , pdevmodeinput : *const super::Gdi:: DEVMODEA , pprofile : :: windows_sys::core::PCSTR , fmode : u32 ) -> i32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn ExtDeviceMode ( hwnd : super::super::Foundation:: HWND , hinst : super::super::Foundation:: HANDLE , pdevmodeoutput : *mut super::Gdi:: DEVMODEA , pdevicename : ::windows_sys::core::PCSTR , pport : ::windows_sys::core::PCSTR , pdevmodeinput : *const super::Gdi:: DEVMODEA , pprofile : ::windows_sys::core::PCSTR , fmode : u32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn FindClosePrinterChangeNotification ( hchange : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -218,7 +218,7 @@ pub mod PrintTicket;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GdiGetPageHandle ( spoolfilehandle : super::super::Foundation:: HANDLE , page : u32 , pdwpagetype : *mut u32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn GdiGetSpoolFileHandle ( pwszprintername : :: windows_sys::core::PCWSTR , pdevmode : *mut super::Gdi:: DEVMODEW , pwszdocname : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn GdiGetSpoolFileHandle ( pwszprintername : ::windows_sys::core::PCWSTR , pdevmode : *mut super::Gdi:: DEVMODEW , pwszdocname : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GdiPlayPageEMF ( spoolfilehandle : super::super::Foundation:: HANDLE , hemf : super::super::Foundation:: HANDLE , prectdocument : *mut super::super::Foundation:: RECT , prectborder : *mut super::super::Foundation:: RECT , prectclip : *mut super::super::Foundation:: RECT ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -227,91 +227,91 @@ pub mod PrintTicket;
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Xps\"`*"] fn GdiStartDocEMF ( spoolfilehandle : super::super::Foundation:: HANDLE , pdocinfo : *mut super::super::Storage::Xps:: DOCINFOW ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GdiStartPageEMF ( spoolfilehandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "mscms.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"] fn GenerateCopyFilePaths ( pszprintername : :: windows_sys::core::PCWSTR , pszdirectory : :: windows_sys::core::PCWSTR , psplclientinfo : *const u8 , dwlevel : u32 , pszsourcedir : :: windows_sys::core::PWSTR , pcchsourcedirsize : *mut u32 , psztargetdir : :: windows_sys::core::PWSTR , pcchtargetdirsize : *mut u32 , dwflags : u32 ) -> u32 );
+::windows_sys::core::link ! ( "mscms.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"] fn GenerateCopyFilePaths ( pszprintername : ::windows_sys::core::PCWSTR , pszdirectory : ::windows_sys::core::PCWSTR , psplclientinfo : *const u8 , dwlevel : u32 , pszsourcedir : ::windows_sys::core::PWSTR , pcchsourcedirsize : *mut u32 , psztargetdir : ::windows_sys::core::PWSTR , pcchtargetdirsize : *mut u32 , dwflags : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "compstui.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetCPSUIUserData ( hdlg : super::super::Foundation:: HWND ) -> usize );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetCorePrinterDriversA ( pszserver : :: windows_sys::core::PCSTR , pszenvironment : :: windows_sys::core::PCSTR , pszzcoredriverdependencies : :: windows_sys::core::PCSTR , ccoreprinterdrivers : u32 , pcoreprinterdrivers : *mut CORE_PRINTER_DRIVERA ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetCorePrinterDriversA ( pszserver : ::windows_sys::core::PCSTR , pszenvironment : ::windows_sys::core::PCSTR , pszzcoredriverdependencies : ::windows_sys::core::PCSTR , ccoreprinterdrivers : u32 , pcoreprinterdrivers : *mut CORE_PRINTER_DRIVERA ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetCorePrinterDriversW ( pszserver : :: windows_sys::core::PCWSTR , pszenvironment : :: windows_sys::core::PCWSTR , pszzcoredriverdependencies : :: windows_sys::core::PCWSTR , ccoreprinterdrivers : u32 , pcoreprinterdrivers : *mut CORE_PRINTER_DRIVERW ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetCorePrinterDriversW ( pszserver : ::windows_sys::core::PCWSTR , pszenvironment : ::windows_sys::core::PCWSTR , pszzcoredriverdependencies : ::windows_sys::core::PCWSTR , ccoreprinterdrivers : u32 , pcoreprinterdrivers : *mut CORE_PRINTER_DRIVERW ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetDefaultPrinterA ( pszbuffer : :: windows_sys::core::PSTR , pcchbuffer : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetDefaultPrinterA ( pszbuffer : ::windows_sys::core::PSTR , pcchbuffer : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetDefaultPrinterW ( pszbuffer : :: windows_sys::core::PWSTR , pcchbuffer : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetDefaultPrinterW ( pszbuffer : ::windows_sys::core::PWSTR , pcchbuffer : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetFormA ( hprinter : super::super::Foundation:: HANDLE , pformname : :: windows_sys::core::PCSTR , level : u32 , pform : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetFormA ( hprinter : super::super::Foundation:: HANDLE , pformname : ::windows_sys::core::PCSTR , level : u32 , pform : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetFormW ( hprinter : super::super::Foundation:: HANDLE , pformname : :: windows_sys::core::PCWSTR , level : u32 , pform : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetFormW ( hprinter : super::super::Foundation:: HANDLE , pformname : ::windows_sys::core::PCWSTR , level : u32 , pform : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetJobA ( hprinter : super::super::Foundation:: HANDLE , jobid : u32 , level : u32 , pjob : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "spoolss.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetJobAttributes ( pprintername : :: windows_sys::core::PCWSTR , pdevmode : *const super::Gdi:: DEVMODEW , pattributeinfo : *mut ATTRIBUTE_INFO_3 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "spoolss.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetJobAttributes ( pprintername : ::windows_sys::core::PCWSTR , pdevmode : *const super::Gdi:: DEVMODEW , pattributeinfo : *mut ATTRIBUTE_INFO_3 ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "spoolss.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetJobAttributesEx ( pprintername : :: windows_sys::core::PCWSTR , pdevmode : *const super::Gdi:: DEVMODEW , dwlevel : u32 , pattributeinfo : *mut u8 , nsize : u32 , dwflags : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "spoolss.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetJobAttributesEx ( pprintername : ::windows_sys::core::PCWSTR , pdevmode : *const super::Gdi:: DEVMODEW , dwlevel : u32 , pattributeinfo : *mut u8 , nsize : u32 , dwflags : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetJobNamedPropertyValue ( hprinter : super::super::Foundation:: HANDLE , jobid : u32 , pszname : :: windows_sys::core::PCWSTR , pvalue : *mut PrintPropertyValue ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetJobNamedPropertyValue ( hprinter : super::super::Foundation:: HANDLE , jobid : u32 , pszname : ::windows_sys::core::PCWSTR , pvalue : *mut PrintPropertyValue ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetJobW ( hprinter : super::super::Foundation:: HANDLE , jobid : u32 , level : u32 , pjob : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrintExecutionData ( pdata : *mut PRINT_EXECUTION_DATA ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrintOutputInfo ( hwnd : super::super::Foundation:: HWND , pszprinter : :: windows_sys::core::PCWSTR , phfile : *mut super::super::Foundation:: HANDLE , ppszoutputfile : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrintOutputInfo ( hwnd : super::super::Foundation:: HWND , pszprinter : ::windows_sys::core::PCWSTR , phfile : *mut super::super::Foundation:: HANDLE , ppszoutputfile : *mut ::windows_sys::core::PWSTR ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrintProcessorDirectoryA ( pname : :: windows_sys::core::PCSTR , penvironment : :: windows_sys::core::PCSTR , level : u32 , pprintprocessorinfo : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrintProcessorDirectoryA ( pname : ::windows_sys::core::PCSTR , penvironment : ::windows_sys::core::PCSTR , level : u32 , pprintprocessorinfo : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrintProcessorDirectoryW ( pname : :: windows_sys::core::PCWSTR , penvironment : :: windows_sys::core::PCWSTR , level : u32 , pprintprocessorinfo : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrintProcessorDirectoryW ( pname : ::windows_sys::core::PCWSTR , penvironment : ::windows_sys::core::PCWSTR , level : u32 , pprintprocessorinfo : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrinterA ( hprinter : super::super::Foundation:: HANDLE , level : u32 , pprinter : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrinterDataA ( hprinter : super::super::Foundation:: HANDLE , pvaluename : :: windows_sys::core::PCSTR , ptype : *mut u32 , pdata : *mut u8 , nsize : u32 , pcbneeded : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrinterDataA ( hprinter : super::super::Foundation:: HANDLE , pvaluename : ::windows_sys::core::PCSTR , ptype : *mut u32 , pdata : *mut u8 , nsize : u32 , pcbneeded : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrinterDataExA ( hprinter : super::super::Foundation:: HANDLE , pkeyname : :: windows_sys::core::PCSTR , pvaluename : :: windows_sys::core::PCSTR , ptype : *mut u32 , pdata : *mut u8 , nsize : u32 , pcbneeded : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrinterDataExA ( hprinter : super::super::Foundation:: HANDLE , pkeyname : ::windows_sys::core::PCSTR , pvaluename : ::windows_sys::core::PCSTR , ptype : *mut u32 , pdata : *mut u8 , nsize : u32 , pcbneeded : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrinterDataExW ( hprinter : super::super::Foundation:: HANDLE , pkeyname : :: windows_sys::core::PCWSTR , pvaluename : :: windows_sys::core::PCWSTR , ptype : *mut u32 , pdata : *mut u8 , nsize : u32 , pcbneeded : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrinterDataExW ( hprinter : super::super::Foundation:: HANDLE , pkeyname : ::windows_sys::core::PCWSTR , pvaluename : ::windows_sys::core::PCWSTR , ptype : *mut u32 , pdata : *mut u8 , nsize : u32 , pcbneeded : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrinterDataW ( hprinter : super::super::Foundation:: HANDLE , pvaluename : :: windows_sys::core::PCWSTR , ptype : *mut u32 , pdata : *mut u8 , nsize : u32 , pcbneeded : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrinterDataW ( hprinter : super::super::Foundation:: HANDLE , pvaluename : ::windows_sys::core::PCWSTR , ptype : *mut u32 , pdata : *mut u8 , nsize : u32 , pcbneeded : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrinterDriver2A ( hwnd : super::super::Foundation:: HWND , hprinter : super::super::Foundation:: HANDLE , penvironment : :: windows_sys::core::PCSTR , level : u32 , pdriverinfo : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrinterDriver2A ( hwnd : super::super::Foundation:: HWND , hprinter : super::super::Foundation:: HANDLE , penvironment : ::windows_sys::core::PCSTR , level : u32 , pdriverinfo : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrinterDriver2W ( hwnd : super::super::Foundation:: HWND , hprinter : super::super::Foundation:: HANDLE , penvironment : :: windows_sys::core::PCWSTR , level : u32 , pdriverinfo : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrinterDriver2W ( hwnd : super::super::Foundation:: HWND , hprinter : super::super::Foundation:: HANDLE , penvironment : ::windows_sys::core::PCWSTR , level : u32 , pdriverinfo : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrinterDriverA ( hprinter : super::super::Foundation:: HANDLE , penvironment : :: windows_sys::core::PCSTR , level : u32 , pdriverinfo : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrinterDriverA ( hprinter : super::super::Foundation:: HANDLE , penvironment : ::windows_sys::core::PCSTR , level : u32 , pdriverinfo : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrinterDriverDirectoryA ( pname : :: windows_sys::core::PCSTR , penvironment : :: windows_sys::core::PCSTR , level : u32 , pdriverdirectory : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrinterDriverDirectoryA ( pname : ::windows_sys::core::PCSTR , penvironment : ::windows_sys::core::PCSTR , level : u32 , pdriverdirectory : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrinterDriverDirectoryW ( pname : :: windows_sys::core::PCWSTR , penvironment : :: windows_sys::core::PCWSTR , level : u32 , pdriverdirectory : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"] fn GetPrinterDriverPackagePathA ( pszserver : :: windows_sys::core::PCSTR , pszenvironment : :: windows_sys::core::PCSTR , pszlanguage : :: windows_sys::core::PCSTR , pszpackageid : :: windows_sys::core::PCSTR , pszdriverpackagecab : :: windows_sys::core::PSTR , cchdriverpackagecab : u32 , pcchrequiredsize : *mut u32 ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"] fn GetPrinterDriverPackagePathW ( pszserver : :: windows_sys::core::PCWSTR , pszenvironment : :: windows_sys::core::PCWSTR , pszlanguage : :: windows_sys::core::PCWSTR , pszpackageid : :: windows_sys::core::PCWSTR , pszdriverpackagecab : :: windows_sys::core::PWSTR , cchdriverpackagecab : u32 , pcchrequiredsize : *mut u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrinterDriverDirectoryW ( pname : ::windows_sys::core::PCWSTR , penvironment : ::windows_sys::core::PCWSTR , level : u32 , pdriverdirectory : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"] fn GetPrinterDriverPackagePathA ( pszserver : ::windows_sys::core::PCSTR , pszenvironment : ::windows_sys::core::PCSTR , pszlanguage : ::windows_sys::core::PCSTR , pszpackageid : ::windows_sys::core::PCSTR , pszdriverpackagecab : ::windows_sys::core::PSTR , cchdriverpackagecab : u32 , pcchrequiredsize : *mut u32 ) -> ::windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"] fn GetPrinterDriverPackagePathW ( pszserver : ::windows_sys::core::PCWSTR , pszenvironment : ::windows_sys::core::PCWSTR , pszlanguage : ::windows_sys::core::PCWSTR , pszpackageid : ::windows_sys::core::PCWSTR , pszdriverpackagecab : ::windows_sys::core::PWSTR , cchdriverpackagecab : u32 , pcchrequiredsize : *mut u32 ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrinterDriverW ( hprinter : super::super::Foundation:: HANDLE , penvironment : :: windows_sys::core::PCWSTR , level : u32 , pdriverinfo : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrinterDriverW ( hprinter : super::super::Foundation:: HANDLE , penvironment : ::windows_sys::core::PCWSTR , level : u32 , pdriverinfo : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetPrinterW ( hprinter : super::super::Foundation:: HANDLE , level : u32 , pprinter : *mut u8 , cbbuf : u32 , pcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn GetSpoolFileHandle ( hprinter : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "spoolss.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn ImpersonatePrinterClient ( htoken : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"] fn InstallPrinterDriverFromPackageA ( pszserver : :: windows_sys::core::PCSTR , pszinfpath : :: windows_sys::core::PCSTR , pszdrivername : :: windows_sys::core::PCSTR , pszenvironment : :: windows_sys::core::PCSTR , dwflags : u32 ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"] fn InstallPrinterDriverFromPackageW ( pszserver : :: windows_sys::core::PCWSTR , pszinfpath : :: windows_sys::core::PCWSTR , pszdrivername : :: windows_sys::core::PCWSTR , pszenvironment : :: windows_sys::core::PCWSTR , dwflags : u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"] fn InstallPrinterDriverFromPackageA ( pszserver : ::windows_sys::core::PCSTR , pszinfpath : ::windows_sys::core::PCSTR , pszdrivername : ::windows_sys::core::PCSTR , pszenvironment : ::windows_sys::core::PCSTR , dwflags : u32 ) -> ::windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"] fn InstallPrinterDriverFromPackageW ( pszserver : ::windows_sys::core::PCWSTR , pszinfpath : ::windows_sys::core::PCWSTR , pszdrivername : ::windows_sys::core::PCWSTR , pszenvironment : ::windows_sys::core::PCWSTR , dwflags : u32 ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn IsValidDevmodeA ( pdevmode : *const super::Gdi:: DEVMODEA , devmodesize : usize ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn IsValidDevmodeW ( pdevmode : *const super::Gdi:: DEVMODEW , devmodesize : usize ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn OpenPrinter2A ( pprintername : :: windows_sys::core::PCSTR , phprinter : *mut super::super::Foundation:: HANDLE , pdefault : *const PRINTER_DEFAULTSA , poptions : *const PRINTER_OPTIONSA ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn OpenPrinter2A ( pprintername : ::windows_sys::core::PCSTR , phprinter : *mut super::super::Foundation:: HANDLE , pdefault : *const PRINTER_DEFAULTSA , poptions : *const PRINTER_OPTIONSA ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn OpenPrinter2W ( pprintername : :: windows_sys::core::PCWSTR , phprinter : *mut super::super::Foundation:: HANDLE , pdefault : *const PRINTER_DEFAULTSW , poptions : *const PRINTER_OPTIONSW ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn OpenPrinter2W ( pprintername : ::windows_sys::core::PCWSTR , phprinter : *mut super::super::Foundation:: HANDLE , pdefault : *const PRINTER_DEFAULTSW , poptions : *const PRINTER_OPTIONSW ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn OpenPrinterA ( pprintername : :: windows_sys::core::PCSTR , phprinter : *mut super::super::Foundation:: HANDLE , pdefault : *const PRINTER_DEFAULTSA ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn OpenPrinterA ( pprintername : ::windows_sys::core::PCSTR , phprinter : *mut super::super::Foundation:: HANDLE , pdefault : *const PRINTER_DEFAULTSA ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn OpenPrinterW ( pprintername : :: windows_sys::core::PCWSTR , phprinter : *mut super::super::Foundation:: HANDLE , pdefault : *const PRINTER_DEFAULTSW ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn OpenPrinterW ( pprintername : ::windows_sys::core::PCWSTR , phprinter : *mut super::super::Foundation:: HANDLE , pdefault : *const PRINTER_DEFAULTSW ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "spoolss.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn PartialReplyPrinterChangeNotification ( hprinter : super::super::Foundation:: HANDLE , pdatasrc : *const PRINTER_NOTIFY_INFO_DATA ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn PlayGdiScriptOnPrinterIC ( hprinteric : super::super::Foundation:: HANDLE , pin : *const u8 , cin : u32 , pout : *mut u8 , cout : u32 , ul : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn PrinterMessageBoxA ( hprinter : super::super::Foundation:: HANDLE , error : u32 , hwnd : super::super::Foundation:: HWND , ptext : :: windows_sys::core::PCSTR , pcaption : :: windows_sys::core::PCSTR , dwtype : u32 ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn PrinterMessageBoxA ( hprinter : super::super::Foundation:: HANDLE , error : u32 , hwnd : super::super::Foundation:: HWND , ptext : ::windows_sys::core::PCSTR , pcaption : ::windows_sys::core::PCSTR , dwtype : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn PrinterMessageBoxW ( hprinter : super::super::Foundation:: HANDLE , error : u32 , hwnd : super::super::Foundation:: HWND , ptext : :: windows_sys::core::PCWSTR , pcaption : :: windows_sys::core::PCWSTR , dwtype : u32 ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn PrinterMessageBoxW ( hprinter : super::super::Foundation:: HANDLE , error : u32 , hwnd : super::super::Foundation:: HWND , ptext : ::windows_sys::core::PCWSTR , pcaption : ::windows_sys::core::PCWSTR , dwtype : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn PrinterProperties ( hwnd : super::super::Foundation:: HWND , hprinter : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -321,15 +321,15 @@ pub mod PrintTicket;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn ReadPrinter ( hprinter : super::super::Foundation:: HANDLE , pbuf : *mut ::core::ffi::c_void , cbbuf : u32 , pnobytesread : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn RegisterForPrintAsyncNotifications ( pszname : :: windows_sys::core::PCWSTR , pnotificationtype : *const :: windows_sys::core::GUID , euserfilter : PrintAsyncNotifyUserFilter , econversationstyle : PrintAsyncNotifyConversationStyle , pcallback : IPrintAsyncNotifyCallback , phnotify : *mut super::super::Foundation:: HANDLE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn RegisterForPrintAsyncNotifications ( pszname : ::windows_sys::core::PCWSTR , pnotificationtype : *const ::windows_sys::core::GUID , euserfilter : PrintAsyncNotifyUserFilter , econversationstyle : PrintAsyncNotifyConversationStyle , pcallback : IPrintAsyncNotifyCallback , phnotify : *mut super::super::Foundation:: HANDLE ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "spoolss.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn RemovePrintDeviceObject ( hdeviceobject : super::super::Foundation:: HANDLE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "spoolss.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn RemovePrintDeviceObject ( hdeviceobject : super::super::Foundation:: HANDLE ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "spoolss.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn ReplyPrinterChangeNotification ( hprinter : super::super::Foundation:: HANDLE , fdwchangeflags : u32 , pdwresult : *mut u32 , pprinternotifyinfo : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "spoolss.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn ReplyPrinterChangeNotificationEx ( hnotify : super::super::Foundation:: HANDLE , dwcolor : u32 , fdwflags : u32 , pdwresult : *mut u32 , pprinternotifyinfo : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn ReportJobProcessingProgress ( printerhandle : super::super::Foundation:: HANDLE , jobid : u32 , joboperation : EPrintXPSJobOperation , jobprogress : EPrintXPSJobProgress ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn ReportJobProcessingProgress ( printerhandle : super::super::Foundation:: HANDLE , jobid : u32 , joboperation : EPrintXPSJobOperation , jobprogress : EPrintXPSJobProgress ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn ResetPrinterA ( hprinter : super::super::Foundation:: HANDLE , pdefault : *const PRINTER_DEFAULTSA ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -350,13 +350,13 @@ pub mod PrintTicket;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "compstui.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetCPSUIUserData ( hdlg : super::super::Foundation:: HWND , cpsuiuserdata : usize ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetDefaultPrinterA ( pszprinter : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetDefaultPrinterA ( pszprinter : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetDefaultPrinterW ( pszprinter : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetDefaultPrinterW ( pszprinter : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetFormA ( hprinter : super::super::Foundation:: HANDLE , pformname : :: windows_sys::core::PCSTR , level : u32 , pform : *const u8 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetFormA ( hprinter : super::super::Foundation:: HANDLE , pformname : ::windows_sys::core::PCSTR , level : u32 , pform : *const u8 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetFormW ( hprinter : super::super::Foundation:: HANDLE , pformname : :: windows_sys::core::PCWSTR , level : u32 , pform : *const u8 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetFormW ( hprinter : super::super::Foundation:: HANDLE , pformname : ::windows_sys::core::PCWSTR , level : u32 , pform : *const u8 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetJobA ( hprinter : super::super::Foundation:: HANDLE , jobid : u32 , level : u32 , pjob : *const u8 , command : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -364,19 +364,19 @@ pub mod PrintTicket;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetJobW ( hprinter : super::super::Foundation:: HANDLE , jobid : u32 , level : u32 , pjob : *const u8 , command : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetPortA ( pname : :: windows_sys::core::PCSTR , pportname : :: windows_sys::core::PCSTR , dwlevel : u32 , pportinfo : *const u8 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetPortA ( pname : ::windows_sys::core::PCSTR , pportname : ::windows_sys::core::PCSTR , dwlevel : u32 , pportinfo : *const u8 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetPortW ( pname : :: windows_sys::core::PCWSTR , pportname : :: windows_sys::core::PCWSTR , dwlevel : u32 , pportinfo : *const u8 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetPortW ( pname : ::windows_sys::core::PCWSTR , pportname : ::windows_sys::core::PCWSTR , dwlevel : u32 , pportinfo : *const u8 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetPrinterA ( hprinter : super::super::Foundation:: HANDLE , level : u32 , pprinter : *const u8 , command : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetPrinterDataA ( hprinter : super::super::Foundation:: HANDLE , pvaluename : :: windows_sys::core::PCSTR , r#type : u32 , pdata : *const u8 , cbdata : u32 ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetPrinterDataA ( hprinter : super::super::Foundation:: HANDLE , pvaluename : ::windows_sys::core::PCSTR , r#type : u32 , pdata : *const u8 , cbdata : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetPrinterDataExA ( hprinter : super::super::Foundation:: HANDLE , pkeyname : :: windows_sys::core::PCSTR , pvaluename : :: windows_sys::core::PCSTR , r#type : u32 , pdata : *const u8 , cbdata : u32 ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetPrinterDataExA ( hprinter : super::super::Foundation:: HANDLE , pkeyname : ::windows_sys::core::PCSTR , pvaluename : ::windows_sys::core::PCSTR , r#type : u32 , pdata : *const u8 , cbdata : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetPrinterDataExW ( hprinter : super::super::Foundation:: HANDLE , pkeyname : :: windows_sys::core::PCWSTR , pvaluename : :: windows_sys::core::PCWSTR , r#type : u32 , pdata : *const u8 , cbdata : u32 ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetPrinterDataExW ( hprinter : super::super::Foundation:: HANDLE , pkeyname : ::windows_sys::core::PCWSTR , pvaluename : ::windows_sys::core::PCWSTR , r#type : u32 , pdata : *const u8 , cbdata : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetPrinterDataW ( hprinter : super::super::Foundation:: HANDLE , pvaluename : :: windows_sys::core::PCWSTR , r#type : u32 , pdata : *const u8 , cbdata : u32 ) -> u32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetPrinterDataW ( hprinter : super::super::Foundation:: HANDLE , pvaluename : ::windows_sys::core::PCWSTR , r#type : u32 , pdata : *const u8 , cbdata : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SetPrinterW ( hprinter : super::super::Foundation:: HANDLE , level : u32 , pprinter : *const u8 , command : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -384,7 +384,7 @@ pub mod PrintTicket;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "spoolss.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SplPromptUIInUsersSession ( hprinter : super::super::Foundation:: HANDLE , jobid : u32 , puiparams : *const SHOWUIPARAMS , presponse : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "mscms.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SpoolerCopyFileEvent ( pszprintername : :: windows_sys::core::PCWSTR , pszkey : :: windows_sys::core::PCWSTR , dwcopyfileevent : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "mscms.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SpoolerCopyFileEvent ( pszprintername : ::windows_sys::core::PCWSTR , pszkey : ::windows_sys::core::PCWSTR , dwcopyfileevent : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "spoolss.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn SpoolerFindClosePrinterChangeNotification ( hprinter : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -401,19 +401,19 @@ pub mod PrintTicket;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn StartPagePrinter ( hprinter : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn UnRegisterForPrintAsyncNotifications ( param0 : super::super::Foundation:: HANDLE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn UnRegisterForPrintAsyncNotifications ( param0 : super::super::Foundation:: HANDLE ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "spoolss.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn UpdatePrintDeviceObject ( hprinter : super::super::Foundation:: HANDLE , hdeviceobject : super::super::Foundation:: HANDLE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "spoolss.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn UpdatePrintDeviceObject ( hprinter : super::super::Foundation:: HANDLE , hdeviceobject : super::super::Foundation:: HANDLE ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn UploadPrinterDriverPackageA ( pszserver : :: windows_sys::core::PCSTR , pszinfpath : :: windows_sys::core::PCSTR , pszenvironment : :: windows_sys::core::PCSTR , dwflags : u32 , hwnd : super::super::Foundation:: HWND , pszdestinfpath : :: windows_sys::core::PSTR , pcchdestinfpath : *mut u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn UploadPrinterDriverPackageA ( pszserver : ::windows_sys::core::PCSTR , pszinfpath : ::windows_sys::core::PCSTR , pszenvironment : ::windows_sys::core::PCSTR , dwflags : u32 , hwnd : super::super::Foundation:: HWND , pszdestinfpath : ::windows_sys::core::PSTR , pcchdestinfpath : *mut u32 ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn UploadPrinterDriverPackageW ( pszserver : :: windows_sys::core::PCWSTR , pszinfpath : :: windows_sys::core::PCWSTR , pszenvironment : :: windows_sys::core::PCWSTR , dwflags : u32 , hwnd : super::super::Foundation:: HWND , pszdestinfpath : :: windows_sys::core::PWSTR , pcchdestinfpath : *mut u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn UploadPrinterDriverPackageW ( pszserver : ::windows_sys::core::PCWSTR , pszinfpath : ::windows_sys::core::PCWSTR , pszenvironment : ::windows_sys::core::PCWSTR , dwflags : u32 , hwnd : super::super::Foundation:: HWND , pszdestinfpath : ::windows_sys::core::PWSTR , pcchdestinfpath : *mut u32 ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn WaitForPrinterChange ( hprinter : super::super::Foundation:: HANDLE , flags : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn WritePrinter ( hprinter : super::super::Foundation:: HANDLE , pbuf : *const ::core::ffi::c_void , cbbuf : u32 , pcwritten : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn XcvDataW ( hxcv : super::super::Foundation:: HANDLE , pszdataname : :: windows_sys::core::PCWSTR , pinputdata : *const u8 , cbinputdata : u32 , poutputdata : *mut u8 , cboutputdata : u32 , pcboutputneeded : *mut u32 , pdwstatus : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"] fn XcvDataW ( hxcv : super::super::Foundation:: HANDLE , pszdataname : ::windows_sys::core::PCWSTR , pinputdata : *const u8 , cbinputdata : u32 , poutputdata : *mut u8 , cboutputdata : u32 , pcboutputneeded : *mut u32 , pdwstatus : *mut u32 ) -> super::super::Foundation:: BOOL );
 pub type IAsyncGetSendNotificationCookie = *mut ::core::ffi::c_void;
 pub type IAsyncGetSrvReferralCookie = *mut ::core::ffi::c_void;
 pub type IBidiAsyncNotifyChannel = *mut ::core::ffi::c_void;
@@ -533,15 +533,15 @@ pub const BIDI_ACCESS_ADMINISTRATOR: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const BIDI_ACCESS_USER: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const BIDI_ACTION_ENUM_SCHEMA: ::windows_sys::core::PCWSTR = ::windows_sys::w!("EnumSchema");
+pub const BIDI_ACTION_ENUM_SCHEMA: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EnumSchema");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const BIDI_ACTION_GET: ::windows_sys::core::PCWSTR = ::windows_sys::w!("Get");
+pub const BIDI_ACTION_GET: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Get");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const BIDI_ACTION_GET_ALL: ::windows_sys::core::PCWSTR = ::windows_sys::w!("GetAll");
+pub const BIDI_ACTION_GET_ALL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("GetAll");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const BIDI_ACTION_GET_WITH_ARGUMENT: ::windows_sys::core::PCWSTR = ::windows_sys::w!("GetWithArgument");
+pub const BIDI_ACTION_GET_WITH_ARGUMENT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("GetWithArgument");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const BIDI_ACTION_SET: ::windows_sys::core::PCWSTR = ::windows_sys::w!("Set");
+pub const BIDI_ACTION_SET: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Set");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const BOOKLET_EDGE_LEFT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -1196,6 +1196,8 @@ pub const DOCUMENTEVENT_XPS_ADDFIXEDPAGEPRINTTICKETPOST: u32 = 10u32;
 pub const DOCUMENTEVENT_XPS_ADDFIXEDPAGEPRINTTICKETPRE: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const DOCUMENTEVENT_XPS_CANCELJOB: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const DOC_INFO_INTERNAL_LEVEL: u32 = 100u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const DPD_DELETE_ALL_FILES: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -2143,6 +2145,8 @@ pub const JOB_CONTROL_RESUME: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const JOB_CONTROL_RETAIN: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const JOB_CONTROL_SEND_TOAST: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const JOB_CONTROL_SENT_TO_PRINTER: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const JOB_NOTIFY_FIELD_BYTES_PRINTED: u32 = 23u32;
@@ -2263,7 +2267,7 @@ pub const MAX_SNMP_COMMUNITY_STR_LEN: u32 = 33u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const MIN_PRIORITY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MS_PRINT_JOB_OUTPUT_FILE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MsPrintJobOutputFile");
+pub const MS_PRINT_JOB_OUTPUT_FILE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MsPrintJobOutputFile");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const MTYPE_ADD: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -2995,173 +2999,173 @@ pub const SETOPTIONS_RESULT_CONFLICT_RESOLVED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const SETOPTIONS_RESULT_NO_CONFLICT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_ASSET_NUMBER: ::windows_sys::core::PCWSTR = ::windows_sys::w!("assetNumber");
+pub const SPLDS_ASSET_NUMBER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("assetNumber");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_BYTES_PER_MINUTE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("bytesPerMinute");
+pub const SPLDS_BYTES_PER_MINUTE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("bytesPerMinute");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_DESCRIPTION: ::windows_sys::core::PCWSTR = ::windows_sys::w!("description");
+pub const SPLDS_DESCRIPTION: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("description");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_DRIVER_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("DsDriver");
+pub const SPLDS_DRIVER_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DsDriver");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_DRIVER_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("driverName");
+pub const SPLDS_DRIVER_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("driverName");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_DRIVER_VERSION: ::windows_sys::core::PCWSTR = ::windows_sys::w!("driverVersion");
+pub const SPLDS_DRIVER_VERSION: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("driverVersion");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_FLAGS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("flags");
+pub const SPLDS_FLAGS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("flags");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_LOCATION: ::windows_sys::core::PCWSTR = ::windows_sys::w!("location");
+pub const SPLDS_LOCATION: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("location");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PORT_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("portName");
+pub const SPLDS_PORT_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("portName");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINTER_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printQueue");
+pub const SPLDS_PRINTER_CLASS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printQueue");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINTER_LOCATIONS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printerLocations");
+pub const SPLDS_PRINTER_LOCATIONS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printerLocations");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINTER_MODEL: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printerModel");
+pub const SPLDS_PRINTER_MODEL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printerModel");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINTER_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printerName");
+pub const SPLDS_PRINTER_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printerName");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINTER_NAME_ALIASES: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printerNameAliases");
+pub const SPLDS_PRINTER_NAME_ALIASES: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printerNameAliases");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_ATTRIBUTES: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printAttributes");
+pub const SPLDS_PRINT_ATTRIBUTES: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printAttributes");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_BIN_NAMES: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printBinNames");
+pub const SPLDS_PRINT_BIN_NAMES: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printBinNames");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_COLLATE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printCollate");
+pub const SPLDS_PRINT_COLLATE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printCollate");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_COLOR: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printColor");
+pub const SPLDS_PRINT_COLOR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printColor");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_DUPLEX_SUPPORTED: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printDuplexSupported");
+pub const SPLDS_PRINT_DUPLEX_SUPPORTED: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printDuplexSupported");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_END_TIME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printEndTime");
+pub const SPLDS_PRINT_END_TIME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printEndTime");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_KEEP_PRINTED_JOBS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printKeepPrintedJobs");
+pub const SPLDS_PRINT_KEEP_PRINTED_JOBS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printKeepPrintedJobs");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_LANGUAGE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printLanguage");
+pub const SPLDS_PRINT_LANGUAGE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printLanguage");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_MAC_ADDRESS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printMACAddress");
+pub const SPLDS_PRINT_MAC_ADDRESS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printMACAddress");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_MAX_RESOLUTION_SUPPORTED: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printMaxResolutionSupported");
+pub const SPLDS_PRINT_MAX_RESOLUTION_SUPPORTED: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printMaxResolutionSupported");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_MAX_X_EXTENT: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printMaxXExtent");
+pub const SPLDS_PRINT_MAX_X_EXTENT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printMaxXExtent");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_MAX_Y_EXTENT: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printMaxYExtent");
+pub const SPLDS_PRINT_MAX_Y_EXTENT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printMaxYExtent");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_MEDIA_READY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printMediaReady");
+pub const SPLDS_PRINT_MEDIA_READY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printMediaReady");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_MEDIA_SUPPORTED: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printMediaSupported");
+pub const SPLDS_PRINT_MEDIA_SUPPORTED: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printMediaSupported");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_MEMORY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printMemory");
+pub const SPLDS_PRINT_MEMORY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printMemory");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_MIN_X_EXTENT: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printMinXExtent");
+pub const SPLDS_PRINT_MIN_X_EXTENT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printMinXExtent");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_MIN_Y_EXTENT: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printMinYExtent");
+pub const SPLDS_PRINT_MIN_Y_EXTENT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printMinYExtent");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_NETWORK_ADDRESS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printNetworkAddress");
+pub const SPLDS_PRINT_NETWORK_ADDRESS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printNetworkAddress");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_NOTIFY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printNotify");
+pub const SPLDS_PRINT_NOTIFY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printNotify");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_NUMBER_UP: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printNumberUp");
+pub const SPLDS_PRINT_NUMBER_UP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printNumberUp");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_ORIENTATIONS_SUPPORTED: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printOrientationsSupported");
+pub const SPLDS_PRINT_ORIENTATIONS_SUPPORTED: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printOrientationsSupported");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_OWNER: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printOwner");
+pub const SPLDS_PRINT_OWNER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printOwner");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_PAGES_PER_MINUTE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printPagesPerMinute");
+pub const SPLDS_PRINT_PAGES_PER_MINUTE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printPagesPerMinute");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_RATE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printRate");
+pub const SPLDS_PRINT_RATE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printRate");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_RATE_UNIT: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printRateUnit");
+pub const SPLDS_PRINT_RATE_UNIT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printRateUnit");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_SEPARATOR_FILE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printSeparatorFile");
+pub const SPLDS_PRINT_SEPARATOR_FILE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printSeparatorFile");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_SHARE_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printShareName");
+pub const SPLDS_PRINT_SHARE_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printShareName");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_SPOOLING: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printSpooling");
+pub const SPLDS_PRINT_SPOOLING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printSpooling");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_STAPLING_SUPPORTED: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printStaplingSupported");
+pub const SPLDS_PRINT_STAPLING_SUPPORTED: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printStaplingSupported");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_START_TIME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printStartTime");
+pub const SPLDS_PRINT_START_TIME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printStartTime");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRINT_STATUS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("printStatus");
+pub const SPLDS_PRINT_STATUS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("printStatus");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_PRIORITY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("priority");
+pub const SPLDS_PRIORITY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("priority");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_SERVER_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("serverName");
+pub const SPLDS_SERVER_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("serverName");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_SHORT_SERVER_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("shortServerName");
+pub const SPLDS_SHORT_SERVER_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("shortServerName");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_SPOOLER_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("DsSpooler");
+pub const SPLDS_SPOOLER_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DsSpooler");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_UNC_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("uNCName");
+pub const SPLDS_UNC_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("uNCName");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_URL: ::windows_sys::core::PCWSTR = ::windows_sys::w!("url");
+pub const SPLDS_URL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("url");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_USER_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("DsUser");
+pub const SPLDS_USER_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DsUser");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLDS_VERSION_NUMBER: ::windows_sys::core::PCWSTR = ::windows_sys::w!("versionNumber");
+pub const SPLDS_VERSION_NUMBER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("versionNumber");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLPRINTER_USER_MODE_PRINTER_DRIVER: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SPLUserModePrinterDriver");
+pub const SPLPRINTER_USER_MODE_PRINTER_DRIVER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SPLUserModePrinterDriver");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_ALLOW_USER_MANAGEFORMS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("AllowUserManageForms");
+pub const SPLREG_ALLOW_USER_MANAGEFORMS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("AllowUserManageForms");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_ARCHITECTURE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("Architecture");
+pub const SPLREG_ARCHITECTURE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Architecture");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_BEEP_ENABLED: ::windows_sys::core::PCWSTR = ::windows_sys::w!("BeepEnabled");
+pub const SPLREG_BEEP_ENABLED: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("BeepEnabled");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_DEFAULT_SPOOL_DIRECTORY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("DefaultSpoolDirectory");
+pub const SPLREG_DEFAULT_SPOOL_DIRECTORY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DefaultSpoolDirectory");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_DNS_MACHINE_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("DNSMachineName");
+pub const SPLREG_DNS_MACHINE_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DNSMachineName");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_DS_PRESENT: ::windows_sys::core::PCWSTR = ::windows_sys::w!("DsPresent");
+pub const SPLREG_DS_PRESENT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DsPresent");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_DS_PRESENT_FOR_USER: ::windows_sys::core::PCWSTR = ::windows_sys::w!("DsPresentForUser");
+pub const SPLREG_DS_PRESENT_FOR_USER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DsPresentForUser");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_EVENT_LOG: ::windows_sys::core::PCWSTR = ::windows_sys::w!("EventLog");
+pub const SPLREG_EVENT_LOG: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EventLog");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_MAJOR_VERSION: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MajorVersion");
+pub const SPLREG_MAJOR_VERSION: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MajorVersion");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_MINOR_VERSION: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MinorVersion");
+pub const SPLREG_MINOR_VERSION: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MinorVersion");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_NET_POPUP: ::windows_sys::core::PCWSTR = ::windows_sys::w!("NetPopup");
+pub const SPLREG_NET_POPUP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("NetPopup");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_NET_POPUP_TO_COMPUTER: ::windows_sys::core::PCWSTR = ::windows_sys::w!("NetPopupToComputer");
+pub const SPLREG_NET_POPUP_TO_COMPUTER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("NetPopupToComputer");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_OS_VERSION: ::windows_sys::core::PCWSTR = ::windows_sys::w!("OSVersion");
+pub const SPLREG_OS_VERSION: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("OSVersion");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_OS_VERSIONEX: ::windows_sys::core::PCWSTR = ::windows_sys::w!("OSVersionEx");
+pub const SPLREG_OS_VERSIONEX: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("OSVersionEx");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_PORT_THREAD_PRIORITY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("PortThreadPriority");
+pub const SPLREG_PORT_THREAD_PRIORITY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PortThreadPriority");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_PORT_THREAD_PRIORITY_DEFAULT: ::windows_sys::core::PCWSTR = ::windows_sys::w!("PortThreadPriorityDefault");
+pub const SPLREG_PORT_THREAD_PRIORITY_DEFAULT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PortThreadPriorityDefault");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_PRINT_DRIVER_ISOLATION_EXECUTION_POLICY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("PrintDriverIsolationExecutionPolicy");
+pub const SPLREG_PRINT_DRIVER_ISOLATION_EXECUTION_POLICY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PrintDriverIsolationExecutionPolicy");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_PRINT_DRIVER_ISOLATION_GROUPS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("PrintDriverIsolationGroups");
+pub const SPLREG_PRINT_DRIVER_ISOLATION_GROUPS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PrintDriverIsolationGroups");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_PRINT_DRIVER_ISOLATION_IDLE_TIMEOUT: ::windows_sys::core::PCWSTR = ::windows_sys::w!("PrintDriverIsolationIdleTimeout");
+pub const SPLREG_PRINT_DRIVER_ISOLATION_IDLE_TIMEOUT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PrintDriverIsolationIdleTimeout");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_PRINT_DRIVER_ISOLATION_MAX_OBJECTS_BEFORE_RECYCLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("PrintDriverIsolationMaxobjsBeforeRecycle");
+pub const SPLREG_PRINT_DRIVER_ISOLATION_MAX_OBJECTS_BEFORE_RECYCLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PrintDriverIsolationMaxobjsBeforeRecycle");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_PRINT_DRIVER_ISOLATION_OVERRIDE_POLICY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("PrintDriverIsolationOverrideCompat");
+pub const SPLREG_PRINT_DRIVER_ISOLATION_OVERRIDE_POLICY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PrintDriverIsolationOverrideCompat");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_PRINT_DRIVER_ISOLATION_TIME_BEFORE_RECYCLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("PrintDriverIsolationTimeBeforeRecycle");
+pub const SPLREG_PRINT_DRIVER_ISOLATION_TIME_BEFORE_RECYCLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PrintDriverIsolationTimeBeforeRecycle");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_PRINT_QUEUE_V4_DRIVER_DIRECTORY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("PrintQueueV4DriverDirectory");
+pub const SPLREG_PRINT_QUEUE_V4_DRIVER_DIRECTORY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PrintQueueV4DriverDirectory");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_REMOTE_FAX: ::windows_sys::core::PCWSTR = ::windows_sys::w!("RemoteFax");
+pub const SPLREG_REMOTE_FAX: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("RemoteFax");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_RESTART_JOB_ON_POOL_ENABLED: ::windows_sys::core::PCWSTR = ::windows_sys::w!("RestartJobOnPoolEnabled");
+pub const SPLREG_RESTART_JOB_ON_POOL_ENABLED: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("RestartJobOnPoolEnabled");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_RESTART_JOB_ON_POOL_ERROR: ::windows_sys::core::PCWSTR = ::windows_sys::w!("RestartJobOnPoolError");
+pub const SPLREG_RESTART_JOB_ON_POOL_ERROR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("RestartJobOnPoolError");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_RETRY_POPUP: ::windows_sys::core::PCWSTR = ::windows_sys::w!("RetryPopup");
+pub const SPLREG_RETRY_POPUP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("RetryPopup");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_SCHEDULER_THREAD_PRIORITY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SchedulerThreadPriority");
+pub const SPLREG_SCHEDULER_THREAD_PRIORITY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SchedulerThreadPriority");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_SCHEDULER_THREAD_PRIORITY_DEFAULT: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SchedulerThreadPriorityDefault");
+pub const SPLREG_SCHEDULER_THREAD_PRIORITY_DEFAULT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SchedulerThreadPriorityDefault");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SPLREG_WEBSHAREMGMT: ::windows_sys::core::PCWSTR = ::windows_sys::w!("WebShareMgmt");
+pub const SPLREG_WEBSHAREMGMT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("WebShareMgmt");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const SPOOL_FILE_PERSISTENT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -3283,39 +3287,39 @@ pub const USB_PRINTER_INTERFACE_IPP: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const WM_FI_FILENAME: u32 = 900u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPS_FP_DRIVER_PROPERTY_BAG: ::windows_sys::core::PCWSTR = ::windows_sys::w!("DriverPropertyBag");
+pub const XPS_FP_DRIVER_PROPERTY_BAG: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DriverPropertyBag");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPS_FP_JOB_ID: ::windows_sys::core::PCWSTR = ::windows_sys::w!("PrintJobId");
+pub const XPS_FP_JOB_ID: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PrintJobId");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPS_FP_JOB_LEVEL_PRINTTICKET: ::windows_sys::core::PCWSTR = ::windows_sys::w!("JobPrintTicket");
+pub const XPS_FP_JOB_LEVEL_PRINTTICKET: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("JobPrintTicket");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPS_FP_MERGED_DATAFILE_PATH: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MergedDataFilePath");
+pub const XPS_FP_MERGED_DATAFILE_PATH: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MergedDataFilePath");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPS_FP_MS_CONTENT_TYPE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("DriverMultiContentType");
+pub const XPS_FP_MS_CONTENT_TYPE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DriverMultiContentType");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPS_FP_MS_CONTENT_TYPE_OPENXPS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("OpenXPS");
+pub const XPS_FP_MS_CONTENT_TYPE_OPENXPS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("OpenXPS");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPS_FP_MS_CONTENT_TYPE_XPS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("XPS");
+pub const XPS_FP_MS_CONTENT_TYPE_XPS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("XPS");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPS_FP_OUTPUT_FILE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("PrintOutputFileName");
+pub const XPS_FP_OUTPUT_FILE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PrintOutputFileName");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPS_FP_PRINTDEVICECAPABILITIES: ::windows_sys::core::PCWSTR = ::windows_sys::w!("PrintDeviceCapabilities");
+pub const XPS_FP_PRINTDEVICECAPABILITIES: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PrintDeviceCapabilities");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPS_FP_PRINTER_HANDLE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("PrinterHandle");
+pub const XPS_FP_PRINTER_HANDLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PrinterHandle");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPS_FP_PRINTER_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("PrinterName");
+pub const XPS_FP_PRINTER_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PrinterName");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPS_FP_PRINT_CLASS_FACTORY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("PrintClassFactory");
+pub const XPS_FP_PRINT_CLASS_FACTORY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PrintClassFactory");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPS_FP_PROGRESS_REPORT: ::windows_sys::core::PCWSTR = ::windows_sys::w!("ProgressReport");
+pub const XPS_FP_PROGRESS_REPORT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ProgressReport");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPS_FP_QUEUE_PROPERTY_BAG: ::windows_sys::core::PCWSTR = ::windows_sys::w!("QueuePropertyBag");
+pub const XPS_FP_QUEUE_PROPERTY_BAG: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("QueuePropertyBag");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPS_FP_RESOURCE_DLL_PATHS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("ResourceDLLPaths");
+pub const XPS_FP_RESOURCE_DLL_PATHS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ResourceDLLPaths");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPS_FP_USER_PRINT_TICKET: ::windows_sys::core::PCWSTR = ::windows_sys::w!("PerUserPrintTicket");
+pub const XPS_FP_USER_PRINT_TICKET: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PerUserPrintTicket");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPS_FP_USER_TOKEN: ::windows_sys::core::PCWSTR = ::windows_sys::w!("UserSecurityToken");
+pub const XPS_FP_USER_TOKEN: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("UserSecurityToken");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub type BIDI_TYPE = i32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -4077,7 +4081,7 @@ impl ::core::clone::Clone for BranchOfficeLogOfflineFileFull {
 pub struct COMPROPSHEETUI {
     pub cbSize: u16,
     pub Flags: u16,
-    pub hInstCaller: super::super::Foundation::HINSTANCE,
+    pub hInstCaller: super::super::Foundation::HMODULE,
     pub pCallerName: *mut i8,
     pub UserData: usize,
     pub pHelpFile: *mut i8,
@@ -4119,7 +4123,7 @@ pub struct CORE_PRINTER_DRIVERA {
     pub CoreDriverGUID: ::windows_sys::core::GUID,
     pub ftDriverDate: super::super::Foundation::FILETIME,
     pub dwlDriverVersion: u64,
-    pub szPackageID: [super::super::Foundation::CHAR; 260],
+    pub szPackageID: [u8; 260],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CORE_PRINTER_DRIVERA {}
@@ -4477,6 +4481,24 @@ pub struct DOC_INFO_3W {
 }
 impl ::core::marker::Copy for DOC_INFO_3W {}
 impl ::core::clone::Clone for DOC_INFO_3W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOC_INFO_INTERNAL {
+    pub pDocName: *mut i8,
+    pub pOutputFile: *mut i8,
+    pub pDatatype: *mut i8,
+    pub bLowILJob: super::super::Foundation::BOOL,
+    pub hTokenLowIL: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOC_INFO_INTERNAL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOC_INFO_INTERNAL {
     fn clone(&self) -> Self {
         *self
     }
@@ -5331,72 +5353,81 @@ impl ::core::clone::Clone for MESSAGEBOX_PARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`, `\"Win32_System_Power\"`*"]
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 pub struct MONITOR {
-    pub pfnEnumPorts: isize,
-    pub pfnOpenPort: isize,
-    pub pfnOpenPortEx: isize,
-    pub pfnStartDocPort: isize,
-    pub pfnWritePort: isize,
-    pub pfnReadPort: isize,
-    pub pfnEndDocPort: isize,
-    pub pfnClosePort: isize,
-    pub pfnAddPort: isize,
-    pub pfnAddPortEx: isize,
-    pub pfnConfigurePort: isize,
-    pub pfnDeletePort: isize,
-    pub pfnGetPrinterDataFromPort: isize,
-    pub pfnSetPortTimeOuts: isize,
-    pub pfnXcvOpenPort: isize,
-    pub pfnXcvDataPort: isize,
-    pub pfnXcvClosePort: isize,
+    pub pfnEnumPorts: PFN_PRINTING_ENUMPORTS,
+    pub pfnOpenPort: PFN_PRINTING_OPENPORT,
+    pub pfnOpenPortEx: PFN_PRINTING_OPENPORTEX,
+    pub pfnStartDocPort: PFN_PRINTING_STARTDOCPORT,
+    pub pfnWritePort: PFN_PRINTING_WRITEPORT,
+    pub pfnReadPort: PFN_PRINTING_READPORT,
+    pub pfnEndDocPort: PFN_PRINTING_ENDDOCPORT,
+    pub pfnClosePort: PFN_PRINTING_CLOSEPORT,
+    pub pfnAddPort: PFN_PRINTING_ADDPORT,
+    pub pfnAddPortEx: PFN_PRINTING_ADDPORTEX,
+    pub pfnConfigurePort: PFN_PRINTING_CONFIGUREPORT,
+    pub pfnDeletePort: PFN_PRINTING_DELETEPORT,
+    pub pfnGetPrinterDataFromPort: PFN_PRINTING_GETPRINTERDATAFROMPORT,
+    pub pfnSetPortTimeOuts: PFN_PRINTING_SETPORTTIMEOUTS,
+    pub pfnXcvOpenPort: PFN_PRINTING_XCVOPENPORT,
+    pub pfnXcvDataPort: PFN_PRINTING_XCVDATAPORT,
+    pub pfnXcvClosePort: PFN_PRINTING_XCVCLOSEPORT,
 }
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 impl ::core::marker::Copy for MONITOR {}
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 impl ::core::clone::Clone for MONITOR {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`, `\"Win32_System_Power\"`*"]
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 pub struct MONITOR2 {
     pub cbSize: u32,
-    pub pfnEnumPorts: isize,
-    pub pfnOpenPort: isize,
-    pub pfnOpenPortEx: isize,
-    pub pfnStartDocPort: isize,
-    pub pfnWritePort: isize,
-    pub pfnReadPort: isize,
-    pub pfnEndDocPort: isize,
-    pub pfnClosePort: isize,
-    pub pfnAddPort: isize,
-    pub pfnAddPortEx: isize,
-    pub pfnConfigurePort: isize,
-    pub pfnDeletePort: isize,
-    pub pfnGetPrinterDataFromPort: isize,
-    pub pfnSetPortTimeOuts: isize,
-    pub pfnXcvOpenPort: isize,
-    pub pfnXcvDataPort: isize,
-    pub pfnXcvClosePort: isize,
-    pub pfnShutdown: isize,
-    pub pfnSendRecvBidiDataFromPort: isize,
-    pub pfnNotifyUsedPorts: isize,
-    pub pfnNotifyUnusedPorts: isize,
-    pub pfnPowerEvent: isize,
+    pub pfnEnumPorts: PFN_PRINTING_ENUMPORTS2,
+    pub pfnOpenPort: PFN_PRINTING_OPENPORT2,
+    pub pfnOpenPortEx: PFN_PRINTING_OPENPORTEX2,
+    pub pfnStartDocPort: PFN_PRINTING_STARTDOCPORT2,
+    pub pfnWritePort: PFN_PRINTING_WRITEPORT2,
+    pub pfnReadPort: PFN_PRINTING_READPORT2,
+    pub pfnEndDocPort: PFN_PRINTING_ENDDOCPORT2,
+    pub pfnClosePort: PFN_PRINTING_CLOSEPORT2,
+    pub pfnAddPort: PFN_PRINTING_ADDPORT2,
+    pub pfnAddPortEx: PFN_PRINTING_ADDPORTEX2,
+    pub pfnConfigurePort: PFN_PRINTING_CONFIGUREPORT2,
+    pub pfnDeletePort: PFN_PRINTING_DELETEPORT2,
+    pub pfnGetPrinterDataFromPort: PFN_PRINTING_GETPRINTERDATAFROMPORT2,
+    pub pfnSetPortTimeOuts: PFN_PRINTING_SETPORTTIMEOUTS2,
+    pub pfnXcvOpenPort: PFN_PRINTING_XCVOPENPORT2,
+    pub pfnXcvDataPort: PFN_PRINTING_XCVDATAPORT2,
+    pub pfnXcvClosePort: PFN_PRINTING_XCVCLOSEPORT2,
+    pub pfnShutdown: PFN_PRINTING_SHUTDOWN2,
+    pub pfnSendRecvBidiDataFromPort: PFN_PRINTING_SENDRECVBIDIDATAFROMPORT2,
+    pub pfnNotifyUsedPorts: PFN_PRINTING_NOTIFYUSEDPORTS2,
+    pub pfnNotifyUnusedPorts: PFN_PRINTING_NOTIFYUNUSEDPORTS2,
+    pub pfnPowerEvent: PFN_PRINTING_POWEREVENT2,
 }
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 impl ::core::marker::Copy for MONITOR2 {}
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 impl ::core::clone::Clone for MONITOR2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`, `\"Win32_System_Power\"`*"]
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 pub struct MONITOREX {
     pub dwMonitorSize: u32,
     pub Monitor: MONITOR,
 }
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 impl ::core::marker::Copy for MONITOREX {}
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 impl ::core::clone::Clone for MONITOREX {
     fn clone(&self) -> Self {
         *self
@@ -5763,7 +5794,7 @@ impl ::core::clone::Clone for OEM_DMEXTRAHEADER {
 pub struct OIEXT {
     pub cbSize: u16,
     pub Flags: u16,
-    pub hInstCaller: super::super::Foundation::HINSTANCE,
+    pub hInstCaller: super::super::Foundation::HMODULE,
     pub pHelpFile: *mut i8,
     pub dwReserved: [usize; 4],
 }
@@ -6750,6 +6781,7 @@ pub struct PRINTPROVIDOR {
     pub fpEnumAndLogProvidorObjects: isize,
     pub fpInternalGetPrinterDriver: isize,
     pub fpFindCompatibleDriver: isize,
+    pub fpInstallPrinterDriverPackageFromConnection: isize,
     pub fpGetJobNamedPropertyValue: isize,
     pub fpSetJobNamedProperty: isize,
     pub fpDeleteJobNamedProperty: isize,
@@ -6765,6 +6797,7 @@ pub struct PRINTPROVIDOR {
     pub fpIppSetJobAttributes: isize,
     pub fpIppGetPrinterAttributes: isize,
     pub fpIppSetPrinterAttributes: isize,
+    pub fpIppCreateJobOnPrinterWithAttributes: isize,
 }
 impl ::core::marker::Copy for PRINTPROVIDOR {}
 impl ::core::clone::Clone for PRINTPROVIDOR {
@@ -6844,7 +6877,7 @@ pub struct PROPSHEETUI_INFO_HEADER {
     pub Flags: u16,
     pub pTitle: *mut i8,
     pub hWndParent: super::super::Foundation::HWND,
-    pub hInst: super::super::Foundation::HINSTANCE,
+    pub hInst: super::super::Foundation::HMODULE,
     pub Anonymous: PROPSHEETUI_INFO_HEADER_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -7374,6 +7407,123 @@ pub type PFN_DrvUpdateUISetting = ::core::option::Option<unsafe extern "system" 
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvUpgradeRegistrySetting = ::core::option::Option<unsafe extern "system" fn(hprinter: super::super::Foundation::HANDLE, pfeature: ::windows_sys::core::PCSTR, poption: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_ADDPORT = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: super::super::Foundation::HWND, param2: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_ADDPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: super::super::Foundation::HWND, param3: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_ADDPORTEX = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: u32, param2: *const u8, param3: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_ADDPORTEX2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: u32, param3: *const u8, param4: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_CLOSEPORT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_CLOSEPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_CONFIGUREPORT = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: super::super::Foundation::HWND, param2: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_CONFIGUREPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: super::super::Foundation::HWND, param3: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_DELETEPORT = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: super::super::Foundation::HWND, param2: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_DELETEPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: super::super::Foundation::HWND, param3: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_ENDDOCPORT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_ENDDOCPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_ENUMPORTS = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: u32, param2: *mut u8, param3: u32, param4: *mut u32, param5: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_ENUMPORTS2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: u32, param3: *mut u8, param4: u32, param5: *mut u32, param6: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_GETPRINTERDATAFROMPORT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: ::windows_sys::core::PCWSTR, param3: ::windows_sys::core::PCWSTR, param4: u32, param5: ::windows_sys::core::PCWSTR, param6: u32, param7: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_GETPRINTERDATAFROMPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: ::windows_sys::core::PCWSTR, param3: ::windows_sys::core::PCWSTR, param4: u32, param5: ::windows_sys::core::PCWSTR, param6: u32, param7: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_NOTIFYUNUSEDPORTS2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: ::windows_sys::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_NOTIFYUSEDPORTS2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: ::windows_sys::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_OPENPORT = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_OPENPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`, `\"Win32_System_Power\"`*"]
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+pub type PFN_PRINTING_OPENPORTEX = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: ::windows_sys::core::PCWSTR, param3: *mut super::super::Foundation::HANDLE, param4: *const MONITOR2) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`, `\"Win32_System_Power\"`*"]
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+pub type PFN_PRINTING_OPENPORTEX2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: ::windows_sys::core::PCWSTR, param3: ::windows_sys::core::PCWSTR, param4: *mut super::super::Foundation::HANDLE, param5: *const MONITOR2) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Power\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+pub type PFN_PRINTING_POWEREVENT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: *const super::super::System::Power::POWERBROADCAST_SETTING) -> u32>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_READPORT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *mut u8, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_READPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *mut u8, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_SENDRECVBIDIDATAFROMPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: ::windows_sys::core::PCWSTR, param3: *const BIDI_REQUEST_CONTAINER, param4: *mut *mut BIDI_RESPONSE_CONTAINER) -> u32>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation"))]
+pub type PFN_PRINTING_SETPORTTIMEOUTS = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *const super::super::Devices::Communication::COMMTIMEOUTS, param2: u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation"))]
+pub type PFN_PRINTING_SETPORTTIMEOUTS2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *const super::super::Devices::Communication::COMMTIMEOUTS, param2: u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_SHUTDOWN2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> ()>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_STARTDOCPORT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: u32, param3: u32, param4: *const u8) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_STARTDOCPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: u32, param3: u32, param4: *const u8) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_WRITEPORT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *const u8, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_WRITEPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *const u8, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_XCVCLOSEPORT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_XCVCLOSEPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_XCVDATAPORT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: *const u8, param3: u32, param4: *mut u8, param5: u32, param6: *mut u32) -> u32>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_XCVDATAPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: *const u8, param3: u32, param4: *mut u8, param5: u32, param6: *mut u32) -> u32>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_XCVOPENPORT = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: u32, param2: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_XCVOPENPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: u32, param3: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ROUTER_NOTIFY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(dwcommand: u32, pcontext: *const ::core::ffi::c_void, dwcolor: u32, pnofityinfo: *const PRINTER_NOTIFY_INFO, fdwflags: u32, pdwresult: *mut u32) -> super::super::Foundation::BOOL>;

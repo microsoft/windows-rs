@@ -92,7 +92,7 @@ pub unsafe fn GetPerformanceTime(timems: *mut u32) -> ::windows::core::Result<()
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromCLSIDArray(members: &[::windows::core::GUID]) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn InitPropVariantFromCLSIDArray ( members : *const :: windows::core::GUID , size : u32 , ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn InitPropVariantFromCLSIDArray ( members : *const ::windows::core::GUID , size : u32 , ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::System::Com::StructuredStorage::PROPVARIANT>();
     InitPropVariantFromCLSIDArray(::core::mem::transmute(members.as_ptr()), members.len() as _, &mut result__).from_abi(result__)
 }
@@ -100,7 +100,7 @@ pub unsafe fn InitPropVariantFromCLSIDArray(members: &[::windows::core::GUID]) -
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromFloat(fltval: f32) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn InitPropVariantFromFloat ( fltval : f32 , ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn InitPropVariantFromFloat ( fltval : f32 , ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::System::Com::StructuredStorage::PROPVARIANT>();
     InitPropVariantFromFloat(fltval, &mut result__).from_abi(result__)
 }
@@ -115,7 +115,7 @@ pub unsafe fn IsCollectionListSame(lista: *const SENSOR_COLLECTION_LIST, listb: 
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsGUIDPresentInList(guidarray: &[::windows::core::GUID], guidelem: *const ::windows::core::GUID) -> super::super::Foundation::BOOLEAN {
-    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn IsGUIDPresentInList ( guidarray : *const :: windows::core::GUID , arraylength : u32 , guidelem : *const :: windows::core::GUID ) -> super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn IsGUIDPresentInList ( guidarray : *const ::windows::core::GUID , arraylength : u32 , guidelem : *const ::windows::core::GUID ) -> super::super::Foundation:: BOOLEAN );
     IsGUIDPresentInList(::core::mem::transmute(guidarray.as_ptr()), guidarray.len() as _, guidelem)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -136,7 +136,7 @@ pub unsafe fn IsKeyPresentInPropertyList(plist: *const SENSOR_PROPERTY_LIST, pke
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn IsSensorSubscribed(subscriptionlist: *const SENSOR_COLLECTION_LIST, currenttype: ::windows::core::GUID) -> super::super::Foundation::BOOLEAN {
-    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn IsSensorSubscribed ( subscriptionlist : *const SENSOR_COLLECTION_LIST , currenttype : :: windows::core::GUID ) -> super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn IsSensorSubscribed ( subscriptionlist : *const SENSOR_COLLECTION_LIST , currenttype : ::windows::core::GUID ) -> super::super::Foundation:: BOOLEAN );
     IsSensorSubscribed(subscriptionlist, ::core::mem::transmute(currenttype))
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -171,7 +171,7 @@ pub unsafe fn PropKeyFindKeyGetFloat(plist: *const SENSOR_COLLECTION_LIST, pkey:
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetGuid(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetGuid ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut :: windows::core::GUID ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetGuid ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut ::windows::core::GUID ) -> super::super::Foundation:: NTSTATUS );
     PropKeyFindKeyGetGuid(plist, pkey, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -1868,6 +1868,35 @@ impl ::windows::core::TypeKind for PEDOMETER_STEP_TYPE_COUNT {
 impl ::core::fmt::Debug for PEDOMETER_STEP_TYPE_COUNT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PEDOMETER_STEP_TYPE_COUNT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PROXIMITY_SENSOR_CAPABILITIES(pub i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const Proximity_Sensor_Human_Presence_Capable: PROXIMITY_SENSOR_CAPABILITIES = PROXIMITY_SENSOR_CAPABILITIES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const Proximity_Sensor_Human_Engagement_Capable: PROXIMITY_SENSOR_CAPABILITIES = PROXIMITY_SENSOR_CAPABILITIES(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const Proximity_Sensor_Supported_Capabilities: PROXIMITY_SENSOR_CAPABILITIES = PROXIMITY_SENSOR_CAPABILITIES(3i32);
+impl ::core::marker::Copy for PROXIMITY_SENSOR_CAPABILITIES {}
+impl ::core::clone::Clone for PROXIMITY_SENSOR_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PROXIMITY_SENSOR_CAPABILITIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for PROXIMITY_SENSOR_CAPABILITIES {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for PROXIMITY_SENSOR_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PROXIMITY_SENSOR_CAPABILITIES").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]

@@ -1,14 +1,14 @@
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[inline]
 pub unsafe fn MLCreateOperatorRegistry() -> ::windows::core::Result<IMLOperatorRegistry> {
-    ::windows::imp::link ! ( "windows.ai.machinelearning.dll""system" fn MLCreateOperatorRegistry ( registry : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windows.ai.machinelearning.dll""system" fn MLCreateOperatorRegistry ( registry : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMLOperatorRegistry>();
     MLCreateOperatorRegistry(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[inline]
 pub unsafe fn WinMLCreateRuntime() -> ::windows::core::Result<IWinMLRuntime> {
-    ::windows::imp::link ! ( "winml.dll""system" fn WinMLCreateRuntime ( runtime : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "winml.dll""system" fn WinMLCreateRuntime ( runtime : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWinMLRuntime>();
     WinMLCreateRuntime(&mut result__).from_abi(result__)
 }
@@ -806,7 +806,7 @@ impl IWinMLModel {
         let mut result__ = ::windows::core::zeroed::<*mut WINML_MODEL_DESC>();
         (::windows::core::Interface::vtable(self).GetDescription)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn EnumerateMetadata(&self, index: u32, pkey: *mut ::windows::core::PWSTR, pvalue: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumerateMetadata(&self, index: u32, pkey: *mut ::windows::core::PCWSTR, pvalue: *mut ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EnumerateMetadata)(::windows::core::Interface::as_raw(self), index, pkey, pvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -850,7 +850,7 @@ unsafe impl ::windows::core::ComInterface for IWinMLModel {
 pub struct IWinMLModel_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdescription: *mut *mut WINML_MODEL_DESC) -> ::windows::core::HRESULT,
-    pub EnumerateMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pkey: *mut ::windows::core::PWSTR, pvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub EnumerateMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pkey: *mut ::windows::core::PCWSTR, pvalue: *mut ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub EnumerateModelInputs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, ppinputdescriptor: *mut *mut WINML_VARIABLE_DESC) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]

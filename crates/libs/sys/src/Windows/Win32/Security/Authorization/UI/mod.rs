@@ -3,7 +3,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "aclui.dll""system" #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"] fn EditSecurity ( hwndowner : super::super::super::Foundation:: HWND , psi : ISecurityInformation ) -> super::super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "aclui.dll""system" #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"] fn EditSecurityAdvanced ( hwndowner : super::super::super::Foundation:: HWND , psi : ISecurityInformation , usipage : SI_PAGE_TYPE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "aclui.dll""system" #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"] fn EditSecurityAdvanced ( hwndowner : super::super::super::Foundation:: HWND , psi : ISecurityInformation , usipage : SI_PAGE_TYPE ) -> ::windows_sys::core::HRESULT );
 pub type IEffectivePermission = *mut ::core::ffi::c_void;
 pub type IEffectivePermission2 = *mut ::core::ffi::c_void;
 pub type ISecurityInformation = *mut ::core::ffi::c_void;
@@ -12,7 +12,7 @@ pub type ISecurityInformation3 = *mut ::core::ffi::c_void;
 pub type ISecurityInformation4 = *mut ::core::ffi::c_void;
 pub type ISecurityObjectTypeInfo = *mut ::core::ffi::c_void;
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
-pub const CFSTR_ACLUI_SID_INFO_LIST: ::windows_sys::core::PCWSTR = ::windows_sys::w!("CFSTR_ACLUI_SID_INFO_LIST");
+pub const CFSTR_ACLUI_SID_INFO_LIST: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("CFSTR_ACLUI_SID_INFO_LIST");
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
 pub const DOBJ_COND_NTACLS: i32 = 8i32;
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
@@ -238,7 +238,7 @@ impl ::core::clone::Clone for SI_INHERIT_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 pub struct SI_OBJECT_INFO {
     pub dwFlags: SI_OBJECT_INFO_FLAGS,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub pszServerName: ::windows_sys::core::PWSTR,
     pub pszObjectName: ::windows_sys::core::PWSTR,
     pub pszPageTitle: ::windows_sys::core::PWSTR,

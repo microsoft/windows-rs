@@ -1,19 +1,19 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "ksuser.dll""system" #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"] fn KsCreateAllocator ( connectionhandle : super::super::Foundation:: HANDLE , allocatorframing : *const KSALLOCATOR_FRAMING , allocatorhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "ksuser.dll""system" #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"] fn KsCreateAllocator2 ( connectionhandle : super::super::Foundation:: HANDLE , allocatorframing : *const KSALLOCATOR_FRAMING , allocatorhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ksuser.dll""system" #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"] fn KsCreateAllocator2 ( connectionhandle : super::super::Foundation:: HANDLE , allocatorframing : *const KSALLOCATOR_FRAMING , allocatorhandle : *mut super::super::Foundation:: HANDLE ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "ksuser.dll""system" #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"] fn KsCreateClock ( connectionhandle : super::super::Foundation:: HANDLE , clockcreate : *const KSCLOCK_CREATE , clockhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "ksuser.dll""system" #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"] fn KsCreateClock2 ( connectionhandle : super::super::Foundation:: HANDLE , clockcreate : *const KSCLOCK_CREATE , clockhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ksuser.dll""system" #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"] fn KsCreateClock2 ( connectionhandle : super::super::Foundation:: HANDLE , clockcreate : *const KSCLOCK_CREATE , clockhandle : *mut super::super::Foundation:: HANDLE ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "ksuser.dll""system" #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"] fn KsCreatePin ( filterhandle : super::super::Foundation:: HANDLE , connect : *const KSPIN_CONNECT , desiredaccess : u32 , connectionhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "ksuser.dll""system" #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"] fn KsCreatePin2 ( filterhandle : super::super::Foundation:: HANDLE , connect : *const KSPIN_CONNECT , desiredaccess : u32 , connectionhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ksuser.dll""system" #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"] fn KsCreatePin2 ( filterhandle : super::super::Foundation:: HANDLE , connect : *const KSPIN_CONNECT , desiredaccess : u32 , connectionhandle : *mut super::super::Foundation:: HANDLE ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "ksuser.dll""system" #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"] fn KsCreateTopologyNode ( parenthandle : super::super::Foundation:: HANDLE , nodecreate : *const KSNODE_CREATE , desiredaccess : u32 , nodehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "ksuser.dll""system" #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"] fn KsCreateTopologyNode2 ( parenthandle : super::super::Foundation:: HANDLE , nodecreate : *const KSNODE_CREATE , desiredaccess : u32 , nodehandle : *mut super::super::Foundation:: HANDLE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ksuser.dll""system" #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"] fn KsCreateTopologyNode2 ( parenthandle : super::super::Foundation:: HANDLE , nodecreate : *const KSNODE_CREATE , desiredaccess : u32 , nodehandle : *mut super::super::Foundation:: HANDLE ) -> ::windows_sys::core::HRESULT );
 pub type IKsAggregateControl = *mut ::core::ffi::c_void;
 pub type IKsControl = *mut ::core::ffi::c_void;
 pub type IKsFormatSupport = *mut ::core::ffi::c_void;
@@ -439,6 +439,8 @@ pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_MASK: u64 = 2u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_OFF: u64 = 0u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_SHALLOWFOCUS: u64 = 4u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSCAMERA_EXTENDEDPROP_CAPS_ASYNCCONTROL: u64 = 9223372036854775808u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSCAMERA_EXTENDEDPROP_CAPS_CANCELLABLE: u64 = 4611686018427387904u64;
@@ -464,6 +466,8 @@ pub const KSCAMERA_EXTENDEDPROP_EVCOMP_THIRDSTEP: u64 = 4u64;
 pub const KSCAMERA_EXTENDEDPROP_EYEGAZECORRECTION_OFF: u64 = 0u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSCAMERA_EXTENDEDPROP_EYEGAZECORRECTION_ON: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_EYEGAZECORRECTION_STARE: u64 = 2u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSCAMERA_EXTENDEDPROP_FACEAUTH_MODE_ALTERNATIVE_FRAME_ILLUMINATION: u64 = 2u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -1855,17 +1859,17 @@ pub const KSSTREAM_UVC_SECURE_ATTRIBUTE_SIZE: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSSTREAM_WRITE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_Allocator: ::windows_sys::core::PCWSTR = ::windows_sys::w!("{642F5D00-4791-11D0-A5D6-28DB04C10000}");
+pub const KSSTRING_Allocator: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("{642F5D00-4791-11D0-A5D6-28DB04C10000}");
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_AllocatorEx: ::windows_sys::core::PCWSTR = ::windows_sys::w!("{091BB63B-603F-11D1-B067-00A0C9062802}");
+pub const KSSTRING_AllocatorEx: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("{091BB63B-603F-11D1-B067-00A0C9062802}");
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_Clock: ::windows_sys::core::PCWSTR = ::windows_sys::w!("{53172480-4791-11D0-A5D6-28DB04C10000}");
+pub const KSSTRING_Clock: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("{53172480-4791-11D0-A5D6-28DB04C10000}");
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_Filter: ::windows_sys::core::PCWSTR = ::windows_sys::w!("{9B365890-165F-11D0-A195-0020AFD156E4}");
+pub const KSSTRING_Filter: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("{9B365890-165F-11D0-A195-0020AFD156E4}");
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_Pin: ::windows_sys::core::PCWSTR = ::windows_sys::w!("{146F1A80-4791-11D0-A5D6-28DB04C10000}");
+pub const KSSTRING_Pin: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("{146F1A80-4791-11D0-A5D6-28DB04C10000}");
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_TopologyNode: ::windows_sys::core::PCWSTR = ::windows_sys::w!("{0621061A-EE75-11D0-B915-00A0C9223196}");
+pub const KSSTRING_TopologyNode: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("{0621061A-EE75-11D0-B915-00A0C9223196}");
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSTIME_FORMAT_BYTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7b785571_8c82_11cf_bc0c_00aa00ac74f6);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -2275,9 +2279,9 @@ pub const PipeFactor_UserModeDownstream: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const PipeFactor_UserModeUpstream: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const RT_RCDATA: ::windows_sys::core::PCWSTR = 10i32 as _;
+pub const RT_RCDATA: ::windows_sys::core::PCWSTR = 10i16 as _;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const RT_STRING: ::windows_sys::core::PCWSTR = 6i32 as _;
+pub const RT_STRING: ::windows_sys::core::PCWSTR = 6i16 as _;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const SPEAKER_ALL: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -2366,6 +2370,14 @@ pub type CONSTRICTOR_OPTION = i32;
 pub const CONSTRICTOR_OPTION_DISABLE: CONSTRICTOR_OPTION = 0i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const CONSTRICTOR_OPTION_MUTE: CONSTRICTOR_OPTION = 1i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub type EDeviceControlUseType = i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eDeviceControlUseMissing: EDeviceControlUseType = 0i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eDeviceControlUsePrimary: EDeviceControlUseType = 1i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eDeviceControlUseSecondary: EDeviceControlUseType = 2i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub type EPcxConnectionType = i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -3023,6 +3035,8 @@ pub const KSPROPERTY_AUDIOENGINE_LOOPBACK_PROTECTION: KSPROPERTY_AUDIOENGINE = 8
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSPROPERTY_AUDIOENGINE_VOLUMELEVEL: KSPROPERTY_AUDIOENGINE = 9i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIOENGINE_DEVICECONTROLS: KSPROPERTY_AUDIOENGINE = 10i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub type KSPROPERTY_AUDIOMODULE = i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSPROPERTY_AUDIOMODULE_DESCRIPTORS: KSPROPERTY_AUDIOMODULE = 1i32;
@@ -3438,6 +3452,8 @@ pub const KSPROPERTY_JACK_DESCRIPTION2: KSPROPERTY_JACK = 2i32;
 pub const KSPROPERTY_JACK_SINK_INFO: KSPROPERTY_JACK = 3i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSPROPERTY_JACK_CONTAINERID: KSPROPERTY_JACK = 4i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_JACK_DESCRIPTION3: KSPROPERTY_JACK = 5i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub type KSPROPERTY_MEDIASEEKING = i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -4679,6 +4695,19 @@ pub struct KSAUDIOENGINE_DESCRIPTOR {
 }
 impl ::core::marker::Copy for KSAUDIOENGINE_DESCRIPTOR {}
 impl ::core::clone::Clone for KSAUDIOENGINE_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub struct KSAUDIOENGINE_DEVICECONTROLS {
+    pub Volume: EDeviceControlUseType,
+    pub Mute: EDeviceControlUseType,
+    pub PeakMeter: EDeviceControlUseType,
+}
+impl ::core::marker::Copy for KSAUDIOENGINE_DEVICECONTROLS {}
+impl ::core::clone::Clone for KSAUDIOENGINE_DEVICECONTROLS {
     fn clone(&self) -> Self {
         *self
     }
@@ -6079,17 +6108,14 @@ impl ::core::clone::Clone for KSFRAMETIME {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSGOP_USERDATA {
     pub sc: u32,
     pub reserved1: u32,
     pub cFields: u8,
-    pub l21Data: [super::super::Foundation::CHAR; 3],
+    pub l21Data: [u8; 3],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for KSGOP_USERDATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for KSGOP_USERDATA {
     fn clone(&self) -> Self {
         *self
@@ -6171,6 +6197,17 @@ pub struct KSJACK_DESCRIPTION2 {
 }
 impl ::core::marker::Copy for KSJACK_DESCRIPTION2 {}
 impl ::core::clone::Clone for KSJACK_DESCRIPTION2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub struct KSJACK_DESCRIPTION3 {
+    pub ConfigId: u32,
+}
+impl ::core::marker::Copy for KSJACK_DESCRIPTION3 {}
+impl ::core::clone::Clone for KSJACK_DESCRIPTION3 {
     fn clone(&self) -> Self {
         *self
     }

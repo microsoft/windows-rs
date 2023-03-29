@@ -2,7 +2,7 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ComputeInvCMAP(prgbcolors: *const super::super::Graphics::Gdi::RGBQUAD, ncolors: u32, pinvtable: *mut u8, cbtable: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "imgutil.dll""system" fn ComputeInvCMAP ( prgbcolors : *const super::super::Graphics::Gdi:: RGBQUAD , ncolors : u32 , pinvtable : *mut u8 , cbtable : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "imgutil.dll""system" fn ComputeInvCMAP ( prgbcolors : *const super::super::Graphics::Gdi:: RGBQUAD , ncolors : u32 , pinvtable : *mut u8 , cbtable : u32 ) -> ::windows::core::HRESULT );
     ComputeInvCMAP(prgbcolors, ncolors, pinvtable, cbtable).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -12,14 +12,14 @@ pub unsafe fn CreateDDrawSurfaceOnDIB<P0>(hbmdib: P0) -> ::windows::core::Result
 where
     P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
 {
-    ::windows::imp::link ! ( "imgutil.dll""system" fn CreateDDrawSurfaceOnDIB ( hbmdib : super::super::Graphics::Gdi:: HBITMAP , ppsurface : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "imgutil.dll""system" fn CreateDDrawSurfaceOnDIB ( hbmdib : super::super::Graphics::Gdi:: HBITMAP , ppsurface : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Graphics::DirectDraw::IDirectDrawSurface>();
     CreateDDrawSurfaceOnDIB(hbmdib.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn CreateMIMEMap() -> ::windows::core::Result<IMapMIMEToCLSID> {
-    ::windows::imp::link ! ( "imgutil.dll""system" fn CreateMIMEMap ( ppmap : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "imgutil.dll""system" fn CreateMIMEMap ( ppmap : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMapMIMEToCLSID>();
     CreateMIMEMap(&mut result__).from_abi(result__)
 }
@@ -32,7 +32,7 @@ where
     P1: ::windows::core::IntoParam<IMapMIMEToCLSID>,
     P2: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "imgutil.dll""system" fn DecodeImage ( pstream : * mut::core::ffi::c_void , pmap : * mut::core::ffi::c_void , peventsink : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "imgutil.dll""system" fn DecodeImage ( pstream : * mut::core::ffi::c_void , pmap : * mut::core::ffi::c_void , peventsink : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DecodeImage(pstream.into_param().abi(), pmap.into_param().abi(), peventsink.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_System_Com\"`*"]
@@ -45,26 +45,26 @@ where
     P2: ::windows::core::IntoParam<::windows::core::IUnknown>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "imgutil.dll""system" fn DecodeImageEx ( pstream : * mut::core::ffi::c_void , pmap : * mut::core::ffi::c_void , peventsink : * mut::core::ffi::c_void , pszmimetypeparam : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "imgutil.dll""system" fn DecodeImageEx ( pstream : * mut::core::ffi::c_void , pmap : * mut::core::ffi::c_void , peventsink : * mut::core::ffi::c_void , pszmimetypeparam : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     DecodeImageEx(pstream.into_param().abi(), pmap.into_param().abi(), peventsink.into_param().abi(), pszmimetypeparam.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DitherTo8(pdestbits: *mut u8, ndestpitch: i32, psrcbits: *mut u8, nsrcpitch: i32, bfidsrc: *const ::windows::core::GUID, prgbdestcolors: *mut super::super::Graphics::Gdi::RGBQUAD, prgbsrccolors: *mut super::super::Graphics::Gdi::RGBQUAD, pbdestinvmap: *mut u8, x: i32, y: i32, cx: i32, cy: i32, ldesttrans: i32, lsrctrans: i32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "imgutil.dll""system" fn DitherTo8 ( pdestbits : *mut u8 , ndestpitch : i32 , psrcbits : *mut u8 , nsrcpitch : i32 , bfidsrc : *const :: windows::core::GUID , prgbdestcolors : *mut super::super::Graphics::Gdi:: RGBQUAD , prgbsrccolors : *mut super::super::Graphics::Gdi:: RGBQUAD , pbdestinvmap : *mut u8 , x : i32 , y : i32 , cx : i32 , cy : i32 , ldesttrans : i32 , lsrctrans : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "imgutil.dll""system" fn DitherTo8 ( pdestbits : *mut u8 , ndestpitch : i32 , psrcbits : *mut u8 , nsrcpitch : i32 , bfidsrc : *const ::windows::core::GUID , prgbdestcolors : *mut super::super::Graphics::Gdi:: RGBQUAD , prgbsrccolors : *mut super::super::Graphics::Gdi:: RGBQUAD , pbdestinvmap : *mut u8 , x : i32 , y : i32 , cx : i32 , cy : i32 , ldesttrans : i32 , lsrctrans : i32 ) -> ::windows::core::HRESULT );
     DitherTo8(pdestbits, ndestpitch, psrcbits, nsrcpitch, bfidsrc, prgbdestcolors, prgbsrccolors, pbdestinvmap, x, y, cx, cy, ldesttrans, lsrctrans).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn GetMaxMIMEIDBytes(pnmaxbytes: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "imgutil.dll""system" fn GetMaxMIMEIDBytes ( pnmaxbytes : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "imgutil.dll""system" fn GetMaxMIMEIDBytes ( pnmaxbytes : *mut u32 ) -> ::windows::core::HRESULT );
     GetMaxMIMEIDBytes(pnmaxbytes).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn IEAssociateThreadWithTab(dwtabthreadid: u32, dwassociatedthreadid: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEAssociateThreadWithTab ( dwtabthreadid : u32 , dwassociatedthreadid : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IEAssociateThreadWithTab ( dwtabthreadid : u32 , dwassociatedthreadid : u32 ) -> ::windows::core::HRESULT );
     IEAssociateThreadWithTab(dwtabthreadid, dwassociatedthreadid).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -74,7 +74,7 @@ pub unsafe fn IECancelSaveFile<P0>(hstate: P0) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IECancelSaveFile ( hstate : super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IECancelSaveFile ( hstate : super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     IECancelSaveFile(hstate.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -84,7 +84,7 @@ pub unsafe fn IECreateDirectory<P0>(lppathname: P0, lpsecurityattributes: *const
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IECreateDirectory ( lppathname : :: windows::core::PCWSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IECreateDirectory ( lppathname : ::windows::core::PCWSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
     IECreateDirectory(lppathname.into_param().abi(), lpsecurityattributes)
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -95,7 +95,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IECreateFile ( lpfilename : :: windows::core::PCWSTR , dwdesiredaccess : u32 , dwsharemode : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwcreationdisposition : u32 , dwflagsandattributes : u32 , htemplatefile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IECreateFile ( lpfilename : ::windows::core::PCWSTR , dwdesiredaccess : u32 , dwsharemode : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwcreationdisposition : u32 , dwflagsandattributes : u32 , htemplatefile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: HANDLE );
     IECreateFile(lpfilename.into_param().abi(), dwdesiredaccess, dwsharemode, lpsecurityattributes, dwcreationdisposition, dwflagsandattributes, htemplatefile.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -105,13 +105,13 @@ pub unsafe fn IEDeleteFile<P0>(lpfilename: P0) -> super::super::Foundation::BOOL
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEDeleteFile ( lpfilename : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IEDeleteFile ( lpfilename : ::windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     IEDeleteFile(lpfilename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn IEDisassociateThreadWithTab(dwtabthreadid: u32, dwassociatedthreadid: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEDisassociateThreadWithTab ( dwtabthreadid : u32 , dwassociatedthreadid : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IEDisassociateThreadWithTab ( dwtabthreadid : u32 , dwassociatedthreadid : u32 ) -> ::windows::core::HRESULT );
     IEDisassociateThreadWithTab(dwtabthreadid, dwassociatedthreadid).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`*"]
@@ -121,7 +121,7 @@ pub unsafe fn IEFindFirstFile<P0>(lpfilename: P0, lpfindfiledata: *const super::
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEFindFirstFile ( lpfilename : :: windows::core::PCWSTR , lpfindfiledata : *const super::super::Storage::FileSystem:: WIN32_FIND_DATAA ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IEFindFirstFile ( lpfilename : ::windows::core::PCWSTR , lpfindfiledata : *const super::super::Storage::FileSystem:: WIN32_FIND_DATAA ) -> super::super::Foundation:: HANDLE );
     IEFindFirstFile(lpfilename.into_param().abi(), lpfindfiledata)
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`*"]
@@ -131,7 +131,7 @@ pub unsafe fn IEGetFileAttributesEx<P0>(lpfilename: P0, finfolevelid: super::sup
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEGetFileAttributesEx ( lpfilename : :: windows::core::PCWSTR , finfolevelid : super::super::Storage::FileSystem:: GET_FILEEX_INFO_LEVELS , lpfileinformation : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IEGetFileAttributesEx ( lpfilename : ::windows::core::PCWSTR , finfolevelid : super::super::Storage::FileSystem:: GET_FILEEX_INFO_LEVELS , lpfileinformation : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     IEGetFileAttributesEx(lpfilename.into_param().abi(), finfolevelid, lpfileinformation)
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
@@ -141,13 +141,13 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEGetProtectedModeCookie ( lpszurl : :: windows::core::PCWSTR , lpszcookiename : :: windows::core::PCWSTR , lpszcookiedata : :: windows::core::PWSTR , pcchcookiedata : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IEGetProtectedModeCookie ( lpszurl : ::windows::core::PCWSTR , lpszcookiename : ::windows::core::PCWSTR , lpszcookiedata : ::windows::core::PWSTR , pcchcookiedata : *mut u32 , dwflags : u32 ) -> ::windows::core::HRESULT );
     IEGetProtectedModeCookie(lpszurl.into_param().abi(), lpszcookiename.into_param().abi(), ::core::mem::transmute(lpszcookiedata), pcchcookiedata, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn IEGetWriteableFolderPath(clsidfolderid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::PWSTR> {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEGetWriteableFolderPath ( clsidfolderid : *const :: windows::core::GUID , lppwstrpath : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IEGetWriteableFolderPath ( clsidfolderid : *const ::windows::core::GUID , lppwstrpath : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     IEGetWriteableFolderPath(clsidfolderid, &mut result__).from_abi(result__)
 }
@@ -155,7 +155,7 @@ pub unsafe fn IEGetWriteableFolderPath(clsidfolderid: *const ::windows::core::GU
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn IEGetWriteableLowHKCU() -> ::windows::core::Result<super::super::System::Registry::HKEY> {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEGetWriteableLowHKCU ( phkey : *mut super::super::System::Registry:: HKEY ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IEGetWriteableLowHKCU ( phkey : *mut super::super::System::Registry:: HKEY ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::System::Registry::HKEY>();
     IEGetWriteableLowHKCU(&mut result__).from_abi(result__)
 }
@@ -177,7 +177,7 @@ pub unsafe fn IEIsInPrivateBrowsing() -> super::super::Foundation::BOOL {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IEIsProtectedModeProcess() -> ::windows::core::Result<super::super::Foundation::BOOL> {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEIsProtectedModeProcess ( pbresult : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IEIsProtectedModeProcess ( pbresult : *mut super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
     IEIsProtectedModeProcess(&mut result__).from_abi(result__)
 }
@@ -187,7 +187,7 @@ pub unsafe fn IEIsProtectedModeURL<P0>(lpwstrurl: P0) -> ::windows::core::Result
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEIsProtectedModeURL ( lpwstrurl : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IEIsProtectedModeURL ( lpwstrurl : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     IEIsProtectedModeURL(lpwstrurl.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
@@ -197,7 +197,7 @@ pub unsafe fn IELaunchURL<P0>(lpwstrurl: P0, lpprocinfo: *mut super::super::Syst
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IELaunchURL ( lpwstrurl : :: windows::core::PCWSTR , lpprocinfo : *mut super::super::System::Threading:: PROCESS_INFORMATION , lpinfo : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IELaunchURL ( lpwstrurl : ::windows::core::PCWSTR , lpprocinfo : *mut super::super::System::Threading:: PROCESS_INFORMATION , lpinfo : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     IELaunchURL(lpwstrurl.into_param().abi(), lpprocinfo, ::core::mem::transmute(lpinfo.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -208,13 +208,13 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEMoveFileEx ( lpexistingfilename : :: windows::core::PCWSTR , lpnewfilename : :: windows::core::PCWSTR , dwflags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IEMoveFileEx ( lpexistingfilename : ::windows::core::PCWSTR , lpnewfilename : ::windows::core::PCWSTR , dwflags : u32 ) -> super::super::Foundation:: BOOL );
     IEMoveFileEx(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn IERefreshElevationPolicy() -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IERefreshElevationPolicy ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IERefreshElevationPolicy ( ) -> ::windows::core::HRESULT );
     IERefreshElevationPolicy().ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Registry\"`*"]
@@ -225,7 +225,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IERegCreateKeyEx ( lpsubkey : :: windows::core::PCWSTR , reserved : u32 , lpclass : :: windows::core::PCWSTR , dwoptions : u32 , samdesired : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , phkresult : *mut super::super::System::Registry:: HKEY , lpdwdisposition : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IERegCreateKeyEx ( lpsubkey : ::windows::core::PCWSTR , reserved : u32 , lpclass : ::windows::core::PCWSTR , dwoptions : u32 , samdesired : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , phkresult : *mut super::super::System::Registry:: HKEY , lpdwdisposition : *mut u32 ) -> ::windows::core::HRESULT );
     IERegCreateKeyEx(lpsubkey.into_param().abi(), reserved, lpclass.into_param().abi(), dwoptions, samdesired, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), phkresult, lpdwdisposition).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
@@ -235,7 +235,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IERegSetValueEx ( lpsubkey : :: windows::core::PCWSTR , lpvaluename : :: windows::core::PCWSTR , reserved : u32 , dwtype : u32 , lpdata : *const u8 , cbdata : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IERegSetValueEx ( lpsubkey : ::windows::core::PCWSTR , lpvaluename : ::windows::core::PCWSTR , reserved : u32 , dwtype : u32 , lpdata : *const u8 , cbdata : u32 ) -> ::windows::core::HRESULT );
     IERegSetValueEx(lpsubkey.into_param().abi(), lpvaluename.into_param().abi(), reserved, dwtype, ::core::mem::transmute(lpdata.as_ptr()), lpdata.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -246,7 +246,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IERegisterWritableRegistryKey ( guid : :: windows::core::GUID , lpsubkey : :: windows::core::PCWSTR , fsubkeyallowed : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IERegisterWritableRegistryKey ( guid : ::windows::core::GUID , lpsubkey : ::windows::core::PCWSTR , fsubkeyallowed : super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     IERegisterWritableRegistryKey(::core::mem::transmute(guid), lpsubkey.into_param().abi(), fsubkeyallowed.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
@@ -256,7 +256,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IERegisterWritableRegistryValue ( guid : :: windows::core::GUID , lppath : :: windows::core::PCWSTR , lpvaluename : :: windows::core::PCWSTR , dwtype : u32 , lpdata : *const u8 , cbmaxdata : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IERegisterWritableRegistryValue ( guid : ::windows::core::GUID , lppath : ::windows::core::PCWSTR , lpvaluename : ::windows::core::PCWSTR , dwtype : u32 , lpdata : *const u8 , cbmaxdata : u32 ) -> ::windows::core::HRESULT );
     IERegisterWritableRegistryValue(::core::mem::transmute(guid), lppath.into_param().abi(), lpvaluename.into_param().abi(), dwtype, ::core::mem::transmute(lpdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len() as _)).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -266,7 +266,7 @@ pub unsafe fn IERemoveDirectory<P0>(lppathname: P0) -> super::super::Foundation:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IERemoveDirectory ( lppathname : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IERemoveDirectory ( lppathname : ::windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     IERemoveDirectory(lppathname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -277,7 +277,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IESaveFile ( hstate : super::super::Foundation:: HANDLE , lpwstrsourcefile : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IESaveFile ( hstate : super::super::Foundation:: HANDLE , lpwstrsourcefile : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     IESaveFile(hstate.into_param().abi(), lpwstrsourcefile.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
@@ -288,7 +288,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IESetProtectedModeCookie ( lpszurl : :: windows::core::PCWSTR , lpszcookiename : :: windows::core::PCWSTR , lpszcookiedata : :: windows::core::PCWSTR , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IESetProtectedModeCookie ( lpszurl : ::windows::core::PCWSTR , lpszcookiename : ::windows::core::PCWSTR , lpszcookiedata : ::windows::core::PCWSTR , dwflags : u32 ) -> ::windows::core::HRESULT );
     IESetProtectedModeCookie(lpszurl.into_param().abi(), lpszcookiename.into_param().abi(), lpszcookiedata.into_param().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -301,7 +301,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEShowOpenFileDialog ( hwnd : super::super::Foundation:: HWND , lpwstrfilename : :: windows::core::PWSTR , cchmaxfilename : u32 , lpwstrinitialdir : :: windows::core::PCWSTR , lpwstrfilter : :: windows::core::PCWSTR , lpwstrdefext : :: windows::core::PCWSTR , dwfilterindex : u32 , dwflags : u32 , phfile : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IEShowOpenFileDialog ( hwnd : super::super::Foundation:: HWND , lpwstrfilename : ::windows::core::PWSTR , cchmaxfilename : u32 , lpwstrinitialdir : ::windows::core::PCWSTR , lpwstrfilter : ::windows::core::PCWSTR , lpwstrdefext : ::windows::core::PCWSTR , dwfilterindex : u32 , dwflags : u32 , phfile : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     IEShowOpenFileDialog(hwnd.into_param().abi(), ::core::mem::transmute(lpwstrfilename.as_ptr()), lpwstrfilename.len() as _, lpwstrinitialdir.into_param().abi(), lpwstrfilter.into_param().abi(), lpwstrdefext.into_param().abi(), dwfilterindex, dwflags, phfile).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -315,7 +315,7 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P4: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEShowSaveFileDialog ( hwnd : super::super::Foundation:: HWND , lpwstrinitialfilename : :: windows::core::PCWSTR , lpwstrinitialdir : :: windows::core::PCWSTR , lpwstrfilter : :: windows::core::PCWSTR , lpwstrdefext : :: windows::core::PCWSTR , dwfilterindex : u32 , dwflags : u32 , lppwstrdestinationfilepath : *mut :: windows::core::PWSTR , phstate : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IEShowSaveFileDialog ( hwnd : super::super::Foundation:: HWND , lpwstrinitialfilename : ::windows::core::PCWSTR , lpwstrinitialdir : ::windows::core::PCWSTR , lpwstrfilter : ::windows::core::PCWSTR , lpwstrdefext : ::windows::core::PCWSTR , dwfilterindex : u32 , dwflags : u32 , lppwstrdestinationfilepath : *mut ::windows::core::PWSTR , phstate : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     IEShowSaveFileDialog(hwnd.into_param().abi(), lpwstrinitialfilename.into_param().abi(), lpwstrinitialdir.into_param().abi(), lpwstrfilter.into_param().abi(), lpwstrdefext.into_param().abi(), dwfilterindex, dwflags, lppwstrdestinationfilepath, phstate).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -328,13 +328,13 @@ pub unsafe fn IETrackingProtectionEnabled() -> super::super::Foundation::BOOL {
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn IEUnregisterWritableRegistry(guid: ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEUnregisterWritableRegistry ( guid : :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ieframe.dll""system" fn IEUnregisterWritableRegistry ( guid : ::windows::core::GUID ) -> ::windows::core::HRESULT );
     IEUnregisterWritableRegistry(::core::mem::transmute(guid)).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn IdentifyMIMEType(pbbytes: *const u8, nbytes: u32, pnformat: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "imgutil.dll""system" fn IdentifyMIMEType ( pbbytes : *const u8 , nbytes : u32 , pnformat : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "imgutil.dll""system" fn IdentifyMIMEType ( pbbytes : *const u8 , nbytes : u32 , pnformat : *mut u32 ) -> ::windows::core::HRESULT );
     IdentifyMIMEType(pbbytes, nbytes, pnformat).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -346,7 +346,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingAccessDeniedDialog ( hdlg : super::super::Foundation:: HWND , pszusername : :: windows::core::PCSTR , pszcontentdescription : :: windows::core::PCSTR , pratingdetails : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msrating.dll""system" fn RatingAccessDeniedDialog ( hdlg : super::super::Foundation:: HWND , pszusername : ::windows::core::PCSTR , pszcontentdescription : ::windows::core::PCSTR , pratingdetails : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     RatingAccessDeniedDialog(hdlg.into_param().abi(), pszusername.into_param().abi(), pszcontentdescription.into_param().abi(), pratingdetails).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -357,7 +357,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingAccessDeniedDialog2 ( hdlg : super::super::Foundation:: HWND , pszusername : :: windows::core::PCSTR , pratingdetails : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msrating.dll""system" fn RatingAccessDeniedDialog2 ( hdlg : super::super::Foundation:: HWND , pszusername : ::windows::core::PCSTR , pratingdetails : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     RatingAccessDeniedDialog2(hdlg.into_param().abi(), pszusername.into_param().abi(), pratingdetails).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -368,7 +368,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingAccessDeniedDialog2W ( hdlg : super::super::Foundation:: HWND , pszusername : :: windows::core::PCWSTR , pratingdetails : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msrating.dll""system" fn RatingAccessDeniedDialog2W ( hdlg : super::super::Foundation:: HWND , pszusername : ::windows::core::PCWSTR , pratingdetails : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     RatingAccessDeniedDialog2W(hdlg.into_param().abi(), pszusername.into_param().abi(), pratingdetails).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -380,7 +380,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingAccessDeniedDialogW ( hdlg : super::super::Foundation:: HWND , pszusername : :: windows::core::PCWSTR , pszcontentdescription : :: windows::core::PCWSTR , pratingdetails : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msrating.dll""system" fn RatingAccessDeniedDialogW ( hdlg : super::super::Foundation:: HWND , pszusername : ::windows::core::PCWSTR , pszcontentdescription : ::windows::core::PCWSTR , pratingdetails : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     RatingAccessDeniedDialogW(hdlg.into_param().abi(), pszusername.into_param().abi(), pszcontentdescription.into_param().abi(), pratingdetails).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -394,7 +394,7 @@ where
     P3: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     P4: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingAddToApprovedSites ( hdlg : super::super::Foundation:: HWND , cbpasswordblob : u32 , pbpasswordblob : *mut u8 , lpszurl : :: windows::core::PCWSTR , falwaysnever : super::super::Foundation:: BOOL , fsitepage : super::super::Foundation:: BOOL , fapprovedsitesenforced : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msrating.dll""system" fn RatingAddToApprovedSites ( hdlg : super::super::Foundation:: HWND , cbpasswordblob : u32 , pbpasswordblob : *mut u8 , lpszurl : ::windows::core::PCWSTR , falwaysnever : super::super::Foundation:: BOOL , fsitepage : super::super::Foundation:: BOOL , fapprovedsitesenforced : super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     RatingAddToApprovedSites(hdlg.into_param().abi(), pbpasswordblob.len() as _, ::core::mem::transmute(pbpasswordblob.as_ptr()), lpszurl.into_param().abi(), falwaysnever.into_param().abi(), fsitepage.into_param().abi(), fapprovedsitesenforced.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
@@ -405,7 +405,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingCheckUserAccess ( pszusername : :: windows::core::PCSTR , pszurl : :: windows::core::PCSTR , pszratinginfo : :: windows::core::PCSTR , pdata : *const u8 , cbdata : u32 , ppratingdetails : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msrating.dll""system" fn RatingCheckUserAccess ( pszusername : ::windows::core::PCSTR , pszurl : ::windows::core::PCSTR , pszratinginfo : ::windows::core::PCSTR , pdata : *const u8 , cbdata : u32 , ppratingdetails : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     RatingCheckUserAccess(pszusername.into_param().abi(), pszurl.into_param().abi(), pszratinginfo.into_param().abi(), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppratingdetails.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
@@ -416,7 +416,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingCheckUserAccessW ( pszusername : :: windows::core::PCWSTR , pszurl : :: windows::core::PCWSTR , pszratinginfo : :: windows::core::PCWSTR , pdata : *const u8 , cbdata : u32 , ppratingdetails : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msrating.dll""system" fn RatingCheckUserAccessW ( pszusername : ::windows::core::PCWSTR , pszurl : ::windows::core::PCWSTR , pszratinginfo : ::windows::core::PCWSTR , pdata : *const u8 , cbdata : u32 , ppratingdetails : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     RatingCheckUserAccessW(pszusername.into_param().abi(), pszurl.into_param().abi(), pszratinginfo.into_param().abi(), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppratingdetails.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -425,10 +425,10 @@ where
 pub unsafe fn RatingClickedOnPRFInternal<P0, P1, P2>(hwndowner: P0, param1: P1, lpszfilename: P2, nshow: i32) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingClickedOnPRFInternal ( hwndowner : super::super::Foundation:: HWND , param1 : super::super::Foundation:: HINSTANCE , lpszfilename : :: windows::core::PCSTR , nshow : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msrating.dll""system" fn RatingClickedOnPRFInternal ( hwndowner : super::super::Foundation:: HWND , param1 : super::super::Foundation:: HMODULE , lpszfilename : ::windows::core::PCSTR , nshow : i32 ) -> ::windows::core::HRESULT );
     RatingClickedOnPRFInternal(hwndowner.into_param().abi(), param1.into_param().abi(), lpszfilename.into_param().abi(), nshow).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -437,10 +437,10 @@ where
 pub unsafe fn RatingClickedOnRATInternal<P0, P1, P2>(hwndowner: P0, param1: P1, lpszfilename: P2, nshow: i32) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingClickedOnRATInternal ( hwndowner : super::super::Foundation:: HWND , param1 : super::super::Foundation:: HINSTANCE , lpszfilename : :: windows::core::PCSTR , nshow : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msrating.dll""system" fn RatingClickedOnRATInternal ( hwndowner : super::super::Foundation:: HWND , param1 : super::super::Foundation:: HMODULE , lpszfilename : ::windows::core::PCSTR , nshow : i32 ) -> ::windows::core::HRESULT );
     RatingClickedOnRATInternal(hwndowner.into_param().abi(), param1.into_param().abi(), lpszfilename.into_param().abi(), nshow).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -452,7 +452,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingEnable ( hwndparent : super::super::Foundation:: HWND , pszusername : :: windows::core::PCSTR , fenable : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msrating.dll""system" fn RatingEnable ( hwndparent : super::super::Foundation:: HWND , pszusername : ::windows::core::PCSTR , fenable : super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     RatingEnable(hwndparent.into_param().abi(), pszusername.into_param().abi(), fenable.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -464,25 +464,25 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingEnableW ( hwndparent : super::super::Foundation:: HWND , pszusername : :: windows::core::PCWSTR , fenable : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msrating.dll""system" fn RatingEnableW ( hwndparent : super::super::Foundation:: HWND , pszusername : ::windows::core::PCWSTR , fenable : super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     RatingEnableW(hwndparent.into_param().abi(), pszusername.into_param().abi(), fenable.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn RatingEnabledQuery() -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingEnabledQuery ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msrating.dll""system" fn RatingEnabledQuery ( ) -> ::windows::core::HRESULT );
     RatingEnabledQuery().ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn RatingFreeDetails(pratingdetails: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingFreeDetails ( pratingdetails : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msrating.dll""system" fn RatingFreeDetails ( pratingdetails : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     RatingFreeDetails(::core::mem::transmute(pratingdetails.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn RatingInit() -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingInit ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msrating.dll""system" fn RatingInit ( ) -> ::windows::core::HRESULT );
     RatingInit().ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -492,7 +492,7 @@ pub unsafe fn RatingObtainCancel<P0>(hratingobtainquery: P0) -> ::windows::core:
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingObtainCancel ( hratingobtainquery : super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msrating.dll""system" fn RatingObtainCancel ( hratingobtainquery : super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     RatingObtainCancel(hratingobtainquery.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -502,7 +502,7 @@ pub unsafe fn RatingObtainQuery<P0>(psztargeturl: P0, dwuserdata: u32, fcallback
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingObtainQuery ( psztargeturl : :: windows::core::PCSTR , dwuserdata : u32 , fcallback : isize , phratingobtainquery : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msrating.dll""system" fn RatingObtainQuery ( psztargeturl : ::windows::core::PCSTR , dwuserdata : u32 , fcallback : isize , phratingobtainquery : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     RatingObtainQuery(psztargeturl.into_param().abi(), dwuserdata, fcallback, ::core::mem::transmute(phratingobtainquery.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -512,7 +512,7 @@ pub unsafe fn RatingObtainQueryW<P0>(psztargeturl: P0, dwuserdata: u32, fcallbac
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingObtainQueryW ( psztargeturl : :: windows::core::PCWSTR , dwuserdata : u32 , fcallback : isize , phratingobtainquery : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msrating.dll""system" fn RatingObtainQueryW ( psztargeturl : ::windows::core::PCWSTR , dwuserdata : u32 , fcallback : isize , phratingobtainquery : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     RatingObtainQueryW(psztargeturl.into_param().abi(), dwuserdata, fcallback, ::core::mem::transmute(phratingobtainquery.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -523,7 +523,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingSetupUI ( hdlg : super::super::Foundation:: HWND , pszusername : :: windows::core::PCSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msrating.dll""system" fn RatingSetupUI ( hdlg : super::super::Foundation:: HWND , pszusername : ::windows::core::PCSTR ) -> ::windows::core::HRESULT );
     RatingSetupUI(hdlg.into_param().abi(), pszusername.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -534,7 +534,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingSetupUIW ( hdlg : super::super::Foundation:: HWND , pszusername : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msrating.dll""system" fn RatingSetupUIW ( hdlg : super::super::Foundation:: HWND , pszusername : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     RatingSetupUIW(hdlg.into_param().abi(), pszusername.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_System_Com\"`*"]
@@ -544,7 +544,7 @@ pub unsafe fn SniffStream<P0>(pinstream: P0, pnformat: *mut u32, ppoutstream: *m
 where
     P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
 {
-    ::windows::imp::link ! ( "imgutil.dll""system" fn SniffStream ( pinstream : * mut::core::ffi::c_void , pnformat : *mut u32 , ppoutstream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "imgutil.dll""system" fn SniffStream ( pinstream : * mut::core::ffi::c_void , pnformat : *mut u32 , ppoutstream : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     SniffStream(pinstream.into_param().abi(), pnformat, ::core::mem::transmute(ppoutstream)).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
@@ -5900,29 +5900,29 @@ pub const IECMDID_SETID_AUTOCOMPLETE_FOR_FORMS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const IECMDID_SET_INVOKE_DEFAULT_BROWSER_ON_NEW_WINDOW: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const IEGetProcessModule_PROC_NAME: ::windows::core::PCSTR = ::windows::s!("IEGetProcessModule");
+pub const IEGetProcessModule_PROC_NAME: ::windows::core::PCSTR = ::windows::core::s!("IEGetProcessModule");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const IEGetTabWindowExports_PROC_NAME: ::windows::core::PCSTR = ::windows::s!("IEGetTabWindowExports");
+pub const IEGetTabWindowExports_PROC_NAME: ::windows::core::PCSTR = ::windows::core::s!("IEGetTabWindowExports");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const IEPROCESS_MODULE_NAME: ::windows::core::PCWSTR = ::windows::w!("IERtUtil.dll");
+pub const IEPROCESS_MODULE_NAME: ::windows::core::PCWSTR = ::windows::core::w!("IERtUtil.dll");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const IEWebDriverManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90314af2_5250_47b3_89d8_6295fc23bc22);
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const IE_USE_OE_MAIL_HKEY: i32 = -2147483647i32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const IE_USE_OE_MAIL_KEY: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Internet Explorer\\Mail");
+pub const IE_USE_OE_MAIL_KEY: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Internet Explorer\\Mail");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const IE_USE_OE_MAIL_VALUE: ::windows::core::PCWSTR = ::windows::w!("Use Outlook Express");
+pub const IE_USE_OE_MAIL_VALUE: ::windows::core::PCWSTR = ::windows::core::w!("Use Outlook Express");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const IE_USE_OE_NEWS_HKEY: i32 = -2147483647i32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const IE_USE_OE_NEWS_KEY: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Internet Explorer\\News");
+pub const IE_USE_OE_NEWS_KEY: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Internet Explorer\\News");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const IE_USE_OE_NEWS_VALUE: ::windows::core::PCWSTR = ::windows::w!("Use Outlook Express");
+pub const IE_USE_OE_NEWS_VALUE: ::windows::core::PCWSTR = ::windows::core::w!("Use Outlook Express");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const IE_USE_OE_PRESENT_HKEY: i32 = -2147483646i32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const IE_USE_OE_PRESENT_KEY: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows\\CurrentVersion\\app.paths\\msimn.exe");
+pub const IE_USE_OE_PRESENT_KEY: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\app.paths\\msimn.exe");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const IMGDECODE_EVENT_BEGINBITS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
@@ -5962,297 +5962,297 @@ pub const OpenServiceManager: ::windows::core::GUID = ::windows::core::GUID::fro
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const PeerFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3050f4cf_98b5_11cf_bb82_00aa00bdce0b);
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTRA_VAL_STARTPAGE: ::windows::core::PCSTR = ::windows::s!("Start Page");
+pub const REGSTRA_VAL_STARTPAGE: ::windows::core::PCSTR = ::windows::core::s!("Start Page");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_PATH_CURRENT: ::windows::core::PCWSTR = ::windows::w!("current");
+pub const REGSTR_PATH_CURRENT: ::windows::core::PCWSTR = ::windows::core::w!("current");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_PATH_DEFAULT: ::windows::core::PCWSTR = ::windows::w!("default");
+pub const REGSTR_PATH_DEFAULT: ::windows::core::PCWSTR = ::windows::core::w!("default");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_PATH_INETCPL_RESTRICTIONS: ::windows::core::PCWSTR = ::windows::w!("Software\\Policies\\Microsoft\\Internet Explorer\\Control Panel");
+pub const REGSTR_PATH_INETCPL_RESTRICTIONS: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Policies\\Microsoft\\Internet Explorer\\Control Panel");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_PATH_MIME_DATABASE: ::windows::core::PCWSTR = ::windows::w!("MIME\\Database");
+pub const REGSTR_PATH_MIME_DATABASE: ::windows::core::PCWSTR = ::windows::core::w!("MIME\\Database");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_PATH_REMOTEACCESS: ::windows::core::PCWSTR = ::windows::w!("RemoteAccess");
+pub const REGSTR_PATH_REMOTEACCESS: ::windows::core::PCWSTR = ::windows::core::w!("RemoteAccess");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_PATH_REMOTEACESS: ::windows::core::PCWSTR = ::windows::w!("RemoteAccess");
+pub const REGSTR_PATH_REMOTEACESS: ::windows::core::PCWSTR = ::windows::core::w!("RemoteAccess");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_SHIFTQUICKSUFFIX: ::windows::core::PCWSTR = ::windows::w!("ShiftQuickCompleteSuffix");
+pub const REGSTR_SHIFTQUICKSUFFIX: ::windows::core::PCWSTR = ::windows::core::w!("ShiftQuickCompleteSuffix");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_ACCEPT_LANGUAGE: ::windows::core::PCWSTR = ::windows::w!("AcceptLanguage");
+pub const REGSTR_VAL_ACCEPT_LANGUAGE: ::windows::core::PCWSTR = ::windows::core::w!("AcceptLanguage");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_ACCESSMEDIUM: ::windows::core::PCWSTR = ::windows::w!("AccessMedium");
+pub const REGSTR_VAL_ACCESSMEDIUM: ::windows::core::PCWSTR = ::windows::core::w!("AccessMedium");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_ACCESSTYPE: ::windows::core::PCWSTR = ::windows::w!("AccessType");
+pub const REGSTR_VAL_ACCESSTYPE: ::windows::core::PCWSTR = ::windows::core::w!("AccessType");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_ALIASTO: ::windows::core::PCWSTR = ::windows::w!("AliasForCharset");
+pub const REGSTR_VAL_ALIASTO: ::windows::core::PCWSTR = ::windows::core::w!("AliasForCharset");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_ANCHORCOLOR: ::windows::core::PCWSTR = ::windows::w!("Anchor Color");
+pub const REGSTR_VAL_ANCHORCOLOR: ::windows::core::PCWSTR = ::windows::core::w!("Anchor Color");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_ANCHORCOLORHOVER: ::windows::core::PCWSTR = ::windows::w!("Anchor Color Hover");
+pub const REGSTR_VAL_ANCHORCOLORHOVER: ::windows::core::PCWSTR = ::windows::core::w!("Anchor Color Hover");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_ANCHORCOLORVISITED: ::windows::core::PCWSTR = ::windows::w!("Anchor Color Visited");
+pub const REGSTR_VAL_ANCHORCOLORVISITED: ::windows::core::PCWSTR = ::windows::core::w!("Anchor Color Visited");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_ANCHORUNDERLINE: ::windows::core::PCWSTR = ::windows::w!("Anchor Underline");
+pub const REGSTR_VAL_ANCHORUNDERLINE: ::windows::core::PCWSTR = ::windows::core::w!("Anchor Underline");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_AUTODETECT: ::windows::core::PCWSTR = ::windows::w!("AutoDetect");
+pub const REGSTR_VAL_AUTODETECT: ::windows::core::PCWSTR = ::windows::core::w!("AutoDetect");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_AUTODIALDLLNAME: ::windows::core::PCWSTR = ::windows::w!("AutodialDllName");
+pub const REGSTR_VAL_AUTODIALDLLNAME: ::windows::core::PCWSTR = ::windows::core::w!("AutodialDllName");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_AUTODIALFCNNAME: ::windows::core::PCWSTR = ::windows::w!("AutodialFcnName");
+pub const REGSTR_VAL_AUTODIALFCNNAME: ::windows::core::PCWSTR = ::windows::core::w!("AutodialFcnName");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_AUTODIAL_MONITORCLASSNAME: ::windows::core::PCWSTR = ::windows::w!("MS_AutodialMonitor");
+pub const REGSTR_VAL_AUTODIAL_MONITORCLASSNAME: ::windows::core::PCWSTR = ::windows::core::w!("MS_AutodialMonitor");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_AUTODIAL_TRYONLYONCE: ::windows::core::PCWSTR = ::windows::w!("TryAutodialOnce");
+pub const REGSTR_VAL_AUTODIAL_TRYONLYONCE: ::windows::core::PCWSTR = ::windows::core::w!("TryAutodialOnce");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_AUTONAVIGATE: ::windows::core::PCWSTR = ::windows::w!("SearchForExtensions");
+pub const REGSTR_VAL_AUTONAVIGATE: ::windows::core::PCWSTR = ::windows::core::w!("SearchForExtensions");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_AUTOSEARCH: ::windows::core::PCWSTR = ::windows::w!("Do404Search");
+pub const REGSTR_VAL_AUTOSEARCH: ::windows::core::PCWSTR = ::windows::core::w!("Do404Search");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_BACKBITMAP: ::windows::core::PCWSTR = ::windows::w!("BackBitmap");
+pub const REGSTR_VAL_BACKBITMAP: ::windows::core::PCWSTR = ::windows::core::w!("BackBitmap");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_BACKGROUNDCOLOR: ::windows::core::PCWSTR = ::windows::w!("Background Color");
+pub const REGSTR_VAL_BACKGROUNDCOLOR: ::windows::core::PCWSTR = ::windows::core::w!("Background Color");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_BODYCHARSET: ::windows::core::PCWSTR = ::windows::w!("BodyCharset");
+pub const REGSTR_VAL_BODYCHARSET: ::windows::core::PCWSTR = ::windows::core::w!("BodyCharset");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_BYPASSAUTOCONFIG: ::windows::core::PCWSTR = ::windows::w!("BypassAutoconfig");
+pub const REGSTR_VAL_BYPASSAUTOCONFIG: ::windows::core::PCWSTR = ::windows::core::w!("BypassAutoconfig");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_CACHEPREFIX: ::windows::core::PCWSTR = ::windows::w!("CachePrefix");
+pub const REGSTR_VAL_CACHEPREFIX: ::windows::core::PCWSTR = ::windows::core::w!("CachePrefix");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_CHECKASSOC: ::windows::core::PCWSTR = ::windows::w!("Check_Associations");
+pub const REGSTR_VAL_CHECKASSOC: ::windows::core::PCWSTR = ::windows::core::w!("Check_Associations");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_CODEDOWNLOAD: ::windows::core::PCWSTR = ::windows::w!("Code Download");
+pub const REGSTR_VAL_CODEDOWNLOAD: ::windows::core::PCWSTR = ::windows::core::w!("Code Download");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_CODEDOWNLOAD_DEF: ::windows::core::PCWSTR = ::windows::w!("yes");
+pub const REGSTR_VAL_CODEDOWNLOAD_DEF: ::windows::core::PCWSTR = ::windows::core::w!("yes");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_CODEPAGE: ::windows::core::PCWSTR = ::windows::w!("CodePage");
+pub const REGSTR_VAL_CODEPAGE: ::windows::core::PCWSTR = ::windows::core::w!("CodePage");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_COVEREXCLUDE: ::windows::core::PCWSTR = ::windows::w!("CoverExclude");
+pub const REGSTR_VAL_COVEREXCLUDE: ::windows::core::PCWSTR = ::windows::core::w!("CoverExclude");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_DAYSTOKEEP: ::windows::core::PCWSTR = ::windows::w!("DaysToKeep");
+pub const REGSTR_VAL_DAYSTOKEEP: ::windows::core::PCWSTR = ::windows::core::w!("DaysToKeep");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_DEFAULT_CODEPAGE: ::windows::core::PCWSTR = ::windows::w!("Default_CodePage");
+pub const REGSTR_VAL_DEFAULT_CODEPAGE: ::windows::core::PCWSTR = ::windows::core::w!("Default_CodePage");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_DEFAULT_SCRIPT: ::windows::core::PCWSTR = ::windows::w!("Default_Script");
+pub const REGSTR_VAL_DEFAULT_SCRIPT: ::windows::core::PCWSTR = ::windows::core::w!("Default_Script");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_DEF_ENCODING: ::windows::core::PCWSTR = ::windows::w!("Default_Encoding");
+pub const REGSTR_VAL_DEF_ENCODING: ::windows::core::PCWSTR = ::windows::core::w!("Default_Encoding");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_DEF_INETENCODING: ::windows::core::PCWSTR = ::windows::w!("Default_InternetEncoding");
+pub const REGSTR_VAL_DEF_INETENCODING: ::windows::core::PCWSTR = ::windows::core::w!("Default_InternetEncoding");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_DESCRIPTION: ::windows::core::PCWSTR = ::windows::w!("Description");
+pub const REGSTR_VAL_DESCRIPTION: ::windows::core::PCWSTR = ::windows::core::w!("Description");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_DIRECTORY: ::windows::core::PCWSTR = ::windows::w!("Directory");
+pub const REGSTR_VAL_DIRECTORY: ::windows::core::PCWSTR = ::windows::core::w!("Directory");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_DISCONNECTIDLETIME: ::windows::core::PCWSTR = ::windows::w!("DisconnectIdleTime");
+pub const REGSTR_VAL_DISCONNECTIDLETIME: ::windows::core::PCWSTR = ::windows::core::w!("DisconnectIdleTime");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_ENABLEAUTODIAL: ::windows::core::PCWSTR = ::windows::w!("EnableAutodial");
+pub const REGSTR_VAL_ENABLEAUTODIAL: ::windows::core::PCWSTR = ::windows::core::w!("EnableAutodial");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_ENABLEAUTODIALDISCONNECT: ::windows::core::PCWSTR = ::windows::w!("EnableAutodisconnect");
+pub const REGSTR_VAL_ENABLEAUTODIALDISCONNECT: ::windows::core::PCWSTR = ::windows::core::w!("EnableAutodisconnect");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_ENABLEAUTODISCONNECT: ::windows::core::PCWSTR = ::windows::w!("EnableAutodisconnect");
+pub const REGSTR_VAL_ENABLEAUTODISCONNECT: ::windows::core::PCWSTR = ::windows::core::w!("EnableAutodisconnect");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_ENABLEEXITDISCONNECT: ::windows::core::PCWSTR = ::windows::w!("EnableExitDisconnect");
+pub const REGSTR_VAL_ENABLEEXITDISCONNECT: ::windows::core::PCWSTR = ::windows::core::w!("EnableExitDisconnect");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_ENABLESECURITYCHECK: ::windows::core::PCWSTR = ::windows::w!("EnableSecurityCheck");
+pub const REGSTR_VAL_ENABLESECURITYCHECK: ::windows::core::PCWSTR = ::windows::core::w!("EnableSecurityCheck");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_ENABLEUNATTENDED: ::windows::core::PCWSTR = ::windows::w!("EnableUnattended");
+pub const REGSTR_VAL_ENABLEUNATTENDED: ::windows::core::PCWSTR = ::windows::core::w!("EnableUnattended");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_ENCODENAME: ::windows::core::PCWSTR = ::windows::w!("EncodingName");
+pub const REGSTR_VAL_ENCODENAME: ::windows::core::PCWSTR = ::windows::core::w!("EncodingName");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_FAMILY: ::windows::core::PCWSTR = ::windows::w!("Family");
+pub const REGSTR_VAL_FAMILY: ::windows::core::PCWSTR = ::windows::core::w!("Family");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_FIXEDWIDTHFONT: ::windows::core::PCWSTR = ::windows::w!("FixedWidthFont");
+pub const REGSTR_VAL_FIXEDWIDTHFONT: ::windows::core::PCWSTR = ::windows::core::w!("FixedWidthFont");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_FIXED_FONT: ::windows::core::PCWSTR = ::windows::w!("IEFixedFontName");
+pub const REGSTR_VAL_FIXED_FONT: ::windows::core::PCWSTR = ::windows::core::w!("IEFixedFontName");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_FONT_SCRIPT: ::windows::core::PCWSTR = ::windows::w!("Script");
+pub const REGSTR_VAL_FONT_SCRIPT: ::windows::core::PCWSTR = ::windows::core::w!("Script");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_FONT_SCRIPTS: ::windows::core::PCWSTR = ::windows::w!("Scripts");
+pub const REGSTR_VAL_FONT_SCRIPTS: ::windows::core::PCWSTR = ::windows::core::w!("Scripts");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_FONT_SCRIPT_NAME: ::windows::core::PCWSTR = ::windows::w!("Script");
+pub const REGSTR_VAL_FONT_SCRIPT_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Script");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_FONT_SIZE: ::windows::core::PCWSTR = ::windows::w!("IEFontSize");
+pub const REGSTR_VAL_FONT_SIZE: ::windows::core::PCWSTR = ::windows::core::w!("IEFontSize");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const REGSTR_VAL_FONT_SIZE_DEF: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_HEADERCHARSET: ::windows::core::PCWSTR = ::windows::w!("HeaderCharset");
+pub const REGSTR_VAL_HEADERCHARSET: ::windows::core::PCWSTR = ::windows::core::w!("HeaderCharset");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_HTTP_ERRORS: ::windows::core::PCWSTR = ::windows::w!("Friendly http errors");
+pub const REGSTR_VAL_HTTP_ERRORS: ::windows::core::PCWSTR = ::windows::core::w!("Friendly http errors");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_IE_CUSTOMCOLORS: ::windows::core::PCWSTR = ::windows::w!("Custom Colors");
+pub const REGSTR_VAL_IE_CUSTOMCOLORS: ::windows::core::PCWSTR = ::windows::core::w!("Custom Colors");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_INETCPL_ADVANCEDTAB: ::windows::core::PCWSTR = ::windows::w!("AdvancedTab");
+pub const REGSTR_VAL_INETCPL_ADVANCEDTAB: ::windows::core::PCWSTR = ::windows::core::w!("AdvancedTab");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_INETCPL_CONNECTIONSTAB: ::windows::core::PCWSTR = ::windows::w!("ConnectionsTab");
+pub const REGSTR_VAL_INETCPL_CONNECTIONSTAB: ::windows::core::PCWSTR = ::windows::core::w!("ConnectionsTab");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_INETCPL_CONTENTTAB: ::windows::core::PCWSTR = ::windows::w!("ContentTab");
+pub const REGSTR_VAL_INETCPL_CONTENTTAB: ::windows::core::PCWSTR = ::windows::core::w!("ContentTab");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_INETCPL_GENERALTAB: ::windows::core::PCWSTR = ::windows::w!("GeneralTab");
+pub const REGSTR_VAL_INETCPL_GENERALTAB: ::windows::core::PCWSTR = ::windows::core::w!("GeneralTab");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_INETCPL_IEAK: ::windows::core::PCWSTR = ::windows::w!("IEAKContext");
+pub const REGSTR_VAL_INETCPL_IEAK: ::windows::core::PCWSTR = ::windows::core::w!("IEAKContext");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_INETCPL_PRIVACYTAB: ::windows::core::PCWSTR = ::windows::w!("PrivacyTab");
+pub const REGSTR_VAL_INETCPL_PRIVACYTAB: ::windows::core::PCWSTR = ::windows::core::w!("PrivacyTab");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_INETCPL_PROGRAMSTAB: ::windows::core::PCWSTR = ::windows::w!("ProgramsTab");
+pub const REGSTR_VAL_INETCPL_PROGRAMSTAB: ::windows::core::PCWSTR = ::windows::core::w!("ProgramsTab");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_INETCPL_SECURITYTAB: ::windows::core::PCWSTR = ::windows::w!("SecurityTab");
+pub const REGSTR_VAL_INETCPL_SECURITYTAB: ::windows::core::PCWSTR = ::windows::core::w!("SecurityTab");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_INETENCODING: ::windows::core::PCWSTR = ::windows::w!("InternetEncoding");
+pub const REGSTR_VAL_INETENCODING: ::windows::core::PCWSTR = ::windows::core::w!("InternetEncoding");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_INTERNETENTRY: ::windows::core::PCWSTR = ::windows::w!("InternetProfile");
+pub const REGSTR_VAL_INTERNETENTRY: ::windows::core::PCWSTR = ::windows::core::w!("InternetProfile");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_INTERNETENTRYBKUP: ::windows::core::PCWSTR = ::windows::w!("BackupInternetProfile");
+pub const REGSTR_VAL_INTERNETENTRYBKUP: ::windows::core::PCWSTR = ::windows::core::w!("BackupInternetProfile");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_INTERNETPROFILE: ::windows::core::PCWSTR = ::windows::w!("InternetProfile");
+pub const REGSTR_VAL_INTERNETPROFILE: ::windows::core::PCWSTR = ::windows::core::w!("InternetProfile");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_JAVAJIT: ::windows::core::PCWSTR = ::windows::w!("EnableJIT");
+pub const REGSTR_VAL_JAVAJIT: ::windows::core::PCWSTR = ::windows::core::w!("EnableJIT");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const REGSTR_VAL_JAVAJIT_DEF: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_JAVALOGGING: ::windows::core::PCWSTR = ::windows::w!("EnableLogging");
+pub const REGSTR_VAL_JAVALOGGING: ::windows::core::PCWSTR = ::windows::core::w!("EnableLogging");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const REGSTR_VAL_JAVALOGGING_DEF: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_LEVEL: ::windows::core::PCWSTR = ::windows::w!("Level");
+pub const REGSTR_VAL_LEVEL: ::windows::core::PCWSTR = ::windows::core::w!("Level");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_LOADIMAGES: ::windows::core::PCWSTR = ::windows::w!("Display Inline Images");
+pub const REGSTR_VAL_LOADIMAGES: ::windows::core::PCWSTR = ::windows::core::w!("Display Inline Images");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_LOCALPAGE: ::windows::core::PCWSTR = ::windows::w!("Local Page");
+pub const REGSTR_VAL_LOCALPAGE: ::windows::core::PCWSTR = ::windows::core::w!("Local Page");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_MOSDISCONNECT: ::windows::core::PCWSTR = ::windows::w!("DisconnectTimeout");
+pub const REGSTR_VAL_MOSDISCONNECT: ::windows::core::PCWSTR = ::windows::core::w!("DisconnectTimeout");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_NEWDIRECTORY: ::windows::core::PCWSTR = ::windows::w!("NewDirectory");
+pub const REGSTR_VAL_NEWDIRECTORY: ::windows::core::PCWSTR = ::windows::core::w!("NewDirectory");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_NONETAUTODIAL: ::windows::core::PCWSTR = ::windows::w!("NoNetAutodial");
+pub const REGSTR_VAL_NONETAUTODIAL: ::windows::core::PCWSTR = ::windows::core::w!("NoNetAutodial");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_PLAYSOUNDS: ::windows::core::PCWSTR = ::windows::w!("Play_Background_Sounds");
+pub const REGSTR_VAL_PLAYSOUNDS: ::windows::core::PCWSTR = ::windows::core::w!("Play_Background_Sounds");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_PLAYVIDEOS: ::windows::core::PCWSTR = ::windows::w!("Display Inline Videos");
+pub const REGSTR_VAL_PLAYVIDEOS: ::windows::core::PCWSTR = ::windows::core::w!("Display Inline Videos");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_PRIVCONVERTER: ::windows::core::PCWSTR = ::windows::w!("PrivConverter");
+pub const REGSTR_VAL_PRIVCONVERTER: ::windows::core::PCWSTR = ::windows::core::w!("PrivConverter");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_PROPORTIONALFONT: ::windows::core::PCWSTR = ::windows::w!("ProportionalFont");
+pub const REGSTR_VAL_PROPORTIONALFONT: ::windows::core::PCWSTR = ::windows::core::w!("ProportionalFont");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_PROP_FONT: ::windows::core::PCWSTR = ::windows::w!("IEPropFontName");
+pub const REGSTR_VAL_PROP_FONT: ::windows::core::PCWSTR = ::windows::core::w!("IEPropFontName");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_PROXYENABLE: ::windows::core::PCWSTR = ::windows::w!("ProxyEnable");
+pub const REGSTR_VAL_PROXYENABLE: ::windows::core::PCWSTR = ::windows::core::w!("ProxyEnable");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_PROXYOVERRIDE: ::windows::core::PCWSTR = ::windows::w!("ProxyOverride");
+pub const REGSTR_VAL_PROXYOVERRIDE: ::windows::core::PCWSTR = ::windows::core::w!("ProxyOverride");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_PROXYSERVER: ::windows::core::PCWSTR = ::windows::w!("ProxyServer");
+pub const REGSTR_VAL_PROXYSERVER: ::windows::core::PCWSTR = ::windows::core::w!("ProxyServer");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_REDIALATTEMPTS: ::windows::core::PCWSTR = ::windows::w!("RedialAttempts");
+pub const REGSTR_VAL_REDIALATTEMPTS: ::windows::core::PCWSTR = ::windows::core::w!("RedialAttempts");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_REDIALINTERVAL: ::windows::core::PCWSTR = ::windows::w!("RedialWait");
+pub const REGSTR_VAL_REDIALINTERVAL: ::windows::core::PCWSTR = ::windows::core::w!("RedialWait");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_RNAINSTALLED: ::windows::core::PCWSTR = ::windows::w!("Installed");
+pub const REGSTR_VAL_RNAINSTALLED: ::windows::core::PCWSTR = ::windows::core::w!("Installed");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_SAFETYWARNINGLEVEL: ::windows::core::PCWSTR = ::windows::w!("Safety Warning Level");
+pub const REGSTR_VAL_SAFETYWARNINGLEVEL: ::windows::core::PCWSTR = ::windows::core::w!("Safety Warning Level");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_SCHANNELENABLEPROTOCOL: ::windows::core::PCWSTR = ::windows::w!("Enabled");
+pub const REGSTR_VAL_SCHANNELENABLEPROTOCOL: ::windows::core::PCWSTR = ::windows::core::w!("Enabled");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const REGSTR_VAL_SCHANNELENABLEPROTOCOL_DEF: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_SCRIPT_FIXED_FONT: ::windows::core::PCWSTR = ::windows::w!("IEFixedFontName");
+pub const REGSTR_VAL_SCRIPT_FIXED_FONT: ::windows::core::PCWSTR = ::windows::core::w!("IEFixedFontName");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_SCRIPT_PROP_FONT: ::windows::core::PCWSTR = ::windows::w!("IEPropFontName");
+pub const REGSTR_VAL_SCRIPT_PROP_FONT: ::windows::core::PCWSTR = ::windows::core::w!("IEPropFontName");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_SEARCHPAGE: ::windows::core::PCWSTR = ::windows::w!("Search Page");
+pub const REGSTR_VAL_SEARCHPAGE: ::windows::core::PCWSTR = ::windows::core::w!("Search Page");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_SECURITYACTICEXSCRIPTS: ::windows::core::PCWSTR = ::windows::w!("Security_RunScripts");
+pub const REGSTR_VAL_SECURITYACTICEXSCRIPTS: ::windows::core::PCWSTR = ::windows::core::w!("Security_RunScripts");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const REGSTR_VAL_SECURITYACTICEXSCRIPTS_DEF: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_SECURITYACTIVEX: ::windows::core::PCWSTR = ::windows::w!("Security_RunActiveXControls");
+pub const REGSTR_VAL_SECURITYACTIVEX: ::windows::core::PCWSTR = ::windows::core::w!("Security_RunActiveXControls");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const REGSTR_VAL_SECURITYACTIVEX_DEF: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_SECURITYALLOWCOOKIES: ::windows::core::PCWSTR = ::windows::w!("AllowCookies");
+pub const REGSTR_VAL_SECURITYALLOWCOOKIES: ::windows::core::PCWSTR = ::windows::core::w!("AllowCookies");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const REGSTR_VAL_SECURITYALLOWCOOKIES_DEF: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_SECURITYDISABLECACHINGOFSSLPAGES: ::windows::core::PCWSTR = ::windows::w!("DisableCachingOfSSLPages");
+pub const REGSTR_VAL_SECURITYDISABLECACHINGOFSSLPAGES: ::windows::core::PCWSTR = ::windows::core::w!("DisableCachingOfSSLPages");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const REGSTR_VAL_SECURITYDISABLECACHINGOFSSLPAGES_DEF: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_SECURITYJAVA: ::windows::core::PCWSTR = ::windows::w!("Security_RunJavaApplets");
+pub const REGSTR_VAL_SECURITYJAVA: ::windows::core::PCWSTR = ::windows::core::w!("Security_RunJavaApplets");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const REGSTR_VAL_SECURITYJAVA_DEF: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_SECURITYWARNONBADCERTSENDING: ::windows::core::PCWSTR = ::windows::w!("WarnOnBadCertSending");
+pub const REGSTR_VAL_SECURITYWARNONBADCERTSENDING: ::windows::core::PCWSTR = ::windows::core::w!("WarnOnBadCertSending");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const REGSTR_VAL_SECURITYWARNONBADCERTSENDING_DEF: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_SECURITYWARNONBADCERTVIEWING: ::windows::core::PCWSTR = ::windows::w!("WarnOnBadCertRecving");
+pub const REGSTR_VAL_SECURITYWARNONBADCERTVIEWING: ::windows::core::PCWSTR = ::windows::core::w!("WarnOnBadCertRecving");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const REGSTR_VAL_SECURITYWARNONBADCERTVIEWING_DEF: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_SECURITYWARNONSEND: ::windows::core::PCWSTR = ::windows::w!("WarnOnPost");
+pub const REGSTR_VAL_SECURITYWARNONSEND: ::windows::core::PCWSTR = ::windows::core::w!("WarnOnPost");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_SECURITYWARNONSENDALWAYS: ::windows::core::PCWSTR = ::windows::w!("WarnAlwaysOnPost");
+pub const REGSTR_VAL_SECURITYWARNONSENDALWAYS: ::windows::core::PCWSTR = ::windows::core::w!("WarnAlwaysOnPost");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const REGSTR_VAL_SECURITYWARNONSENDALWAYS_DEF: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const REGSTR_VAL_SECURITYWARNONSEND_DEF: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_SECURITYWARNONVIEW: ::windows::core::PCWSTR = ::windows::w!("WarnOnView");
+pub const REGSTR_VAL_SECURITYWARNONVIEW: ::windows::core::PCWSTR = ::windows::core::w!("WarnOnView");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const REGSTR_VAL_SECURITYWARNONVIEW_DEF: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_SECURITYWARNONZONECROSSING: ::windows::core::PCWSTR = ::windows::w!("WarnOnZoneCrossing");
+pub const REGSTR_VAL_SECURITYWARNONZONECROSSING: ::windows::core::PCWSTR = ::windows::core::w!("WarnOnZoneCrossing");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const REGSTR_VAL_SECURITYWARNONZONECROSSING_DEF: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_SHOWADDRESSBAR: ::windows::core::PCWSTR = ::windows::w!("Show_URLToolBar");
+pub const REGSTR_VAL_SHOWADDRESSBAR: ::windows::core::PCWSTR = ::windows::core::w!("Show_URLToolBar");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_SHOWFOCUS: ::windows::core::PCWSTR = ::windows::w!("Tabstop - MouseDown");
+pub const REGSTR_VAL_SHOWFOCUS: ::windows::core::PCWSTR = ::windows::core::w!("Tabstop - MouseDown");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_SHOWFOCUS_DEF: ::windows::core::PCWSTR = ::windows::w!("no");
+pub const REGSTR_VAL_SHOWFOCUS_DEF: ::windows::core::PCWSTR = ::windows::core::w!("no");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_SHOWFULLURLS: ::windows::core::PCWSTR = ::windows::w!("Show_FullURL");
+pub const REGSTR_VAL_SHOWFULLURLS: ::windows::core::PCWSTR = ::windows::core::w!("Show_FullURL");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_SHOWTOOLBAR: ::windows::core::PCWSTR = ::windows::w!("Show_ToolBar");
+pub const REGSTR_VAL_SHOWTOOLBAR: ::windows::core::PCWSTR = ::windows::core::w!("Show_ToolBar");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_SMOOTHSCROLL: ::windows::core::PCWSTR = ::windows::w!("SmoothScroll");
+pub const REGSTR_VAL_SMOOTHSCROLL: ::windows::core::PCWSTR = ::windows::core::w!("SmoothScroll");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const REGSTR_VAL_SMOOTHSCROLL_DEF: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_STARTPAGE: ::windows::core::PCWSTR = ::windows::w!("Start Page");
+pub const REGSTR_VAL_STARTPAGE: ::windows::core::PCWSTR = ::windows::core::w!("Start Page");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_TEXTCOLOR: ::windows::core::PCWSTR = ::windows::w!("Text Color");
+pub const REGSTR_VAL_TEXTCOLOR: ::windows::core::PCWSTR = ::windows::core::w!("Text Color");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_TRUSTWARNINGLEVEL_HIGH: ::windows::core::PCWSTR = ::windows::w!("High");
+pub const REGSTR_VAL_TRUSTWARNINGLEVEL_HIGH: ::windows::core::PCWSTR = ::windows::core::w!("High");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_TRUSTWARNINGLEVEL_LOW: ::windows::core::PCWSTR = ::windows::w!("No Security");
+pub const REGSTR_VAL_TRUSTWARNINGLEVEL_LOW: ::windows::core::PCWSTR = ::windows::core::w!("No Security");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_TRUSTWARNINGLEVEL_MED: ::windows::core::PCWSTR = ::windows::w!("Medium");
+pub const REGSTR_VAL_TRUSTWARNINGLEVEL_MED: ::windows::core::PCWSTR = ::windows::core::w!("Medium");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_USEAUTOAPPEND: ::windows::core::PCWSTR = ::windows::w!("Append Completion");
+pub const REGSTR_VAL_USEAUTOAPPEND: ::windows::core::PCWSTR = ::windows::core::w!("Append Completion");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_USEAUTOCOMPLETE: ::windows::core::PCWSTR = ::windows::w!("Use AutoComplete");
+pub const REGSTR_VAL_USEAUTOCOMPLETE: ::windows::core::PCWSTR = ::windows::core::w!("Use AutoComplete");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_USEAUTOSUGGEST: ::windows::core::PCWSTR = ::windows::w!("AutoSuggest");
+pub const REGSTR_VAL_USEAUTOSUGGEST: ::windows::core::PCWSTR = ::windows::core::w!("AutoSuggest");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_USEDLGCOLORS: ::windows::core::PCWSTR = ::windows::w!("Use_DlgBox_Colors");
+pub const REGSTR_VAL_USEDLGCOLORS: ::windows::core::PCWSTR = ::windows::core::w!("Use_DlgBox_Colors");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_USEHOVERCOLOR: ::windows::core::PCWSTR = ::windows::w!("Use Anchor Hover Color");
+pub const REGSTR_VAL_USEHOVERCOLOR: ::windows::core::PCWSTR = ::windows::core::w!("Use Anchor Hover Color");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_USEIBAR: ::windows::core::PCWSTR = ::windows::w!("UseBar");
+pub const REGSTR_VAL_USEIBAR: ::windows::core::PCWSTR = ::windows::core::w!("UseBar");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_USEICM: ::windows::core::PCWSTR = ::windows::w!("UseICM");
+pub const REGSTR_VAL_USEICM: ::windows::core::PCWSTR = ::windows::core::w!("UseICM");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const REGSTR_VAL_USEICM_DEF: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_USERAGENT: ::windows::core::PCWSTR = ::windows::w!("User Agent");
+pub const REGSTR_VAL_USERAGENT: ::windows::core::PCWSTR = ::windows::core::w!("User Agent");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_USESTYLESHEETS: ::windows::core::PCWSTR = ::windows::w!("Use Stylesheets");
+pub const REGSTR_VAL_USESTYLESHEETS: ::windows::core::PCWSTR = ::windows::core::w!("Use Stylesheets");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_USESTYLESHEETS_DEF: ::windows::core::PCWSTR = ::windows::w!("yes");
+pub const REGSTR_VAL_USESTYLESHEETS_DEF: ::windows::core::PCWSTR = ::windows::core::w!("yes");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_VISIBLEBANDS: ::windows::core::PCWSTR = ::windows::w!("VisibleBands");
+pub const REGSTR_VAL_VISIBLEBANDS: ::windows::core::PCWSTR = ::windows::core::w!("VisibleBands");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const REGSTR_VAL_VISIBLEBANDS_DEF: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const REGSTR_VAL_WEBCHARSET: ::windows::core::PCWSTR = ::windows::w!("WebCharset");
+pub const REGSTR_VAL_WEBCHARSET: ::windows::core::PCWSTR = ::windows::core::w!("WebCharset");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const STATURLFLAG_ISCACHED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
@@ -6272,37 +6272,37 @@ pub const SURFACE_LOCK_EXCLUSIVE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const SURFACE_LOCK_WAIT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const SZBACKBITMAP: ::windows::core::PCSTR = ::windows::s!("BackBitmap");
+pub const SZBACKBITMAP: ::windows::core::PCSTR = ::windows::core::s!("BackBitmap");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const SZJAVAVMPATH: ::windows::core::PCSTR = ::windows::s!("\\Java VM");
+pub const SZJAVAVMPATH: ::windows::core::PCSTR = ::windows::core::s!("\\Java VM");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const SZNOTEXT: ::windows::core::PCSTR = ::windows::s!("NoText");
+pub const SZNOTEXT: ::windows::core::PCSTR = ::windows::core::s!("NoText");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const SZTOOLBAR: ::windows::core::PCSTR = ::windows::s!("\\Toolbar");
+pub const SZTOOLBAR: ::windows::core::PCSTR = ::windows::core::s!("\\Toolbar");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const SZTRUSTWARNLEVEL: ::windows::core::PCSTR = ::windows::s!("Trust Warning Level");
+pub const SZTRUSTWARNLEVEL: ::windows::core::PCSTR = ::windows::core::s!("Trust Warning Level");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const SZVISIBLE: ::windows::core::PCSTR = ::windows::s!("VisibleBands");
+pub const SZVISIBLE: ::windows::core::PCSTR = ::windows::core::s!("VisibleBands");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const SZ_IE_DEFAULT_HTML_EDITOR: ::windows::core::PCSTR = ::windows::s!("Default HTML Editor");
+pub const SZ_IE_DEFAULT_HTML_EDITOR: ::windows::core::PCSTR = ::windows::core::s!("Default HTML Editor");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const SZ_IE_IBAR: ::windows::core::PCSTR = ::windows::s!("Bar");
+pub const SZ_IE_IBAR: ::windows::core::PCSTR = ::windows::core::s!("Bar");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const SZ_IE_IBAR_BANDS: ::windows::core::PCSTR = ::windows::s!("Bands");
+pub const SZ_IE_IBAR_BANDS: ::windows::core::PCSTR = ::windows::core::s!("Bands");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const SZ_IE_MAIN: ::windows::core::PCSTR = ::windows::s!("Main");
+pub const SZ_IE_MAIN: ::windows::core::PCSTR = ::windows::core::s!("Main");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const SZ_IE_SEARCHSTRINGS: ::windows::core::PCSTR = ::windows::s!("UrlTemplate");
+pub const SZ_IE_SEARCHSTRINGS: ::windows::core::PCSTR = ::windows::core::s!("UrlTemplate");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const SZ_IE_SECURITY: ::windows::core::PCSTR = ::windows::s!("Security");
+pub const SZ_IE_SECURITY: ::windows::core::PCSTR = ::windows::core::s!("Security");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const SZ_IE_SETTINGS: ::windows::core::PCSTR = ::windows::s!("Settings");
+pub const SZ_IE_SETTINGS: ::windows::core::PCSTR = ::windows::core::s!("Settings");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const SZ_IE_THRESHOLDS: ::windows::core::PCSTR = ::windows::s!("ErrorThresholds");
+pub const SZ_IE_THRESHOLDS: ::windows::core::PCSTR = ::windows::core::s!("ErrorThresholds");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const S_SURFACE_DISCARDED: i32 = 49155i32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const TARGET_NOTIFY_OBJECT_NAME: ::windows::core::PCWSTR = ::windows::w!("863a99a0-21bc-11d0-82b4-00a0c90c29c5");
+pub const TARGET_NOTIFY_OBJECT_NAME: ::windows::core::PCWSTR = ::windows::core::w!("863a99a0-21bc-11d0-82b4-00a0c90c29c5");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const TF_NAVIGATE: u32 = 2142153644u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
@@ -6312,25 +6312,25 @@ pub const TIMERMODE_VISIBILITYAWARE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const TOOLSBAND: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const TSZCALENDARPROTOCOL: ::windows::core::PCWSTR = ::windows::w!("unk");
+pub const TSZCALENDARPROTOCOL: ::windows::core::PCWSTR = ::windows::core::w!("unk");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const TSZCALLTOPROTOCOL: ::windows::core::PCWSTR = ::windows::w!("callto");
+pub const TSZCALLTOPROTOCOL: ::windows::core::PCWSTR = ::windows::core::w!("callto");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const TSZINTERNETCLIENTSPATH: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Internet Explorer\\Unix");
+pub const TSZINTERNETCLIENTSPATH: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Internet Explorer\\Unix");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const TSZLDAPPROTOCOL: ::windows::core::PCWSTR = ::windows::w!("ldap");
+pub const TSZLDAPPROTOCOL: ::windows::core::PCWSTR = ::windows::core::w!("ldap");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const TSZMAILTOPROTOCOL: ::windows::core::PCWSTR = ::windows::w!("mailto");
+pub const TSZMAILTOPROTOCOL: ::windows::core::PCWSTR = ::windows::core::w!("mailto");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const TSZMICROSOFTPATH: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft");
+pub const TSZMICROSOFTPATH: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const TSZNEWSPROTOCOL: ::windows::core::PCWSTR = ::windows::w!("news");
+pub const TSZNEWSPROTOCOL: ::windows::core::PCWSTR = ::windows::core::w!("news");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const TSZPROTOCOLSPATH: ::windows::core::PCWSTR = ::windows::w!("Protocols\\");
+pub const TSZPROTOCOLSPATH: ::windows::core::PCWSTR = ::windows::core::w!("Protocols\\");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const TSZSCHANNELPATH: ::windows::core::PCWSTR = ::windows::w!("SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\SCHANNEL");
+pub const TSZSCHANNELPATH: ::windows::core::PCWSTR = ::windows::core::w!("SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\SCHANNEL");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const TSZVSOURCEPROTOCOL: ::windows::core::PCWSTR = ::windows::w!("view source");
+pub const TSZVSOURCEPROTOCOL: ::windows::core::PCWSTR = ::windows::core::w!("view source");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const msodsvFailed: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]

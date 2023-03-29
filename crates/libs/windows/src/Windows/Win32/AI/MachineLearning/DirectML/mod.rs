@@ -6,7 +6,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12Device>,
     T: ::windows::core::ComInterface,
 {
-    ::windows::imp::link ! ( "directml.dll""system" fn DMLCreateDevice ( d3d12device : * mut::core::ffi::c_void , flags : DML_CREATE_DEVICE_FLAGS , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "directml.dll""system" fn DMLCreateDevice ( d3d12device : * mut::core::ffi::c_void , flags : DML_CREATE_DEVICE_FLAGS , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DMLCreateDevice(d3d12device.into_param().abi(), flags, &<T as ::windows::core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"Win32_Graphics_Direct3D12\"`*"]
@@ -17,7 +17,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12Device>,
     T: ::windows::core::ComInterface,
 {
-    ::windows::imp::link ! ( "directml.dll""system" fn DMLCreateDevice1 ( d3d12device : * mut::core::ffi::c_void , flags : DML_CREATE_DEVICE_FLAGS , minimumfeaturelevel : DML_FEATURE_LEVEL , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "directml.dll""system" fn DMLCreateDevice1 ( d3d12device : * mut::core::ffi::c_void , flags : DML_CREATE_DEVICE_FLAGS , minimumfeaturelevel : DML_FEATURE_LEVEL , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DMLCreateDevice1(d3d12device.into_param().abi(), flags, minimumfeaturelevel, &<T as ::windows::core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
@@ -881,7 +881,7 @@ pub const DML_MINIMUM_BUFFER_TENSOR_ALIGNMENT: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_PERSISTENT_BUFFER_ALIGNMENT: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_TARGET_VERSION: u32 = 16384u32;
+pub const DML_TARGET_VERSION: u32 = 20480u32;
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_TEMPORARY_BUFFER_ALIGNMENT: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
@@ -1192,6 +1192,10 @@ pub const DML_FEATURE_LEVEL_3_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(12288i32)
 pub const DML_FEATURE_LEVEL_3_1: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(12544i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_FEATURE_LEVEL_4_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(16384i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_FEATURE_LEVEL_4_1: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(16640i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_FEATURE_LEVEL_5_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(20480i32);
 impl ::core::marker::Copy for DML_FEATURE_LEVEL {}
 impl ::core::clone::Clone for DML_FEATURE_LEVEL {
     fn clone(&self) -> Self {

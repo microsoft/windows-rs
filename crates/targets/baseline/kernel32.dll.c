@@ -794,33 +794,6 @@ void __stdcall IsValidNLSVersion(int p0, int p1, int p2) {}
 void __stdcall IsWow64GuestMachineSupported(int p0, int p1) {}
 void __stdcall IsWow64Process(int p0, int p1) {}
 void __stdcall IsWow64Process2(int p0, int p1, int p2) {}
-void __stdcall K32EmptyWorkingSet(int p0) {}
-void __stdcall K32EnumDeviceDrivers(int p0, int p1, int p2) {}
-void __stdcall K32EnumPageFilesA(int p0, int p1) {}
-void __stdcall K32EnumPageFilesW(int p0, int p1) {}
-void __stdcall K32EnumProcessModules(int p0, int p1, int p2, int p3) {}
-void __stdcall K32EnumProcessModulesEx(int p0, int p1, int p2, int p3, int p4) {}
-void __stdcall K32EnumProcesses(int p0, int p1, int p2) {}
-void __stdcall K32GetDeviceDriverBaseNameA(int p0, int p1, int p2) {}
-void __stdcall K32GetDeviceDriverBaseNameW(int p0, int p1, int p2) {}
-void __stdcall K32GetDeviceDriverFileNameA(int p0, int p1, int p2) {}
-void __stdcall K32GetDeviceDriverFileNameW(int p0, int p1, int p2) {}
-void __stdcall K32GetMappedFileNameA(int p0, int p1, int p2, int p3) {}
-void __stdcall K32GetMappedFileNameW(int p0, int p1, int p2, int p3) {}
-void __stdcall K32GetModuleBaseNameA(int p0, int p1, int p2, int p3) {}
-void __stdcall K32GetModuleBaseNameW(int p0, int p1, int p2, int p3) {}
-void __stdcall K32GetModuleFileNameExA(int p0, int p1, int p2, int p3) {}
-void __stdcall K32GetModuleFileNameExW(int p0, int p1, int p2, int p3) {}
-void __stdcall K32GetModuleInformation(int p0, int p1, int p2, int p3) {}
-void __stdcall K32GetPerformanceInfo(int p0, int p1) {}
-void __stdcall K32GetProcessImageFileNameA(int p0, int p1, int p2) {}
-void __stdcall K32GetProcessImageFileNameW(int p0, int p1, int p2) {}
-void __stdcall K32GetProcessMemoryInfo(int p0, int p1, int p2) {}
-void __stdcall K32GetWsChanges(int p0, int p1, int p2) {}
-void __stdcall K32GetWsChangesEx(int p0, int p1, int p2) {}
-void __stdcall K32InitializeProcessForWsWatch(int p0) {}
-void __stdcall K32QueryWorkingSet(int p0, int p1, int p2) {}
-void __stdcall K32QueryWorkingSetEx(int p0, int p1, int p2) {}
 void __stdcall LCIDToLocaleName(int p0, int p1, int p2, int p3) {}
 void __stdcall LCMapStringA(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall LCMapStringEx(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8) {}

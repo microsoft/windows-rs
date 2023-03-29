@@ -7,7 +7,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn MSChapSrvChangePassword ( servername : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , lmoldpresent : super::super::Foundation:: BOOLEAN , lmoldowfpassword : *const LM_OWF_PASSWORD , lmnewowfpassword : *const LM_OWF_PASSWORD , ntoldowfpassword : *const LM_OWF_PASSWORD , ntnewowfpassword : *const LM_OWF_PASSWORD ) -> u32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn MSChapSrvChangePassword ( servername : ::windows::core::PCWSTR , username : ::windows::core::PCWSTR , lmoldpresent : super::super::Foundation:: BOOLEAN , lmoldowfpassword : *const LM_OWF_PASSWORD , lmnewowfpassword : *const LM_OWF_PASSWORD , ntoldowfpassword : *const LM_OWF_PASSWORD , ntnewowfpassword : *const LM_OWF_PASSWORD ) -> u32 );
     MSChapSrvChangePassword(servername.into_param().abi(), username.into_param().abi(), lmoldpresent.into_param().abi(), lmoldowfpassword, lmnewowfpassword, ntoldowfpassword, ntnewowfpassword)
 }
 #[doc = "*Required features: `\"Win32_System_PasswordManagement\"`, `\"Win32_Foundation\"`*"]
@@ -19,118 +19,94 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn MSChapSrvChangePassword2 ( servername : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , newpasswordencryptedwitholdnt : *const SAMPR_ENCRYPTED_USER_PASSWORD , oldntowfpasswordencryptedwithnewnt : *const ENCRYPTED_LM_OWF_PASSWORD , lmpresent : super::super::Foundation:: BOOLEAN , newpasswordencryptedwitholdlm : *const SAMPR_ENCRYPTED_USER_PASSWORD , oldlmowfpasswordencryptedwithnewlmornt : *const ENCRYPTED_LM_OWF_PASSWORD ) -> u32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn MSChapSrvChangePassword2 ( servername : ::windows::core::PCWSTR , username : ::windows::core::PCWSTR , newpasswordencryptedwitholdnt : *const SAMPR_ENCRYPTED_USER_PASSWORD , oldntowfpasswordencryptedwithnewnt : *const ENCRYPTED_LM_OWF_PASSWORD , lmpresent : super::super::Foundation:: BOOLEAN , newpasswordencryptedwitholdlm : *const SAMPR_ENCRYPTED_USER_PASSWORD , oldlmowfpasswordencryptedwithnewlmornt : *const ENCRYPTED_LM_OWF_PASSWORD ) -> u32 );
     MSChapSrvChangePassword2(servername.into_param().abi(), username.into_param().abi(), newpasswordencryptedwitholdnt, oldntowfpasswordencryptedwithnewnt, lmpresent.into_param().abi(), newpasswordencryptedwitholdlm, oldlmowfpasswordencryptedwithnewlmornt)
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`*"]
 pub struct CYPHER_BLOCK {
-    pub data: [super::super::Foundation::CHAR; 8],
+    pub data: [u8; 8],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CYPHER_BLOCK {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CYPHER_BLOCK {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CYPHER_BLOCK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CYPHER_BLOCK").field("data", &self.data).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for CYPHER_BLOCK {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CYPHER_BLOCK {
     fn eq(&self, other: &Self) -> bool {
         self.data == other.data
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CYPHER_BLOCK {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CYPHER_BLOCK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`*"]
 pub struct ENCRYPTED_LM_OWF_PASSWORD {
     pub data: [CYPHER_BLOCK; 2],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ENCRYPTED_LM_OWF_PASSWORD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ENCRYPTED_LM_OWF_PASSWORD {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ENCRYPTED_LM_OWF_PASSWORD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("ENCRYPTED_LM_OWF_PASSWORD").field("data", &self.data).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for ENCRYPTED_LM_OWF_PASSWORD {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ENCRYPTED_LM_OWF_PASSWORD {
     fn eq(&self, other: &Self) -> bool {
         self.data == other.data
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ENCRYPTED_LM_OWF_PASSWORD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ENCRYPTED_LM_OWF_PASSWORD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`*"]
 pub struct LM_OWF_PASSWORD {
     pub data: [CYPHER_BLOCK; 2],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LM_OWF_PASSWORD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LM_OWF_PASSWORD {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for LM_OWF_PASSWORD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("LM_OWF_PASSWORD").field("data", &self.data).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for LM_OWF_PASSWORD {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LM_OWF_PASSWORD {
     fn eq(&self, other: &Self) -> bool {
         self.data == other.data
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LM_OWF_PASSWORD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LM_OWF_PASSWORD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

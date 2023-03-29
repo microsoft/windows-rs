@@ -7,6 +7,7 @@ pub struct Gen<'a> {
     pub cfg: bool,
     pub doc: bool,
     pub component: bool,
+    pub standalone: bool,
 }
 
 impl<'a> Gen<'a> {
@@ -18,6 +19,7 @@ impl<'a> Gen<'a> {
             cfg: false,
             doc: false,
             component: false,
+            standalone: false,
         }
     }
 
@@ -96,43 +98,43 @@ impl<'a> Gen<'a> {
             Type::USize => quote! { usize },
             Type::String => {
                 let crate_name = self.crate_name();
-                quote! { ::#crate_name::core::HSTRING }
+                quote! { #crate_name HSTRING }
             }
             Type::BSTR => {
                 let crate_name = self.crate_name();
-                quote! { ::#crate_name::core::BSTR }
+                quote! { #crate_name BSTR }
             }
             Type::IInspectable => {
                 let crate_name = self.crate_name();
-                quote! { ::#crate_name::core::IInspectable }
+                quote! { #crate_name IInspectable }
             }
             Type::GUID => {
                 let crate_name = self.crate_name();
-                quote! { ::#crate_name::core::GUID }
+                quote! { #crate_name GUID }
             }
             Type::IUnknown => {
                 let crate_name = self.crate_name();
-                quote! { ::#crate_name::core::IUnknown }
+                quote! { #crate_name IUnknown }
             }
             Type::HRESULT => {
                 let crate_name = self.crate_name();
-                quote! { ::#crate_name::core::HRESULT }
+                quote! { #crate_name HRESULT }
             }
             Type::PSTR => {
                 let crate_name = self.crate_name();
-                quote! { ::#crate_name::core::PSTR }
+                quote! { #crate_name PSTR }
             }
             Type::PWSTR => {
                 let crate_name = self.crate_name();
-                quote! { ::#crate_name::core::PWSTR }
+                quote! { #crate_name PWSTR }
             }
             Type::PCSTR => {
                 let crate_name = self.crate_name();
-                quote! { ::#crate_name::core::PCSTR }
+                quote! { #crate_name PCSTR }
             }
             Type::PCWSTR => {
                 let crate_name = self.crate_name();
-                quote! { ::#crate_name::core::PCWSTR }
+                quote! { #crate_name PCWSTR }
             }
             Type::Win32Array((ty, len)) => {
                 let name = self.type_default_name(ty);
@@ -425,7 +427,7 @@ impl<'a> Gen<'a> {
     //
 
     pub(crate) fn namespace(&self, namespace: &str) -> TokenStream {
-        if namespace == self.namespace {
+        if self.standalone || namespace == self.namespace {
             quote! {}
         } else {
             let is_external =
@@ -461,10 +463,12 @@ impl<'a> Gen<'a> {
         }
     }
     pub fn crate_name(&self) -> TokenStream {
-        if self.sys {
-            "windows_sys".into()
+        if self.standalone {
+            TokenStream::new()
+        } else if self.sys {
+            "::windows_sys::core::".into()
         } else {
-            "windows".into()
+            "::windows::core::".into()
         }
     }
     fn scoped_name(&self, def: TypeDef) -> String {

@@ -362,7 +362,7 @@
 ::windows_sys::core::link ! ( "glu32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"] fn gluEndSurface ( nobj : *mut GLUnurbs ) -> ( ) );
 ::windows_sys::core::link ! ( "glu32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"] fn gluEndTrim ( nobj : *mut GLUnurbs ) -> ( ) );
 ::windows_sys::core::link ! ( "glu32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"] fn gluErrorString ( errcode : u32 ) -> *mut u8 );
-::windows_sys::core::link ! ( "glu32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"] fn gluErrorUnicodeStringEXT ( errcode : u32 ) -> :: windows_sys::core::PWSTR );
+::windows_sys::core::link ! ( "glu32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"] fn gluErrorUnicodeStringEXT ( errcode : u32 ) -> ::windows_sys::core::PCWSTR );
 ::windows_sys::core::link ! ( "glu32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"] fn gluGetNurbsProperty ( nobj : *mut GLUnurbs , property : u32 , value : *mut f32 ) -> ( ) );
 ::windows_sys::core::link ! ( "glu32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"] fn gluGetString ( name : u32 ) -> *mut u8 );
 ::windows_sys::core::link ! ( "glu32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"] fn gluGetTessProperty ( tess : *mut GLUtesselator , which : u32 , value : *mut f64 ) -> ( ) );
@@ -414,7 +414,7 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_sys::core::link ! ( "opengl32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn wglGetLayerPaletteEntries ( param0 : super::Gdi:: HDC , param1 : i32 , param2 : i32 , param3 : i32 , param4 : *mut super::super::Foundation:: COLORREF ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "opengl32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"] fn wglGetProcAddress ( param0 : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: PROC );
+::windows_sys::core::link ! ( "opengl32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"] fn wglGetProcAddress ( param0 : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: PROC );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_sys::core::link ! ( "opengl32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn wglMakeCurrent ( param0 : super::Gdi:: HDC , param1 : HGLRC ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]

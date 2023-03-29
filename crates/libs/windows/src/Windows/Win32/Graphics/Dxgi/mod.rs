@@ -6,7 +6,7 @@ pub unsafe fn CreateDXGIFactory<T>() -> ::windows::core::Result<T>
 where
     T: ::windows::core::ComInterface,
 {
-    ::windows::imp::link ! ( "dxgi.dll""system" fn CreateDXGIFactory ( riid : *const :: windows::core::GUID , ppfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxgi.dll""system" fn CreateDXGIFactory ( riid : *const ::windows::core::GUID , ppfactory : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     CreateDXGIFactory(&<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
@@ -16,7 +16,7 @@ pub unsafe fn CreateDXGIFactory1<T>() -> ::windows::core::Result<T>
 where
     T: ::windows::core::ComInterface,
 {
-    ::windows::imp::link ! ( "dxgi.dll""system" fn CreateDXGIFactory1 ( riid : *const :: windows::core::GUID , ppfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxgi.dll""system" fn CreateDXGIFactory1 ( riid : *const ::windows::core::GUID , ppfactory : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     CreateDXGIFactory1(&<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
@@ -26,14 +26,14 @@ pub unsafe fn CreateDXGIFactory2<T>(flags: u32) -> ::windows::core::Result<T>
 where
     T: ::windows::core::ComInterface,
 {
-    ::windows::imp::link ! ( "dxgi.dll""system" fn CreateDXGIFactory2 ( flags : u32 , riid : *const :: windows::core::GUID , ppfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxgi.dll""system" fn CreateDXGIFactory2 ( flags : u32 , riid : *const ::windows::core::GUID , ppfactory : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     CreateDXGIFactory2(flags, &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[inline]
 pub unsafe fn DXGIDeclareAdapterRemovalSupport() -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "dxgi.dll""system" fn DXGIDeclareAdapterRemovalSupport ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxgi.dll""system" fn DXGIDeclareAdapterRemovalSupport ( ) -> ::windows::core::HRESULT );
     DXGIDeclareAdapterRemovalSupport().ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
@@ -42,7 +42,7 @@ pub unsafe fn DXGIGetDebugInterface1<T>(flags: u32) -> ::windows::core::Result<T
 where
     T: ::windows::core::ComInterface,
 {
-    ::windows::imp::link ! ( "dxgi.dll""system" fn DXGIGetDebugInterface1 ( flags : u32 , riid : *const :: windows::core::GUID , pdebug : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxgi.dll""system" fn DXGIGetDebugInterface1 ( flags : u32 , riid : *const ::windows::core::GUID , pdebug : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     DXGIGetDebugInterface1(flags, &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
@@ -1314,7 +1314,7 @@ impl IDXGIFactory {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSoftwareAdapter<P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         let mut result__ = ::windows::core::zeroed::<IDXGIAdapter>();
         (::windows::core::Interface::vtable(self).CreateSoftwareAdapter)(::windows::core::Interface::as_raw(self), module.into_param().abi(), &mut result__).from_abi(result__)
@@ -1361,7 +1361,7 @@ pub struct IDXGIFactory_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))]
     CreateSwapChain: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub CreateSoftwareAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, module: super::super::Foundation::HINSTANCE, ppadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateSoftwareAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, module: super::super::Foundation::HMODULE, ppadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     CreateSoftwareAdapter: usize,
 }
@@ -1418,7 +1418,7 @@ impl IDXGIFactory1 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSoftwareAdapter<P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         let mut result__ = ::windows::core::zeroed::<IDXGIAdapter>();
         (::windows::core::Interface::vtable(self).base__.CreateSoftwareAdapter)(::windows::core::Interface::as_raw(self), module.into_param().abi(), &mut result__).from_abi(result__)
@@ -1519,7 +1519,7 @@ impl IDXGIFactory2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSoftwareAdapter<P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         let mut result__ = ::windows::core::zeroed::<IDXGIAdapter>();
         (::windows::core::Interface::vtable(self).base__.base__.CreateSoftwareAdapter)(::windows::core::Interface::as_raw(self), module.into_param().abi(), &mut result__).from_abi(result__)
@@ -1741,7 +1741,7 @@ impl IDXGIFactory3 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSoftwareAdapter<P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         let mut result__ = ::windows::core::zeroed::<IDXGIAdapter>();
         (::windows::core::Interface::vtable(self).base__.base__.base__.CreateSoftwareAdapter)(::windows::core::Interface::as_raw(self), module.into_param().abi(), &mut result__).from_abi(result__)
@@ -1929,7 +1929,7 @@ impl IDXGIFactory4 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSoftwareAdapter<P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         let mut result__ = ::windows::core::zeroed::<IDXGIAdapter>();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CreateSoftwareAdapter)(::windows::core::Interface::as_raw(self), module.into_param().abi(), &mut result__).from_abi(result__)
@@ -2137,7 +2137,7 @@ impl IDXGIFactory5 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSoftwareAdapter<P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         let mut result__ = ::windows::core::zeroed::<IDXGIAdapter>();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateSoftwareAdapter)(::windows::core::Interface::as_raw(self), module.into_param().abi(), &mut result__).from_abi(result__)
@@ -2344,7 +2344,7 @@ impl IDXGIFactory6 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSoftwareAdapter<P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         let mut result__ = ::windows::core::zeroed::<IDXGIAdapter>();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CreateSoftwareAdapter)(::windows::core::Interface::as_raw(self), module.into_param().abi(), &mut result__).from_abi(result__)
@@ -2558,7 +2558,7 @@ impl IDXGIFactory7 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSoftwareAdapter<P0>(&self, module: P0) -> ::windows::core::Result<IDXGIAdapter>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         let mut result__ = ::windows::core::zeroed::<IDXGIAdapter>();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CreateSoftwareAdapter)(::windows::core::Interface::as_raw(self), module.into_param().abi(), &mut result__).from_abi(result__)
@@ -5949,6 +5949,8 @@ pub const DXGI_ERROR_INVALID_CALL: ::windows::core::HRESULT = ::windows::core::H
 pub const DXGI_ERROR_MODE_CHANGE_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005270491i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_ERROR_MORE_DATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005270525i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+pub const DXGI_ERROR_MPO_UNPINNED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005270428i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_ERROR_NAME_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005270484i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]

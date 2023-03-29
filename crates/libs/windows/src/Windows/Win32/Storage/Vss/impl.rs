@@ -1687,9 +1687,9 @@ pub trait IVssWriterImpl_Impl: Sized {
     fn Subscribe(&self, dwsubscribetimeout: u32, dweventflags: u32) -> ::windows::core::Result<()>;
     fn Unsubscribe(&self) -> ::windows::core::Result<()>;
     fn Uninitialize(&self);
-    fn GetCurrentVolumeArray(&self) -> *mut ::windows::core::PWSTR;
+    fn GetCurrentVolumeArray(&self) -> *mut ::windows::core::PCWSTR;
     fn GetCurrentVolumeCount(&self) -> u32;
-    fn GetSnapshotDeviceName(&self, wszoriginalvolume: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetSnapshotDeviceName(&self, wszoriginalvolume: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PCWSTR>;
     fn GetCurrentSnapshotSetId(&self) -> ::windows::core::GUID;
     fn GetContext(&self) -> i32;
     fn GetCurrentLevel(&self) -> VSS_APPLICATION_LEVEL;
@@ -1729,7 +1729,7 @@ impl IVssWriterImpl_Vtbl {
             let this = (*this).get_impl();
             this.Uninitialize()
         }
-        unsafe extern "system" fn GetCurrentVolumeArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut ::windows::core::PWSTR {
+        unsafe extern "system" fn GetCurrentVolumeArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut ::windows::core::PCWSTR {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetCurrentVolumeArray()
@@ -1739,7 +1739,7 @@ impl IVssWriterImpl_Vtbl {
             let this = (*this).get_impl();
             this.GetCurrentVolumeCount()
         }
-        unsafe extern "system" fn GetSnapshotDeviceName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszoriginalvolume: ::windows::core::PCWSTR, ppwszsnapshotdevice: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSnapshotDeviceName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszoriginalvolume: ::windows::core::PCWSTR, ppwszsnapshotdevice: *mut ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetSnapshotDeviceName(::core::mem::transmute(&wszoriginalvolume)) {

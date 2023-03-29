@@ -1,5 +1,5 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "cabinet.dll""cdecl" #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"] fn FCIAddFile ( hfci : *const ::core::ffi::c_void , pszsourcefile : :: windows_sys::core::PCSTR , pszfilename : :: windows_sys::core::PCSTR , fexecute : super::super::Foundation:: BOOL , pfnfcignc : PFNFCIGETNEXTCABINET , pfnfcis : PFNFCISTATUS , pfnfcigoi : PFNFCIGETOPENINFO , typecompress : u16 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "cabinet.dll""cdecl" #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"] fn FCIAddFile ( hfci : *const ::core::ffi::c_void , pszsourcefile : ::windows_sys::core::PCSTR , pszfilename : ::windows_sys::core::PCSTR , fexecute : super::super::Foundation:: BOOL , pfnfcignc : PFNFCIGETNEXTCABINET , pfnfcis : PFNFCISTATUS , pfnfcigoi : PFNFCIGETOPENINFO , typecompress : u16 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "cabinet.dll""cdecl" #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"] fn FCICreate ( perf : *const ERF , pfnfcifp : PFNFCIFILEPLACED , pfna : PFNFCIALLOC , pfnf : PFNFCIFREE , pfnopen : PFNFCIOPEN , pfnread : PFNFCIREAD , pfnwrite : PFNFCIWRITE , pfnclose : PFNFCICLOSE , pfnseek : PFNFCISEEK , pfndelete : PFNFCIDELETE , pfnfcigtf : PFNFCIGETTEMPFILE , pccab : *const CCAB , pv : *const ::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
 #[cfg(feature = "Win32_Foundation")]
@@ -9,7 +9,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "cabinet.dll""cdecl" #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"] fn FCIFlushFolder ( hfci : *const ::core::ffi::c_void , pfnfcignc : PFNFCIGETNEXTCABINET , pfnfcis : PFNFCISTATUS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "cabinet.dll""cdecl" #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"] fn FDICopy ( hfdi : *const ::core::ffi::c_void , pszcabinet : :: windows_sys::core::PCSTR , pszcabpath : :: windows_sys::core::PCSTR , flags : i32 , pfnfdin : PFNFDINOTIFY , pfnfdid : PFNFDIDECRYPT , pvuser : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "cabinet.dll""cdecl" #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"] fn FDICopy ( hfdi : *const ::core::ffi::c_void , pszcabinet : ::windows_sys::core::PCSTR , pszcabpath : ::windows_sys::core::PCSTR , flags : i32 , pfnfdin : PFNFDINOTIFY , pfnfdid : PFNFDIDECRYPT , pvuser : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "cabinet.dll""cdecl" #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"] fn FDICreate ( pfnalloc : PFNALLOC , pfnfree : PFNFREE , pfnopen : PFNOPEN , pfnread : PFNREAD , pfnwrite : PFNWRITE , pfnclose : PFNCLOSE , pfnseek : PFNSEEK , cputype : FDICREATE_CPU_TYPE , perf : *mut ERF ) -> *mut ::core::ffi::c_void );
 #[cfg(feature = "Win32_Foundation")]
@@ -17,7 +17,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "cabinet.dll""cdecl" #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"] fn FDIIsCabinet ( hfdi : *const ::core::ffi::c_void , hf : isize , pfdici : *mut FDICABINETINFO ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "cabinet.dll""cdecl" #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"] fn FDITruncateCabinet ( hfdi : *const ::core::ffi::c_void , pszcabinetname : :: windows_sys::core::PCSTR , ifoldertodelete : u16 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "cabinet.dll""cdecl" #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"] fn FDITruncateCabinet ( hfdi : *const ::core::ffi::c_void , pszcabinetname : ::windows_sys::core::PCSTR , ifoldertodelete : u16 ) -> super::super::Foundation:: BOOL );
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 pub const CB_MAX_CABINET_NAME: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
@@ -163,8 +163,7 @@ pub const fdintNEXT_CABINET: FDINOTIFICATIONTYPE = 4i32;
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 pub const fdintENUMERATE: FDINOTIFICATIONTYPE = 5i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 pub struct CCAB {
     pub cb: u32,
     pub cbFolderThresh: u32,
@@ -175,13 +174,11 @@ pub struct CCAB {
     pub iDisk: i32,
     pub fFailOnIncompressible: i32,
     pub setID: u16,
-    pub szDisk: [super::super::Foundation::CHAR; 256],
-    pub szCab: [super::super::Foundation::CHAR; 256],
-    pub szCabPath: [super::super::Foundation::CHAR; 256],
+    pub szDisk: [u8; 256],
+    pub szCab: [u8; 256],
+    pub szCabPath: [u8; 256],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CCAB {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CCAB {
     fn clone(&self) -> Self {
         *self
@@ -332,36 +329,30 @@ impl ::core::clone::Clone for FDINOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"]
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FDISPILLFILE {
-    pub ach: [super::super::Foundation::CHAR; 2],
+    pub ach: [u8; 2],
     pub cbFile: i32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FDISPILLFILE {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FDISPILLFILE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"]
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FDISPILLFILE {
-    pub ach: [super::super::Foundation::CHAR; 2],
+    pub ach: [u8; 2],
     pub cbFile: i32,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FDISPILLFILE {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FDISPILLFILE {
     fn clone(&self) -> Self {
         *self

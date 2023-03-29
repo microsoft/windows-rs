@@ -4,7 +4,7 @@ pub unsafe fn D3DPERF_BeginEvent<P0>(col: u32, wszname: P0) -> i32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "d3d9.dll""system" fn D3DPERF_BeginEvent ( col : u32 , wszname : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::imp::link ! ( "d3d9.dll""system" fn D3DPERF_BeginEvent ( col : u32 , wszname : ::windows::core::PCWSTR ) -> i32 );
     D3DPERF_BeginEvent(col, wszname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -32,7 +32,7 @@ pub unsafe fn D3DPERF_SetMarker<P0>(col: u32, wszname: P0)
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "d3d9.dll""system" fn D3DPERF_SetMarker ( col : u32 , wszname : :: windows::core::PCWSTR ) -> ( ) );
+    ::windows::imp::link ! ( "d3d9.dll""system" fn D3DPERF_SetMarker ( col : u32 , wszname : ::windows::core::PCWSTR ) -> ( ) );
     D3DPERF_SetMarker(col, wszname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -47,7 +47,7 @@ pub unsafe fn D3DPERF_SetRegion<P0>(col: u32, wszname: P0)
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "d3d9.dll""system" fn D3DPERF_SetRegion ( col : u32 , wszname : :: windows::core::PCWSTR ) -> ( ) );
+    ::windows::imp::link ! ( "d3d9.dll""system" fn D3DPERF_SetRegion ( col : u32 , wszname : ::windows::core::PCWSTR ) -> ( ) );
     D3DPERF_SetRegion(col, wszname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -59,7 +59,7 @@ pub unsafe fn Direct3DCreate9(sdkversion: u32) -> ::core::option::Option<IDirect
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
 pub unsafe fn Direct3DCreate9Ex(sdkversion: u32) -> ::windows::core::Result<IDirect3D9Ex> {
-    ::windows::imp::link ! ( "d3d9.dll""system" fn Direct3DCreate9Ex ( sdkversion : u32 , param1 : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d9.dll""system" fn Direct3DCreate9Ex ( sdkversion : u32 , param1 : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IDirect3D9Ex>();
     Direct3DCreate9Ex(sdkversion, &mut result__).from_abi(result__)
 }
@@ -73,8 +73,6 @@ impl IDirect3D9 {
     pub unsafe fn GetAdapterCount(&self) -> u32 {
         (::windows::core::Interface::vtable(self).GetAdapterCount)(::windows::core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAdapterIdentifier(&self, adapter: u32, flags: u32, pidentifier: *mut D3DADAPTER_IDENTIFIER9) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAdapterIdentifier)(::windows::core::Interface::as_raw(self), adapter, flags, pidentifier).ok()
     }
@@ -158,10 +156,7 @@ pub struct IDirect3D9_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub RegisterSoftwareDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinitializefunction: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetAdapterCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetAdapterIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adapter: u32, flags: u32, pidentifier: *mut D3DADAPTER_IDENTIFIER9) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetAdapterIdentifier: usize,
     pub GetAdapterModeCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adapter: u32, format: D3DFORMAT) -> u32,
     pub EnumAdapterModes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adapter: u32, format: D3DFORMAT, mode: u32, pmode: *mut D3DDISPLAYMODE) -> ::windows::core::HRESULT,
     pub GetAdapterDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adapter: u32, pmode: *mut D3DDISPLAYMODE) -> ::windows::core::HRESULT,
@@ -196,8 +191,6 @@ impl IDirect3D9Ex {
     pub unsafe fn GetAdapterCount(&self) -> u32 {
         (::windows::core::Interface::vtable(self).base__.GetAdapterCount)(::windows::core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAdapterIdentifier(&self, adapter: u32, flags: u32, pidentifier: *mut D3DADAPTER_IDENTIFIER9) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetAdapterIdentifier)(::windows::core::Interface::as_raw(self), adapter, flags, pidentifier).ok()
     }
@@ -6072,13 +6065,12 @@ impl ::core::fmt::Debug for D3DZBUFFERTYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DADAPTER_IDENTIFIER9 {
-    pub Driver: [super::super::Foundation::CHAR; 512],
-    pub Description: [super::super::Foundation::CHAR; 512],
-    pub DeviceName: [super::super::Foundation::CHAR; 32],
+    pub Driver: [u8; 512],
+    pub Description: [u8; 512],
+    pub DeviceName: [u8; 32],
     pub DriverVersion: i64,
     pub VendorId: u32,
     pub DeviceId: u32,
@@ -6088,35 +6080,30 @@ pub struct D3DADAPTER_IDENTIFIER9 {
     pub WHQLLevel: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DADAPTER_IDENTIFIER9 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DADAPTER_IDENTIFIER9 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for D3DADAPTER_IDENTIFIER9 {
     type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DADAPTER_IDENTIFIER9 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 pub struct D3DADAPTER_IDENTIFIER9 {
-    pub Driver: [super::super::Foundation::CHAR; 512],
-    pub Description: [super::super::Foundation::CHAR; 512],
-    pub DeviceName: [super::super::Foundation::CHAR; 32],
+    pub Driver: [u8; 512],
+    pub Description: [u8; 512],
+    pub DeviceName: [u8; 32],
     pub DriverVersion: i64,
     pub VendorId: u32,
     pub DeviceId: u32,
@@ -6126,22 +6113,18 @@ pub struct D3DADAPTER_IDENTIFIER9 {
     pub WHQLLevel: u32,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3DADAPTER_IDENTIFIER9 {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3DADAPTER_IDENTIFIER9 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for D3DADAPTER_IDENTIFIER9 {
     type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3DADAPTER_IDENTIFIER9 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

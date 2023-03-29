@@ -21,7 +21,7 @@ fn main() {
 
     let libraries = lib::libraries();
     let output = std::path::PathBuf::from("crates/targets/baseline");
-    let _ = std::fs::remove_dir_all(&output);
+    _ = std::fs::remove_dir_all(&output);
     std::fs::create_dir_all(&output).unwrap();
 
     for (library, functions) in &libraries {
@@ -67,6 +67,8 @@ fn main() {
             break;
         }
     }
+    archive.flush().unwrap();
+    drop(archive);
 
     std::fs::rename(output.join("windows.lib"), format!("crates/targets/{platform}/lib/windows.lib")).unwrap();
 }

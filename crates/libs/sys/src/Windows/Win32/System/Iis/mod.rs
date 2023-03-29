@@ -307,99 +307,99 @@ pub const HTTP_TRACE_LEVEL_END: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const HTTP_TRACE_LEVEL_START: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IISADMIN_EXTENSIONS_CLSID_MD_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS");
+pub const IISADMIN_EXTENSIONS_CLSID_MD_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IISADMIN_EXTENSIONS_CLSID_MD_KEYA: ::windows_sys::core::PCSTR = ::windows_sys::s!("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS");
+pub const IISADMIN_EXTENSIONS_CLSID_MD_KEYA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IISADMIN_EXTENSIONS_CLSID_MD_KEYW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS");
+pub const IISADMIN_EXTENSIONS_CLSID_MD_KEYW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IISADMIN_EXTENSIONS_REG_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SOFTWARE\\Microsoft\\InetStp\\Extensions");
+pub const IISADMIN_EXTENSIONS_REG_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SOFTWARE\\Microsoft\\InetStp\\Extensions");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IISADMIN_EXTENSIONS_REG_KEYA: ::windows_sys::core::PCSTR = ::windows_sys::s!("SOFTWARE\\Microsoft\\InetStp\\Extensions");
+pub const IISADMIN_EXTENSIONS_REG_KEYA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SOFTWARE\\Microsoft\\InetStp\\Extensions");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IISADMIN_EXTENSIONS_REG_KEYW: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SOFTWARE\\Microsoft\\InetStp\\Extensions");
+pub const IISADMIN_EXTENSIONS_REG_KEYW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SOFTWARE\\Microsoft\\InetStp\\Extensions");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_CERTMAPPER: ::windows_sys::core::PCSTR = ::windows_sys::s!("IIsCertMapper");
+pub const IIS_CLASS_CERTMAPPER: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsCertMapper");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_CERTMAPPER_W: ::windows_sys::core::PCWSTR = ::windows_sys::w!("IIsCertMapper");
+pub const IIS_CLASS_CERTMAPPER_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsCertMapper");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_COMPRESS_SCHEME: ::windows_sys::core::PCSTR = ::windows_sys::s!("IIsCompressionScheme");
+pub const IIS_CLASS_COMPRESS_SCHEME: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsCompressionScheme");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_COMPRESS_SCHEMES: ::windows_sys::core::PCSTR = ::windows_sys::s!("IIsCompressionSchemes");
+pub const IIS_CLASS_COMPRESS_SCHEMES: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsCompressionSchemes");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_COMPRESS_SCHEMES_W: ::windows_sys::core::PCWSTR = ::windows_sys::w!("IIsCompressionSchemes");
+pub const IIS_CLASS_COMPRESS_SCHEMES_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsCompressionSchemes");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_COMPRESS_SCHEME_W: ::windows_sys::core::PCWSTR = ::windows_sys::w!("IIsCompressionScheme");
+pub const IIS_CLASS_COMPRESS_SCHEME_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsCompressionScheme");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_COMPUTER: ::windows_sys::core::PCSTR = ::windows_sys::s!("IIsComputer");
+pub const IIS_CLASS_COMPUTER: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsComputer");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_COMPUTER_W: ::windows_sys::core::PCWSTR = ::windows_sys::w!("IIsComputer");
+pub const IIS_CLASS_COMPUTER_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsComputer");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_FILTER: ::windows_sys::core::PCSTR = ::windows_sys::s!("IIsFilter");
+pub const IIS_CLASS_FILTER: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsFilter");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_FILTERS: ::windows_sys::core::PCSTR = ::windows_sys::s!("IIsFilters");
+pub const IIS_CLASS_FILTERS: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsFilters");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_FILTERS_W: ::windows_sys::core::PCWSTR = ::windows_sys::w!("IIsFilters");
+pub const IIS_CLASS_FILTERS_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsFilters");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_FILTER_W: ::windows_sys::core::PCWSTR = ::windows_sys::w!("IIsFilter");
+pub const IIS_CLASS_FILTER_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsFilter");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_FTP_INFO: ::windows_sys::core::PCSTR = ::windows_sys::s!("IIsFtpInfo");
+pub const IIS_CLASS_FTP_INFO: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsFtpInfo");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_FTP_INFO_W: ::windows_sys::core::PCWSTR = ::windows_sys::w!("IIsFtpInfo");
+pub const IIS_CLASS_FTP_INFO_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsFtpInfo");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_FTP_SERVER: ::windows_sys::core::PCSTR = ::windows_sys::s!("IIsFtpServer");
+pub const IIS_CLASS_FTP_SERVER: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsFtpServer");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_FTP_SERVER_W: ::windows_sys::core::PCWSTR = ::windows_sys::w!("IIsFtpServer");
+pub const IIS_CLASS_FTP_SERVER_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsFtpServer");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_FTP_SERVICE: ::windows_sys::core::PCSTR = ::windows_sys::s!("IIsFtpService");
+pub const IIS_CLASS_FTP_SERVICE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsFtpService");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_FTP_SERVICE_W: ::windows_sys::core::PCWSTR = ::windows_sys::w!("IIsFtpService");
+pub const IIS_CLASS_FTP_SERVICE_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsFtpService");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_FTP_VDIR: ::windows_sys::core::PCSTR = ::windows_sys::s!("IIsFtpVirtualDir");
+pub const IIS_CLASS_FTP_VDIR: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsFtpVirtualDir");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_FTP_VDIR_W: ::windows_sys::core::PCWSTR = ::windows_sys::w!("IIsFtpVirtualDir");
+pub const IIS_CLASS_FTP_VDIR_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsFtpVirtualDir");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_LOG_MODULE: ::windows_sys::core::PCSTR = ::windows_sys::s!("IIsLogModule");
+pub const IIS_CLASS_LOG_MODULE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsLogModule");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_LOG_MODULES: ::windows_sys::core::PCSTR = ::windows_sys::s!("IIsLogModules");
+pub const IIS_CLASS_LOG_MODULES: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsLogModules");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_LOG_MODULES_W: ::windows_sys::core::PCWSTR = ::windows_sys::w!("IIsLogModules");
+pub const IIS_CLASS_LOG_MODULES_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsLogModules");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_LOG_MODULE_W: ::windows_sys::core::PCWSTR = ::windows_sys::w!("IIsLogModule");
+pub const IIS_CLASS_LOG_MODULE_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsLogModule");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_MIMEMAP: ::windows_sys::core::PCSTR = ::windows_sys::s!("IIsMimeMap");
+pub const IIS_CLASS_MIMEMAP: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsMimeMap");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_MIMEMAP_W: ::windows_sys::core::PCWSTR = ::windows_sys::w!("IIsMimeMap");
+pub const IIS_CLASS_MIMEMAP_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsMimeMap");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_WEB_DIR: ::windows_sys::core::PCSTR = ::windows_sys::s!("IIsWebDirectory");
+pub const IIS_CLASS_WEB_DIR: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsWebDirectory");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_WEB_DIR_W: ::windows_sys::core::PCWSTR = ::windows_sys::w!("IIsWebDirectory");
+pub const IIS_CLASS_WEB_DIR_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsWebDirectory");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_WEB_FILE: ::windows_sys::core::PCSTR = ::windows_sys::s!("IIsWebFile");
+pub const IIS_CLASS_WEB_FILE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsWebFile");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_WEB_FILE_W: ::windows_sys::core::PCWSTR = ::windows_sys::w!("IIsWebFile");
+pub const IIS_CLASS_WEB_FILE_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsWebFile");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_WEB_INFO: ::windows_sys::core::PCSTR = ::windows_sys::s!("IIsWebInfo");
+pub const IIS_CLASS_WEB_INFO: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsWebInfo");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_WEB_INFO_W: ::windows_sys::core::PCWSTR = ::windows_sys::w!("IIsWebInfo");
+pub const IIS_CLASS_WEB_INFO_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsWebInfo");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_WEB_SERVER: ::windows_sys::core::PCSTR = ::windows_sys::s!("IIsWebServer");
+pub const IIS_CLASS_WEB_SERVER: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsWebServer");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_WEB_SERVER_W: ::windows_sys::core::PCWSTR = ::windows_sys::w!("IIsWebServer");
+pub const IIS_CLASS_WEB_SERVER_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsWebServer");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_WEB_SERVICE: ::windows_sys::core::PCSTR = ::windows_sys::s!("IIsWebService");
+pub const IIS_CLASS_WEB_SERVICE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsWebService");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_WEB_SERVICE_W: ::windows_sys::core::PCWSTR = ::windows_sys::w!("IIsWebService");
+pub const IIS_CLASS_WEB_SERVICE_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsWebService");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_WEB_VDIR: ::windows_sys::core::PCSTR = ::windows_sys::s!("IIsWebVirtualDir");
+pub const IIS_CLASS_WEB_VDIR: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIsWebVirtualDir");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_CLASS_WEB_VDIR_W: ::windows_sys::core::PCWSTR = ::windows_sys::w!("IIsWebVirtualDir");
+pub const IIS_CLASS_WEB_VDIR_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IIsWebVirtualDir");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const IIS_MD_ADSI_METAID_BEGIN: u32 = 130000u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_MD_ADSI_SCHEMA_PATH_A: ::windows_sys::core::PCSTR = ::windows_sys::s!("/Schema");
+pub const IIS_MD_ADSI_SCHEMA_PATH_A: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("/Schema");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_MD_ADSI_SCHEMA_PATH_W: ::windows_sys::core::PCWSTR = ::windows_sys::w!("/Schema");
+pub const IIS_MD_ADSI_SCHEMA_PATH_W: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("/Schema");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const IIS_MD_APPPOOL_BASE: u32 = 9000u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
@@ -417,11 +417,11 @@ pub const IIS_MD_ID_BEGIN_RESERVED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const IIS_MD_ID_END_RESERVED: u32 = 32767u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_MD_INSTANCE_ROOT: ::windows_sys::core::PCSTR = ::windows_sys::s!("Root");
+pub const IIS_MD_INSTANCE_ROOT: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Root");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_MD_ISAPI_FILTERS: ::windows_sys::core::PCSTR = ::windows_sys::s!("/Filters");
+pub const IIS_MD_ISAPI_FILTERS: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("/Filters");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_MD_LOCAL_MACHINE_PATH: ::windows_sys::core::PCSTR = ::windows_sys::s!("LM");
+pub const IIS_MD_LOCAL_MACHINE_PATH: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("LM");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const IIS_MD_LOGCUSTOM_BASE: u32 = 4500u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
@@ -435,7 +435,7 @@ pub const IIS_MD_SERVER_BASE: u32 = 1000u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const IIS_MD_SSL_BASE: u32 = 5500u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_MD_SVC_INFO_PATH: ::windows_sys::core::PCSTR = ::windows_sys::s!("Info");
+pub const IIS_MD_SVC_INFO_PATH: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Info");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const IIS_MD_UT_END_RESERVED: u32 = 2000u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
@@ -447,9 +447,9 @@ pub const IIS_MD_UT_WAM: u32 = 100u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const IIS_MD_VR_BASE: u32 = 3000u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_WEBSOCKET: ::windows_sys::core::PCWSTR = ::windows_sys::w!("websockets");
+pub const IIS_WEBSOCKET: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("websockets");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const IIS_WEBSOCKET_SERVER_VARIABLE: ::windows_sys::core::PCSTR = ::windows_sys::s!("IIS_WEBSOCK");
+pub const IIS_WEBSOCKET_SERVER_VARIABLE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IIS_WEBSOCK");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const IMAP_MD_ID_BEGIN_RESERVED: u32 = 49152u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
@@ -596,6 +596,8 @@ pub const MD_APPPOOL_COMMAND_STOP: u32 = 2u32;
 pub const MD_APPPOOL_DISALLOW_OVERLAPPING_ROTATION: u32 = 9015u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const MD_APPPOOL_DISALLOW_ROTATION_ON_CONFIG_CHANGE: u32 = 9018u32;
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const MD_APPPOOL_EMULATION_ON_WINARM64: u32 = 9043u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const MD_APPPOOL_IDENTITY_TYPE: u32 = 9021u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
@@ -997,7 +999,7 @@ pub const MD_CUSTOM_ERROR: u32 = 6008u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const MD_CUSTOM_ERROR_DESC: u32 = 2120u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const MD_DEFAULT_BACKUP_LOCATION: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MDBackUp");
+pub const MD_DEFAULT_BACKUP_LOCATION: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MDBackUp");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const MD_DEFAULT_LOAD_FILE: u32 = 6006u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
@@ -1399,9 +1401,9 @@ pub const MD_IMPORT_MERGE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const MD_IMPORT_NODE_ONLY: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const MD_INSERT_PATH_STRING: ::windows_sys::core::PCWSTR = ::windows_sys::w!("<%INSERT_PATH%>");
+pub const MD_INSERT_PATH_STRING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("<%INSERT_PATH%>");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const MD_INSERT_PATH_STRINGA: ::windows_sys::core::PCSTR = ::windows_sys::s!("<%INSERT_PATH%>");
+pub const MD_INSERT_PATH_STRINGA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("<%INSERT_PATH%>");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const MD_IN_PROCESS_ISAPI_APPS: u32 = 2073u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
@@ -1881,13 +1883,13 @@ pub const WAM_MD_SERVER_BASE: u32 = 7500u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const WEBDAV_MD_SERVER_BASE: u32 = 8500u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const WEB_CORE_ACTIVATE_DLL_ENTRY: ::windows_sys::core::PCSTR = ::windows_sys::s!("WebCoreActivate");
+pub const WEB_CORE_ACTIVATE_DLL_ENTRY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("WebCoreActivate");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const WEB_CORE_DLL_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("hwebcore.dll");
+pub const WEB_CORE_DLL_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("hwebcore.dll");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const WEB_CORE_SET_METADATA_DLL_ENTRY: ::windows_sys::core::PCSTR = ::windows_sys::s!("WebCoreSetMetadata");
+pub const WEB_CORE_SET_METADATA_DLL_ENTRY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("WebCoreSetMetadata");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const WEB_CORE_SHUTDOWN_DLL_ENTRY: ::windows_sys::core::PCSTR = ::windows_sys::s!("WebCoreShutdown");
+pub const WEB_CORE_SHUTDOWN_DLL_ENTRY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("WebCoreShutdown");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub type FTP_ACCESS = i32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
@@ -2024,9 +2026,9 @@ impl ::core::clone::Clone for CONFIGURATION_ENTRY {
 pub struct EXTENSION_CONTROL_BLOCK {
     pub cbSize: u32,
     pub dwVersion: u32,
-    pub ConnID: *mut ::core::ffi::c_void,
+    pub ConnID: HCONN,
     pub dwHttpStatusCode: u32,
-    pub lpszLogData: [super::super::Foundation::CHAR; 80],
+    pub lpszLogData: [u8; 80],
     pub lpszMethod: ::windows_sys::core::PSTR,
     pub lpszQueryString: ::windows_sys::core::PSTR,
     pub lpszPathInfo: ::windows_sys::core::PSTR,
@@ -2035,10 +2037,10 @@ pub struct EXTENSION_CONTROL_BLOCK {
     pub cbAvailable: u32,
     pub lpbData: *mut u8,
     pub lpszContentType: ::windows_sys::core::PSTR,
-    pub GetServerVariable: isize,
-    pub WriteClient: isize,
-    pub ReadClient: isize,
-    pub ServerSupportFunction: isize,
+    pub GetServerVariable: PFN_IIS_GETSERVERVARIABLE,
+    pub WriteClient: PFN_IIS_WRITECLIENT,
+    pub ReadClient: PFN_IIS_READCLIENT,
+    pub ServerSupportFunction: PFN_IIS_SERVERSUPPORTFUNCTION,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EXTENSION_CONTROL_BLOCK {}
@@ -2048,6 +2050,7 @@ impl ::core::clone::Clone for EXTENSION_CONTROL_BLOCK {
         *self
     }
 }
+pub type HCONN = *mut ::core::ffi::c_void;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2248,19 +2251,16 @@ impl ::core::clone::Clone for HSE_UNICODE_URL_MAPEX_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub struct HSE_URL_MAPEX_INFO {
-    pub lpszPath: [super::super::Foundation::CHAR; 260],
+    pub lpszPath: [u8; 260],
     pub dwFlags: u32,
     pub cchMatchingPath: u32,
     pub cchMatchingURL: u32,
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HSE_URL_MAPEX_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HSE_URL_MAPEX_INFO {
     fn clone(&self) -> Self {
         *self
@@ -2281,15 +2281,12 @@ impl ::core::clone::Clone for HSE_VECTOR_ELEMENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub struct HSE_VERSION_INFO {
     pub dwExtensionVersion: u32,
-    pub lpszExtensionDesc: [super::super::Foundation::CHAR; 256],
+    pub lpszExtensionDesc: [u8; 256],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HSE_VERSION_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HSE_VERSION_INFO {
     fn clone(&self) -> Self {
         *self
@@ -2447,17 +2444,14 @@ impl ::core::clone::Clone for HTTP_FILTER_URL_MAP_EX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub struct HTTP_FILTER_VERSION {
     pub dwServerFilterVersion: u32,
     pub dwFilterVersion: u32,
-    pub lpszFilterDesc: [super::super::Foundation::CHAR; 257],
+    pub lpszFilterDesc: [u8; 257],
     pub dwFlags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_FILTER_VERSION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_FILTER_VERSION {
     fn clone(&self) -> Self {
         *self
@@ -2709,6 +2703,18 @@ pub type PFN_HSE_IO_COMPLETION = ::core::option::Option<unsafe extern "system" f
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HTTPEXTENSIONPROC = ::core::option::Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK) -> u32>;
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_IIS_GETSERVERVARIABLE = ::core::option::Option<unsafe extern "system" fn(param0: HCONN, param1: ::windows_sys::core::PCSTR, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_IIS_READCLIENT = ::core::option::Option<unsafe extern "system" fn(param0: HCONN, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_IIS_SERVERSUPPORTFUNCTION = ::core::option::Option<unsafe extern "system" fn(param0: HCONN, param1: u32, param2: *mut ::core::ffi::c_void, param3: *mut u32, param4: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_IIS_WRITECLIENT = ::core::option::Option<unsafe extern "system" fn(param0: HCONN, param1: *mut ::core::ffi::c_void, param2: *mut u32, param3: u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_TERMINATEEXTENSION = ::core::option::Option<unsafe extern "system" fn(dwflags: u32) -> super::super::Foundation::BOOL>;

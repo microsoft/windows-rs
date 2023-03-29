@@ -1,8 +1,10 @@
 use rayon::prelude::*;
-use std::collections::*;
 use std::io::prelude::*;
 
-/// Namespaces to exclude from code generation for the `windows-sys` crate.
+/// Namespaces to include/exclude from code generation for the `windows-sys` crate.
+
+const INCLUDE_NAMESPACES: [&str; 2] = ["Windows.Win32", "Windows.Wdk"];
+
 const EXCLUDE_NAMESPACES: [&str; 28] = [
     "Windows.Win32.AI.MachineLearning",
     "Windows.Win32.Graphics.CompositionSwapchain",
@@ -35,6 +37,7 @@ const EXCLUDE_NAMESPACES: [&str; 28] = [
 ];
 
 fn main() {
+    let time = std::time::Instant::now();
     let mut expect_namespace = false;
     let mut namespace = String::new();
     for arg in std::env::args() {
@@ -49,19 +52,17 @@ fn main() {
     }
     let mut output = std::path::PathBuf::from("crates/libs/sys/src/Windows");
     if namespace.is_empty() {
-        let _ = std::fs::remove_dir_all(&output);
+        _ = std::fs::remove_dir_all(&output);
     }
     output.pop();
     let files = metadata::reader::File::with_default(&[]).unwrap();
     let reader = &metadata::reader::Reader::new(&files);
     if !namespace.is_empty() {
-        let tree = reader.tree(&namespace, &[]).expect("Namespace not found");
+        let tree = reader.tree(&namespace, &Default::default());
         gen_tree(reader, &output, &tree);
         return;
     }
-    let win32 = reader.tree("Windows.Win32", &EXCLUDE_NAMESPACES).expect("`Windows.Win32` namespace not found");
-    let wdk = reader.tree("Windows.Wdk", &EXCLUDE_NAMESPACES).expect("`Windows.Win32` namespace not found");
-    let root = metadata::reader::Tree { namespace: "Windows", nested: BTreeMap::from([("Win32", win32), ("Wdk", wdk)]) };
+    let root = reader.tree("Windows", &metadata::reader::Filter::new(&INCLUDE_NAMESPACES, &EXCLUDE_NAMESPACES));
     let trees = root.flatten();
     trees.par_iter().for_each(|tree| gen_tree(reader, &output, tree));
     output.pop();
@@ -88,7 +89,7 @@ targets = []
 all-features = true
 
 [target.'cfg(not(windows_raw_dylib))'.dependencies]
-windows-targets = { path = "../targets",  version = "0.42.1" }
+windows-targets = { path = "../targets",  version = "0.47.0" }
 
 [features]
 default = []
@@ -109,10 +110,11 @@ default = []
             file.write_all(format!("{feature} = []\n").as_bytes()).unwrap();
         }
     }
+
+    println!("  Finished in {:.2}s", time.elapsed().as_secs_f32());
 }
 
 fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &metadata::reader::Tree) {
-    println!("{}", tree.namespace);
     let mut path = std::path::PathBuf::from(output);
     path.push(tree.namespace.replace('.', "/"));
     std::fs::create_dir_all(&path).unwrap();

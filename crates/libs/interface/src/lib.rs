@@ -372,10 +372,10 @@ impl Parse for Interface {
         }
 
         let visibility = input.parse::<syn::Visibility>()?;
-        let _ = input.parse::<syn::Token![unsafe]>()?;
-        let _ = input.parse::<syn::Token![trait]>()?;
+        _ = input.parse::<syn::Token![unsafe]>()?;
+        _ = input.parse::<syn::Token![trait]>()?;
         let name = input.parse::<syn::Ident>()?;
-        let _ = input.parse::<syn::Token![:]>();
+        _ = input.parse::<syn::Token![:]>();
         let parent = input.parse::<syn::Path>().ok();
         let content;
         syn::braced!(content in input);

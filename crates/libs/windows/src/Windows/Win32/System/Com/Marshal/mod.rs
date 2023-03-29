@@ -100,7 +100,7 @@ pub unsafe fn CoGetMarshalSizeMax<P0>(pulsize: *mut u32, riid: *const ::windows:
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetMarshalSizeMax ( pulsize : *mut u32 , riid : *const :: windows::core::GUID , punk : * mut::core::ffi::c_void , dwdestcontext : u32 , pvdestcontext : *const ::core::ffi::c_void , mshlflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetMarshalSizeMax ( pulsize : *mut u32 , riid : *const ::windows::core::GUID , punk : * mut::core::ffi::c_void , dwdestcontext : u32 , pvdestcontext : *const ::core::ffi::c_void , mshlflags : u32 ) -> ::windows::core::HRESULT );
     CoGetMarshalSizeMax(pulsize, riid, punk.into_param().abi(), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null())), mshlflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
@@ -109,7 +109,7 @@ pub unsafe fn CoGetStandardMarshal<P0>(riid: *const ::windows::core::GUID, punk:
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetStandardMarshal ( riid : *const :: windows::core::GUID , punk : * mut::core::ffi::c_void , dwdestcontext : u32 , pvdestcontext : *const ::core::ffi::c_void , mshlflags : u32 , ppmarshal : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetStandardMarshal ( riid : *const ::windows::core::GUID , punk : * mut::core::ffi::c_void , dwdestcontext : u32 , pvdestcontext : *const ::core::ffi::c_void , mshlflags : u32 , ppmarshal : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMarshal>();
     CoGetStandardMarshal(riid, punk.into_param().abi(), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null())), mshlflags, &mut result__).from_abi(result__)
 }
@@ -119,7 +119,7 @@ pub unsafe fn CoGetStdMarshalEx<P0>(punkouter: P0, smexflags: u32) -> ::windows:
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetStdMarshalEx ( punkouter : * mut::core::ffi::c_void , smexflags : u32 , ppunkinner : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetStdMarshalEx ( punkouter : * mut::core::ffi::c_void , smexflags : u32 , ppunkinner : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
     CoGetStdMarshalEx(punkouter.into_param().abi(), smexflags, &mut result__).from_abi(result__)
 }
@@ -129,7 +129,7 @@ pub unsafe fn CoMarshalHresult<P0>(pstm: P0, hresult: ::windows::core::HRESULT) 
 where
     P0: ::windows::core::IntoParam<super::IStream>,
 {
-    ::windows::imp::link ! ( "ole32.dll""system" fn CoMarshalHresult ( pstm : * mut::core::ffi::c_void , hresult : :: windows::core::HRESULT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoMarshalHresult ( pstm : * mut::core::ffi::c_void , hresult : ::windows::core::HRESULT ) -> ::windows::core::HRESULT );
     CoMarshalHresult(pstm.into_param().abi(), hresult).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
@@ -138,7 +138,7 @@ pub unsafe fn CoMarshalInterThreadInterfaceInStream<P0>(riid: *const ::windows::
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "ole32.dll""system" fn CoMarshalInterThreadInterfaceInStream ( riid : *const :: windows::core::GUID , punk : * mut::core::ffi::c_void , ppstm : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoMarshalInterThreadInterfaceInStream ( riid : *const ::windows::core::GUID , punk : * mut::core::ffi::c_void , ppstm : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::IStream>();
     CoMarshalInterThreadInterfaceInStream(riid, punk.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -149,7 +149,7 @@ where
     P0: ::windows::core::IntoParam<super::IStream>,
     P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "ole32.dll""system" fn CoMarshalInterface ( pstm : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , punk : * mut::core::ffi::c_void , dwdestcontext : u32 , pvdestcontext : *const ::core::ffi::c_void , mshlflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoMarshalInterface ( pstm : * mut::core::ffi::c_void , riid : *const ::windows::core::GUID , punk : * mut::core::ffi::c_void , dwdestcontext : u32 , pvdestcontext : *const ::core::ffi::c_void , mshlflags : u32 ) -> ::windows::core::HRESULT );
     CoMarshalInterface(pstm.into_param().abi(), riid, punk.into_param().abi(), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null())), mshlflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
@@ -158,7 +158,7 @@ pub unsafe fn CoReleaseMarshalData<P0>(pstm: P0) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<super::IStream>,
 {
-    ::windows::imp::link ! ( "ole32.dll""system" fn CoReleaseMarshalData ( pstm : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoReleaseMarshalData ( pstm : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     CoReleaseMarshalData(pstm.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
@@ -167,7 +167,7 @@ pub unsafe fn CoUnmarshalHresult<P0>(pstm: P0) -> ::windows::core::Result<::wind
 where
     P0: ::windows::core::IntoParam<super::IStream>,
 {
-    ::windows::imp::link ! ( "ole32.dll""system" fn CoUnmarshalHresult ( pstm : * mut::core::ffi::c_void , phresult : *mut :: windows::core::HRESULT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoUnmarshalHresult ( pstm : * mut::core::ffi::c_void , phresult : *mut ::windows::core::HRESULT ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
     CoUnmarshalHresult(pstm.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -178,7 +178,7 @@ where
     P0: ::windows::core::IntoParam<super::IStream>,
     T: ::windows::core::ComInterface,
 {
-    ::windows::imp::link ! ( "ole32.dll""system" fn CoUnmarshalInterface ( pstm : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoUnmarshalInterface ( pstm : * mut::core::ffi::c_void , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     CoUnmarshalInterface(pstm.into_param().abi(), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }

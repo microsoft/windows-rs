@@ -4,7 +4,7 @@ pub unsafe fn CreatePresentationFactory<P0>(d3ddevice: P0, riid: *const ::window
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "dcomp.dll""system" fn CreatePresentationFactory ( d3ddevice : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , presentationfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn CreatePresentationFactory ( d3ddevice : * mut::core::ffi::c_void , riid : *const ::windows::core::GUID , presentationfactory : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     CreatePresentationFactory(d3ddevice.into_param().abi(), riid, presentationfactory).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]

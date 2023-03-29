@@ -6,7 +6,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<super::Direct3D::ID3DInclude>,
 {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CompileEffectFromMemory ( pdata : *const ::core::ffi::c_void , datalength : usize , psrcfilename : :: windows::core::PCSTR , pdefines : *const super::Direct3D:: D3D_SHADER_MACRO , pinclude : * mut::core::ffi::c_void , hlslflags : u32 , fxflags : u32 , ppcompiledeffect : *mut * mut::core::ffi::c_void , pperrors : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CompileEffectFromMemory ( pdata : *const ::core::ffi::c_void , datalength : usize , psrcfilename : ::windows::core::PCSTR , pdefines : *const super::Direct3D:: D3D_SHADER_MACRO , pinclude : * mut::core::ffi::c_void , hlslflags : u32 , fxflags : u32 , ppcompiledeffect : *mut * mut::core::ffi::c_void , pperrors : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3D10CompileEffectFromMemory(pdata, datalength, psrcfilename.into_param().abi(), ::core::mem::transmute(pdefines.unwrap_or(::std::ptr::null())), pinclude.into_param().abi(), hlslflags, fxflags, ::core::mem::transmute(ppcompiledeffect), ::core::mem::transmute(pperrors.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
@@ -19,14 +19,14 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CompileShader ( psrcdata : :: windows::core::PCSTR , srcdatasize : usize , pfilename : :: windows::core::PCSTR , pdefines : *const super::Direct3D:: D3D_SHADER_MACRO , pinclude : * mut::core::ffi::c_void , pfunctionname : :: windows::core::PCSTR , pprofile : :: windows::core::PCSTR , flags : u32 , ppshader : *mut * mut::core::ffi::c_void , pperrormsgs : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CompileShader ( psrcdata : ::windows::core::PCSTR , srcdatasize : usize , pfilename : ::windows::core::PCSTR , pdefines : *const super::Direct3D:: D3D_SHADER_MACRO , pinclude : * mut::core::ffi::c_void , pfunctionname : ::windows::core::PCSTR , pprofile : ::windows::core::PCSTR , flags : u32 , ppshader : *mut * mut::core::ffi::c_void , pperrormsgs : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3D10CompileShader(::core::mem::transmute(psrcdata.as_ptr()), psrcdata.len() as _, pfilename.into_param().abi(), ::core::mem::transmute(pdefines.unwrap_or(::std::ptr::null())), pinclude.into_param().abi(), pfunctionname.into_param().abi(), pprofile.into_param().abi(), flags, ::core::mem::transmute(ppshader), ::core::mem::transmute(pperrormsgs.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D10CreateBlob(numbytes: usize) -> ::windows::core::Result<super::Direct3D::ID3DBlob> {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CreateBlob ( numbytes : usize , ppbuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CreateBlob ( numbytes : usize , ppbuffer : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::Direct3D::ID3DBlob>();
     D3D10CreateBlob(numbytes, &mut result__).from_abi(result__)
 }
@@ -36,9 +36,9 @@ pub unsafe fn D3D10CreateBlob(numbytes: usize) -> ::windows::core::Result<super:
 pub unsafe fn D3D10CreateDevice<P0, P1>(padapter: P0, drivertype: D3D10_DRIVER_TYPE, software: P1, flags: u32, sdkversion: u32, ppdevice: ::core::option::Option<*mut ::core::option::Option<ID3D10Device>>) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<super::Dxgi::IDXGIAdapter>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CreateDevice ( padapter : * mut::core::ffi::c_void , drivertype : D3D10_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : u32 , sdkversion : u32 , ppdevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CreateDevice ( padapter : * mut::core::ffi::c_void , drivertype : D3D10_DRIVER_TYPE , software : super::super::Foundation:: HMODULE , flags : u32 , sdkversion : u32 , ppdevice : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3D10CreateDevice(padapter.into_param().abi(), drivertype, software.into_param().abi(), flags, sdkversion, ::core::mem::transmute(ppdevice.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi\"`*"]
@@ -47,9 +47,9 @@ where
 pub unsafe fn D3D10CreateDevice1<P0, P1>(padapter: P0, drivertype: D3D10_DRIVER_TYPE, software: P1, flags: u32, hardwarelevel: D3D10_FEATURE_LEVEL1, sdkversion: u32, ppdevice: ::core::option::Option<*mut ::core::option::Option<ID3D10Device1>>) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<super::Dxgi::IDXGIAdapter>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "d3d10_1.dll""system" fn D3D10CreateDevice1 ( padapter : * mut::core::ffi::c_void , drivertype : D3D10_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : u32 , hardwarelevel : D3D10_FEATURE_LEVEL1 , sdkversion : u32 , ppdevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10_1.dll""system" fn D3D10CreateDevice1 ( padapter : * mut::core::ffi::c_void , drivertype : D3D10_DRIVER_TYPE , software : super::super::Foundation:: HMODULE , flags : u32 , hardwarelevel : D3D10_FEATURE_LEVEL1 , sdkversion : u32 , ppdevice : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3D10CreateDevice1(padapter.into_param().abi(), drivertype, software.into_param().abi(), flags, hardwarelevel, sdkversion, ::core::mem::transmute(ppdevice.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
@@ -58,9 +58,9 @@ where
 pub unsafe fn D3D10CreateDeviceAndSwapChain<P0, P1>(padapter: P0, drivertype: D3D10_DRIVER_TYPE, software: P1, flags: u32, sdkversion: u32, pswapchaindesc: ::core::option::Option<*const super::Dxgi::DXGI_SWAP_CHAIN_DESC>, ppswapchain: ::core::option::Option<*mut ::core::option::Option<super::Dxgi::IDXGISwapChain>>, ppdevice: ::core::option::Option<*mut ::core::option::Option<ID3D10Device>>) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<super::Dxgi::IDXGIAdapter>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CreateDeviceAndSwapChain ( padapter : * mut::core::ffi::c_void , drivertype : D3D10_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : u32 , sdkversion : u32 , pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC , ppswapchain : *mut * mut::core::ffi::c_void , ppdevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CreateDeviceAndSwapChain ( padapter : * mut::core::ffi::c_void , drivertype : D3D10_DRIVER_TYPE , software : super::super::Foundation:: HMODULE , flags : u32 , sdkversion : u32 , pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC , ppswapchain : *mut * mut::core::ffi::c_void , ppdevice : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3D10CreateDeviceAndSwapChain(padapter.into_param().abi(), drivertype, software.into_param().abi(), flags, sdkversion, ::core::mem::transmute(pswapchaindesc.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppswapchain.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdevice.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
@@ -69,9 +69,9 @@ where
 pub unsafe fn D3D10CreateDeviceAndSwapChain1<P0, P1>(padapter: P0, drivertype: D3D10_DRIVER_TYPE, software: P1, flags: u32, hardwarelevel: D3D10_FEATURE_LEVEL1, sdkversion: u32, pswapchaindesc: ::core::option::Option<*const super::Dxgi::DXGI_SWAP_CHAIN_DESC>, ppswapchain: ::core::option::Option<*mut ::core::option::Option<super::Dxgi::IDXGISwapChain>>, ppdevice: ::core::option::Option<*mut ::core::option::Option<ID3D10Device1>>) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<super::Dxgi::IDXGIAdapter>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "d3d10_1.dll""system" fn D3D10CreateDeviceAndSwapChain1 ( padapter : * mut::core::ffi::c_void , drivertype : D3D10_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : u32 , hardwarelevel : D3D10_FEATURE_LEVEL1 , sdkversion : u32 , pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC , ppswapchain : *mut * mut::core::ffi::c_void , ppdevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10_1.dll""system" fn D3D10CreateDeviceAndSwapChain1 ( padapter : * mut::core::ffi::c_void , drivertype : D3D10_DRIVER_TYPE , software : super::super::Foundation:: HMODULE , flags : u32 , hardwarelevel : D3D10_FEATURE_LEVEL1 , sdkversion : u32 , pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC , ppswapchain : *mut * mut::core::ffi::c_void , ppdevice : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3D10CreateDeviceAndSwapChain1(padapter.into_param().abi(), drivertype, software.into_param().abi(), flags, hardwarelevel, sdkversion, ::core::mem::transmute(pswapchaindesc.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppswapchain.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdevice.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
@@ -81,7 +81,7 @@ where
     P0: ::windows::core::IntoParam<ID3D10Device>,
     P1: ::windows::core::IntoParam<ID3D10EffectPool>,
 {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CreateEffectFromMemory ( pdata : *const ::core::ffi::c_void , datalength : usize , fxflags : u32 , pdevice : * mut::core::ffi::c_void , peffectpool : * mut::core::ffi::c_void , ppeffect : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CreateEffectFromMemory ( pdata : *const ::core::ffi::c_void , datalength : usize , fxflags : u32 , pdevice : * mut::core::ffi::c_void , peffectpool : * mut::core::ffi::c_void , ppeffect : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<ID3D10Effect>();
     D3D10CreateEffectFromMemory(pdata, datalength, fxflags, pdevice.into_param().abi(), peffectpool.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -91,7 +91,7 @@ pub unsafe fn D3D10CreateEffectPoolFromMemory<P0>(pdata: *const ::core::ffi::c_v
 where
     P0: ::windows::core::IntoParam<ID3D10Device>,
 {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CreateEffectPoolFromMemory ( pdata : *const ::core::ffi::c_void , datalength : usize , fxflags : u32 , pdevice : * mut::core::ffi::c_void , ppeffectpool : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CreateEffectPoolFromMemory ( pdata : *const ::core::ffi::c_void , datalength : usize , fxflags : u32 , pdevice : * mut::core::ffi::c_void , ppeffectpool : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<ID3D10EffectPool>();
     D3D10CreateEffectPoolFromMemory(pdata, datalength, fxflags, pdevice.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -101,7 +101,7 @@ pub unsafe fn D3D10CreateStateBlock<P0>(pdevice: P0, pstateblockmask: *const D3D
 where
     P0: ::windows::core::IntoParam<ID3D10Device>,
 {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CreateStateBlock ( pdevice : * mut::core::ffi::c_void , pstateblockmask : *const D3D10_STATE_BLOCK_MASK , ppstateblock : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CreateStateBlock ( pdevice : * mut::core::ffi::c_void , pstateblockmask : *const D3D10_STATE_BLOCK_MASK , ppstateblock : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<ID3D10StateBlock>();
     D3D10CreateStateBlock(pdevice.into_param().abi(), pstateblockmask, &mut result__).from_abi(result__)
 }
@@ -113,7 +113,7 @@ where
     P0: ::windows::core::IntoParam<ID3D10Effect>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10DisassembleEffect ( peffect : * mut::core::ffi::c_void , enablecolorcode : super::super::Foundation:: BOOL , ppdisassembly : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10DisassembleEffect ( peffect : * mut::core::ffi::c_void , enablecolorcode : super::super::Foundation:: BOOL , ppdisassembly : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::Direct3D::ID3DBlob>();
     D3D10DisassembleEffect(peffect.into_param().abi(), enablecolorcode.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -125,24 +125,24 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10DisassembleShader ( pshader : *const ::core::ffi::c_void , bytecodelength : usize , enablecolorcode : super::super::Foundation:: BOOL , pcomments : :: windows::core::PCSTR , ppdisassembly : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10DisassembleShader ( pshader : *const ::core::ffi::c_void , bytecodelength : usize , enablecolorcode : super::super::Foundation:: BOOL , pcomments : ::windows::core::PCSTR , ppdisassembly : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::Direct3D::ID3DBlob>();
     D3D10DisassembleShader(pshader, bytecodelength, enablecolorcode.into_param().abi(), pcomments.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
-pub unsafe fn D3D10GetGeometryShaderProfile<P0>(pdevice: P0) -> ::windows::core::PSTR
+pub unsafe fn D3D10GetGeometryShaderProfile<P0>(pdevice: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<ID3D10Device>,
 {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetGeometryShaderProfile ( pdevice : * mut::core::ffi::c_void ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetGeometryShaderProfile ( pdevice : * mut::core::ffi::c_void ) -> ::windows::core::PCSTR );
     D3D10GetGeometryShaderProfile(pdevice.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D10GetInputAndOutputSignatureBlob(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<super::Direct3D::ID3DBlob> {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetInputAndOutputSignatureBlob ( pshaderbytecode : *const ::core::ffi::c_void , bytecodelength : usize , ppsignatureblob : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetInputAndOutputSignatureBlob ( pshaderbytecode : *const ::core::ffi::c_void , bytecodelength : usize , ppsignatureblob : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::Direct3D::ID3DBlob>();
     D3D10GetInputAndOutputSignatureBlob(pshaderbytecode, bytecodelength, &mut result__).from_abi(result__)
 }
@@ -150,7 +150,7 @@ pub unsafe fn D3D10GetInputAndOutputSignatureBlob(pshaderbytecode: *const ::core
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D10GetInputSignatureBlob(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<super::Direct3D::ID3DBlob> {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetInputSignatureBlob ( pshaderbytecode : *const ::core::ffi::c_void , bytecodelength : usize , ppsignatureblob : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetInputSignatureBlob ( pshaderbytecode : *const ::core::ffi::c_void , bytecodelength : usize , ppsignatureblob : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::Direct3D::ID3DBlob>();
     D3D10GetInputSignatureBlob(pshaderbytecode, bytecodelength, &mut result__).from_abi(result__)
 }
@@ -158,34 +158,34 @@ pub unsafe fn D3D10GetInputSignatureBlob(pshaderbytecode: *const ::core::ffi::c_
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D10GetOutputSignatureBlob(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<super::Direct3D::ID3DBlob> {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetOutputSignatureBlob ( pshaderbytecode : *const ::core::ffi::c_void , bytecodelength : usize , ppsignatureblob : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetOutputSignatureBlob ( pshaderbytecode : *const ::core::ffi::c_void , bytecodelength : usize , ppsignatureblob : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::Direct3D::ID3DBlob>();
     D3D10GetOutputSignatureBlob(pshaderbytecode, bytecodelength, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
-pub unsafe fn D3D10GetPixelShaderProfile<P0>(pdevice: P0) -> ::windows::core::PSTR
+pub unsafe fn D3D10GetPixelShaderProfile<P0>(pdevice: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<ID3D10Device>,
 {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetPixelShaderProfile ( pdevice : * mut::core::ffi::c_void ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetPixelShaderProfile ( pdevice : * mut::core::ffi::c_void ) -> ::windows::core::PCSTR );
     D3D10GetPixelShaderProfile(pdevice.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D10GetShaderDebugInfo(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<super::Direct3D::ID3DBlob> {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetShaderDebugInfo ( pshaderbytecode : *const ::core::ffi::c_void , bytecodelength : usize , ppdebuginfo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetShaderDebugInfo ( pshaderbytecode : *const ::core::ffi::c_void , bytecodelength : usize , ppdebuginfo : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::Direct3D::ID3DBlob>();
     D3D10GetShaderDebugInfo(pshaderbytecode, bytecodelength, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
-pub unsafe fn D3D10GetVertexShaderProfile<P0>(pdevice: P0) -> ::windows::core::PSTR
+pub unsafe fn D3D10GetVertexShaderProfile<P0>(pdevice: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<ID3D10Device>,
 {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetVertexShaderProfile ( pdevice : * mut::core::ffi::c_void ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetVertexShaderProfile ( pdevice : * mut::core::ffi::c_void ) -> ::windows::core::PCSTR );
     D3D10GetVertexShaderProfile(pdevice.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
@@ -196,44 +196,44 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<super::Direct3D::ID3DInclude>,
 {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10PreprocessShader ( psrcdata : :: windows::core::PCSTR , srcdatasize : usize , pfilename : :: windows::core::PCSTR , pdefines : *const super::Direct3D:: D3D_SHADER_MACRO , pinclude : * mut::core::ffi::c_void , ppshadertext : *mut * mut::core::ffi::c_void , pperrormsgs : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10PreprocessShader ( psrcdata : ::windows::core::PCSTR , srcdatasize : usize , pfilename : ::windows::core::PCSTR , pdefines : *const super::Direct3D:: D3D_SHADER_MACRO , pinclude : * mut::core::ffi::c_void , ppshadertext : *mut * mut::core::ffi::c_void , pperrormsgs : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3D10PreprocessShader(::core::mem::transmute(psrcdata.as_ptr()), psrcdata.len() as _, pfilename.into_param().abi(), ::core::mem::transmute(pdefines.unwrap_or(::std::ptr::null())), pinclude.into_param().abi(), ::core::mem::transmute(ppshadertext), ::core::mem::transmute(pperrormsgs.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
 pub unsafe fn D3D10ReflectShader(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<ID3D10ShaderReflection> {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10ReflectShader ( pshaderbytecode : *const ::core::ffi::c_void , bytecodelength : usize , ppreflector : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10ReflectShader ( pshaderbytecode : *const ::core::ffi::c_void , bytecodelength : usize , ppreflector : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<ID3D10ShaderReflection>();
     D3D10ReflectShader(pshaderbytecode, bytecodelength, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskDifference(pa: *const D3D10_STATE_BLOCK_MASK, pb: *const D3D10_STATE_BLOCK_MASK, presult: *mut D3D10_STATE_BLOCK_MASK) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskDifference ( pa : *const D3D10_STATE_BLOCK_MASK , pb : *const D3D10_STATE_BLOCK_MASK , presult : *mut D3D10_STATE_BLOCK_MASK ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskDifference ( pa : *const D3D10_STATE_BLOCK_MASK , pb : *const D3D10_STATE_BLOCK_MASK , presult : *mut D3D10_STATE_BLOCK_MASK ) -> ::windows::core::HRESULT );
     D3D10StateBlockMaskDifference(pa, pb, presult).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskDisableAll(pmask: *mut D3D10_STATE_BLOCK_MASK) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskDisableAll ( pmask : *mut D3D10_STATE_BLOCK_MASK ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskDisableAll ( pmask : *mut D3D10_STATE_BLOCK_MASK ) -> ::windows::core::HRESULT );
     D3D10StateBlockMaskDisableAll(pmask).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskDisableCapture(pmask: *mut D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, rangestart: u32, rangelength: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskDisableCapture ( pmask : *mut D3D10_STATE_BLOCK_MASK , statetype : D3D10_DEVICE_STATE_TYPES , rangestart : u32 , rangelength : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskDisableCapture ( pmask : *mut D3D10_STATE_BLOCK_MASK , statetype : D3D10_DEVICE_STATE_TYPES , rangestart : u32 , rangelength : u32 ) -> ::windows::core::HRESULT );
     D3D10StateBlockMaskDisableCapture(pmask, statetype, rangestart, rangelength).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskEnableAll(pmask: *mut D3D10_STATE_BLOCK_MASK) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskEnableAll ( pmask : *mut D3D10_STATE_BLOCK_MASK ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskEnableAll ( pmask : *mut D3D10_STATE_BLOCK_MASK ) -> ::windows::core::HRESULT );
     D3D10StateBlockMaskEnableAll(pmask).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskEnableCapture(pmask: *mut D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, rangestart: u32, rangelength: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskEnableCapture ( pmask : *mut D3D10_STATE_BLOCK_MASK , statetype : D3D10_DEVICE_STATE_TYPES , rangestart : u32 , rangelength : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskEnableCapture ( pmask : *mut D3D10_STATE_BLOCK_MASK , statetype : D3D10_DEVICE_STATE_TYPES , rangestart : u32 , rangelength : u32 ) -> ::windows::core::HRESULT );
     D3D10StateBlockMaskEnableCapture(pmask, statetype, rangestart, rangelength).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`*"]
@@ -246,13 +246,13 @@ pub unsafe fn D3D10StateBlockMaskGetSetting(pmask: *const D3D10_STATE_BLOCK_MASK
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskIntersect(pa: *const D3D10_STATE_BLOCK_MASK, pb: *const D3D10_STATE_BLOCK_MASK, presult: *mut D3D10_STATE_BLOCK_MASK) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskIntersect ( pa : *const D3D10_STATE_BLOCK_MASK , pb : *const D3D10_STATE_BLOCK_MASK , presult : *mut D3D10_STATE_BLOCK_MASK ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskIntersect ( pa : *const D3D10_STATE_BLOCK_MASK , pb : *const D3D10_STATE_BLOCK_MASK , presult : *mut D3D10_STATE_BLOCK_MASK ) -> ::windows::core::HRESULT );
     D3D10StateBlockMaskIntersect(pa, pb, presult).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskUnion(pa: *const D3D10_STATE_BLOCK_MASK, pb: *const D3D10_STATE_BLOCK_MASK, presult: *mut D3D10_STATE_BLOCK_MASK) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskUnion ( pa : *const D3D10_STATE_BLOCK_MASK , pb : *const D3D10_STATE_BLOCK_MASK , presult : *mut D3D10_STATE_BLOCK_MASK ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskUnion ( pa : *const D3D10_STATE_BLOCK_MASK , pb : *const D3D10_STATE_BLOCK_MASK , presult : *mut D3D10_STATE_BLOCK_MASK ) -> ::windows::core::HRESULT );
     D3D10StateBlockMaskUnion(pa, pb, presult).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
@@ -3851,11 +3851,11 @@ impl ID3D10EffectStringVariable {
     pub unsafe fn GetRawValue(&self, pdata: *mut ::core::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetRawValue)(::windows::core::Interface::as_raw(self), pdata, offset, bytecount).ok()
     }
-    pub unsafe fn GetString(&self) -> ::windows::core::Result<::windows::core::PSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::PSTR>();
+    pub unsafe fn GetString(&self) -> ::windows::core::Result<::windows::core::PCSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PCSTR>();
         (::windows::core::Interface::vtable(self).GetString)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetStringArray(&self, ppstrings: &mut [::windows::core::PSTR], offset: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetStringArray(&self, ppstrings: &mut [::windows::core::PCSTR], offset: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetStringArray)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppstrings.as_ptr()), offset, ppstrings.len() as _).ok()
     }
 }
@@ -3885,8 +3885,8 @@ impl ::core::clone::Clone for ID3D10EffectStringVariable {
 #[doc(hidden)]
 pub struct ID3D10EffectStringVariable_Vtbl {
     pub base__: ID3D10EffectVariable_Vtbl,
-    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstring: *mut ::windows::core::PSTR) -> ::windows::core::HRESULT,
-    pub GetStringArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstrings: *mut ::windows::core::PSTR, offset: u32, count: u32) -> ::windows::core::HRESULT,
+    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstring: *mut ::windows::core::PCSTR) -> ::windows::core::HRESULT,
+    pub GetStringArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstrings: *mut ::windows::core::PCSTR, offset: u32, count: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
@@ -3986,10 +3986,10 @@ impl ID3D10EffectType {
     {
         (::windows::core::Interface::vtable(self).GetMemberTypeBySemantic)(::windows::core::Interface::as_raw(self), semantic.into_param().abi())
     }
-    pub unsafe fn GetMemberName(&self, index: u32) -> ::windows::core::PSTR {
+    pub unsafe fn GetMemberName(&self, index: u32) -> ::windows::core::PCSTR {
         (::windows::core::Interface::vtable(self).GetMemberName)(::windows::core::Interface::as_raw(self), index)
     }
-    pub unsafe fn GetMemberSemantic(&self, index: u32) -> ::windows::core::PSTR {
+    pub unsafe fn GetMemberSemantic(&self, index: u32) -> ::windows::core::PCSTR {
         (::windows::core::Interface::vtable(self).GetMemberSemantic)(::windows::core::Interface::as_raw(self), index)
     }
 }
@@ -4028,8 +4028,8 @@ pub struct ID3D10EffectType_Vtbl {
     pub GetMemberTypeByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10EffectType>,
     pub GetMemberTypeByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectType>,
     pub GetMemberTypeBySemantic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectType>,
-    pub GetMemberName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PSTR,
-    pub GetMemberSemantic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PSTR,
+    pub GetMemberName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PCSTR,
+    pub GetMemberSemantic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PCSTR,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
@@ -5503,7 +5503,7 @@ impl ID3D10ShaderReflectionType {
     {
         (::windows::core::Interface::vtable(self).GetMemberTypeByName)(::windows::core::Interface::as_raw(self), name.into_param().abi())
     }
-    pub unsafe fn GetMemberTypeName(&self, index: u32) -> ::windows::core::PSTR {
+    pub unsafe fn GetMemberTypeName(&self, index: u32) -> ::windows::core::PCSTR {
         (::windows::core::Interface::vtable(self).GetMemberTypeName)(::windows::core::Interface::as_raw(self), index)
     }
 }
@@ -5537,7 +5537,7 @@ pub struct ID3D10ShaderReflectionType_Vtbl {
     GetDesc: usize,
     pub GetMemberTypeByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10ShaderReflectionType>,
     pub GetMemberTypeByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionType>,
-    pub GetMemberTypeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PSTR,
+    pub GetMemberTypeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PCSTR,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
@@ -6229,19 +6229,19 @@ pub const D3D10_ANISOTROPIC_FILTERING_BIT: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_APPEND_ALIGNED_ELEMENT: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-pub const D3D10_APPNAME_STRING: ::windows::core::PCWSTR = ::windows::w!("Name");
+pub const D3D10_APPNAME_STRING: ::windows::core::PCWSTR = ::windows::core::w!("Name");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-pub const D3D10_APPSIZE_STRING: ::windows::core::PCWSTR = ::windows::w!("Size");
+pub const D3D10_APPSIZE_STRING: ::windows::core::PCWSTR = ::windows::core::w!("Size");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_ARRAY_AXIS_ADDRESS_RANGE_BIT_COUNT: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-pub const D3D10_BREAKON_CATEGORY: ::windows::core::PCWSTR = ::windows::w!("BreakOn_CATEGORY_%s");
+pub const D3D10_BREAKON_CATEGORY: ::windows::core::PCWSTR = ::windows::core::w!("BreakOn_CATEGORY_%s");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-pub const D3D10_BREAKON_ID_DECIMAL: ::windows::core::PCWSTR = ::windows::w!("BreakOn_ID_%d");
+pub const D3D10_BREAKON_ID_DECIMAL: ::windows::core::PCWSTR = ::windows::core::w!("BreakOn_ID_%d");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-pub const D3D10_BREAKON_ID_STRING: ::windows::core::PCWSTR = ::windows::w!("BreakOn_ID_%s");
+pub const D3D10_BREAKON_ID_STRING: ::windows::core::PCWSTR = ::windows::core::w!("BreakOn_ID_%s");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-pub const D3D10_BREAKON_SEVERITY: ::windows::core::PCWSTR = ::windows::w!("BreakOn_SEVERITY_%s");
+pub const D3D10_BREAKON_SEVERITY: ::windows::core::PCWSTR = ::windows::core::w!("BreakOn_SEVERITY_%s");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_CLIP_OR_CULL_DISTANCE_COUNT: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
@@ -6387,7 +6387,7 @@ pub const D3D10_EFFECT_VARIABLE_EXPLICIT_BIND_POINT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_EFFECT_VARIABLE_POOLED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-pub const D3D10_ENABLE_BREAK_ON_MESSAGE: ::windows::core::PCWSTR = ::windows::w!("EnableBreakOnMessage");
+pub const D3D10_ENABLE_BREAK_ON_MESSAGE: ::windows::core::PCWSTR = ::windows::core::w!("EnableBreakOnMessage");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_ENABLE_UNBOUNDED_DESCRIPTOR_TABLES: u32 = 1048576u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
@@ -6471,7 +6471,7 @@ pub const D3D10_IA_VERTEX_INPUT_STRUCTURE_ELEMENTS_COMPONENTS: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_IA_VERTEX_INPUT_STRUCTURE_ELEMENT_COUNT: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-pub const D3D10_INFOQUEUE_STORAGE_FILTER_OVERRIDE: ::windows::core::PCWSTR = ::windows::w!("InfoQueueStorageFilterOverride");
+pub const D3D10_INFOQUEUE_STORAGE_FILTER_OVERRIDE: ::windows::core::PCWSTR = ::windows::core::w!("InfoQueueStorageFilterOverride");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
@@ -6515,15 +6515,15 @@ pub const D3D10_MIP_LOD_RANGE_BIT_COUNT: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4f32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-pub const D3D10_MUTE_CATEGORY: ::windows::core::PCWSTR = ::windows::w!("Mute_CATEGORY_%s");
+pub const D3D10_MUTE_CATEGORY: ::windows::core::PCWSTR = ::windows::core::w!("Mute_CATEGORY_%s");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-pub const D3D10_MUTE_DEBUG_OUTPUT: ::windows::core::PCWSTR = ::windows::w!("MuteDebugOutput");
+pub const D3D10_MUTE_DEBUG_OUTPUT: ::windows::core::PCWSTR = ::windows::core::w!("MuteDebugOutput");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-pub const D3D10_MUTE_ID_DECIMAL: ::windows::core::PCWSTR = ::windows::w!("Mute_ID_%d");
+pub const D3D10_MUTE_ID_DECIMAL: ::windows::core::PCWSTR = ::windows::core::w!("Mute_ID_%d");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-pub const D3D10_MUTE_ID_STRING: ::windows::core::PCWSTR = ::windows::w!("Mute_ID_%s");
+pub const D3D10_MUTE_ID_STRING: ::windows::core::PCWSTR = ::windows::core::w!("Mute_ID_%s");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-pub const D3D10_MUTE_SEVERITY: ::windows::core::PCWSTR = ::windows::w!("Mute_SEVERITY_%s");
+pub const D3D10_MUTE_SEVERITY: ::windows::core::PCWSTR = ::windows::core::w!("Mute_SEVERITY_%s");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_NONSAMPLE_FETCH_OUT_OF_RANGE_ACCESS_RESULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
@@ -6563,7 +6563,7 @@ pub const D3D10_PS_OUTPUT_REGISTER_COUNT: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_PS_PIXEL_CENTER_FRACTIONAL_COMPONENT: f32 = 0.5f32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-pub const D3D10_REGKEY_PATH: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Direct3D");
+pub const D3D10_REGKEY_PATH: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Direct3D");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_REQ_BLEND_OBJECT_COUNT_PER_CONTEXT: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
@@ -6727,7 +6727,7 @@ pub const D3D10_TEXT_1BIT_BIT: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_UNBOUND_MEMORY_ACCESS_RESULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-pub const D3D10_UNMUTE_SEVERITY_INFO: ::windows::core::PCWSTR = ::windows::w!("Unmute_SEVERITY_INFO");
+pub const D3D10_UNMUTE_SEVERITY_INFO: ::windows::core::PCWSTR = ::windows::core::w!("Unmute_SEVERITY_INFO");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_VIEWPORT_AND_SCISSORRECT_MAX_INDEX: u32 = 15u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
@@ -12500,9 +12500,9 @@ impl ::core::default::Default for D3D10_VIEWPORT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-pub type PFN_D3D10_CREATE_DEVICE1 = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<super::Dxgi::IDXGIAdapter>, param1: D3D10_DRIVER_TYPE, param2: super::super::Foundation::HINSTANCE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut ::core::option::Option<ID3D10Device1>) -> ::windows::core::HRESULT>;
+pub type PFN_D3D10_CREATE_DEVICE1 = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<super::Dxgi::IDXGIAdapter>, param1: D3D10_DRIVER_TYPE, param2: super::super::Foundation::HMODULE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut ::core::option::Option<ID3D10Device1>) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub type PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1 = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<super::Dxgi::IDXGIAdapter>, param1: D3D10_DRIVER_TYPE, param2: super::super::Foundation::HINSTANCE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut super::Dxgi::DXGI_SWAP_CHAIN_DESC, param7: *mut ::core::option::Option<super::Dxgi::IDXGISwapChain>, param8: *mut ::core::option::Option<ID3D10Device1>) -> ::windows::core::HRESULT>;
+pub type PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1 = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<super::Dxgi::IDXGIAdapter>, param1: D3D10_DRIVER_TYPE, param2: super::super::Foundation::HMODULE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut super::Dxgi::DXGI_SWAP_CHAIN_DESC, param7: *mut ::core::option::Option<super::Dxgi::IDXGISwapChain>, param8: *mut ::core::option::Option<ID3D10Device1>) -> ::windows::core::HRESULT>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

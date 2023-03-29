@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "htmlhelp.dll""system" #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"] fn HtmlHelpA ( hwndcaller : super::super::Foundation:: HWND , pszfile : :: windows_sys::core::PCSTR , ucommand : HTML_HELP_COMMAND , dwdata : usize ) -> super::super::Foundation:: HWND );
+::windows_sys::core::link ! ( "htmlhelp.dll""system" #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"] fn HtmlHelpA ( hwndcaller : super::super::Foundation:: HWND , pszfile : ::windows_sys::core::PCSTR , ucommand : HTML_HELP_COMMAND , dwdata : usize ) -> super::super::Foundation:: HWND );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "htmlhelp.dll""system" #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"] fn HtmlHelpW ( hwndcaller : super::super::Foundation:: HWND , pszfile : :: windows_sys::core::PCWSTR , ucommand : HTML_HELP_COMMAND , dwdata : usize ) -> super::super::Foundation:: HWND );
+::windows_sys::core::link ! ( "htmlhelp.dll""system" #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"] fn HtmlHelpW ( hwndcaller : super::super::Foundation:: HWND , pszfile : ::windows_sys::core::PCWSTR , ucommand : HTML_HELP_COMMAND , dwdata : usize ) -> super::super::Foundation:: HWND );
 pub type IITDatabase = *mut ::core::ffi::c_void;
 pub type IITPropList = *mut ::core::ffi::c_void;
 pub type IITResultSet = *mut ::core::ffi::c_void;
@@ -209,6 +209,16 @@ pub const HHACT_TOC_NEXT: i32 = 20i32;
 pub const HHACT_TOC_PREV: i32 = 21i32;
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 pub const HHACT_ZOOM: i32 = 19i32;
+#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
+pub const HHN_FIRST: u32 = 4294966436u32;
+#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
+pub const HHN_LAST: u32 = 4294966417u32;
+#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
+pub const HHN_NAVCOMPLETE: u32 = 4294966436u32;
+#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
+pub const HHN_TRACK: u32 = 4294966435u32;
+#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
+pub const HHN_WINDOW_CREATE: u32 = 4294966434u32;
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 pub const HHWIN_BUTTON_BACK: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
@@ -476,11 +486,11 @@ pub const STDPROP_USERPROP_BASE: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 pub const STDPROP_USERPROP_MAX: u32 = 2147483647u32;
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
-pub const SZ_WWDEST_GLOBAL: ::windows_sys::core::PCWSTR = ::windows_sys::w!("GLOBAL");
+pub const SZ_WWDEST_GLOBAL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("GLOBAL");
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
-pub const SZ_WWDEST_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("KEY");
+pub const SZ_WWDEST_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("KEY");
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
-pub const SZ_WWDEST_OCC: ::windows_sys::core::PCWSTR = ::windows_sys::w!("OCC");
+pub const SZ_WWDEST_OCC: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("OCC");
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 pub const TYPE_POINTER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
@@ -753,7 +763,7 @@ impl ::core::clone::Clone for HH_GLOBAL_PROPERTY {
 #[cfg(feature = "Win32_Foundation")]
 pub struct HH_POPUP {
     pub cbStruct: i32,
-    pub hinst: super::super::Foundation::HINSTANCE,
+    pub hinst: super::super::Foundation::HMODULE,
     pub idString: u32,
     pub pszText: *mut i8,
     pub pt: super::super::Foundation::POINT,

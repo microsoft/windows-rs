@@ -16,7 +16,7 @@ pub unsafe fn CreateJobObjectA<P0>(lpjobattributes: ::core::option::Option<*cons
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateJobObjectA ( lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : :: windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateJobObjectA ( lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : ::windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateJobObjectA(::core::mem::transmute(lpjobattributes.unwrap_or(::std::ptr::null())), lpname.into_param().abi());
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -27,7 +27,7 @@ pub unsafe fn CreateJobObjectW<P0>(lpjobattributes: ::core::option::Option<*cons
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateJobObjectW ( lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateJobObjectW ( lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : ::windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateJobObjectW(::core::mem::transmute(lpjobattributes.unwrap_or(::std::ptr::null())), lpname.into_param().abi());
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -63,7 +63,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn OpenJobObjectA ( dwdesiredaccess : u32 , binherithandle : super::super::Foundation:: BOOL , lpname : :: windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn OpenJobObjectA ( dwdesiredaccess : u32 , binherithandle : super::super::Foundation:: BOOL , lpname : ::windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
     let result__ = OpenJobObjectA(dwdesiredaccess, binherithandle.into_param().abi(), lpname.into_param().abi());
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -75,7 +75,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn OpenJobObjectW ( dwdesiredaccess : u32 , binherithandle : super::super::Foundation:: BOOL , lpname : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn OpenJobObjectW ( dwdesiredaccess : u32 , binherithandle : super::super::Foundation:: BOOL , lpname : ::windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
     let result__ = OpenJobObjectW(dwdesiredaccess, binherithandle.into_param().abi(), lpname.into_param().abi());
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -97,7 +97,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn QueryIoRateControlInformationJobObject ( hjob : super::super::Foundation:: HANDLE , volumename : :: windows::core::PCWSTR , infoblocks : *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION , infoblockcount : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn QueryIoRateControlInformationJobObject ( hjob : super::super::Foundation:: HANDLE , volumename : ::windows::core::PCWSTR , infoblocks : *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION , infoblockcount : *mut u32 ) -> u32 );
     QueryIoRateControlInformationJobObject(hjob.into_param().abi(), volumename.into_param().abi(), infoblocks, infoblockcount)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
@@ -241,7 +241,11 @@ pub const JobObjectReserved24Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLAS
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 pub const JobObjectReserved25Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(47i32);
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const MaxJobObjectInfoClass: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(48i32);
+pub const JobObjectReserved26Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(48i32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JobObjectReserved27Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(49i32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const MaxJobObjectInfoClass: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(50i32);
 impl ::core::marker::Copy for JOBOBJECTINFOCLASS {}
 impl ::core::clone::Clone for JOBOBJECTINFOCLASS {
     fn clone(&self) -> Self {
@@ -1298,6 +1302,42 @@ impl ::core::cmp::PartialEq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
 }
 impl ::core::cmp::Eq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {}
 impl ::core::default::Default for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
+    pub MaxIops: i64,
+    pub MaxBandwidth: i64,
+    pub ReservationIops: i64,
+    pub VolumeName: ::windows::core::PWSTR,
+    pub BaseIoSize: u32,
+    pub ControlFlags: JOB_OBJECT_IO_RATE_CONTROL_FLAGS,
+    pub VolumeNameLength: u16,
+}
+impl ::core::marker::Copy for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {}
+impl ::core::clone::Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1").field("MaxIops", &self.MaxIops).field("MaxBandwidth", &self.MaxBandwidth).field("ReservationIops", &self.ReservationIops).field("VolumeName", &self.VolumeName).field("BaseIoSize", &self.BaseIoSize).field("ControlFlags", &self.ControlFlags).field("VolumeNameLength", &self.VolumeNameLength).finish()
+    }
+}
+impl ::windows::core::TypeKind for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
+    fn eq(&self, other: &Self) -> bool {
+        self.MaxIops == other.MaxIops && self.MaxBandwidth == other.MaxBandwidth && self.ReservationIops == other.ReservationIops && self.VolumeName == other.VolumeName && self.BaseIoSize == other.BaseIoSize && self.ControlFlags == other.ControlFlags && self.VolumeNameLength == other.VolumeNameLength
+    }
+}
+impl ::core::cmp::Eq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {}
+impl ::core::default::Default for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

@@ -1,4 +1,25 @@
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
+pub trait IAcousticEchoCancellationControl_Impl: Sized {
+    fn SetEchoCancellationRenderEndpoint(&self, endpointid: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for IAcousticEchoCancellationControl {}
+impl IAcousticEchoCancellationControl_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAcousticEchoCancellationControl_Impl, const OFFSET: isize>() -> IAcousticEchoCancellationControl_Vtbl {
+        unsafe extern "system" fn SetEchoCancellationRenderEndpoint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAcousticEchoCancellationControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endpointid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetEchoCancellationRenderEndpoint(::core::mem::transmute(&endpointid)).into()
+        }
+        Self {
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            SetEchoCancellationRenderEndpoint: SetEchoCancellationRenderEndpoint::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAcousticEchoCancellationControl as ::windows::core::ComInterface>::IID
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IActivateAudioInterfaceAsyncOperation_Impl: Sized {
     fn GetActivateResult(&self, activateresult: *mut ::windows::core::HRESULT, activatedinterface: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
@@ -1457,6 +1478,27 @@ impl IAudioTreble_Vtbl {
         iid == &<IAudioTreble as ::windows::core::ComInterface>::IID || iid == &<IPerChannelDbLevel as ::windows::core::ComInterface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub trait IAudioViewManagerService_Impl: Sized {
+    fn SetAudioStreamWindow(&self, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IAudioViewManagerService {}
+#[cfg(feature = "Win32_Foundation")]
+impl IAudioViewManagerService_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioViewManagerService_Impl, const OFFSET: isize>() -> IAudioViewManagerService_Vtbl {
+        unsafe extern "system" fn SetAudioStreamWindow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioViewManagerService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetAudioStreamWindow(::core::mem::transmute_copy(&hwnd)).into()
+        }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetAudioStreamWindow: SetAudioStreamWindow::<Identity, Impl, OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioViewManagerService as ::windows::core::ComInterface>::IID
+    }
+}
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioVolumeDuckNotification_Impl: Sized {
     fn OnVolumeDuckNotification(&self, sessionid: &::windows::core::PCWSTR, countcommunicationsessions: u32) -> ::windows::core::Result<()>;
@@ -1878,6 +1920,49 @@ impl IDeviceTopology_Vtbl {
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceTopology as ::windows::core::ComInterface>::IID
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Media_KernelStreaming\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
+pub trait IKsJackDescription3_Impl: Sized {
+    fn GetJackCount(&self) -> ::windows::core::Result<u32>;
+    fn GetJackDescription3(&self, njack: u32) -> ::windows::core::Result<super::KernelStreaming::KSJACK_DESCRIPTION3>;
+}
+#[cfg(feature = "Win32_Media_KernelStreaming")]
+impl ::windows::core::RuntimeName for IKsJackDescription3 {}
+#[cfg(feature = "Win32_Media_KernelStreaming")]
+impl IKsJackDescription3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IKsJackDescription3_Impl, const OFFSET: isize>() -> IKsJackDescription3_Vtbl {
+        unsafe extern "system" fn GetJackCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IKsJackDescription3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcjacks: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetJackCount() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pcjacks, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetJackDescription3<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IKsJackDescription3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, njack: u32, pdescription3: *mut super::KernelStreaming::KSJACK_DESCRIPTION3) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetJackDescription3(::core::mem::transmute_copy(&njack)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pdescription3, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetJackCount: GetJackCount::<Identity, Impl, OFFSET>,
+            GetJackDescription3: GetJackDescription3::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IKsJackDescription3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]

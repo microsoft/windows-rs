@@ -4,7 +4,7 @@ pub unsafe fn DirectSoundCaptureCreate<P0>(pcguiddevice: ::core::option::Option<
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundCaptureCreate ( pcguiddevice : *const :: windows::core::GUID , ppdsc : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundCaptureCreate ( pcguiddevice : *const ::windows::core::GUID , ppdsc : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DirectSoundCaptureCreate(::core::mem::transmute(pcguiddevice.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppdsc), punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
@@ -13,21 +13,21 @@ pub unsafe fn DirectSoundCaptureCreate8<P0>(pcguiddevice: ::core::option::Option
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundCaptureCreate8 ( pcguiddevice : *const :: windows::core::GUID , ppdsc8 : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundCaptureCreate8 ( pcguiddevice : *const ::windows::core::GUID , ppdsc8 : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DirectSoundCaptureCreate8(::core::mem::transmute(pcguiddevice.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppdsc8), punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundCaptureEnumerateA(pdsenumcallback: LPDSENUMCALLBACKA, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundCaptureEnumerateA ( pdsenumcallback : LPDSENUMCALLBACKA , pcontext : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundCaptureEnumerateA ( pdsenumcallback : LPDSENUMCALLBACKA , pcontext : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DirectSoundCaptureEnumerateA(pdsenumcallback, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundCaptureEnumerateW(pdsenumcallback: LPDSENUMCALLBACKW, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundCaptureEnumerateW ( pdsenumcallback : LPDSENUMCALLBACKW , pcontext : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundCaptureEnumerateW ( pdsenumcallback : LPDSENUMCALLBACKW , pcontext : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DirectSoundCaptureEnumerateW(pdsenumcallback, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
@@ -36,7 +36,7 @@ pub unsafe fn DirectSoundCreate<P0>(pcguiddevice: ::core::option::Option<*const 
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundCreate ( pcguiddevice : *const :: windows::core::GUID , ppds : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundCreate ( pcguiddevice : *const ::windows::core::GUID , ppds : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DirectSoundCreate(::core::mem::transmute(pcguiddevice.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppds), punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
@@ -45,21 +45,21 @@ pub unsafe fn DirectSoundCreate8<P0>(pcguiddevice: ::core::option::Option<*const
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundCreate8 ( pcguiddevice : *const :: windows::core::GUID , ppds8 : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundCreate8 ( pcguiddevice : *const ::windows::core::GUID , ppds8 : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DirectSoundCreate8(::core::mem::transmute(pcguiddevice.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppds8), punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundEnumerateA(pdsenumcallback: LPDSENUMCALLBACKA, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundEnumerateA ( pdsenumcallback : LPDSENUMCALLBACKA , pcontext : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundEnumerateA ( pdsenumcallback : LPDSENUMCALLBACKA , pcontext : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DirectSoundEnumerateA(pdsenumcallback, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundEnumerateW(pdsenumcallback: LPDSENUMCALLBACKW, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundEnumerateW ( pdsenumcallback : LPDSENUMCALLBACKW , pcontext : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundEnumerateW ( pdsenumcallback : LPDSENUMCALLBACKW , pcontext : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DirectSoundEnumerateW(pdsenumcallback, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`*"]
@@ -70,13 +70,13 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundFullDuplexCreate ( pcguidcapturedevice : *const :: windows::core::GUID , pcguidrenderdevice : *const :: windows::core::GUID , pcdscbufferdesc : *const DSCBUFFERDESC , pcdsbufferdesc : *const DSBUFFERDESC , hwnd : super::super::super::Foundation:: HWND , dwlevel : u32 , ppdsfd : *mut * mut::core::ffi::c_void , ppdscbuffer8 : *mut * mut::core::ffi::c_void , ppdsbuffer8 : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundFullDuplexCreate ( pcguidcapturedevice : *const ::windows::core::GUID , pcguidrenderdevice : *const ::windows::core::GUID , pcdscbufferdesc : *const DSCBUFFERDESC , pcdsbufferdesc : *const DSBUFFERDESC , hwnd : super::super::super::Foundation:: HWND , dwlevel : u32 , ppdsfd : *mut * mut::core::ffi::c_void , ppdscbuffer8 : *mut * mut::core::ffi::c_void , ppdsbuffer8 : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DirectSoundFullDuplexCreate(::core::mem::transmute(pcguidcapturedevice.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pcguidrenderdevice.unwrap_or(::std::ptr::null())), pcdscbufferdesc, pcdsbufferdesc, hwnd.into_param().abi(), dwlevel, ::core::mem::transmute(ppdsfd), ::core::mem::transmute(ppdscbuffer8), ::core::mem::transmute(ppdsbuffer8), punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[inline]
 pub unsafe fn GetDeviceID(pguidsrc: ::core::option::Option<*const ::windows::core::GUID>) -> ::windows::core::Result<::windows::core::GUID> {
-    ::windows::imp::link ! ( "dsound.dll""system" fn GetDeviceID ( pguidsrc : *const :: windows::core::GUID , pguiddest : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dsound.dll""system" fn GetDeviceID ( pguidsrc : *const ::windows::core::GUID , pguiddest : *mut ::windows::core::GUID ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     GetDeviceID(::core::mem::transmute(pguidsrc.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }

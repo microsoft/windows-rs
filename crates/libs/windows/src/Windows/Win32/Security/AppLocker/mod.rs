@@ -58,7 +58,7 @@ where
     P0: ::windows::core::IntoParam<super::SAFER_LEVEL_HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn SaferRecordEventLogEntry ( hlevel : super:: SAFER_LEVEL_HANDLE , sztargetpath : :: windows::core::PCWSTR , lpreserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn SaferRecordEventLogEntry ( hlevel : super:: SAFER_LEVEL_HANDLE , sztargetpath : ::windows::core::PCWSTR , lpreserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     SaferRecordEventLogEntry(hlevel.into_param().abi(), sztargetpath.into_param().abi(), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
@@ -86,7 +86,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn SaferiIsExecutableFileType ( szfullpathname : :: windows::core::PCWSTR , bfromshellexecute : super::super::Foundation:: BOOLEAN ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn SaferiIsExecutableFileType ( szfullpathname : ::windows::core::PCWSTR , bfromshellexecute : super::super::Foundation:: BOOLEAN ) -> super::super::Foundation:: BOOL );
     SaferiIsExecutableFileType(szfullpathname.into_param().abi(), bfromshellexecute.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
@@ -150,27 +150,27 @@ pub const SAFER_SCOPEID_MACHINE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_SCOPEID_USER: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_APPX: ::windows::core::PCWSTR = ::windows::w!("APPX");
+pub const SRP_POLICY_APPX: ::windows::core::PCWSTR = ::windows::core::w!("APPX");
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_DLL: ::windows::core::PCWSTR = ::windows::w!("DLL");
+pub const SRP_POLICY_DLL: ::windows::core::PCWSTR = ::windows::core::w!("DLL");
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_EXE: ::windows::core::PCWSTR = ::windows::w!("EXE");
+pub const SRP_POLICY_EXE: ::windows::core::PCWSTR = ::windows::core::w!("EXE");
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_MANAGEDINSTALLER: ::windows::core::PCWSTR = ::windows::w!("MANAGEDINSTALLER");
+pub const SRP_POLICY_MANAGEDINSTALLER: ::windows::core::PCWSTR = ::windows::core::w!("MANAGEDINSTALLER");
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_MSI: ::windows::core::PCWSTR = ::windows::w!("MSI");
+pub const SRP_POLICY_MSI: ::windows::core::PCWSTR = ::windows::core::w!("MSI");
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_NOV2: ::windows::core::PCWSTR = ::windows::w!("IGNORESRPV2");
+pub const SRP_POLICY_NOV2: ::windows::core::PCWSTR = ::windows::core::w!("IGNORESRPV2");
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_SCRIPT: ::windows::core::PCWSTR = ::windows::w!("SCRIPT");
+pub const SRP_POLICY_SCRIPT: ::windows::core::PCWSTR = ::windows::core::w!("SCRIPT");
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_SHELL: ::windows::core::PCWSTR = ::windows::w!("SHELL");
+pub const SRP_POLICY_SHELL: ::windows::core::PCWSTR = ::windows::core::w!("SHELL");
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_WLDPCONFIGCI: ::windows::core::PCWSTR = ::windows::w!("WLDPCONFIGCI");
+pub const SRP_POLICY_WLDPCONFIGCI: ::windows::core::PCWSTR = ::windows::core::w!("WLDPCONFIGCI");
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_WLDPMSI: ::windows::core::PCWSTR = ::windows::w!("WLDPMSI");
+pub const SRP_POLICY_WLDPMSI: ::windows::core::PCWSTR = ::windows::core::w!("WLDPMSI");
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_WLDPSCRIPT: ::windows::core::PCWSTR = ::windows::w!("WLDPSCRIPT");
+pub const SRP_POLICY_WLDPSCRIPT: ::windows::core::PCWSTR = ::windows::core::w!("WLDPSCRIPT");
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

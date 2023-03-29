@@ -1,13 +1,20 @@
 use super::*;
 
+#[doc(hidden)]
 pub trait TypeKind {
     type TypeKind;
 }
 
+#[doc(hidden)]
 pub struct ReferenceType;
+
+#[doc(hidden)]
 pub struct ValueType;
+
+#[doc(hidden)]
 pub struct CopyType;
 
+#[doc(hidden)]
 pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized {
     type Abi;
     type Default;
@@ -113,6 +120,7 @@ macro_rules! primitives {
 
 primitives!(bool, i8, u8, i16, u16, i32, u32, i64, u64, f32, f64, usize, isize);
 
+#[doc(hidden)]
 pub type AbiType<T> = <T as Type<T>>::Abi;
 
 #[doc(hidden)]
@@ -120,6 +128,7 @@ pub unsafe fn from_abi<T: Type<T>>(abi: T::Abi) -> Result<T> {
     T::from_abi(abi)
 }
 
+#[doc(hidden)]
 pub fn zeroed<T: Type<T>>() -> T::Abi {
     unsafe { std::mem::zeroed() }
 }

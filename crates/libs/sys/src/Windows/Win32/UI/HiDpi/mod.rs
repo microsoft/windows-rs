@@ -12,13 +12,13 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"] fn GetDpiAwarenessContextForProcess ( hprocess : super::super::Foundation:: HANDLE ) -> DPI_AWARENESS_CONTEXT );
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_sys::core::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetDpiForMonitor ( hmonitor : super::super::Graphics::Gdi:: HMONITOR , dpitype : MONITOR_DPI_TYPE , dpix : *mut u32 , dpiy : *mut u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetDpiForMonitor ( hmonitor : super::super::Graphics::Gdi:: HMONITOR , dpitype : MONITOR_DPI_TYPE , dpix : *mut u32 , dpiy : *mut u32 ) -> ::windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"] fn GetDpiForSystem ( ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"] fn GetDpiForWindow ( hwnd : super::super::Foundation:: HWND ) -> u32 );
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"] fn GetDpiFromDpiAwarenessContext ( value : DPI_AWARENESS_CONTEXT ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"] fn GetProcessDpiAwareness ( hprocess : super::super::Foundation:: HANDLE , value : *mut PROCESS_DPI_AWARENESS ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"] fn GetProcessDpiAwareness ( hprocess : super::super::Foundation:: HANDLE , value : *mut PROCESS_DPI_AWARENESS ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"] fn GetSystemDpiForProcess ( hprocess : super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -34,14 +34,14 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"] fn LogicalToPhysicalPointForPerMonitorDPI ( hwnd : super::super::Foundation:: HWND , lppoint : *mut super::super::Foundation:: POINT ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"] fn OpenThemeDataForDpi ( hwnd : super::super::Foundation:: HWND , pszclasslist : :: windows_sys::core::PCWSTR , dpi : u32 ) -> super::Controls:: HTHEME );
+::windows_sys::core::link ! ( "uxtheme.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"] fn OpenThemeDataForDpi ( hwnd : super::super::Foundation:: HWND , pszclasslist : ::windows_sys::core::PCWSTR , dpi : u32 ) -> super::Controls:: HTHEME );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"] fn PhysicalToLogicalPointForPerMonitorDPI ( hwnd : super::super::Foundation:: HWND , lppoint : *mut super::super::Foundation:: POINT ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"] fn SetDialogControlDpiChangeBehavior ( hwnd : super::super::Foundation:: HWND , mask : DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS , values : DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"] fn SetDialogDpiChangeBehavior ( hdlg : super::super::Foundation:: HWND , mask : DIALOG_DPI_CHANGE_BEHAVIORS , values : DIALOG_DPI_CHANGE_BEHAVIORS ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"] fn SetProcessDpiAwareness ( value : PROCESS_DPI_AWARENESS ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"] fn SetProcessDpiAwareness ( value : PROCESS_DPI_AWARENESS ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"] fn SetProcessDpiAwarenessContext ( value : DPI_AWARENESS_CONTEXT ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"] fn SetThreadDpiAwarenessContext ( dpicontext : DPI_AWARENESS_CONTEXT ) -> DPI_AWARENESS_CONTEXT );

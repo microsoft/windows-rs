@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn ActivatePackageVirtualizationContext(context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows::core::Result<usize> {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn ActivatePackageVirtualizationContext ( context : *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ , cookie : *mut usize ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn ActivatePackageVirtualizationContext ( context : *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ , cookie : *mut usize ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<usize>();
     ActivatePackageVirtualizationContext(context, &mut result__).from_abi(result__)
 }
@@ -11,7 +11,7 @@ pub unsafe fn AddPackageDependency<P0>(packagedependencyid: P0, rank: i32, optio
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernelbase.dll""system" fn AddPackageDependency ( packagedependencyid : :: windows::core::PCWSTR , rank : i32 , options : AddPackageDependencyOptions , packagedependencycontext : *mut *mut PACKAGEDEPENDENCY_CONTEXT__ , packagefullname : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernelbase.dll""system" fn AddPackageDependency ( packagedependencyid : ::windows::core::PCWSTR , rank : i32 , options : AddPackageDependencyOptions , packagedependencycontext : *mut *mut PACKAGEDEPENDENCY_CONTEXT__ , packagefullname : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     AddPackageDependency(packagedependencyid.into_param().abi(), rank, options, packagedependencycontext, ::core::mem::transmute(packagefullname.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -101,7 +101,7 @@ pub unsafe fn CheckIsMSIXPackage<P0>(packagefullname: P0) -> ::windows::core::Re
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CheckIsMSIXPackage ( packagefullname : :: windows::core::PCWSTR , ismsixpackage : *mut super::super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CheckIsMSIXPackage ( packagefullname : ::windows::core::PCWSTR , ismsixpackage : *mut super::super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
     CheckIsMSIXPackage(packagefullname.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -118,7 +118,7 @@ pub unsafe fn CreatePackageVirtualizationContext<P0>(packagefamilyname: P0) -> :
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CreatePackageVirtualizationContext ( packagefamilyname : :: windows::core::PCWSTR , context : *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreatePackageVirtualizationContext ( packagefamilyname : ::windows::core::PCWSTR , context : *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__>();
     CreatePackageVirtualizationContext(packagefamilyname.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -134,13 +134,13 @@ pub unsafe fn DeletePackageDependency<P0>(packagedependencyid: P0) -> ::windows:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernelbase.dll""system" fn DeletePackageDependency ( packagedependencyid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernelbase.dll""system" fn DeletePackageDependency ( packagedependencyid : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     DeletePackageDependency(packagedependencyid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn DuplicatePackageVirtualizationContext(sourcecontext: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows::core::Result<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__> {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn DuplicatePackageVirtualizationContext ( sourcecontext : *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ , destcontext : *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn DuplicatePackageVirtualizationContext ( sourcecontext : *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ , destcontext : *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__>();
     DuplicatePackageVirtualizationContext(sourcecontext, &mut result__).from_abi(result__)
 }
@@ -151,7 +151,7 @@ pub unsafe fn FindPackagesByPackageFamily<P0>(packagefamilyname: P0, packagefilt
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn FindPackagesByPackageFamily ( packagefamilyname : :: windows::core::PCWSTR , packagefilters : u32 , count : *mut u32 , packagefullnames : *mut :: windows::core::PWSTR , bufferlength : *mut u32 , buffer : :: windows::core::PWSTR , packageproperties : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindPackagesByPackageFamily ( packagefamilyname : ::windows::core::PCWSTR , packagefilters : u32 , count : *mut u32 , packagefullnames : *mut ::windows::core::PWSTR , bufferlength : *mut u32 , buffer : ::windows::core::PWSTR , packageproperties : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
     FindPackagesByPackageFamily(packagefamilyname.into_param().abi(), packagefilters, count, ::core::mem::transmute(packagefullnames.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(buffer), ::core::mem::transmute(packageproperties.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -162,7 +162,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn FormatApplicationUserModelId ( packagefamilyname : :: windows::core::PCWSTR , packagerelativeapplicationid : :: windows::core::PCWSTR , applicationusermodelidlength : *mut u32 , applicationusermodelid : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FormatApplicationUserModelId ( packagefamilyname : ::windows::core::PCWSTR , packagerelativeapplicationid : ::windows::core::PCWSTR , applicationusermodelidlength : *mut u32 , applicationusermodelid : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     FormatApplicationUserModelId(packagefamilyname.into_param().abi(), packagerelativeapplicationid.into_param().abi(), applicationusermodelidlength, ::core::mem::transmute(applicationusermodelid))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -172,7 +172,7 @@ pub unsafe fn GetApplicationUserModelId<P0>(hprocess: P0, applicationusermodelid
 where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetApplicationUserModelId ( hprocess : super::super::super::Foundation:: HANDLE , applicationusermodelidlength : *mut u32 , applicationusermodelid : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetApplicationUserModelId ( hprocess : super::super::super::Foundation:: HANDLE , applicationusermodelidlength : *mut u32 , applicationusermodelid : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetApplicationUserModelId(hprocess.into_param().abi(), applicationusermodelidlength, ::core::mem::transmute(applicationusermodelid))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -182,28 +182,28 @@ pub unsafe fn GetApplicationUserModelIdFromToken<P0>(token: P0, applicationuserm
 where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn GetApplicationUserModelIdFromToken ( token : super::super::super::Foundation:: HANDLE , applicationusermodelidlength : *mut u32 , applicationusermodelid : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn GetApplicationUserModelIdFromToken ( token : super::super::super::Foundation:: HANDLE , applicationusermodelidlength : *mut u32 , applicationusermodelid : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetApplicationUserModelIdFromToken(token.into_param().abi(), applicationusermodelidlength, ::core::mem::transmute(applicationusermodelid))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentApplicationUserModelId(applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrentApplicationUserModelId ( applicationusermodelidlength : *mut u32 , applicationusermodelid : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrentApplicationUserModelId ( applicationusermodelidlength : *mut u32 , applicationusermodelid : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetCurrentApplicationUserModelId(applicationusermodelidlength, ::core::mem::transmute(applicationusermodelid))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackageFamilyName(packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrentPackageFamilyName ( packagefamilynamelength : *mut u32 , packagefamilyname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrentPackageFamilyName ( packagefamilynamelength : *mut u32 , packagefamilyname : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetCurrentPackageFamilyName(packagefamilynamelength, ::core::mem::transmute(packagefamilyname))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackageFullName(packagefullnamelength: *mut u32, packagefullname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrentPackageFullName ( packagefullnamelength : *mut u32 , packagefullname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrentPackageFullName ( packagefullnamelength : *mut u32 , packagefullname : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetCurrentPackageFullName(packagefullnamelength, ::core::mem::transmute(packagefullname))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -231,14 +231,14 @@ pub unsafe fn GetCurrentPackageInfo2(flags: u32, packagepathtype: PackagePathTyp
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackagePath(pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrentPackagePath ( pathlength : *mut u32 , path : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrentPackagePath ( pathlength : *mut u32 , path : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetCurrentPackagePath(pathlength, ::core::mem::transmute(path))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackagePath2(packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll""system" fn GetCurrentPackagePath2 ( packagepathtype : PackagePathType , pathlength : *mut u32 , path : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll""system" fn GetCurrentPackagePath2 ( packagepathtype : PackagePathType , pathlength : *mut u32 , path : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetCurrentPackagePath2(packagepathtype, pathlength, ::core::mem::transmute(path))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
@@ -250,7 +250,7 @@ pub unsafe fn GetCurrentPackageVirtualizationContext() -> *mut PACKAGE_VIRTUALIZ
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn GetIdForPackageDependencyContext(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__) -> ::windows::core::Result<::windows::core::PWSTR> {
-    ::windows::imp::link ! ( "kernelbase.dll""system" fn GetIdForPackageDependencyContext ( packagedependencycontext : *const PACKAGEDEPENDENCY_CONTEXT__ , packagedependencyid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernelbase.dll""system" fn GetIdForPackageDependencyContext ( packagedependencycontext : *const PACKAGEDEPENDENCY_CONTEXT__ , packagedependencyid : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     GetIdForPackageDependencyContext(packagedependencycontext, &mut result__).from_abi(result__)
 }
@@ -268,7 +268,7 @@ pub unsafe fn GetPackageFamilyName<P0>(hprocess: P0, packagefamilynamelength: *m
 where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetPackageFamilyName ( hprocess : super::super::super::Foundation:: HANDLE , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetPackageFamilyName ( hprocess : super::super::super::Foundation:: HANDLE , packagefamilynamelength : *mut u32 , packagefamilyname : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetPackageFamilyName(hprocess.into_param().abi(), packagefamilynamelength, ::core::mem::transmute(packagefamilyname))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -278,7 +278,7 @@ pub unsafe fn GetPackageFamilyNameFromToken<P0>(token: P0, packagefamilynameleng
 where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn GetPackageFamilyNameFromToken ( token : super::super::super::Foundation:: HANDLE , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn GetPackageFamilyNameFromToken ( token : super::super::super::Foundation:: HANDLE , packagefamilynamelength : *mut u32 , packagefamilyname : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetPackageFamilyNameFromToken(token.into_param().abi(), packagefamilynamelength, ::core::mem::transmute(packagefamilyname))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -288,7 +288,7 @@ pub unsafe fn GetPackageFullName<P0>(hprocess: P0, packagefullnamelength: *mut u
 where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetPackageFullName ( hprocess : super::super::super::Foundation:: HANDLE , packagefullnamelength : *mut u32 , packagefullname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetPackageFullName ( hprocess : super::super::super::Foundation:: HANDLE , packagefullnamelength : *mut u32 , packagefullname : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetPackageFullName(hprocess.into_param().abi(), packagefullnamelength, ::core::mem::transmute(packagefullname))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -298,7 +298,7 @@ pub unsafe fn GetPackageFullNameFromToken<P0>(token: P0, packagefullnamelength: 
 where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn GetPackageFullNameFromToken ( token : super::super::super::Foundation:: HANDLE , packagefullnamelength : *mut u32 , packagefullname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn GetPackageFullNameFromToken ( token : super::super::super::Foundation:: HANDLE , packagefullnamelength : *mut u32 , packagefullname : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetPackageFullNameFromToken(token.into_param().abi(), packagefullnamelength, ::core::mem::transmute(packagefullname))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -329,7 +329,7 @@ pub unsafe fn GetPackageInfo2(packageinforeference: *const _PACKAGE_INFO_REFEREN
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackagePath(packageid: *const PACKAGE_ID, reserved: u32, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetPackagePath ( packageid : *const PACKAGE_ID , reserved : u32 , pathlength : *mut u32 , path : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetPackagePath ( packageid : *const PACKAGE_ID , reserved : u32 , pathlength : *mut u32 , path : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetPackagePath(packageid, reserved, pathlength, ::core::mem::transmute(path))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -339,7 +339,7 @@ pub unsafe fn GetPackagePathByFullName<P0>(packagefullname: P0, pathlength: *mut
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetPackagePathByFullName ( packagefullname : :: windows::core::PCWSTR , pathlength : *mut u32 , path : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetPackagePathByFullName ( packagefullname : ::windows::core::PCWSTR , pathlength : *mut u32 , path : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetPackagePathByFullName(packagefullname.into_param().abi(), pathlength, ::core::mem::transmute(path))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -349,7 +349,7 @@ pub unsafe fn GetPackagePathByFullName2<P0>(packagefullname: P0, packagepathtype
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll""system" fn GetPackagePathByFullName2 ( packagefullname : :: windows::core::PCWSTR , packagepathtype : PackagePathType , pathlength : *mut u32 , path : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll""system" fn GetPackagePathByFullName2 ( packagefullname : ::windows::core::PCWSTR , packagepathtype : PackagePathType , pathlength : *mut u32 , path : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetPackagePathByFullName2(packagefullname.into_param().abi(), packagepathtype, pathlength, ::core::mem::transmute(path))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -359,7 +359,7 @@ pub unsafe fn GetPackagesByPackageFamily<P0>(packagefamilyname: P0, count: *mut 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetPackagesByPackageFamily ( packagefamilyname : :: windows::core::PCWSTR , count : *mut u32 , packagefullnames : *mut :: windows::core::PWSTR , bufferlength : *mut u32 , buffer : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetPackagesByPackageFamily ( packagefamilyname : ::windows::core::PCWSTR , count : *mut u32 , packagefullnames : *mut ::windows::core::PWSTR , bufferlength : *mut u32 , buffer : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetPackagesByPackageFamily(packagefamilyname.into_param().abi(), count, ::core::mem::transmute(packagefullnames.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(buffer))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -369,7 +369,7 @@ pub unsafe fn GetProcessesInVirtualizationContext<P0>(packagefamilyname: P0, cou
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetProcessesInVirtualizationContext ( packagefamilyname : :: windows::core::PCWSTR , count : *mut u32 , processes : *mut *mut super::super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetProcessesInVirtualizationContext ( packagefamilyname : ::windows::core::PCWSTR , count : *mut u32 , processes : *mut *mut super::super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     GetProcessesInVirtualizationContext(packagefamilyname.into_param().abi(), count, processes).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
@@ -378,7 +378,7 @@ pub unsafe fn GetResolvedPackageFullNameForPackageDependency<P0>(packagedependen
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernelbase.dll""system" fn GetResolvedPackageFullNameForPackageDependency ( packagedependencyid : :: windows::core::PCWSTR , packagefullname : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernelbase.dll""system" fn GetResolvedPackageFullNameForPackageDependency ( packagedependencyid : ::windows::core::PCWSTR , packagefullname : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     GetResolvedPackageFullNameForPackageDependency(packagedependencyid.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -389,7 +389,7 @@ pub unsafe fn GetStagedPackageOrigin<P0>(packagefullname: P0, origin: *mut Packa
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn GetStagedPackageOrigin ( packagefullname : :: windows::core::PCWSTR , origin : *mut PackageOrigin ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn GetStagedPackageOrigin ( packagefullname : ::windows::core::PCWSTR , origin : *mut PackageOrigin ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetStagedPackageOrigin(packagefullname.into_param().abi(), origin)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -399,7 +399,7 @@ pub unsafe fn GetStagedPackagePathByFullName<P0>(packagefullname: P0, pathlength
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetStagedPackagePathByFullName ( packagefullname : :: windows::core::PCWSTR , pathlength : *mut u32 , path : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetStagedPackagePathByFullName ( packagefullname : ::windows::core::PCWSTR , pathlength : *mut u32 , path : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetStagedPackagePathByFullName(packagefullname.into_param().abi(), pathlength, ::core::mem::transmute(path))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -409,7 +409,7 @@ pub unsafe fn GetStagedPackagePathByFullName2<P0>(packagefullname: P0, packagepa
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll""system" fn GetStagedPackagePathByFullName2 ( packagefullname : :: windows::core::PCWSTR , packagepathtype : PackagePathType , pathlength : *mut u32 , path : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll""system" fn GetStagedPackagePathByFullName2 ( packagefullname : ::windows::core::PCWSTR , packagepathtype : PackagePathType , pathlength : *mut u32 , path : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetStagedPackagePathByFullName2(packagefullname.into_param().abi(), packagepathtype, pathlength, ::core::mem::transmute(path))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -419,7 +419,7 @@ pub unsafe fn OpenPackageInfoByFullName<P0>(packagefullname: P0, reserved: u32, 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn OpenPackageInfoByFullName ( packagefullname : :: windows::core::PCWSTR , reserved : u32 , packageinforeference : *mut *mut _PACKAGE_INFO_REFERENCE ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn OpenPackageInfoByFullName ( packagefullname : ::windows::core::PCWSTR , reserved : u32 , packageinforeference : *mut *mut _PACKAGE_INFO_REFERENCE ) -> super::super::super::Foundation:: WIN32_ERROR );
     OpenPackageInfoByFullName(packagefullname.into_param().abi(), reserved, packageinforeference)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -430,7 +430,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::PSID>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn OpenPackageInfoByFullNameForUser ( usersid : super::super::super::Foundation:: PSID , packagefullname : :: windows::core::PCWSTR , reserved : u32 , packageinforeference : *mut *mut _PACKAGE_INFO_REFERENCE ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn OpenPackageInfoByFullNameForUser ( usersid : super::super::super::Foundation:: PSID , packagefullname : ::windows::core::PCWSTR , reserved : u32 , packageinforeference : *mut *mut _PACKAGE_INFO_REFERENCE ) -> super::super::super::Foundation:: WIN32_ERROR );
     OpenPackageInfoByFullNameForUser(usersid.into_param().abi(), packagefullname.into_param().abi(), reserved, packageinforeference)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -440,21 +440,21 @@ pub unsafe fn PackageFamilyNameFromFullName<P0>(packagefullname: P0, packagefami
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn PackageFamilyNameFromFullName ( packagefullname : :: windows::core::PCWSTR , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PackageFamilyNameFromFullName ( packagefullname : ::windows::core::PCWSTR , packagefamilynamelength : *mut u32 , packagefamilyname : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     PackageFamilyNameFromFullName(packagefullname.into_param().abi(), packagefamilynamelength, ::core::mem::transmute(packagefamilyname))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PackageFamilyNameFromId(packageid: *const PACKAGE_ID, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn PackageFamilyNameFromId ( packageid : *const PACKAGE_ID , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PackageFamilyNameFromId ( packageid : *const PACKAGE_ID , packagefamilynamelength : *mut u32 , packagefamilyname : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     PackageFamilyNameFromId(packageid, packagefamilynamelength, ::core::mem::transmute(packagefamilyname))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PackageFullNameFromId(packageid: *const PACKAGE_ID, packagefullnamelength: *mut u32, packagefullname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn PackageFullNameFromId ( packageid : *const PACKAGE_ID , packagefullnamelength : *mut u32 , packagefullname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PackageFullNameFromId ( packageid : *const PACKAGE_ID , packagefullnamelength : *mut u32 , packagefullname : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     PackageFullNameFromId(packageid, packagefullnamelength, ::core::mem::transmute(packagefullname))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -464,7 +464,7 @@ pub unsafe fn PackageIdFromFullName<P0>(packagefullname: P0, flags: u32, bufferl
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn PackageIdFromFullName ( packagefullname : :: windows::core::PCWSTR , flags : u32 , bufferlength : *mut u32 , buffer : *mut u8 ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PackageIdFromFullName ( packagefullname : ::windows::core::PCWSTR , flags : u32 , bufferlength : *mut u32 , buffer : *mut u8 ) -> super::super::super::Foundation:: WIN32_ERROR );
     PackageIdFromFullName(packagefullname.into_param().abi(), flags, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -474,7 +474,7 @@ pub unsafe fn PackageNameAndPublisherIdFromFamilyName<P0>(packagefamilyname: P0,
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn PackageNameAndPublisherIdFromFamilyName ( packagefamilyname : :: windows::core::PCWSTR , packagenamelength : *mut u32 , packagename : :: windows::core::PWSTR , packagepublisheridlength : *mut u32 , packagepublisherid : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PackageNameAndPublisherIdFromFamilyName ( packagefamilyname : ::windows::core::PCWSTR , packagenamelength : *mut u32 , packagename : ::windows::core::PWSTR , packagepublisheridlength : *mut u32 , packagepublisherid : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     PackageNameAndPublisherIdFromFamilyName(packagefamilyname.into_param().abi(), packagenamelength, ::core::mem::transmute(packagename), packagepublisheridlength, ::core::mem::transmute(packagepublisherid))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -484,7 +484,7 @@ pub unsafe fn ParseApplicationUserModelId<P0>(applicationusermodelid: P0, packag
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn ParseApplicationUserModelId ( applicationusermodelid : :: windows::core::PCWSTR , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows::core::PWSTR , packagerelativeapplicationidlength : *mut u32 , packagerelativeapplicationid : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn ParseApplicationUserModelId ( applicationusermodelid : ::windows::core::PCWSTR , packagefamilynamelength : *mut u32 , packagefamilyname : ::windows::core::PWSTR , packagerelativeapplicationidlength : *mut u32 , packagerelativeapplicationid : ::windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     ParseApplicationUserModelId(applicationusermodelid.into_param().abi(), packagefamilynamelength, ::core::mem::transmute(packagefamilyname), packagerelativeapplicationidlength, ::core::mem::transmute(packagerelativeapplicationid))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
@@ -496,7 +496,7 @@ pub unsafe fn ReleasePackageVirtualizationContext(context: *const PACKAGE_VIRTUA
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn RemovePackageDependency(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "kernelbase.dll""system" fn RemovePackageDependency ( packagedependencycontext : *const PACKAGEDEPENDENCY_CONTEXT__ ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernelbase.dll""system" fn RemovePackageDependency ( packagedependencycontext : *const PACKAGEDEPENDENCY_CONTEXT__ ) -> ::windows::core::HRESULT );
     RemovePackageDependency(packagedependencycontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -508,7 +508,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernelbase.dll""system" fn TryCreatePackageDependency ( user : super::super::super::Foundation:: PSID , packagefamilyname : :: windows::core::PCWSTR , minversion : PACKAGE_VERSION , packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures , lifetimekind : PackageDependencyLifetimeKind , lifetimeartifact : :: windows::core::PCWSTR , options : CreatePackageDependencyOptions , packagedependencyid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernelbase.dll""system" fn TryCreatePackageDependency ( user : super::super::super::Foundation:: PSID , packagefamilyname : ::windows::core::PCWSTR , minversion : PACKAGE_VERSION , packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures , lifetimekind : PackageDependencyLifetimeKind , lifetimeartifact : ::windows::core::PCWSTR , options : CreatePackageDependencyOptions , packagedependencyid : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     TryCreatePackageDependency(user.into_param().abi(), packagefamilyname.into_param().abi(), ::core::mem::transmute(minversion), packagedependencyprocessorarchitectures, lifetimekind, lifetimeartifact.into_param().abi(), options, &mut result__).from_abi(result__)
 }
@@ -519,7 +519,7 @@ pub unsafe fn VerifyApplicationUserModelId<P0>(applicationusermodelid: P0) -> su
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn VerifyApplicationUserModelId ( applicationusermodelid : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn VerifyApplicationUserModelId ( applicationusermodelid : ::windows::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     VerifyApplicationUserModelId(applicationusermodelid.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -529,7 +529,7 @@ pub unsafe fn VerifyPackageFamilyName<P0>(packagefamilyname: P0) -> super::super
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn VerifyPackageFamilyName ( packagefamilyname : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn VerifyPackageFamilyName ( packagefamilyname : ::windows::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     VerifyPackageFamilyName(packagefamilyname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -539,7 +539,7 @@ pub unsafe fn VerifyPackageFullName<P0>(packagefullname: P0) -> super::super::su
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn VerifyPackageFullName ( packagefullname : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn VerifyPackageFullName ( packagefullname : ::windows::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     VerifyPackageFullName(packagefullname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -556,8 +556,51 @@ pub unsafe fn VerifyPackageRelativeApplicationId<P0>(packagerelativeapplicationi
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn VerifyPackageRelativeApplicationId ( packagerelativeapplicationid : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn VerifyPackageRelativeApplicationId ( packagerelativeapplicationid : ::windows::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     VerifyPackageRelativeApplicationId(packagerelativeapplicationid.into_param().abi())
+}
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
+#[repr(transparent)]
+pub struct IAppxAppInstallerReader(::windows::core::IUnknown);
+impl IAppxAppInstallerReader {
+    #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
+    pub unsafe fn GetXmlDom(&self) -> ::windows::core::Result<super::super::super::Data::Xml::MsXml::IXMLDOMDocument> {
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Data::Xml::MsXml::IXMLDOMDocument>();
+        (::windows::core::Interface::vtable(self).GetXmlDom)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+}
+::windows::imp::interface_hierarchy!(IAppxAppInstallerReader, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IAppxAppInstallerReader {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IAppxAppInstallerReader {}
+impl ::core::fmt::Debug for IAppxAppInstallerReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxAppInstallerReader").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IAppxAppInstallerReader {
+    type Vtable = IAppxAppInstallerReader_Vtbl;
+}
+impl ::core::clone::Clone for IAppxAppInstallerReader {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IAppxAppInstallerReader {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf35bc38c_1d2f_43db_a1f4_586430d1fed2);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppxAppInstallerReader_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
+    pub GetXmlDom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dom: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com")))]
+    GetXmlDom: usize,
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -920,6 +963,53 @@ pub struct IAppxBundleFactory_Vtbl {
     pub CreateBundleManifestReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, manifestreader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateBundleManifestReader: usize,
+}
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
+#[repr(transparent)]
+pub struct IAppxBundleFactory2(::windows::core::IUnknown);
+impl IAppxBundleFactory2 {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateBundleReader2<P0, P1>(&self, inputstream: P0, expecteddigest: P1) -> ::windows::core::Result<IAppxBundleReader>
+    where
+        P0: ::windows::core::IntoParam<super::super::super::System::Com::IStream>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    {
+        let mut result__ = ::windows::core::zeroed::<IAppxBundleReader>();
+        (::windows::core::Interface::vtable(self).CreateBundleReader2)(::windows::core::Interface::as_raw(self), inputstream.into_param().abi(), expecteddigest.into_param().abi(), &mut result__).from_abi(result__)
+    }
+}
+::windows::imp::interface_hierarchy!(IAppxBundleFactory2, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IAppxBundleFactory2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IAppxBundleFactory2 {}
+impl ::core::fmt::Debug for IAppxBundleFactory2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxBundleFactory2").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IAppxBundleFactory2 {
+    type Vtable = IAppxBundleFactory2_Vtbl;
+}
+impl ::core::clone::Clone for IAppxBundleFactory2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IAppxBundleFactory2 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7325b83d_0185_42c4_82ac_be34ab1a2a8a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppxBundleFactory2_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateBundleReader2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, expecteddigest: ::windows::core::PCWSTR, bundlereader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    CreateBundleReader2: usize,
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -1923,6 +2013,44 @@ pub struct IAppxContentGroupsEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+pub struct IAppxDigestProvider(::windows::core::IUnknown);
+impl IAppxDigestProvider {
+    pub unsafe fn GetDigest(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Interface::vtable(self).GetDigest)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+}
+::windows::imp::interface_hierarchy!(IAppxDigestProvider, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IAppxDigestProvider {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IAppxDigestProvider {}
+impl ::core::fmt::Debug for IAppxDigestProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxDigestProvider").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IAppxDigestProvider {
+    type Vtable = IAppxDigestProvider_Vtbl;
+}
+impl ::core::clone::Clone for IAppxDigestProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IAppxDigestProvider {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fe2702b_7640_4659_8e6c_349e43c4cdbd);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppxDigestProvider_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub GetDigest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, digest: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
+#[repr(transparent)]
 pub struct IAppxEncryptedBundleWriter(::windows::core::IUnknown);
 impl IAppxEncryptedBundleWriter {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2491,6 +2619,67 @@ pub struct IAppxEncryptionFactory4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+pub struct IAppxEncryptionFactory5(::windows::core::IUnknown);
+impl IAppxEncryptionFactory5 {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateEncryptedPackageReader2<P0, P1>(&self, inputstream: P0, keyinfo: *const APPX_KEY_INFO, expecteddigest: P1) -> ::windows::core::Result<IAppxPackageReader>
+    where
+        P0: ::windows::core::IntoParam<super::super::super::System::Com::IStream>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    {
+        let mut result__ = ::windows::core::zeroed::<IAppxPackageReader>();
+        (::windows::core::Interface::vtable(self).CreateEncryptedPackageReader2)(::windows::core::Interface::as_raw(self), inputstream.into_param().abi(), keyinfo, expecteddigest.into_param().abi(), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateEncryptedBundleReader2<P0, P1>(&self, inputstream: P0, keyinfo: *const APPX_KEY_INFO, expecteddigest: P1) -> ::windows::core::Result<IAppxBundleReader>
+    where
+        P0: ::windows::core::IntoParam<super::super::super::System::Com::IStream>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    {
+        let mut result__ = ::windows::core::zeroed::<IAppxBundleReader>();
+        (::windows::core::Interface::vtable(self).CreateEncryptedBundleReader2)(::windows::core::Interface::as_raw(self), inputstream.into_param().abi(), keyinfo, expecteddigest.into_param().abi(), &mut result__).from_abi(result__)
+    }
+}
+::windows::imp::interface_hierarchy!(IAppxEncryptionFactory5, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IAppxEncryptionFactory5 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IAppxEncryptionFactory5 {}
+impl ::core::fmt::Debug for IAppxEncryptionFactory5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxEncryptionFactory5").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IAppxEncryptionFactory5 {
+    type Vtable = IAppxEncryptionFactory5_Vtbl;
+}
+impl ::core::clone::Clone for IAppxEncryptionFactory5 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IAppxEncryptionFactory5 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68d6e77a_f446_480f_b0f0_d91a24c60746);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppxEncryptionFactory5_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateEncryptedPackageReader2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, keyinfo: *const APPX_KEY_INFO, expecteddigest: ::windows::core::PCWSTR, packagereader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    CreateEncryptedPackageReader2: usize,
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateEncryptedBundleReader2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, keyinfo: *const APPX_KEY_INFO, expecteddigest: ::windows::core::PCWSTR, bundlereader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    CreateEncryptedBundleReader2: usize,
+}
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
+#[repr(transparent)]
 pub struct IAppxFactory(::windows::core::IUnknown);
 impl IAppxFactory {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -2659,6 +2848,81 @@ pub struct IAppxFactory2_Vtbl {
     pub CreateContentGroupMapWriter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: *mut ::core::ffi::c_void, contentgroupmapwriter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateContentGroupMapWriter: usize,
+}
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
+#[repr(transparent)]
+pub struct IAppxFactory3(::windows::core::IUnknown);
+impl IAppxFactory3 {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreatePackageReader2<P0, P1>(&self, inputstream: P0, expecteddigest: P1) -> ::windows::core::Result<IAppxPackageReader>
+    where
+        P0: ::windows::core::IntoParam<super::super::super::System::Com::IStream>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    {
+        let mut result__ = ::windows::core::zeroed::<IAppxPackageReader>();
+        (::windows::core::Interface::vtable(self).CreatePackageReader2)(::windows::core::Interface::as_raw(self), inputstream.into_param().abi(), expecteddigest.into_param().abi(), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateManifestReader2<P0, P1>(&self, inputstream: P0, expecteddigest: P1) -> ::windows::core::Result<IAppxManifestReader>
+    where
+        P0: ::windows::core::IntoParam<super::super::super::System::Com::IStream>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    {
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestReader>();
+        (::windows::core::Interface::vtable(self).CreateManifestReader2)(::windows::core::Interface::as_raw(self), inputstream.into_param().abi(), expecteddigest.into_param().abi(), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateAppInstallerReader<P0, P1>(&self, inputstream: P0, expecteddigest: P1) -> ::windows::core::Result<IAppxAppInstallerReader>
+    where
+        P0: ::windows::core::IntoParam<super::super::super::System::Com::IStream>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    {
+        let mut result__ = ::windows::core::zeroed::<IAppxAppInstallerReader>();
+        (::windows::core::Interface::vtable(self).CreateAppInstallerReader)(::windows::core::Interface::as_raw(self), inputstream.into_param().abi(), expecteddigest.into_param().abi(), &mut result__).from_abi(result__)
+    }
+}
+::windows::imp::interface_hierarchy!(IAppxFactory3, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IAppxFactory3 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IAppxFactory3 {}
+impl ::core::fmt::Debug for IAppxFactory3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxFactory3").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IAppxFactory3 {
+    type Vtable = IAppxFactory3_Vtbl;
+}
+impl ::core::clone::Clone for IAppxFactory3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IAppxFactory3 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x776b2c05_e21d_4e24_ba1a_cd529a8bfdbb);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppxFactory3_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreatePackageReader2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, expecteddigest: ::windows::core::PCWSTR, packagereader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    CreatePackageReader2: usize,
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateManifestReader2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, expecteddigest: ::windows::core::PCWSTR, manifestreader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    CreateManifestReader2: usize,
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateAppInstallerReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, expecteddigest: ::windows::core::PCWSTR, appinstallerreader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    CreateAppInstallerReader: usize,
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]

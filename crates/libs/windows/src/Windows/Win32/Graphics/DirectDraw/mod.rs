@@ -4,7 +4,7 @@ pub unsafe fn DirectDrawCreate<P0>(lpguid: *mut ::windows::core::GUID, lplpdd: *
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawCreate ( lpguid : *mut :: windows::core::GUID , lplpdd : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawCreate ( lpguid : *mut ::windows::core::GUID , lplpdd : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DirectDrawCreate(lpguid, ::core::mem::transmute(lplpdd), punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
@@ -13,7 +13,7 @@ pub unsafe fn DirectDrawCreateClipper<P0>(dwflags: u32, lplpddclipper: *mut ::co
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawCreateClipper ( dwflags : u32 , lplpddclipper : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawCreateClipper ( dwflags : u32 , lplpddclipper : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DirectDrawCreateClipper(dwflags, ::core::mem::transmute(lplpddclipper), punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
@@ -22,35 +22,35 @@ pub unsafe fn DirectDrawCreateEx<P0>(lpguid: *mut ::windows::core::GUID, lplpdd:
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawCreateEx ( lpguid : *mut :: windows::core::GUID , lplpdd : *mut *mut ::core::ffi::c_void , iid : *const :: windows::core::GUID , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawCreateEx ( lpguid : *mut ::windows::core::GUID , lplpdd : *mut *mut ::core::ffi::c_void , iid : *const ::windows::core::GUID , punkouter : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DirectDrawCreateEx(lpguid, lplpdd, iid, punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectDrawEnumerateA(lpcallback: LPDDENUMCALLBACKA, lpcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateA ( lpcallback : LPDDENUMCALLBACKA , lpcontext : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateA ( lpcallback : LPDDENUMCALLBACKA , lpcontext : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DirectDrawEnumerateA(lpcallback, lpcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DirectDrawEnumerateExA(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateExA ( lpcallback : LPDDENUMCALLBACKEXA , lpcontext : *mut ::core::ffi::c_void , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateExA ( lpcallback : LPDDENUMCALLBACKEXA , lpcontext : *mut ::core::ffi::c_void , dwflags : u32 ) -> ::windows::core::HRESULT );
     DirectDrawEnumerateExA(lpcallback, lpcontext, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DirectDrawEnumerateExW(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateExW ( lpcallback : LPDDENUMCALLBACKEXW , lpcontext : *mut ::core::ffi::c_void , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateExW ( lpcallback : LPDDENUMCALLBACKEXW , lpcontext : *mut ::core::ffi::c_void , dwflags : u32 ) -> ::windows::core::HRESULT );
     DirectDrawEnumerateExW(lpcallback, lpcontext, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectDrawEnumerateW(lpcallback: LPDDENUMCALLBACKW, lpcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateW ( lpcallback : LPDDENUMCALLBACKW , lpcontext : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateW ( lpcallback : LPDDENUMCALLBACKW , lpcontext : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DirectDrawEnumerateW(lpcallback, lpcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
@@ -518,8 +518,6 @@ impl IDirectDraw4 {
     pub unsafe fn TestCooperativeLevel(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TestCooperativeLevel)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDeviceIdentifier(&self, param0: *mut DDDEVICEIDENTIFIER, param1: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDeviceIdentifier)(::windows::core::Interface::as_raw(self), param0, param1).ok()
     }
@@ -587,10 +585,7 @@ pub struct IDirectDraw4_Vtbl {
     GetSurfaceFromDC: usize,
     pub RestoreAllSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub TestCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetDeviceIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDDEVICEIDENTIFIER, param1: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetDeviceIdentifier: usize,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
@@ -700,8 +695,6 @@ impl IDirectDraw7 {
     pub unsafe fn TestCooperativeLevel(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TestCooperativeLevel)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDeviceIdentifier(&self, param0: *mut DDDEVICEIDENTIFIER2, param1: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDeviceIdentifier)(::windows::core::Interface::as_raw(self), param0, param1).ok()
     }
@@ -777,10 +770,7 @@ pub struct IDirectDraw7_Vtbl {
     GetSurfaceFromDC: usize,
     pub RestoreAllSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub TestCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetDeviceIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDDEVICEIDENTIFIER2, param1: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetDeviceIdentifier: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub StartModeTest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::SIZE, param1: u32, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3143,7 +3133,7 @@ pub const DDHALINFO_ISPRIMARYDISPLAY: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHALINFO_MODEXILLEGAL: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const DDHAL_APP_DLLNAME: ::windows::core::PCSTR = ::windows::s!("DDRAW.DLL");
+pub const DDHAL_APP_DLLNAME: ::windows::core::PCSTR = ::windows::core::s!("DDRAW.DLL");
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_CB32_CANCREATESURFACE: i32 = 32i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
@@ -3181,7 +3171,7 @@ pub const DDHAL_D3DBUFCB32_LOCKD3DBUF: i32 = 8i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_D3DBUFCB32_UNLOCKD3DBUF: i32 = 16i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const DDHAL_DRIVER_DLLNAME: ::windows::core::PCSTR = ::windows::s!("DDRAW16.DLL");
+pub const DDHAL_DRIVER_DLLNAME: ::windows::core::PCSTR = ::windows::core::s!("DDRAW16.DLL");
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_DRIVER_HANDLED: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
@@ -4455,11 +4445,11 @@ pub const OBJECT_ISROOT: i32 = -2147483648i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const PFINDEX_UNINITIALIZED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const REGSTR_KEY_DDHW_DESCRIPTION: ::windows::core::PCSTR = ::windows::s!("Description");
+pub const REGSTR_KEY_DDHW_DESCRIPTION: ::windows::core::PCSTR = ::windows::core::s!("Description");
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const REGSTR_KEY_DDHW_DRIVERNAME: ::windows::core::PCSTR = ::windows::s!("DriverName");
+pub const REGSTR_KEY_DDHW_DRIVERNAME: ::windows::core::PCSTR = ::windows::core::s!("DriverName");
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const REGSTR_PATH_DDHW: ::windows::core::PCSTR = ::windows::s!("Hardware\\DirectDrawDrivers");
+pub const REGSTR_PATH_DDHW: ::windows::core::PCSTR = ::windows::core::s!("Hardware\\DirectDrawDrivers");
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const ROP_HAS_PATTERN: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
@@ -4612,40 +4602,32 @@ impl ::core::default::Default for DBLNODE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD32BITDRIVERDATA {
-    pub szName: [super::super::Foundation::CHAR; 260],
-    pub szEntryPoint: [super::super::Foundation::CHAR; 64],
+    pub szName: [u8; 260],
+    pub szEntryPoint: [u8; 64],
     pub dwContext: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DD32BITDRIVERDATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DD32BITDRIVERDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DD32BITDRIVERDATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DD32BITDRIVERDATA").field("szName", &self.szName).field("szEntryPoint", &self.szEntryPoint).field("dwContext", &self.dwContext).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DD32BITDRIVERDATA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD32BITDRIVERDATA {
     fn eq(&self, other: &Self) -> bool {
         self.szName == other.szName && self.szEntryPoint == other.szEntryPoint && self.dwContext == other.dwContext
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DD32BITDRIVERDATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD32BITDRIVERDATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5835,11 +5817,10 @@ impl ::core::default::Default for DDCORECAPS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDDEVICEIDENTIFIER {
-    pub szDriver: [super::super::Foundation::CHAR; 512],
-    pub szDescription: [super::super::Foundation::CHAR; 512],
+    pub szDriver: [u8; 512],
+    pub szDescription: [u8; 512],
     pub liDriverVersion: i64,
     pub dwVendorId: u32,
     pub dwDeviceId: u32,
@@ -5847,44 +5828,36 @@ pub struct DDDEVICEIDENTIFIER {
     pub dwRevision: u32,
     pub guidDeviceIdentifier: ::windows::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DDDEVICEIDENTIFIER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DDDEVICEIDENTIFIER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DDDEVICEIDENTIFIER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DDDEVICEIDENTIFIER").field("szDriver", &self.szDriver).field("szDescription", &self.szDescription).field("liDriverVersion", &self.liDriverVersion).field("dwVendorId", &self.dwVendorId).field("dwDeviceId", &self.dwDeviceId).field("dwSubSysId", &self.dwSubSysId).field("dwRevision", &self.dwRevision).field("guidDeviceIdentifier", &self.guidDeviceIdentifier).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DDDEVICEIDENTIFIER {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DDDEVICEIDENTIFIER {
     fn eq(&self, other: &Self) -> bool {
         self.szDriver == other.szDriver && self.szDescription == other.szDescription && self.liDriverVersion == other.liDriverVersion && self.dwVendorId == other.dwVendorId && self.dwDeviceId == other.dwDeviceId && self.dwSubSysId == other.dwSubSysId && self.dwRevision == other.dwRevision && self.guidDeviceIdentifier == other.guidDeviceIdentifier
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DDDEVICEIDENTIFIER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DDDEVICEIDENTIFIER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDDEVICEIDENTIFIER2 {
-    pub szDriver: [super::super::Foundation::CHAR; 512],
-    pub szDescription: [super::super::Foundation::CHAR; 512],
+    pub szDriver: [u8; 512],
+    pub szDescription: [u8; 512],
     pub liDriverVersion: i64,
     pub dwVendorId: u32,
     pub dwDeviceId: u32,
@@ -5893,33 +5866,26 @@ pub struct DDDEVICEIDENTIFIER2 {
     pub guidDeviceIdentifier: ::windows::core::GUID,
     pub dwWHQLLevel: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DDDEVICEIDENTIFIER2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DDDEVICEIDENTIFIER2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DDDEVICEIDENTIFIER2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DDDEVICEIDENTIFIER2").field("szDriver", &self.szDriver).field("szDescription", &self.szDescription).field("liDriverVersion", &self.liDriverVersion).field("dwVendorId", &self.dwVendorId).field("dwDeviceId", &self.dwDeviceId).field("dwSubSysId", &self.dwSubSysId).field("dwRevision", &self.dwRevision).field("guidDeviceIdentifier", &self.guidDeviceIdentifier).field("dwWHQLLevel", &self.dwWHQLLevel).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DDDEVICEIDENTIFIER2 {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DDDEVICEIDENTIFIER2 {
     fn eq(&self, other: &Self) -> bool {
         self.szDriver == other.szDriver && self.szDescription == other.szDescription && self.liDriverVersion == other.liDriverVersion && self.dwVendorId == other.dwVendorId && self.dwDeviceId == other.dwDeviceId && self.dwSubSysId == other.dwSubSysId && self.dwRevision == other.dwRevision && self.guidDeviceIdentifier == other.guidDeviceIdentifier && self.dwWHQLLevel == other.dwWHQLLevel
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DDDEVICEIDENTIFIER2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DDDEVICEIDENTIFIER2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10689,7 +10655,7 @@ pub struct DDRAWI_DIRECTDRAW_GBL {
     pub dwAliasedLockCnt: u32,
     pub dwReserved3: usize,
     pub hDD: usize,
-    pub cObsolete: [super::super::Foundation::CHAR; 12],
+    pub cObsolete: [u8; 12],
     pub dwReserved1: u32,
     pub dwReserved2: u32,
     pub dbnOverlayRoot: DBLNODE,
@@ -10720,7 +10686,7 @@ pub struct DDRAWI_DIRECTDRAW_GBL {
     pub lpD3DExtendedCaps: usize,
     pub dwDOSBoxEvent: u32,
     pub rectDesktop: super::super::Foundation::RECT,
-    pub cDriverName: [super::super::Foundation::CHAR; 32],
+    pub cDriverName: [u8; 32],
     pub lpD3DHALCallbacks3: usize,
     pub dwNumZPixelFormats: u32,
     pub lpZPixelFormats: *mut DDPIXELFORMAT,
@@ -10805,7 +10771,7 @@ pub struct DDRAWI_DIRECTDRAW_LCL {
     pub lpPrimary: *mut DDRAWI_DDRAWSURFACE_INT,
     pub lpCB: *mut DDRAWI_DDRAWSURFACE_INT,
     pub dwPreferredMode: u32,
-    pub hD3DInstance: super::super::Foundation::HINSTANCE,
+    pub hD3DInstance: super::super::Foundation::HMODULE,
     pub pD3DIUnknown: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub lpDDCB: *mut DDHAL_CALLBACKS,
     pub hDDVxd: usize,

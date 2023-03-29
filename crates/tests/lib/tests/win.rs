@@ -1,4 +1,4 @@
-use windows::{core::*, Win32::Graphics::Direct3D::Fxc::*, Win32::Graphics::Gdi::*, Win32::System::Threading::*};
+use windows::{core::*, Win32::Graphics::Direct3D::Fxc::*, Win32::Graphics::Gdi::*, Win32::System::ClrHosting::*, Win32::System::Threading::*};
 
 #[test]
 fn linker() -> Result<()> {
@@ -19,5 +19,17 @@ fn gdi() {
 fn wait_on_address() {
     unsafe {
         WaitOnAddress(std::ptr::null(), std::ptr::null(), 0, 0);
+    }
+}
+
+#[test]
+fn clr() -> Result<()> {
+    unsafe {
+        let mut version = vec![0; 20];
+        let mut len = 0;
+        GetFileVersion(w!("../../libs/metadata/default/Windows.winmd"), Some(&mut version), &mut len)?;
+        let version = String::from_utf16_lossy(&version[..len as usize - 1]);
+        assert_eq!(version, "WindowsRuntime 1.4");
+        Ok(())
     }
 }

@@ -3,7 +3,7 @@ pub const CLOCK_NETWORK_DERIVED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const CLOCK_PRECISION: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const DD_NDIS_DEVICE_NAME: ::windows::core::PCWSTR = ::windows::w!("\\Device\\NDIS");
+pub const DD_NDIS_DEVICE_NAME: ::windows::core::PCWSTR = ::windows::core::w!("\\Device\\NDIS");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const DOT11_RSN_KCK_LENGTH: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -1925,6 +1925,8 @@ pub const NDIS_SUPPORT_NDIS685: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_SUPPORT_NDIS686: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NDIS_SUPPORT_NDIS687: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_SWITCH_FEATURE_STATUS_CUSTOM_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_SWITCH_FEATURE_STATUS_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -3654,6 +3656,8 @@ pub const OID_WWAN_SUBSCRIBE_DEVICE_SERVICE_EVENTS: u32 = 234946839u32;
 pub const OID_WWAN_SYS_CAPS: u32 = 234946861u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const OID_WWAN_SYS_SLOTMAPPINGS: u32 = 234946863u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const OID_WWAN_UE_POLICY: u32 = 234946894u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const OID_WWAN_UICC_ACCESS_BINARY: u32 = 234946857u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -8521,28 +8525,23 @@ impl ::core::default::Default for NDIS_WLAN_BSSID_EX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub struct NDIS_WMI_ENUM_ADAPTER {
     pub Header: NDIS_OBJECT_HEADER,
     pub IfIndex: u32,
     pub NetLuid: NET_LUID_LH,
     pub DeviceNameLength: u16,
-    pub DeviceName: [super::super::Foundation::CHAR; 1],
+    pub DeviceName: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NDIS_WMI_ENUM_ADAPTER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NDIS_WMI_ENUM_ADAPTER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for NDIS_WMI_ENUM_ADAPTER {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NDIS_WMI_ENUM_ADAPTER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

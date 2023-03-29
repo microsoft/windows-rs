@@ -28,7 +28,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<ISecurityInformation>,
 {
-    ::windows::imp::link ! ( "aclui.dll""system" fn EditSecurityAdvanced ( hwndowner : super::super::super::Foundation:: HWND , psi : * mut::core::ffi::c_void , usipage : SI_PAGE_TYPE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "aclui.dll""system" fn EditSecurityAdvanced ( hwndowner : super::super::super::Foundation:: HWND , psi : * mut::core::ffi::c_void , usipage : SI_PAGE_TYPE ) -> ::windows::core::HRESULT );
     EditSecurityAdvanced(hwndowner.into_param().abi(), psi.into_param().abi(), usipage).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
@@ -441,7 +441,7 @@ pub struct ISecurityObjectTypeInfo_Vtbl {
     pub GetInheritSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
-pub const CFSTR_ACLUI_SID_INFO_LIST: ::windows::core::PCWSTR = ::windows::w!("CFSTR_ACLUI_SID_INFO_LIST");
+pub const CFSTR_ACLUI_SID_INFO_LIST: ::windows::core::PCWSTR = ::windows::core::w!("CFSTR_ACLUI_SID_INFO_LIST");
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
 pub const DOBJ_COND_NTACLS: i32 = 8i32;
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
@@ -951,7 +951,7 @@ impl ::core::default::Default for SI_INHERIT_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 pub struct SI_OBJECT_INFO {
     pub dwFlags: SI_OBJECT_INFO_FLAGS,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub pszServerName: ::windows::core::PWSTR,
     pub pszObjectName: ::windows::core::PWSTR,
     pub pszPageTitle: ::windows::core::PWSTR,
