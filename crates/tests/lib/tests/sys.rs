@@ -1,4 +1,4 @@
-use windows_sys::{Win32::Foundation::*, Win32::Graphics::Gdi::*, Win32::System::Threading::*, Win32::Web::InternetExplorer::*, Win32::System::ProcessStatus::*};
+use windows_sys::{Win32::Foundation::*, Win32::Graphics::Gdi::*, Win32::System::ProcessStatus::*, Win32::System::Threading::*, Win32::Web::InternetExplorer::*};
 
 #[test]
 fn gdi() {
