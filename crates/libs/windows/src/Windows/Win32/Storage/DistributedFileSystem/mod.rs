@@ -7,7 +7,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn NetDfsAdd ( dfsentrypath : ::windows::core::PCWSTR , servername : ::windows::core::PCWSTR , sharename : ::windows::core::PCWSTR , comment : ::windows::core::PCWSTR , flags : u32 ) -> u32 );
+    ::windows_targets::link ! ( "netapi32.dll""system" fn NetDfsAdd ( dfsentrypath : ::windows::core::PCWSTR , servername : ::windows::core::PCWSTR , sharename : ::windows::core::PCWSTR , comment : ::windows::core::PCWSTR , flags : u32 ) -> u32 );
     NetDfsAdd(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), comment.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
@@ -19,7 +19,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn NetDfsAddFtRoot ( servername : ::windows::core::PCWSTR , rootshare : ::windows::core::PCWSTR , ftdfsname : ::windows::core::PCWSTR , comment : ::windows::core::PCWSTR , flags : u32 ) -> u32 );
+    ::windows_targets::link ! ( "netapi32.dll""system" fn NetDfsAddFtRoot ( servername : ::windows::core::PCWSTR , rootshare : ::windows::core::PCWSTR , ftdfsname : ::windows::core::PCWSTR , comment : ::windows::core::PCWSTR , flags : u32 ) -> u32 );
     NetDfsAddFtRoot(servername.into_param().abi(), rootshare.into_param().abi(), ftdfsname.into_param().abi(), comment.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
@@ -30,7 +30,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn NetDfsAddRootTarget ( pdfspath : ::windows::core::PCWSTR , ptargetpath : ::windows::core::PCWSTR , majorversion : u32 , pcomment : ::windows::core::PCWSTR , flags : u32 ) -> u32 );
+    ::windows_targets::link ! ( "netapi32.dll""system" fn NetDfsAddRootTarget ( pdfspath : ::windows::core::PCWSTR , ptargetpath : ::windows::core::PCWSTR , majorversion : u32 , pcomment : ::windows::core::PCWSTR , flags : u32 ) -> u32 );
     NetDfsAddRootTarget(pdfspath.into_param().abi(), ptargetpath.into_param().abi(), majorversion, pcomment.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
@@ -41,7 +41,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn NetDfsAddStdRoot ( servername : ::windows::core::PCWSTR , rootshare : ::windows::core::PCWSTR , comment : ::windows::core::PCWSTR , flags : u32 ) -> u32 );
+    ::windows_targets::link ! ( "netapi32.dll""system" fn NetDfsAddStdRoot ( servername : ::windows::core::PCWSTR , rootshare : ::windows::core::PCWSTR , comment : ::windows::core::PCWSTR , flags : u32 ) -> u32 );
     NetDfsAddStdRoot(servername.into_param().abi(), rootshare.into_param().abi(), comment.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
@@ -50,7 +50,7 @@ pub unsafe fn NetDfsEnum<P0>(dfsname: P0, level: u32, prefmaxlen: u32, buffer: *
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn NetDfsEnum ( dfsname : ::windows::core::PCWSTR , level : u32 , prefmaxlen : u32 , buffer : *mut *mut u8 , entriesread : *mut u32 , resumehandle : *mut u32 ) -> u32 );
+    ::windows_targets::link ! ( "netapi32.dll""system" fn NetDfsEnum ( dfsname : ::windows::core::PCWSTR , level : u32 , prefmaxlen : u32 , buffer : *mut *mut u8 , entriesread : *mut u32 , resumehandle : *mut u32 ) -> u32 );
     NetDfsEnum(dfsname.into_param().abi(), level, prefmaxlen, buffer, entriesread, resumehandle)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
@@ -61,7 +61,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn NetDfsGetClientInfo ( dfsentrypath : ::windows::core::PCWSTR , servername : ::windows::core::PCWSTR , sharename : ::windows::core::PCWSTR , level : u32 , buffer : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link ! ( "netapi32.dll""system" fn NetDfsGetClientInfo ( dfsentrypath : ::windows::core::PCWSTR , servername : ::windows::core::PCWSTR , sharename : ::windows::core::PCWSTR , level : u32 , buffer : *mut *mut u8 ) -> u32 );
     NetDfsGetClientInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), level, buffer)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
@@ -71,7 +71,7 @@ pub unsafe fn NetDfsGetFtContainerSecurity<P0>(domainname: P0, securityinformati
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn NetDfsGetFtContainerSecurity ( domainname : ::windows::core::PCWSTR , securityinformation : u32 , ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR , lpcbsecuritydescriptor : *mut u32 ) -> u32 );
+    ::windows_targets::link ! ( "netapi32.dll""system" fn NetDfsGetFtContainerSecurity ( domainname : ::windows::core::PCWSTR , securityinformation : u32 , ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR , lpcbsecuritydescriptor : *mut u32 ) -> u32 );
     NetDfsGetFtContainerSecurity(domainname.into_param().abi(), securityinformation, ppsecuritydescriptor, lpcbsecuritydescriptor)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
@@ -82,7 +82,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn NetDfsGetInfo ( dfsentrypath : ::windows::core::PCWSTR , servername : ::windows::core::PCWSTR , sharename : ::windows::core::PCWSTR , level : u32 , buffer : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link ! ( "netapi32.dll""system" fn NetDfsGetInfo ( dfsentrypath : ::windows::core::PCWSTR , servername : ::windows::core::PCWSTR , sharename : ::windows::core::PCWSTR , level : u32 , buffer : *mut *mut u8 ) -> u32 );
     NetDfsGetInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), level, buffer)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
@@ -92,7 +92,7 @@ pub unsafe fn NetDfsGetSecurity<P0>(dfsentrypath: P0, securityinformation: u32, 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn NetDfsGetSecurity ( dfsentrypath : ::windows::core::PCWSTR , securityinformation : u32 , ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR , lpcbsecuritydescriptor : *mut u32 ) -> u32 );
+    ::windows_targets::link ! ( "netapi32.dll""system" fn NetDfsGetSecurity ( dfsentrypath : ::windows::core::PCWSTR , securityinformation : u32 , ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR , lpcbsecuritydescriptor : *mut u32 ) -> u32 );
     NetDfsGetSecurity(dfsentrypath.into_param().abi(), securityinformation, ppsecuritydescriptor, lpcbsecuritydescriptor)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
@@ -102,7 +102,7 @@ pub unsafe fn NetDfsGetStdContainerSecurity<P0>(machinename: P0, securityinforma
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn NetDfsGetStdContainerSecurity ( machinename : ::windows::core::PCWSTR , securityinformation : u32 , ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR , lpcbsecuritydescriptor : *mut u32 ) -> u32 );
+    ::windows_targets::link ! ( "netapi32.dll""system" fn NetDfsGetStdContainerSecurity ( machinename : ::windows::core::PCWSTR , securityinformation : u32 , ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR , lpcbsecuritydescriptor : *mut u32 ) -> u32 );
     NetDfsGetStdContainerSecurity(machinename.into_param().abi(), securityinformation, ppsecuritydescriptor, lpcbsecuritydescriptor)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
@@ -111,7 +111,7 @@ pub unsafe fn NetDfsGetSupportedNamespaceVersion<P0>(origin: DFS_NAMESPACE_VERSI
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn NetDfsGetSupportedNamespaceVersion ( origin : DFS_NAMESPACE_VERSION_ORIGIN , pname : ::windows::core::PCWSTR , ppversioninfo : *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO ) -> u32 );
+    ::windows_targets::link ! ( "netapi32.dll""system" fn NetDfsGetSupportedNamespaceVersion ( origin : DFS_NAMESPACE_VERSION_ORIGIN , pname : ::windows::core::PCWSTR , ppversioninfo : *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO ) -> u32 );
     NetDfsGetSupportedNamespaceVersion(origin, pname.into_param().abi(), ppversioninfo)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
@@ -121,7 +121,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn NetDfsMove ( olddfsentrypath : ::windows::core::PCWSTR , newdfsentrypath : ::windows::core::PCWSTR , flags : u32 ) -> u32 );
+    ::windows_targets::link ! ( "netapi32.dll""system" fn NetDfsMove ( olddfsentrypath : ::windows::core::PCWSTR , newdfsentrypath : ::windows::core::PCWSTR , flags : u32 ) -> u32 );
     NetDfsMove(olddfsentrypath.into_param().abi(), newdfsentrypath.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
@@ -132,7 +132,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn NetDfsRemove ( dfsentrypath : ::windows::core::PCWSTR , servername : ::windows::core::PCWSTR , sharename : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link ! ( "netapi32.dll""system" fn NetDfsRemove ( dfsentrypath : ::windows::core::PCWSTR , servername : ::windows::core::PCWSTR , sharename : ::windows::core::PCWSTR ) -> u32 );
     NetDfsRemove(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
@@ -143,7 +143,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn NetDfsRemoveFtRoot ( servername : ::windows::core::PCWSTR , rootshare : ::windows::core::PCWSTR , ftdfsname : ::windows::core::PCWSTR , flags : u32 ) -> u32 );
+    ::windows_targets::link ! ( "netapi32.dll""system" fn NetDfsRemoveFtRoot ( servername : ::windows::core::PCWSTR , rootshare : ::windows::core::PCWSTR , ftdfsname : ::windows::core::PCWSTR , flags : u32 ) -> u32 );
     NetDfsRemoveFtRoot(servername.into_param().abi(), rootshare.into_param().abi(), ftdfsname.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
@@ -155,7 +155,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn NetDfsRemoveFtRootForced ( domainname : ::windows::core::PCWSTR , servername : ::windows::core::PCWSTR , rootshare : ::windows::core::PCWSTR , ftdfsname : ::windows::core::PCWSTR , flags : u32 ) -> u32 );
+    ::windows_targets::link ! ( "netapi32.dll""system" fn NetDfsRemoveFtRootForced ( domainname : ::windows::core::PCWSTR , servername : ::windows::core::PCWSTR , rootshare : ::windows::core::PCWSTR , ftdfsname : ::windows::core::PCWSTR , flags : u32 ) -> u32 );
     NetDfsRemoveFtRootForced(domainname.into_param().abi(), servername.into_param().abi(), rootshare.into_param().abi(), ftdfsname.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
@@ -165,7 +165,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn NetDfsRemoveRootTarget ( pdfspath : ::windows::core::PCWSTR , ptargetpath : ::windows::core::PCWSTR , flags : u32 ) -> u32 );
+    ::windows_targets::link ! ( "netapi32.dll""system" fn NetDfsRemoveRootTarget ( pdfspath : ::windows::core::PCWSTR , ptargetpath : ::windows::core::PCWSTR , flags : u32 ) -> u32 );
     NetDfsRemoveRootTarget(pdfspath.into_param().abi(), ptargetpath.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
@@ -175,7 +175,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn NetDfsRemoveStdRoot ( servername : ::windows::core::PCWSTR , rootshare : ::windows::core::PCWSTR , flags : u32 ) -> u32 );
+    ::windows_targets::link ! ( "netapi32.dll""system" fn NetDfsRemoveStdRoot ( servername : ::windows::core::PCWSTR , rootshare : ::windows::core::PCWSTR , flags : u32 ) -> u32 );
     NetDfsRemoveStdRoot(servername.into_param().abi(), rootshare.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
@@ -186,7 +186,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn NetDfsSetClientInfo ( dfsentrypath : ::windows::core::PCWSTR , servername : ::windows::core::PCWSTR , sharename : ::windows::core::PCWSTR , level : u32 , buffer : *const u8 ) -> u32 );
+    ::windows_targets::link ! ( "netapi32.dll""system" fn NetDfsSetClientInfo ( dfsentrypath : ::windows::core::PCWSTR , servername : ::windows::core::PCWSTR , sharename : ::windows::core::PCWSTR , level : u32 , buffer : *const u8 ) -> u32 );
     NetDfsSetClientInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), level, buffer)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
@@ -197,7 +197,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn NetDfsSetFtContainerSecurity ( domainname : ::windows::core::PCWSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    ::windows_targets::link ! ( "netapi32.dll""system" fn NetDfsSetFtContainerSecurity ( domainname : ::windows::core::PCWSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
     NetDfsSetFtContainerSecurity(domainname.into_param().abi(), securityinformation, psecuritydescriptor.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
@@ -208,7 +208,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn NetDfsSetInfo ( dfsentrypath : ::windows::core::PCWSTR , servername : ::windows::core::PCWSTR , sharename : ::windows::core::PCWSTR , level : u32 , buffer : *const u8 ) -> u32 );
+    ::windows_targets::link ! ( "netapi32.dll""system" fn NetDfsSetInfo ( dfsentrypath : ::windows::core::PCWSTR , servername : ::windows::core::PCWSTR , sharename : ::windows::core::PCWSTR , level : u32 , buffer : *const u8 ) -> u32 );
     NetDfsSetInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), level, buffer)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
@@ -219,7 +219,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn NetDfsSetSecurity ( dfsentrypath : ::windows::core::PCWSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    ::windows_targets::link ! ( "netapi32.dll""system" fn NetDfsSetSecurity ( dfsentrypath : ::windows::core::PCWSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
     NetDfsSetSecurity(dfsentrypath.into_param().abi(), securityinformation, psecuritydescriptor.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
@@ -230,7 +230,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn NetDfsSetStdContainerSecurity ( machinename : ::windows::core::PCWSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    ::windows_targets::link ! ( "netapi32.dll""system" fn NetDfsSetStdContainerSecurity ( machinename : ::windows::core::PCWSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
     NetDfsSetStdContainerSecurity(machinename.into_param().abi(), securityinformation, psecuritydescriptor.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]

@@ -12,3 +12,6 @@ features = [
     "Win32_System_WinRT",
     "Win32_Media_Audio",
 ]
+
+[dependencies.windows-targets]
+path = "../../libs/targets"

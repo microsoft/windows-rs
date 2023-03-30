@@ -5,7 +5,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManager ( i_pszhost : ::windows::core::PCSTR , i_psztmname : ::windows::core::PCSTR , i_riid : *const ::windows::core::GUID , i_dwreserved1 : u32 , i_wcbreserved2 : u16 , i_pvreserved2 : *const ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManager ( i_pszhost : ::windows::core::PCSTR , i_psztmname : ::windows::core::PCSTR , i_riid : *const ::windows::core::GUID , i_dwreserved1 : u32 , i_wcbreserved2 : u16 , i_pvreserved2 : *const ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DtcGetTransactionManager(i_pszhost.into_param().abi(), i_psztmname.into_param().abi(), i_riid, i_dwreserved1, i_wcbreserved2, ::core::mem::transmute(i_pvreserved2.unwrap_or(::std::ptr::null())), o_ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
@@ -15,7 +15,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManagerC ( i_pszhost : ::windows::core::PCSTR , i_psztmname : ::windows::core::PCSTR , i_riid : *const ::windows::core::GUID , i_dwreserved1 : u32 , i_wcbreserved2 : u16 , i_pvreserved2 : *const ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManagerC ( i_pszhost : ::windows::core::PCSTR , i_psztmname : ::windows::core::PCSTR , i_riid : *const ::windows::core::GUID , i_dwreserved1 : u32 , i_wcbreserved2 : u16 , i_pvreserved2 : *const ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DtcGetTransactionManagerC(i_pszhost.into_param().abi(), i_psztmname.into_param().abi(), i_riid, i_dwreserved1, i_wcbreserved2, ::core::mem::transmute(i_pvreserved2.unwrap_or(::std::ptr::null())), o_ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
@@ -25,7 +25,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManagerExA ( i_pszhost : ::windows::core::PCSTR , i_psztmname : ::windows::core::PCSTR , i_riid : *const ::windows::core::GUID , i_grfoptions : u32 , i_pvconfigparams : *mut ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManagerExA ( i_pszhost : ::windows::core::PCSTR , i_psztmname : ::windows::core::PCSTR , i_riid : *const ::windows::core::GUID , i_grfoptions : u32 , i_pvconfigparams : *mut ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DtcGetTransactionManagerExA(i_pszhost.into_param().abi(), i_psztmname.into_param().abi(), i_riid, i_grfoptions, i_pvconfigparams, o_ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
@@ -35,7 +35,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManagerExW ( i_pwszhost : ::windows::core::PCWSTR , i_pwsztmname : ::windows::core::PCWSTR , i_riid : *const ::windows::core::GUID , i_grfoptions : u32 , i_pvconfigparams : *mut ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManagerExW ( i_pwszhost : ::windows::core::PCWSTR , i_pwsztmname : ::windows::core::PCWSTR , i_riid : *const ::windows::core::GUID , i_grfoptions : u32 , i_pvconfigparams : *mut ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DtcGetTransactionManagerExW(i_pwszhost.into_param().abi(), i_pwsztmname.into_param().abi(), i_riid, i_grfoptions, i_pvconfigparams, o_ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]

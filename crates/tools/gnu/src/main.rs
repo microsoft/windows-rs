@@ -38,7 +38,7 @@ fn build_platform(platform: &str, dlltool: &str, ar: &str) {
 
     let libraries = lib::libraries();
     let output = std::path::PathBuf::from(format!("crates/targets/{platform}/lib"));
-    _ = std::fs::remove_dir_all(&output);
+    std::fs::create_dir_all(&output).unwrap();
     std::fs::create_dir_all(&output).unwrap();
 
     for (library, functions) in &libraries {
@@ -145,7 +145,7 @@ fn build_mri(output: &std::path::Path, ar: &str, libraries: &BTreeMap<String, BT
     let mut mri = std::fs::File::create(&mri_path).unwrap();
     println!("Generating {}", mri_path.to_string_lossy());
 
-    mri.write_all(b"CREATE libwindows.a\n").unwrap();
+    mri.write_all(format!("CREATE libwindows.{}.a\n", std::env!("CARGO_PKG_VERSION")).as_bytes()).unwrap();
 
     for library in libraries.keys() {
         mri.write_all(format!("ADDLIB lib{library}.a\n").as_bytes()).unwrap();

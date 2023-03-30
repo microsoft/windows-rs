@@ -4,14 +4,14 @@ pub unsafe fn MQADsPathToFormatName<P0>(lpwcsadspath: P0, lpwcsformatname: ::win
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQADsPathToFormatName ( lpwcsadspath : ::windows::core::PCWSTR , lpwcsformatname : ::windows::core::PWSTR , lpdwformatnamelength : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQADsPathToFormatName ( lpwcsadspath : ::windows::core::PCWSTR , lpwcsformatname : ::windows::core::PWSTR , lpdwformatnamelength : *mut u32 ) -> ::windows::core::HRESULT );
     MQADsPathToFormatName(lpwcsadspath.into_param().abi(), ::core::mem::transmute(lpwcsformatname), lpdwformatnamelength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 #[inline]
 pub unsafe fn MQBeginTransaction() -> ::windows::core::Result<super::DistributedTransactionCoordinator::ITransaction> {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQBeginTransaction ( pptransaction : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQBeginTransaction ( pptransaction : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::DistributedTransactionCoordinator::ITransaction>();
     MQBeginTransaction(&mut result__).from_abi(result__)
 }
@@ -22,20 +22,20 @@ pub unsafe fn MQCloseCursor<P0>(hcursor: P0) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQCloseCursor ( hcursor : super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQCloseCursor ( hcursor : super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     MQCloseCursor(hcursor.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[inline]
 pub unsafe fn MQCloseQueue(hqueue: isize) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQCloseQueue ( hqueue : isize ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQCloseQueue ( hqueue : isize ) -> ::windows::core::HRESULT );
     MQCloseQueue(hqueue).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MQCreateCursor(hqueue: isize) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQCreateCursor ( hqueue : isize , phcursor : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQCreateCursor ( hqueue : isize , phcursor : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
     MQCreateCursor(hqueue, &mut result__).from_abi(result__)
 }
@@ -46,7 +46,7 @@ pub unsafe fn MQCreateQueue<P0>(psecuritydescriptor: P0, pqueueprops: *mut MQQUE
 where
     P0: ::windows::core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQCreateQueue ( psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , pqueueprops : *mut MQQUEUEPROPS , lpwcsformatname : ::windows::core::PWSTR , lpdwformatnamelength : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQCreateQueue ( psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , pqueueprops : *mut MQQUEUEPROPS , lpwcsformatname : ::windows::core::PWSTR , lpdwformatnamelength : *mut u32 ) -> ::windows::core::HRESULT );
     MQCreateQueue(psecuritydescriptor.into_param().abi(), pqueueprops, ::core::mem::transmute(lpwcsformatname), lpdwformatnamelength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
@@ -55,13 +55,13 @@ pub unsafe fn MQDeleteQueue<P0>(lpwcsformatname: P0) -> ::windows::core::Result<
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQDeleteQueue ( lpwcsformatname : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQDeleteQueue ( lpwcsformatname : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     MQDeleteQueue(lpwcsformatname.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[inline]
 pub unsafe fn MQFreeMemory(pvmemory: *const ::core::ffi::c_void) {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQFreeMemory ( pvmemory : *const ::core::ffi::c_void ) -> ( ) );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQFreeMemory ( pvmemory : *const ::core::ffi::c_void ) -> ( ) );
     MQFreeMemory(pvmemory)
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
@@ -71,7 +71,7 @@ pub unsafe fn MQFreeSecurityContext<P0>(hsecuritycontext: P0)
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQFreeSecurityContext ( hsecuritycontext : super::super::Foundation:: HANDLE ) -> ( ) );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQFreeSecurityContext ( hsecuritycontext : super::super::Foundation:: HANDLE ) -> ( ) );
     MQFreeSecurityContext(hsecuritycontext.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -81,14 +81,14 @@ pub unsafe fn MQGetMachineProperties<P0>(lpwcsmachinename: P0, pguidmachineid: :
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQGetMachineProperties ( lpwcsmachinename : ::windows::core::PCWSTR , pguidmachineid : *const ::windows::core::GUID , pqmprops : *mut MQQMPROPS ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQGetMachineProperties ( lpwcsmachinename : ::windows::core::PCWSTR , pguidmachineid : *const ::windows::core::GUID , pqmprops : *mut MQQMPROPS ) -> ::windows::core::HRESULT );
     MQGetMachineProperties(lpwcsmachinename.into_param().abi(), ::core::mem::transmute(pguidmachineid.unwrap_or(::std::ptr::null())), pqmprops).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn MQGetOverlappedResult(lpoverlapped: *const super::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQGetOverlappedResult ( lpoverlapped : *const super::IO:: OVERLAPPED ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQGetOverlappedResult ( lpoverlapped : *const super::IO:: OVERLAPPED ) -> ::windows::core::HRESULT );
     MQGetOverlappedResult(lpoverlapped).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -98,7 +98,7 @@ pub unsafe fn MQGetPrivateComputerInformation<P0>(lpwcscomputername: P0, pprivat
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQGetPrivateComputerInformation ( lpwcscomputername : ::windows::core::PCWSTR , pprivateprops : *mut MQPRIVATEPROPS ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQGetPrivateComputerInformation ( lpwcscomputername : ::windows::core::PCWSTR , pprivateprops : *mut MQPRIVATEPROPS ) -> ::windows::core::HRESULT );
     MQGetPrivateComputerInformation(lpwcscomputername.into_param().abi(), pprivateprops).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -108,7 +108,7 @@ pub unsafe fn MQGetQueueProperties<P0>(lpwcsformatname: P0, pqueueprops: *mut MQ
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQGetQueueProperties ( lpwcsformatname : ::windows::core::PCWSTR , pqueueprops : *mut MQQUEUEPROPS ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQGetQueueProperties ( lpwcsformatname : ::windows::core::PCWSTR , pqueueprops : *mut MQQUEUEPROPS ) -> ::windows::core::HRESULT );
     MQGetQueueProperties(lpwcsformatname.into_param().abi(), pqueueprops).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Security\"`*"]
@@ -118,14 +118,14 @@ pub unsafe fn MQGetQueueSecurity<P0>(lpwcsformatname: P0, requestedinformation: 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQGetQueueSecurity ( lpwcsformatname : ::windows::core::PCWSTR , requestedinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , nlength : u32 , lpnlengthneeded : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQGetQueueSecurity ( lpwcsformatname : ::windows::core::PCWSTR , requestedinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , nlength : u32 , lpnlengthneeded : *mut u32 ) -> ::windows::core::HRESULT );
     MQGetQueueSecurity(lpwcsformatname.into_param().abi(), requestedinformation, psecuritydescriptor, nlength, lpnlengthneeded).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MQGetSecurityContext(lpcertbuffer: ::core::option::Option<*const ::core::ffi::c_void>, dwcertbufferlength: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQGetSecurityContext ( lpcertbuffer : *const ::core::ffi::c_void , dwcertbufferlength : u32 , phsecuritycontext : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQGetSecurityContext ( lpcertbuffer : *const ::core::ffi::c_void , dwcertbufferlength : u32 , phsecuritycontext : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
     MQGetSecurityContext(::core::mem::transmute(lpcertbuffer.unwrap_or(::std::ptr::null())), dwcertbufferlength, &mut result__).from_abi(result__)
 }
@@ -133,20 +133,20 @@ pub unsafe fn MQGetSecurityContext(lpcertbuffer: ::core::option::Option<*const :
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MQGetSecurityContextEx(lpcertbuffer: ::core::option::Option<*const ::core::ffi::c_void>, dwcertbufferlength: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQGetSecurityContextEx ( lpcertbuffer : *const ::core::ffi::c_void , dwcertbufferlength : u32 , phsecuritycontext : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQGetSecurityContextEx ( lpcertbuffer : *const ::core::ffi::c_void , dwcertbufferlength : u32 , phsecuritycontext : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
     MQGetSecurityContextEx(::core::mem::transmute(lpcertbuffer.unwrap_or(::std::ptr::null())), dwcertbufferlength, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[inline]
 pub unsafe fn MQHandleToFormatName(hqueue: isize, lpwcsformatname: ::windows::core::PWSTR, lpdwformatnamelength: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQHandleToFormatName ( hqueue : isize , lpwcsformatname : ::windows::core::PWSTR , lpdwformatnamelength : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQHandleToFormatName ( hqueue : isize , lpwcsformatname : ::windows::core::PWSTR , lpdwformatnamelength : *mut u32 ) -> ::windows::core::HRESULT );
     MQHandleToFormatName(hqueue, ::core::mem::transmute(lpwcsformatname), lpdwformatnamelength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[inline]
 pub unsafe fn MQInstanceToFormatName(pguid: *const ::windows::core::GUID, lpwcsformatname: ::windows::core::PWSTR, lpdwformatnamelength: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQInstanceToFormatName ( pguid : *const ::windows::core::GUID , lpwcsformatname : ::windows::core::PWSTR , lpdwformatnamelength : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQInstanceToFormatName ( pguid : *const ::windows::core::GUID , lpwcsformatname : ::windows::core::PWSTR , lpdwformatnamelength : *mut u32 ) -> ::windows::core::HRESULT );
     MQInstanceToFormatName(pguid, ::core::mem::transmute(lpwcsformatname), lpdwformatnamelength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -156,7 +156,7 @@ pub unsafe fn MQLocateBegin<P0>(lpwcscontext: P0, prestriction: ::core::option::
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQLocateBegin ( lpwcscontext : ::windows::core::PCWSTR , prestriction : *const MQRESTRICTION , pcolumns : *const MQCOLUMNSET , psort : *const MQSORTSET , phenum : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQLocateBegin ( lpwcscontext : ::windows::core::PCWSTR , prestriction : *const MQRESTRICTION , pcolumns : *const MQCOLUMNSET , psort : *const MQSORTSET , phenum : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
     MQLocateBegin(lpwcscontext.into_param().abi(), ::core::mem::transmute(prestriction.unwrap_or(::std::ptr::null())), pcolumns, psort, &mut result__).from_abi(result__)
 }
@@ -167,7 +167,7 @@ pub unsafe fn MQLocateEnd<P0>(henum: P0) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQLocateEnd ( henum : super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQLocateEnd ( henum : super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     MQLocateEnd(henum.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -177,7 +177,7 @@ pub unsafe fn MQLocateNext<P0>(henum: P0, pcprops: *mut u32, apropvar: *mut supe
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQLocateNext ( henum : super::super::Foundation:: HANDLE , pcprops : *mut u32 , apropvar : *mut super::Com::StructuredStorage:: PROPVARIANT ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQLocateNext ( henum : super::super::Foundation:: HANDLE , pcprops : *mut u32 , apropvar : *mut super::Com::StructuredStorage:: PROPVARIANT ) -> ::windows::core::HRESULT );
     MQLocateNext(henum.into_param().abi(), pcprops, apropvar).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
@@ -187,7 +187,7 @@ pub unsafe fn MQMarkMessageRejected<P0>(hqueue: P0, ulllookupid: u64) -> ::windo
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQMarkMessageRejected ( hqueue : super::super::Foundation:: HANDLE , ulllookupid : u64 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQMarkMessageRejected ( hqueue : super::super::Foundation:: HANDLE , ulllookupid : u64 ) -> ::windows::core::HRESULT );
     MQMarkMessageRejected(hqueue.into_param().abi(), ulllookupid).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
@@ -198,7 +198,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQMgmtAction ( pcomputername : ::windows::core::PCWSTR , pobjectname : ::windows::core::PCWSTR , paction : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQMgmtAction ( pcomputername : ::windows::core::PCWSTR , pobjectname : ::windows::core::PCWSTR , paction : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     MQMgmtAction(pcomputername.into_param().abi(), pobjectname.into_param().abi(), paction.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -209,7 +209,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQMgmtGetInfo ( pcomputername : ::windows::core::PCWSTR , pobjectname : ::windows::core::PCWSTR , pmgmtprops : *mut MQMGMTPROPS ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQMgmtGetInfo ( pcomputername : ::windows::core::PCWSTR , pobjectname : ::windows::core::PCWSTR , pmgmtprops : *mut MQMGMTPROPS ) -> ::windows::core::HRESULT );
     MQMgmtGetInfo(pcomputername.into_param().abi(), pobjectname.into_param().abi(), pmgmtprops).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_DistributedTransactionCoordinator\"`*"]
@@ -219,7 +219,7 @@ pub unsafe fn MQMoveMessage<P0>(hsourcequeue: isize, hdestinationqueue: isize, u
 where
     P0: ::windows::core::IntoParam<super::DistributedTransactionCoordinator::ITransaction>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQMoveMessage ( hsourcequeue : isize , hdestinationqueue : isize , ulllookupid : u64 , ptransaction : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQMoveMessage ( hsourcequeue : isize , hdestinationqueue : isize , ulllookupid : u64 , ptransaction : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     MQMoveMessage(hsourcequeue, hdestinationqueue, ulllookupid, ptransaction.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
@@ -228,7 +228,7 @@ pub unsafe fn MQOpenQueue<P0>(lpwcsformatname: P0, dwaccess: u32, dwsharemode: u
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQOpenQueue ( lpwcsformatname : ::windows::core::PCWSTR , dwaccess : u32 , dwsharemode : u32 , phqueue : *mut isize ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQOpenQueue ( lpwcsformatname : ::windows::core::PCWSTR , dwaccess : u32 , dwsharemode : u32 , phqueue : *mut isize ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<isize>();
     MQOpenQueue(lpwcsformatname.into_param().abi(), dwaccess, dwsharemode, &mut result__).from_abi(result__)
 }
@@ -238,13 +238,13 @@ pub unsafe fn MQPathNameToFormatName<P0>(lpwcspathname: P0, lpwcsformatname: ::w
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQPathNameToFormatName ( lpwcspathname : ::windows::core::PCWSTR , lpwcsformatname : ::windows::core::PWSTR , lpdwformatnamelength : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQPathNameToFormatName ( lpwcspathname : ::windows::core::PCWSTR , lpwcsformatname : ::windows::core::PWSTR , lpdwformatnamelength : *mut u32 ) -> ::windows::core::HRESULT );
     MQPathNameToFormatName(lpwcspathname.into_param().abi(), ::core::mem::transmute(lpwcsformatname), lpdwformatnamelength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[inline]
 pub unsafe fn MQPurgeQueue(hqueue: isize) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQPurgeQueue ( hqueue : isize ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQPurgeQueue ( hqueue : isize ) -> ::windows::core::HRESULT );
     MQPurgeQueue(hqueue).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_System_IO\"`*"]
@@ -255,7 +255,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<super::DistributedTransactionCoordinator::ITransaction>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQReceiveMessage ( hsource : isize , dwtimeout : u32 , dwaction : u32 , pmessageprops : *mut MQMSGPROPS , lpoverlapped : *mut super::IO:: OVERLAPPED , fnreceivecallback : PMQRECEIVECALLBACK , hcursor : super::super::Foundation:: HANDLE , ptransaction : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQReceiveMessage ( hsource : isize , dwtimeout : u32 , dwaction : u32 , pmessageprops : *mut MQMSGPROPS , lpoverlapped : *mut super::IO:: OVERLAPPED , fnreceivecallback : PMQRECEIVECALLBACK , hcursor : super::super::Foundation:: HANDLE , ptransaction : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     MQReceiveMessage(hsource, dwtimeout, dwaction, ::core::mem::transmute(pmessageprops.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())), fnreceivecallback, hcursor.into_param().abi(), ptransaction.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_System_IO\"`*"]
@@ -265,13 +265,13 @@ pub unsafe fn MQReceiveMessageByLookupId<P0>(hsource: isize, ulllookupid: u64, d
 where
     P0: ::windows::core::IntoParam<super::DistributedTransactionCoordinator::ITransaction>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQReceiveMessageByLookupId ( hsource : isize , ulllookupid : u64 , dwlookupaction : u32 , pmessageprops : *mut MQMSGPROPS , lpoverlapped : *mut super::IO:: OVERLAPPED , fnreceivecallback : PMQRECEIVECALLBACK , ptransaction : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQReceiveMessageByLookupId ( hsource : isize , ulllookupid : u64 , dwlookupaction : u32 , pmessageprops : *mut MQMSGPROPS , lpoverlapped : *mut super::IO:: OVERLAPPED , fnreceivecallback : PMQRECEIVECALLBACK , ptransaction : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     MQReceiveMessageByLookupId(hsource, ulllookupid, dwlookupaction, ::core::mem::transmute(pmessageprops.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())), fnreceivecallback, ptransaction.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[inline]
 pub unsafe fn MQRegisterCertificate(dwflags: u32, lpcertbuffer: *const ::core::ffi::c_void, dwcertbufferlength: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQRegisterCertificate ( dwflags : u32 , lpcertbuffer : *const ::core::ffi::c_void , dwcertbufferlength : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQRegisterCertificate ( dwflags : u32 , lpcertbuffer : *const ::core::ffi::c_void , dwcertbufferlength : u32 ) -> ::windows::core::HRESULT );
     MQRegisterCertificate(dwflags, lpcertbuffer, dwcertbufferlength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_DistributedTransactionCoordinator\"`*"]
@@ -281,7 +281,7 @@ pub unsafe fn MQSendMessage<P0>(hdestinationqueue: isize, pmessageprops: *const 
 where
     P0: ::windows::core::IntoParam<super::DistributedTransactionCoordinator::ITransaction>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQSendMessage ( hdestinationqueue : isize , pmessageprops : *const MQMSGPROPS , ptransaction : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQSendMessage ( hdestinationqueue : isize , pmessageprops : *const MQMSGPROPS , ptransaction : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     MQSendMessage(hdestinationqueue, pmessageprops, ptransaction.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -291,7 +291,7 @@ pub unsafe fn MQSetQueueProperties<P0>(lpwcsformatname: P0, pqueueprops: *mut MQ
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQSetQueueProperties ( lpwcsformatname : ::windows::core::PCWSTR , pqueueprops : *mut MQQUEUEPROPS ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQSetQueueProperties ( lpwcsformatname : ::windows::core::PCWSTR , pqueueprops : *mut MQQUEUEPROPS ) -> ::windows::core::HRESULT );
     MQSetQueueProperties(lpwcsformatname.into_param().abi(), pqueueprops).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Security\"`*"]
@@ -302,7 +302,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::imp::link ! ( "mqrt.dll""system" fn MQSetQueueSecurity ( lpwcsformatname : ::windows::core::PCWSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "mqrt.dll""system" fn MQSetQueueSecurity ( lpwcsformatname : ::windows::core::PCWSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR ) -> ::windows::core::HRESULT );
     MQSetQueueSecurity(lpwcsformatname.into_param().abi(), securityinformation, psecuritydescriptor.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]

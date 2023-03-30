@@ -1,6 +1,6 @@
 [package]
 name = "tool_gnu"
-version = "0.0.0"
+version = "0.48.0"
 edition = "2018"
 publish = false
 

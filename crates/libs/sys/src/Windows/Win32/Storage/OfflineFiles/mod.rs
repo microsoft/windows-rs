@@ -1,10 +1,10 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "cscapi.dll""system" #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"] fn OfflineFilesEnable ( benable : super::super::Foundation:: BOOL , pbrebootrequired : *mut super::super::Foundation:: BOOL ) -> u32 );
+::windows_targets::link ! ( "cscapi.dll""system" #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"] fn OfflineFilesEnable ( benable : super::super::Foundation:: BOOL , pbrebootrequired : *mut super::super::Foundation:: BOOL ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "cscapi.dll""system" #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"] fn OfflineFilesQueryStatus ( pbactive : *mut super::super::Foundation:: BOOL , pbenabled : *mut super::super::Foundation:: BOOL ) -> u32 );
+::windows_targets::link ! ( "cscapi.dll""system" #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"] fn OfflineFilesQueryStatus ( pbactive : *mut super::super::Foundation:: BOOL , pbenabled : *mut super::super::Foundation:: BOOL ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "cscapi.dll""system" #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"] fn OfflineFilesQueryStatusEx ( pbactive : *mut super::super::Foundation:: BOOL , pbenabled : *mut super::super::Foundation:: BOOL , pbavailable : *mut super::super::Foundation:: BOOL ) -> u32 );
-::windows_sys::core::link ! ( "cscapi.dll""system" #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"] fn OfflineFilesStart ( ) -> u32 );
+::windows_targets::link ! ( "cscapi.dll""system" #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"] fn OfflineFilesQueryStatusEx ( pbactive : *mut super::super::Foundation:: BOOL , pbenabled : *mut super::super::Foundation:: BOOL , pbavailable : *mut super::super::Foundation:: BOOL ) -> u32 );
+::windows_targets::link ! ( "cscapi.dll""system" #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"] fn OfflineFilesStart ( ) -> u32 );
 pub type IEnumOfflineFilesItems = *mut ::core::ffi::c_void;
 pub type IEnumOfflineFilesSettings = *mut ::core::ffi::c_void;
 pub type IOfflineFilesCache = *mut ::core::ffi::c_void;

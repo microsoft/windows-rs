@@ -19,9 +19,27 @@ pub fn format(namespace: &str, tokens: &mut String) {
 
 /// Returns the libraries and their function and stack sizes used by the gnu and msvc tools to build the umbrella libs.
 pub fn libraries() -> BTreeMap<String, BTreeMap<String, CallingConvention>> {
-    let files = metadata::reader::File::with_default(&[]).unwrap();
-    let reader = &metadata::reader::Reader::new(&files);
+    use metadata::reader::File;
     let mut libraries = BTreeMap::<String, BTreeMap<String, CallingConvention>>::new();
+
+    let files = File::with_default(&[]).unwrap();
+    combine(&files, &mut libraries);
+
+    // TODO: This is a workaround for https://github.com/microsoft/win32metadata/issues/1496
+    // to ensure that the generated libs are additive only - those functions should not have been removed from the Win32 metadata definitions.
+    let files = vec![File::from_buffer(std::include_bytes!("../../../libs/metadata/default/Windows.winmd").to_vec()).unwrap(), File::from_buffer(std::include_bytes!("../Windows.Win32.44.winmd").to_vec()).unwrap()];
+    combine(&files, &mut libraries);
+
+    libraries
+}
+
+pub enum CallingConvention {
+    Stdcall(usize),
+    Cdecl,
+}
+
+fn combine(files: &[metadata::reader::File], libraries: &mut BTreeMap<String, BTreeMap<String, CallingConvention>>) {
+    let reader = &metadata::reader::Reader::new(&files);
     let root = reader.tree("Windows", &Default::default());
 
     for tree in root.flatten() {
@@ -45,11 +63,4 @@ pub fn libraries() -> BTreeMap<String, BTreeMap<String, CallingConvention>> {
             }
         }
     }
-
-    libraries
-}
-
-pub enum CallingConvention {
-    Stdcall(usize),
-    Cdecl,
 }

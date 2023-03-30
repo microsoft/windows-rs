@@ -2,7 +2,7 @@
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
-    ::windows::imp::link ! ( "wnvapi.dll""system" fn WnvOpen ( ) -> super::super::Foundation:: HANDLE );
+    ::windows_targets::link ! ( "wnvapi.dll""system" fn WnvOpen ( ) -> super::super::Foundation:: HANDLE );
     WnvOpen()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -12,7 +12,7 @@ pub unsafe fn WnvRequestNotification<P0>(wnvhandle: P0, notificationparam: *mut 
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "wnvapi.dll""system" fn WnvRequestNotification ( wnvhandle : super::super::Foundation:: HANDLE , notificationparam : *mut WNV_NOTIFICATION_PARAM , overlapped : *mut super::super::System::IO:: OVERLAPPED , bytestransferred : *mut u32 ) -> u32 );
+    ::windows_targets::link ! ( "wnvapi.dll""system" fn WnvRequestNotification ( wnvhandle : super::super::Foundation:: HANDLE , notificationparam : *mut WNV_NOTIFICATION_PARAM , overlapped : *mut super::super::System::IO:: OVERLAPPED , bytestransferred : *mut u32 ) -> u32 );
     WnvRequestNotification(wnvhandle.into_param().abi(), notificationparam, overlapped, bytestransferred)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
