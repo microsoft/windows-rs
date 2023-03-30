@@ -24,5 +24,8 @@ windows_i686_gnu = { path = "../../targets/i686_gnu", version = "0.48.0" }
 [target.'cfg(all(target_arch = "x86_64", target_env = "gnu", not(windows_raw_dylib)))'.dependencies]
 windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.48.0" }
 
-[target.'cfg(all(target_arch = "aarch64", target_env = "gnu", not(windows_raw_dylib)))'.dependencies]
+[target.'cfg(all(target_arch = "x86_64", target_env = "gnullvm", not(windows_raw_dylib)))'.dependencies]
+windows_x86_64_gnullvm = { path = "../../targets/x86_64_gnullvm", version = "0.48.0" }
+
+[target.'cfg(all(target_arch = "aarch64", target_env = "gnullvm", not(windows_raw_dylib)))'.dependencies]
 windows_aarch64_gnullvm = { path = "../../targets/aarch64_gnullvm", version = "0.48.0" }
