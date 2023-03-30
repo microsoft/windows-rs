@@ -39,7 +39,7 @@ pub enum CallingConvention {
 }
 
 fn combine(files: &[metadata::reader::File], libraries: &mut BTreeMap<String, BTreeMap<String, CallingConvention>>) {
-    let reader = &metadata::reader::Reader::new(&files);
+    let reader = &metadata::reader::Reader::new(files);
     let root = reader.tree("Windows", &Default::default());
 
     for tree in root.flatten() {
