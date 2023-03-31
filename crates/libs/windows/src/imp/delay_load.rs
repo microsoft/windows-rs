@@ -8,7 +8,7 @@ use super::*;
 ///
 /// * Both the library and function names must be valid null-terminated strings.
 pub unsafe fn delay_load<T>(library: core::PCSTR, function: core::PCSTR) -> Option<T> {
-    let library = LoadLibraryA(library);
+    let library = LoadLibraryExA(library, 0, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS);
 
     if library == 0 {
         return None;

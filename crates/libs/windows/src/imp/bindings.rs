@@ -10,7 +10,7 @@ windows_targets::link!("kernel32.dll" "system" fn GetProcAddress(library: isize,
 windows_targets::link!("kernel32.dll" "system" fn GetProcessHeap() -> isize);
 windows_targets::link!("kernel32.dll" "system" fn HeapAlloc(heap: isize, flags: u32, len: usize) -> *mut c_void);
 windows_targets::link!("kernel32.dll" "system" fn HeapFree(heap: isize, flags: u32, ptr: *const c_void) -> i32);
-windows_targets::link!("kernel32.dll" "system" fn LoadLibraryA(name: core::PCSTR) -> isize);
+windows_targets::link!("kernel32.dll" "system" fn LoadLibraryExA(name: core::PCSTR, file: isize , flags: u32) -> isize);
 windows_targets::link!("kernel32.dll" "system" fn SetEvent(handle: isize) -> i32);
 windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObject(handle: isize, milliseconds: u32) -> u32);
 windows_targets::link!("kernel32.dll""system" fn CloseHandle(handle: isize) -> i32);
@@ -28,6 +28,7 @@ pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: u32 = 256;
 pub const FORMAT_MESSAGE_FROM_SYSTEM: u32 = 4096;
 pub const FORMAT_MESSAGE_IGNORE_INSERTS: u32 = 512;
 pub const AGILEREFERENCE_DEFAULT: i32 = 0;
+pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: u32 = 4096u32;
 
 pub const ERROR_NO_UNICODE_TRANSLATION: u32 = 1113u32;
 pub const CLASS_E_CLASSNOTAVAILABLE: core::HRESULT = core::HRESULT(-2147221231i32);

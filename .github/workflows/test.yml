@@ -39,115 +39,115 @@ jobs:
         uses: ./.github/actions/fix-environment
       - name: Test
         run: >
-          cargo test --target ${{ matrix.target }} -p riddle &&
-          cargo test --target ${{ matrix.target }} -p sample_bits &&
-          cargo test --target ${{ matrix.target }} -p sample_com_uri &&
-          cargo test --target ${{ matrix.target }} -p sample_consent &&
-          cargo test --target ${{ matrix.target }} -p sample_core_app &&
-          cargo test --target ${{ matrix.target }} -p sample_counter &&
-          cargo test --target ${{ matrix.target }} -p sample_counter_sys &&
-          cargo test --target ${{ matrix.target }} -p sample_create_window &&
-          cargo test --target ${{ matrix.target }} -p sample_create_window_sys &&
-          cargo test --target ${{ matrix.target }} -p sample_data_protection &&
-          cargo test --target ${{ matrix.target }} -p sample_dcomp &&
-          cargo test --target ${{ matrix.target }} -p sample_device_watcher &&
-          cargo test --target ${{ matrix.target }} -p sample_direct2d &&
-          cargo test --target ${{ matrix.target }} -p sample_direct3d12 &&
-          cargo test --target ${{ matrix.target }} -p sample_enum_windows &&
-          cargo test --target ${{ matrix.target }} -p sample_enum_windows_sys &&
-          cargo test --target ${{ matrix.target }} -p sample_kernel_event &&
-          cargo test --target ${{ matrix.target }} -p sample_memory_buffer &&
-          cargo test --target ${{ matrix.target }} -p sample_message_box &&
-          cargo test --target ${{ matrix.target }} -p sample_message_box_sys &&
-          cargo test --target ${{ matrix.target }} -p sample_ocr &&
-          cargo test --target ${{ matrix.target }} -p sample_overlapped &&
-          cargo test --target ${{ matrix.target }} -p sample_privileges &&
-          cargo test --target ${{ matrix.target }} -p sample_privileges_sys &&
-          cargo test --target ${{ matrix.target }} -p sample_rss &&
-          cargo test --target ${{ matrix.target }} -p sample_simple &&
-          cargo test --target ${{ matrix.target }} -p sample_spellchecker &&
-          cargo test --target ${{ matrix.target }} -p sample_thread_pool_work &&
-          cargo test --target ${{ matrix.target }} -p sample_thread_pool_work_sys &&
-          cargo test --target ${{ matrix.target }} -p sample_uiautomation &&
-          cargo test --target ${{ matrix.target }} -p sample_wmi &&
-          cargo test --target ${{ matrix.target }} -p sample_xml &&
-          cargo test --target ${{ matrix.target }} -p test_agile &&
-          cargo test --target ${{ matrix.target }} -p test_agile_reference &&
-          cargo test --target ${{ matrix.target }} -p test_alternate_success_code &&
-          cargo test --target ${{ matrix.target }} -p test_arch &&
-          cargo test --target ${{ matrix.target }} -p test_arch_feature &&
-          cargo test --target ${{ matrix.target }} -p test_array &&
-          cargo test --target ${{ matrix.target }} -p test_bcrypt &&
-          cargo test --target ${{ matrix.target }} -p test_bstr &&
-          cargo test --target ${{ matrix.target }} -p test_calling_convention &&
-          cargo test --target ${{ matrix.target }} -p test_cfg_generic &&
-          cargo test --target ${{ matrix.target }} -p test_collections &&
-          cargo test --target ${{ matrix.target }} -p test_component &&
-          cargo test --target ${{ matrix.target }} -p test_component_client &&
-          cargo test --target ${{ matrix.target }} -p test_const_fields &&
-          cargo test --target ${{ matrix.target }} -p test_const_params &&
-          cargo test --target ${{ matrix.target }} -p test_const_ptrs &&
-          cargo test --target ${{ matrix.target }} -p test_core &&
-          cargo test --target ${{ matrix.target }} -p test_debug &&
-          cargo test --target ${{ matrix.target }} -p test_debug_inspectable &&
-          cargo test --target ${{ matrix.target }} -p test_deprecated &&
-          cargo test --target ${{ matrix.target }} -p test_dispatch &&
-          cargo test --target ${{ matrix.target }} -p test_does_not_return &&
-          cargo test --target ${{ matrix.target }} -p test_enums &&
+          cargo test -p riddle &&
+          cargo test -p sample_bits &&
+          cargo test -p sample_com_uri &&
+          cargo test -p sample_consent &&
+          cargo test -p sample_core_app &&
+          cargo test -p sample_counter &&
+          cargo test -p sample_counter_sys &&
+          cargo test -p sample_create_window &&
+          cargo test -p sample_create_window_sys &&
+          cargo test -p sample_data_protection &&
+          cargo test -p sample_dcomp &&
+          cargo test -p sample_device_watcher &&
+          cargo test -p sample_direct2d &&
+          cargo test -p sample_direct3d12 &&
+          cargo test -p sample_enum_windows &&
+          cargo test -p sample_enum_windows_sys &&
+          cargo test -p sample_kernel_event &&
+          cargo test -p sample_memory_buffer &&
+          cargo test -p sample_message_box &&
+          cargo test -p sample_message_box_sys &&
+          cargo test -p sample_ocr &&
+          cargo test -p sample_overlapped &&
+          cargo test -p sample_privileges &&
+          cargo test -p sample_privileges_sys &&
+          cargo test -p sample_rss &&
+          cargo test -p sample_simple &&
+          cargo test -p sample_spellchecker &&
+          cargo test -p sample_thread_pool_work &&
+          cargo test -p sample_thread_pool_work_sys &&
+          cargo test -p sample_uiautomation &&
+          cargo test -p sample_wmi &&
+          cargo test -p sample_xml &&
+          cargo test -p test_agile &&
+          cargo test -p test_agile_reference &&
+          cargo test -p test_alternate_success_code &&
+          cargo test -p test_arch &&
+          cargo test -p test_arch_feature &&
+          cargo test -p test_array &&
+          cargo test -p test_bcrypt &&
+          cargo test -p test_bstr &&
+          cargo test -p test_calling_convention &&
+          cargo test -p test_cfg_generic &&
+          cargo test -p test_collections &&
+          cargo test -p test_component &&
+          cargo test -p test_component_client &&
+          cargo test -p test_const_fields &&
+          cargo test -p test_const_params &&
+          cargo test -p test_const_ptrs &&
+          cargo test -p test_core &&
+          cargo test -p test_debug &&
+          cargo test -p test_debug_inspectable &&
+          cargo test -p test_deprecated &&
+          cargo test -p test_dispatch &&
+          cargo test -p test_does_not_return &&
+          cargo test -p test_enums &&
           cargo clean &&
-          cargo test --target ${{ matrix.target }} -p test_error &&
-          cargo test --target ${{ matrix.target }} -p test_event &&
-          cargo test --target ${{ matrix.target }} -p test_extensions &&
-          cargo test --target ${{ matrix.target }} -p test_handles &&
-          cargo test --target ${{ matrix.target }} -p test_helpers &&
-          cargo test --target ${{ matrix.target }} -p test_implement &&
-          cargo test --target ${{ matrix.target }} -p test_interface &&
-          cargo test --target ${{ matrix.target }} -p test_interop &&
-          cargo test --target ${{ matrix.target }} -p test_lib &&
-          cargo test --target ${{ matrix.target }} -p test_literals &&
-          cargo test --target ${{ matrix.target }} -p test_match &&
-          cargo test --target ${{ matrix.target }} -p test_matrix3x2 &&
-          cargo test --target ${{ matrix.target }} -p test_metadata &&
-          cargo test --target ${{ matrix.target }} -p test_msrv &&
-          cargo test --target ${{ matrix.target }} -p test_no_use &&
-          cargo test --target ${{ matrix.target }} -p test_not_dll &&
-          cargo test --target ${{ matrix.target }} -p test_query_signature &&
-          cargo test --target ${{ matrix.target }} -p test_readme &&
-          cargo test --target ${{ matrix.target }} -p test_reserved &&
-          cargo test --target ${{ matrix.target }} -p test_resources &&
-          cargo test --target ${{ matrix.target }} -p test_return_struct &&
-          cargo test --target ${{ matrix.target }} -p test_simple_component &&
-          cargo test --target ${{ matrix.target }} -p test_standalone &&
-          cargo test --target ${{ matrix.target }} -p test_string_param &&
-          cargo test --target ${{ matrix.target }} -p test_structs &&
-          cargo test --target ${{ matrix.target }} -p test_sys &&
-          cargo test --target ${{ matrix.target }} -p test_unions &&
-          cargo test --target ${{ matrix.target }} -p test_wdk &&
-          cargo test --target ${{ matrix.target }} -p test_weak &&
-          cargo test --target ${{ matrix.target }} -p test_weak_ref &&
-          cargo test --target ${{ matrix.target }} -p test_win32 &&
-          cargo test --target ${{ matrix.target }} -p test_win32_arrays &&
-          cargo test --target ${{ matrix.target }} -p test_window_long &&
-          cargo test --target ${{ matrix.target }} -p test_winrt &&
-          cargo test --target ${{ matrix.target }} -p tool_gnu &&
-          cargo test --target ${{ matrix.target }} -p tool_lib &&
-          cargo test --target ${{ matrix.target }} -p tool_license &&
-          cargo test --target ${{ matrix.target }} -p tool_msvc &&
-          cargo test --target ${{ matrix.target }} -p tool_sys &&
-          cargo test --target ${{ matrix.target }} -p tool_windows &&
-          cargo test --target ${{ matrix.target }} -p tool_yml &&
-          cargo test --target ${{ matrix.target }} -p windows &&
-          cargo test --target ${{ matrix.target }} -p windows-bindgen &&
-          cargo test --target ${{ matrix.target }} -p windows-implement &&
-          cargo test --target ${{ matrix.target }} -p windows-interface &&
-          cargo test --target ${{ matrix.target }} -p windows-metadata &&
-          cargo test --target ${{ matrix.target }} -p windows-sys &&
-          cargo test --target ${{ matrix.target }} -p windows-targets &&
-          cargo test --target ${{ matrix.target }} -p windows-tokens &&
-          cargo test --target ${{ matrix.target }} -p windows_aarch64_gnullvm &&
-          cargo test --target ${{ matrix.target }} -p windows_aarch64_msvc &&
-          cargo test --target ${{ matrix.target }} -p windows_i686_gnu &&
-          cargo test --target ${{ matrix.target }} -p windows_i686_msvc &&
-          cargo test --target ${{ matrix.target }} -p windows_x86_64_gnu &&
-          cargo test --target ${{ matrix.target }} -p windows_x86_64_gnullvm &&
-          cargo test --target ${{ matrix.target }} -p windows_x86_64_msvc
+          cargo test -p test_error &&
+          cargo test -p test_event &&
+          cargo test -p test_extensions &&
+          cargo test -p test_handles &&
+          cargo test -p test_helpers &&
+          cargo test -p test_implement &&
+          cargo test -p test_interface &&
+          cargo test -p test_interop &&
+          cargo test -p test_lib &&
+          cargo test -p test_literals &&
+          cargo test -p test_match &&
+          cargo test -p test_matrix3x2 &&
+          cargo test -p test_metadata &&
+          cargo test -p test_msrv &&
+          cargo test -p test_no_use &&
+          cargo test -p test_not_dll &&
+          cargo test -p test_query_signature &&
+          cargo test -p test_readme &&
+          cargo test -p test_reserved &&
+          cargo test -p test_resources &&
+          cargo test -p test_return_struct &&
+          cargo test -p test_simple_component &&
+          cargo test -p test_standalone &&
+          cargo test -p test_string_param &&
+          cargo test -p test_structs &&
+          cargo test -p test_sys &&
+          cargo test -p test_unions &&
+          cargo test -p test_wdk &&
+          cargo test -p test_weak &&
+          cargo test -p test_weak_ref &&
+          cargo test -p test_win32 &&
+          cargo test -p test_win32_arrays &&
+          cargo test -p test_window_long &&
+          cargo test -p test_winrt &&
+          cargo test -p tool_gnu &&
+          cargo test -p tool_lib &&
+          cargo test -p tool_license &&
+          cargo test -p tool_msvc &&
+          cargo test -p tool_sys &&
+          cargo test -p tool_windows &&
+          cargo test -p tool_yml &&
+          cargo test -p windows &&
+          cargo test -p windows-bindgen &&
+          cargo test -p windows-implement &&
+          cargo test -p windows-interface &&
+          cargo test -p windows-metadata &&
+          cargo test -p windows-sys &&
+          cargo test -p windows-targets &&
+          cargo test -p windows-tokens &&
+          cargo test -p windows_aarch64_gnullvm &&
+          cargo test -p windows_aarch64_msvc &&
+          cargo test -p windows_i686_gnu &&
+          cargo test -p windows_i686_msvc &&
+          cargo test -p windows_x86_64_gnu &&
+          cargo test -p windows_x86_64_gnullvm &&
+          cargo test -p windows_x86_64_msvc
