@@ -5,7 +5,7 @@ pub unsafe fn IsDestinationReachableA<P0>(lpszdestination: P0, lpqocinfo: *mut Q
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "sensapi.dll""system" fn IsDestinationReachableA ( lpszdestination : ::windows::core::PCSTR , lpqocinfo : *mut QOCINFO ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "sensapi.dll""system" fn IsDestinationReachableA ( lpszdestination : ::windows::core::PCSTR , lpqocinfo : *mut QOCINFO ) -> super::super::Foundation:: BOOL );
     IsDestinationReachableA(lpszdestination.into_param().abi(), lpqocinfo)
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
@@ -15,14 +15,14 @@ pub unsafe fn IsDestinationReachableW<P0>(lpszdestination: P0, lpqocinfo: *mut Q
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "sensapi.dll""system" fn IsDestinationReachableW ( lpszdestination : ::windows::core::PCWSTR , lpqocinfo : *mut QOCINFO ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "sensapi.dll""system" fn IsDestinationReachableW ( lpszdestination : ::windows::core::PCWSTR , lpqocinfo : *mut QOCINFO ) -> super::super::Foundation:: BOOL );
     IsDestinationReachableW(lpszdestination.into_param().abi(), lpqocinfo)
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsNetworkAlive(lpdwflags: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "sensapi.dll""system" fn IsNetworkAlive ( lpdwflags : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "sensapi.dll""system" fn IsNetworkAlive ( lpdwflags : *mut u32 ) -> super::super::Foundation:: BOOL );
     IsNetworkAlive(lpdwflags)
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_System_Com\"`*"]

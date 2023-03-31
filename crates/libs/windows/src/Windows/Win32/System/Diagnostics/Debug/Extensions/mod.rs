@@ -4,7 +4,7 @@ pub unsafe fn CreateDataModelManager<P0>(debughost: P0) -> ::windows::core::Resu
 where
     P0: ::windows::core::IntoParam<IDebugHost>,
 {
-    ::windows::imp::link ! ( "dbgmodel.dll""system" fn CreateDataModelManager ( debughost : * mut::core::ffi::c_void , manager : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "dbgmodel.dll""system" fn CreateDataModelManager ( debughost : * mut::core::ffi::c_void , manager : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IDataModelManager>();
     CreateDataModelManager(debughost.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -14,7 +14,7 @@ pub unsafe fn DebugConnect<P0>(remoteoptions: P0, interfaceid: *const ::windows:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbgeng.dll""system" fn DebugConnect ( remoteoptions : ::windows::core::PCSTR , interfaceid : *const ::windows::core::GUID , interface : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "dbgeng.dll""system" fn DebugConnect ( remoteoptions : ::windows::core::PCSTR , interfaceid : *const ::windows::core::GUID , interface : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DebugConnect(remoteoptions.into_param().abi(), interfaceid, interface).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
@@ -23,7 +23,7 @@ pub unsafe fn DebugConnectWide<P0>(remoteoptions: P0, interfaceid: *const ::wind
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbgeng.dll""system" fn DebugConnectWide ( remoteoptions : ::windows::core::PCWSTR , interfaceid : *const ::windows::core::GUID , interface : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "dbgeng.dll""system" fn DebugConnectWide ( remoteoptions : ::windows::core::PCWSTR , interfaceid : *const ::windows::core::GUID , interface : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DebugConnectWide(remoteoptions.into_param().abi(), interfaceid, interface).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
@@ -32,7 +32,7 @@ pub unsafe fn DebugCreate<T>() -> ::windows::core::Result<T>
 where
     T: ::windows::core::ComInterface,
 {
-    ::windows::imp::link ! ( "dbgeng.dll""system" fn DebugCreate ( interfaceid : *const ::windows::core::GUID , interface : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "dbgeng.dll""system" fn DebugCreate ( interfaceid : *const ::windows::core::GUID , interface : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     DebugCreate(&<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
@@ -42,7 +42,7 @@ pub unsafe fn DebugCreateEx<T>(dbgengoptions: u32) -> ::windows::core::Result<T>
 where
     T: ::windows::core::ComInterface,
 {
-    ::windows::imp::link ! ( "dbgeng.dll""system" fn DebugCreateEx ( interfaceid : *const ::windows::core::GUID , dbgengoptions : u32 , interface : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "dbgeng.dll""system" fn DebugCreateEx ( interfaceid : *const ::windows::core::GUID , dbgengoptions : u32 , interface : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     DebugCreateEx(&<T as ::windows::core::ComInterface>::IID, dbgengoptions, &mut result__).from_abi(result__)
 }

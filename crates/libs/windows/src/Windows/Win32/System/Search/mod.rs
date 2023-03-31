@@ -3,128 +3,128 @@ pub mod Common;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn ODBCGetTryWaitValue() -> u32 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn ODBCGetTryWaitValue ( ) -> u32 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn ODBCGetTryWaitValue ( ) -> u32 );
     ODBCGetTryWaitValue()
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ODBCSetTryWaitValue(dwvalue: u32) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn ODBCSetTryWaitValue ( dwvalue : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn ODBCSetTryWaitValue ( dwvalue : u32 ) -> super::super::Foundation:: BOOL );
     ODBCSetTryWaitValue(dwvalue)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLAllocConnect(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLAllocConnect ( environmenthandle : *mut ::core::ffi::c_void , connectionhandle : *mut *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLAllocConnect ( environmenthandle : *mut ::core::ffi::c_void , connectionhandle : *mut *mut ::core::ffi::c_void ) -> i16 );
     SQLAllocConnect(environmenthandle, connectionhandle)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLAllocEnv(environmenthandle: *mut *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLAllocEnv ( environmenthandle : *mut *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLAllocEnv ( environmenthandle : *mut *mut ::core::ffi::c_void ) -> i16 );
     SQLAllocEnv(environmenthandle)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLAllocHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_void, outputhandle: *mut *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLAllocHandle ( handletype : i16 , inputhandle : *mut ::core::ffi::c_void , outputhandle : *mut *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLAllocHandle ( handletype : i16 , inputhandle : *mut ::core::ffi::c_void , outputhandle : *mut *mut ::core::ffi::c_void ) -> i16 );
     SQLAllocHandle(handletype, inputhandle, outputhandle)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLAllocHandleStd(fhandletype: i16, hinput: *mut ::core::ffi::c_void, phoutput: *mut *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLAllocHandleStd ( fhandletype : i16 , hinput : *mut ::core::ffi::c_void , phoutput : *mut *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLAllocHandleStd ( fhandletype : i16 , hinput : *mut ::core::ffi::c_void , phoutput : *mut *mut ::core::ffi::c_void ) -> i16 );
     SQLAllocHandleStd(fhandletype, hinput, phoutput)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLAllocStmt(connectionhandle: *mut ::core::ffi::c_void, statementhandle: *mut *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLAllocStmt ( connectionhandle : *mut ::core::ffi::c_void , statementhandle : *mut *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLAllocStmt ( connectionhandle : *mut ::core::ffi::c_void , statementhandle : *mut *mut ::core::ffi::c_void ) -> i16 );
     SQLAllocStmt(connectionhandle, statementhandle)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: ::core::option::Option<*mut ::core::ffi::c_void>, bufferlength: i64, strlen_or_ind: ::core::option::Option<*mut i64>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLBindCol ( statementhandle : *mut ::core::ffi::c_void , columnnumber : u16 , targettype : i16 , targetvalue : *mut ::core::ffi::c_void , bufferlength : i64 , strlen_or_ind : *mut i64 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLBindCol ( statementhandle : *mut ::core::ffi::c_void , columnnumber : u16 , targettype : i16 , targetvalue : *mut ::core::ffi::c_void , bufferlength : i64 , strlen_or_ind : *mut i64 ) -> i16 );
     SQLBindCol(statementhandle, columnnumber, targettype, ::core::mem::transmute(targetvalue.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(strlen_or_ind.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: ::core::option::Option<*mut ::core::ffi::c_void>, bufferlength: i32, strlen_or_ind: ::core::option::Option<*mut i32>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLBindCol ( statementhandle : *mut ::core::ffi::c_void , columnnumber : u16 , targettype : i16 , targetvalue : *mut ::core::ffi::c_void , bufferlength : i32 , strlen_or_ind : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLBindCol ( statementhandle : *mut ::core::ffi::c_void , columnnumber : u16 , targettype : i16 , targetvalue : *mut ::core::ffi::c_void , bufferlength : i32 , strlen_or_ind : *mut i32 ) -> i16 );
     SQLBindCol(statementhandle, columnnumber, targettype, ::core::mem::transmute(targetvalue.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(strlen_or_ind.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *mut ::core::ffi::c_void, strlen_or_ind: *mut i64) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLBindParam ( statementhandle : *mut ::core::ffi::c_void , parameternumber : u16 , valuetype : i16 , parametertype : i16 , lengthprecision : u64 , parameterscale : i16 , parametervalue : *mut ::core::ffi::c_void , strlen_or_ind : *mut i64 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLBindParam ( statementhandle : *mut ::core::ffi::c_void , parameternumber : u16 , valuetype : i16 , parametertype : i16 , lengthprecision : u64 , parameterscale : i16 , parametervalue : *mut ::core::ffi::c_void , strlen_or_ind : *mut i64 ) -> i16 );
     SQLBindParam(statementhandle, parameternumber, valuetype, parametertype, lengthprecision, parameterscale, parametervalue, strlen_or_ind)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *mut ::core::ffi::c_void, strlen_or_ind: *mut i32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLBindParam ( statementhandle : *mut ::core::ffi::c_void , parameternumber : u16 , valuetype : i16 , parametertype : i16 , lengthprecision : u32 , parameterscale : i16 , parametervalue : *mut ::core::ffi::c_void , strlen_or_ind : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLBindParam ( statementhandle : *mut ::core::ffi::c_void , parameternumber : u16 , valuetype : i16 , parametertype : i16 , lengthprecision : u32 , parameterscale : i16 , parametervalue : *mut ::core::ffi::c_void , strlen_or_ind : *mut i32 ) -> i16 );
     SQLBindParam(statementhandle, parameternumber, valuetype, parametertype, lengthprecision, parameterscale, parametervalue, strlen_or_ind)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u64, ibscale: i16, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i64, pcbvalue: *mut i64) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLBindParameter ( hstmt : *mut ::core::ffi::c_void , ipar : u16 , fparamtype : i16 , fctype : i16 , fsqltype : i16 , cbcoldef : u64 , ibscale : i16 , rgbvalue : *mut ::core::ffi::c_void , cbvaluemax : i64 , pcbvalue : *mut i64 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLBindParameter ( hstmt : *mut ::core::ffi::c_void , ipar : u16 , fparamtype : i16 , fctype : i16 , fsqltype : i16 , cbcoldef : u64 , ibscale : i16 , rgbvalue : *mut ::core::ffi::c_void , cbvaluemax : i64 , pcbvalue : *mut i64 ) -> i16 );
     SQLBindParameter(hstmt, ipar, fparamtype, fctype, fsqltype, cbcoldef, ibscale, rgbvalue, cbvaluemax, pcbvalue)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u32, ibscale: i16, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLBindParameter ( hstmt : *mut ::core::ffi::c_void , ipar : u16 , fparamtype : i16 , fctype : i16 , fsqltype : i16 , cbcoldef : u32 , ibscale : i16 , rgbvalue : *mut ::core::ffi::c_void , cbvaluemax : i32 , pcbvalue : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLBindParameter ( hstmt : *mut ::core::ffi::c_void , ipar : u16 , fparamtype : i16 , fctype : i16 , fsqltype : i16 , cbcoldef : u32 , ibscale : i16 , rgbvalue : *mut ::core::ffi::c_void , cbvaluemax : i32 , pcbvalue : *mut i32 ) -> i16 );
     SQLBindParameter(hstmt, ipar, fparamtype, fctype, fsqltype, cbcoldef, ibscale, rgbvalue, cbvaluemax, pcbvalue)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLBrowseConnect(hdbc: *mut ::core::ffi::c_void, szconnstrin: &[u8], szconnstrout: ::core::option::Option<&mut [u8]>, pcchconnstrout: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLBrowseConnect ( hdbc : *mut ::core::ffi::c_void , szconnstrin : *const u8 , cchconnstrin : i16 , szconnstrout : *mut u8 , cchconnstroutmax : i16 , pcchconnstrout : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLBrowseConnect ( hdbc : *mut ::core::ffi::c_void , szconnstrin : *const u8 , cchconnstrin : i16 , szconnstrout : *mut u8 , cchconnstroutmax : i16 , pcchconnstrout : *mut i16 ) -> i16 );
     SQLBrowseConnect(hdbc, ::core::mem::transmute(szconnstrin.as_ptr()), szconnstrin.len() as _, ::core::mem::transmute(szconnstrout.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szconnstrout.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcchconnstrout.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLBrowseConnectA(hdbc: *mut ::core::ffi::c_void, szconnstrin: &[u8], szconnstrout: ::core::option::Option<&mut [u8]>, pcbconnstrout: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLBrowseConnectA ( hdbc : *mut ::core::ffi::c_void , szconnstrin : *const u8 , cbconnstrin : i16 , szconnstrout : *mut u8 , cbconnstroutmax : i16 , pcbconnstrout : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLBrowseConnectA ( hdbc : *mut ::core::ffi::c_void , szconnstrin : *const u8 , cbconnstrin : i16 , szconnstrout : *mut u8 , cbconnstroutmax : i16 , pcbconnstrout : *mut i16 ) -> i16 );
     SQLBrowseConnectA(hdbc, ::core::mem::transmute(szconnstrin.as_ptr()), szconnstrin.len() as _, ::core::mem::transmute(szconnstrout.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szconnstrout.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbconnstrout.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLBrowseConnectW(hdbc: *mut ::core::ffi::c_void, szconnstrin: &[u16], szconnstrout: ::core::option::Option<&mut [u16]>, pcchconnstrout: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLBrowseConnectW ( hdbc : *mut ::core::ffi::c_void , szconnstrin : *const u16 , cchconnstrin : i16 , szconnstrout : *mut u16 , cchconnstroutmax : i16 , pcchconnstrout : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLBrowseConnectW ( hdbc : *mut ::core::ffi::c_void , szconnstrin : *const u16 , cchconnstrin : i16 , szconnstrout : *mut u16 , cchconnstroutmax : i16 , pcchconnstrout : *mut i16 ) -> i16 );
     SQLBrowseConnectW(hdbc, ::core::mem::transmute(szconnstrin.as_ptr()), szconnstrin.len() as _, ::core::mem::transmute(szconnstrout.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szconnstrout.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcchconnstrout.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLBulkOperations(statementhandle: *mut ::core::ffi::c_void, operation: i16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLBulkOperations ( statementhandle : *mut ::core::ffi::c_void , operation : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLBulkOperations ( statementhandle : *mut ::core::ffi::c_void , operation : i16 ) -> i16 );
     SQLBulkOperations(statementhandle, operation)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLCancel(statementhandle: *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLCancel ( statementhandle : *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLCancel ( statementhandle : *mut ::core::ffi::c_void ) -> i16 );
     SQLCancel(statementhandle)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLCancelHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLCancelHandle ( handletype : i16 , inputhandle : *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLCancelHandle ( handletype : i16 , inputhandle : *mut ::core::ffi::c_void ) -> i16 );
     SQLCancelHandle(handletype, inputhandle)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLCloseCursor(statementhandle: *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLCloseCursor ( statementhandle : *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLCloseCursor ( statementhandle : *mut ::core::ffi::c_void ) -> i16 );
     SQLCloseCursor(statementhandle)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
@@ -134,97 +134,97 @@ pub unsafe fn SQLCloseEnumServers<P0>(henumhandle: P0) -> i16
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn SQLCloseEnumServers ( henumhandle : super::super::Foundation:: HANDLE ) -> i16 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn SQLCloseEnumServers ( henumhandle : super::super::Foundation:: HANDLE ) -> i16 );
     SQLCloseEnumServers(henumhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: ::core::option::Option<*mut ::core::ffi::c_void>, bufferlength: i16, stringlength: ::core::option::Option<*mut i16>, numericattribute: ::core::option::Option<*mut i64>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLColAttribute ( statementhandle : *mut ::core::ffi::c_void , columnnumber : u16 , fieldidentifier : u16 , characterattribute : *mut ::core::ffi::c_void , bufferlength : i16 , stringlength : *mut i16 , numericattribute : *mut i64 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLColAttribute ( statementhandle : *mut ::core::ffi::c_void , columnnumber : u16 , fieldidentifier : u16 , characterattribute : *mut ::core::ffi::c_void , bufferlength : i16 , stringlength : *mut i16 , numericattribute : *mut i64 ) -> i16 );
     SQLColAttribute(statementhandle, columnnumber, fieldidentifier, ::core::mem::transmute(characterattribute.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(stringlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(numericattribute.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: ::core::option::Option<*mut ::core::ffi::c_void>, bufferlength: i16, stringlength: ::core::option::Option<*mut i16>, numericattribute: ::core::option::Option<*mut ::core::ffi::c_void>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLColAttribute ( statementhandle : *mut ::core::ffi::c_void , columnnumber : u16 , fieldidentifier : u16 , characterattribute : *mut ::core::ffi::c_void , bufferlength : i16 , stringlength : *mut i16 , numericattribute : *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLColAttribute ( statementhandle : *mut ::core::ffi::c_void , columnnumber : u16 , fieldidentifier : u16 , characterattribute : *mut ::core::ffi::c_void , bufferlength : i16 , stringlength : *mut i16 , numericattribute : *mut ::core::ffi::c_void ) -> i16 );
     SQLColAttribute(statementhandle, columnnumber, fieldidentifier, ::core::mem::transmute(characterattribute.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(stringlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(numericattribute.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: ::core::option::Option<*mut ::core::ffi::c_void>, cbcharattrmax: i16, pcbcharattr: ::core::option::Option<*mut i16>, pnumattr: ::core::option::Option<*mut i64>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLColAttributeA ( hstmt : *mut ::core::ffi::c_void , icol : i16 , ifield : i16 , pcharattr : *mut ::core::ffi::c_void , cbcharattrmax : i16 , pcbcharattr : *mut i16 , pnumattr : *mut i64 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLColAttributeA ( hstmt : *mut ::core::ffi::c_void , icol : i16 , ifield : i16 , pcharattr : *mut ::core::ffi::c_void , cbcharattrmax : i16 , pcbcharattr : *mut i16 , pnumattr : *mut i64 ) -> i16 );
     SQLColAttributeA(hstmt, icol, ifield, ::core::mem::transmute(pcharattr.unwrap_or(::std::ptr::null_mut())), cbcharattrmax, ::core::mem::transmute(pcbcharattr.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pnumattr.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: ::core::option::Option<*mut ::core::ffi::c_void>, cbcharattrmax: i16, pcbcharattr: ::core::option::Option<*mut i16>, pnumattr: ::core::option::Option<*mut ::core::ffi::c_void>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLColAttributeA ( hstmt : *mut ::core::ffi::c_void , icol : i16 , ifield : i16 , pcharattr : *mut ::core::ffi::c_void , cbcharattrmax : i16 , pcbcharattr : *mut i16 , pnumattr : *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLColAttributeA ( hstmt : *mut ::core::ffi::c_void , icol : i16 , ifield : i16 , pcharattr : *mut ::core::ffi::c_void , cbcharattrmax : i16 , pcbcharattr : *mut i16 , pnumattr : *mut ::core::ffi::c_void ) -> i16 );
     SQLColAttributeA(hstmt, icol, ifield, ::core::mem::transmute(pcharattr.unwrap_or(::std::ptr::null_mut())), cbcharattrmax, ::core::mem::transmute(pcbcharattr.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pnumattr.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: ::core::option::Option<*mut ::core::ffi::c_void>, cbdescmax: i16, pcbcharattr: ::core::option::Option<*mut i16>, pnumattr: ::core::option::Option<*mut i64>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLColAttributeW ( hstmt : *mut ::core::ffi::c_void , icol : u16 , ifield : u16 , pcharattr : *mut ::core::ffi::c_void , cbdescmax : i16 , pcbcharattr : *mut i16 , pnumattr : *mut i64 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLColAttributeW ( hstmt : *mut ::core::ffi::c_void , icol : u16 , ifield : u16 , pcharattr : *mut ::core::ffi::c_void , cbdescmax : i16 , pcbcharattr : *mut i16 , pnumattr : *mut i64 ) -> i16 );
     SQLColAttributeW(hstmt, icol, ifield, ::core::mem::transmute(pcharattr.unwrap_or(::std::ptr::null_mut())), cbdescmax, ::core::mem::transmute(pcbcharattr.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pnumattr.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: ::core::option::Option<*mut ::core::ffi::c_void>, cbdescmax: i16, pcbcharattr: ::core::option::Option<*mut i16>, pnumattr: ::core::option::Option<*mut ::core::ffi::c_void>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLColAttributeW ( hstmt : *mut ::core::ffi::c_void , icol : u16 , ifield : u16 , pcharattr : *mut ::core::ffi::c_void , cbdescmax : i16 , pcbcharattr : *mut i16 , pnumattr : *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLColAttributeW ( hstmt : *mut ::core::ffi::c_void , icol : u16 , ifield : u16 , pcharattr : *mut ::core::ffi::c_void , cbdescmax : i16 , pcbcharattr : *mut i16 , pnumattr : *mut ::core::ffi::c_void ) -> i16 );
     SQLColAttributeW(hstmt, icol, ifield, ::core::mem::transmute(pcharattr.unwrap_or(::std::ptr::null_mut())), cbdescmax, ::core::mem::transmute(pcbcharattr.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pnumattr.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLColAttributes ( hstmt : *mut ::core::ffi::c_void , icol : u16 , fdesctype : u16 , rgbdesc : *mut ::core::ffi::c_void , cbdescmax : i16 , pcbdesc : *mut i16 , pfdesc : *mut i64 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLColAttributes ( hstmt : *mut ::core::ffi::c_void , icol : u16 , fdesctype : u16 , rgbdesc : *mut ::core::ffi::c_void , cbdescmax : i16 , pcbdesc : *mut i16 , pfdesc : *mut i64 ) -> i16 );
     SQLColAttributes(hstmt, icol, fdesctype, rgbdesc, cbdescmax, pcbdesc, pfdesc)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLColAttributes ( hstmt : *mut ::core::ffi::c_void , icol : u16 , fdesctype : u16 , rgbdesc : *mut ::core::ffi::c_void , cbdescmax : i16 , pcbdesc : *mut i16 , pfdesc : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLColAttributes ( hstmt : *mut ::core::ffi::c_void , icol : u16 , fdesctype : u16 , rgbdesc : *mut ::core::ffi::c_void , cbdescmax : i16 , pcbdesc : *mut i16 , pfdesc : *mut i32 ) -> i16 );
     SQLColAttributes(hstmt, icol, fdesctype, rgbdesc, cbdescmax, pcbdesc, pfdesc)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: ::core::option::Option<*mut ::core::ffi::c_void>, cbdescmax: i16, pcbdesc: ::core::option::Option<*mut i16>, pfdesc: ::core::option::Option<*mut i64>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLColAttributesA ( hstmt : *mut ::core::ffi::c_void , icol : u16 , fdesctype : u16 , rgbdesc : *mut ::core::ffi::c_void , cbdescmax : i16 , pcbdesc : *mut i16 , pfdesc : *mut i64 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLColAttributesA ( hstmt : *mut ::core::ffi::c_void , icol : u16 , fdesctype : u16 , rgbdesc : *mut ::core::ffi::c_void , cbdescmax : i16 , pcbdesc : *mut i16 , pfdesc : *mut i64 ) -> i16 );
     SQLColAttributesA(hstmt, icol, fdesctype, ::core::mem::transmute(rgbdesc.unwrap_or(::std::ptr::null_mut())), cbdescmax, ::core::mem::transmute(pcbdesc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfdesc.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: ::core::option::Option<*mut ::core::ffi::c_void>, cbdescmax: i16, pcbdesc: ::core::option::Option<*mut i16>, pfdesc: ::core::option::Option<*mut i32>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLColAttributesA ( hstmt : *mut ::core::ffi::c_void , icol : u16 , fdesctype : u16 , rgbdesc : *mut ::core::ffi::c_void , cbdescmax : i16 , pcbdesc : *mut i16 , pfdesc : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLColAttributesA ( hstmt : *mut ::core::ffi::c_void , icol : u16 , fdesctype : u16 , rgbdesc : *mut ::core::ffi::c_void , cbdescmax : i16 , pcbdesc : *mut i16 , pfdesc : *mut i32 ) -> i16 );
     SQLColAttributesA(hstmt, icol, fdesctype, ::core::mem::transmute(rgbdesc.unwrap_or(::std::ptr::null_mut())), cbdescmax, ::core::mem::transmute(pcbdesc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfdesc.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: ::core::option::Option<*mut ::core::ffi::c_void>, cbdescmax: i16, pcbdesc: ::core::option::Option<*mut i16>, pfdesc: ::core::option::Option<*mut i64>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLColAttributesW ( hstmt : *mut ::core::ffi::c_void , icol : u16 , fdesctype : u16 , rgbdesc : *mut ::core::ffi::c_void , cbdescmax : i16 , pcbdesc : *mut i16 , pfdesc : *mut i64 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLColAttributesW ( hstmt : *mut ::core::ffi::c_void , icol : u16 , fdesctype : u16 , rgbdesc : *mut ::core::ffi::c_void , cbdescmax : i16 , pcbdesc : *mut i16 , pfdesc : *mut i64 ) -> i16 );
     SQLColAttributesW(hstmt, icol, fdesctype, ::core::mem::transmute(rgbdesc.unwrap_or(::std::ptr::null_mut())), cbdescmax, ::core::mem::transmute(pcbdesc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfdesc.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: ::core::option::Option<*mut ::core::ffi::c_void>, cbdescmax: i16, pcbdesc: ::core::option::Option<*mut i16>, pfdesc: ::core::option::Option<*mut i32>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLColAttributesW ( hstmt : *mut ::core::ffi::c_void , icol : u16 , fdesctype : u16 , rgbdesc : *mut ::core::ffi::c_void , cbdescmax : i16 , pcbdesc : *mut i16 , pfdesc : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLColAttributesW ( hstmt : *mut ::core::ffi::c_void , icol : u16 , fdesctype : u16 , rgbdesc : *mut ::core::ffi::c_void , cbdescmax : i16 , pcbdesc : *mut i16 , pfdesc : *mut i32 ) -> i16 );
     SQLColAttributesW(hstmt, icol, fdesctype, ::core::mem::transmute(rgbdesc.unwrap_or(::std::ptr::null_mut())), cbdescmax, ::core::mem::transmute(pcbdesc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfdesc.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLColumnPrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core::option::Option<&[u8]>, szschemaname: ::core::option::Option<&[u8]>, sztablename: ::core::option::Option<&[u8]>, szcolumnname: ::core::option::Option<&[u8]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLColumnPrivileges ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cchcatalogname : i16 , szschemaname : *const u8 , cchschemaname : i16 , sztablename : *const u8 , cchtablename : i16 , szcolumnname : *const u8 , cchcolumnname : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLColumnPrivileges ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cchcatalogname : i16 , szschemaname : *const u8 , cchschemaname : i16 , sztablename : *const u8 , cchtablename : i16 , szcolumnname : *const u8 , cchcolumnname : i16 ) -> i16 );
     SQLColumnPrivileges(
         hstmt,
         ::core::mem::transmute(szcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -240,7 +240,7 @@ pub unsafe fn SQLColumnPrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLColumnPrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core::option::Option<&[u8]>, szschemaname: ::core::option::Option<&[u8]>, sztablename: ::core::option::Option<&[u8]>, szcolumnname: ::core::option::Option<&[u8]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLColumnPrivilegesA ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cbcatalogname : i16 , szschemaname : *const u8 , cbschemaname : i16 , sztablename : *const u8 , cbtablename : i16 , szcolumnname : *const u8 , cbcolumnname : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLColumnPrivilegesA ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cbcatalogname : i16 , szschemaname : *const u8 , cbschemaname : i16 , sztablename : *const u8 , cbtablename : i16 , szcolumnname : *const u8 , cbcolumnname : i16 ) -> i16 );
     SQLColumnPrivilegesA(
         hstmt,
         ::core::mem::transmute(szcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -256,7 +256,7 @@ pub unsafe fn SQLColumnPrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalognam
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLColumnPrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core::option::Option<&[u16]>, szschemaname: ::core::option::Option<&[u16]>, sztablename: ::core::option::Option<&[u16]>, szcolumnname: ::core::option::Option<&[u16]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLColumnPrivilegesW ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u16 , cchcatalogname : i16 , szschemaname : *const u16 , cchschemaname : i16 , sztablename : *const u16 , cchtablename : i16 , szcolumnname : *const u16 , cchcolumnname : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLColumnPrivilegesW ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u16 , cchcatalogname : i16 , szschemaname : *const u16 , cchschemaname : i16 , sztablename : *const u16 , cchtablename : i16 , szcolumnname : *const u16 , cchcolumnname : i16 ) -> i16 );
     SQLColumnPrivilegesW(
         hstmt,
         ::core::mem::transmute(szcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -272,7 +272,7 @@ pub unsafe fn SQLColumnPrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalognam
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLColumns(statementhandle: *mut ::core::ffi::c_void, catalogname: ::core::option::Option<&[u8]>, schemaname: ::core::option::Option<&[u8]>, tablename: ::core::option::Option<&[u8]>, columnname: ::core::option::Option<&[u8]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLColumns ( statementhandle : *mut ::core::ffi::c_void , catalogname : *const u8 , namelength1 : i16 , schemaname : *const u8 , namelength2 : i16 , tablename : *const u8 , namelength3 : i16 , columnname : *const u8 , namelength4 : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLColumns ( statementhandle : *mut ::core::ffi::c_void , catalogname : *const u8 , namelength1 : i16 , schemaname : *const u8 , namelength2 : i16 , tablename : *const u8 , namelength3 : i16 , columnname : *const u8 , namelength4 : i16 ) -> i16 );
     SQLColumns(
         statementhandle,
         ::core::mem::transmute(catalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -288,7 +288,7 @@ pub unsafe fn SQLColumns(statementhandle: *mut ::core::ffi::c_void, catalogname:
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core::option::Option<&[u8]>, szschemaname: ::core::option::Option<&[u8]>, sztablename: ::core::option::Option<&[u8]>, szcolumnname: ::core::option::Option<&[u8]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLColumnsA ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cbcatalogname : i16 , szschemaname : *const u8 , cbschemaname : i16 , sztablename : *const u8 , cbtablename : i16 , szcolumnname : *const u8 , cbcolumnname : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLColumnsA ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cbcatalogname : i16 , szschemaname : *const u8 , cbschemaname : i16 , sztablename : *const u8 , cbtablename : i16 , szcolumnname : *const u8 , cbcolumnname : i16 ) -> i16 );
     SQLColumnsA(
         hstmt,
         ::core::mem::transmute(szcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -304,7 +304,7 @@ pub unsafe fn SQLColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core::option::Option<&[u16]>, szschemaname: ::core::option::Option<&[u16]>, sztablename: ::core::option::Option<&[u16]>, szcolumnname: ::core::option::Option<&[u16]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLColumnsW ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u16 , cchcatalogname : i16 , szschemaname : *const u16 , cchschemaname : i16 , sztablename : *const u16 , cchtablename : i16 , szcolumnname : *const u16 , cchcolumnname : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLColumnsW ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u16 , cchcatalogname : i16 , szschemaname : *const u16 , cchschemaname : i16 , sztablename : *const u16 , cchtablename : i16 , szcolumnname : *const u16 , cchcolumnname : i16 ) -> i16 );
     SQLColumnsW(
         hstmt,
         ::core::mem::transmute(szcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -320,37 +320,37 @@ pub unsafe fn SQLColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLCompleteAsync(handletype: i16, handle: *mut ::core::ffi::c_void, asyncretcodeptr: *mut i16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLCompleteAsync ( handletype : i16 , handle : *mut ::core::ffi::c_void , asyncretcodeptr : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLCompleteAsync ( handletype : i16 , handle : *mut ::core::ffi::c_void , asyncretcodeptr : *mut i16 ) -> i16 );
     SQLCompleteAsync(handletype, handle, asyncretcodeptr)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLConnect(connectionhandle: *mut ::core::ffi::c_void, servername: &[u8], username: &[u8], authentication: &[u8]) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLConnect ( connectionhandle : *mut ::core::ffi::c_void , servername : *const u8 , namelength1 : i16 , username : *const u8 , namelength2 : i16 , authentication : *const u8 , namelength3 : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLConnect ( connectionhandle : *mut ::core::ffi::c_void , servername : *const u8 , namelength1 : i16 , username : *const u8 , namelength2 : i16 , authentication : *const u8 , namelength3 : i16 ) -> i16 );
     SQLConnect(connectionhandle, ::core::mem::transmute(servername.as_ptr()), servername.len() as _, ::core::mem::transmute(username.as_ptr()), username.len() as _, ::core::mem::transmute(authentication.as_ptr()), authentication.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLConnectA(hdbc: *mut ::core::ffi::c_void, szdsn: &[u8], szuid: &[u8], szauthstr: &[u8]) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLConnectA ( hdbc : *mut ::core::ffi::c_void , szdsn : *const u8 , cbdsn : i16 , szuid : *const u8 , cbuid : i16 , szauthstr : *const u8 , cbauthstr : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLConnectA ( hdbc : *mut ::core::ffi::c_void , szdsn : *const u8 , cbdsn : i16 , szuid : *const u8 , cbuid : i16 , szauthstr : *const u8 , cbauthstr : i16 ) -> i16 );
     SQLConnectA(hdbc, ::core::mem::transmute(szdsn.as_ptr()), szdsn.len() as _, ::core::mem::transmute(szuid.as_ptr()), szuid.len() as _, ::core::mem::transmute(szauthstr.as_ptr()), szauthstr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLConnectW(hdbc: *mut ::core::ffi::c_void, szdsn: &[u16], szuid: &[u16], szauthstr: &[u16]) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLConnectW ( hdbc : *mut ::core::ffi::c_void , szdsn : *const u16 , cchdsn : i16 , szuid : *const u16 , cchuid : i16 , szauthstr : *const u16 , cchauthstr : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLConnectW ( hdbc : *mut ::core::ffi::c_void , szdsn : *const u16 , cchdsn : i16 , szuid : *const u16 , cchuid : i16 , szauthstr : *const u16 , cchauthstr : i16 ) -> i16 );
     SQLConnectW(hdbc, ::core::mem::transmute(szdsn.as_ptr()), szdsn.len() as _, ::core::mem::transmute(szuid.as_ptr()), szuid.len() as _, ::core::mem::transmute(szauthstr.as_ptr()), szauthstr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLCopyDesc(sourcedeschandle: *mut ::core::ffi::c_void, targetdeschandle: *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLCopyDesc ( sourcedeschandle : *mut ::core::ffi::c_void , targetdeschandle : *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLCopyDesc ( sourcedeschandle : *mut ::core::ffi::c_void , targetdeschandle : *mut ::core::ffi::c_void ) -> i16 );
     SQLCopyDesc(sourcedeschandle, targetdeschandle)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLDataSources(environmenthandle: *mut ::core::ffi::c_void, direction: u16, servername: ::core::option::Option<&mut [u8]>, namelength1ptr: ::core::option::Option<*mut i16>, description: ::core::option::Option<&mut [u8]>, namelength2ptr: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLDataSources ( environmenthandle : *mut ::core::ffi::c_void , direction : u16 , servername : *mut u8 , bufferlength1 : i16 , namelength1ptr : *mut i16 , description : *mut u8 , bufferlength2 : i16 , namelength2ptr : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLDataSources ( environmenthandle : *mut ::core::ffi::c_void , direction : u16 , servername : *mut u8 , bufferlength1 : i16 , namelength1ptr : *mut i16 , description : *mut u8 , bufferlength2 : i16 , namelength2ptr : *mut i16 ) -> i16 );
     SQLDataSources(
         environmenthandle,
         direction,
@@ -365,20 +365,20 @@ pub unsafe fn SQLDataSources(environmenthandle: *mut ::core::ffi::c_void, direct
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLDataSourcesA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdsn: ::core::option::Option<&mut [u8]>, pcbdsn: *mut i16, szdescription: ::core::option::Option<&mut [u8]>, pcbdescription: *mut i16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLDataSourcesA ( henv : *mut ::core::ffi::c_void , fdirection : u16 , szdsn : *mut u8 , cbdsnmax : i16 , pcbdsn : *mut i16 , szdescription : *mut u8 , cbdescriptionmax : i16 , pcbdescription : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLDataSourcesA ( henv : *mut ::core::ffi::c_void , fdirection : u16 , szdsn : *mut u8 , cbdsnmax : i16 , pcbdsn : *mut i16 , szdescription : *mut u8 , cbdescriptionmax : i16 , pcbdescription : *mut i16 ) -> i16 );
     SQLDataSourcesA(henv, fdirection, ::core::mem::transmute(szdsn.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szdsn.as_deref().map_or(0, |slice| slice.len() as _), pcbdsn, ::core::mem::transmute(szdescription.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szdescription.as_deref().map_or(0, |slice| slice.len() as _), pcbdescription)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLDataSourcesW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdsn: ::core::option::Option<&mut [u16]>, pcchdsn: ::core::option::Option<*mut i16>, wszdescription: ::core::option::Option<&mut [u16]>, pcchdescription: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLDataSourcesW ( henv : *mut ::core::ffi::c_void , fdirection : u16 , szdsn : *mut u16 , cchdsnmax : i16 , pcchdsn : *mut i16 , wszdescription : *mut u16 , cchdescriptionmax : i16 , pcchdescription : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLDataSourcesW ( henv : *mut ::core::ffi::c_void , fdirection : u16 , szdsn : *mut u16 , cchdsnmax : i16 , pcchdsn : *mut i16 , wszdescription : *mut u16 , cchdescriptionmax : i16 , pcchdescription : *mut i16 ) -> i16 );
     SQLDataSourcesW(henv, fdirection, ::core::mem::transmute(szdsn.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szdsn.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcchdsn.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(wszdescription.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), wszdescription.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcchdescription.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, columnname: ::core::option::Option<&mut [u8]>, namelength: ::core::option::Option<*mut i16>, datatype: ::core::option::Option<*mut i16>, columnsize: ::core::option::Option<*mut u64>, decimaldigits: ::core::option::Option<*mut i16>, nullable: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLDescribeCol ( statementhandle : *mut ::core::ffi::c_void , columnnumber : u16 , columnname : *mut u8 , bufferlength : i16 , namelength : *mut i16 , datatype : *mut i16 , columnsize : *mut u64 , decimaldigits : *mut i16 , nullable : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLDescribeCol ( statementhandle : *mut ::core::ffi::c_void , columnnumber : u16 , columnname : *mut u8 , bufferlength : i16 , namelength : *mut i16 , datatype : *mut i16 , columnsize : *mut u64 , decimaldigits : *mut i16 , nullable : *mut i16 ) -> i16 );
     SQLDescribeCol(
         statementhandle,
         columnnumber,
@@ -395,7 +395,7 @@ pub unsafe fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnu
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, columnname: ::core::option::Option<&mut [u8]>, namelength: ::core::option::Option<*mut i16>, datatype: ::core::option::Option<*mut i16>, columnsize: ::core::option::Option<*mut u32>, decimaldigits: ::core::option::Option<*mut i16>, nullable: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLDescribeCol ( statementhandle : *mut ::core::ffi::c_void , columnnumber : u16 , columnname : *mut u8 , bufferlength : i16 , namelength : *mut i16 , datatype : *mut i16 , columnsize : *mut u32 , decimaldigits : *mut i16 , nullable : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLDescribeCol ( statementhandle : *mut ::core::ffi::c_void , columnnumber : u16 , columnname : *mut u8 , bufferlength : i16 , namelength : *mut i16 , datatype : *mut i16 , columnsize : *mut u32 , decimaldigits : *mut i16 , nullable : *mut i16 ) -> i16 );
     SQLDescribeCol(
         statementhandle,
         columnnumber,
@@ -412,7 +412,7 @@ pub unsafe fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnu
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: ::core::option::Option<&mut [u8]>, pcbcolname: ::core::option::Option<*mut i16>, pfsqltype: ::core::option::Option<*mut i16>, pcbcoldef: ::core::option::Option<*mut u64>, pibscale: ::core::option::Option<*mut i16>, pfnullable: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLDescribeColA ( hstmt : *mut ::core::ffi::c_void , icol : u16 , szcolname : *mut u8 , cbcolnamemax : i16 , pcbcolname : *mut i16 , pfsqltype : *mut i16 , pcbcoldef : *mut u64 , pibscale : *mut i16 , pfnullable : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLDescribeColA ( hstmt : *mut ::core::ffi::c_void , icol : u16 , szcolname : *mut u8 , cbcolnamemax : i16 , pcbcolname : *mut i16 , pfsqltype : *mut i16 , pcbcoldef : *mut u64 , pibscale : *mut i16 , pfnullable : *mut i16 ) -> i16 );
     SQLDescribeColA(
         hstmt,
         icol,
@@ -429,7 +429,7 @@ pub unsafe fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcoln
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: ::core::option::Option<&mut [u8]>, pcbcolname: ::core::option::Option<*mut i16>, pfsqltype: ::core::option::Option<*mut i16>, pcbcoldef: ::core::option::Option<*mut u32>, pibscale: ::core::option::Option<*mut i16>, pfnullable: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLDescribeColA ( hstmt : *mut ::core::ffi::c_void , icol : u16 , szcolname : *mut u8 , cbcolnamemax : i16 , pcbcolname : *mut i16 , pfsqltype : *mut i16 , pcbcoldef : *mut u32 , pibscale : *mut i16 , pfnullable : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLDescribeColA ( hstmt : *mut ::core::ffi::c_void , icol : u16 , szcolname : *mut u8 , cbcolnamemax : i16 , pcbcolname : *mut i16 , pfsqltype : *mut i16 , pcbcoldef : *mut u32 , pibscale : *mut i16 , pfnullable : *mut i16 ) -> i16 );
     SQLDescribeColA(
         hstmt,
         icol,
@@ -446,7 +446,7 @@ pub unsafe fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcoln
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: ::core::option::Option<&mut [u16]>, pcchcolname: ::core::option::Option<*mut i16>, pfsqltype: ::core::option::Option<*mut i16>, pcbcoldef: ::core::option::Option<*mut u64>, pibscale: ::core::option::Option<*mut i16>, pfnullable: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLDescribeColW ( hstmt : *mut ::core::ffi::c_void , icol : u16 , szcolname : *mut u16 , cchcolnamemax : i16 , pcchcolname : *mut i16 , pfsqltype : *mut i16 , pcbcoldef : *mut u64 , pibscale : *mut i16 , pfnullable : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLDescribeColW ( hstmt : *mut ::core::ffi::c_void , icol : u16 , szcolname : *mut u16 , cchcolnamemax : i16 , pcchcolname : *mut i16 , pfsqltype : *mut i16 , pcbcoldef : *mut u64 , pibscale : *mut i16 , pfnullable : *mut i16 ) -> i16 );
     SQLDescribeColW(
         hstmt,
         icol,
@@ -463,7 +463,7 @@ pub unsafe fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcoln
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: ::core::option::Option<&mut [u16]>, pcchcolname: ::core::option::Option<*mut i16>, pfsqltype: ::core::option::Option<*mut i16>, pcbcoldef: ::core::option::Option<*mut u32>, pibscale: ::core::option::Option<*mut i16>, pfnullable: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLDescribeColW ( hstmt : *mut ::core::ffi::c_void , icol : u16 , szcolname : *mut u16 , cchcolnamemax : i16 , pcchcolname : *mut i16 , pfsqltype : *mut i16 , pcbcoldef : *mut u32 , pibscale : *mut i16 , pfnullable : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLDescribeColW ( hstmt : *mut ::core::ffi::c_void , icol : u16 , szcolname : *mut u16 , cchcolnamemax : i16 , pcchcolname : *mut i16 , pfsqltype : *mut i16 , pcbcoldef : *mut u32 , pibscale : *mut i16 , pfnullable : *mut i16 ) -> i16 );
     SQLDescribeColW(
         hstmt,
         icol,
@@ -480,44 +480,44 @@ pub unsafe fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcoln
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsqltype: ::core::option::Option<*mut i16>, pcbparamdef: ::core::option::Option<*mut u64>, pibscale: ::core::option::Option<*mut i16>, pfnullable: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLDescribeParam ( hstmt : *mut ::core::ffi::c_void , ipar : u16 , pfsqltype : *mut i16 , pcbparamdef : *mut u64 , pibscale : *mut i16 , pfnullable : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLDescribeParam ( hstmt : *mut ::core::ffi::c_void , ipar : u16 , pfsqltype : *mut i16 , pcbparamdef : *mut u64 , pibscale : *mut i16 , pfnullable : *mut i16 ) -> i16 );
     SQLDescribeParam(hstmt, ipar, ::core::mem::transmute(pfsqltype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbparamdef.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pibscale.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfnullable.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsqltype: ::core::option::Option<*mut i16>, pcbparamdef: ::core::option::Option<*mut u32>, pibscale: ::core::option::Option<*mut i16>, pfnullable: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLDescribeParam ( hstmt : *mut ::core::ffi::c_void , ipar : u16 , pfsqltype : *mut i16 , pcbparamdef : *mut u32 , pibscale : *mut i16 , pfnullable : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLDescribeParam ( hstmt : *mut ::core::ffi::c_void , ipar : u16 , pfsqltype : *mut i16 , pcbparamdef : *mut u32 , pibscale : *mut i16 , pfnullable : *mut i16 ) -> i16 );
     SQLDescribeParam(hstmt, ipar, ::core::mem::transmute(pfsqltype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbparamdef.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pibscale.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfnullable.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLDisconnect(connectionhandle: *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLDisconnect ( connectionhandle : *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLDisconnect ( connectionhandle : *mut ::core::ffi::c_void ) -> i16 );
     SQLDisconnect(connectionhandle)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLDriverConnect(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: &[u8], szconnstrout: ::core::option::Option<&mut [u8]>, pcchconnstrout: ::core::option::Option<*mut i16>, fdrivercompletion: u16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLDriverConnect ( hdbc : *mut ::core::ffi::c_void , hwnd : isize , szconnstrin : *const u8 , cchconnstrin : i16 , szconnstrout : *mut u8 , cchconnstroutmax : i16 , pcchconnstrout : *mut i16 , fdrivercompletion : u16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLDriverConnect ( hdbc : *mut ::core::ffi::c_void , hwnd : isize , szconnstrin : *const u8 , cchconnstrin : i16 , szconnstrout : *mut u8 , cchconnstroutmax : i16 , pcchconnstrout : *mut i16 , fdrivercompletion : u16 ) -> i16 );
     SQLDriverConnect(hdbc, hwnd, ::core::mem::transmute(szconnstrin.as_ptr()), szconnstrin.len() as _, ::core::mem::transmute(szconnstrout.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szconnstrout.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcchconnstrout.unwrap_or(::std::ptr::null_mut())), fdrivercompletion)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLDriverConnectA(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: &[u8], szconnstrout: ::core::option::Option<&mut [u8]>, pcbconnstrout: ::core::option::Option<*mut i16>, fdrivercompletion: u16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLDriverConnectA ( hdbc : *mut ::core::ffi::c_void , hwnd : isize , szconnstrin : *const u8 , cbconnstrin : i16 , szconnstrout : *mut u8 , cbconnstroutmax : i16 , pcbconnstrout : *mut i16 , fdrivercompletion : u16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLDriverConnectA ( hdbc : *mut ::core::ffi::c_void , hwnd : isize , szconnstrin : *const u8 , cbconnstrin : i16 , szconnstrout : *mut u8 , cbconnstroutmax : i16 , pcbconnstrout : *mut i16 , fdrivercompletion : u16 ) -> i16 );
     SQLDriverConnectA(hdbc, hwnd, ::core::mem::transmute(szconnstrin.as_ptr()), szconnstrin.len() as _, ::core::mem::transmute(szconnstrout.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szconnstrout.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbconnstrout.unwrap_or(::std::ptr::null_mut())), fdrivercompletion)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLDriverConnectW(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: &[u16], szconnstrout: ::core::option::Option<&mut [u16]>, pcchconnstrout: ::core::option::Option<*mut i16>, fdrivercompletion: u16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLDriverConnectW ( hdbc : *mut ::core::ffi::c_void , hwnd : isize , szconnstrin : *const u16 , cchconnstrin : i16 , szconnstrout : *mut u16 , cchconnstroutmax : i16 , pcchconnstrout : *mut i16 , fdrivercompletion : u16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLDriverConnectW ( hdbc : *mut ::core::ffi::c_void , hwnd : isize , szconnstrin : *const u16 , cchconnstrin : i16 , szconnstrout : *mut u16 , cchconnstroutmax : i16 , pcchconnstrout : *mut i16 , fdrivercompletion : u16 ) -> i16 );
     SQLDriverConnectW(hdbc, hwnd, ::core::mem::transmute(szconnstrin.as_ptr()), szconnstrin.len() as _, ::core::mem::transmute(szconnstrout.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szconnstrout.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcchconnstrout.unwrap_or(::std::ptr::null_mut())), fdrivercompletion)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLDrivers(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: ::core::option::Option<&mut [u8]>, pcchdriverdesc: ::core::option::Option<*mut i16>, szdriverattributes: ::core::option::Option<&mut [u8]>, pcchdrvrattr: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLDrivers ( henv : *mut ::core::ffi::c_void , fdirection : u16 , szdriverdesc : *mut u8 , cchdriverdescmax : i16 , pcchdriverdesc : *mut i16 , szdriverattributes : *mut u8 , cchdrvrattrmax : i16 , pcchdrvrattr : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLDrivers ( henv : *mut ::core::ffi::c_void , fdirection : u16 , szdriverdesc : *mut u8 , cchdriverdescmax : i16 , pcchdriverdesc : *mut i16 , szdriverattributes : *mut u8 , cchdrvrattrmax : i16 , pcchdrvrattr : *mut i16 ) -> i16 );
     SQLDrivers(
         henv,
         fdirection,
@@ -532,7 +532,7 @@ pub unsafe fn SQLDrivers(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriv
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLDriversA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: ::core::option::Option<&mut [u8]>, pcbdriverdesc: ::core::option::Option<*mut i16>, szdriverattributes: ::core::option::Option<&mut [u8]>, pcbdrvrattr: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLDriversA ( henv : *mut ::core::ffi::c_void , fdirection : u16 , szdriverdesc : *mut u8 , cbdriverdescmax : i16 , pcbdriverdesc : *mut i16 , szdriverattributes : *mut u8 , cbdrvrattrmax : i16 , pcbdrvrattr : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLDriversA ( henv : *mut ::core::ffi::c_void , fdirection : u16 , szdriverdesc : *mut u8 , cbdriverdescmax : i16 , pcbdriverdesc : *mut i16 , szdriverattributes : *mut u8 , cbdrvrattrmax : i16 , pcbdrvrattr : *mut i16 ) -> i16 );
     SQLDriversA(
         henv,
         fdirection,
@@ -547,7 +547,7 @@ pub unsafe fn SQLDriversA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdri
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLDriversW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: ::core::option::Option<&mut [u16]>, pcchdriverdesc: ::core::option::Option<*mut i16>, szdriverattributes: ::core::option::Option<&mut [u16]>, pcchdrvrattr: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLDriversW ( henv : *mut ::core::ffi::c_void , fdirection : u16 , szdriverdesc : *mut u16 , cchdriverdescmax : i16 , pcchdriverdesc : *mut i16 , szdriverattributes : *mut u16 , cchdrvrattrmax : i16 , pcchdrvrattr : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLDriversW ( henv : *mut ::core::ffi::c_void , fdirection : u16 , szdriverdesc : *mut u16 , cchdriverdescmax : i16 , pcchdriverdesc : *mut i16 , szdriverattributes : *mut u16 , cchdrvrattrmax : i16 , pcchdrvrattr : *mut i16 ) -> i16 );
     SQLDriversW(
         henv,
         fdirection,
@@ -562,89 +562,89 @@ pub unsafe fn SQLDriversW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdri
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLEndTran(handletype: i16, handle: *mut ::core::ffi::c_void, completiontype: i16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLEndTran ( handletype : i16 , handle : *mut ::core::ffi::c_void , completiontype : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLEndTran ( handletype : i16 , handle : *mut ::core::ffi::c_void , completiontype : i16 ) -> i16 );
     SQLEndTran(handletype, handle, completiontype)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLError(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut ::core::ffi::c_void, statementhandle: *mut ::core::ffi::c_void, sqlstate: &mut [u8; 6], nativeerror: ::core::option::Option<*mut i32>, messagetext: ::core::option::Option<&mut [u8]>, textlength: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLError ( environmenthandle : *mut ::core::ffi::c_void , connectionhandle : *mut ::core::ffi::c_void , statementhandle : *mut ::core::ffi::c_void , sqlstate : *mut u8 , nativeerror : *mut i32 , messagetext : *mut u8 , bufferlength : i16 , textlength : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLError ( environmenthandle : *mut ::core::ffi::c_void , connectionhandle : *mut ::core::ffi::c_void , statementhandle : *mut ::core::ffi::c_void , sqlstate : *mut u8 , nativeerror : *mut i32 , messagetext : *mut u8 , bufferlength : i16 , textlength : *mut i16 ) -> i16 );
     SQLError(environmenthandle, connectionhandle, statementhandle, ::core::mem::transmute(sqlstate.as_ptr()), ::core::mem::transmute(nativeerror.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(messagetext.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), messagetext.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(textlength.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLErrorA(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::c_void, hstmt: *mut ::core::ffi::c_void, szsqlstate: *mut u8, pfnativeerror: ::core::option::Option<*mut i32>, szerrormsg: ::core::option::Option<&mut [u8]>, pcberrormsg: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLErrorA ( henv : *mut ::core::ffi::c_void , hdbc : *mut ::core::ffi::c_void , hstmt : *mut ::core::ffi::c_void , szsqlstate : *mut u8 , pfnativeerror : *mut i32 , szerrormsg : *mut u8 , cberrormsgmax : i16 , pcberrormsg : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLErrorA ( henv : *mut ::core::ffi::c_void , hdbc : *mut ::core::ffi::c_void , hstmt : *mut ::core::ffi::c_void , szsqlstate : *mut u8 , pfnativeerror : *mut i32 , szerrormsg : *mut u8 , cberrormsgmax : i16 , pcberrormsg : *mut i16 ) -> i16 );
     SQLErrorA(henv, hdbc, hstmt, szsqlstate, ::core::mem::transmute(pfnativeerror.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szerrormsg.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szerrormsg.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcberrormsg.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLErrorW(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::c_void, hstmt: *mut ::core::ffi::c_void, wszsqlstate: &mut [u16; 6], pfnativeerror: ::core::option::Option<*mut i32>, wszerrormsg: ::core::option::Option<&mut [u16]>, pccherrormsg: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLErrorW ( henv : *mut ::core::ffi::c_void , hdbc : *mut ::core::ffi::c_void , hstmt : *mut ::core::ffi::c_void , wszsqlstate : *mut u16 , pfnativeerror : *mut i32 , wszerrormsg : *mut u16 , ccherrormsgmax : i16 , pccherrormsg : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLErrorW ( henv : *mut ::core::ffi::c_void , hdbc : *mut ::core::ffi::c_void , hstmt : *mut ::core::ffi::c_void , wszsqlstate : *mut u16 , pfnativeerror : *mut i32 , wszerrormsg : *mut u16 , ccherrormsgmax : i16 , pccherrormsg : *mut i16 ) -> i16 );
     SQLErrorW(henv, hdbc, hstmt, ::core::mem::transmute(wszsqlstate.as_ptr()), ::core::mem::transmute(pfnativeerror.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(wszerrormsg.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), wszerrormsg.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pccherrormsg.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLExecDirect(statementhandle: *mut ::core::ffi::c_void, statementtext: ::core::option::Option<&[u8]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLExecDirect ( statementhandle : *mut ::core::ffi::c_void , statementtext : *const u8 , textlength : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLExecDirect ( statementhandle : *mut ::core::ffi::c_void , statementtext : *const u8 , textlength : i32 ) -> i16 );
     SQLExecDirect(statementhandle, ::core::mem::transmute(statementtext.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), statementtext.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLExecDirectA(hstmt: *mut ::core::ffi::c_void, szsqlstr: ::core::option::Option<&[u8]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLExecDirectA ( hstmt : *mut ::core::ffi::c_void , szsqlstr : *const u8 , cbsqlstr : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLExecDirectA ( hstmt : *mut ::core::ffi::c_void , szsqlstr : *const u8 , cbsqlstr : i32 ) -> i16 );
     SQLExecDirectA(hstmt, ::core::mem::transmute(szsqlstr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szsqlstr.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLExecDirectW(hstmt: *mut ::core::ffi::c_void, szsqlstr: ::core::option::Option<&[u16]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLExecDirectW ( hstmt : *mut ::core::ffi::c_void , szsqlstr : *const u16 , textlength : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLExecDirectW ( hstmt : *mut ::core::ffi::c_void , szsqlstr : *const u16 , textlength : i32 ) -> i16 );
     SQLExecDirectW(hstmt, ::core::mem::transmute(szsqlstr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szsqlstr.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLExecute(statementhandle: *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLExecute ( statementhandle : *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLExecute ( statementhandle : *mut ::core::ffi::c_void ) -> i16 );
     SQLExecute(statementhandle)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16, irow: i64, pcrow: ::core::option::Option<*mut u64>, rgfrowstatus: ::core::option::Option<*mut u16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLExtendedFetch ( hstmt : *mut ::core::ffi::c_void , ffetchtype : u16 , irow : i64 , pcrow : *mut u64 , rgfrowstatus : *mut u16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLExtendedFetch ( hstmt : *mut ::core::ffi::c_void , ffetchtype : u16 , irow : i64 , pcrow : *mut u64 , rgfrowstatus : *mut u16 ) -> i16 );
     SQLExtendedFetch(hstmt, ffetchtype, irow, ::core::mem::transmute(pcrow.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(rgfrowstatus.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16, irow: i32, pcrow: ::core::option::Option<*mut u32>, rgfrowstatus: ::core::option::Option<*mut u16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLExtendedFetch ( hstmt : *mut ::core::ffi::c_void , ffetchtype : u16 , irow : i32 , pcrow : *mut u32 , rgfrowstatus : *mut u16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLExtendedFetch ( hstmt : *mut ::core::ffi::c_void , ffetchtype : u16 , irow : i32 , pcrow : *mut u32 , rgfrowstatus : *mut u16 ) -> i16 );
     SQLExtendedFetch(hstmt, ffetchtype, irow, ::core::mem::transmute(pcrow.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(rgfrowstatus.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLFetch(statementhandle: *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLFetch ( statementhandle : *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLFetch ( statementhandle : *mut ::core::ffi::c_void ) -> i16 );
     SQLFetch(statementhandle)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchorientation: i16, fetchoffset: i64) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLFetchScroll ( statementhandle : *mut ::core::ffi::c_void , fetchorientation : i16 , fetchoffset : i64 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLFetchScroll ( statementhandle : *mut ::core::ffi::c_void , fetchorientation : i16 , fetchoffset : i64 ) -> i16 );
     SQLFetchScroll(statementhandle, fetchorientation, fetchoffset)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchorientation: i16, fetchoffset: i32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLFetchScroll ( statementhandle : *mut ::core::ffi::c_void , fetchorientation : i16 , fetchoffset : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLFetchScroll ( statementhandle : *mut ::core::ffi::c_void , fetchorientation : i16 , fetchoffset : i32 ) -> i16 );
     SQLFetchScroll(statementhandle, fetchorientation, fetchoffset)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLForeignKeys(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: ::core::option::Option<&[u8]>, szpkschemaname: ::core::option::Option<&[u8]>, szpktablename: ::core::option::Option<&[u8]>, szfkcatalogname: ::core::option::Option<&[u8]>, szfkschemaname: ::core::option::Option<&[u8]>, szfktablename: ::core::option::Option<&[u8]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLForeignKeys ( hstmt : *mut ::core::ffi::c_void , szpkcatalogname : *const u8 , cchpkcatalogname : i16 , szpkschemaname : *const u8 , cchpkschemaname : i16 , szpktablename : *const u8 , cchpktablename : i16 , szfkcatalogname : *const u8 , cchfkcatalogname : i16 , szfkschemaname : *const u8 , cchfkschemaname : i16 , szfktablename : *const u8 , cchfktablename : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLForeignKeys ( hstmt : *mut ::core::ffi::c_void , szpkcatalogname : *const u8 , cchpkcatalogname : i16 , szpkschemaname : *const u8 , cchpkschemaname : i16 , szpktablename : *const u8 , cchpktablename : i16 , szfkcatalogname : *const u8 , cchfkcatalogname : i16 , szfkschemaname : *const u8 , cchfkschemaname : i16 , szfktablename : *const u8 , cchfktablename : i16 ) -> i16 );
     SQLForeignKeys(
         hstmt,
         ::core::mem::transmute(szpkcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -664,7 +664,7 @@ pub unsafe fn SQLForeignKeys(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: :
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLForeignKeysA(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: ::core::option::Option<&[u8]>, szpkschemaname: ::core::option::Option<&[u8]>, szpktablename: ::core::option::Option<&[u8]>, szfkcatalogname: ::core::option::Option<&[u8]>, szfkschemaname: ::core::option::Option<&[u8]>, szfktablename: ::core::option::Option<&[u8]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLForeignKeysA ( hstmt : *mut ::core::ffi::c_void , szpkcatalogname : *const u8 , cbpkcatalogname : i16 , szpkschemaname : *const u8 , cbpkschemaname : i16 , szpktablename : *const u8 , cbpktablename : i16 , szfkcatalogname : *const u8 , cbfkcatalogname : i16 , szfkschemaname : *const u8 , cbfkschemaname : i16 , szfktablename : *const u8 , cbfktablename : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLForeignKeysA ( hstmt : *mut ::core::ffi::c_void , szpkcatalogname : *const u8 , cbpkcatalogname : i16 , szpkschemaname : *const u8 , cbpkschemaname : i16 , szpktablename : *const u8 , cbpktablename : i16 , szfkcatalogname : *const u8 , cbfkcatalogname : i16 , szfkschemaname : *const u8 , cbfkschemaname : i16 , szfktablename : *const u8 , cbfktablename : i16 ) -> i16 );
     SQLForeignKeysA(
         hstmt,
         ::core::mem::transmute(szpkcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -684,7 +684,7 @@ pub unsafe fn SQLForeignKeysA(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: 
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLForeignKeysW(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: ::core::option::Option<&[u16]>, szpkschemaname: ::core::option::Option<&[u16]>, szpktablename: ::core::option::Option<&[u16]>, szfkcatalogname: ::core::option::Option<&[u16]>, szfkschemaname: ::core::option::Option<&[u16]>, szfktablename: ::core::option::Option<&[u16]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLForeignKeysW ( hstmt : *mut ::core::ffi::c_void , szpkcatalogname : *const u16 , cchpkcatalogname : i16 , szpkschemaname : *const u16 , cchpkschemaname : i16 , szpktablename : *const u16 , cchpktablename : i16 , szfkcatalogname : *const u16 , cchfkcatalogname : i16 , szfkschemaname : *const u16 , cchfkschemaname : i16 , szfktablename : *const u16 , cchfktablename : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLForeignKeysW ( hstmt : *mut ::core::ffi::c_void , szpkcatalogname : *const u16 , cchpkcatalogname : i16 , szpkschemaname : *const u16 , cchpkschemaname : i16 , szpktablename : *const u16 , cchpktablename : i16 , szfkcatalogname : *const u16 , cchfkcatalogname : i16 , szfkschemaname : *const u16 , cchfkschemaname : i16 , szfktablename : *const u16 , cchfktablename : i16 ) -> i16 );
     SQLForeignKeysW(
         hstmt,
         ::core::mem::transmute(szpkcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -704,118 +704,118 @@ pub unsafe fn SQLForeignKeysW(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: 
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLFreeConnect(connectionhandle: *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLFreeConnect ( connectionhandle : *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLFreeConnect ( connectionhandle : *mut ::core::ffi::c_void ) -> i16 );
     SQLFreeConnect(connectionhandle)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLFreeEnv(environmenthandle: *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLFreeEnv ( environmenthandle : *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLFreeEnv ( environmenthandle : *mut ::core::ffi::c_void ) -> i16 );
     SQLFreeEnv(environmenthandle)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLFreeHandle(handletype: i16, handle: *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLFreeHandle ( handletype : i16 , handle : *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLFreeHandle ( handletype : i16 , handle : *mut ::core::ffi::c_void ) -> i16 );
     SQLFreeHandle(handletype, handle)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLFreeStmt(statementhandle: *mut ::core::ffi::c_void, option: u16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLFreeStmt ( statementhandle : *mut ::core::ffi::c_void , option : u16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLFreeStmt ( statementhandle : *mut ::core::ffi::c_void , option : u16 ) -> i16 );
     SQLFreeStmt(statementhandle, option)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attribute: i32, value: ::core::option::Option<*mut ::core::ffi::c_void>, bufferlength: i32, stringlengthptr: ::core::option::Option<*mut i32>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetConnectAttr ( connectionhandle : *mut ::core::ffi::c_void , attribute : i32 , value : *mut ::core::ffi::c_void , bufferlength : i32 , stringlengthptr : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetConnectAttr ( connectionhandle : *mut ::core::ffi::c_void , attribute : i32 , value : *mut ::core::ffi::c_void , bufferlength : i32 , stringlengthptr : *mut i32 ) -> i16 );
     SQLGetConnectAttr(connectionhandle, attribute, ::core::mem::transmute(value.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(stringlengthptr.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: ::core::option::Option<*mut ::core::ffi::c_void>, cbvaluemax: i32, pcbvalue: ::core::option::Option<*mut i32>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetConnectAttrA ( hdbc : *mut ::core::ffi::c_void , fattribute : i32 , rgbvalue : *mut ::core::ffi::c_void , cbvaluemax : i32 , pcbvalue : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetConnectAttrA ( hdbc : *mut ::core::ffi::c_void , fattribute : i32 , rgbvalue : *mut ::core::ffi::c_void , cbvaluemax : i32 , pcbvalue : *mut i32 ) -> i16 );
     SQLGetConnectAttrA(hdbc, fattribute, ::core::mem::transmute(rgbvalue.unwrap_or(::std::ptr::null_mut())), cbvaluemax, ::core::mem::transmute(pcbvalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: ::core::option::Option<*mut ::core::ffi::c_void>, cbvaluemax: i32, pcbvalue: ::core::option::Option<*mut i32>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetConnectAttrW ( hdbc : *mut ::core::ffi::c_void , fattribute : i32 , rgbvalue : *mut ::core::ffi::c_void , cbvaluemax : i32 , pcbvalue : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetConnectAttrW ( hdbc : *mut ::core::ffi::c_void , fattribute : i32 , rgbvalue : *mut ::core::ffi::c_void , cbvaluemax : i32 , pcbvalue : *mut i32 ) -> i16 );
     SQLGetConnectAttrW(hdbc, fattribute, ::core::mem::transmute(rgbvalue.unwrap_or(::std::ptr::null_mut())), cbvaluemax, ::core::mem::transmute(pcbvalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetConnectOption ( connectionhandle : *mut ::core::ffi::c_void , option : u16 , value : *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetConnectOption ( connectionhandle : *mut ::core::ffi::c_void , option : u16 , value : *mut ::core::ffi::c_void ) -> i16 );
     SQLGetConnectOption(connectionhandle, option, value)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, pvparam: *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetConnectOptionA ( hdbc : *mut ::core::ffi::c_void , foption : u16 , pvparam : *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetConnectOptionA ( hdbc : *mut ::core::ffi::c_void , foption : u16 , pvparam : *mut ::core::ffi::c_void ) -> i16 );
     SQLGetConnectOptionA(hdbc, foption, pvparam)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, pvparam: *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetConnectOptionW ( hdbc : *mut ::core::ffi::c_void , foption : u16 , pvparam : *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetConnectOptionW ( hdbc : *mut ::core::ffi::c_void , foption : u16 , pvparam : *mut ::core::ffi::c_void ) -> i16 );
     SQLGetConnectOptionW(hdbc, foption, pvparam)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetCursorName(statementhandle: *mut ::core::ffi::c_void, cursorname: ::core::option::Option<&mut [u8]>, namelengthptr: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetCursorName ( statementhandle : *mut ::core::ffi::c_void , cursorname : *mut u8 , bufferlength : i16 , namelengthptr : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetCursorName ( statementhandle : *mut ::core::ffi::c_void , cursorname : *mut u8 , bufferlength : i16 , namelengthptr : *mut i16 ) -> i16 );
     SQLGetCursorName(statementhandle, ::core::mem::transmute(cursorname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), cursorname.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(namelengthptr.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetCursorNameA(hstmt: *mut ::core::ffi::c_void, szcursor: ::core::option::Option<&mut [u8]>, pcbcursor: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetCursorNameA ( hstmt : *mut ::core::ffi::c_void , szcursor : *mut u8 , cbcursormax : i16 , pcbcursor : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetCursorNameA ( hstmt : *mut ::core::ffi::c_void , szcursor : *mut u8 , cbcursormax : i16 , pcbcursor : *mut i16 ) -> i16 );
     SQLGetCursorNameA(hstmt, ::core::mem::transmute(szcursor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szcursor.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbcursor.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetCursorNameW(hstmt: *mut ::core::ffi::c_void, szcursor: ::core::option::Option<&mut [u16]>, pcchcursor: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetCursorNameW ( hstmt : *mut ::core::ffi::c_void , szcursor : *mut u16 , cchcursormax : i16 , pcchcursor : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetCursorNameW ( hstmt : *mut ::core::ffi::c_void , szcursor : *mut u16 , cchcursormax : i16 , pcchcursor : *mut i16 ) -> i16 );
     SQLGetCursorNameW(hstmt, ::core::mem::transmute(szcursor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szcursor.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcchcursor.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: ::core::option::Option<*mut ::core::ffi::c_void>, bufferlength: i64, strlen_or_indptr: ::core::option::Option<*mut i64>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetData ( statementhandle : *mut ::core::ffi::c_void , columnnumber : u16 , targettype : i16 , targetvalue : *mut ::core::ffi::c_void , bufferlength : i64 , strlen_or_indptr : *mut i64 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetData ( statementhandle : *mut ::core::ffi::c_void , columnnumber : u16 , targettype : i16 , targetvalue : *mut ::core::ffi::c_void , bufferlength : i64 , strlen_or_indptr : *mut i64 ) -> i16 );
     SQLGetData(statementhandle, columnnumber, targettype, ::core::mem::transmute(targetvalue.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(strlen_or_indptr.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: ::core::option::Option<*mut ::core::ffi::c_void>, bufferlength: i32, strlen_or_indptr: ::core::option::Option<*mut i32>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetData ( statementhandle : *mut ::core::ffi::c_void , columnnumber : u16 , targettype : i16 , targetvalue : *mut ::core::ffi::c_void , bufferlength : i32 , strlen_or_indptr : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetData ( statementhandle : *mut ::core::ffi::c_void , columnnumber : u16 , targettype : i16 , targetvalue : *mut ::core::ffi::c_void , bufferlength : i32 , strlen_or_indptr : *mut i32 ) -> i16 );
     SQLGetData(statementhandle, columnnumber, targettype, ::core::mem::transmute(targetvalue.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(strlen_or_indptr.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: ::core::option::Option<*mut ::core::ffi::c_void>, bufferlength: i32, stringlength: ::core::option::Option<*mut i32>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetDescField ( descriptorhandle : *mut ::core::ffi::c_void , recnumber : i16 , fieldidentifier : i16 , value : *mut ::core::ffi::c_void , bufferlength : i32 , stringlength : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetDescField ( descriptorhandle : *mut ::core::ffi::c_void , recnumber : i16 , fieldidentifier : i16 , value : *mut ::core::ffi::c_void , bufferlength : i32 , stringlength : *mut i32 ) -> i16 );
     SQLGetDescField(descriptorhandle, recnumber, fieldidentifier, ::core::mem::transmute(value.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(stringlength.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetDescFieldA(hdesc: *mut ::core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: ::core::option::Option<*mut ::core::ffi::c_void>, cbbufferlength: i32, stringlength: ::core::option::Option<*mut i32>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetDescFieldA ( hdesc : *mut ::core::ffi::c_void , irecord : i16 , ifield : i16 , rgbvalue : *mut ::core::ffi::c_void , cbbufferlength : i32 , stringlength : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetDescFieldA ( hdesc : *mut ::core::ffi::c_void , irecord : i16 , ifield : i16 , rgbvalue : *mut ::core::ffi::c_void , cbbufferlength : i32 , stringlength : *mut i32 ) -> i16 );
     SQLGetDescFieldA(hdesc, irecord, ifield, ::core::mem::transmute(rgbvalue.unwrap_or(::std::ptr::null_mut())), cbbufferlength, ::core::mem::transmute(stringlength.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetDescFieldW(hdesc: *mut ::core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: ::core::option::Option<*mut ::core::ffi::c_void>, cbbufferlength: i32, stringlength: ::core::option::Option<*mut i32>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetDescFieldW ( hdesc : *mut ::core::ffi::c_void , irecord : i16 , ifield : i16 , rgbvalue : *mut ::core::ffi::c_void , cbbufferlength : i32 , stringlength : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetDescFieldW ( hdesc : *mut ::core::ffi::c_void , irecord : i16 , ifield : i16 , rgbvalue : *mut ::core::ffi::c_void , cbbufferlength : i32 , stringlength : *mut i32 ) -> i16 );
     SQLGetDescFieldW(hdesc, irecord, ifield, ::core::mem::transmute(rgbvalue.unwrap_or(::std::ptr::null_mut())), cbbufferlength, ::core::mem::transmute(stringlength.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, name: ::core::option::Option<&mut [u8]>, stringlengthptr: ::core::option::Option<*mut i16>, typeptr: ::core::option::Option<*mut i16>, subtypeptr: ::core::option::Option<*mut i16>, lengthptr: ::core::option::Option<*mut i64>, precisionptr: ::core::option::Option<*mut i16>, scaleptr: ::core::option::Option<*mut i16>, nullableptr: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetDescRec ( descriptorhandle : *mut ::core::ffi::c_void , recnumber : i16 , name : *mut u8 , bufferlength : i16 , stringlengthptr : *mut i16 , typeptr : *mut i16 , subtypeptr : *mut i16 , lengthptr : *mut i64 , precisionptr : *mut i16 , scaleptr : *mut i16 , nullableptr : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetDescRec ( descriptorhandle : *mut ::core::ffi::c_void , recnumber : i16 , name : *mut u8 , bufferlength : i16 , stringlengthptr : *mut i16 , typeptr : *mut i16 , subtypeptr : *mut i16 , lengthptr : *mut i64 , precisionptr : *mut i16 , scaleptr : *mut i16 , nullableptr : *mut i16 ) -> i16 );
     SQLGetDescRec(
         descriptorhandle,
         recnumber,
@@ -834,7 +834,7 @@ pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumbe
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, name: ::core::option::Option<&mut [u8]>, stringlengthptr: ::core::option::Option<*mut i16>, typeptr: ::core::option::Option<*mut i16>, subtypeptr: ::core::option::Option<*mut i16>, lengthptr: ::core::option::Option<*mut i32>, precisionptr: ::core::option::Option<*mut i16>, scaleptr: ::core::option::Option<*mut i16>, nullableptr: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetDescRec ( descriptorhandle : *mut ::core::ffi::c_void , recnumber : i16 , name : *mut u8 , bufferlength : i16 , stringlengthptr : *mut i16 , typeptr : *mut i16 , subtypeptr : *mut i16 , lengthptr : *mut i32 , precisionptr : *mut i16 , scaleptr : *mut i16 , nullableptr : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetDescRec ( descriptorhandle : *mut ::core::ffi::c_void , recnumber : i16 , name : *mut u8 , bufferlength : i16 , stringlengthptr : *mut i16 , typeptr : *mut i16 , subtypeptr : *mut i16 , lengthptr : *mut i32 , precisionptr : *mut i16 , scaleptr : *mut i16 , nullableptr : *mut i16 ) -> i16 );
     SQLGetDescRec(
         descriptorhandle,
         recnumber,
@@ -853,7 +853,7 @@ pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumbe
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: ::core::option::Option<&mut [u8]>, pcbname: ::core::option::Option<*mut i16>, pftype: ::core::option::Option<*mut i16>, pfsubtype: ::core::option::Option<*mut i16>, plength: ::core::option::Option<*mut i64>, pprecision: ::core::option::Option<*mut i16>, pscale: ::core::option::Option<*mut i16>, pnullable: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetDescRecA ( hdesc : *mut ::core::ffi::c_void , irecord : i16 , szname : *mut u8 , cbnamemax : i16 , pcbname : *mut i16 , pftype : *mut i16 , pfsubtype : *mut i16 , plength : *mut i64 , pprecision : *mut i16 , pscale : *mut i16 , pnullable : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetDescRecA ( hdesc : *mut ::core::ffi::c_void , irecord : i16 , szname : *mut u8 , cbnamemax : i16 , pcbname : *mut i16 , pftype : *mut i16 , pfsubtype : *mut i16 , plength : *mut i64 , pprecision : *mut i16 , pscale : *mut i16 , pnullable : *mut i16 ) -> i16 );
     SQLGetDescRecA(
         hdesc,
         irecord,
@@ -872,7 +872,7 @@ pub unsafe fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szna
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: ::core::option::Option<&mut [u8]>, pcbname: ::core::option::Option<*mut i16>, pftype: ::core::option::Option<*mut i16>, pfsubtype: ::core::option::Option<*mut i16>, plength: ::core::option::Option<*mut i32>, pprecision: ::core::option::Option<*mut i16>, pscale: ::core::option::Option<*mut i16>, pnullable: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetDescRecA ( hdesc : *mut ::core::ffi::c_void , irecord : i16 , szname : *mut u8 , cbnamemax : i16 , pcbname : *mut i16 , pftype : *mut i16 , pfsubtype : *mut i16 , plength : *mut i32 , pprecision : *mut i16 , pscale : *mut i16 , pnullable : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetDescRecA ( hdesc : *mut ::core::ffi::c_void , irecord : i16 , szname : *mut u8 , cbnamemax : i16 , pcbname : *mut i16 , pftype : *mut i16 , pfsubtype : *mut i16 , plength : *mut i32 , pprecision : *mut i16 , pscale : *mut i16 , pnullable : *mut i16 ) -> i16 );
     SQLGetDescRecA(
         hdesc,
         irecord,
@@ -891,7 +891,7 @@ pub unsafe fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szna
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: ::core::option::Option<&mut [u16]>, pcchname: ::core::option::Option<*mut i16>, pftype: ::core::option::Option<*mut i16>, pfsubtype: ::core::option::Option<*mut i16>, plength: ::core::option::Option<*mut i64>, pprecision: ::core::option::Option<*mut i16>, pscale: ::core::option::Option<*mut i16>, pnullable: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetDescRecW ( hdesc : *mut ::core::ffi::c_void , irecord : i16 , szname : *mut u16 , cchnamemax : i16 , pcchname : *mut i16 , pftype : *mut i16 , pfsubtype : *mut i16 , plength : *mut i64 , pprecision : *mut i16 , pscale : *mut i16 , pnullable : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetDescRecW ( hdesc : *mut ::core::ffi::c_void , irecord : i16 , szname : *mut u16 , cchnamemax : i16 , pcchname : *mut i16 , pftype : *mut i16 , pfsubtype : *mut i16 , plength : *mut i64 , pprecision : *mut i16 , pscale : *mut i16 , pnullable : *mut i16 ) -> i16 );
     SQLGetDescRecW(
         hdesc,
         irecord,
@@ -910,7 +910,7 @@ pub unsafe fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szna
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: ::core::option::Option<&mut [u16]>, pcchname: ::core::option::Option<*mut i16>, pftype: ::core::option::Option<*mut i16>, pfsubtype: ::core::option::Option<*mut i16>, plength: ::core::option::Option<*mut i32>, pprecision: ::core::option::Option<*mut i16>, pscale: ::core::option::Option<*mut i16>, pnullable: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetDescRecW ( hdesc : *mut ::core::ffi::c_void , irecord : i16 , szname : *mut u16 , cchnamemax : i16 , pcchname : *mut i16 , pftype : *mut i16 , pfsubtype : *mut i16 , plength : *mut i32 , pprecision : *mut i16 , pscale : *mut i16 , pnullable : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetDescRecW ( hdesc : *mut ::core::ffi::c_void , irecord : i16 , szname : *mut u16 , cchnamemax : i16 , pcchname : *mut i16 , pftype : *mut i16 , pfsubtype : *mut i16 , plength : *mut i32 , pprecision : *mut i16 , pscale : *mut i16 , pnullable : *mut i16 ) -> i16 );
     SQLGetDescRecW(
         hdesc,
         irecord,
@@ -928,67 +928,67 @@ pub unsafe fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szna
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetDiagField(handletype: i16, handle: *mut ::core::ffi::c_void, recnumber: i16, diagidentifier: i16, diaginfo: ::core::option::Option<*mut ::core::ffi::c_void>, bufferlength: i16, stringlength: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetDiagField ( handletype : i16 , handle : *mut ::core::ffi::c_void , recnumber : i16 , diagidentifier : i16 , diaginfo : *mut ::core::ffi::c_void , bufferlength : i16 , stringlength : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetDiagField ( handletype : i16 , handle : *mut ::core::ffi::c_void , recnumber : i16 , diagidentifier : i16 , diaginfo : *mut ::core::ffi::c_void , bufferlength : i16 , stringlength : *mut i16 ) -> i16 );
     SQLGetDiagField(handletype, handle, recnumber, diagidentifier, ::core::mem::transmute(diaginfo.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(stringlength.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetDiagFieldA(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, fdiagfield: i16, rgbdiaginfo: ::core::option::Option<*mut ::core::ffi::c_void>, cbdiaginfomax: i16, pcbdiaginfo: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetDiagFieldA ( fhandletype : i16 , handle : *mut ::core::ffi::c_void , irecord : i16 , fdiagfield : i16 , rgbdiaginfo : *mut ::core::ffi::c_void , cbdiaginfomax : i16 , pcbdiaginfo : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetDiagFieldA ( fhandletype : i16 , handle : *mut ::core::ffi::c_void , irecord : i16 , fdiagfield : i16 , rgbdiaginfo : *mut ::core::ffi::c_void , cbdiaginfomax : i16 , pcbdiaginfo : *mut i16 ) -> i16 );
     SQLGetDiagFieldA(fhandletype, handle, irecord, fdiagfield, ::core::mem::transmute(rgbdiaginfo.unwrap_or(::std::ptr::null_mut())), cbdiaginfomax, ::core::mem::transmute(pcbdiaginfo.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetDiagFieldW(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, fdiagfield: i16, rgbdiaginfo: ::core::option::Option<*mut ::core::ffi::c_void>, cbbufferlength: i16, pcbstringlength: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetDiagFieldW ( fhandletype : i16 , handle : *mut ::core::ffi::c_void , irecord : i16 , fdiagfield : i16 , rgbdiaginfo : *mut ::core::ffi::c_void , cbbufferlength : i16 , pcbstringlength : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetDiagFieldW ( fhandletype : i16 , handle : *mut ::core::ffi::c_void , irecord : i16 , fdiagfield : i16 , rgbdiaginfo : *mut ::core::ffi::c_void , cbbufferlength : i16 , pcbstringlength : *mut i16 ) -> i16 );
     SQLGetDiagFieldW(fhandletype, handle, irecord, fdiagfield, ::core::mem::transmute(rgbdiaginfo.unwrap_or(::std::ptr::null_mut())), cbbufferlength, ::core::mem::transmute(pcbstringlength.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetDiagRec(handletype: i16, handle: *mut ::core::ffi::c_void, recnumber: i16, sqlstate: ::core::option::Option<&mut [u8; 6]>, nativeerror: *mut i32, messagetext: ::core::option::Option<&mut [u8]>, textlength: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetDiagRec ( handletype : i16 , handle : *mut ::core::ffi::c_void , recnumber : i16 , sqlstate : *mut u8 , nativeerror : *mut i32 , messagetext : *mut u8 , bufferlength : i16 , textlength : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetDiagRec ( handletype : i16 , handle : *mut ::core::ffi::c_void , recnumber : i16 , sqlstate : *mut u8 , nativeerror : *mut i32 , messagetext : *mut u8 , bufferlength : i16 , textlength : *mut i16 ) -> i16 );
     SQLGetDiagRec(handletype, handle, recnumber, ::core::mem::transmute(sqlstate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), nativeerror, ::core::mem::transmute(messagetext.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), messagetext.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(textlength.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetDiagRecA(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, szsqlstate: ::core::option::Option<&mut [u8; 6]>, pfnativeerror: *mut i32, szerrormsg: ::core::option::Option<&mut [u8]>, pcberrormsg: *mut i16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetDiagRecA ( fhandletype : i16 , handle : *mut ::core::ffi::c_void , irecord : i16 , szsqlstate : *mut u8 , pfnativeerror : *mut i32 , szerrormsg : *mut u8 , cberrormsgmax : i16 , pcberrormsg : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetDiagRecA ( fhandletype : i16 , handle : *mut ::core::ffi::c_void , irecord : i16 , szsqlstate : *mut u8 , pfnativeerror : *mut i32 , szerrormsg : *mut u8 , cberrormsgmax : i16 , pcberrormsg : *mut i16 ) -> i16 );
     SQLGetDiagRecA(fhandletype, handle, irecord, ::core::mem::transmute(szsqlstate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pfnativeerror, ::core::mem::transmute(szerrormsg.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szerrormsg.as_deref().map_or(0, |slice| slice.len() as _), pcberrormsg)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetDiagRecW(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, szsqlstate: ::core::option::Option<&mut [u16; 6]>, pfnativeerror: *mut i32, szerrormsg: ::core::option::Option<&mut [u16]>, pccherrormsg: *mut i16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetDiagRecW ( fhandletype : i16 , handle : *mut ::core::ffi::c_void , irecord : i16 , szsqlstate : *mut u16 , pfnativeerror : *mut i32 , szerrormsg : *mut u16 , ccherrormsgmax : i16 , pccherrormsg : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetDiagRecW ( fhandletype : i16 , handle : *mut ::core::ffi::c_void , irecord : i16 , szsqlstate : *mut u16 , pfnativeerror : *mut i32 , szerrormsg : *mut u16 , ccherrormsgmax : i16 , pccherrormsg : *mut i16 ) -> i16 );
     SQLGetDiagRecW(fhandletype, handle, irecord, ::core::mem::transmute(szsqlstate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pfnativeerror, ::core::mem::transmute(szerrormsg.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szerrormsg.as_deref().map_or(0, |slice| slice.len() as _), pccherrormsg)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: ::core::option::Option<*mut i32>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetEnvAttr ( environmenthandle : *mut ::core::ffi::c_void , attribute : i32 , value : *mut ::core::ffi::c_void , bufferlength : i32 , stringlength : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetEnvAttr ( environmenthandle : *mut ::core::ffi::c_void , attribute : i32 , value : *mut ::core::ffi::c_void , bufferlength : i32 , stringlength : *mut i32 ) -> i16 );
     SQLGetEnvAttr(environmenthandle, attribute, value, bufferlength, ::core::mem::transmute(stringlength.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetFunctions(connectionhandle: *mut ::core::ffi::c_void, functionid: u16, supported: ::core::option::Option<*mut u16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetFunctions ( connectionhandle : *mut ::core::ffi::c_void , functionid : u16 , supported : *mut u16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetFunctions ( connectionhandle : *mut ::core::ffi::c_void , functionid : u16 , supported : *mut u16 ) -> i16 );
     SQLGetFunctions(connectionhandle, functionid, ::core::mem::transmute(supported.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetInfo(connectionhandle: *mut ::core::ffi::c_void, infotype: u16, infovalue: ::core::option::Option<*mut ::core::ffi::c_void>, bufferlength: i16, stringlengthptr: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetInfo ( connectionhandle : *mut ::core::ffi::c_void , infotype : u16 , infovalue : *mut ::core::ffi::c_void , bufferlength : i16 , stringlengthptr : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetInfo ( connectionhandle : *mut ::core::ffi::c_void , infotype : u16 , infovalue : *mut ::core::ffi::c_void , bufferlength : i16 , stringlengthptr : *mut i16 ) -> i16 );
     SQLGetInfo(connectionhandle, infotype, ::core::mem::transmute(infovalue.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(stringlengthptr.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetInfoA(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: ::core::option::Option<*mut ::core::ffi::c_void>, cbinfovaluemax: i16, pcbinfovalue: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetInfoA ( hdbc : *mut ::core::ffi::c_void , finfotype : u16 , rgbinfovalue : *mut ::core::ffi::c_void , cbinfovaluemax : i16 , pcbinfovalue : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetInfoA ( hdbc : *mut ::core::ffi::c_void , finfotype : u16 , rgbinfovalue : *mut ::core::ffi::c_void , cbinfovaluemax : i16 , pcbinfovalue : *mut i16 ) -> i16 );
     SQLGetInfoA(hdbc, finfotype, ::core::mem::transmute(rgbinfovalue.unwrap_or(::std::ptr::null_mut())), cbinfovaluemax, ::core::mem::transmute(pcbinfovalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetInfoW(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: ::core::option::Option<*mut ::core::ffi::c_void>, cbinfovaluemax: i16, pcbinfovalue: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetInfoW ( hdbc : *mut ::core::ffi::c_void , finfotype : u16 , rgbinfovalue : *mut ::core::ffi::c_void , cbinfovaluemax : i16 , pcbinfovalue : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetInfoW ( hdbc : *mut ::core::ffi::c_void , finfotype : u16 , rgbinfovalue : *mut ::core::ffi::c_void , cbinfovaluemax : i16 , pcbinfovalue : *mut i16 ) -> i16 );
     SQLGetInfoW(hdbc, finfotype, ::core::mem::transmute(rgbinfovalue.unwrap_or(::std::ptr::null_mut())), cbinfovaluemax, ::core::mem::transmute(pcbinfovalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
@@ -998,49 +998,49 @@ pub unsafe fn SQLGetNextEnumeration<P0>(henumhandle: P0, prgenumdata: *mut u8, p
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn SQLGetNextEnumeration ( henumhandle : super::super::Foundation:: HANDLE , prgenumdata : *mut u8 , pienumlength : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn SQLGetNextEnumeration ( henumhandle : super::super::Foundation:: HANDLE , prgenumdata : *mut u8 , pienumlength : *mut i32 ) -> i16 );
     SQLGetNextEnumeration(henumhandle.into_param().abi(), prgenumdata, pienumlength)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribute: i32, value: ::core::option::Option<*mut ::core::ffi::c_void>, bufferlength: i32, stringlength: ::core::option::Option<*mut i32>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetStmtAttr ( statementhandle : *mut ::core::ffi::c_void , attribute : i32 , value : *mut ::core::ffi::c_void , bufferlength : i32 , stringlength : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetStmtAttr ( statementhandle : *mut ::core::ffi::c_void , attribute : i32 , value : *mut ::core::ffi::c_void , bufferlength : i32 , stringlength : *mut i32 ) -> i16 );
     SQLGetStmtAttr(statementhandle, attribute, ::core::mem::transmute(value.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(stringlength.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetStmtAttrA(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetStmtAttrA ( hstmt : *mut ::core::ffi::c_void , fattribute : i32 , rgbvalue : *mut ::core::ffi::c_void , cbvaluemax : i32 , pcbvalue : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetStmtAttrA ( hstmt : *mut ::core::ffi::c_void , fattribute : i32 , rgbvalue : *mut ::core::ffi::c_void , cbvaluemax : i32 , pcbvalue : *mut i32 ) -> i16 );
     SQLGetStmtAttrA(hstmt, fattribute, rgbvalue, cbvaluemax, pcbvalue)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetStmtAttrW ( hstmt : *mut ::core::ffi::c_void , fattribute : i32 , rgbvalue : *mut ::core::ffi::c_void , cbvaluemax : i32 , pcbvalue : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetStmtAttrW ( hstmt : *mut ::core::ffi::c_void , fattribute : i32 , rgbvalue : *mut ::core::ffi::c_void , cbvaluemax : i32 , pcbvalue : *mut i32 ) -> i16 );
     SQLGetStmtAttrW(hstmt, fattribute, rgbvalue, cbvaluemax, pcbvalue)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetStmtOption ( statementhandle : *mut ::core::ffi::c_void , option : u16 , value : *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetStmtOption ( statementhandle : *mut ::core::ffi::c_void , option : u16 , value : *mut ::core::ffi::c_void ) -> i16 );
     SQLGetStmtOption(statementhandle, option, value)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetTypeInfo(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetTypeInfo ( statementhandle : *mut ::core::ffi::c_void , datatype : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetTypeInfo ( statementhandle : *mut ::core::ffi::c_void , datatype : i16 ) -> i16 );
     SQLGetTypeInfo(statementhandle, datatype)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetTypeInfoA(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetTypeInfoA ( statementhandle : *mut ::core::ffi::c_void , datatype : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetTypeInfoA ( statementhandle : *mut ::core::ffi::c_void , datatype : i16 ) -> i16 );
     SQLGetTypeInfoA(statementhandle, datatype)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetTypeInfoW(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLGetTypeInfoW ( statementhandle : *mut ::core::ffi::c_void , datatype : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLGetTypeInfoW ( statementhandle : *mut ::core::ffi::c_void , datatype : i16 ) -> i16 );
     SQLGetTypeInfoW(statementhandle, datatype)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
@@ -1051,7 +1051,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn SQLInitEnumServers ( pwchservername : ::windows::core::PCWSTR , pwchinstancename : ::windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn SQLInitEnumServers ( pwchservername : ::windows::core::PCWSTR , pwchinstancename : ::windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
     SQLInitEnumServers(pwchservername.into_param().abi(), pwchinstancename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -1060,7 +1060,7 @@ pub unsafe fn SQLLinkedCatalogsA<P0>(param0: *mut ::core::ffi::c_void, param1: P
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn SQLLinkedCatalogsA ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCSTR , param2 : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn SQLLinkedCatalogsA ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCSTR , param2 : i16 ) -> i16 );
     SQLLinkedCatalogsA(param0, param1.into_param().abi(), param2)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -1069,93 +1069,93 @@ pub unsafe fn SQLLinkedCatalogsW<P0>(param0: *mut ::core::ffi::c_void, param1: P
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn SQLLinkedCatalogsW ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCWSTR , param2 : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn SQLLinkedCatalogsW ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCWSTR , param2 : i16 ) -> i16 );
     SQLLinkedCatalogsW(param0, param1.into_param().abi(), param2)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLLinkedServers(param0: *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn SQLLinkedServers ( param0 : *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn SQLLinkedServers ( param0 : *mut ::core::ffi::c_void ) -> i16 );
     SQLLinkedServers(param0)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLMoreResults(hstmt: *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLMoreResults ( hstmt : *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLMoreResults ( hstmt : *mut ::core::ffi::c_void ) -> i16 );
     SQLMoreResults(hstmt)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLNativeSql(hdbc: *mut ::core::ffi::c_void, szsqlstrin: &[u8], szsqlstr: ::core::option::Option<&mut [u8]>, pcbsqlstr: *mut i32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLNativeSql ( hdbc : *mut ::core::ffi::c_void , szsqlstrin : *const u8 , cchsqlstrin : i32 , szsqlstr : *mut u8 , cchsqlstrmax : i32 , pcbsqlstr : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLNativeSql ( hdbc : *mut ::core::ffi::c_void , szsqlstrin : *const u8 , cchsqlstrin : i32 , szsqlstr : *mut u8 , cchsqlstrmax : i32 , pcbsqlstr : *mut i32 ) -> i16 );
     SQLNativeSql(hdbc, ::core::mem::transmute(szsqlstrin.as_ptr()), szsqlstrin.len() as _, ::core::mem::transmute(szsqlstr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szsqlstr.as_deref().map_or(0, |slice| slice.len() as _), pcbsqlstr)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLNativeSqlA(hdbc: *mut ::core::ffi::c_void, szsqlstrin: &[u8], szsqlstr: ::core::option::Option<&mut [u8]>, pcbsqlstr: *mut i32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLNativeSqlA ( hdbc : *mut ::core::ffi::c_void , szsqlstrin : *const u8 , cbsqlstrin : i32 , szsqlstr : *mut u8 , cbsqlstrmax : i32 , pcbsqlstr : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLNativeSqlA ( hdbc : *mut ::core::ffi::c_void , szsqlstrin : *const u8 , cbsqlstrin : i32 , szsqlstr : *mut u8 , cbsqlstrmax : i32 , pcbsqlstr : *mut i32 ) -> i16 );
     SQLNativeSqlA(hdbc, ::core::mem::transmute(szsqlstrin.as_ptr()), szsqlstrin.len() as _, ::core::mem::transmute(szsqlstr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szsqlstr.as_deref().map_or(0, |slice| slice.len() as _), pcbsqlstr)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLNativeSqlW(hdbc: *mut ::core::ffi::c_void, szsqlstrin: &[u16], szsqlstr: ::core::option::Option<&mut [u16]>, pcchsqlstr: *mut i32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLNativeSqlW ( hdbc : *mut ::core::ffi::c_void , szsqlstrin : *const u16 , cchsqlstrin : i32 , szsqlstr : *mut u16 , cchsqlstrmax : i32 , pcchsqlstr : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLNativeSqlW ( hdbc : *mut ::core::ffi::c_void , szsqlstrin : *const u16 , cchsqlstrin : i32 , szsqlstr : *mut u16 , cchsqlstrmax : i32 , pcchsqlstr : *mut i32 ) -> i16 );
     SQLNativeSqlW(hdbc, ::core::mem::transmute(szsqlstrin.as_ptr()), szsqlstrin.len() as _, ::core::mem::transmute(szsqlstr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szsqlstr.as_deref().map_or(0, |slice| slice.len() as _), pcchsqlstr)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLNumParams(hstmt: *mut ::core::ffi::c_void, pcpar: ::core::option::Option<*mut i16>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLNumParams ( hstmt : *mut ::core::ffi::c_void , pcpar : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLNumParams ( hstmt : *mut ::core::ffi::c_void , pcpar : *mut i16 ) -> i16 );
     SQLNumParams(hstmt, ::core::mem::transmute(pcpar.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLNumResultCols(statementhandle: *mut ::core::ffi::c_void, columncount: *mut i16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLNumResultCols ( statementhandle : *mut ::core::ffi::c_void , columncount : *mut i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLNumResultCols ( statementhandle : *mut ::core::ffi::c_void , columncount : *mut i16 ) -> i16 );
     SQLNumResultCols(statementhandle, columncount)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLParamData(statementhandle: *mut ::core::ffi::c_void, value: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLParamData ( statementhandle : *mut ::core::ffi::c_void , value : *mut *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLParamData ( statementhandle : *mut ::core::ffi::c_void , value : *mut *mut ::core::ffi::c_void ) -> i16 );
     SQLParamData(statementhandle, ::core::mem::transmute(value.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u64, pirow: *mut u64) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLParamOptions ( hstmt : *mut ::core::ffi::c_void , crow : u64 , pirow : *mut u64 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLParamOptions ( hstmt : *mut ::core::ffi::c_void , crow : u64 , pirow : *mut u64 ) -> i16 );
     SQLParamOptions(hstmt, crow, pirow)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u32, pirow: *mut u32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLParamOptions ( hstmt : *mut ::core::ffi::c_void , crow : u32 , pirow : *mut u32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLParamOptions ( hstmt : *mut ::core::ffi::c_void , crow : u32 , pirow : *mut u32 ) -> i16 );
     SQLParamOptions(hstmt, crow, pirow)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLPrepare(statementhandle: *mut ::core::ffi::c_void, statementtext: &[u8]) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLPrepare ( statementhandle : *mut ::core::ffi::c_void , statementtext : *const u8 , textlength : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLPrepare ( statementhandle : *mut ::core::ffi::c_void , statementtext : *const u8 , textlength : i32 ) -> i16 );
     SQLPrepare(statementhandle, ::core::mem::transmute(statementtext.as_ptr()), statementtext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLPrepareA(hstmt: *mut ::core::ffi::c_void, szsqlstr: &[u8]) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLPrepareA ( hstmt : *mut ::core::ffi::c_void , szsqlstr : *const u8 , cbsqlstr : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLPrepareA ( hstmt : *mut ::core::ffi::c_void , szsqlstr : *const u8 , cbsqlstr : i32 ) -> i16 );
     SQLPrepareA(hstmt, ::core::mem::transmute(szsqlstr.as_ptr()), szsqlstr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLPrepareW(hstmt: *mut ::core::ffi::c_void, szsqlstr: &[u16]) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLPrepareW ( hstmt : *mut ::core::ffi::c_void , szsqlstr : *const u16 , cchsqlstr : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLPrepareW ( hstmt : *mut ::core::ffi::c_void , szsqlstr : *const u16 , cchsqlstr : i32 ) -> i16 );
     SQLPrepareW(hstmt, ::core::mem::transmute(szsqlstr.as_ptr()), szsqlstr.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLPrimaryKeys(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core::option::Option<&[u8]>, szschemaname: ::core::option::Option<&[u8]>, sztablename: ::core::option::Option<&[u8]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLPrimaryKeys ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cchcatalogname : i16 , szschemaname : *const u8 , cchschemaname : i16 , sztablename : *const u8 , cchtablename : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLPrimaryKeys ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cchcatalogname : i16 , szschemaname : *const u8 , cchschemaname : i16 , sztablename : *const u8 , cchtablename : i16 ) -> i16 );
     SQLPrimaryKeys(
         hstmt,
         ::core::mem::transmute(szcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -1169,7 +1169,7 @@ pub unsafe fn SQLPrimaryKeys(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::c
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLPrimaryKeysA(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core::option::Option<&[u8]>, szschemaname: ::core::option::Option<&[u8]>, sztablename: ::core::option::Option<&[u8]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLPrimaryKeysA ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cbcatalogname : i16 , szschemaname : *const u8 , cbschemaname : i16 , sztablename : *const u8 , cbtablename : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLPrimaryKeysA ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cbcatalogname : i16 , szschemaname : *const u8 , cbschemaname : i16 , sztablename : *const u8 , cbtablename : i16 ) -> i16 );
     SQLPrimaryKeysA(
         hstmt,
         ::core::mem::transmute(szcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -1183,7 +1183,7 @@ pub unsafe fn SQLPrimaryKeysA(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLPrimaryKeysW(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core::option::Option<&[u16]>, szschemaname: ::core::option::Option<&[u16]>, sztablename: ::core::option::Option<&[u16]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLPrimaryKeysW ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u16 , cchcatalogname : i16 , szschemaname : *const u16 , cchschemaname : i16 , sztablename : *const u16 , cchtablename : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLPrimaryKeysW ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u16 , cchcatalogname : i16 , szschemaname : *const u16 , cchschemaname : i16 , sztablename : *const u16 , cchtablename : i16 ) -> i16 );
     SQLPrimaryKeysW(
         hstmt,
         ::core::mem::transmute(szcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -1197,7 +1197,7 @@ pub unsafe fn SQLPrimaryKeysW(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLProcedureColumns(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core::option::Option<&[u8]>, szschemaname: ::core::option::Option<&[u8]>, szprocname: ::core::option::Option<&[u8]>, szcolumnname: ::core::option::Option<&[u8]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLProcedureColumns ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cchcatalogname : i16 , szschemaname : *const u8 , cchschemaname : i16 , szprocname : *const u8 , cchprocname : i16 , szcolumnname : *const u8 , cchcolumnname : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLProcedureColumns ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cchcatalogname : i16 , szschemaname : *const u8 , cchschemaname : i16 , szprocname : *const u8 , cchprocname : i16 , szcolumnname : *const u8 , cchcolumnname : i16 ) -> i16 );
     SQLProcedureColumns(
         hstmt,
         ::core::mem::transmute(szcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -1213,7 +1213,7 @@ pub unsafe fn SQLProcedureColumns(hstmt: *mut ::core::ffi::c_void, szcatalogname
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLProcedureColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core::option::Option<&[u8]>, szschemaname: ::core::option::Option<&[u8]>, szprocname: ::core::option::Option<&[u8]>, szcolumnname: ::core::option::Option<&[u8]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLProcedureColumnsA ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cbcatalogname : i16 , szschemaname : *const u8 , cbschemaname : i16 , szprocname : *const u8 , cbprocname : i16 , szcolumnname : *const u8 , cbcolumnname : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLProcedureColumnsA ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cbcatalogname : i16 , szschemaname : *const u8 , cbschemaname : i16 , szprocname : *const u8 , cbprocname : i16 , szcolumnname : *const u8 , cbcolumnname : i16 ) -> i16 );
     SQLProcedureColumnsA(
         hstmt,
         ::core::mem::transmute(szcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -1229,7 +1229,7 @@ pub unsafe fn SQLProcedureColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalognam
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLProcedureColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core::option::Option<&[u16]>, szschemaname: ::core::option::Option<&[u16]>, szprocname: ::core::option::Option<&[u16]>, szcolumnname: ::core::option::Option<&[u16]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLProcedureColumnsW ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u16 , cchcatalogname : i16 , szschemaname : *const u16 , cchschemaname : i16 , szprocname : *const u16 , cchprocname : i16 , szcolumnname : *const u16 , cchcolumnname : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLProcedureColumnsW ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u16 , cchcatalogname : i16 , szschemaname : *const u16 , cchschemaname : i16 , szprocname : *const u16 , cchprocname : i16 , szcolumnname : *const u16 , cchcolumnname : i16 ) -> i16 );
     SQLProcedureColumnsW(
         hstmt,
         ::core::mem::transmute(szcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -1245,7 +1245,7 @@ pub unsafe fn SQLProcedureColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalognam
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLProcedures(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core::option::Option<&[u8]>, szschemaname: ::core::option::Option<&[u8]>, szprocname: ::core::option::Option<&[u8]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLProcedures ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cchcatalogname : i16 , szschemaname : *const u8 , cchschemaname : i16 , szprocname : *const u8 , cchprocname : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLProcedures ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cchcatalogname : i16 , szschemaname : *const u8 , cchschemaname : i16 , szprocname : *const u8 , cchprocname : i16 ) -> i16 );
     SQLProcedures(
         hstmt,
         ::core::mem::transmute(szcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -1259,7 +1259,7 @@ pub unsafe fn SQLProcedures(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::co
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLProceduresA(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core::option::Option<&[u8]>, szschemaname: ::core::option::Option<&[u8]>, szprocname: ::core::option::Option<&[u8]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLProceduresA ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cbcatalogname : i16 , szschemaname : *const u8 , cbschemaname : i16 , szprocname : *const u8 , cbprocname : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLProceduresA ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cbcatalogname : i16 , szschemaname : *const u8 , cbschemaname : i16 , szprocname : *const u8 , cbprocname : i16 ) -> i16 );
     SQLProceduresA(
         hstmt,
         ::core::mem::transmute(szcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -1273,7 +1273,7 @@ pub unsafe fn SQLProceduresA(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::c
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLProceduresW(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core::option::Option<&[u16]>, szschemaname: ::core::option::Option<&[u16]>, szprocname: ::core::option::Option<&[u16]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLProceduresW ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u16 , cchcatalogname : i16 , szschemaname : *const u16 , cchschemaname : i16 , szprocname : *const u16 , cchprocname : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLProceduresW ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u16 , cchcatalogname : i16 , szschemaname : *const u16 , cchschemaname : i16 , szprocname : *const u16 , cchprocname : i16 ) -> i16 );
     SQLProceduresW(
         hstmt,
         ::core::mem::transmute(szcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -1288,212 +1288,212 @@ pub unsafe fn SQLProceduresW(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::c
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const ::core::ffi::c_void, strlen_or_ind: i64) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLPutData ( statementhandle : *mut ::core::ffi::c_void , data : *const ::core::ffi::c_void , strlen_or_ind : i64 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLPutData ( statementhandle : *mut ::core::ffi::c_void , data : *const ::core::ffi::c_void , strlen_or_ind : i64 ) -> i16 );
     SQLPutData(statementhandle, data, strlen_or_ind)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const ::core::ffi::c_void, strlen_or_ind: i32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLPutData ( statementhandle : *mut ::core::ffi::c_void , data : *const ::core::ffi::c_void , strlen_or_ind : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLPutData ( statementhandle : *mut ::core::ffi::c_void , data : *const ::core::ffi::c_void , strlen_or_ind : i32 ) -> i16 );
     SQLPutData(statementhandle, data, strlen_or_ind)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount: *mut i64) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLRowCount ( statementhandle : *const ::core::ffi::c_void , rowcount : *mut i64 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLRowCount ( statementhandle : *const ::core::ffi::c_void , rowcount : *mut i64 ) -> i16 );
     SQLRowCount(statementhandle, rowcount)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount: *mut i32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLRowCount ( statementhandle : *const ::core::ffi::c_void , rowcount : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLRowCount ( statementhandle : *const ::core::ffi::c_void , rowcount : *mut i32 ) -> i16 );
     SQLRowCount(statementhandle, rowcount)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attribute: i32, value: ::core::option::Option<*const ::core::ffi::c_void>, stringlength: i32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetConnectAttr ( connectionhandle : *mut ::core::ffi::c_void , attribute : i32 , value : *const ::core::ffi::c_void , stringlength : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetConnectAttr ( connectionhandle : *mut ::core::ffi::c_void , attribute : i32 , value : *const ::core::ffi::c_void , stringlength : i32 ) -> i16 );
     SQLSetConnectAttr(connectionhandle, attribute, ::core::mem::transmute(value.unwrap_or(::std::ptr::null())), stringlength)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: ::core::option::Option<*const ::core::ffi::c_void>, cbvalue: i32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetConnectAttrA ( hdbc : *mut ::core::ffi::c_void , fattribute : i32 , rgbvalue : *const ::core::ffi::c_void , cbvalue : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetConnectAttrA ( hdbc : *mut ::core::ffi::c_void , fattribute : i32 , rgbvalue : *const ::core::ffi::c_void , cbvalue : i32 ) -> i16 );
     SQLSetConnectAttrA(hdbc, fattribute, ::core::mem::transmute(rgbvalue.unwrap_or(::std::ptr::null())), cbvalue)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: ::core::option::Option<*const ::core::ffi::c_void>, cbvalue: i32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetConnectAttrW ( hdbc : *mut ::core::ffi::c_void , fattribute : i32 , rgbvalue : *const ::core::ffi::c_void , cbvalue : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetConnectAttrW ( hdbc : *mut ::core::ffi::c_void , fattribute : i32 , rgbvalue : *const ::core::ffi::c_void , cbvalue : i32 ) -> i16 );
     SQLSetConnectAttrW(hdbc, fattribute, ::core::mem::transmute(rgbvalue.unwrap_or(::std::ptr::null())), cbvalue)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: u64) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetConnectOption ( connectionhandle : *mut ::core::ffi::c_void , option : u16 , value : u64 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetConnectOption ( connectionhandle : *mut ::core::ffi::c_void , option : u16 , value : u64 ) -> i16 );
     SQLSetConnectOption(connectionhandle, option, value)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: u32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetConnectOption ( connectionhandle : *mut ::core::ffi::c_void , option : u16 , value : u32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetConnectOption ( connectionhandle : *mut ::core::ffi::c_void , option : u16 , value : u32 ) -> i16 );
     SQLSetConnectOption(connectionhandle, option, value)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u64) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetConnectOptionA ( hdbc : *mut ::core::ffi::c_void , foption : u16 , vparam : u64 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetConnectOptionA ( hdbc : *mut ::core::ffi::c_void , foption : u16 , vparam : u64 ) -> i16 );
     SQLSetConnectOptionA(hdbc, foption, vparam)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetConnectOptionA ( hdbc : *mut ::core::ffi::c_void , foption : u16 , vparam : u32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetConnectOptionA ( hdbc : *mut ::core::ffi::c_void , foption : u16 , vparam : u32 ) -> i16 );
     SQLSetConnectOptionA(hdbc, foption, vparam)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u64) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetConnectOptionW ( hdbc : *mut ::core::ffi::c_void , foption : u16 , vparam : u64 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetConnectOptionW ( hdbc : *mut ::core::ffi::c_void , foption : u16 , vparam : u64 ) -> i16 );
     SQLSetConnectOptionW(hdbc, foption, vparam)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetConnectOptionW ( hdbc : *mut ::core::ffi::c_void , foption : u16 , vparam : u32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetConnectOptionW ( hdbc : *mut ::core::ffi::c_void , foption : u16 , vparam : u32 ) -> i16 );
     SQLSetConnectOptionW(hdbc, foption, vparam)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSetCursorName(statementhandle: *mut ::core::ffi::c_void, cursorname: &[u8]) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetCursorName ( statementhandle : *mut ::core::ffi::c_void , cursorname : *const u8 , namelength : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetCursorName ( statementhandle : *mut ::core::ffi::c_void , cursorname : *const u8 , namelength : i16 ) -> i16 );
     SQLSetCursorName(statementhandle, ::core::mem::transmute(cursorname.as_ptr()), cursorname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSetCursorNameA(hstmt: *mut ::core::ffi::c_void, szcursor: &[u8]) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetCursorNameA ( hstmt : *mut ::core::ffi::c_void , szcursor : *const u8 , cbcursor : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetCursorNameA ( hstmt : *mut ::core::ffi::c_void , szcursor : *const u8 , cbcursor : i16 ) -> i16 );
     SQLSetCursorNameA(hstmt, ::core::mem::transmute(szcursor.as_ptr()), szcursor.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSetCursorNameW(hstmt: *mut ::core::ffi::c_void, szcursor: &[u16]) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetCursorNameW ( hstmt : *mut ::core::ffi::c_void , szcursor : *const u16 , cchcursor : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetCursorNameW ( hstmt : *mut ::core::ffi::c_void , szcursor : *const u16 , cchcursor : i16 ) -> i16 );
     SQLSetCursorNameW(hstmt, ::core::mem::transmute(szcursor.as_ptr()), szcursor.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *const ::core::ffi::c_void, bufferlength: i32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetDescField ( descriptorhandle : *mut ::core::ffi::c_void , recnumber : i16 , fieldidentifier : i16 , value : *const ::core::ffi::c_void , bufferlength : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetDescField ( descriptorhandle : *mut ::core::ffi::c_void , recnumber : i16 , fieldidentifier : i16 , value : *const ::core::ffi::c_void , bufferlength : i32 ) -> i16 );
     SQLSetDescField(descriptorhandle, recnumber, fieldidentifier, value, bufferlength)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSetDescFieldW(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *mut ::core::ffi::c_void, bufferlength: i32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetDescFieldW ( descriptorhandle : *mut ::core::ffi::c_void , recnumber : i16 , fieldidentifier : i16 , value : *mut ::core::ffi::c_void , bufferlength : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetDescFieldW ( descriptorhandle : *mut ::core::ffi::c_void , recnumber : i16 , fieldidentifier : i16 , value : *mut ::core::ffi::c_void , bufferlength : i32 ) -> i16 );
     SQLSetDescFieldW(descriptorhandle, recnumber, fieldidentifier, value, bufferlength)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i64, precision: i16, scale: i16, data: ::core::option::Option<*mut ::core::ffi::c_void>, stringlength: ::core::option::Option<*mut i64>, indicator: ::core::option::Option<*mut i64>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetDescRec ( descriptorhandle : *mut ::core::ffi::c_void , recnumber : i16 , r#type : i16 , subtype : i16 , length : i64 , precision : i16 , scale : i16 , data : *mut ::core::ffi::c_void , stringlength : *mut i64 , indicator : *mut i64 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetDescRec ( descriptorhandle : *mut ::core::ffi::c_void , recnumber : i16 , r#type : i16 , subtype : i16 , length : i64 , precision : i16 , scale : i16 , data : *mut ::core::ffi::c_void , stringlength : *mut i64 , indicator : *mut i64 ) -> i16 );
     SQLSetDescRec(descriptorhandle, recnumber, r#type, subtype, length, precision, scale, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(stringlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(indicator.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i32, precision: i16, scale: i16, data: ::core::option::Option<*mut ::core::ffi::c_void>, stringlength: ::core::option::Option<*mut i32>, indicator: ::core::option::Option<*mut i32>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetDescRec ( descriptorhandle : *mut ::core::ffi::c_void , recnumber : i16 , r#type : i16 , subtype : i16 , length : i32 , precision : i16 , scale : i16 , data : *mut ::core::ffi::c_void , stringlength : *mut i32 , indicator : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetDescRec ( descriptorhandle : *mut ::core::ffi::c_void , recnumber : i16 , r#type : i16 , subtype : i16 , length : i32 , precision : i16 , scale : i16 , data : *mut ::core::ffi::c_void , stringlength : *mut i32 , indicator : *mut i32 ) -> i16 );
     SQLSetDescRec(descriptorhandle, recnumber, r#type, subtype, length, precision, scale, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(stringlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(indicator.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribute: i32, value: ::core::option::Option<*const ::core::ffi::c_void>, stringlength: i32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetEnvAttr ( environmenthandle : *mut ::core::ffi::c_void , attribute : i32 , value : *const ::core::ffi::c_void , stringlength : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetEnvAttr ( environmenthandle : *mut ::core::ffi::c_void , attribute : i32 , value : *const ::core::ffi::c_void , stringlength : i32 ) -> i16 );
     SQLSetEnvAttr(environmenthandle, attribute, ::core::mem::transmute(value.unwrap_or(::std::ptr::null())), stringlength)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *const ::core::ffi::c_void, strlen_or_ind: *mut i64) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetParam ( statementhandle : *mut ::core::ffi::c_void , parameternumber : u16 , valuetype : i16 , parametertype : i16 , lengthprecision : u64 , parameterscale : i16 , parametervalue : *const ::core::ffi::c_void , strlen_or_ind : *mut i64 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetParam ( statementhandle : *mut ::core::ffi::c_void , parameternumber : u16 , valuetype : i16 , parametertype : i16 , lengthprecision : u64 , parameterscale : i16 , parametervalue : *const ::core::ffi::c_void , strlen_or_ind : *mut i64 ) -> i16 );
     SQLSetParam(statementhandle, parameternumber, valuetype, parametertype, lengthprecision, parameterscale, parametervalue, strlen_or_ind)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *const ::core::ffi::c_void, strlen_or_ind: *mut i32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetParam ( statementhandle : *mut ::core::ffi::c_void , parameternumber : u16 , valuetype : i16 , parametertype : i16 , lengthprecision : u32 , parameterscale : i16 , parametervalue : *const ::core::ffi::c_void , strlen_or_ind : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetParam ( statementhandle : *mut ::core::ffi::c_void , parameternumber : u16 , valuetype : i16 , parametertype : i16 , lengthprecision : u32 , parameterscale : i16 , parametervalue : *const ::core::ffi::c_void , strlen_or_ind : *mut i32 ) -> i16 );
     SQLSetParam(statementhandle, parameternumber, valuetype, parametertype, lengthprecision, parameterscale, parametervalue, strlen_or_ind)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u64, foption: u16, flock: u16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetPos ( hstmt : *mut ::core::ffi::c_void , irow : u64 , foption : u16 , flock : u16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetPos ( hstmt : *mut ::core::ffi::c_void , irow : u64 , foption : u16 , flock : u16 ) -> i16 );
     SQLSetPos(hstmt, irow, foption, flock)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u16, foption: u16, flock: u16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetPos ( hstmt : *mut ::core::ffi::c_void , irow : u16 , foption : u16 , flock : u16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetPos ( hstmt : *mut ::core::ffi::c_void , irow : u16 , foption : u16 , flock : u16 ) -> i16 );
     SQLSetPos(hstmt, irow, foption, flock)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency: u16, crowkeyset: i64, crowrowset: u16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetScrollOptions ( hstmt : *mut ::core::ffi::c_void , fconcurrency : u16 , crowkeyset : i64 , crowrowset : u16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetScrollOptions ( hstmt : *mut ::core::ffi::c_void , fconcurrency : u16 , crowkeyset : i64 , crowrowset : u16 ) -> i16 );
     SQLSetScrollOptions(hstmt, fconcurrency, crowkeyset, crowrowset)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency: u16, crowkeyset: i32, crowrowset: u16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetScrollOptions ( hstmt : *mut ::core::ffi::c_void , fconcurrency : u16 , crowkeyset : i32 , crowrowset : u16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetScrollOptions ( hstmt : *mut ::core::ffi::c_void , fconcurrency : u16 , crowkeyset : i32 , crowrowset : u16 ) -> i16 );
     SQLSetScrollOptions(hstmt, fconcurrency, crowkeyset, crowrowset)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetStmtAttr ( statementhandle : *mut ::core::ffi::c_void , attribute : i32 , value : *const ::core::ffi::c_void , stringlength : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetStmtAttr ( statementhandle : *mut ::core::ffi::c_void , attribute : i32 , value : *const ::core::ffi::c_void , stringlength : i32 ) -> i16 );
     SQLSetStmtAttr(statementhandle, attribute, value, stringlength)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetStmtAttrW ( hstmt : *mut ::core::ffi::c_void , fattribute : i32 , rgbvalue : *mut ::core::ffi::c_void , cbvaluemax : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetStmtAttrW ( hstmt : *mut ::core::ffi::c_void , fattribute : i32 , rgbvalue : *mut ::core::ffi::c_void , cbvaluemax : i32 ) -> i16 );
     SQLSetStmtAttrW(hstmt, fattribute, rgbvalue, cbvaluemax)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: u64) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetStmtOption ( statementhandle : *mut ::core::ffi::c_void , option : u16 , value : u64 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetStmtOption ( statementhandle : *mut ::core::ffi::c_void , option : u16 , value : u64 ) -> i16 );
     SQLSetStmtOption(statementhandle, option, value)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: u32) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSetStmtOption ( statementhandle : *mut ::core::ffi::c_void , option : u16 , value : u32 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSetStmtOption ( statementhandle : *mut ::core::ffi::c_void , option : u16 , value : u32 ) -> i16 );
     SQLSetStmtOption(statementhandle, option, value)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSpecialColumns(statementhandle: *mut ::core::ffi::c_void, identifiertype: u16, catalogname: ::core::option::Option<&[u8]>, schemaname: ::core::option::Option<&[u8]>, tablename: ::core::option::Option<&[u8]>, scope: u16, nullable: u16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSpecialColumns ( statementhandle : *mut ::core::ffi::c_void , identifiertype : u16 , catalogname : *const u8 , namelength1 : i16 , schemaname : *const u8 , namelength2 : i16 , tablename : *const u8 , namelength3 : i16 , scope : u16 , nullable : u16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSpecialColumns ( statementhandle : *mut ::core::ffi::c_void , identifiertype : u16 , catalogname : *const u8 , namelength1 : i16 , schemaname : *const u8 , namelength2 : i16 , tablename : *const u8 , namelength3 : i16 , scope : u16 , nullable : u16 ) -> i16 );
     SQLSpecialColumns(
         statementhandle,
         identifiertype,
@@ -1510,7 +1510,7 @@ pub unsafe fn SQLSpecialColumns(statementhandle: *mut ::core::ffi::c_void, ident
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSpecialColumnsA(hstmt: *mut ::core::ffi::c_void, fcoltype: u16, szcatalogname: ::core::option::Option<&[u8]>, szschemaname: ::core::option::Option<&[u8]>, sztablename: ::core::option::Option<&[u8]>, fscope: u16, fnullable: u16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSpecialColumnsA ( hstmt : *mut ::core::ffi::c_void , fcoltype : u16 , szcatalogname : *const u8 , cbcatalogname : i16 , szschemaname : *const u8 , cbschemaname : i16 , sztablename : *const u8 , cbtablename : i16 , fscope : u16 , fnullable : u16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSpecialColumnsA ( hstmt : *mut ::core::ffi::c_void , fcoltype : u16 , szcatalogname : *const u8 , cbcatalogname : i16 , szschemaname : *const u8 , cbschemaname : i16 , sztablename : *const u8 , cbtablename : i16 , fscope : u16 , fnullable : u16 ) -> i16 );
     SQLSpecialColumnsA(
         hstmt,
         fcoltype,
@@ -1527,7 +1527,7 @@ pub unsafe fn SQLSpecialColumnsA(hstmt: *mut ::core::ffi::c_void, fcoltype: u16,
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSpecialColumnsW(hstmt: *mut ::core::ffi::c_void, fcoltype: u16, szcatalogname: ::core::option::Option<&[u16]>, szschemaname: ::core::option::Option<&[u16]>, sztablename: ::core::option::Option<&[u16]>, fscope: u16, fnullable: u16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLSpecialColumnsW ( hstmt : *mut ::core::ffi::c_void , fcoltype : u16 , szcatalogname : *const u16 , cchcatalogname : i16 , szschemaname : *const u16 , cchschemaname : i16 , sztablename : *const u16 , cchtablename : i16 , fscope : u16 , fnullable : u16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLSpecialColumnsW ( hstmt : *mut ::core::ffi::c_void , fcoltype : u16 , szcatalogname : *const u16 , cchcatalogname : i16 , szschemaname : *const u16 , cchschemaname : i16 , sztablename : *const u16 , cchtablename : i16 , fscope : u16 , fnullable : u16 ) -> i16 );
     SQLSpecialColumnsW(
         hstmt,
         fcoltype,
@@ -1544,7 +1544,7 @@ pub unsafe fn SQLSpecialColumnsW(hstmt: *mut ::core::ffi::c_void, fcoltype: u16,
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLStatistics(statementhandle: *mut ::core::ffi::c_void, catalogname: ::core::option::Option<&[u8]>, schemaname: ::core::option::Option<&[u8]>, tablename: ::core::option::Option<&[u8]>, unique: u16, reserved: u16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLStatistics ( statementhandle : *mut ::core::ffi::c_void , catalogname : *const u8 , namelength1 : i16 , schemaname : *const u8 , namelength2 : i16 , tablename : *const u8 , namelength3 : i16 , unique : u16 , reserved : u16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLStatistics ( statementhandle : *mut ::core::ffi::c_void , catalogname : *const u8 , namelength1 : i16 , schemaname : *const u8 , namelength2 : i16 , tablename : *const u8 , namelength3 : i16 , unique : u16 , reserved : u16 ) -> i16 );
     SQLStatistics(
         statementhandle,
         ::core::mem::transmute(catalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -1560,7 +1560,7 @@ pub unsafe fn SQLStatistics(statementhandle: *mut ::core::ffi::c_void, catalogna
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLStatisticsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core::option::Option<&[u8]>, szschemaname: ::core::option::Option<&[u8]>, sztablename: ::core::option::Option<&[u8]>, funique: u16, faccuracy: u16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLStatisticsA ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cbcatalogname : i16 , szschemaname : *const u8 , cbschemaname : i16 , sztablename : *const u8 , cbtablename : i16 , funique : u16 , faccuracy : u16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLStatisticsA ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cbcatalogname : i16 , szschemaname : *const u8 , cbschemaname : i16 , sztablename : *const u8 , cbtablename : i16 , funique : u16 , faccuracy : u16 ) -> i16 );
     SQLStatisticsA(
         hstmt,
         ::core::mem::transmute(szcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -1576,7 +1576,7 @@ pub unsafe fn SQLStatisticsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::c
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLStatisticsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core::option::Option<&[u16]>, szschemaname: ::core::option::Option<&[u16]>, sztablename: ::core::option::Option<&[u16]>, funique: u16, faccuracy: u16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLStatisticsW ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u16 , cchcatalogname : i16 , szschemaname : *const u16 , cchschemaname : i16 , sztablename : *const u16 , cchtablename : i16 , funique : u16 , faccuracy : u16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLStatisticsW ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u16 , cchcatalogname : i16 , szschemaname : *const u16 , cchschemaname : i16 , sztablename : *const u16 , cchtablename : i16 , funique : u16 , faccuracy : u16 ) -> i16 );
     SQLStatisticsW(
         hstmt,
         ::core::mem::transmute(szcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -1592,7 +1592,7 @@ pub unsafe fn SQLStatisticsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::c
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLTablePrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core::option::Option<&[u8]>, szschemaname: ::core::option::Option<&[u8]>, sztablename: ::core::option::Option<&[u8]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLTablePrivileges ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cchcatalogname : i16 , szschemaname : *const u8 , cchschemaname : i16 , sztablename : *const u8 , cchtablename : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLTablePrivileges ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cchcatalogname : i16 , szschemaname : *const u8 , cchschemaname : i16 , sztablename : *const u8 , cchtablename : i16 ) -> i16 );
     SQLTablePrivileges(
         hstmt,
         ::core::mem::transmute(szcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -1606,7 +1606,7 @@ pub unsafe fn SQLTablePrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname:
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLTablePrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core::option::Option<&[u8]>, szschemaname: ::core::option::Option<&[u8]>, sztablename: ::core::option::Option<&[u8]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLTablePrivilegesA ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cbcatalogname : i16 , szschemaname : *const u8 , cbschemaname : i16 , sztablename : *const u8 , cbtablename : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLTablePrivilegesA ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cbcatalogname : i16 , szschemaname : *const u8 , cbschemaname : i16 , sztablename : *const u8 , cbtablename : i16 ) -> i16 );
     SQLTablePrivilegesA(
         hstmt,
         ::core::mem::transmute(szcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -1620,7 +1620,7 @@ pub unsafe fn SQLTablePrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalogname
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLTablePrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core::option::Option<&[u16]>, szschemaname: ::core::option::Option<&[u16]>, sztablename: ::core::option::Option<&[u16]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLTablePrivilegesW ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u16 , cchcatalogname : i16 , szschemaname : *const u16 , cchschemaname : i16 , sztablename : *const u16 , cchtablename : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLTablePrivilegesW ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u16 , cchcatalogname : i16 , szschemaname : *const u16 , cchschemaname : i16 , sztablename : *const u16 , cchtablename : i16 ) -> i16 );
     SQLTablePrivilegesW(
         hstmt,
         ::core::mem::transmute(szcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -1634,7 +1634,7 @@ pub unsafe fn SQLTablePrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalogname
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLTables(statementhandle: *mut ::core::ffi::c_void, catalogname: ::core::option::Option<&[u8]>, schemaname: ::core::option::Option<&[u8]>, tablename: ::core::option::Option<&[u8]>, tabletype: ::core::option::Option<&[u8]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLTables ( statementhandle : *mut ::core::ffi::c_void , catalogname : *const u8 , namelength1 : i16 , schemaname : *const u8 , namelength2 : i16 , tablename : *const u8 , namelength3 : i16 , tabletype : *const u8 , namelength4 : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLTables ( statementhandle : *mut ::core::ffi::c_void , catalogname : *const u8 , namelength1 : i16 , schemaname : *const u8 , namelength2 : i16 , tablename : *const u8 , namelength3 : i16 , tabletype : *const u8 , namelength4 : i16 ) -> i16 );
     SQLTables(
         statementhandle,
         ::core::mem::transmute(catalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -1650,7 +1650,7 @@ pub unsafe fn SQLTables(statementhandle: *mut ::core::ffi::c_void, catalogname: 
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLTablesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core::option::Option<&[u8]>, szschemaname: ::core::option::Option<&[u8]>, sztablename: ::core::option::Option<&[u8]>, sztabletype: ::core::option::Option<&[u8]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLTablesA ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cbcatalogname : i16 , szschemaname : *const u8 , cbschemaname : i16 , sztablename : *const u8 , cbtablename : i16 , sztabletype : *const u8 , cbtabletype : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLTablesA ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u8 , cbcatalogname : i16 , szschemaname : *const u8 , cbschemaname : i16 , sztablename : *const u8 , cbtablename : i16 , sztabletype : *const u8 , cbtabletype : i16 ) -> i16 );
     SQLTablesA(
         hstmt,
         ::core::mem::transmute(szcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -1666,7 +1666,7 @@ pub unsafe fn SQLTablesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core:
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLTablesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core::option::Option<&[u16]>, szschemaname: ::core::option::Option<&[u16]>, sztablename: ::core::option::Option<&[u16]>, sztabletype: ::core::option::Option<&[u16]>) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLTablesW ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u16 , cchcatalogname : i16 , szschemaname : *const u16 , cchschemaname : i16 , sztablename : *const u16 , cchtablename : i16 , sztabletype : *const u16 , cchtabletype : i16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLTablesW ( hstmt : *mut ::core::ffi::c_void , szcatalogname : *const u16 , cchcatalogname : i16 , szschemaname : *const u16 , cchschemaname : i16 , sztablename : *const u16 , cchtablename : i16 , sztabletype : *const u16 , cchtabletype : i16 ) -> i16 );
     SQLTablesW(
         hstmt,
         ::core::mem::transmute(szcatalogname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -1682,67 +1682,67 @@ pub unsafe fn SQLTablesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: ::core:
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLTransact(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut ::core::ffi::c_void, completiontype: u16) -> i16 {
-    ::windows::imp::link ! ( "odbc32.dll""system" fn SQLTransact ( environmenthandle : *mut ::core::ffi::c_void , connectionhandle : *mut ::core::ffi::c_void , completiontype : u16 ) -> i16 );
+    ::windows_targets::link ! ( "odbc32.dll""system" fn SQLTransact ( environmenthandle : *mut ::core::ffi::c_void , connectionhandle : *mut ::core::ffi::c_void , completiontype : u16 ) -> i16 );
     SQLTransact(environmenthandle, connectionhandle, completiontype)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_batch(param0: *mut ::core::ffi::c_void) -> i32 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_batch ( param0 : *mut ::core::ffi::c_void ) -> i32 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn bcp_batch ( param0 : *mut ::core::ffi::c_void ) -> i32 );
     bcp_batch(param0)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_bind(param0: *mut ::core::ffi::c_void, param1: *mut u8, param2: i32, param3: i32, param4: *mut u8, param5: i32, param6: i32, param7: i32) -> i16 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_bind ( param0 : *mut ::core::ffi::c_void , param1 : *mut u8 , param2 : i32 , param3 : i32 , param4 : *mut u8 , param5 : i32 , param6 : i32 , param7 : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn bcp_bind ( param0 : *mut ::core::ffi::c_void , param1 : *mut u8 , param2 : i32 , param3 : i32 , param4 : *mut u8 , param5 : i32 , param6 : i32 , param7 : i32 ) -> i16 );
     bcp_bind(param0, param1, param2, param3, param4, param5, param6, param7)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_colfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: u8, param3: i32, param4: i32, param5: *mut u8, param6: i32, param7: i32) -> i16 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_colfmt ( param0 : *mut ::core::ffi::c_void , param1 : i32 , param2 : u8 , param3 : i32 , param4 : i32 , param5 : *mut u8 , param6 : i32 , param7 : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn bcp_colfmt ( param0 : *mut ::core::ffi::c_void , param1 : i32 , param2 : u8 , param3 : i32 , param4 : i32 , param5 : *mut u8 , param6 : i32 , param7 : i32 ) -> i16 );
     bcp_colfmt(param0, param1, param2, param3, param4, param5, param6, param7)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_collen(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32) -> i16 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_collen ( param0 : *mut ::core::ffi::c_void , param1 : i32 , param2 : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn bcp_collen ( param0 : *mut ::core::ffi::c_void , param1 : i32 , param2 : i32 ) -> i16 );
     bcp_collen(param0, param1, param2)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_colptr(param0: *mut ::core::ffi::c_void, param1: *mut u8, param2: i32) -> i16 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_colptr ( param0 : *mut ::core::ffi::c_void , param1 : *mut u8 , param2 : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn bcp_colptr ( param0 : *mut ::core::ffi::c_void , param1 : *mut u8 , param2 : i32 ) -> i16 );
     bcp_colptr(param0, param1, param2)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_columns(param0: *mut ::core::ffi::c_void, param1: i32) -> i16 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_columns ( param0 : *mut ::core::ffi::c_void , param1 : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn bcp_columns ( param0 : *mut ::core::ffi::c_void , param1 : i32 ) -> i16 );
     bcp_columns(param0, param1)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_control(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_control ( param0 : *mut ::core::ffi::c_void , param1 : i32 , param2 : *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn bcp_control ( param0 : *mut ::core::ffi::c_void , param1 : i32 , param2 : *mut ::core::ffi::c_void ) -> i16 );
     bcp_control(param0, param1, param2)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_done(param0: *mut ::core::ffi::c_void) -> i32 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_done ( param0 : *mut ::core::ffi::c_void ) -> i32 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn bcp_done ( param0 : *mut ::core::ffi::c_void ) -> i32 );
     bcp_done(param0)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_exec(param0: *mut ::core::ffi::c_void, param1: *mut i32) -> i16 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_exec ( param0 : *mut ::core::ffi::c_void , param1 : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn bcp_exec ( param0 : *mut ::core::ffi::c_void , param1 : *mut i32 ) -> i16 );
     bcp_exec(param0, param1)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_getcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32, param3: *mut ::core::ffi::c_void, param4: i32, param5: *mut i32) -> i16 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_getcolfmt ( param0 : *mut ::core::ffi::c_void , param1 : i32 , param2 : i32 , param3 : *mut ::core::ffi::c_void , param4 : i32 , param5 : *mut i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn bcp_getcolfmt ( param0 : *mut ::core::ffi::c_void , param1 : i32 , param2 : i32 , param3 : *mut ::core::ffi::c_void , param4 : i32 , param5 : *mut i32 ) -> i16 );
     bcp_getcolfmt(param0, param1, param2, param3, param4, param5)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -1753,7 +1753,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_initA ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCSTR , param2 : ::windows::core::PCSTR , param3 : ::windows::core::PCSTR , param4 : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn bcp_initA ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCSTR , param2 : ::windows::core::PCSTR , param3 : ::windows::core::PCSTR , param4 : i32 ) -> i16 );
     bcp_initA(param0, param1.into_param().abi(), param2.into_param().abi(), param3.into_param().abi(), param4)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -1764,13 +1764,13 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_initW ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCWSTR , param2 : ::windows::core::PCWSTR , param3 : ::windows::core::PCWSTR , param4 : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn bcp_initW ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCWSTR , param2 : ::windows::core::PCWSTR , param3 : ::windows::core::PCWSTR , param4 : i32 ) -> i16 );
     bcp_initW(param0, param1.into_param().abi(), param2.into_param().abi(), param3.into_param().abi(), param4)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_moretext(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut u8) -> i16 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_moretext ( param0 : *mut ::core::ffi::c_void , param1 : i32 , param2 : *mut u8 ) -> i16 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn bcp_moretext ( param0 : *mut ::core::ffi::c_void , param1 : i32 , param2 : *mut u8 ) -> i16 );
     bcp_moretext(param0, param1, param2)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -1779,7 +1779,7 @@ pub unsafe fn bcp_readfmtA<P0>(param0: *mut ::core::ffi::c_void, param1: P0) -> 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_readfmtA ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCSTR ) -> i16 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn bcp_readfmtA ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCSTR ) -> i16 );
     bcp_readfmtA(param0, param1.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -1788,19 +1788,19 @@ pub unsafe fn bcp_readfmtW<P0>(param0: *mut ::core::ffi::c_void, param1: P0) -> 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_readfmtW ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCWSTR ) -> i16 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn bcp_readfmtW ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCWSTR ) -> i16 );
     bcp_readfmtW(param0, param1.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_sendrow(param0: *mut ::core::ffi::c_void) -> i16 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_sendrow ( param0 : *mut ::core::ffi::c_void ) -> i16 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn bcp_sendrow ( param0 : *mut ::core::ffi::c_void ) -> i16 );
     bcp_sendrow(param0)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_setcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32, param3: *mut ::core::ffi::c_void, param4: i32) -> i16 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_setcolfmt ( param0 : *mut ::core::ffi::c_void , param1 : i32 , param2 : i32 , param3 : *mut ::core::ffi::c_void , param4 : i32 ) -> i16 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn bcp_setcolfmt ( param0 : *mut ::core::ffi::c_void , param1 : i32 , param2 : i32 , param3 : *mut ::core::ffi::c_void , param4 : i32 ) -> i16 );
     bcp_setcolfmt(param0, param1, param2, param3, param4)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -1809,7 +1809,7 @@ pub unsafe fn bcp_writefmtA<P0>(param0: *mut ::core::ffi::c_void, param1: P0) ->
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_writefmtA ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCSTR ) -> i16 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn bcp_writefmtA ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCSTR ) -> i16 );
     bcp_writefmtA(param0, param1.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -1818,19 +1818,19 @@ pub unsafe fn bcp_writefmtW<P0>(param0: *mut ::core::ffi::c_void, param1: P0) ->
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn bcp_writefmtW ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCWSTR ) -> i16 );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn bcp_writefmtW ( param0 : *mut ::core::ffi::c_void , param1 : ::windows::core::PCWSTR ) -> i16 );
     bcp_writefmtW(param0, param1.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn dbprtypeA(param0: i32) -> ::windows::core::PSTR {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn dbprtypeA ( param0 : i32 ) -> ::windows::core::PSTR );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn dbprtypeA ( param0 : i32 ) -> ::windows::core::PSTR );
     dbprtypeA(param0)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn dbprtypeW(param0: i32) -> ::windows::core::PWSTR {
-    ::windows::imp::link ! ( "odbcbcp.dll""system" fn dbprtypeW ( param0 : i32 ) -> ::windows::core::PWSTR );
+    ::windows_targets::link ! ( "odbcbcp.dll""system" fn dbprtypeW ( param0 : i32 ) -> ::windows::core::PWSTR );
     dbprtypeW(param0)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]

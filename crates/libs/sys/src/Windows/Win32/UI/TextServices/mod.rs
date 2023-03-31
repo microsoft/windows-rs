@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "msctfmonitor.dll""system" #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"] fn DoMsCtfMonitor ( dwflags : u32 , heventforservicestop : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "msctfmonitor.dll""system" #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"] fn InitLocalMsCtfMonitor ( dwflags : u32 ) -> ::windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "msctfmonitor.dll""system" #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"] fn UninitLocalMsCtfMonitor ( ) -> ::windows_sys::core::HRESULT );
+::windows_targets::link ! ( "msctfmonitor.dll""system" #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"] fn DoMsCtfMonitor ( dwflags : u32 , heventforservicestop : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+::windows_targets::link ! ( "msctfmonitor.dll""system" #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"] fn InitLocalMsCtfMonitor ( dwflags : u32 ) -> ::windows_sys::core::HRESULT );
+::windows_targets::link ! ( "msctfmonitor.dll""system" #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"] fn UninitLocalMsCtfMonitor ( ) -> ::windows_sys::core::HRESULT );
 pub type IAccClientDocMgr = *mut ::core::ffi::c_void;
 pub type IAccDictionary = *mut ::core::ffi::c_void;
 pub type IAccServerDocMgr = *mut ::core::ffi::c_void;

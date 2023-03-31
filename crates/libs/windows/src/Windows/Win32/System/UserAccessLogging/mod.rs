@@ -2,7 +2,7 @@
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn UalInstrument(data: *const UAL_DATA_BLOB) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ualapi.dll""system" fn UalInstrument ( data : *const UAL_DATA_BLOB ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ualapi.dll""system" fn UalInstrument ( data : *const UAL_DATA_BLOB ) -> ::windows::core::HRESULT );
     UalInstrument(data).ok()
 }
 #[doc = "*Required features: `\"Win32_System_UserAccessLogging\"`*"]
@@ -13,21 +13,21 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ualapi.dll""system" fn UalRegisterProduct ( wszproductname : ::windows::core::PCWSTR , wszrolename : ::windows::core::PCWSTR , wszguid : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ualapi.dll""system" fn UalRegisterProduct ( wszproductname : ::windows::core::PCWSTR , wszrolename : ::windows::core::PCWSTR , wszguid : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     UalRegisterProduct(wszproductname.into_param().abi(), wszrolename.into_param().abi(), wszguid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_UserAccessLogging\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn UalStart(data: *const UAL_DATA_BLOB) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ualapi.dll""system" fn UalStart ( data : *const UAL_DATA_BLOB ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ualapi.dll""system" fn UalStart ( data : *const UAL_DATA_BLOB ) -> ::windows::core::HRESULT );
     UalStart(data).ok()
 }
 #[doc = "*Required features: `\"Win32_System_UserAccessLogging\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn UalStop(data: *const UAL_DATA_BLOB) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ualapi.dll""system" fn UalStop ( data : *const UAL_DATA_BLOB ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ualapi.dll""system" fn UalStop ( data : *const UAL_DATA_BLOB ) -> ::windows::core::HRESULT );
     UalStop(data).ok()
 }
 #[repr(C)]

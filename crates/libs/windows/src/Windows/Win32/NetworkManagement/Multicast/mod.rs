@@ -1,13 +1,13 @@
 #[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 #[inline]
 pub unsafe fn McastApiCleanup() {
-    ::windows::imp::link ! ( "dhcpcsvc.dll""system" fn McastApiCleanup ( ) -> ( ) );
+    ::windows_targets::link ! ( "dhcpcsvc.dll""system" fn McastApiCleanup ( ) -> ( ) );
     McastApiCleanup()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 #[inline]
 pub unsafe fn McastApiStartup(version: *mut u32) -> u32 {
-    ::windows::imp::link ! ( "dhcpcsvc.dll""system" fn McastApiStartup ( version : *mut u32 ) -> u32 );
+    ::windows_targets::link ! ( "dhcpcsvc.dll""system" fn McastApiStartup ( version : *mut u32 ) -> u32 );
     McastApiStartup(version)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`, `\"Win32_Foundation\"`*"]
@@ -17,31 +17,31 @@ pub unsafe fn McastEnumerateScopes<P0>(addrfamily: u16, requery: P0, pscopelist:
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "dhcpcsvc.dll""system" fn McastEnumerateScopes ( addrfamily : u16 , requery : super::super::Foundation:: BOOL , pscopelist : *mut MCAST_SCOPE_ENTRY , pscopelen : *mut u32 , pscopecount : *mut u32 ) -> u32 );
+    ::windows_targets::link ! ( "dhcpcsvc.dll""system" fn McastEnumerateScopes ( addrfamily : u16 , requery : super::super::Foundation:: BOOL , pscopelist : *mut MCAST_SCOPE_ENTRY , pscopelen : *mut u32 , pscopecount : *mut u32 ) -> u32 );
     McastEnumerateScopes(addrfamily, requery.into_param().abi(), pscopelist, pscopelen, pscopecount)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 #[inline]
 pub unsafe fn McastGenUID(prequestid: *mut MCAST_CLIENT_UID) -> u32 {
-    ::windows::imp::link ! ( "dhcpcsvc.dll""system" fn McastGenUID ( prequestid : *mut MCAST_CLIENT_UID ) -> u32 );
+    ::windows_targets::link ! ( "dhcpcsvc.dll""system" fn McastGenUID ( prequestid : *mut MCAST_CLIENT_UID ) -> u32 );
     McastGenUID(prequestid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 #[inline]
 pub unsafe fn McastReleaseAddress(addrfamily: u16, prequestid: *mut MCAST_CLIENT_UID, preleaserequest: *mut MCAST_LEASE_REQUEST) -> u32 {
-    ::windows::imp::link ! ( "dhcpcsvc.dll""system" fn McastReleaseAddress ( addrfamily : u16 , prequestid : *mut MCAST_CLIENT_UID , preleaserequest : *mut MCAST_LEASE_REQUEST ) -> u32 );
+    ::windows_targets::link ! ( "dhcpcsvc.dll""system" fn McastReleaseAddress ( addrfamily : u16 , prequestid : *mut MCAST_CLIENT_UID , preleaserequest : *mut MCAST_LEASE_REQUEST ) -> u32 );
     McastReleaseAddress(addrfamily, prequestid, preleaserequest)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 #[inline]
 pub unsafe fn McastRenewAddress(addrfamily: u16, prequestid: *mut MCAST_CLIENT_UID, prenewrequest: *mut MCAST_LEASE_REQUEST, prenewresponse: *mut MCAST_LEASE_RESPONSE) -> u32 {
-    ::windows::imp::link ! ( "dhcpcsvc.dll""system" fn McastRenewAddress ( addrfamily : u16 , prequestid : *mut MCAST_CLIENT_UID , prenewrequest : *mut MCAST_LEASE_REQUEST , prenewresponse : *mut MCAST_LEASE_RESPONSE ) -> u32 );
+    ::windows_targets::link ! ( "dhcpcsvc.dll""system" fn McastRenewAddress ( addrfamily : u16 , prequestid : *mut MCAST_CLIENT_UID , prenewrequest : *mut MCAST_LEASE_REQUEST , prenewresponse : *mut MCAST_LEASE_RESPONSE ) -> u32 );
     McastRenewAddress(addrfamily, prequestid, prenewrequest, prenewresponse)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 #[inline]
 pub unsafe fn McastRequestAddress(addrfamily: u16, prequestid: *mut MCAST_CLIENT_UID, pscopectx: *mut MCAST_SCOPE_CTX, paddrrequest: *mut MCAST_LEASE_REQUEST, paddrresponse: *mut MCAST_LEASE_RESPONSE) -> u32 {
-    ::windows::imp::link ! ( "dhcpcsvc.dll""system" fn McastRequestAddress ( addrfamily : u16 , prequestid : *mut MCAST_CLIENT_UID , pscopectx : *mut MCAST_SCOPE_CTX , paddrrequest : *mut MCAST_LEASE_REQUEST , paddrresponse : *mut MCAST_LEASE_RESPONSE ) -> u32 );
+    ::windows_targets::link ! ( "dhcpcsvc.dll""system" fn McastRequestAddress ( addrfamily : u16 , prequestid : *mut MCAST_CLIENT_UID , pscopectx : *mut MCAST_SCOPE_CTX , paddrrequest : *mut MCAST_LEASE_REQUEST , paddrresponse : *mut MCAST_LEASE_RESPONSE ) -> u32 );
     McastRequestAddress(addrfamily, prequestid, pscopectx, paddrrequest, paddrresponse)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]

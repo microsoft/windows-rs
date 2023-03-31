@@ -5,7 +5,7 @@ pub unsafe fn AddStroke<P0>(hrc: P0, ppacketdesc: *const PACKET_DESCRIPTION, cbp
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn AddStroke ( hrc : HRECOCONTEXT , ppacketdesc : *const PACKET_DESCRIPTION , cbpacket : u32 , ppacket : *const u8 , pxform : *const super::super::Graphics::Gdi:: XFORM ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn AddStroke ( hrc : HRECOCONTEXT , ppacketdesc : *const PACKET_DESCRIPTION , cbpacket : u32 , ppacket : *const u8 , pxform : *const super::super::Graphics::Gdi:: XFORM ) -> ::windows::core::HRESULT );
     AddStroke(hrc.into_param().abi(), ppacketdesc, cbpacket, ppacket, pxform).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -15,7 +15,7 @@ where
     P0: ::windows::core::IntoParam<HRECOWORDLIST>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn AddWordsToWordList ( hwl : HRECOWORDLIST , pwcwords : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn AddWordsToWordList ( hwl : HRECOWORDLIST , pwcwords : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     AddWordsToWordList(hwl.into_param().abi(), pwcwords.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
@@ -26,7 +26,7 @@ where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn AdviseInkChange ( hrc : HRECOCONTEXT , bnewstroke : super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn AdviseInkChange ( hrc : HRECOCONTEXT , bnewstroke : super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     AdviseInkChange(hrc.into_param().abi(), bnewstroke.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -35,13 +35,13 @@ pub unsafe fn CreateContext<P0>(hrec: P0, phrc: *mut HRECOCONTEXT) -> ::windows:
 where
     P0: ::windows::core::IntoParam<HRECOGNIZER>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn CreateContext ( hrec : HRECOGNIZER , phrc : *mut HRECOCONTEXT ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn CreateContext ( hrec : HRECOGNIZER , phrc : *mut HRECOCONTEXT ) -> ::windows::core::HRESULT );
     CreateContext(hrec.into_param().abi(), phrc).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn CreateRecognizer(pclsid: *mut ::windows::core::GUID, phrec: *mut HRECOGNIZER) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn CreateRecognizer ( pclsid : *mut ::windows::core::GUID , phrec : *mut HRECOGNIZER ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn CreateRecognizer ( pclsid : *mut ::windows::core::GUID , phrec : *mut HRECOGNIZER ) -> ::windows::core::HRESULT );
     CreateRecognizer(pclsid, phrec).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -50,7 +50,7 @@ pub unsafe fn DestroyContext<P0>(hrc: P0) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn DestroyContext ( hrc : HRECOCONTEXT ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn DestroyContext ( hrc : HRECOCONTEXT ) -> ::windows::core::HRESULT );
     DestroyContext(hrc.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -59,7 +59,7 @@ pub unsafe fn DestroyRecognizer<P0>(hrec: P0) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<HRECOGNIZER>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn DestroyRecognizer ( hrec : HRECOGNIZER ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn DestroyRecognizer ( hrec : HRECOGNIZER ) -> ::windows::core::HRESULT );
     DestroyRecognizer(hrec.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -68,7 +68,7 @@ pub unsafe fn DestroyWordList<P0>(hwl: P0) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<HRECOWORDLIST>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn DestroyWordList ( hwl : HRECOWORDLIST ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn DestroyWordList ( hwl : HRECOWORDLIST ) -> ::windows::core::HRESULT );
     DestroyWordList(hwl.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -77,13 +77,13 @@ pub unsafe fn EndInkInput<P0>(hrc: P0) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn EndInkInput ( hrc : HRECOCONTEXT ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn EndInkInput ( hrc : HRECOCONTEXT ) -> ::windows::core::HRESULT );
     EndInkInput(hrc.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn GetAllRecognizers(recognizerclsids: *mut *mut ::windows::core::GUID, count: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetAllRecognizers ( recognizerclsids : *mut *mut ::windows::core::GUID , count : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn GetAllRecognizers ( recognizerclsids : *mut *mut ::windows::core::GUID , count : *mut u32 ) -> ::windows::core::HRESULT );
     GetAllRecognizers(recognizerclsids, count).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -92,7 +92,7 @@ pub unsafe fn GetBestResultString<P0>(hrc: P0, pcsize: *mut u32, pwcbestresult: 
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetBestResultString ( hrc : HRECOCONTEXT , pcsize : *mut u32 , pwcbestresult : ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn GetBestResultString ( hrc : HRECOCONTEXT , pcsize : *mut u32 , pwcbestresult : ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     GetBestResultString(hrc.into_param().abi(), pcsize, ::core::mem::transmute(pwcbestresult)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -101,7 +101,7 @@ pub unsafe fn GetLatticePtr<P0>(hrc: P0, pplattice: *mut *mut RECO_LATTICE) -> :
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetLatticePtr ( hrc : HRECOCONTEXT , pplattice : *mut *mut RECO_LATTICE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn GetLatticePtr ( hrc : HRECOCONTEXT , pplattice : *mut *mut RECO_LATTICE ) -> ::windows::core::HRESULT );
     GetLatticePtr(hrc.into_param().abi(), pplattice).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -110,7 +110,7 @@ pub unsafe fn GetLeftSeparator<P0>(hrc: P0, pcsize: *mut u32, pwcleftseparator: 
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetLeftSeparator ( hrc : HRECOCONTEXT , pcsize : *mut u32 , pwcleftseparator : ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn GetLeftSeparator ( hrc : HRECOCONTEXT , pcsize : *mut u32 , pwcleftseparator : ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     GetLeftSeparator(hrc.into_param().abi(), pcsize, ::core::mem::transmute(pwcleftseparator)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -119,7 +119,7 @@ pub unsafe fn GetRecoAttributes<P0>(hrec: P0, precoattrs: *mut RECO_ATTRS) -> ::
 where
     P0: ::windows::core::IntoParam<HRECOGNIZER>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetRecoAttributes ( hrec : HRECOGNIZER , precoattrs : *mut RECO_ATTRS ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn GetRecoAttributes ( hrec : HRECOGNIZER , precoattrs : *mut RECO_ATTRS ) -> ::windows::core::HRESULT );
     GetRecoAttributes(hrec.into_param().abi(), precoattrs).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -128,7 +128,7 @@ pub unsafe fn GetResultPropertyList<P0>(hrec: P0, ppropertycount: *mut u32, ppro
 where
     P0: ::windows::core::IntoParam<HRECOGNIZER>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetResultPropertyList ( hrec : HRECOGNIZER , ppropertycount : *mut u32 , ppropertyguid : *mut ::windows::core::GUID ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn GetResultPropertyList ( hrec : HRECOGNIZER , ppropertycount : *mut u32 , ppropertyguid : *mut ::windows::core::GUID ) -> ::windows::core::HRESULT );
     GetResultPropertyList(hrec.into_param().abi(), ppropertycount, ppropertyguid).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -137,7 +137,7 @@ pub unsafe fn GetRightSeparator<P0>(hrc: P0, pcsize: *mut u32, pwcrightseparator
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetRightSeparator ( hrc : HRECOCONTEXT , pcsize : *mut u32 , pwcrightseparator : ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn GetRightSeparator ( hrc : HRECOCONTEXT , pcsize : *mut u32 , pwcrightseparator : ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     GetRightSeparator(hrc.into_param().abi(), pcsize, ::core::mem::transmute(pwcrightseparator)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -146,7 +146,7 @@ pub unsafe fn GetUnicodeRanges<P0>(hrec: P0, pcranges: *mut u32, pcr: *mut CHARA
 where
     P0: ::windows::core::IntoParam<HRECOGNIZER>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetUnicodeRanges ( hrec : HRECOGNIZER , pcranges : *mut u32 , pcr : *mut CHARACTER_RANGE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn GetUnicodeRanges ( hrec : HRECOGNIZER , pcranges : *mut u32 , pcr : *mut CHARACTER_RANGE ) -> ::windows::core::HRESULT );
     GetUnicodeRanges(hrec.into_param().abi(), pcranges, pcr).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -156,13 +156,13 @@ where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn IsStringSupported ( hrc : HRECOCONTEXT , wcstring : u32 , pwcstring : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn IsStringSupported ( hrc : HRECOCONTEXT , wcstring : u32 , pwcstring : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     IsStringSupported(hrc.into_param().abi(), wcstring, pwcstring.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn LoadCachedAttributes(clsid: ::windows::core::GUID, precoattributes: *mut RECO_ATTRS) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn LoadCachedAttributes ( clsid : ::windows::core::GUID , precoattributes : *mut RECO_ATTRS ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn LoadCachedAttributes ( clsid : ::windows::core::GUID , precoattributes : *mut RECO_ATTRS ) -> ::windows::core::HRESULT );
     LoadCachedAttributes(::core::mem::transmute(clsid), precoattributes).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -172,7 +172,7 @@ where
     P0: ::windows::core::IntoParam<HRECOGNIZER>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn MakeWordList ( hrec : HRECOGNIZER , pbuffer : ::windows::core::PCWSTR , phwl : *mut HRECOWORDLIST ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn MakeWordList ( hrec : HRECOGNIZER , pbuffer : ::windows::core::PCWSTR , phwl : *mut HRECOWORDLIST ) -> ::windows::core::HRESULT );
     MakeWordList(hrec.into_param().abi(), pbuffer.into_param().abi(), phwl).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
@@ -182,7 +182,7 @@ pub unsafe fn Process<P0>(hrc: P0, pbpartialprocessing: *mut super::super::Found
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn Process ( hrc : HRECOCONTEXT , pbpartialprocessing : *mut super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn Process ( hrc : HRECOCONTEXT , pbpartialprocessing : *mut super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     Process(hrc.into_param().abi(), pbpartialprocessing).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -191,7 +191,7 @@ pub unsafe fn SetEnabledUnicodeRanges<P0>(hrc: P0, cranges: u32, pcr: *mut CHARA
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetEnabledUnicodeRanges ( hrc : HRECOCONTEXT , cranges : u32 , pcr : *mut CHARACTER_RANGE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn SetEnabledUnicodeRanges ( hrc : HRECOCONTEXT , cranges : u32 , pcr : *mut CHARACTER_RANGE ) -> ::windows::core::HRESULT );
     SetEnabledUnicodeRanges(hrc.into_param().abi(), cranges, pcr).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -201,7 +201,7 @@ where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetFactoid ( hrc : HRECOCONTEXT , cwcfactoid : u32 , pwcfactoid : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn SetFactoid ( hrc : HRECOCONTEXT , cwcfactoid : u32 , pwcfactoid : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     SetFactoid(hrc.into_param().abi(), cwcfactoid, pwcfactoid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -210,7 +210,7 @@ pub unsafe fn SetFlags<P0>(hrc: P0, dwflags: u32) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetFlags ( hrc : HRECOCONTEXT , dwflags : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn SetFlags ( hrc : HRECOCONTEXT , dwflags : u32 ) -> ::windows::core::HRESULT );
     SetFlags(hrc.into_param().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -219,7 +219,7 @@ pub unsafe fn SetGuide<P0>(hrc: P0, pguide: *const RECO_GUIDE, iindex: u32) -> :
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetGuide ( hrc : HRECOCONTEXT , pguide : *const RECO_GUIDE , iindex : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn SetGuide ( hrc : HRECOCONTEXT , pguide : *const RECO_GUIDE , iindex : u32 ) -> ::windows::core::HRESULT );
     SetGuide(hrc.into_param().abi(), pguide, iindex).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -228,7 +228,7 @@ pub unsafe fn SetTextContext<P0>(hrc: P0, pwcbefore: &[u16], pwcafter: &[u16]) -
 where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetTextContext ( hrc : HRECOCONTEXT , cwcbefore : u32 , pwcbefore : ::windows::core::PCWSTR , cwcafter : u32 , pwcafter : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn SetTextContext ( hrc : HRECOCONTEXT , cwcbefore : u32 , pwcbefore : ::windows::core::PCWSTR , cwcafter : u32 , pwcafter : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     SetTextContext(hrc.into_param().abi(), pwcbefore.len() as _, ::core::mem::transmute(pwcbefore.as_ptr()), pwcafter.len() as _, ::core::mem::transmute(pwcafter.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -238,7 +238,7 @@ where
     P0: ::windows::core::IntoParam<HRECOCONTEXT>,
     P1: ::windows::core::IntoParam<HRECOWORDLIST>,
 {
-    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetWordList ( hrc : HRECOCONTEXT , hwl : HRECOWORDLIST ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "inkobjcore.dll""system" fn SetWordList ( hrc : HRECOCONTEXT , hwl : HRECOWORDLIST ) -> ::windows::core::HRESULT );
     SetWordList(hrc.into_param().abi(), hwl.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]

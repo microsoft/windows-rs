@@ -70,7 +70,9 @@ fn main() {
     archive.flush().unwrap();
     drop(archive);
 
-    std::fs::rename(output.join("windows.lib"), format!("crates/targets/{platform}/lib/windows.lib")).unwrap();
+    std::fs::remove_dir_all(format!("crates/targets/{platform}/lib")).unwrap();
+    std::fs::create_dir_all(format!("crates/targets/{platform}/lib")).unwrap();
+    std::fs::rename(output.join("windows.lib"), format!("crates/targets/{platform}/lib/windows.{}.lib", std::env!("CARGO_PKG_VERSION"))).unwrap();
 }
 
 fn build_library(output: &std::path::Path, library: &str, functions: &BTreeMap<String, lib::CallingConvention>) {

@@ -1,14 +1,14 @@
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[inline]
 pub unsafe fn MetaDataGetDispenser(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "rometadata.dll""system" fn MetaDataGetDispenser ( rclsid : *const ::windows::core::GUID , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "rometadata.dll""system" fn MetaDataGetDispenser ( rclsid : *const ::windows::core::GUID , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     MetaDataGetDispenser(rclsid, riid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[inline]
 pub unsafe fn RoCreateNonAgilePropertySet() -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IPropertySet> {
-    ::windows::imp::link ! ( "api-ms-win-ro-typeresolution-l1-1-1.dll""system" fn RoCreateNonAgilePropertySet ( pppropertyset : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "api-ms-win-ro-typeresolution-l1-1-1.dll""system" fn RoCreateNonAgilePropertySet ( pppropertyset : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::super::super::Foundation::Collections::IPropertySet>();
     RoCreateNonAgilePropertySet(&mut result__).from_abi(result__)
 }
@@ -16,7 +16,7 @@ pub unsafe fn RoCreateNonAgilePropertySet() -> ::windows::core::Result<super::su
 #[cfg(feature = "Storage_Streams")]
 #[inline]
 pub unsafe fn RoCreatePropertySetSerializer() -> ::windows::core::Result<super::super::super::super::Storage::Streams::IPropertySetSerializer> {
-    ::windows::imp::link ! ( "api-ms-win-ro-typeresolution-l1-1-1.dll""system" fn RoCreatePropertySetSerializer ( pppropertysetserializer : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "api-ms-win-ro-typeresolution-l1-1-1.dll""system" fn RoCreatePropertySetSerializer ( pppropertysetserializer : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::super::super::Storage::Streams::IPropertySetSerializer>();
     RoCreatePropertySetSerializer(&mut result__).from_abi(result__)
 }
@@ -26,7 +26,7 @@ pub unsafe fn RoFreeParameterizedTypeExtra<P0>(extra: P0)
 where
     P0: ::windows::core::IntoParam<super::ROPARAMIIDHANDLE>,
 {
-    ::windows::imp::link ! ( "api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll""system" fn RoFreeParameterizedTypeExtra ( extra : super:: ROPARAMIIDHANDLE ) -> ( ) );
+    ::windows_targets::link ! ( "api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll""system" fn RoFreeParameterizedTypeExtra ( extra : super:: ROPARAMIIDHANDLE ) -> ( ) );
     RoFreeParameterizedTypeExtra(extra.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
@@ -35,7 +35,7 @@ pub unsafe fn RoGetMetaDataFile<P0>(name: &::windows::core::HSTRING, metadatadis
 where
     P0: ::windows::core::IntoParam<IMetaDataDispenserEx>,
 {
-    ::windows::imp::link ! ( "api-ms-win-ro-typeresolution-l1-1-0.dll""system" fn RoGetMetaDataFile ( name : ::std::mem::MaybeUninit <::windows::core::HSTRING > , metadatadispenser : * mut::core::ffi::c_void , metadatafilepath : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > , metadataimport : *mut * mut::core::ffi::c_void , typedeftoken : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "api-ms-win-ro-typeresolution-l1-1-0.dll""system" fn RoGetMetaDataFile ( name : ::std::mem::MaybeUninit <::windows::core::HSTRING > , metadatadispenser : * mut::core::ffi::c_void , metadatafilepath : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > , metadataimport : *mut * mut::core::ffi::c_void , typedeftoken : *mut u32 ) -> ::windows::core::HRESULT );
     RoGetMetaDataFile(::core::mem::transmute_copy(name), metadatadispenser.into_param().abi(), ::core::mem::transmute(metadatafilepath.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(metadataimport.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(typedeftoken.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
@@ -44,7 +44,7 @@ pub unsafe fn RoGetParameterizedTypeInstanceIID<P0>(nameelements: &[::windows::c
 where
     P0: ::windows::core::IntoParam<IRoMetaDataLocator>,
 {
-    ::windows::imp::link ! ( "api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll""system" fn RoGetParameterizedTypeInstanceIID ( nameelementcount : u32 , nameelements : *const ::windows::core::PCWSTR , metadatalocator : * mut::core::ffi::c_void , iid : *mut ::windows::core::GUID , pextra : *mut super:: ROPARAMIIDHANDLE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll""system" fn RoGetParameterizedTypeInstanceIID ( nameelementcount : u32 , nameelements : *const ::windows::core::PCWSTR , metadatalocator : * mut::core::ffi::c_void , iid : *mut ::windows::core::GUID , pextra : *mut super:: ROPARAMIIDHANDLE ) -> ::windows::core::HRESULT );
     RoGetParameterizedTypeInstanceIID(nameelements.len() as _, ::core::mem::transmute(nameelements.as_ptr()), metadatalocator.into_param().abi(), iid, ::core::mem::transmute(pextra.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"Win32_Foundation\"`*"]
@@ -54,7 +54,7 @@ pub unsafe fn RoIsApiContractMajorVersionPresent<P0>(name: P0, majorversion: u16
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "api-ms-win-ro-typeresolution-l1-1-1.dll""system" fn RoIsApiContractMajorVersionPresent ( name : ::windows::core::PCWSTR , majorversion : u16 , present : *mut super::super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "api-ms-win-ro-typeresolution-l1-1-1.dll""system" fn RoIsApiContractMajorVersionPresent ( name : ::windows::core::PCWSTR , majorversion : u16 , present : *mut super::super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
     RoIsApiContractMajorVersionPresent(name.into_param().abi(), majorversion, &mut result__).from_abi(result__)
 }
@@ -65,7 +65,7 @@ pub unsafe fn RoIsApiContractPresent<P0>(name: P0, majorversion: u16, minorversi
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "api-ms-win-ro-typeresolution-l1-1-1.dll""system" fn RoIsApiContractPresent ( name : ::windows::core::PCWSTR , majorversion : u16 , minorversion : u16 , present : *mut super::super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "api-ms-win-ro-typeresolution-l1-1-1.dll""system" fn RoIsApiContractPresent ( name : ::windows::core::PCWSTR , majorversion : u16 , minorversion : u16 , present : *mut super::super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
     RoIsApiContractPresent(name.into_param().abi(), majorversion, minorversion, &mut result__).from_abi(result__)
 }
@@ -75,19 +75,19 @@ pub unsafe fn RoParameterizedTypeExtraGetTypeSignature<P0>(extra: P0) -> ::windo
 where
     P0: ::windows::core::IntoParam<super::ROPARAMIIDHANDLE>,
 {
-    ::windows::imp::link ! ( "api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll""system" fn RoParameterizedTypeExtraGetTypeSignature ( extra : super:: ROPARAMIIDHANDLE ) -> ::windows::core::PCSTR );
+    ::windows_targets::link ! ( "api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll""system" fn RoParameterizedTypeExtraGetTypeSignature ( extra : super:: ROPARAMIIDHANDLE ) -> ::windows::core::PCSTR );
     RoParameterizedTypeExtraGetTypeSignature(extra.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[inline]
 pub unsafe fn RoParseTypeName(typename: &::windows::core::HSTRING, partscount: *mut u32, typenameparts: *mut *mut ::windows::core::HSTRING) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "api-ms-win-ro-typeresolution-l1-1-0.dll""system" fn RoParseTypeName ( typename : ::std::mem::MaybeUninit <::windows::core::HSTRING > , partscount : *mut u32 , typenameparts : *mut *mut ::windows::core::HSTRING ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "api-ms-win-ro-typeresolution-l1-1-0.dll""system" fn RoParseTypeName ( typename : ::std::mem::MaybeUninit <::windows::core::HSTRING > , partscount : *mut u32 , typenameparts : *mut *mut ::windows::core::HSTRING ) -> ::windows::core::HRESULT );
     RoParseTypeName(::core::mem::transmute_copy(typename), partscount, typenameparts).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[inline]
 pub unsafe fn RoResolveNamespace(name: &::windows::core::HSTRING, windowsmetadatadir: &::windows::core::HSTRING, packagegraphdirs: ::core::option::Option<&[::windows::core::HSTRING]>, metadatafilepathscount: ::core::option::Option<*mut u32>, metadatafilepaths: ::core::option::Option<*mut *mut ::windows::core::HSTRING>, subnamespacescount: ::core::option::Option<*mut u32>, subnamespaces: ::core::option::Option<*mut *mut ::windows::core::HSTRING>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "api-ms-win-ro-typeresolution-l1-1-0.dll""system" fn RoResolveNamespace ( name : ::std::mem::MaybeUninit <::windows::core::HSTRING > , windowsmetadatadir : ::std::mem::MaybeUninit <::windows::core::HSTRING > , packagegraphdirscount : u32 , packagegraphdirs : *const ::std::mem::MaybeUninit <::windows::core::HSTRING > , metadatafilepathscount : *mut u32 , metadatafilepaths : *mut *mut ::windows::core::HSTRING , subnamespacescount : *mut u32 , subnamespaces : *mut *mut ::windows::core::HSTRING ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "api-ms-win-ro-typeresolution-l1-1-0.dll""system" fn RoResolveNamespace ( name : ::std::mem::MaybeUninit <::windows::core::HSTRING > , windowsmetadatadir : ::std::mem::MaybeUninit <::windows::core::HSTRING > , packagegraphdirscount : u32 , packagegraphdirs : *const ::std::mem::MaybeUninit <::windows::core::HSTRING > , metadatafilepathscount : *mut u32 , metadatafilepaths : *mut *mut ::windows::core::HSTRING , subnamespacescount : *mut u32 , subnamespaces : *mut *mut ::windows::core::HSTRING ) -> ::windows::core::HRESULT );
     RoResolveNamespace(
         ::core::mem::transmute_copy(name),
         ::core::mem::transmute_copy(windowsmetadatadir),

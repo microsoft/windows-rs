@@ -6,43 +6,43 @@ where
     P0: ::windows::core::IntoParam<SOCKET>,
     P1: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "mswsock.dll""system" fn AcceptEx ( slistensocket : SOCKET , sacceptsocket : SOCKET , lpoutputbuffer : *mut ::core::ffi::c_void , dwreceivedatalength : u32 , dwlocaladdresslength : u32 , dwremoteaddresslength : u32 , lpdwbytesreceived : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "mswsock.dll""system" fn AcceptEx ( slistensocket : SOCKET , sacceptsocket : SOCKET , lpoutputbuffer : *mut ::core::ffi::c_void , dwreceivedatalength : u32 , dwlocaladdresslength : u32 , dwremoteaddresslength : u32 , lpdwbytesreceived : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     AcceptEx(slistensocket.into_param().abi(), sacceptsocket.into_param().abi(), lpoutputbuffer, dwreceivedatalength, dwlocaladdresslength, dwremoteaddresslength, lpdwbytesreceived, lpoverlapped)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn EnumProtocolsA(lpiprotocols: ::core::option::Option<*const i32>, lpprotocolbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32) -> i32 {
-    ::windows::imp::link ! ( "mswsock.dll""system" fn EnumProtocolsA ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut ::core::ffi::c_void , lpdwbufferlength : *mut u32 ) -> i32 );
+    ::windows_targets::link ! ( "mswsock.dll""system" fn EnumProtocolsA ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut ::core::ffi::c_void , lpdwbufferlength : *mut u32 ) -> i32 );
     EnumProtocolsA(::core::mem::transmute(lpiprotocols.unwrap_or(::std::ptr::null())), lpprotocolbuffer, lpdwbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn EnumProtocolsW(lpiprotocols: ::core::option::Option<*const i32>, lpprotocolbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32) -> i32 {
-    ::windows::imp::link ! ( "mswsock.dll""system" fn EnumProtocolsW ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut ::core::ffi::c_void , lpdwbufferlength : *mut u32 ) -> i32 );
+    ::windows_targets::link ! ( "mswsock.dll""system" fn EnumProtocolsW ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut ::core::ffi::c_void , lpdwbufferlength : *mut u32 ) -> i32 );
     EnumProtocolsW(::core::mem::transmute(lpiprotocols.unwrap_or(::std::ptr::null())), lpprotocolbuffer, lpdwbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn FreeAddrInfoEx(paddrinfoex: ::core::option::Option<*const ADDRINFOEXA>) {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn FreeAddrInfoEx ( paddrinfoex : *const ADDRINFOEXA ) -> ( ) );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn FreeAddrInfoEx ( paddrinfoex : *const ADDRINFOEXA ) -> ( ) );
     FreeAddrInfoEx(::core::mem::transmute(paddrinfoex.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn FreeAddrInfoExW(paddrinfoex: ::core::option::Option<*const ADDRINFOEXW>) {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn FreeAddrInfoExW ( paddrinfoex : *const ADDRINFOEXW ) -> ( ) );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn FreeAddrInfoExW ( paddrinfoex : *const ADDRINFOEXW ) -> ( ) );
     FreeAddrInfoExW(::core::mem::transmute(paddrinfoex.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn FreeAddrInfoW(paddrinfo: ::core::option::Option<*const ADDRINFOW>) {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn FreeAddrInfoW ( paddrinfo : *const ADDRINFOW ) -> ( ) );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn FreeAddrInfoW ( paddrinfo : *const ADDRINFOW ) -> ( ) );
     FreeAddrInfoW(::core::mem::transmute(paddrinfo.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn GetAcceptExSockaddrs(lpoutputbuffer: *const ::core::ffi::c_void, dwreceivedatalength: u32, dwlocaladdresslength: u32, dwremoteaddresslength: u32, localsockaddr: *mut *mut SOCKADDR, localsockaddrlength: *mut i32, remotesockaddr: *mut *mut SOCKADDR, remotesockaddrlength: *mut i32) {
-    ::windows::imp::link ! ( "mswsock.dll""system" fn GetAcceptExSockaddrs ( lpoutputbuffer : *const ::core::ffi::c_void , dwreceivedatalength : u32 , dwlocaladdresslength : u32 , dwremoteaddresslength : u32 , localsockaddr : *mut *mut SOCKADDR , localsockaddrlength : *mut i32 , remotesockaddr : *mut *mut SOCKADDR , remotesockaddrlength : *mut i32 ) -> ( ) );
+    ::windows_targets::link ! ( "mswsock.dll""system" fn GetAcceptExSockaddrs ( lpoutputbuffer : *const ::core::ffi::c_void , dwreceivedatalength : u32 , dwlocaladdresslength : u32 , dwremoteaddresslength : u32 , localsockaddr : *mut *mut SOCKADDR , localsockaddrlength : *mut i32 , remotesockaddr : *mut *mut SOCKADDR , remotesockaddrlength : *mut i32 ) -> ( ) );
     GetAcceptExSockaddrs(lpoutputbuffer, dwreceivedatalength, dwlocaladdresslength, dwremoteaddresslength, localsockaddr, localsockaddrlength, remotesockaddr, remotesockaddrlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -53,21 +53,21 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn GetAddrInfoExA ( pname : ::windows::core::PCSTR , pservicename : ::windows::core::PCSTR , dwnamespace : u32 , lpnspid : *const ::windows::core::GUID , hints : *const ADDRINFOEXA , ppresult : *mut *mut ADDRINFOEXA , timeout : *const TIMEVAL , lpoverlapped : *const super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE , lpnamehandle : *mut super::super::Foundation:: HANDLE ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn GetAddrInfoExA ( pname : ::windows::core::PCSTR , pservicename : ::windows::core::PCSTR , dwnamespace : u32 , lpnspid : *const ::windows::core::GUID , hints : *const ADDRINFOEXA , ppresult : *mut *mut ADDRINFOEXA , timeout : *const TIMEVAL , lpoverlapped : *const super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE , lpnamehandle : *mut super::super::Foundation:: HANDLE ) -> i32 );
     GetAddrInfoExA(pname.into_param().abi(), pservicename.into_param().abi(), dwnamespace, ::core::mem::transmute(lpnspid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(hints.unwrap_or(::std::ptr::null())), ppresult, ::core::mem::transmute(timeout.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null())), lpcompletionroutine, ::core::mem::transmute(lpnamehandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAddrInfoExCancel(lphandle: *const super::super::Foundation::HANDLE) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn GetAddrInfoExCancel ( lphandle : *const super::super::Foundation:: HANDLE ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn GetAddrInfoExCancel ( lphandle : *const super::super::Foundation:: HANDLE ) -> i32 );
     GetAddrInfoExCancel(lphandle)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn GetAddrInfoExOverlappedResult(lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn GetAddrInfoExOverlappedResult ( lpoverlapped : *const super::super::System::IO:: OVERLAPPED ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn GetAddrInfoExOverlappedResult ( lpoverlapped : *const super::super::System::IO:: OVERLAPPED ) -> i32 );
     GetAddrInfoExOverlappedResult(lpoverlapped)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -78,7 +78,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn GetAddrInfoExW ( pname : ::windows::core::PCWSTR , pservicename : ::windows::core::PCWSTR , dwnamespace : u32 , lpnspid : *const ::windows::core::GUID , hints : *const ADDRINFOEXW , ppresult : *mut *mut ADDRINFOEXW , timeout : *const TIMEVAL , lpoverlapped : *const super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE , lphandle : *mut super::super::Foundation:: HANDLE ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn GetAddrInfoExW ( pname : ::windows::core::PCWSTR , pservicename : ::windows::core::PCWSTR , dwnamespace : u32 , lpnspid : *const ::windows::core::GUID , hints : *const ADDRINFOEXW , ppresult : *mut *mut ADDRINFOEXW , timeout : *const TIMEVAL , lpoverlapped : *const super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE , lphandle : *mut super::super::Foundation:: HANDLE ) -> i32 );
     GetAddrInfoExW(pname.into_param().abi(), pservicename.into_param().abi(), dwnamespace, ::core::mem::transmute(lpnspid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(hints.unwrap_or(::std::ptr::null())), ppresult, ::core::mem::transmute(timeout.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null())), lpcompletionroutine, ::core::mem::transmute(lphandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -88,7 +88,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn GetAddrInfoW ( pnodename : ::windows::core::PCWSTR , pservicename : ::windows::core::PCWSTR , phints : *const ADDRINFOW , ppresult : *mut *mut ADDRINFOW ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn GetAddrInfoW ( pnodename : ::windows::core::PCWSTR , pservicename : ::windows::core::PCWSTR , phints : *const ADDRINFOW , ppresult : *mut *mut ADDRINFOW ) -> i32 );
     GetAddrInfoW(pnodename.into_param().abi(), pservicename.into_param().abi(), ::core::mem::transmute(phints.unwrap_or(::std::ptr::null())), ppresult)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -98,7 +98,7 @@ pub unsafe fn GetAddressByNameA<P0>(dwnamespace: u32, lpservicetype: *const ::wi
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "mswsock.dll""system" fn GetAddressByNameA ( dwnamespace : u32 , lpservicetype : *const ::windows::core::GUID , lpservicename : ::windows::core::PCSTR , lpiprotocols : *const i32 , dwresolution : u32 , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO , lpcsaddrbuffer : *mut ::core::ffi::c_void , lpdwbufferlength : *mut u32 , lpaliasbuffer : ::windows::core::PSTR , lpdwaliasbufferlength : *mut u32 ) -> i32 );
+    ::windows_targets::link ! ( "mswsock.dll""system" fn GetAddressByNameA ( dwnamespace : u32 , lpservicetype : *const ::windows::core::GUID , lpservicename : ::windows::core::PCSTR , lpiprotocols : *const i32 , dwresolution : u32 , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO , lpcsaddrbuffer : *mut ::core::ffi::c_void , lpdwbufferlength : *mut u32 , lpaliasbuffer : ::windows::core::PSTR , lpdwaliasbufferlength : *mut u32 ) -> i32 );
     GetAddressByNameA(dwnamespace, lpservicetype, lpservicename.into_param().abi(), ::core::mem::transmute(lpiprotocols.unwrap_or(::std::ptr::null())), dwresolution, ::core::mem::transmute(lpserviceasyncinfo.unwrap_or(::std::ptr::null())), lpcsaddrbuffer, lpdwbufferlength, ::core::mem::transmute(lpaliasbuffer), lpdwaliasbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -108,25 +108,25 @@ pub unsafe fn GetAddressByNameW<P0>(dwnamespace: u32, lpservicetype: *const ::wi
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "mswsock.dll""system" fn GetAddressByNameW ( dwnamespace : u32 , lpservicetype : *const ::windows::core::GUID , lpservicename : ::windows::core::PCWSTR , lpiprotocols : *const i32 , dwresolution : u32 , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO , lpcsaddrbuffer : *mut ::core::ffi::c_void , lpdwbufferlength : *mut u32 , lpaliasbuffer : ::windows::core::PWSTR , lpdwaliasbufferlength : *mut u32 ) -> i32 );
+    ::windows_targets::link ! ( "mswsock.dll""system" fn GetAddressByNameW ( dwnamespace : u32 , lpservicetype : *const ::windows::core::GUID , lpservicename : ::windows::core::PCWSTR , lpiprotocols : *const i32 , dwresolution : u32 , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO , lpcsaddrbuffer : *mut ::core::ffi::c_void , lpdwbufferlength : *mut u32 , lpaliasbuffer : ::windows::core::PWSTR , lpdwaliasbufferlength : *mut u32 ) -> i32 );
     GetAddressByNameW(dwnamespace, lpservicetype, lpservicename.into_param().abi(), ::core::mem::transmute(lpiprotocols.unwrap_or(::std::ptr::null())), dwresolution, ::core::mem::transmute(lpserviceasyncinfo.unwrap_or(::std::ptr::null())), lpcsaddrbuffer, lpdwbufferlength, ::core::mem::transmute(lpaliasbuffer), lpdwaliasbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn GetHostNameW(name: &mut [u16]) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn GetHostNameW ( name : ::windows::core::PWSTR , namelen : i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn GetHostNameW ( name : ::windows::core::PWSTR , namelen : i32 ) -> i32 );
     GetHostNameW(::core::mem::transmute(name.as_ptr()), name.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn GetNameByTypeA(lpservicetype: *const ::windows::core::GUID, lpservicename: &mut [u8]) -> i32 {
-    ::windows::imp::link ! ( "mswsock.dll""system" fn GetNameByTypeA ( lpservicetype : *const ::windows::core::GUID , lpservicename : ::windows::core::PSTR , dwnamelength : u32 ) -> i32 );
+    ::windows_targets::link ! ( "mswsock.dll""system" fn GetNameByTypeA ( lpservicetype : *const ::windows::core::GUID , lpservicename : ::windows::core::PSTR , dwnamelength : u32 ) -> i32 );
     GetNameByTypeA(lpservicetype, ::core::mem::transmute(lpservicename.as_ptr()), lpservicename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn GetNameByTypeW(lpservicetype: *const ::windows::core::GUID, lpservicename: ::windows::core::PWSTR, dwnamelength: u32) -> i32 {
-    ::windows::imp::link ! ( "mswsock.dll""system" fn GetNameByTypeW ( lpservicetype : *const ::windows::core::GUID , lpservicename : ::windows::core::PWSTR , dwnamelength : u32 ) -> i32 );
+    ::windows_targets::link ! ( "mswsock.dll""system" fn GetNameByTypeW ( lpservicetype : *const ::windows::core::GUID , lpservicename : ::windows::core::PWSTR , dwnamelength : u32 ) -> i32 );
     GetNameByTypeW(lpservicetype, ::core::mem::transmute(lpservicename), dwnamelength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -135,7 +135,7 @@ pub unsafe fn GetNameInfoW<P0>(psockaddr: *const SOCKADDR, sockaddrlength: P0, p
 where
     P0: ::windows::core::IntoParam<socklen_t>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn GetNameInfoW ( psockaddr : *const SOCKADDR , sockaddrlength : socklen_t , pnodebuffer : ::windows::core::PWSTR , nodebuffersize : u32 , pservicebuffer : ::windows::core::PWSTR , servicebuffersize : u32 , flags : i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn GetNameInfoW ( psockaddr : *const SOCKADDR , sockaddrlength : socklen_t , pnodebuffer : ::windows::core::PWSTR , nodebuffersize : u32 , pservicebuffer : ::windows::core::PWSTR , servicebuffersize : u32 , flags : i32 ) -> i32 );
     GetNameInfoW(psockaddr, sockaddrlength.into_param().abi(), ::core::mem::transmute(pnodebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pnodebuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pservicebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pservicebuffer.as_deref().map_or(0, |slice| slice.len() as _), flags)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -145,7 +145,7 @@ pub unsafe fn GetServiceA<P0>(dwnamespace: u32, lpguid: *const ::windows::core::
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "mswsock.dll""system" fn GetServiceA ( dwnamespace : u32 , lpguid : *const ::windows::core::GUID , lpservicename : ::windows::core::PCSTR , dwproperties : u32 , lpbuffer : *mut ::core::ffi::c_void , lpdwbuffersize : *mut u32 , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO ) -> i32 );
+    ::windows_targets::link ! ( "mswsock.dll""system" fn GetServiceA ( dwnamespace : u32 , lpguid : *const ::windows::core::GUID , lpservicename : ::windows::core::PCSTR , dwproperties : u32 , lpbuffer : *mut ::core::ffi::c_void , lpdwbuffersize : *mut u32 , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO ) -> i32 );
     GetServiceA(dwnamespace, lpguid, lpservicename.into_param().abi(), dwproperties, lpbuffer, lpdwbuffersize, ::core::mem::transmute(lpserviceasyncinfo.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -155,7 +155,7 @@ pub unsafe fn GetServiceW<P0>(dwnamespace: u32, lpguid: *const ::windows::core::
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "mswsock.dll""system" fn GetServiceW ( dwnamespace : u32 , lpguid : *const ::windows::core::GUID , lpservicename : ::windows::core::PCWSTR , dwproperties : u32 , lpbuffer : *mut ::core::ffi::c_void , lpdwbuffersize : *mut u32 , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO ) -> i32 );
+    ::windows_targets::link ! ( "mswsock.dll""system" fn GetServiceW ( dwnamespace : u32 , lpguid : *const ::windows::core::GUID , lpservicename : ::windows::core::PCWSTR , dwproperties : u32 , lpbuffer : *mut ::core::ffi::c_void , lpdwbuffersize : *mut u32 , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO ) -> i32 );
     GetServiceW(dwnamespace, lpguid, lpservicename.into_param().abi(), dwproperties, lpbuffer, lpdwbuffersize, ::core::mem::transmute(lpserviceasyncinfo.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -164,7 +164,7 @@ pub unsafe fn GetTypeByNameA<P0>(lpservicename: P0, lpservicetype: *mut ::window
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "mswsock.dll""system" fn GetTypeByNameA ( lpservicename : ::windows::core::PCSTR , lpservicetype : *mut ::windows::core::GUID ) -> i32 );
+    ::windows_targets::link ! ( "mswsock.dll""system" fn GetTypeByNameA ( lpservicename : ::windows::core::PCSTR , lpservicetype : *mut ::windows::core::GUID ) -> i32 );
     GetTypeByNameA(lpservicename.into_param().abi(), lpservicetype)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -173,13 +173,13 @@ pub unsafe fn GetTypeByNameW<P0>(lpservicename: P0, lpservicetype: *mut ::window
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "mswsock.dll""system" fn GetTypeByNameW ( lpservicename : ::windows::core::PCWSTR , lpservicetype : *mut ::windows::core::GUID ) -> i32 );
+    ::windows_targets::link ! ( "mswsock.dll""system" fn GetTypeByNameW ( lpservicename : ::windows::core::PCWSTR , lpservicetype : *mut ::windows::core::GUID ) -> i32 );
     GetTypeByNameW(lpservicename.into_param().abi(), lpservicetype)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn InetNtopW(family: i32, paddr: *const ::core::ffi::c_void, pstringbuf: &mut [u16]) -> ::windows::core::PCWSTR {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn InetNtopW ( family : i32 , paddr : *const ::core::ffi::c_void , pstringbuf : ::windows::core::PWSTR , stringbufsize : usize ) -> ::windows::core::PCWSTR );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn InetNtopW ( family : i32 , paddr : *const ::core::ffi::c_void , pstringbuf : ::windows::core::PWSTR , stringbufsize : usize ) -> ::windows::core::PCWSTR );
     InetNtopW(family, paddr, ::core::mem::transmute(pstringbuf.as_ptr()), pstringbuf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -188,7 +188,7 @@ pub unsafe fn InetPtonW<P0>(family: i32, pszaddrstring: P0, paddrbuf: *mut ::cor
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn InetPtonW ( family : i32 , pszaddrstring : ::windows::core::PCWSTR , paddrbuf : *mut ::core::ffi::c_void ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn InetPtonW ( family : i32 , pszaddrstring : ::windows::core::PCWSTR , paddrbuf : *mut ::core::ffi::c_void ) -> i32 );
     InetPtonW(family, pszaddrstring.into_param().abi(), paddrbuf)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -198,19 +198,19 @@ pub unsafe fn ProcessSocketNotifications<P0>(completionport: P0, registrationinf
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn ProcessSocketNotifications ( completionport : super::super::Foundation:: HANDLE , registrationcount : u32 , registrationinfos : *mut SOCK_NOTIFY_REGISTRATION , timeoutms : u32 , completioncount : u32 , completionportentries : *mut super::super::System::IO:: OVERLAPPED_ENTRY , receivedentrycount : *mut u32 ) -> u32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn ProcessSocketNotifications ( completionport : super::super::Foundation:: HANDLE , registrationcount : u32 , registrationinfos : *mut SOCK_NOTIFY_REGISTRATION , timeoutms : u32 , completioncount : u32 , completionportentries : *mut super::super::System::IO:: OVERLAPPED_ENTRY , receivedentrycount : *mut u32 ) -> u32 );
     ProcessSocketNotifications(completionport.into_param().abi(), registrationinfos.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(registrationinfos.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), timeoutms, completionportentries.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(completionportentries.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(receivedentrycount.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn RtlEthernetAddressToStringA(addr: *const DL_EUI48, s: &mut [u8; 18]) -> ::windows::core::PSTR {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlEthernetAddressToStringA ( addr : *const DL_EUI48 , s : ::windows::core::PSTR ) -> ::windows::core::PSTR );
+    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlEthernetAddressToStringA ( addr : *const DL_EUI48 , s : ::windows::core::PSTR ) -> ::windows::core::PSTR );
     RtlEthernetAddressToStringA(addr, ::core::mem::transmute(s.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn RtlEthernetAddressToStringW(addr: *const DL_EUI48, s: &mut [u16; 18]) -> ::windows::core::PWSTR {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlEthernetAddressToStringW ( addr : *const DL_EUI48 , s : ::windows::core::PWSTR ) -> ::windows::core::PWSTR );
+    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlEthernetAddressToStringW ( addr : *const DL_EUI48 , s : ::windows::core::PWSTR ) -> ::windows::core::PWSTR );
     RtlEthernetAddressToStringW(addr, ::core::mem::transmute(s.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -219,7 +219,7 @@ pub unsafe fn RtlEthernetStringToAddressA<P0>(s: P0, terminator: *mut ::windows:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlEthernetStringToAddressA ( s : ::windows::core::PCSTR , terminator : *mut ::windows::core::PCSTR , addr : *mut DL_EUI48 ) -> i32 );
+    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlEthernetStringToAddressA ( s : ::windows::core::PCSTR , terminator : *mut ::windows::core::PCSTR , addr : *mut DL_EUI48 ) -> i32 );
     RtlEthernetStringToAddressA(s.into_param().abi(), terminator, addr)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -228,31 +228,31 @@ pub unsafe fn RtlEthernetStringToAddressW<P0>(s: P0, terminator: *mut ::windows:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlEthernetStringToAddressW ( s : ::windows::core::PCWSTR , terminator : *mut ::windows::core::PCWSTR , addr : *mut DL_EUI48 ) -> i32 );
+    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlEthernetStringToAddressW ( s : ::windows::core::PCWSTR , terminator : *mut ::windows::core::PCWSTR , addr : *mut DL_EUI48 ) -> i32 );
     RtlEthernetStringToAddressW(s.into_param().abi(), terminator, addr)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn RtlIpv4AddressToStringA(addr: *const IN_ADDR, s: &mut [u8; 16]) -> ::windows::core::PSTR {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv4AddressToStringA ( addr : *const IN_ADDR , s : ::windows::core::PSTR ) -> ::windows::core::PSTR );
+    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlIpv4AddressToStringA ( addr : *const IN_ADDR , s : ::windows::core::PSTR ) -> ::windows::core::PSTR );
     RtlIpv4AddressToStringA(addr, ::core::mem::transmute(s.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn RtlIpv4AddressToStringExA(address: *const IN_ADDR, port: u16, addressstring: ::windows::core::PSTR, addressstringlength: *mut u32) -> i32 {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv4AddressToStringExA ( address : *const IN_ADDR , port : u16 , addressstring : ::windows::core::PSTR , addressstringlength : *mut u32 ) -> i32 );
+    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlIpv4AddressToStringExA ( address : *const IN_ADDR , port : u16 , addressstring : ::windows::core::PSTR , addressstringlength : *mut u32 ) -> i32 );
     RtlIpv4AddressToStringExA(address, port, ::core::mem::transmute(addressstring), addressstringlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn RtlIpv4AddressToStringExW(address: *const IN_ADDR, port: u16, addressstring: ::windows::core::PWSTR, addressstringlength: *mut u32) -> i32 {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv4AddressToStringExW ( address : *const IN_ADDR , port : u16 , addressstring : ::windows::core::PWSTR , addressstringlength : *mut u32 ) -> i32 );
+    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlIpv4AddressToStringExW ( address : *const IN_ADDR , port : u16 , addressstring : ::windows::core::PWSTR , addressstringlength : *mut u32 ) -> i32 );
     RtlIpv4AddressToStringExW(address, port, ::core::mem::transmute(addressstring), addressstringlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn RtlIpv4AddressToStringW(addr: *const IN_ADDR, s: &mut [u16; 16]) -> ::windows::core::PWSTR {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv4AddressToStringW ( addr : *const IN_ADDR , s : ::windows::core::PWSTR ) -> ::windows::core::PWSTR );
+    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlIpv4AddressToStringW ( addr : *const IN_ADDR , s : ::windows::core::PWSTR ) -> ::windows::core::PWSTR );
     RtlIpv4AddressToStringW(addr, ::core::mem::transmute(s.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -263,7 +263,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv4StringToAddressA ( s : ::windows::core::PCSTR , strict : super::super::Foundation:: BOOLEAN , terminator : *mut ::windows::core::PCSTR , addr : *mut IN_ADDR ) -> i32 );
+    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlIpv4StringToAddressA ( s : ::windows::core::PCSTR , strict : super::super::Foundation:: BOOLEAN , terminator : *mut ::windows::core::PCSTR , addr : *mut IN_ADDR ) -> i32 );
     RtlIpv4StringToAddressA(s.into_param().abi(), strict.into_param().abi(), terminator, addr)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -274,7 +274,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv4StringToAddressExA ( addressstring : ::windows::core::PCSTR , strict : super::super::Foundation:: BOOLEAN , address : *mut IN_ADDR , port : *mut u16 ) -> i32 );
+    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlIpv4StringToAddressExA ( addressstring : ::windows::core::PCSTR , strict : super::super::Foundation:: BOOLEAN , address : *mut IN_ADDR , port : *mut u16 ) -> i32 );
     RtlIpv4StringToAddressExA(addressstring.into_param().abi(), strict.into_param().abi(), address, port)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -285,7 +285,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv4StringToAddressExW ( addressstring : ::windows::core::PCWSTR , strict : super::super::Foundation:: BOOLEAN , address : *mut IN_ADDR , port : *mut u16 ) -> i32 );
+    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlIpv4StringToAddressExW ( addressstring : ::windows::core::PCWSTR , strict : super::super::Foundation:: BOOLEAN , address : *mut IN_ADDR , port : *mut u16 ) -> i32 );
     RtlIpv4StringToAddressExW(addressstring.into_param().abi(), strict.into_param().abi(), address, port)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -296,31 +296,31 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv4StringToAddressW ( s : ::windows::core::PCWSTR , strict : super::super::Foundation:: BOOLEAN , terminator : *mut ::windows::core::PCWSTR , addr : *mut IN_ADDR ) -> i32 );
+    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlIpv4StringToAddressW ( s : ::windows::core::PCWSTR , strict : super::super::Foundation:: BOOLEAN , terminator : *mut ::windows::core::PCWSTR , addr : *mut IN_ADDR ) -> i32 );
     RtlIpv4StringToAddressW(s.into_param().abi(), strict.into_param().abi(), terminator, addr)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn RtlIpv6AddressToStringA(addr: *const IN6_ADDR, s: &mut [u8; 46]) -> ::windows::core::PSTR {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv6AddressToStringA ( addr : *const IN6_ADDR , s : ::windows::core::PSTR ) -> ::windows::core::PSTR );
+    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlIpv6AddressToStringA ( addr : *const IN6_ADDR , s : ::windows::core::PSTR ) -> ::windows::core::PSTR );
     RtlIpv6AddressToStringA(addr, ::core::mem::transmute(s.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn RtlIpv6AddressToStringExA(address: *const IN6_ADDR, scopeid: u32, port: u16, addressstring: ::windows::core::PSTR, addressstringlength: *mut u32) -> i32 {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv6AddressToStringExA ( address : *const IN6_ADDR , scopeid : u32 , port : u16 , addressstring : ::windows::core::PSTR , addressstringlength : *mut u32 ) -> i32 );
+    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlIpv6AddressToStringExA ( address : *const IN6_ADDR , scopeid : u32 , port : u16 , addressstring : ::windows::core::PSTR , addressstringlength : *mut u32 ) -> i32 );
     RtlIpv6AddressToStringExA(address, scopeid, port, ::core::mem::transmute(addressstring), addressstringlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn RtlIpv6AddressToStringExW(address: *const IN6_ADDR, scopeid: u32, port: u16, addressstring: ::windows::core::PWSTR, addressstringlength: *mut u32) -> i32 {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv6AddressToStringExW ( address : *const IN6_ADDR , scopeid : u32 , port : u16 , addressstring : ::windows::core::PWSTR , addressstringlength : *mut u32 ) -> i32 );
+    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlIpv6AddressToStringExW ( address : *const IN6_ADDR , scopeid : u32 , port : u16 , addressstring : ::windows::core::PWSTR , addressstringlength : *mut u32 ) -> i32 );
     RtlIpv6AddressToStringExW(address, scopeid, port, ::core::mem::transmute(addressstring), addressstringlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn RtlIpv6AddressToStringW(addr: *const IN6_ADDR, s: &mut [u16; 46]) -> ::windows::core::PWSTR {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv6AddressToStringW ( addr : *const IN6_ADDR , s : ::windows::core::PWSTR ) -> ::windows::core::PWSTR );
+    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlIpv6AddressToStringW ( addr : *const IN6_ADDR , s : ::windows::core::PWSTR ) -> ::windows::core::PWSTR );
     RtlIpv6AddressToStringW(addr, ::core::mem::transmute(s.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -329,7 +329,7 @@ pub unsafe fn RtlIpv6StringToAddressA<P0>(s: P0, terminator: *mut ::windows::cor
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv6StringToAddressA ( s : ::windows::core::PCSTR , terminator : *mut ::windows::core::PCSTR , addr : *mut IN6_ADDR ) -> i32 );
+    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlIpv6StringToAddressA ( s : ::windows::core::PCSTR , terminator : *mut ::windows::core::PCSTR , addr : *mut IN6_ADDR ) -> i32 );
     RtlIpv6StringToAddressA(s.into_param().abi(), terminator, addr)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -338,7 +338,7 @@ pub unsafe fn RtlIpv6StringToAddressExA<P0>(addressstring: P0, address: *mut IN6
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv6StringToAddressExA ( addressstring : ::windows::core::PCSTR , address : *mut IN6_ADDR , scopeid : *mut u32 , port : *mut u16 ) -> i32 );
+    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlIpv6StringToAddressExA ( addressstring : ::windows::core::PCSTR , address : *mut IN6_ADDR , scopeid : *mut u32 , port : *mut u16 ) -> i32 );
     RtlIpv6StringToAddressExA(addressstring.into_param().abi(), address, scopeid, port)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -347,7 +347,7 @@ pub unsafe fn RtlIpv6StringToAddressExW<P0>(addressstring: P0, address: *mut IN6
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv6StringToAddressExW ( addressstring : ::windows::core::PCWSTR , address : *mut IN6_ADDR , scopeid : *mut u32 , port : *mut u16 ) -> i32 );
+    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlIpv6StringToAddressExW ( addressstring : ::windows::core::PCWSTR , address : *mut IN6_ADDR , scopeid : *mut u32 , port : *mut u16 ) -> i32 );
     RtlIpv6StringToAddressExW(addressstring.into_param().abi(), address, scopeid, port)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -356,7 +356,7 @@ pub unsafe fn RtlIpv6StringToAddressW<P0>(s: P0, terminator: *mut ::windows::cor
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv6StringToAddressW ( s : ::windows::core::PCWSTR , terminator : *mut ::windows::core::PCWSTR , addr : *mut IN6_ADDR ) -> i32 );
+    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlIpv6StringToAddressW ( s : ::windows::core::PCWSTR , terminator : *mut ::windows::core::PCWSTR , addr : *mut IN6_ADDR ) -> i32 );
     RtlIpv6StringToAddressW(s.into_param().abi(), terminator, addr)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_IO\"`*"]
@@ -367,7 +367,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn SetAddrInfoExA ( pname : ::windows::core::PCSTR , pservicename : ::windows::core::PCSTR , paddresses : *const SOCKET_ADDRESS , dwaddresscount : u32 , lpblob : *const super::super::System::Com:: BLOB , dwflags : u32 , dwnamespace : u32 , lpnspid : *const ::windows::core::GUID , timeout : *const TIMEVAL , lpoverlapped : *const super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE , lpnamehandle : *mut super::super::Foundation:: HANDLE ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn SetAddrInfoExA ( pname : ::windows::core::PCSTR , pservicename : ::windows::core::PCSTR , paddresses : *const SOCKET_ADDRESS , dwaddresscount : u32 , lpblob : *const super::super::System::Com:: BLOB , dwflags : u32 , dwnamespace : u32 , lpnspid : *const ::windows::core::GUID , timeout : *const TIMEVAL , lpoverlapped : *const super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE , lpnamehandle : *mut super::super::Foundation:: HANDLE ) -> i32 );
     SetAddrInfoExA(
         pname.into_param().abi(),
         pservicename.into_param().abi(),
@@ -391,7 +391,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn SetAddrInfoExW ( pname : ::windows::core::PCWSTR , pservicename : ::windows::core::PCWSTR , paddresses : *const SOCKET_ADDRESS , dwaddresscount : u32 , lpblob : *const super::super::System::Com:: BLOB , dwflags : u32 , dwnamespace : u32 , lpnspid : *const ::windows::core::GUID , timeout : *const TIMEVAL , lpoverlapped : *const super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE , lpnamehandle : *mut super::super::Foundation:: HANDLE ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn SetAddrInfoExW ( pname : ::windows::core::PCWSTR , pservicename : ::windows::core::PCWSTR , paddresses : *const SOCKET_ADDRESS , dwaddresscount : u32 , lpblob : *const super::super::System::Com:: BLOB , dwflags : u32 , dwnamespace : u32 , lpnspid : *const ::windows::core::GUID , timeout : *const TIMEVAL , lpoverlapped : *const super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE , lpnamehandle : *mut super::super::Foundation:: HANDLE ) -> i32 );
     SetAddrInfoExW(
         pname.into_param().abi(),
         pservicename.into_param().abi(),
@@ -411,14 +411,14 @@ where
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn SetServiceA(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, dwflags: u32, lpserviceinfo: *const SERVICE_INFOA, lpserviceasyncinfo: ::core::option::Option<*const SERVICE_ASYNC_INFO>, lpdwstatusflags: *mut u32) -> i32 {
-    ::windows::imp::link ! ( "mswsock.dll""system" fn SetServiceA ( dwnamespace : u32 , dwoperation : SET_SERVICE_OPERATION , dwflags : u32 , lpserviceinfo : *const SERVICE_INFOA , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO , lpdwstatusflags : *mut u32 ) -> i32 );
+    ::windows_targets::link ! ( "mswsock.dll""system" fn SetServiceA ( dwnamespace : u32 , dwoperation : SET_SERVICE_OPERATION , dwflags : u32 , lpserviceinfo : *const SERVICE_INFOA , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO , lpdwstatusflags : *mut u32 ) -> i32 );
     SetServiceA(dwnamespace, dwoperation, dwflags, lpserviceinfo, ::core::mem::transmute(lpserviceasyncinfo.unwrap_or(::std::ptr::null())), lpdwstatusflags)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn SetServiceW(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, dwflags: u32, lpserviceinfo: *const SERVICE_INFOW, lpserviceasyncinfo: ::core::option::Option<*const SERVICE_ASYNC_INFO>, lpdwstatusflags: *mut u32) -> i32 {
-    ::windows::imp::link ! ( "mswsock.dll""system" fn SetServiceW ( dwnamespace : u32 , dwoperation : SET_SERVICE_OPERATION , dwflags : u32 , lpserviceinfo : *const SERVICE_INFOW , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO , lpdwstatusflags : *mut u32 ) -> i32 );
+    ::windows_targets::link ! ( "mswsock.dll""system" fn SetServiceW ( dwnamespace : u32 , dwoperation : SET_SERVICE_OPERATION , dwflags : u32 , lpserviceinfo : *const SERVICE_INFOW , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO , lpdwstatusflags : *mut u32 ) -> i32 );
     SetServiceW(dwnamespace, dwoperation, dwflags, lpserviceinfo, ::core::mem::transmute(lpserviceasyncinfo.unwrap_or(::std::ptr::null())), lpdwstatusflags)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -428,7 +428,7 @@ pub unsafe fn SetSocketMediaStreamingMode<P0>(value: P0) -> ::windows::core::Res
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "windows.networking.dll""system" fn SetSocketMediaStreamingMode ( value : super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "windows.networking.dll""system" fn SetSocketMediaStreamingMode ( value : super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     SetSocketMediaStreamingMode(value.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -439,7 +439,7 @@ where
     P0: ::windows::core::IntoParam<SOCKET>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "mswsock.dll""system" fn TransmitFile ( hsocket : SOCKET , hfile : super::super::Foundation:: HANDLE , nnumberofbytestowrite : u32 , nnumberofbytespersend : u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lptransmitbuffers : *const TRANSMIT_FILE_BUFFERS , dwreserved : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "mswsock.dll""system" fn TransmitFile ( hsocket : SOCKET , hfile : super::super::Foundation:: HANDLE , nnumberofbytestowrite : u32 , nnumberofbytespersend : u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lptransmitbuffers : *const TRANSMIT_FILE_BUFFERS , dwreserved : u32 ) -> super::super::Foundation:: BOOL );
     TransmitFile(hsocket.into_param().abi(), hfile.into_param().abi(), nnumberofbytestowrite, nnumberofbytespersend, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lptransmitbuffers.unwrap_or(::std::ptr::null())), dwreserved)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -449,7 +449,7 @@ pub unsafe fn WPUCompleteOverlappedRequest<P0>(s: P0, lpoverlapped: *mut super::
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WPUCompleteOverlappedRequest ( s : SOCKET , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , dwerror : u32 , cbtransferred : u32 , lperrno : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WPUCompleteOverlappedRequest ( s : SOCKET , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , dwerror : u32 , cbtransferred : u32 , lperrno : *mut i32 ) -> i32 );
     WPUCompleteOverlappedRequest(s.into_param().abi(), lpoverlapped, dwerror, cbtransferred, lperrno)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -458,26 +458,26 @@ pub unsafe fn WSAAccept<P0>(s: P0, addr: ::core::option::Option<*mut SOCKADDR>, 
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAAccept ( s : SOCKET , addr : *mut SOCKADDR , addrlen : *mut i32 , lpfncondition : LPCONDITIONPROC , dwcallbackdata : usize ) -> SOCKET );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAAccept ( s : SOCKET , addr : *mut SOCKADDR , addrlen : *mut i32 , lpfncondition : LPCONDITIONPROC , dwcallbackdata : usize ) -> SOCKET );
     WSAAccept(s.into_param().abi(), ::core::mem::transmute(addr.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(addrlen.unwrap_or(::std::ptr::null_mut())), lpfncondition, dwcallbackdata)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSAAddressToStringA(lpsaaddress: *const SOCKADDR, dwaddresslength: u32, lpprotocolinfo: ::core::option::Option<*const WSAPROTOCOL_INFOA>, lpszaddressstring: ::windows::core::PSTR, lpdwaddressstringlength: *mut u32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAAddressToStringA ( lpsaaddress : *const SOCKADDR , dwaddresslength : u32 , lpprotocolinfo : *const WSAPROTOCOL_INFOA , lpszaddressstring : ::windows::core::PSTR , lpdwaddressstringlength : *mut u32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAAddressToStringA ( lpsaaddress : *const SOCKADDR , dwaddresslength : u32 , lpprotocolinfo : *const WSAPROTOCOL_INFOA , lpszaddressstring : ::windows::core::PSTR , lpdwaddressstringlength : *mut u32 ) -> i32 );
     WSAAddressToStringA(lpsaaddress, dwaddresslength, ::core::mem::transmute(lpprotocolinfo.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpszaddressstring), lpdwaddressstringlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSAAddressToStringW(lpsaaddress: *const SOCKADDR, dwaddresslength: u32, lpprotocolinfo: ::core::option::Option<*const WSAPROTOCOL_INFOW>, lpszaddressstring: ::windows::core::PWSTR, lpdwaddressstringlength: *mut u32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAAddressToStringW ( lpsaaddress : *const SOCKADDR , dwaddresslength : u32 , lpprotocolinfo : *const WSAPROTOCOL_INFOW , lpszaddressstring : ::windows::core::PWSTR , lpdwaddressstringlength : *mut u32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAAddressToStringW ( lpsaaddress : *const SOCKADDR , dwaddresslength : u32 , lpprotocolinfo : *const WSAPROTOCOL_INFOW , lpszaddressstring : ::windows::core::PWSTR , lpdwaddressstringlength : *mut u32 ) -> i32 );
     WSAAddressToStringW(lpsaaddress, dwaddresslength, ::core::mem::transmute(lpprotocolinfo.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpszaddressstring), lpdwaddressstringlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSAAdvertiseProvider(puuidproviderid: *const ::windows::core::GUID, pnspv2routine: *const NSPV2_ROUTINE) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAAdvertiseProvider ( puuidproviderid : *const ::windows::core::GUID , pnspv2routine : *const NSPV2_ROUTINE ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAAdvertiseProvider ( puuidproviderid : *const ::windows::core::GUID , pnspv2routine : *const NSPV2_ROUTINE ) -> i32 );
     WSAAdvertiseProvider(puuidproviderid, pnspv2routine)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -487,7 +487,7 @@ pub unsafe fn WSAAsyncGetHostByAddr<P0>(hwnd: P0, wmsg: u32, addr: &[u8], r#type
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAAsyncGetHostByAddr ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , addr : ::windows::core::PCSTR , len : i32 , r#type : i32 , buf : ::windows::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAAsyncGetHostByAddr ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , addr : ::windows::core::PCSTR , len : i32 , r#type : i32 , buf : ::windows::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
     WSAAsyncGetHostByAddr(hwnd.into_param().abi(), wmsg, ::core::mem::transmute(addr.as_ptr()), addr.len() as _, r#type, ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -498,7 +498,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAAsyncGetHostByName ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , name : ::windows::core::PCSTR , buf : ::windows::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAAsyncGetHostByName ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , name : ::windows::core::PCSTR , buf : ::windows::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
     WSAAsyncGetHostByName(hwnd.into_param().abi(), wmsg, name.into_param().abi(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -509,7 +509,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAAsyncGetProtoByName ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , name : ::windows::core::PCSTR , buf : ::windows::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAAsyncGetProtoByName ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , name : ::windows::core::PCSTR , buf : ::windows::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
     WSAAsyncGetProtoByName(hwnd.into_param().abi(), wmsg, name.into_param().abi(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -519,7 +519,7 @@ pub unsafe fn WSAAsyncGetProtoByNumber<P0>(hwnd: P0, wmsg: u32, number: i32, buf
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAAsyncGetProtoByNumber ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , number : i32 , buf : ::windows::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAAsyncGetProtoByNumber ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , number : i32 , buf : ::windows::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
     WSAAsyncGetProtoByNumber(hwnd.into_param().abi(), wmsg, number, ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -531,7 +531,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAAsyncGetServByName ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , name : ::windows::core::PCSTR , proto : ::windows::core::PCSTR , buf : ::windows::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAAsyncGetServByName ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , name : ::windows::core::PCSTR , proto : ::windows::core::PCSTR , buf : ::windows::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
     WSAAsyncGetServByName(hwnd.into_param().abi(), wmsg, name.into_param().abi(), proto.into_param().abi(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -542,7 +542,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAAsyncGetServByPort ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , port : i32 , proto : ::windows::core::PCSTR , buf : ::windows::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAAsyncGetServByPort ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , port : i32 , proto : ::windows::core::PCSTR , buf : ::windows::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
     WSAAsyncGetServByPort(hwnd.into_param().abi(), wmsg, port, proto.into_param().abi(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -553,7 +553,7 @@ where
     P0: ::windows::core::IntoParam<SOCKET>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAAsyncSelect ( s : SOCKET , hwnd : super::super::Foundation:: HWND , wmsg : u32 , levent : i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAAsyncSelect ( s : SOCKET , hwnd : super::super::Foundation:: HWND , wmsg : u32 , levent : i32 ) -> i32 );
     WSAAsyncSelect(s.into_param().abi(), hwnd.into_param().abi(), wmsg, levent)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -563,19 +563,19 @@ pub unsafe fn WSACancelAsyncRequest<P0>(hasynctaskhandle: P0) -> i32
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSACancelAsyncRequest ( hasynctaskhandle : super::super::Foundation:: HANDLE ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSACancelAsyncRequest ( hasynctaskhandle : super::super::Foundation:: HANDLE ) -> i32 );
     WSACancelAsyncRequest(hasynctaskhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSACancelBlockingCall() -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSACancelBlockingCall ( ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSACancelBlockingCall ( ) -> i32 );
     WSACancelBlockingCall()
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSACleanup() -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSACleanup ( ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSACleanup ( ) -> i32 );
     WSACleanup()
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -585,7 +585,7 @@ pub unsafe fn WSACloseEvent<P0>(hevent: P0) -> super::super::Foundation::BOOL
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSACloseEvent ( hevent : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSACloseEvent ( hevent : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     WSACloseEvent(hevent.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -594,7 +594,7 @@ pub unsafe fn WSAConnect<P0>(s: P0, name: *const SOCKADDR, namelen: i32, lpcalle
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAConnect ( s : SOCKET , name : *const SOCKADDR , namelen : i32 , lpcallerdata : *const WSABUF , lpcalleedata : *mut WSABUF , lpsqos : *const QOS , lpgqos : *const QOS ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAConnect ( s : SOCKET , name : *const SOCKADDR , namelen : i32 , lpcallerdata : *const WSABUF , lpcalleedata : *mut WSABUF , lpsqos : *const QOS , lpgqos : *const QOS ) -> i32 );
     WSAConnect(s.into_param().abi(), name, namelen, ::core::mem::transmute(lpcallerdata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpcalleedata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpsqos.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpgqos.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -604,7 +604,7 @@ pub unsafe fn WSAConnectByList<P0>(s: P0, socketaddress: *const SOCKET_ADDRESS_L
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAConnectByList ( s : SOCKET , socketaddress : *const SOCKET_ADDRESS_LIST , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *const super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAConnectByList ( s : SOCKET , socketaddress : *const SOCKET_ADDRESS_LIST , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *const super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     WSAConnectByList(s.into_param().abi(), socketaddress, ::core::mem::transmute(localaddresslength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(localaddress.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(remoteaddresslength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(remoteaddress.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(timeout.unwrap_or(::std::ptr::null())), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -616,7 +616,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAConnectByNameA ( s : SOCKET , nodename : ::windows::core::PCSTR , servicename : ::windows::core::PCSTR , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *const super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAConnectByNameA ( s : SOCKET , nodename : ::windows::core::PCSTR , servicename : ::windows::core::PCSTR , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *const super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     WSAConnectByNameA(
         s.into_param().abi(),
         nodename.into_param().abi(),
@@ -638,7 +638,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAConnectByNameW ( s : SOCKET , nodename : ::windows::core::PCWSTR , servicename : ::windows::core::PCWSTR , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *const super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAConnectByNameW ( s : SOCKET , nodename : ::windows::core::PCWSTR , servicename : ::windows::core::PCWSTR , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *const super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     WSAConnectByNameW(
         s.into_param().abi(),
         nodename.into_param().abi(),
@@ -655,7 +655,7 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSACreateEvent() -> super::super::Foundation::HANDLE {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSACreateEvent ( ) -> super::super::Foundation:: HANDLE );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSACreateEvent ( ) -> super::super::Foundation:: HANDLE );
     WSACreateEvent()
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -665,7 +665,7 @@ pub unsafe fn WSADeleteSocketPeerTargetName<P0>(socket: P0, peeraddr: *const SOC
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn WSADeleteSocketPeerTargetName ( socket : SOCKET , peeraddr : *const SOCKADDR , peeraddrlen : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED , completionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
+    ::windows_targets::link ! ( "fwpuclnt.dll""system" fn WSADeleteSocketPeerTargetName ( socket : SOCKET , peeraddr : *const SOCKADDR , peeraddrlen : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED , completionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
     WSADeleteSocketPeerTargetName(socket.into_param().abi(), peeraddr, peeraddrlen, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())), completionroutine)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -674,7 +674,7 @@ pub unsafe fn WSADuplicateSocketA<P0>(s: P0, dwprocessid: u32, lpprotocolinfo: *
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSADuplicateSocketA ( s : SOCKET , dwprocessid : u32 , lpprotocolinfo : *mut WSAPROTOCOL_INFOA ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSADuplicateSocketA ( s : SOCKET , dwprocessid : u32 , lpprotocolinfo : *mut WSAPROTOCOL_INFOA ) -> i32 );
     WSADuplicateSocketA(s.into_param().abi(), dwprocessid, lpprotocolinfo)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -683,35 +683,35 @@ pub unsafe fn WSADuplicateSocketW<P0>(s: P0, dwprocessid: u32, lpprotocolinfo: *
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSADuplicateSocketW ( s : SOCKET , dwprocessid : u32 , lpprotocolinfo : *mut WSAPROTOCOL_INFOW ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSADuplicateSocketW ( s : SOCKET , dwprocessid : u32 , lpprotocolinfo : *mut WSAPROTOCOL_INFOW ) -> i32 );
     WSADuplicateSocketW(s.into_param().abi(), dwprocessid, lpprotocolinfo)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAEnumNameSpaceProvidersA(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOA) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAEnumNameSpaceProvidersA ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOA ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAEnumNameSpaceProvidersA ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOA ) -> i32 );
     WSAEnumNameSpaceProvidersA(lpdwbufferlength, lpnspbuffer)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSAEnumNameSpaceProvidersExA(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOEXA) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAEnumNameSpaceProvidersExA ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOEXA ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAEnumNameSpaceProvidersExA ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOEXA ) -> i32 );
     WSAEnumNameSpaceProvidersExA(lpdwbufferlength, lpnspbuffer)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSAEnumNameSpaceProvidersExW(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOEXW) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAEnumNameSpaceProvidersExW ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOEXW ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAEnumNameSpaceProvidersExW ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOEXW ) -> i32 );
     WSAEnumNameSpaceProvidersExW(lpdwbufferlength, lpnspbuffer)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAEnumNameSpaceProvidersW(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOW) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAEnumNameSpaceProvidersW ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOW ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAEnumNameSpaceProvidersW ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOW ) -> i32 );
     WSAEnumNameSpaceProvidersW(lpdwbufferlength, lpnspbuffer)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -722,19 +722,19 @@ where
     P0: ::windows::core::IntoParam<SOCKET>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAEnumNetworkEvents ( s : SOCKET , heventobject : super::super::Foundation:: HANDLE , lpnetworkevents : *mut WSANETWORKEVENTS ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAEnumNetworkEvents ( s : SOCKET , heventobject : super::super::Foundation:: HANDLE , lpnetworkevents : *mut WSANETWORKEVENTS ) -> i32 );
     WSAEnumNetworkEvents(s.into_param().abi(), heventobject.into_param().abi(), lpnetworkevents)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSAEnumProtocolsA(lpiprotocols: ::core::option::Option<*const i32>, lpprotocolbuffer: ::core::option::Option<*mut WSAPROTOCOL_INFOA>, lpdwbufferlength: *mut u32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAEnumProtocolsA ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut WSAPROTOCOL_INFOA , lpdwbufferlength : *mut u32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAEnumProtocolsA ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut WSAPROTOCOL_INFOA , lpdwbufferlength : *mut u32 ) -> i32 );
     WSAEnumProtocolsA(::core::mem::transmute(lpiprotocols.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpprotocolbuffer.unwrap_or(::std::ptr::null_mut())), lpdwbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSAEnumProtocolsW(lpiprotocols: ::core::option::Option<*const i32>, lpprotocolbuffer: ::core::option::Option<*mut WSAPROTOCOL_INFOW>, lpdwbufferlength: *mut u32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAEnumProtocolsW ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut WSAPROTOCOL_INFOW , lpdwbufferlength : *mut u32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAEnumProtocolsW ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut WSAPROTOCOL_INFOW , lpdwbufferlength : *mut u32 ) -> i32 );
     WSAEnumProtocolsW(::core::mem::transmute(lpiprotocols.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpprotocolbuffer.unwrap_or(::std::ptr::null_mut())), lpdwbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -745,13 +745,13 @@ where
     P0: ::windows::core::IntoParam<SOCKET>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAEventSelect ( s : SOCKET , heventobject : super::super::Foundation:: HANDLE , lnetworkevents : i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAEventSelect ( s : SOCKET , heventobject : super::super::Foundation:: HANDLE , lnetworkevents : i32 ) -> i32 );
     WSAEventSelect(s.into_param().abi(), heventobject.into_param().abi(), lnetworkevents)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSAGetLastError() -> WSA_ERROR {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAGetLastError ( ) -> WSA_ERROR );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAGetLastError ( ) -> WSA_ERROR );
     WSAGetLastError()
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -762,7 +762,7 @@ where
     P0: ::windows::core::IntoParam<SOCKET>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAGetOverlappedResult ( s : SOCKET , lpoverlapped : *const super::super::System::IO:: OVERLAPPED , lpcbtransfer : *mut u32 , fwait : super::super::Foundation:: BOOL , lpdwflags : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAGetOverlappedResult ( s : SOCKET , lpoverlapped : *const super::super::System::IO:: OVERLAPPED , lpcbtransfer : *mut u32 , fwait : super::super::Foundation:: BOOL , lpdwflags : *mut u32 ) -> super::super::Foundation:: BOOL );
     WSAGetOverlappedResult(s.into_param().abi(), lpoverlapped, lpcbtransfer, fwait.into_param().abi(), lpdwflags)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -772,31 +772,31 @@ pub unsafe fn WSAGetQOSByName<P0>(s: P0, lpqosname: *const WSABUF, lpqos: *mut Q
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAGetQOSByName ( s : SOCKET , lpqosname : *const WSABUF , lpqos : *mut QOS ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAGetQOSByName ( s : SOCKET , lpqosname : *const WSABUF , lpqos : *mut QOS ) -> super::super::Foundation:: BOOL );
     WSAGetQOSByName(s.into_param().abi(), lpqosname, lpqos)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSAGetServiceClassInfoA(lpproviderid: *const ::windows::core::GUID, lpserviceclassid: *const ::windows::core::GUID, lpdwbufsize: *mut u32, lpserviceclassinfo: *mut WSASERVICECLASSINFOA) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAGetServiceClassInfoA ( lpproviderid : *const ::windows::core::GUID , lpserviceclassid : *const ::windows::core::GUID , lpdwbufsize : *mut u32 , lpserviceclassinfo : *mut WSASERVICECLASSINFOA ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAGetServiceClassInfoA ( lpproviderid : *const ::windows::core::GUID , lpserviceclassid : *const ::windows::core::GUID , lpdwbufsize : *mut u32 , lpserviceclassinfo : *mut WSASERVICECLASSINFOA ) -> i32 );
     WSAGetServiceClassInfoA(lpproviderid, lpserviceclassid, lpdwbufsize, lpserviceclassinfo)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSAGetServiceClassInfoW(lpproviderid: *const ::windows::core::GUID, lpserviceclassid: *const ::windows::core::GUID, lpdwbufsize: *mut u32, lpserviceclassinfo: *mut WSASERVICECLASSINFOW) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAGetServiceClassInfoW ( lpproviderid : *const ::windows::core::GUID , lpserviceclassid : *const ::windows::core::GUID , lpdwbufsize : *mut u32 , lpserviceclassinfo : *mut WSASERVICECLASSINFOW ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAGetServiceClassInfoW ( lpproviderid : *const ::windows::core::GUID , lpserviceclassid : *const ::windows::core::GUID , lpdwbufsize : *mut u32 , lpserviceclassinfo : *mut WSASERVICECLASSINFOW ) -> i32 );
     WSAGetServiceClassInfoW(lpproviderid, lpserviceclassid, lpdwbufsize, lpserviceclassinfo)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSAGetServiceClassNameByClassIdA(lpserviceclassid: *const ::windows::core::GUID, lpszserviceclassname: ::windows::core::PSTR, lpdwbufferlength: *mut u32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAGetServiceClassNameByClassIdA ( lpserviceclassid : *const ::windows::core::GUID , lpszserviceclassname : ::windows::core::PSTR , lpdwbufferlength : *mut u32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAGetServiceClassNameByClassIdA ( lpserviceclassid : *const ::windows::core::GUID , lpszserviceclassname : ::windows::core::PSTR , lpdwbufferlength : *mut u32 ) -> i32 );
     WSAGetServiceClassNameByClassIdA(lpserviceclassid, ::core::mem::transmute(lpszserviceclassname), lpdwbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSAGetServiceClassNameByClassIdW(lpserviceclassid: *const ::windows::core::GUID, lpszserviceclassname: ::windows::core::PWSTR, lpdwbufferlength: *mut u32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAGetServiceClassNameByClassIdW ( lpserviceclassid : *const ::windows::core::GUID , lpszserviceclassname : ::windows::core::PWSTR , lpdwbufferlength : *mut u32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAGetServiceClassNameByClassIdW ( lpserviceclassid : *const ::windows::core::GUID , lpszserviceclassname : ::windows::core::PWSTR , lpdwbufferlength : *mut u32 ) -> i32 );
     WSAGetServiceClassNameByClassIdW(lpserviceclassid, ::core::mem::transmute(lpszserviceclassname), lpdwbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -805,7 +805,7 @@ pub unsafe fn WSAHtonl<P0>(s: P0, hostlong: u32, lpnetlong: *mut u32) -> i32
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAHtonl ( s : SOCKET , hostlong : u32 , lpnetlong : *mut u32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAHtonl ( s : SOCKET , hostlong : u32 , lpnetlong : *mut u32 ) -> i32 );
     WSAHtonl(s.into_param().abi(), hostlong, lpnetlong)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -814,7 +814,7 @@ pub unsafe fn WSAHtons<P0>(s: P0, hostshort: u16, lpnetshort: *mut u16) -> i32
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAHtons ( s : SOCKET , hostshort : u16 , lpnetshort : *mut u16 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAHtons ( s : SOCKET , hostshort : u16 , lpnetshort : *mut u16 ) -> i32 );
     WSAHtons(s.into_param().abi(), hostshort, lpnetshort)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -823,19 +823,19 @@ pub unsafe fn WSAImpersonateSocketPeer<P0>(socket: P0, peeraddr: ::core::option:
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn WSAImpersonateSocketPeer ( socket : SOCKET , peeraddr : *const SOCKADDR , peeraddrlen : u32 ) -> i32 );
+    ::windows_targets::link ! ( "fwpuclnt.dll""system" fn WSAImpersonateSocketPeer ( socket : SOCKET , peeraddr : *const SOCKADDR , peeraddrlen : u32 ) -> i32 );
     WSAImpersonateSocketPeer(socket.into_param().abi(), ::core::mem::transmute(peeraddr.unwrap_or(::std::ptr::null())), peeraddrlen)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSAInstallServiceClassA(lpserviceclassinfo: *const WSASERVICECLASSINFOA) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAInstallServiceClassA ( lpserviceclassinfo : *const WSASERVICECLASSINFOA ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAInstallServiceClassA ( lpserviceclassinfo : *const WSASERVICECLASSINFOA ) -> i32 );
     WSAInstallServiceClassA(lpserviceclassinfo)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSAInstallServiceClassW(lpserviceclassinfo: *const WSASERVICECLASSINFOW) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAInstallServiceClassW ( lpserviceclassinfo : *const WSASERVICECLASSINFOW ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAInstallServiceClassW ( lpserviceclassinfo : *const WSASERVICECLASSINFOW ) -> i32 );
     WSAInstallServiceClassW(lpserviceclassinfo)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -845,14 +845,14 @@ pub unsafe fn WSAIoctl<P0>(s: P0, dwiocontrolcode: u32, lpvinbuffer: ::core::opt
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAIoctl ( s : SOCKET , dwiocontrolcode : u32 , lpvinbuffer : *const ::core::ffi::c_void , cbinbuffer : u32 , lpvoutbuffer : *mut ::core::ffi::c_void , cboutbuffer : u32 , lpcbbytesreturned : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAIoctl ( s : SOCKET , dwiocontrolcode : u32 , lpvinbuffer : *const ::core::ffi::c_void , cbinbuffer : u32 , lpvoutbuffer : *mut ::core::ffi::c_void , cboutbuffer : u32 , lpcbbytesreturned : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
     WSAIoctl(s.into_param().abi(), dwiocontrolcode, ::core::mem::transmute(lpvinbuffer.unwrap_or(::std::ptr::null())), cbinbuffer, ::core::mem::transmute(lpvoutbuffer.unwrap_or(::std::ptr::null_mut())), cboutbuffer, lpcbbytesreturned, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())), lpcompletionroutine)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAIsBlocking() -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAIsBlocking ( ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAIsBlocking ( ) -> super::super::Foundation:: BOOL );
     WSAIsBlocking()
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -861,21 +861,21 @@ pub unsafe fn WSAJoinLeaf<P0>(s: P0, name: *const SOCKADDR, namelen: i32, lpcall
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAJoinLeaf ( s : SOCKET , name : *const SOCKADDR , namelen : i32 , lpcallerdata : *const WSABUF , lpcalleedata : *mut WSABUF , lpsqos : *const QOS , lpgqos : *const QOS , dwflags : u32 ) -> SOCKET );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAJoinLeaf ( s : SOCKET , name : *const SOCKADDR , namelen : i32 , lpcallerdata : *const WSABUF , lpcalleedata : *mut WSABUF , lpsqos : *const QOS , lpgqos : *const QOS , dwflags : u32 ) -> SOCKET );
     WSAJoinLeaf(s.into_param().abi(), name, namelen, ::core::mem::transmute(lpcallerdata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpcalleedata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpsqos.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpgqos.unwrap_or(::std::ptr::null())), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSALookupServiceBeginA(lpqsrestrictions: *const WSAQUERYSETA, dwcontrolflags: u32, lphlookup: *mut super::super::Foundation::HANDLE) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSALookupServiceBeginA ( lpqsrestrictions : *const WSAQUERYSETA , dwcontrolflags : u32 , lphlookup : *mut super::super::Foundation:: HANDLE ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSALookupServiceBeginA ( lpqsrestrictions : *const WSAQUERYSETA , dwcontrolflags : u32 , lphlookup : *mut super::super::Foundation:: HANDLE ) -> i32 );
     WSALookupServiceBeginA(lpqsrestrictions, dwcontrolflags, lphlookup)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSALookupServiceBeginW(lpqsrestrictions: *const WSAQUERYSETW, dwcontrolflags: u32, lphlookup: *mut super::super::Foundation::HANDLE) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSALookupServiceBeginW ( lpqsrestrictions : *const WSAQUERYSETW , dwcontrolflags : u32 , lphlookup : *mut super::super::Foundation:: HANDLE ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSALookupServiceBeginW ( lpqsrestrictions : *const WSAQUERYSETW , dwcontrolflags : u32 , lphlookup : *mut super::super::Foundation:: HANDLE ) -> i32 );
     WSALookupServiceBeginW(lpqsrestrictions, dwcontrolflags, lphlookup)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -885,7 +885,7 @@ pub unsafe fn WSALookupServiceEnd<P0>(hlookup: P0) -> i32
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSALookupServiceEnd ( hlookup : super::super::Foundation:: HANDLE ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSALookupServiceEnd ( hlookup : super::super::Foundation:: HANDLE ) -> i32 );
     WSALookupServiceEnd(hlookup.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -895,7 +895,7 @@ pub unsafe fn WSALookupServiceNextA<P0>(hlookup: P0, dwcontrolflags: u32, lpdwbu
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSALookupServiceNextA ( hlookup : super::super::Foundation:: HANDLE , dwcontrolflags : u32 , lpdwbufferlength : *mut u32 , lpqsresults : *mut WSAQUERYSETA ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSALookupServiceNextA ( hlookup : super::super::Foundation:: HANDLE , dwcontrolflags : u32 , lpdwbufferlength : *mut u32 , lpqsresults : *mut WSAQUERYSETA ) -> i32 );
     WSALookupServiceNextA(hlookup.into_param().abi(), dwcontrolflags, lpdwbufferlength, lpqsresults)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -905,7 +905,7 @@ pub unsafe fn WSALookupServiceNextW<P0>(hlookup: P0, dwcontrolflags: u32, lpdwbu
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSALookupServiceNextW ( hlookup : super::super::Foundation:: HANDLE , dwcontrolflags : u32 , lpdwbufferlength : *mut u32 , lpqsresults : *mut WSAQUERYSETW ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSALookupServiceNextW ( hlookup : super::super::Foundation:: HANDLE , dwcontrolflags : u32 , lpdwbufferlength : *mut u32 , lpqsresults : *mut WSAQUERYSETW ) -> i32 );
     WSALookupServiceNextW(hlookup.into_param().abi(), dwcontrolflags, lpdwbufferlength, ::core::mem::transmute(lpqsresults.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -915,7 +915,7 @@ pub unsafe fn WSANSPIoctl<P0>(hlookup: P0, dwcontrolcode: u32, lpvinbuffer: ::co
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSANSPIoctl ( hlookup : super::super::Foundation:: HANDLE , dwcontrolcode : u32 , lpvinbuffer : *const ::core::ffi::c_void , cbinbuffer : u32 , lpvoutbuffer : *mut ::core::ffi::c_void , cboutbuffer : u32 , lpcbbytesreturned : *mut u32 , lpcompletion : *const WSACOMPLETION ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSANSPIoctl ( hlookup : super::super::Foundation:: HANDLE , dwcontrolcode : u32 , lpvinbuffer : *const ::core::ffi::c_void , cbinbuffer : u32 , lpvoutbuffer : *mut ::core::ffi::c_void , cboutbuffer : u32 , lpcbbytesreturned : *mut u32 , lpcompletion : *const WSACOMPLETION ) -> i32 );
     WSANSPIoctl(hlookup.into_param().abi(), dwcontrolcode, ::core::mem::transmute(lpvinbuffer.unwrap_or(::std::ptr::null())), cbinbuffer, ::core::mem::transmute(lpvoutbuffer.unwrap_or(::std::ptr::null_mut())), cboutbuffer, lpcbbytesreturned, ::core::mem::transmute(lpcompletion.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -924,7 +924,7 @@ pub unsafe fn WSANtohl<P0>(s: P0, netlong: u32, lphostlong: *mut u32) -> i32
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSANtohl ( s : SOCKET , netlong : u32 , lphostlong : *mut u32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSANtohl ( s : SOCKET , netlong : u32 , lphostlong : *mut u32 ) -> i32 );
     WSANtohl(s.into_param().abi(), netlong, lphostlong)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -933,13 +933,13 @@ pub unsafe fn WSANtohs<P0>(s: P0, netshort: u16, lphostshort: *mut u16) -> i32
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSANtohs ( s : SOCKET , netshort : u16 , lphostshort : *mut u16 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSANtohs ( s : SOCKET , netshort : u16 , lphostshort : *mut u16 ) -> i32 );
     WSANtohs(s.into_param().abi(), netshort, lphostshort)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSAPoll(fdarray: *mut WSAPOLLFD, fds: u32, timeout: i32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAPoll ( fdarray : *mut WSAPOLLFD , fds : u32 , timeout : i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAPoll ( fdarray : *mut WSAPOLLFD , fds : u32 , timeout : i32 ) -> i32 );
     WSAPoll(fdarray, fds, timeout)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -949,14 +949,14 @@ pub unsafe fn WSAProviderCompleteAsyncCall<P0>(hasynccall: P0, iretcode: i32) ->
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAProviderCompleteAsyncCall ( hasynccall : super::super::Foundation:: HANDLE , iretcode : i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAProviderCompleteAsyncCall ( hasynccall : super::super::Foundation:: HANDLE , iretcode : i32 ) -> i32 );
     WSAProviderCompleteAsyncCall(hasynccall.into_param().abi(), iretcode)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSAProviderConfigChange(lpnotificationhandle: *mut super::super::Foundation::HANDLE, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAProviderConfigChange ( lpnotificationhandle : *mut super::super::Foundation:: HANDLE , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAProviderConfigChange ( lpnotificationhandle : *mut super::super::Foundation:: HANDLE , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
     WSAProviderConfigChange(lpnotificationhandle, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())), lpcompletionroutine)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -966,7 +966,7 @@ pub unsafe fn WSAQuerySocketSecurity<P0>(socket: P0, securityquerytemplate: ::co
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn WSAQuerySocketSecurity ( socket : SOCKET , securityquerytemplate : *const SOCKET_SECURITY_QUERY_TEMPLATE , securityquerytemplatelen : u32 , securityqueryinfo : *mut SOCKET_SECURITY_QUERY_INFO , securityqueryinfolen : *mut u32 , overlapped : *const super::super::System::IO:: OVERLAPPED , completionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
+    ::windows_targets::link ! ( "fwpuclnt.dll""system" fn WSAQuerySocketSecurity ( socket : SOCKET , securityquerytemplate : *const SOCKET_SECURITY_QUERY_TEMPLATE , securityquerytemplatelen : u32 , securityqueryinfo : *mut SOCKET_SECURITY_QUERY_INFO , securityqueryinfolen : *mut u32 , overlapped : *const super::super::System::IO:: OVERLAPPED , completionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
     WSAQuerySocketSecurity(socket.into_param().abi(), ::core::mem::transmute(securityquerytemplate.unwrap_or(::std::ptr::null())), securityquerytemplatelen, ::core::mem::transmute(securityqueryinfo.unwrap_or(::std::ptr::null_mut())), securityqueryinfolen, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())), completionroutine)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -976,7 +976,7 @@ pub unsafe fn WSARecv<P0>(s: P0, lpbuffers: &[WSABUF], lpnumberofbytesrecvd: ::c
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSARecv ( s : SOCKET , lpbuffers : *const WSABUF , dwbuffercount : u32 , lpnumberofbytesrecvd : *mut u32 , lpflags : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSARecv ( s : SOCKET , lpbuffers : *const WSABUF , dwbuffercount : u32 , lpnumberofbytesrecvd : *mut u32 , lpflags : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
     WSARecv(s.into_param().abi(), ::core::mem::transmute(lpbuffers.as_ptr()), lpbuffers.len() as _, ::core::mem::transmute(lpnumberofbytesrecvd.unwrap_or(::std::ptr::null_mut())), lpflags, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())), lpcompletionroutine)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -985,7 +985,7 @@ pub unsafe fn WSARecvDisconnect<P0>(s: P0, lpinbounddisconnectdata: ::core::opti
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSARecvDisconnect ( s : SOCKET , lpinbounddisconnectdata : *const WSABUF ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSARecvDisconnect ( s : SOCKET , lpinbounddisconnectdata : *const WSABUF ) -> i32 );
     WSARecvDisconnect(s.into_param().abi(), ::core::mem::transmute(lpinbounddisconnectdata.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -994,7 +994,7 @@ pub unsafe fn WSARecvEx<P0>(s: P0, buf: &mut [u8], flags: *mut i32) -> i32
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "mswsock.dll""system" fn WSARecvEx ( s : SOCKET , buf : ::windows::core::PSTR , len : i32 , flags : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "mswsock.dll""system" fn WSARecvEx ( s : SOCKET , buf : ::windows::core::PSTR , len : i32 , flags : *mut i32 ) -> i32 );
     WSARecvEx(s.into_param().abi(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _, flags)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -1004,13 +1004,13 @@ pub unsafe fn WSARecvFrom<P0>(s: P0, lpbuffers: &[WSABUF], lpnumberofbytesrecvd:
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSARecvFrom ( s : SOCKET , lpbuffers : *const WSABUF , dwbuffercount : u32 , lpnumberofbytesrecvd : *mut u32 , lpflags : *mut u32 , lpfrom : *mut SOCKADDR , lpfromlen : *mut i32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSARecvFrom ( s : SOCKET , lpbuffers : *const WSABUF , dwbuffercount : u32 , lpnumberofbytesrecvd : *mut u32 , lpflags : *mut u32 , lpfrom : *mut SOCKADDR , lpfromlen : *mut i32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
     WSARecvFrom(s.into_param().abi(), ::core::mem::transmute(lpbuffers.as_ptr()), lpbuffers.len() as _, ::core::mem::transmute(lpnumberofbytesrecvd.unwrap_or(::std::ptr::null_mut())), lpflags, ::core::mem::transmute(lpfrom.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpfromlen.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())), lpcompletionroutine)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSARemoveServiceClass(lpserviceclassid: *const ::windows::core::GUID) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSARemoveServiceClass ( lpserviceclassid : *const ::windows::core::GUID ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSARemoveServiceClass ( lpserviceclassid : *const ::windows::core::GUID ) -> i32 );
     WSARemoveServiceClass(lpserviceclassid)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -1020,13 +1020,13 @@ pub unsafe fn WSAResetEvent<P0>(hevent: P0) -> super::super::Foundation::BOOL
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAResetEvent ( hevent : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAResetEvent ( hevent : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     WSAResetEvent(hevent.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSARevertImpersonation() -> i32 {
-    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn WSARevertImpersonation ( ) -> i32 );
+    ::windows_targets::link ! ( "fwpuclnt.dll""system" fn WSARevertImpersonation ( ) -> i32 );
     WSARevertImpersonation()
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -1036,7 +1036,7 @@ pub unsafe fn WSASend<P0>(s: P0, lpbuffers: &[WSABUF], lpnumberofbytessent: ::co
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSASend ( s : SOCKET , lpbuffers : *const WSABUF , dwbuffercount : u32 , lpnumberofbytessent : *mut u32 , dwflags : u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSASend ( s : SOCKET , lpbuffers : *const WSABUF , dwbuffercount : u32 , lpnumberofbytessent : *mut u32 , dwflags : u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
     WSASend(s.into_param().abi(), ::core::mem::transmute(lpbuffers.as_ptr()), lpbuffers.len() as _, ::core::mem::transmute(lpnumberofbytessent.unwrap_or(::std::ptr::null_mut())), dwflags, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())), lpcompletionroutine)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1045,7 +1045,7 @@ pub unsafe fn WSASendDisconnect<P0>(s: P0, lpoutbounddisconnectdata: ::core::opt
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSASendDisconnect ( s : SOCKET , lpoutbounddisconnectdata : *const WSABUF ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSASendDisconnect ( s : SOCKET , lpoutbounddisconnectdata : *const WSABUF ) -> i32 );
     WSASendDisconnect(s.into_param().abi(), ::core::mem::transmute(lpoutbounddisconnectdata.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -1055,7 +1055,7 @@ pub unsafe fn WSASendMsg<P0>(handle: P0, lpmsg: *const WSAMSG, dwflags: u32, lpn
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSASendMsg ( handle : SOCKET , lpmsg : *const WSAMSG , dwflags : u32 , lpnumberofbytessent : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSASendMsg ( handle : SOCKET , lpmsg : *const WSAMSG , dwflags : u32 , lpnumberofbytessent : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
     WSASendMsg(handle.into_param().abi(), lpmsg, dwflags, ::core::mem::transmute(lpnumberofbytessent.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())), lpcompletionroutine)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -1065,14 +1065,14 @@ pub unsafe fn WSASendTo<P0>(s: P0, lpbuffers: &[WSABUF], lpnumberofbytessent: ::
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSASendTo ( s : SOCKET , lpbuffers : *const WSABUF , dwbuffercount : u32 , lpnumberofbytessent : *mut u32 , dwflags : u32 , lpto : *const SOCKADDR , itolen : i32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSASendTo ( s : SOCKET , lpbuffers : *const WSABUF , dwbuffercount : u32 , lpnumberofbytessent : *mut u32 , dwflags : u32 , lpto : *const SOCKADDR , itolen : i32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
     WSASendTo(s.into_param().abi(), ::core::mem::transmute(lpbuffers.as_ptr()), lpbuffers.len() as _, ::core::mem::transmute(lpnumberofbytessent.unwrap_or(::std::ptr::null_mut())), dwflags, ::core::mem::transmute(lpto.unwrap_or(::std::ptr::null())), itolen, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())), lpcompletionroutine)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSASetBlockingHook(lpblockfunc: super::super::Foundation::FARPROC) -> super::super::Foundation::FARPROC {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSASetBlockingHook ( lpblockfunc : super::super::Foundation:: FARPROC ) -> super::super::Foundation:: FARPROC );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSASetBlockingHook ( lpblockfunc : super::super::Foundation:: FARPROC ) -> super::super::Foundation:: FARPROC );
     WSASetBlockingHook(lpblockfunc)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -1082,27 +1082,27 @@ pub unsafe fn WSASetEvent<P0>(hevent: P0) -> super::super::Foundation::BOOL
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSASetEvent ( hevent : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSASetEvent ( hevent : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     WSASetEvent(hevent.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSASetLastError(ierror: i32) {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSASetLastError ( ierror : i32 ) -> ( ) );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSASetLastError ( ierror : i32 ) -> ( ) );
     WSASetLastError(ierror)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WSASetServiceA(lpqsreginfo: *const WSAQUERYSETA, essoperation: WSAESETSERVICEOP, dwcontrolflags: u32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSASetServiceA ( lpqsreginfo : *const WSAQUERYSETA , essoperation : WSAESETSERVICEOP , dwcontrolflags : u32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSASetServiceA ( lpqsreginfo : *const WSAQUERYSETA , essoperation : WSAESETSERVICEOP , dwcontrolflags : u32 ) -> i32 );
     WSASetServiceA(lpqsreginfo, essoperation, dwcontrolflags)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WSASetServiceW(lpqsreginfo: *const WSAQUERYSETW, essoperation: WSAESETSERVICEOP, dwcontrolflags: u32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSASetServiceW ( lpqsreginfo : *const WSAQUERYSETW , essoperation : WSAESETSERVICEOP , dwcontrolflags : u32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSASetServiceW ( lpqsreginfo : *const WSAQUERYSETW , essoperation : WSAESETSERVICEOP , dwcontrolflags : u32 ) -> i32 );
     WSASetServiceW(lpqsreginfo, essoperation, dwcontrolflags)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -1112,7 +1112,7 @@ pub unsafe fn WSASetSocketPeerTargetName<P0>(socket: P0, peertargetname: *const 
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn WSASetSocketPeerTargetName ( socket : SOCKET , peertargetname : *const SOCKET_PEER_TARGET_NAME , peertargetnamelen : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED , completionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
+    ::windows_targets::link ! ( "fwpuclnt.dll""system" fn WSASetSocketPeerTargetName ( socket : SOCKET , peertargetname : *const SOCKET_PEER_TARGET_NAME , peertargetnamelen : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED , completionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
     WSASetSocketPeerTargetName(socket.into_param().abi(), peertargetname, peertargetnamelen, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())), completionroutine)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -1122,25 +1122,25 @@ pub unsafe fn WSASetSocketSecurity<P0>(socket: P0, securitysettings: ::core::opt
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn WSASetSocketSecurity ( socket : SOCKET , securitysettings : *const SOCKET_SECURITY_SETTINGS , securitysettingslen : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED , completionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
+    ::windows_targets::link ! ( "fwpuclnt.dll""system" fn WSASetSocketSecurity ( socket : SOCKET , securitysettings : *const SOCKET_SECURITY_SETTINGS , securitysettingslen : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED , completionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
     WSASetSocketSecurity(socket.into_param().abi(), ::core::mem::transmute(securitysettings.unwrap_or(::std::ptr::null())), securitysettingslen, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())), completionroutine)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSASocketA(af: i32, r#type: i32, protocol: i32, lpprotocolinfo: ::core::option::Option<*const WSAPROTOCOL_INFOA>, g: u32, dwflags: u32) -> SOCKET {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSASocketA ( af : i32 , r#type : i32 , protocol : i32 , lpprotocolinfo : *const WSAPROTOCOL_INFOA , g : u32 , dwflags : u32 ) -> SOCKET );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSASocketA ( af : i32 , r#type : i32 , protocol : i32 , lpprotocolinfo : *const WSAPROTOCOL_INFOA , g : u32 , dwflags : u32 ) -> SOCKET );
     WSASocketA(af, r#type, protocol, ::core::mem::transmute(lpprotocolinfo.unwrap_or(::std::ptr::null())), g, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSASocketW(af: i32, r#type: i32, protocol: i32, lpprotocolinfo: ::core::option::Option<*const WSAPROTOCOL_INFOW>, g: u32, dwflags: u32) -> SOCKET {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSASocketW ( af : i32 , r#type : i32 , protocol : i32 , lpprotocolinfo : *const WSAPROTOCOL_INFOW , g : u32 , dwflags : u32 ) -> SOCKET );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSASocketW ( af : i32 , r#type : i32 , protocol : i32 , lpprotocolinfo : *const WSAPROTOCOL_INFOW , g : u32 , dwflags : u32 ) -> SOCKET );
     WSASocketW(af, r#type, protocol, ::core::mem::transmute(lpprotocolinfo.unwrap_or(::std::ptr::null())), g, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSAStartup(wversionrequested: u16, lpwsadata: *mut WSADATA) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAStartup ( wversionrequested : u16 , lpwsadata : *mut WSADATA ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAStartup ( wversionrequested : u16 , lpwsadata : *mut WSADATA ) -> i32 );
     WSAStartup(wversionrequested, lpwsadata)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1149,7 +1149,7 @@ pub unsafe fn WSAStringToAddressA<P0>(addressstring: P0, addressfamily: i32, lpp
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAStringToAddressA ( addressstring : ::windows::core::PCSTR , addressfamily : i32 , lpprotocolinfo : *const WSAPROTOCOL_INFOA , lpaddress : *mut SOCKADDR , lpaddresslength : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAStringToAddressA ( addressstring : ::windows::core::PCSTR , addressfamily : i32 , lpprotocolinfo : *const WSAPROTOCOL_INFOA , lpaddress : *mut SOCKADDR , lpaddresslength : *mut i32 ) -> i32 );
     WSAStringToAddressA(addressstring.into_param().abi(), addressfamily, ::core::mem::transmute(lpprotocolinfo.unwrap_or(::std::ptr::null())), lpaddress, lpaddresslength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1158,19 +1158,19 @@ pub unsafe fn WSAStringToAddressW<P0>(addressstring: P0, addressfamily: i32, lpp
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAStringToAddressW ( addressstring : ::windows::core::PCWSTR , addressfamily : i32 , lpprotocolinfo : *const WSAPROTOCOL_INFOW , lpaddress : *mut SOCKADDR , lpaddresslength : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAStringToAddressW ( addressstring : ::windows::core::PCWSTR , addressfamily : i32 , lpprotocolinfo : *const WSAPROTOCOL_INFOW , lpaddress : *mut SOCKADDR , lpaddresslength : *mut i32 ) -> i32 );
     WSAStringToAddressW(addressstring.into_param().abi(), addressfamily, ::core::mem::transmute(lpprotocolinfo.unwrap_or(::std::ptr::null())), lpaddress, lpaddresslength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSAUnadvertiseProvider(puuidproviderid: *const ::windows::core::GUID) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAUnadvertiseProvider ( puuidproviderid : *const ::windows::core::GUID ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAUnadvertiseProvider ( puuidproviderid : *const ::windows::core::GUID ) -> i32 );
     WSAUnadvertiseProvider(puuidproviderid)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSAUnhookBlockingHook() -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAUnhookBlockingHook ( ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAUnhookBlockingHook ( ) -> i32 );
     WSAUnhookBlockingHook()
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -1181,20 +1181,20 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSAWaitForMultipleEvents ( cevents : u32 , lphevents : *const super::super::Foundation:: HANDLE , fwaitall : super::super::Foundation:: BOOL , dwtimeout : u32 , falertable : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSAWaitForMultipleEvents ( cevents : u32 , lphevents : *const super::super::Foundation:: HANDLE , fwaitall : super::super::Foundation:: BOOL , dwtimeout : u32 , falertable : super::super::Foundation:: BOOL ) -> u32 );
     WSAWaitForMultipleEvents(lphevents.len() as _, ::core::mem::transmute(lphevents.as_ptr()), fwaitall.into_param().abi(), dwtimeout, falertable.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSCDeinstallProvider(lpproviderid: *const ::windows::core::GUID, lperrno: *mut i32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCDeinstallProvider ( lpproviderid : *const ::windows::core::GUID , lperrno : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCDeinstallProvider ( lpproviderid : *const ::windows::core::GUID , lperrno : *mut i32 ) -> i32 );
     WSCDeinstallProvider(lpproviderid, lperrno)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WSCDeinstallProvider32(lpproviderid: *const ::windows::core::GUID, lperrno: *mut i32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCDeinstallProvider32 ( lpproviderid : *const ::windows::core::GUID , lperrno : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCDeinstallProvider32 ( lpproviderid : *const ::windows::core::GUID , lperrno : *mut i32 ) -> i32 );
     WSCDeinstallProvider32(lpproviderid, lperrno)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -1204,7 +1204,7 @@ pub unsafe fn WSCEnableNSProvider<P0>(lpproviderid: *const ::windows::core::GUID
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCEnableNSProvider ( lpproviderid : *const ::windows::core::GUID , fenable : super::super::Foundation:: BOOL ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCEnableNSProvider ( lpproviderid : *const ::windows::core::GUID , fenable : super::super::Foundation:: BOOL ) -> i32 );
     WSCEnableNSProvider(lpproviderid, fenable.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -1215,7 +1215,7 @@ pub unsafe fn WSCEnableNSProvider32<P0>(lpproviderid: *const ::windows::core::GU
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCEnableNSProvider32 ( lpproviderid : *const ::windows::core::GUID , fenable : super::super::Foundation:: BOOL ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCEnableNSProvider32 ( lpproviderid : *const ::windows::core::GUID , fenable : super::super::Foundation:: BOOL ) -> i32 );
     WSCEnableNSProvider32(lpproviderid, fenable.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -1223,7 +1223,7 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSCEnumNameSpaceProviders32(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOW) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCEnumNameSpaceProviders32 ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOW ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCEnumNameSpaceProviders32 ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOW ) -> i32 );
     WSCEnumNameSpaceProviders32(lpdwbufferlength, lpnspbuffer)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -1231,52 +1231,52 @@ pub unsafe fn WSCEnumNameSpaceProviders32(lpdwbufferlength: *mut u32, lpnspbuffe
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSCEnumNameSpaceProvidersEx32(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOEXW) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCEnumNameSpaceProvidersEx32 ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOEXW ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCEnumNameSpaceProvidersEx32 ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOEXW ) -> i32 );
     WSCEnumNameSpaceProvidersEx32(lpdwbufferlength, lpnspbuffer)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSCEnumProtocols(lpiprotocols: ::core::option::Option<*const i32>, lpprotocolbuffer: ::core::option::Option<*mut WSAPROTOCOL_INFOW>, lpdwbufferlength: *mut u32, lperrno: *mut i32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCEnumProtocols ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut WSAPROTOCOL_INFOW , lpdwbufferlength : *mut u32 , lperrno : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCEnumProtocols ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut WSAPROTOCOL_INFOW , lpdwbufferlength : *mut u32 , lperrno : *mut i32 ) -> i32 );
     WSCEnumProtocols(::core::mem::transmute(lpiprotocols.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpprotocolbuffer.unwrap_or(::std::ptr::null_mut())), lpdwbufferlength, lperrno)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WSCEnumProtocols32(lpiprotocols: ::core::option::Option<*const i32>, lpprotocolbuffer: *mut WSAPROTOCOL_INFOW, lpdwbufferlength: *mut u32, lperrno: *mut i32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCEnumProtocols32 ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut WSAPROTOCOL_INFOW , lpdwbufferlength : *mut u32 , lperrno : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCEnumProtocols32 ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut WSAPROTOCOL_INFOW , lpdwbufferlength : *mut u32 , lperrno : *mut i32 ) -> i32 );
     WSCEnumProtocols32(::core::mem::transmute(lpiprotocols.unwrap_or(::std::ptr::null())), lpprotocolbuffer, lpdwbufferlength, lperrno)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSCGetApplicationCategory(path: &[u16], extra: ::core::option::Option<&[u16]>, ppermittedlspcategories: *mut u32, lperrno: *mut i32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCGetApplicationCategory ( path : ::windows::core::PCWSTR , pathlength : u32 , extra : ::windows::core::PCWSTR , extralength : u32 , ppermittedlspcategories : *mut u32 , lperrno : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCGetApplicationCategory ( path : ::windows::core::PCWSTR , pathlength : u32 , extra : ::windows::core::PCWSTR , extralength : u32 , ppermittedlspcategories : *mut u32 , lperrno : *mut i32 ) -> i32 );
     WSCGetApplicationCategory(::core::mem::transmute(path.as_ptr()), path.len() as _, ::core::mem::transmute(extra.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), extra.as_deref().map_or(0, |slice| slice.len() as _), ppermittedlspcategories, lperrno)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSCGetProviderInfo(lpproviderid: *const ::windows::core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *mut u8, infosize: *mut usize, flags: u32, lperrno: *mut i32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCGetProviderInfo ( lpproviderid : *const ::windows::core::GUID , infotype : WSC_PROVIDER_INFO_TYPE , info : *mut u8 , infosize : *mut usize , flags : u32 , lperrno : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCGetProviderInfo ( lpproviderid : *const ::windows::core::GUID , infotype : WSC_PROVIDER_INFO_TYPE , info : *mut u8 , infosize : *mut usize , flags : u32 , lperrno : *mut i32 ) -> i32 );
     WSCGetProviderInfo(lpproviderid, infotype, info, infosize, flags, lperrno)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WSCGetProviderInfo32(lpproviderid: *const ::windows::core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *mut u8, infosize: *mut usize, flags: u32, lperrno: *mut i32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCGetProviderInfo32 ( lpproviderid : *const ::windows::core::GUID , infotype : WSC_PROVIDER_INFO_TYPE , info : *mut u8 , infosize : *mut usize , flags : u32 , lperrno : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCGetProviderInfo32 ( lpproviderid : *const ::windows::core::GUID , infotype : WSC_PROVIDER_INFO_TYPE , info : *mut u8 , infosize : *mut usize , flags : u32 , lperrno : *mut i32 ) -> i32 );
     WSCGetProviderInfo32(lpproviderid, infotype, info, infosize, flags, lperrno)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSCGetProviderPath(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: ::windows::core::PWSTR, lpproviderdllpathlen: *mut i32, lperrno: *mut i32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCGetProviderPath ( lpproviderid : *const ::windows::core::GUID , lpszproviderdllpath : ::windows::core::PWSTR , lpproviderdllpathlen : *mut i32 , lperrno : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCGetProviderPath ( lpproviderid : *const ::windows::core::GUID , lpszproviderdllpath : ::windows::core::PWSTR , lpproviderdllpathlen : *mut i32 , lperrno : *mut i32 ) -> i32 );
     WSCGetProviderPath(lpproviderid, ::core::mem::transmute(lpszproviderdllpath), lpproviderdllpathlen, lperrno)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WSCGetProviderPath32(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: ::windows::core::PWSTR, lpproviderdllpathlen: *mut i32, lperrno: *mut i32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCGetProviderPath32 ( lpproviderid : *const ::windows::core::GUID , lpszproviderdllpath : ::windows::core::PWSTR , lpproviderdllpathlen : *mut i32 , lperrno : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCGetProviderPath32 ( lpproviderid : *const ::windows::core::GUID , lpszproviderdllpath : ::windows::core::PWSTR , lpproviderdllpathlen : *mut i32 , lperrno : *mut i32 ) -> i32 );
     WSCGetProviderPath32(lpproviderid, ::core::mem::transmute(lpszproviderdllpath), lpproviderdllpathlen, lperrno)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1286,7 +1286,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCInstallNameSpace ( lpszidentifier : ::windows::core::PCWSTR , lpszpathname : ::windows::core::PCWSTR , dwnamespace : u32 , dwversion : u32 , lpproviderid : *const ::windows::core::GUID ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCInstallNameSpace ( lpszidentifier : ::windows::core::PCWSTR , lpszpathname : ::windows::core::PCWSTR , dwnamespace : u32 , dwversion : u32 , lpproviderid : *const ::windows::core::GUID ) -> i32 );
     WSCInstallNameSpace(lpszidentifier.into_param().abi(), lpszpathname.into_param().abi(), dwnamespace, dwversion, lpproviderid)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1297,7 +1297,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCInstallNameSpace32 ( lpszidentifier : ::windows::core::PCWSTR , lpszpathname : ::windows::core::PCWSTR , dwnamespace : u32 , dwversion : u32 , lpproviderid : *const ::windows::core::GUID ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCInstallNameSpace32 ( lpszidentifier : ::windows::core::PCWSTR , lpszpathname : ::windows::core::PCWSTR , dwnamespace : u32 , dwversion : u32 , lpproviderid : *const ::windows::core::GUID ) -> i32 );
     WSCInstallNameSpace32(lpszidentifier.into_param().abi(), lpszpathname.into_param().abi(), dwnamespace, dwversion, lpproviderid)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_System_Com\"`*"]
@@ -1308,7 +1308,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCInstallNameSpaceEx ( lpszidentifier : ::windows::core::PCWSTR , lpszpathname : ::windows::core::PCWSTR , dwnamespace : u32 , dwversion : u32 , lpproviderid : *const ::windows::core::GUID , lpproviderspecific : *const super::super::System::Com:: BLOB ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCInstallNameSpaceEx ( lpszidentifier : ::windows::core::PCWSTR , lpszpathname : ::windows::core::PCWSTR , dwnamespace : u32 , dwversion : u32 , lpproviderid : *const ::windows::core::GUID , lpproviderspecific : *const super::super::System::Com:: BLOB ) -> i32 );
     WSCInstallNameSpaceEx(lpszidentifier.into_param().abi(), lpszpathname.into_param().abi(), dwnamespace, dwversion, lpproviderid, lpproviderspecific)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_System_Com\"`*"]
@@ -1320,7 +1320,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCInstallNameSpaceEx32 ( lpszidentifier : ::windows::core::PCWSTR , lpszpathname : ::windows::core::PCWSTR , dwnamespace : u32 , dwversion : u32 , lpproviderid : *const ::windows::core::GUID , lpproviderspecific : *const super::super::System::Com:: BLOB ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCInstallNameSpaceEx32 ( lpszidentifier : ::windows::core::PCWSTR , lpszpathname : ::windows::core::PCWSTR , dwnamespace : u32 , dwversion : u32 , lpproviderid : *const ::windows::core::GUID , lpproviderspecific : *const super::super::System::Com:: BLOB ) -> i32 );
     WSCInstallNameSpaceEx32(lpszidentifier.into_param().abi(), lpszpathname.into_param().abi(), dwnamespace, dwversion, lpproviderid, lpproviderspecific)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1329,7 +1329,7 @@ pub unsafe fn WSCInstallProvider<P0>(lpproviderid: *const ::windows::core::GUID,
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCInstallProvider ( lpproviderid : *const ::windows::core::GUID , lpszproviderdllpath : ::windows::core::PCWSTR , lpprotocolinfolist : *const WSAPROTOCOL_INFOW , dwnumberofentries : u32 , lperrno : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCInstallProvider ( lpproviderid : *const ::windows::core::GUID , lpszproviderdllpath : ::windows::core::PCWSTR , lpprotocolinfolist : *const WSAPROTOCOL_INFOW , dwnumberofentries : u32 , lperrno : *mut i32 ) -> i32 );
     WSCInstallProvider(lpproviderid, lpszproviderdllpath.into_param().abi(), ::core::mem::transmute(lpprotocolinfolist.as_ptr()), lpprotocolinfolist.len() as _, lperrno)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1339,7 +1339,7 @@ pub unsafe fn WSCInstallProvider64_32<P0>(lpproviderid: *const ::windows::core::
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCInstallProvider64_32 ( lpproviderid : *const ::windows::core::GUID , lpszproviderdllpath : ::windows::core::PCWSTR , lpprotocolinfolist : *const WSAPROTOCOL_INFOW , dwnumberofentries : u32 , lperrno : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCInstallProvider64_32 ( lpproviderid : *const ::windows::core::GUID , lpszproviderdllpath : ::windows::core::PCWSTR , lpprotocolinfolist : *const WSAPROTOCOL_INFOW , dwnumberofentries : u32 , lperrno : *mut i32 ) -> i32 );
     WSCInstallProvider64_32(lpproviderid, lpszproviderdllpath.into_param().abi(), ::core::mem::transmute(lpprotocolinfolist.as_ptr()), lpprotocolinfolist.len() as _, lperrno)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1351,39 +1351,39 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCInstallProviderAndChains64_32 ( lpproviderid : *const ::windows::core::GUID , lpszproviderdllpath : ::windows::core::PCWSTR , lpszproviderdllpath32 : ::windows::core::PCWSTR , lpszlspname : ::windows::core::PCWSTR , dwserviceflags : u32 , lpprotocolinfolist : *mut WSAPROTOCOL_INFOW , dwnumberofentries : u32 , lpdwcatalogentryid : *mut u32 , lperrno : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCInstallProviderAndChains64_32 ( lpproviderid : *const ::windows::core::GUID , lpszproviderdllpath : ::windows::core::PCWSTR , lpszproviderdllpath32 : ::windows::core::PCWSTR , lpszlspname : ::windows::core::PCWSTR , dwserviceflags : u32 , lpprotocolinfolist : *mut WSAPROTOCOL_INFOW , dwnumberofentries : u32 , lpdwcatalogentryid : *mut u32 , lperrno : *mut i32 ) -> i32 );
     WSCInstallProviderAndChains64_32(lpproviderid, lpszproviderdllpath.into_param().abi(), lpszproviderdllpath32.into_param().abi(), lpszlspname.into_param().abi(), dwserviceflags, ::core::mem::transmute(lpprotocolinfolist.as_ptr()), lpprotocolinfolist.len() as _, ::core::mem::transmute(lpdwcatalogentryid.unwrap_or(::std::ptr::null_mut())), lperrno)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSCSetApplicationCategory(path: &[u16], extra: ::core::option::Option<&[u16]>, permittedlspcategories: u32, pprevpermlspcat: ::core::option::Option<*mut u32>, lperrno: *mut i32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCSetApplicationCategory ( path : ::windows::core::PCWSTR , pathlength : u32 , extra : ::windows::core::PCWSTR , extralength : u32 , permittedlspcategories : u32 , pprevpermlspcat : *mut u32 , lperrno : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCSetApplicationCategory ( path : ::windows::core::PCWSTR , pathlength : u32 , extra : ::windows::core::PCWSTR , extralength : u32 , permittedlspcategories : u32 , pprevpermlspcat : *mut u32 , lperrno : *mut i32 ) -> i32 );
     WSCSetApplicationCategory(::core::mem::transmute(path.as_ptr()), path.len() as _, ::core::mem::transmute(extra.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), extra.as_deref().map_or(0, |slice| slice.len() as _), permittedlspcategories, ::core::mem::transmute(pprevpermlspcat.unwrap_or(::std::ptr::null_mut())), lperrno)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSCSetProviderInfo(lpproviderid: *const ::windows::core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: &[u8], flags: u32, lperrno: *mut i32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCSetProviderInfo ( lpproviderid : *const ::windows::core::GUID , infotype : WSC_PROVIDER_INFO_TYPE , info : *const u8 , infosize : usize , flags : u32 , lperrno : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCSetProviderInfo ( lpproviderid : *const ::windows::core::GUID , infotype : WSC_PROVIDER_INFO_TYPE , info : *const u8 , infosize : usize , flags : u32 , lperrno : *mut i32 ) -> i32 );
     WSCSetProviderInfo(lpproviderid, infotype, ::core::mem::transmute(info.as_ptr()), info.len() as _, flags, lperrno)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WSCSetProviderInfo32(lpproviderid: *const ::windows::core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: &[u8], flags: u32, lperrno: *mut i32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCSetProviderInfo32 ( lpproviderid : *const ::windows::core::GUID , infotype : WSC_PROVIDER_INFO_TYPE , info : *const u8 , infosize : usize , flags : u32 , lperrno : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCSetProviderInfo32 ( lpproviderid : *const ::windows::core::GUID , infotype : WSC_PROVIDER_INFO_TYPE , info : *const u8 , infosize : usize , flags : u32 , lperrno : *mut i32 ) -> i32 );
     WSCSetProviderInfo32(lpproviderid, infotype, ::core::mem::transmute(info.as_ptr()), info.len() as _, flags, lperrno)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSCUnInstallNameSpace(lpproviderid: *const ::windows::core::GUID) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCUnInstallNameSpace ( lpproviderid : *const ::windows::core::GUID ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCUnInstallNameSpace ( lpproviderid : *const ::windows::core::GUID ) -> i32 );
     WSCUnInstallNameSpace(lpproviderid)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WSCUnInstallNameSpace32(lpproviderid: *const ::windows::core::GUID) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCUnInstallNameSpace32 ( lpproviderid : *const ::windows::core::GUID ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCUnInstallNameSpace32 ( lpproviderid : *const ::windows::core::GUID ) -> i32 );
     WSCUnInstallNameSpace32(lpproviderid)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1392,7 +1392,7 @@ pub unsafe fn WSCUpdateProvider<P0>(lpproviderid: *const ::windows::core::GUID, 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCUpdateProvider ( lpproviderid : *const ::windows::core::GUID , lpszproviderdllpath : ::windows::core::PCWSTR , lpprotocolinfolist : *const WSAPROTOCOL_INFOW , dwnumberofentries : u32 , lperrno : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCUpdateProvider ( lpproviderid : *const ::windows::core::GUID , lpszproviderdllpath : ::windows::core::PCWSTR , lpprotocolinfolist : *const WSAPROTOCOL_INFOW , dwnumberofentries : u32 , lperrno : *mut i32 ) -> i32 );
     WSCUpdateProvider(lpproviderid, lpszproviderdllpath.into_param().abi(), ::core::mem::transmute(lpprotocolinfolist.as_ptr()), lpprotocolinfolist.len() as _, lperrno)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1402,33 +1402,33 @@ pub unsafe fn WSCUpdateProvider32<P0>(lpproviderid: *const ::windows::core::GUID
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCUpdateProvider32 ( lpproviderid : *const ::windows::core::GUID , lpszproviderdllpath : ::windows::core::PCWSTR , lpprotocolinfolist : *const WSAPROTOCOL_INFOW , dwnumberofentries : u32 , lperrno : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCUpdateProvider32 ( lpproviderid : *const ::windows::core::GUID , lpszproviderdllpath : ::windows::core::PCWSTR , lpprotocolinfolist : *const WSAPROTOCOL_INFOW , dwnumberofentries : u32 , lperrno : *mut i32 ) -> i32 );
     WSCUpdateProvider32(lpproviderid, lpszproviderdllpath.into_param().abi(), ::core::mem::transmute(lpprotocolinfolist.as_ptr()), lpprotocolinfolist.len() as _, lperrno)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSCWriteNameSpaceOrder(lpproviderid: *mut ::windows::core::GUID, dwnumberofentries: u32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCWriteNameSpaceOrder ( lpproviderid : *mut ::windows::core::GUID , dwnumberofentries : u32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCWriteNameSpaceOrder ( lpproviderid : *mut ::windows::core::GUID , dwnumberofentries : u32 ) -> i32 );
     WSCWriteNameSpaceOrder(lpproviderid, dwnumberofentries)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WSCWriteNameSpaceOrder32(lpproviderid: *mut ::windows::core::GUID, dwnumberofentries: u32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCWriteNameSpaceOrder32 ( lpproviderid : *mut ::windows::core::GUID , dwnumberofentries : u32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCWriteNameSpaceOrder32 ( lpproviderid : *mut ::windows::core::GUID , dwnumberofentries : u32 ) -> i32 );
     WSCWriteNameSpaceOrder32(lpproviderid, dwnumberofentries)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn WSCWriteProviderOrder(lpwdcatalogentryid: *mut u32, dwnumberofentries: u32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCWriteProviderOrder ( lpwdcatalogentryid : *mut u32 , dwnumberofentries : u32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCWriteProviderOrder ( lpwdcatalogentryid : *mut u32 , dwnumberofentries : u32 ) -> i32 );
     WSCWriteProviderOrder(lpwdcatalogentryid, dwnumberofentries)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WSCWriteProviderOrder32(lpwdcatalogentryid: *mut u32, dwnumberofentries: u32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn WSCWriteProviderOrder32 ( lpwdcatalogentryid : *mut u32 , dwnumberofentries : u32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn WSCWriteProviderOrder32 ( lpwdcatalogentryid : *mut u32 , dwnumberofentries : u32 ) -> i32 );
     WSCWriteProviderOrder32(lpwdcatalogentryid, dwnumberofentries)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1437,7 +1437,7 @@ pub unsafe fn __WSAFDIsSet<P0>(fd: P0, param1: *mut FD_SET) -> i32
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn __WSAFDIsSet ( fd : SOCKET , param1 : *mut FD_SET ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn __WSAFDIsSet ( fd : SOCKET , param1 : *mut FD_SET ) -> i32 );
     __WSAFDIsSet(fd.into_param().abi(), param1)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1446,7 +1446,7 @@ pub unsafe fn accept<P0>(s: P0, addr: ::core::option::Option<*mut SOCKADDR>, add
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn accept ( s : SOCKET , addr : *mut SOCKADDR , addrlen : *mut i32 ) -> SOCKET );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn accept ( s : SOCKET , addr : *mut SOCKADDR , addrlen : *mut i32 ) -> SOCKET );
     accept(s.into_param().abi(), ::core::mem::transmute(addr.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(addrlen.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1455,7 +1455,7 @@ pub unsafe fn bind<P0>(s: P0, name: *const SOCKADDR, namelen: i32) -> i32
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn bind ( s : SOCKET , name : *const SOCKADDR , namelen : i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn bind ( s : SOCKET , name : *const SOCKADDR , namelen : i32 ) -> i32 );
     bind(s.into_param().abi(), name, namelen)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1464,7 +1464,7 @@ pub unsafe fn closesocket<P0>(s: P0) -> i32
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn closesocket ( s : SOCKET ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn closesocket ( s : SOCKET ) -> i32 );
     closesocket(s.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1473,13 +1473,13 @@ pub unsafe fn connect<P0>(s: P0, name: *const SOCKADDR, namelen: i32) -> i32
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn connect ( s : SOCKET , name : *const SOCKADDR , namelen : i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn connect ( s : SOCKET , name : *const SOCKADDR , namelen : i32 ) -> i32 );
     connect(s.into_param().abi(), name, namelen)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn freeaddrinfo(paddrinfo: ::core::option::Option<*const ADDRINFOA>) {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn freeaddrinfo ( paddrinfo : *const ADDRINFOA ) -> ( ) );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn freeaddrinfo ( paddrinfo : *const ADDRINFOA ) -> ( ) );
     freeaddrinfo(::core::mem::transmute(paddrinfo.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1489,13 +1489,13 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn getaddrinfo ( pnodename : ::windows::core::PCSTR , pservicename : ::windows::core::PCSTR , phints : *const ADDRINFOA , ppresult : *mut *mut ADDRINFOA ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn getaddrinfo ( pnodename : ::windows::core::PCSTR , pservicename : ::windows::core::PCSTR , phints : *const ADDRINFOA , ppresult : *mut *mut ADDRINFOA ) -> i32 );
     getaddrinfo(pnodename.into_param().abi(), pservicename.into_param().abi(), ::core::mem::transmute(phints.unwrap_or(::std::ptr::null())), ppresult)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn gethostbyaddr(addr: &[u8], r#type: i32) -> *mut HOSTENT {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn gethostbyaddr ( addr : ::windows::core::PCSTR , len : i32 , r#type : i32 ) -> *mut HOSTENT );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn gethostbyaddr ( addr : ::windows::core::PCSTR , len : i32 , r#type : i32 ) -> *mut HOSTENT );
     gethostbyaddr(::core::mem::transmute(addr.as_ptr()), addr.len() as _, r#type)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1504,13 +1504,13 @@ pub unsafe fn gethostbyname<P0>(name: P0) -> *mut HOSTENT
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn gethostbyname ( name : ::windows::core::PCSTR ) -> *mut HOSTENT );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn gethostbyname ( name : ::windows::core::PCSTR ) -> *mut HOSTENT );
     gethostbyname(name.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn gethostname(name: &mut [u8]) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn gethostname ( name : ::windows::core::PSTR , namelen : i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn gethostname ( name : ::windows::core::PSTR , namelen : i32 ) -> i32 );
     gethostname(::core::mem::transmute(name.as_ptr()), name.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1519,7 +1519,7 @@ pub unsafe fn getnameinfo<P0>(psockaddr: *const SOCKADDR, sockaddrlength: P0, pn
 where
     P0: ::windows::core::IntoParam<socklen_t>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn getnameinfo ( psockaddr : *const SOCKADDR , sockaddrlength : socklen_t , pnodebuffer : ::windows::core::PSTR , nodebuffersize : u32 , pservicebuffer : ::windows::core::PSTR , servicebuffersize : u32 , flags : i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn getnameinfo ( psockaddr : *const SOCKADDR , sockaddrlength : socklen_t , pnodebuffer : ::windows::core::PSTR , nodebuffersize : u32 , pservicebuffer : ::windows::core::PSTR , servicebuffersize : u32 , flags : i32 ) -> i32 );
     getnameinfo(psockaddr, sockaddrlength.into_param().abi(), ::core::mem::transmute(pnodebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pnodebuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pservicebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pservicebuffer.as_deref().map_or(0, |slice| slice.len() as _), flags)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1528,7 +1528,7 @@ pub unsafe fn getpeername<P0>(s: P0, name: *mut SOCKADDR, namelen: *mut i32) -> 
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn getpeername ( s : SOCKET , name : *mut SOCKADDR , namelen : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn getpeername ( s : SOCKET , name : *mut SOCKADDR , namelen : *mut i32 ) -> i32 );
     getpeername(s.into_param().abi(), name, namelen)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1537,13 +1537,13 @@ pub unsafe fn getprotobyname<P0>(name: P0) -> *mut PROTOENT
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn getprotobyname ( name : ::windows::core::PCSTR ) -> *mut PROTOENT );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn getprotobyname ( name : ::windows::core::PCSTR ) -> *mut PROTOENT );
     getprotobyname(name.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn getprotobynumber(number: i32) -> *mut PROTOENT {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn getprotobynumber ( number : i32 ) -> *mut PROTOENT );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn getprotobynumber ( number : i32 ) -> *mut PROTOENT );
     getprotobynumber(number)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1553,7 +1553,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn getservbyname ( name : ::windows::core::PCSTR , proto : ::windows::core::PCSTR ) -> *mut SERVENT );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn getservbyname ( name : ::windows::core::PCSTR , proto : ::windows::core::PCSTR ) -> *mut SERVENT );
     getservbyname(name.into_param().abi(), proto.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1562,7 +1562,7 @@ pub unsafe fn getservbyport<P0>(port: i32, proto: P0) -> *mut SERVENT
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn getservbyport ( port : i32 , proto : ::windows::core::PCSTR ) -> *mut SERVENT );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn getservbyport ( port : i32 , proto : ::windows::core::PCSTR ) -> *mut SERVENT );
     getservbyport(port, proto.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1571,7 +1571,7 @@ pub unsafe fn getsockname<P0>(s: P0, name: *mut SOCKADDR, namelen: *mut i32) -> 
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn getsockname ( s : SOCKET , name : *mut SOCKADDR , namelen : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn getsockname ( s : SOCKET , name : *mut SOCKADDR , namelen : *mut i32 ) -> i32 );
     getsockname(s.into_param().abi(), name, namelen)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1580,19 +1580,19 @@ pub unsafe fn getsockopt<P0>(s: P0, level: i32, optname: i32, optval: ::windows:
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn getsockopt ( s : SOCKET , level : i32 , optname : i32 , optval : ::windows::core::PSTR , optlen : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn getsockopt ( s : SOCKET , level : i32 , optname : i32 , optval : ::windows::core::PSTR , optlen : *mut i32 ) -> i32 );
     getsockopt(s.into_param().abi(), level, optname, ::core::mem::transmute(optval), optlen)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn htonl(hostlong: u32) -> u32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn htonl ( hostlong : u32 ) -> u32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn htonl ( hostlong : u32 ) -> u32 );
     htonl(hostlong)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn htons(hostshort: u16) -> u16 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn htons ( hostshort : u16 ) -> u16 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn htons ( hostshort : u16 ) -> u16 );
     htons(hostshort)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1601,19 +1601,19 @@ pub unsafe fn inet_addr<P0>(cp: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn inet_addr ( cp : ::windows::core::PCSTR ) -> u32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn inet_addr ( cp : ::windows::core::PCSTR ) -> u32 );
     inet_addr(cp.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn inet_ntoa(r#in: IN_ADDR) -> ::windows::core::PSTR {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn inet_ntoa ( r#in : IN_ADDR ) -> ::windows::core::PSTR );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn inet_ntoa ( r#in : IN_ADDR ) -> ::windows::core::PSTR );
     inet_ntoa(::core::mem::transmute(r#in))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn inet_ntop(family: i32, paddr: *const ::core::ffi::c_void, pstringbuf: &mut [u8]) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn inet_ntop ( family : i32 , paddr : *const ::core::ffi::c_void , pstringbuf : ::windows::core::PSTR , stringbufsize : usize ) -> ::windows::core::PCSTR );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn inet_ntop ( family : i32 , paddr : *const ::core::ffi::c_void , pstringbuf : ::windows::core::PSTR , stringbufsize : usize ) -> ::windows::core::PCSTR );
     inet_ntop(family, paddr, ::core::mem::transmute(pstringbuf.as_ptr()), pstringbuf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1622,7 +1622,7 @@ pub unsafe fn inet_pton<P0>(family: i32, pszaddrstring: P0, paddrbuf: *mut ::cor
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn inet_pton ( family : i32 , pszaddrstring : ::windows::core::PCSTR , paddrbuf : *mut ::core::ffi::c_void ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn inet_pton ( family : i32 , pszaddrstring : ::windows::core::PCSTR , paddrbuf : *mut ::core::ffi::c_void ) -> i32 );
     inet_pton(family, pszaddrstring.into_param().abi(), paddrbuf)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1631,7 +1631,7 @@ pub unsafe fn ioctlsocket<P0>(s: P0, cmd: i32, argp: *mut u32) -> i32
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn ioctlsocket ( s : SOCKET , cmd : i32 , argp : *mut u32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn ioctlsocket ( s : SOCKET , cmd : i32 , argp : *mut u32 ) -> i32 );
     ioctlsocket(s.into_param().abi(), cmd, argp)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1640,19 +1640,19 @@ pub unsafe fn listen<P0>(s: P0, backlog: i32) -> i32
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn listen ( s : SOCKET , backlog : i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn listen ( s : SOCKET , backlog : i32 ) -> i32 );
     listen(s.into_param().abi(), backlog)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn ntohl(netlong: u32) -> u32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn ntohl ( netlong : u32 ) -> u32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn ntohl ( netlong : u32 ) -> u32 );
     ntohl(netlong)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn ntohs(netshort: u16) -> u16 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn ntohs ( netshort : u16 ) -> u16 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn ntohs ( netshort : u16 ) -> u16 );
     ntohs(netshort)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1661,7 +1661,7 @@ pub unsafe fn recv<P0>(s: P0, buf: &mut [u8], flags: SEND_RECV_FLAGS) -> i32
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn recv ( s : SOCKET , buf : ::windows::core::PSTR , len : i32 , flags : SEND_RECV_FLAGS ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn recv ( s : SOCKET , buf : ::windows::core::PSTR , len : i32 , flags : SEND_RECV_FLAGS ) -> i32 );
     recv(s.into_param().abi(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _, flags)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1670,13 +1670,13 @@ pub unsafe fn recvfrom<P0>(s: P0, buf: &mut [u8], flags: i32, from: ::core::opti
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn recvfrom ( s : SOCKET , buf : ::windows::core::PSTR , len : i32 , flags : i32 , from : *mut SOCKADDR , fromlen : *mut i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn recvfrom ( s : SOCKET , buf : ::windows::core::PSTR , len : i32 , flags : i32 , from : *mut SOCKADDR , fromlen : *mut i32 ) -> i32 );
     recvfrom(s.into_param().abi(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _, flags, ::core::mem::transmute(from.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(fromlen.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn select(nfds: i32, readfds: ::core::option::Option<*mut FD_SET>, writefds: ::core::option::Option<*mut FD_SET>, exceptfds: ::core::option::Option<*mut FD_SET>, timeout: ::core::option::Option<*const TIMEVAL>) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn select ( nfds : i32 , readfds : *mut FD_SET , writefds : *mut FD_SET , exceptfds : *mut FD_SET , timeout : *const TIMEVAL ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn select ( nfds : i32 , readfds : *mut FD_SET , writefds : *mut FD_SET , exceptfds : *mut FD_SET , timeout : *const TIMEVAL ) -> i32 );
     select(nfds, ::core::mem::transmute(readfds.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(writefds.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(exceptfds.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(timeout.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1685,7 +1685,7 @@ pub unsafe fn send<P0>(s: P0, buf: &[u8], flags: SEND_RECV_FLAGS) -> i32
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn send ( s : SOCKET , buf : ::windows::core::PCSTR , len : i32 , flags : SEND_RECV_FLAGS ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn send ( s : SOCKET , buf : ::windows::core::PCSTR , len : i32 , flags : SEND_RECV_FLAGS ) -> i32 );
     send(s.into_param().abi(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _, flags)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1694,7 +1694,7 @@ pub unsafe fn sendto<P0>(s: P0, buf: &[u8], flags: i32, to: *const SOCKADDR, tol
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn sendto ( s : SOCKET , buf : ::windows::core::PCSTR , len : i32 , flags : i32 , to : *const SOCKADDR , tolen : i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn sendto ( s : SOCKET , buf : ::windows::core::PCSTR , len : i32 , flags : i32 , to : *const SOCKADDR , tolen : i32 ) -> i32 );
     sendto(s.into_param().abi(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _, flags, to, tolen)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1703,7 +1703,7 @@ pub unsafe fn setsockopt<P0>(s: P0, level: i32, optname: i32, optval: ::core::op
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn setsockopt ( s : SOCKET , level : i32 , optname : i32 , optval : ::windows::core::PCSTR , optlen : i32 ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn setsockopt ( s : SOCKET , level : i32 , optname : i32 , optval : ::windows::core::PCSTR , optlen : i32 ) -> i32 );
     setsockopt(s.into_param().abi(), level, optname, ::core::mem::transmute(optval.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), optval.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1712,13 +1712,13 @@ pub unsafe fn shutdown<P0>(s: P0, how: WINSOCK_SHUTDOWN_HOW) -> i32
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn shutdown ( s : SOCKET , how : WINSOCK_SHUTDOWN_HOW ) -> i32 );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn shutdown ( s : SOCKET , how : WINSOCK_SHUTDOWN_HOW ) -> i32 );
     shutdown(s.into_param().abi(), how)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn socket(af: i32, r#type: WINSOCK_SOCKET_TYPE, protocol: i32) -> SOCKET {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn socket ( af : i32 , r#type : WINSOCK_SOCKET_TYPE , protocol : i32 ) -> SOCKET );
+    ::windows_targets::link ! ( "ws2_32.dll""system" fn socket ( af : i32 , r#type : WINSOCK_SOCKET_TYPE , protocol : i32 ) -> SOCKET );
     socket(af, r#type, protocol)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]

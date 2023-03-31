@@ -1,34 +1,34 @@
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[inline]
 pub unsafe fn CreateAudioReverb() -> ::windows::core::Result<::windows::core::IUnknown> {
-    ::windows::imp::link ! ( "xaudio2_8.dll""system" fn CreateAudioReverb ( ppapo : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "xaudio2_8.dll""system" fn CreateAudioReverb ( ppapo : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
     CreateAudioReverb(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[inline]
 pub unsafe fn CreateAudioVolumeMeter() -> ::windows::core::Result<::windows::core::IUnknown> {
-    ::windows::imp::link ! ( "xaudio2_8.dll""system" fn CreateAudioVolumeMeter ( ppapo : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "xaudio2_8.dll""system" fn CreateAudioVolumeMeter ( ppapo : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
     CreateAudioVolumeMeter(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[inline]
 pub unsafe fn CreateFX(clsid: *const ::windows::core::GUID, peffect: *mut ::core::option::Option<::windows::core::IUnknown>, pinitdat: ::core::option::Option<*const ::core::ffi::c_void>, initdatabytesize: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "xaudio2_8.dll""cdecl" fn CreateFX ( clsid : *const ::windows::core::GUID , peffect : *mut * mut::core::ffi::c_void , pinitdat : *const ::core::ffi::c_void , initdatabytesize : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "xaudio2_8.dll""cdecl" fn CreateFX ( clsid : *const ::windows::core::GUID , peffect : *mut * mut::core::ffi::c_void , pinitdat : *const ::core::ffi::c_void , initdatabytesize : u32 ) -> ::windows::core::HRESULT );
     CreateFX(clsid, ::core::mem::transmute(peffect), ::core::mem::transmute(pinitdat.unwrap_or(::std::ptr::null())), initdatabytesize).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[inline]
 pub unsafe fn CreateHrtfApo(init: *const HrtfApoInit) -> ::windows::core::Result<IXAPO> {
-    ::windows::imp::link ! ( "hrtfapo.dll""system" fn CreateHrtfApo ( init : *const HrtfApoInit , xapo : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "hrtfapo.dll""system" fn CreateHrtfApo ( init : *const HrtfApoInit , xapo : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IXAPO>();
     CreateHrtfApo(init, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[inline]
 pub unsafe fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut ::core::option::Option<IXAudio2>, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "xaudio2_8.dll""system" fn XAudio2CreateWithVersionInfo ( ppxaudio2 : *mut * mut::core::ffi::c_void , flags : u32 , xaudio2processor : u32 , ntddiversion : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "xaudio2_8.dll""system" fn XAudio2CreateWithVersionInfo ( ppxaudio2 : *mut * mut::core::ffi::c_void , flags : u32 , xaudio2processor : u32 , ntddiversion : u32 ) -> ::windows::core::HRESULT );
     XAudio2CreateWithVersionInfo(::core::mem::transmute(ppxaudio2), flags, xaudio2processor, ntddiversion).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
