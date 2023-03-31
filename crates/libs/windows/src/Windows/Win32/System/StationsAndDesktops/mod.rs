@@ -6,7 +6,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::WPARAM>,
     P1: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn BroadcastSystemMessageA ( flags : u32 , lpinfo : *mut u32 , msg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM ) -> i32 );
+    ::windows_targets::link ! ( "user32.dll""system" fn BroadcastSystemMessageA ( flags : u32 , lpinfo : *mut u32 , msg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM ) -> i32 );
     BroadcastSystemMessageA(flags, ::core::mem::transmute(lpinfo.unwrap_or(::std::ptr::null_mut())), msg, wparam.into_param().abi(), lparam.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
@@ -17,7 +17,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::WPARAM>,
     P1: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn BroadcastSystemMessageExA ( flags : BROADCAST_SYSTEM_MESSAGE_FLAGS , lpinfo : *mut BROADCAST_SYSTEM_MESSAGE_INFO , msg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM , pbsminfo : *mut BSMINFO ) -> i32 );
+    ::windows_targets::link ! ( "user32.dll""system" fn BroadcastSystemMessageExA ( flags : BROADCAST_SYSTEM_MESSAGE_FLAGS , lpinfo : *mut BROADCAST_SYSTEM_MESSAGE_INFO , msg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM , pbsminfo : *mut BSMINFO ) -> i32 );
     BroadcastSystemMessageExA(flags, ::core::mem::transmute(lpinfo.unwrap_or(::std::ptr::null_mut())), msg, wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(pbsminfo.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
@@ -28,7 +28,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::WPARAM>,
     P1: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn BroadcastSystemMessageExW ( flags : BROADCAST_SYSTEM_MESSAGE_FLAGS , lpinfo : *mut BROADCAST_SYSTEM_MESSAGE_INFO , msg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM , pbsminfo : *mut BSMINFO ) -> i32 );
+    ::windows_targets::link ! ( "user32.dll""system" fn BroadcastSystemMessageExW ( flags : BROADCAST_SYSTEM_MESSAGE_FLAGS , lpinfo : *mut BROADCAST_SYSTEM_MESSAGE_INFO , msg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM , pbsminfo : *mut BSMINFO ) -> i32 );
     BroadcastSystemMessageExW(flags, ::core::mem::transmute(lpinfo.unwrap_or(::std::ptr::null_mut())), msg, wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(pbsminfo.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
@@ -39,7 +39,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::WPARAM>,
     P1: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn BroadcastSystemMessageW ( flags : BROADCAST_SYSTEM_MESSAGE_FLAGS , lpinfo : *mut BROADCAST_SYSTEM_MESSAGE_INFO , msg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM ) -> i32 );
+    ::windows_targets::link ! ( "user32.dll""system" fn BroadcastSystemMessageW ( flags : BROADCAST_SYSTEM_MESSAGE_FLAGS , lpinfo : *mut BROADCAST_SYSTEM_MESSAGE_INFO , msg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM ) -> i32 );
     BroadcastSystemMessageW(flags, ::core::mem::transmute(lpinfo.unwrap_or(::std::ptr::null_mut())), msg, wparam.into_param().abi(), lparam.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
@@ -49,7 +49,7 @@ pub unsafe fn CloseDesktop<P0>(hdesktop: P0) -> super::super::Foundation::BOOL
 where
     P0: ::windows::core::IntoParam<HDESK>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn CloseDesktop ( hdesktop : HDESK ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "user32.dll""system" fn CloseDesktop ( hdesktop : HDESK ) -> super::super::Foundation:: BOOL );
     CloseDesktop(hdesktop.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
@@ -59,7 +59,7 @@ pub unsafe fn CloseWindowStation<P0>(hwinsta: P0) -> super::super::Foundation::B
 where
     P0: ::windows::core::IntoParam<HWINSTA>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn CloseWindowStation ( hwinsta : HWINSTA ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "user32.dll""system" fn CloseWindowStation ( hwinsta : HWINSTA ) -> super::super::Foundation:: BOOL );
     CloseWindowStation(hwinsta.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
@@ -70,7 +70,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn CreateDesktopA ( lpszdesktop : ::windows::core::PCSTR , lpszdevice : ::windows::core::PCSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA , dwflags : DESKTOP_CONTROL_FLAGS , dwdesiredaccess : u32 , lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> HDESK );
+    ::windows_targets::link ! ( "user32.dll""system" fn CreateDesktopA ( lpszdesktop : ::windows::core::PCSTR , lpszdevice : ::windows::core::PCSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA , dwflags : DESKTOP_CONTROL_FLAGS , dwdesiredaccess : u32 , lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> HDESK );
     let result__ = CreateDesktopA(lpszdesktop.into_param().abi(), lpszdevice.into_param().abi(), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa.unwrap_or(::std::ptr::null())));
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -82,7 +82,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn CreateDesktopExA ( lpszdesktop : ::windows::core::PCSTR , lpszdevice : ::windows::core::PCSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA , dwflags : DESKTOP_CONTROL_FLAGS , dwdesiredaccess : u32 , lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES , ulheapsize : u32 , pvoid : *const ::core::ffi::c_void ) -> HDESK );
+    ::windows_targets::link ! ( "user32.dll""system" fn CreateDesktopExA ( lpszdesktop : ::windows::core::PCSTR , lpszdevice : ::windows::core::PCSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA , dwflags : DESKTOP_CONTROL_FLAGS , dwdesiredaccess : u32 , lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES , ulheapsize : u32 , pvoid : *const ::core::ffi::c_void ) -> HDESK );
     let result__ = CreateDesktopExA(lpszdesktop.into_param().abi(), lpszdevice.into_param().abi(), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa.unwrap_or(::std::ptr::null())), ulheapsize, ::core::mem::transmute(pvoid.unwrap_or(::std::ptr::null())));
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -94,7 +94,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn CreateDesktopExW ( lpszdesktop : ::windows::core::PCWSTR , lpszdevice : ::windows::core::PCWSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW , dwflags : DESKTOP_CONTROL_FLAGS , dwdesiredaccess : u32 , lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES , ulheapsize : u32 , pvoid : *const ::core::ffi::c_void ) -> HDESK );
+    ::windows_targets::link ! ( "user32.dll""system" fn CreateDesktopExW ( lpszdesktop : ::windows::core::PCWSTR , lpszdevice : ::windows::core::PCWSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW , dwflags : DESKTOP_CONTROL_FLAGS , dwdesiredaccess : u32 , lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES , ulheapsize : u32 , pvoid : *const ::core::ffi::c_void ) -> HDESK );
     let result__ = CreateDesktopExW(lpszdesktop.into_param().abi(), lpszdevice.into_param().abi(), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa.unwrap_or(::std::ptr::null())), ulheapsize, ::core::mem::transmute(pvoid.unwrap_or(::std::ptr::null())));
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -106,7 +106,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn CreateDesktopW ( lpszdesktop : ::windows::core::PCWSTR , lpszdevice : ::windows::core::PCWSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW , dwflags : DESKTOP_CONTROL_FLAGS , dwdesiredaccess : u32 , lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> HDESK );
+    ::windows_targets::link ! ( "user32.dll""system" fn CreateDesktopW ( lpszdesktop : ::windows::core::PCWSTR , lpszdevice : ::windows::core::PCWSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW , dwflags : DESKTOP_CONTROL_FLAGS , dwdesiredaccess : u32 , lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> HDESK );
     let result__ = CreateDesktopW(lpszdesktop.into_param().abi(), lpszdevice.into_param().abi(), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa.unwrap_or(::std::ptr::null())));
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -117,7 +117,7 @@ pub unsafe fn CreateWindowStationA<P0>(lpwinsta: P0, dwflags: u32, dwdesiredacce
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn CreateWindowStationA ( lpwinsta : ::windows::core::PCSTR , dwflags : u32 , dwdesiredaccess : u32 , lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> HWINSTA );
+    ::windows_targets::link ! ( "user32.dll""system" fn CreateWindowStationA ( lpwinsta : ::windows::core::PCSTR , dwflags : u32 , dwdesiredaccess : u32 , lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> HWINSTA );
     let result__ = CreateWindowStationA(lpwinsta.into_param().abi(), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa.unwrap_or(::std::ptr::null())));
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -128,7 +128,7 @@ pub unsafe fn CreateWindowStationW<P0>(lpwinsta: P0, dwflags: u32, dwdesiredacce
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn CreateWindowStationW ( lpwinsta : ::windows::core::PCWSTR , dwflags : u32 , dwdesiredaccess : u32 , lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> HWINSTA );
+    ::windows_targets::link ! ( "user32.dll""system" fn CreateWindowStationW ( lpwinsta : ::windows::core::PCWSTR , dwflags : u32 , dwdesiredaccess : u32 , lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> HWINSTA );
     let result__ = CreateWindowStationW(lpwinsta.into_param().abi(), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa.unwrap_or(::std::ptr::null())));
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -140,7 +140,7 @@ where
     P0: ::windows::core::IntoParam<HDESK>,
     P1: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn EnumDesktopWindows ( hdesktop : HDESK , lpfn : super::super::UI::WindowsAndMessaging:: WNDENUMPROC , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "user32.dll""system" fn EnumDesktopWindows ( hdesktop : HDESK , lpfn : super::super::UI::WindowsAndMessaging:: WNDENUMPROC , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
     EnumDesktopWindows(hdesktop.into_param().abi(), lpfn, lparam.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
@@ -151,7 +151,7 @@ where
     P0: ::windows::core::IntoParam<HWINSTA>,
     P1: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn EnumDesktopsA ( hwinsta : HWINSTA , lpenumfunc : DESKTOPENUMPROCA , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "user32.dll""system" fn EnumDesktopsA ( hwinsta : HWINSTA , lpenumfunc : DESKTOPENUMPROCA , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
     EnumDesktopsA(hwinsta.into_param().abi(), lpenumfunc, lparam.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
@@ -162,7 +162,7 @@ where
     P0: ::windows::core::IntoParam<HWINSTA>,
     P1: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn EnumDesktopsW ( hwinsta : HWINSTA , lpenumfunc : DESKTOPENUMPROCW , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "user32.dll""system" fn EnumDesktopsW ( hwinsta : HWINSTA , lpenumfunc : DESKTOPENUMPROCW , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
     EnumDesktopsW(hwinsta.into_param().abi(), lpenumfunc, lparam.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
@@ -172,7 +172,7 @@ pub unsafe fn EnumWindowStationsA<P0>(lpenumfunc: WINSTAENUMPROCA, lparam: P0) -
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn EnumWindowStationsA ( lpenumfunc : WINSTAENUMPROCA , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "user32.dll""system" fn EnumWindowStationsA ( lpenumfunc : WINSTAENUMPROCA , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
     EnumWindowStationsA(lpenumfunc, lparam.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
@@ -182,20 +182,20 @@ pub unsafe fn EnumWindowStationsW<P0>(lpenumfunc: WINSTAENUMPROCW, lparam: P0) -
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn EnumWindowStationsW ( lpenumfunc : WINSTAENUMPROCW , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "user32.dll""system" fn EnumWindowStationsW ( lpenumfunc : WINSTAENUMPROCW , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
     EnumWindowStationsW(lpenumfunc, lparam.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 #[inline]
 pub unsafe fn GetProcessWindowStation() -> ::windows::core::Result<HWINSTA> {
-    ::windows::imp::link ! ( "user32.dll""system" fn GetProcessWindowStation ( ) -> HWINSTA );
+    ::windows_targets::link ! ( "user32.dll""system" fn GetProcessWindowStation ( ) -> HWINSTA );
     let result__ = GetProcessWindowStation();
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 #[inline]
 pub unsafe fn GetThreadDesktop(dwthreadid: u32) -> ::windows::core::Result<HDESK> {
-    ::windows::imp::link ! ( "user32.dll""system" fn GetThreadDesktop ( dwthreadid : u32 ) -> HDESK );
+    ::windows_targets::link ! ( "user32.dll""system" fn GetThreadDesktop ( dwthreadid : u32 ) -> HDESK );
     let result__ = GetThreadDesktop(dwthreadid);
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -206,7 +206,7 @@ pub unsafe fn GetUserObjectInformationA<P0>(hobj: P0, nindex: USER_OBJECT_INFORM
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn GetUserObjectInformationA ( hobj : super::super::Foundation:: HANDLE , nindex : USER_OBJECT_INFORMATION_INDEX , pvinfo : *mut ::core::ffi::c_void , nlength : u32 , lpnlengthneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "user32.dll""system" fn GetUserObjectInformationA ( hobj : super::super::Foundation:: HANDLE , nindex : USER_OBJECT_INFORMATION_INDEX , pvinfo : *mut ::core::ffi::c_void , nlength : u32 , lpnlengthneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetUserObjectInformationA(hobj.into_param().abi(), nindex, ::core::mem::transmute(pvinfo.unwrap_or(::std::ptr::null_mut())), nlength, ::core::mem::transmute(lpnlengthneeded.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
@@ -216,7 +216,7 @@ pub unsafe fn GetUserObjectInformationW<P0>(hobj: P0, nindex: USER_OBJECT_INFORM
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn GetUserObjectInformationW ( hobj : super::super::Foundation:: HANDLE , nindex : USER_OBJECT_INFORMATION_INDEX , pvinfo : *mut ::core::ffi::c_void , nlength : u32 , lpnlengthneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "user32.dll""system" fn GetUserObjectInformationW ( hobj : super::super::Foundation:: HANDLE , nindex : USER_OBJECT_INFORMATION_INDEX , pvinfo : *mut ::core::ffi::c_void , nlength : u32 , lpnlengthneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetUserObjectInformationW(hobj.into_param().abi(), nindex, ::core::mem::transmute(pvinfo.unwrap_or(::std::ptr::null_mut())), nlength, ::core::mem::transmute(lpnlengthneeded.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
@@ -227,7 +227,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn OpenDesktopA ( lpszdesktop : ::windows::core::PCSTR , dwflags : DESKTOP_CONTROL_FLAGS , finherit : super::super::Foundation:: BOOL , dwdesiredaccess : u32 ) -> HDESK );
+    ::windows_targets::link ! ( "user32.dll""system" fn OpenDesktopA ( lpszdesktop : ::windows::core::PCSTR , dwflags : DESKTOP_CONTROL_FLAGS , finherit : super::super::Foundation:: BOOL , dwdesiredaccess : u32 ) -> HDESK );
     let result__ = OpenDesktopA(lpszdesktop.into_param().abi(), dwflags, finherit.into_param().abi(), dwdesiredaccess);
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -239,7 +239,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn OpenDesktopW ( lpszdesktop : ::windows::core::PCWSTR , dwflags : DESKTOP_CONTROL_FLAGS , finherit : super::super::Foundation:: BOOL , dwdesiredaccess : u32 ) -> HDESK );
+    ::windows_targets::link ! ( "user32.dll""system" fn OpenDesktopW ( lpszdesktop : ::windows::core::PCWSTR , dwflags : DESKTOP_CONTROL_FLAGS , finherit : super::super::Foundation:: BOOL , dwdesiredaccess : u32 ) -> HDESK );
     let result__ = OpenDesktopW(lpszdesktop.into_param().abi(), dwflags, finherit.into_param().abi(), dwdesiredaccess);
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -250,7 +250,7 @@ pub unsafe fn OpenInputDesktop<P0>(dwflags: DESKTOP_CONTROL_FLAGS, finherit: P0,
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn OpenInputDesktop ( dwflags : DESKTOP_CONTROL_FLAGS , finherit : super::super::Foundation:: BOOL , dwdesiredaccess : DESKTOP_ACCESS_FLAGS ) -> HDESK );
+    ::windows_targets::link ! ( "user32.dll""system" fn OpenInputDesktop ( dwflags : DESKTOP_CONTROL_FLAGS , finherit : super::super::Foundation:: BOOL , dwdesiredaccess : DESKTOP_ACCESS_FLAGS ) -> HDESK );
     let result__ = OpenInputDesktop(dwflags, finherit.into_param().abi(), dwdesiredaccess);
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -262,7 +262,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn OpenWindowStationA ( lpszwinsta : ::windows::core::PCSTR , finherit : super::super::Foundation:: BOOL , dwdesiredaccess : u32 ) -> HWINSTA );
+    ::windows_targets::link ! ( "user32.dll""system" fn OpenWindowStationA ( lpszwinsta : ::windows::core::PCSTR , finherit : super::super::Foundation:: BOOL , dwdesiredaccess : u32 ) -> HWINSTA );
     let result__ = OpenWindowStationA(lpszwinsta.into_param().abi(), finherit.into_param().abi(), dwdesiredaccess);
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -274,7 +274,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn OpenWindowStationW ( lpszwinsta : ::windows::core::PCWSTR , finherit : super::super::Foundation:: BOOL , dwdesiredaccess : u32 ) -> HWINSTA );
+    ::windows_targets::link ! ( "user32.dll""system" fn OpenWindowStationW ( lpszwinsta : ::windows::core::PCWSTR , finherit : super::super::Foundation:: BOOL , dwdesiredaccess : u32 ) -> HWINSTA );
     let result__ = OpenWindowStationW(lpszwinsta.into_param().abi(), finherit.into_param().abi(), dwdesiredaccess);
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -285,7 +285,7 @@ pub unsafe fn SetProcessWindowStation<P0>(hwinsta: P0) -> super::super::Foundati
 where
     P0: ::windows::core::IntoParam<HWINSTA>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn SetProcessWindowStation ( hwinsta : HWINSTA ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "user32.dll""system" fn SetProcessWindowStation ( hwinsta : HWINSTA ) -> super::super::Foundation:: BOOL );
     SetProcessWindowStation(hwinsta.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
@@ -295,7 +295,7 @@ pub unsafe fn SetThreadDesktop<P0>(hdesktop: P0) -> super::super::Foundation::BO
 where
     P0: ::windows::core::IntoParam<HDESK>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn SetThreadDesktop ( hdesktop : HDESK ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "user32.dll""system" fn SetThreadDesktop ( hdesktop : HDESK ) -> super::super::Foundation:: BOOL );
     SetThreadDesktop(hdesktop.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
@@ -305,7 +305,7 @@ pub unsafe fn SetUserObjectInformationA<P0>(hobj: P0, nindex: i32, pvinfo: *cons
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn SetUserObjectInformationA ( hobj : super::super::Foundation:: HANDLE , nindex : i32 , pvinfo : *const ::core::ffi::c_void , nlength : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "user32.dll""system" fn SetUserObjectInformationA ( hobj : super::super::Foundation:: HANDLE , nindex : i32 , pvinfo : *const ::core::ffi::c_void , nlength : u32 ) -> super::super::Foundation:: BOOL );
     SetUserObjectInformationA(hobj.into_param().abi(), nindex, pvinfo, nlength)
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
@@ -315,7 +315,7 @@ pub unsafe fn SetUserObjectInformationW<P0>(hobj: P0, nindex: i32, pvinfo: *cons
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn SetUserObjectInformationW ( hobj : super::super::Foundation:: HANDLE , nindex : i32 , pvinfo : *const ::core::ffi::c_void , nlength : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "user32.dll""system" fn SetUserObjectInformationW ( hobj : super::super::Foundation:: HANDLE , nindex : i32 , pvinfo : *const ::core::ffi::c_void , nlength : u32 ) -> super::super::Foundation:: BOOL );
     SetUserObjectInformationW(hobj.into_param().abi(), nindex, pvinfo, nlength)
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
@@ -325,7 +325,7 @@ pub unsafe fn SwitchDesktop<P0>(hdesktop: P0) -> super::super::Foundation::BOOL
 where
     P0: ::windows::core::IntoParam<HDESK>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn SwitchDesktop ( hdesktop : HDESK ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "user32.dll""system" fn SwitchDesktop ( hdesktop : HDESK ) -> super::super::Foundation:: BOOL );
     SwitchDesktop(hdesktop.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]

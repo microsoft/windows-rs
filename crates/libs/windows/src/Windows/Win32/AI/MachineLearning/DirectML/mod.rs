@@ -6,7 +6,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12Device>,
     T: ::windows::core::ComInterface,
 {
-    ::windows::imp::link ! ( "directml.dll""system" fn DMLCreateDevice ( d3d12device : * mut::core::ffi::c_void , flags : DML_CREATE_DEVICE_FLAGS , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "directml.dll""system" fn DMLCreateDevice ( d3d12device : * mut::core::ffi::c_void , flags : DML_CREATE_DEVICE_FLAGS , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DMLCreateDevice(d3d12device.into_param().abi(), flags, &<T as ::windows::core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"Win32_Graphics_Direct3D12\"`*"]
@@ -17,7 +17,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12Device>,
     T: ::windows::core::ComInterface,
 {
-    ::windows::imp::link ! ( "directml.dll""system" fn DMLCreateDevice1 ( d3d12device : * mut::core::ffi::c_void , flags : DML_CREATE_DEVICE_FLAGS , minimumfeaturelevel : DML_FEATURE_LEVEL , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "directml.dll""system" fn DMLCreateDevice1 ( d3d12device : * mut::core::ffi::c_void , flags : DML_CREATE_DEVICE_FLAGS , minimumfeaturelevel : DML_FEATURE_LEVEL , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DMLCreateDevice1(d3d12device.into_param().abi(), flags, minimumfeaturelevel, &<T as ::windows::core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]

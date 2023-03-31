@@ -1,11 +1,11 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rpcproxy.dll""system" #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"] fn GetExtensionVersion ( pver : *mut HSE_VERSION_INFO ) -> super::super::Foundation:: BOOL );
+::windows_targets::link ! ( "rpcproxy.dll""system" #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"] fn GetExtensionVersion ( pver : *mut HSE_VERSION_INFO ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rpcproxy.dll""system" #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"] fn GetFilterVersion ( pver : *mut HTTP_FILTER_VERSION ) -> super::super::Foundation:: BOOL );
+::windows_targets::link ! ( "rpcproxy.dll""system" #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"] fn GetFilterVersion ( pver : *mut HTTP_FILTER_VERSION ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rpcproxy.dll""system" #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"] fn HttpExtensionProc ( pecb : *const EXTENSION_CONTROL_BLOCK ) -> u32 );
+::windows_targets::link ! ( "rpcproxy.dll""system" #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"] fn HttpExtensionProc ( pecb : *const EXTENSION_CONTROL_BLOCK ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rpcproxy.dll""system" #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"] fn HttpFilterProc ( pfc : *mut HTTP_FILTER_CONTEXT , notificationtype : u32 , pvnotification : *mut ::core::ffi::c_void ) -> u32 );
+::windows_targets::link ! ( "rpcproxy.dll""system" #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"] fn HttpFilterProc ( pfc : *mut HTTP_FILTER_CONTEXT , notificationtype : u32 , pvnotification : *mut ::core::ffi::c_void ) -> u32 );
 pub type AsyncIFtpAuthenticationProvider = *mut ::core::ffi::c_void;
 pub type AsyncIFtpAuthorizationProvider = *mut ::core::ffi::c_void;
 pub type AsyncIFtpHomeDirectoryProvider = *mut ::core::ffi::c_void;

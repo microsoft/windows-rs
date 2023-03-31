@@ -7,7 +7,7 @@ pub unsafe fn AbortDoc<P0>(hdc: P0) -> i32
 where
     P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "gdi32.dll""system" fn AbortDoc ( hdc : super::super::Graphics::Gdi:: HDC ) -> i32 );
+    ::windows_targets::link ! ( "gdi32.dll""system" fn AbortDoc ( hdc : super::super::Graphics::Gdi:: HDC ) -> i32 );
     AbortDoc(hdc.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -18,7 +18,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "winspool.drv""system" fn DeviceCapabilitiesA ( pdevice : ::windows::core::PCSTR , pport : ::windows::core::PCSTR , fwcapability : DEVICE_CAPABILITIES , poutput : ::windows::core::PSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA ) -> i32 );
+    ::windows_targets::link ! ( "winspool.drv""system" fn DeviceCapabilitiesA ( pdevice : ::windows::core::PCSTR , pport : ::windows::core::PCSTR , fwcapability : DEVICE_CAPABILITIES , poutput : ::windows::core::PSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA ) -> i32 );
     DeviceCapabilitiesA(pdevice.into_param().abi(), pport.into_param().abi(), fwcapability, ::core::mem::transmute(poutput), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -29,7 +29,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "winspool.drv""system" fn DeviceCapabilitiesW ( pdevice : ::windows::core::PCWSTR , pport : ::windows::core::PCWSTR , fwcapability : DEVICE_CAPABILITIES , poutput : ::windows::core::PWSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW ) -> i32 );
+    ::windows_targets::link ! ( "winspool.drv""system" fn DeviceCapabilitiesW ( pdevice : ::windows::core::PCWSTR , pport : ::windows::core::PCWSTR , fwcapability : DEVICE_CAPABILITIES , poutput : ::windows::core::PWSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW ) -> i32 );
     DeviceCapabilitiesW(pdevice.into_param().abi(), pport.into_param().abi(), fwcapability, ::core::mem::transmute(poutput), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -39,7 +39,7 @@ pub unsafe fn EndDoc<P0>(hdc: P0) -> i32
 where
     P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "gdi32.dll""system" fn EndDoc ( hdc : super::super::Graphics::Gdi:: HDC ) -> i32 );
+    ::windows_targets::link ! ( "gdi32.dll""system" fn EndDoc ( hdc : super::super::Graphics::Gdi:: HDC ) -> i32 );
     EndDoc(hdc.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -49,7 +49,7 @@ pub unsafe fn EndPage<P0>(hdc: P0) -> i32
 where
     P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "gdi32.dll""system" fn EndPage ( hdc : super::super::Graphics::Gdi:: HDC ) -> i32 );
+    ::windows_targets::link ! ( "gdi32.dll""system" fn EndPage ( hdc : super::super::Graphics::Gdi:: HDC ) -> i32 );
     EndPage(hdc.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -59,7 +59,7 @@ pub unsafe fn Escape<P0>(hdc: P0, iescape: i32, pvin: ::core::option::Option<&[u
 where
     P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "gdi32.dll""system" fn Escape ( hdc : super::super::Graphics::Gdi:: HDC , iescape : i32 , cjin : i32 , pvin : ::windows::core::PCSTR , pvout : *mut ::core::ffi::c_void ) -> i32 );
+    ::windows_targets::link ! ( "gdi32.dll""system" fn Escape ( hdc : super::super::Graphics::Gdi:: HDC , iescape : i32 , cjin : i32 , pvin : ::windows::core::PCSTR , pvout : *mut ::core::ffi::c_void ) -> i32 );
     Escape(hdc.into_param().abi(), iescape, pvin.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pvin.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pvout.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -69,7 +69,7 @@ pub unsafe fn ExtEscape<P0>(hdc: P0, iescape: i32, lpindata: ::core::option::Opt
 where
     P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "gdi32.dll""system" fn ExtEscape ( hdc : super::super::Graphics::Gdi:: HDC , iescape : i32 , cjinput : i32 , lpindata : ::windows::core::PCSTR , cjoutput : i32 , lpoutdata : ::windows::core::PSTR ) -> i32 );
+    ::windows_targets::link ! ( "gdi32.dll""system" fn ExtEscape ( hdc : super::super::Graphics::Gdi:: HDC , iescape : i32 , cjinput : i32 , lpindata : ::windows::core::PCSTR , cjoutput : i32 , lpoutdata : ::windows::core::PSTR ) -> i32 );
     ExtEscape(hdc.into_param().abi(), iescape, lpindata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpindata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpoutdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpoutdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -80,7 +80,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn PrintWindow ( hwnd : super::super::Foundation:: HWND , hdcblt : super::super::Graphics::Gdi:: HDC , nflags : PRINT_WINDOW_FLAGS ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "user32.dll""system" fn PrintWindow ( hwnd : super::super::Foundation:: HWND , hdcblt : super::super::Graphics::Gdi:: HDC , nflags : PRINT_WINDOW_FLAGS ) -> super::super::Foundation:: BOOL );
     PrintWindow(hwnd.into_param().abi(), hdcblt.into_param().abi(), nflags)
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -90,7 +90,7 @@ pub unsafe fn SetAbortProc<P0>(hdc: P0, proc: ABORTPROC) -> i32
 where
     P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "gdi32.dll""system" fn SetAbortProc ( hdc : super::super::Graphics::Gdi:: HDC , proc : ABORTPROC ) -> i32 );
+    ::windows_targets::link ! ( "gdi32.dll""system" fn SetAbortProc ( hdc : super::super::Graphics::Gdi:: HDC , proc : ABORTPROC ) -> i32 );
     SetAbortProc(hdc.into_param().abi(), proc)
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -100,7 +100,7 @@ pub unsafe fn StartDocA<P0>(hdc: P0, lpdi: *const DOCINFOA) -> i32
 where
     P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "gdi32.dll""system" fn StartDocA ( hdc : super::super::Graphics::Gdi:: HDC , lpdi : *const DOCINFOA ) -> i32 );
+    ::windows_targets::link ! ( "gdi32.dll""system" fn StartDocA ( hdc : super::super::Graphics::Gdi:: HDC , lpdi : *const DOCINFOA ) -> i32 );
     StartDocA(hdc.into_param().abi(), lpdi)
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -110,7 +110,7 @@ pub unsafe fn StartDocW<P0>(hdc: P0, lpdi: *const DOCINFOW) -> i32
 where
     P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "gdi32.dll""system" fn StartDocW ( hdc : super::super::Graphics::Gdi:: HDC , lpdi : *const DOCINFOW ) -> i32 );
+    ::windows_targets::link ! ( "gdi32.dll""system" fn StartDocW ( hdc : super::super::Graphics::Gdi:: HDC , lpdi : *const DOCINFOW ) -> i32 );
     StartDocW(hdc.into_param().abi(), lpdi)
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -120,7 +120,7 @@ pub unsafe fn StartPage<P0>(hdc: P0) -> i32
 where
     P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "gdi32.dll""system" fn StartPage ( hdc : super::super::Graphics::Gdi:: HDC ) -> i32 );
+    ::windows_targets::link ! ( "gdi32.dll""system" fn StartPage ( hdc : super::super::Graphics::Gdi:: HDC ) -> i32 );
     StartPage(hdc.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]

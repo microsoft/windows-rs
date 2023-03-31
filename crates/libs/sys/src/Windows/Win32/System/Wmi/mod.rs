@@ -1,4 +1,4 @@
-::windows_sys::core::link ! ( "mi.dll""cdecl" #[doc = "*Required features: `\"Win32_System_Wmi\"`*"] fn MI_Application_InitializeV1 ( flags : u32 , applicationid : *const u16 , extendederror : *mut *mut MI_Instance , application : *mut MI_Application ) -> MI_Result );
+::windows_targets::link ! ( "mi.dll""cdecl" #[doc = "*Required features: `\"Win32_System_Wmi\"`*"] fn MI_Application_InitializeV1 ( flags : u32 , applicationid : *const u16 , extendederror : *mut *mut MI_Instance , application : *mut MI_Application ) -> MI_Result );
 pub type IEnumWbemClassObject = *mut ::core::ffi::c_void;
 pub type IMofCompiler = *mut ::core::ffi::c_void;
 pub type ISWbemDateTime = *mut ::core::ffi::c_void;

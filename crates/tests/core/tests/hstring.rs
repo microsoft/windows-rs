@@ -237,8 +237,8 @@ fn hstring_compat() -> Result<()> {
 }
 
 mod sys {
-    windows::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCreateStringReference(sourcestring: PCWSTR, length: u32, hstringheader: *mut HSTRING_HEADER, string: *mut HSTRING) -> HRESULT);
-    windows::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsDeleteString(string: HSTRING) -> HRESULT);
+    windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCreateStringReference(sourcestring: PCWSTR, length: u32, hstringheader: *mut HSTRING_HEADER, string: *mut HSTRING) -> HRESULT);
+    windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsDeleteString(string: HSTRING) -> HRESULT);
 
     pub type HRESULT = i32;
     pub type HSTRING = *mut ::core::ffi::c_void;

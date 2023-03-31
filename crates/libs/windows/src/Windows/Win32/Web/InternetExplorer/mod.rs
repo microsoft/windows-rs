@@ -2,7 +2,7 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ComputeInvCMAP(prgbcolors: *const super::super::Graphics::Gdi::RGBQUAD, ncolors: u32, pinvtable: *mut u8, cbtable: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "imgutil.dll""system" fn ComputeInvCMAP ( prgbcolors : *const super::super::Graphics::Gdi:: RGBQUAD , ncolors : u32 , pinvtable : *mut u8 , cbtable : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "imgutil.dll""system" fn ComputeInvCMAP ( prgbcolors : *const super::super::Graphics::Gdi:: RGBQUAD , ncolors : u32 , pinvtable : *mut u8 , cbtable : u32 ) -> ::windows::core::HRESULT );
     ComputeInvCMAP(prgbcolors, ncolors, pinvtable, cbtable).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -12,14 +12,14 @@ pub unsafe fn CreateDDrawSurfaceOnDIB<P0>(hbmdib: P0) -> ::windows::core::Result
 where
     P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
 {
-    ::windows::imp::link ! ( "imgutil.dll""system" fn CreateDDrawSurfaceOnDIB ( hbmdib : super::super::Graphics::Gdi:: HBITMAP , ppsurface : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "imgutil.dll""system" fn CreateDDrawSurfaceOnDIB ( hbmdib : super::super::Graphics::Gdi:: HBITMAP , ppsurface : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Graphics::DirectDraw::IDirectDrawSurface>();
     CreateDDrawSurfaceOnDIB(hbmdib.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn CreateMIMEMap() -> ::windows::core::Result<IMapMIMEToCLSID> {
-    ::windows::imp::link ! ( "imgutil.dll""system" fn CreateMIMEMap ( ppmap : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "imgutil.dll""system" fn CreateMIMEMap ( ppmap : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMapMIMEToCLSID>();
     CreateMIMEMap(&mut result__).from_abi(result__)
 }
@@ -32,7 +32,7 @@ where
     P1: ::windows::core::IntoParam<IMapMIMEToCLSID>,
     P2: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "imgutil.dll""system" fn DecodeImage ( pstream : * mut::core::ffi::c_void , pmap : * mut::core::ffi::c_void , peventsink : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "imgutil.dll""system" fn DecodeImage ( pstream : * mut::core::ffi::c_void , pmap : * mut::core::ffi::c_void , peventsink : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DecodeImage(pstream.into_param().abi(), pmap.into_param().abi(), peventsink.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_System_Com\"`*"]
@@ -45,26 +45,26 @@ where
     P2: ::windows::core::IntoParam<::windows::core::IUnknown>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "imgutil.dll""system" fn DecodeImageEx ( pstream : * mut::core::ffi::c_void , pmap : * mut::core::ffi::c_void , peventsink : * mut::core::ffi::c_void , pszmimetypeparam : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "imgutil.dll""system" fn DecodeImageEx ( pstream : * mut::core::ffi::c_void , pmap : * mut::core::ffi::c_void , peventsink : * mut::core::ffi::c_void , pszmimetypeparam : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     DecodeImageEx(pstream.into_param().abi(), pmap.into_param().abi(), peventsink.into_param().abi(), pszmimetypeparam.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DitherTo8(pdestbits: *mut u8, ndestpitch: i32, psrcbits: *mut u8, nsrcpitch: i32, bfidsrc: *const ::windows::core::GUID, prgbdestcolors: *mut super::super::Graphics::Gdi::RGBQUAD, prgbsrccolors: *mut super::super::Graphics::Gdi::RGBQUAD, pbdestinvmap: *mut u8, x: i32, y: i32, cx: i32, cy: i32, ldesttrans: i32, lsrctrans: i32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "imgutil.dll""system" fn DitherTo8 ( pdestbits : *mut u8 , ndestpitch : i32 , psrcbits : *mut u8 , nsrcpitch : i32 , bfidsrc : *const ::windows::core::GUID , prgbdestcolors : *mut super::super::Graphics::Gdi:: RGBQUAD , prgbsrccolors : *mut super::super::Graphics::Gdi:: RGBQUAD , pbdestinvmap : *mut u8 , x : i32 , y : i32 , cx : i32 , cy : i32 , ldesttrans : i32 , lsrctrans : i32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "imgutil.dll""system" fn DitherTo8 ( pdestbits : *mut u8 , ndestpitch : i32 , psrcbits : *mut u8 , nsrcpitch : i32 , bfidsrc : *const ::windows::core::GUID , prgbdestcolors : *mut super::super::Graphics::Gdi:: RGBQUAD , prgbsrccolors : *mut super::super::Graphics::Gdi:: RGBQUAD , pbdestinvmap : *mut u8 , x : i32 , y : i32 , cx : i32 , cy : i32 , ldesttrans : i32 , lsrctrans : i32 ) -> ::windows::core::HRESULT );
     DitherTo8(pdestbits, ndestpitch, psrcbits, nsrcpitch, bfidsrc, prgbdestcolors, prgbsrccolors, pbdestinvmap, x, y, cx, cy, ldesttrans, lsrctrans).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn GetMaxMIMEIDBytes(pnmaxbytes: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "imgutil.dll""system" fn GetMaxMIMEIDBytes ( pnmaxbytes : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "imgutil.dll""system" fn GetMaxMIMEIDBytes ( pnmaxbytes : *mut u32 ) -> ::windows::core::HRESULT );
     GetMaxMIMEIDBytes(pnmaxbytes).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn IEAssociateThreadWithTab(dwtabthreadid: u32, dwassociatedthreadid: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEAssociateThreadWithTab ( dwtabthreadid : u32 , dwassociatedthreadid : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IEAssociateThreadWithTab ( dwtabthreadid : u32 , dwassociatedthreadid : u32 ) -> ::windows::core::HRESULT );
     IEAssociateThreadWithTab(dwtabthreadid, dwassociatedthreadid).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -74,7 +74,7 @@ pub unsafe fn IECancelSaveFile<P0>(hstate: P0) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IECancelSaveFile ( hstate : super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IECancelSaveFile ( hstate : super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     IECancelSaveFile(hstate.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -84,7 +84,7 @@ pub unsafe fn IECreateDirectory<P0>(lppathname: P0, lpsecurityattributes: *const
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IECreateDirectory ( lppathname : ::windows::core::PCWSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IECreateDirectory ( lppathname : ::windows::core::PCWSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
     IECreateDirectory(lppathname.into_param().abi(), lpsecurityattributes)
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -95,7 +95,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IECreateFile ( lpfilename : ::windows::core::PCWSTR , dwdesiredaccess : u32 , dwsharemode : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwcreationdisposition : u32 , dwflagsandattributes : u32 , htemplatefile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: HANDLE );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IECreateFile ( lpfilename : ::windows::core::PCWSTR , dwdesiredaccess : u32 , dwsharemode : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwcreationdisposition : u32 , dwflagsandattributes : u32 , htemplatefile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: HANDLE );
     IECreateFile(lpfilename.into_param().abi(), dwdesiredaccess, dwsharemode, lpsecurityattributes, dwcreationdisposition, dwflagsandattributes, htemplatefile.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -105,13 +105,13 @@ pub unsafe fn IEDeleteFile<P0>(lpfilename: P0) -> super::super::Foundation::BOOL
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEDeleteFile ( lpfilename : ::windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IEDeleteFile ( lpfilename : ::windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     IEDeleteFile(lpfilename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn IEDisassociateThreadWithTab(dwtabthreadid: u32, dwassociatedthreadid: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEDisassociateThreadWithTab ( dwtabthreadid : u32 , dwassociatedthreadid : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IEDisassociateThreadWithTab ( dwtabthreadid : u32 , dwassociatedthreadid : u32 ) -> ::windows::core::HRESULT );
     IEDisassociateThreadWithTab(dwtabthreadid, dwassociatedthreadid).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`*"]
@@ -121,7 +121,7 @@ pub unsafe fn IEFindFirstFile<P0>(lpfilename: P0, lpfindfiledata: *const super::
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEFindFirstFile ( lpfilename : ::windows::core::PCWSTR , lpfindfiledata : *const super::super::Storage::FileSystem:: WIN32_FIND_DATAA ) -> super::super::Foundation:: HANDLE );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IEFindFirstFile ( lpfilename : ::windows::core::PCWSTR , lpfindfiledata : *const super::super::Storage::FileSystem:: WIN32_FIND_DATAA ) -> super::super::Foundation:: HANDLE );
     IEFindFirstFile(lpfilename.into_param().abi(), lpfindfiledata)
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`*"]
@@ -131,7 +131,7 @@ pub unsafe fn IEGetFileAttributesEx<P0>(lpfilename: P0, finfolevelid: super::sup
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEGetFileAttributesEx ( lpfilename : ::windows::core::PCWSTR , finfolevelid : super::super::Storage::FileSystem:: GET_FILEEX_INFO_LEVELS , lpfileinformation : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IEGetFileAttributesEx ( lpfilename : ::windows::core::PCWSTR , finfolevelid : super::super::Storage::FileSystem:: GET_FILEEX_INFO_LEVELS , lpfileinformation : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     IEGetFileAttributesEx(lpfilename.into_param().abi(), finfolevelid, lpfileinformation)
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
@@ -141,13 +141,13 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEGetProtectedModeCookie ( lpszurl : ::windows::core::PCWSTR , lpszcookiename : ::windows::core::PCWSTR , lpszcookiedata : ::windows::core::PWSTR , pcchcookiedata : *mut u32 , dwflags : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IEGetProtectedModeCookie ( lpszurl : ::windows::core::PCWSTR , lpszcookiename : ::windows::core::PCWSTR , lpszcookiedata : ::windows::core::PWSTR , pcchcookiedata : *mut u32 , dwflags : u32 ) -> ::windows::core::HRESULT );
     IEGetProtectedModeCookie(lpszurl.into_param().abi(), lpszcookiename.into_param().abi(), ::core::mem::transmute(lpszcookiedata), pcchcookiedata, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn IEGetWriteableFolderPath(clsidfolderid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::PWSTR> {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEGetWriteableFolderPath ( clsidfolderid : *const ::windows::core::GUID , lppwstrpath : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IEGetWriteableFolderPath ( clsidfolderid : *const ::windows::core::GUID , lppwstrpath : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     IEGetWriteableFolderPath(clsidfolderid, &mut result__).from_abi(result__)
 }
@@ -155,7 +155,7 @@ pub unsafe fn IEGetWriteableFolderPath(clsidfolderid: *const ::windows::core::GU
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn IEGetWriteableLowHKCU() -> ::windows::core::Result<super::super::System::Registry::HKEY> {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEGetWriteableLowHKCU ( phkey : *mut super::super::System::Registry:: HKEY ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IEGetWriteableLowHKCU ( phkey : *mut super::super::System::Registry:: HKEY ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::System::Registry::HKEY>();
     IEGetWriteableLowHKCU(&mut result__).from_abi(result__)
 }
@@ -163,21 +163,21 @@ pub unsafe fn IEGetWriteableLowHKCU() -> ::windows::core::Result<super::super::S
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IEInPrivateFilteringEnabled() -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEInPrivateFilteringEnabled ( ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IEInPrivateFilteringEnabled ( ) -> super::super::Foundation:: BOOL );
     IEInPrivateFilteringEnabled()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IEIsInPrivateBrowsing() -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEIsInPrivateBrowsing ( ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IEIsInPrivateBrowsing ( ) -> super::super::Foundation:: BOOL );
     IEIsInPrivateBrowsing()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IEIsProtectedModeProcess() -> ::windows::core::Result<super::super::Foundation::BOOL> {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEIsProtectedModeProcess ( pbresult : *mut super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IEIsProtectedModeProcess ( pbresult : *mut super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
     IEIsProtectedModeProcess(&mut result__).from_abi(result__)
 }
@@ -187,7 +187,7 @@ pub unsafe fn IEIsProtectedModeURL<P0>(lpwstrurl: P0) -> ::windows::core::Result
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEIsProtectedModeURL ( lpwstrurl : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IEIsProtectedModeURL ( lpwstrurl : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     IEIsProtectedModeURL(lpwstrurl.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
@@ -197,7 +197,7 @@ pub unsafe fn IELaunchURL<P0>(lpwstrurl: P0, lpprocinfo: *mut super::super::Syst
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IELaunchURL ( lpwstrurl : ::windows::core::PCWSTR , lpprocinfo : *mut super::super::System::Threading:: PROCESS_INFORMATION , lpinfo : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IELaunchURL ( lpwstrurl : ::windows::core::PCWSTR , lpprocinfo : *mut super::super::System::Threading:: PROCESS_INFORMATION , lpinfo : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     IELaunchURL(lpwstrurl.into_param().abi(), lpprocinfo, ::core::mem::transmute(lpinfo.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -208,13 +208,13 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEMoveFileEx ( lpexistingfilename : ::windows::core::PCWSTR , lpnewfilename : ::windows::core::PCWSTR , dwflags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IEMoveFileEx ( lpexistingfilename : ::windows::core::PCWSTR , lpnewfilename : ::windows::core::PCWSTR , dwflags : u32 ) -> super::super::Foundation:: BOOL );
     IEMoveFileEx(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn IERefreshElevationPolicy() -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IERefreshElevationPolicy ( ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IERefreshElevationPolicy ( ) -> ::windows::core::HRESULT );
     IERefreshElevationPolicy().ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Registry\"`*"]
@@ -225,7 +225,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IERegCreateKeyEx ( lpsubkey : ::windows::core::PCWSTR , reserved : u32 , lpclass : ::windows::core::PCWSTR , dwoptions : u32 , samdesired : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , phkresult : *mut super::super::System::Registry:: HKEY , lpdwdisposition : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IERegCreateKeyEx ( lpsubkey : ::windows::core::PCWSTR , reserved : u32 , lpclass : ::windows::core::PCWSTR , dwoptions : u32 , samdesired : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , phkresult : *mut super::super::System::Registry:: HKEY , lpdwdisposition : *mut u32 ) -> ::windows::core::HRESULT );
     IERegCreateKeyEx(lpsubkey.into_param().abi(), reserved, lpclass.into_param().abi(), dwoptions, samdesired, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), phkresult, lpdwdisposition).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
@@ -235,7 +235,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IERegSetValueEx ( lpsubkey : ::windows::core::PCWSTR , lpvaluename : ::windows::core::PCWSTR , reserved : u32 , dwtype : u32 , lpdata : *const u8 , cbdata : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IERegSetValueEx ( lpsubkey : ::windows::core::PCWSTR , lpvaluename : ::windows::core::PCWSTR , reserved : u32 , dwtype : u32 , lpdata : *const u8 , cbdata : u32 ) -> ::windows::core::HRESULT );
     IERegSetValueEx(lpsubkey.into_param().abi(), lpvaluename.into_param().abi(), reserved, dwtype, ::core::mem::transmute(lpdata.as_ptr()), lpdata.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -246,7 +246,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IERegisterWritableRegistryKey ( guid : ::windows::core::GUID , lpsubkey : ::windows::core::PCWSTR , fsubkeyallowed : super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IERegisterWritableRegistryKey ( guid : ::windows::core::GUID , lpsubkey : ::windows::core::PCWSTR , fsubkeyallowed : super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     IERegisterWritableRegistryKey(::core::mem::transmute(guid), lpsubkey.into_param().abi(), fsubkeyallowed.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
@@ -256,7 +256,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IERegisterWritableRegistryValue ( guid : ::windows::core::GUID , lppath : ::windows::core::PCWSTR , lpvaluename : ::windows::core::PCWSTR , dwtype : u32 , lpdata : *const u8 , cbmaxdata : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IERegisterWritableRegistryValue ( guid : ::windows::core::GUID , lppath : ::windows::core::PCWSTR , lpvaluename : ::windows::core::PCWSTR , dwtype : u32 , lpdata : *const u8 , cbmaxdata : u32 ) -> ::windows::core::HRESULT );
     IERegisterWritableRegistryValue(::core::mem::transmute(guid), lppath.into_param().abi(), lpvaluename.into_param().abi(), dwtype, ::core::mem::transmute(lpdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len() as _)).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -266,7 +266,7 @@ pub unsafe fn IERemoveDirectory<P0>(lppathname: P0) -> super::super::Foundation:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IERemoveDirectory ( lppathname : ::windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IERemoveDirectory ( lppathname : ::windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     IERemoveDirectory(lppathname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -277,7 +277,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IESaveFile ( hstate : super::super::Foundation:: HANDLE , lpwstrsourcefile : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IESaveFile ( hstate : super::super::Foundation:: HANDLE , lpwstrsourcefile : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     IESaveFile(hstate.into_param().abi(), lpwstrsourcefile.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
@@ -288,7 +288,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IESetProtectedModeCookie ( lpszurl : ::windows::core::PCWSTR , lpszcookiename : ::windows::core::PCWSTR , lpszcookiedata : ::windows::core::PCWSTR , dwflags : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IESetProtectedModeCookie ( lpszurl : ::windows::core::PCWSTR , lpszcookiename : ::windows::core::PCWSTR , lpszcookiedata : ::windows::core::PCWSTR , dwflags : u32 ) -> ::windows::core::HRESULT );
     IESetProtectedModeCookie(lpszurl.into_param().abi(), lpszcookiename.into_param().abi(), lpszcookiedata.into_param().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -301,7 +301,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEShowOpenFileDialog ( hwnd : super::super::Foundation:: HWND , lpwstrfilename : ::windows::core::PWSTR , cchmaxfilename : u32 , lpwstrinitialdir : ::windows::core::PCWSTR , lpwstrfilter : ::windows::core::PCWSTR , lpwstrdefext : ::windows::core::PCWSTR , dwfilterindex : u32 , dwflags : u32 , phfile : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IEShowOpenFileDialog ( hwnd : super::super::Foundation:: HWND , lpwstrfilename : ::windows::core::PWSTR , cchmaxfilename : u32 , lpwstrinitialdir : ::windows::core::PCWSTR , lpwstrfilter : ::windows::core::PCWSTR , lpwstrdefext : ::windows::core::PCWSTR , dwfilterindex : u32 , dwflags : u32 , phfile : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     IEShowOpenFileDialog(hwnd.into_param().abi(), ::core::mem::transmute(lpwstrfilename.as_ptr()), lpwstrfilename.len() as _, lpwstrinitialdir.into_param().abi(), lpwstrfilter.into_param().abi(), lpwstrdefext.into_param().abi(), dwfilterindex, dwflags, phfile).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -315,26 +315,26 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P4: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEShowSaveFileDialog ( hwnd : super::super::Foundation:: HWND , lpwstrinitialfilename : ::windows::core::PCWSTR , lpwstrinitialdir : ::windows::core::PCWSTR , lpwstrfilter : ::windows::core::PCWSTR , lpwstrdefext : ::windows::core::PCWSTR , dwfilterindex : u32 , dwflags : u32 , lppwstrdestinationfilepath : *mut ::windows::core::PWSTR , phstate : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IEShowSaveFileDialog ( hwnd : super::super::Foundation:: HWND , lpwstrinitialfilename : ::windows::core::PCWSTR , lpwstrinitialdir : ::windows::core::PCWSTR , lpwstrfilter : ::windows::core::PCWSTR , lpwstrdefext : ::windows::core::PCWSTR , dwfilterindex : u32 , dwflags : u32 , lppwstrdestinationfilepath : *mut ::windows::core::PWSTR , phstate : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     IEShowSaveFileDialog(hwnd.into_param().abi(), lpwstrinitialfilename.into_param().abi(), lpwstrinitialdir.into_param().abi(), lpwstrfilter.into_param().abi(), lpwstrdefext.into_param().abi(), dwfilterindex, dwflags, lppwstrdestinationfilepath, phstate).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IETrackingProtectionEnabled() -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IETrackingProtectionEnabled ( ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IETrackingProtectionEnabled ( ) -> super::super::Foundation:: BOOL );
     IETrackingProtectionEnabled()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn IEUnregisterWritableRegistry(guid: ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ieframe.dll""system" fn IEUnregisterWritableRegistry ( guid : ::windows::core::GUID ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "ieframe.dll""system" fn IEUnregisterWritableRegistry ( guid : ::windows::core::GUID ) -> ::windows::core::HRESULT );
     IEUnregisterWritableRegistry(::core::mem::transmute(guid)).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn IdentifyMIMEType(pbbytes: *const u8, nbytes: u32, pnformat: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "imgutil.dll""system" fn IdentifyMIMEType ( pbbytes : *const u8 , nbytes : u32 , pnformat : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "imgutil.dll""system" fn IdentifyMIMEType ( pbbytes : *const u8 , nbytes : u32 , pnformat : *mut u32 ) -> ::windows::core::HRESULT );
     IdentifyMIMEType(pbbytes, nbytes, pnformat).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -346,7 +346,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingAccessDeniedDialog ( hdlg : super::super::Foundation:: HWND , pszusername : ::windows::core::PCSTR , pszcontentdescription : ::windows::core::PCSTR , pratingdetails : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "msrating.dll""system" fn RatingAccessDeniedDialog ( hdlg : super::super::Foundation:: HWND , pszusername : ::windows::core::PCSTR , pszcontentdescription : ::windows::core::PCSTR , pratingdetails : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     RatingAccessDeniedDialog(hdlg.into_param().abi(), pszusername.into_param().abi(), pszcontentdescription.into_param().abi(), pratingdetails).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -357,7 +357,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingAccessDeniedDialog2 ( hdlg : super::super::Foundation:: HWND , pszusername : ::windows::core::PCSTR , pratingdetails : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "msrating.dll""system" fn RatingAccessDeniedDialog2 ( hdlg : super::super::Foundation:: HWND , pszusername : ::windows::core::PCSTR , pratingdetails : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     RatingAccessDeniedDialog2(hdlg.into_param().abi(), pszusername.into_param().abi(), pratingdetails).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -368,7 +368,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingAccessDeniedDialog2W ( hdlg : super::super::Foundation:: HWND , pszusername : ::windows::core::PCWSTR , pratingdetails : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "msrating.dll""system" fn RatingAccessDeniedDialog2W ( hdlg : super::super::Foundation:: HWND , pszusername : ::windows::core::PCWSTR , pratingdetails : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     RatingAccessDeniedDialog2W(hdlg.into_param().abi(), pszusername.into_param().abi(), pratingdetails).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -380,7 +380,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingAccessDeniedDialogW ( hdlg : super::super::Foundation:: HWND , pszusername : ::windows::core::PCWSTR , pszcontentdescription : ::windows::core::PCWSTR , pratingdetails : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "msrating.dll""system" fn RatingAccessDeniedDialogW ( hdlg : super::super::Foundation:: HWND , pszusername : ::windows::core::PCWSTR , pszcontentdescription : ::windows::core::PCWSTR , pratingdetails : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     RatingAccessDeniedDialogW(hdlg.into_param().abi(), pszusername.into_param().abi(), pszcontentdescription.into_param().abi(), pratingdetails).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -394,7 +394,7 @@ where
     P3: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     P4: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingAddToApprovedSites ( hdlg : super::super::Foundation:: HWND , cbpasswordblob : u32 , pbpasswordblob : *mut u8 , lpszurl : ::windows::core::PCWSTR , falwaysnever : super::super::Foundation:: BOOL , fsitepage : super::super::Foundation:: BOOL , fapprovedsitesenforced : super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "msrating.dll""system" fn RatingAddToApprovedSites ( hdlg : super::super::Foundation:: HWND , cbpasswordblob : u32 , pbpasswordblob : *mut u8 , lpszurl : ::windows::core::PCWSTR , falwaysnever : super::super::Foundation:: BOOL , fsitepage : super::super::Foundation:: BOOL , fapprovedsitesenforced : super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     RatingAddToApprovedSites(hdlg.into_param().abi(), pbpasswordblob.len() as _, ::core::mem::transmute(pbpasswordblob.as_ptr()), lpszurl.into_param().abi(), falwaysnever.into_param().abi(), fsitepage.into_param().abi(), fapprovedsitesenforced.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
@@ -405,7 +405,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingCheckUserAccess ( pszusername : ::windows::core::PCSTR , pszurl : ::windows::core::PCSTR , pszratinginfo : ::windows::core::PCSTR , pdata : *const u8 , cbdata : u32 , ppratingdetails : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "msrating.dll""system" fn RatingCheckUserAccess ( pszusername : ::windows::core::PCSTR , pszurl : ::windows::core::PCSTR , pszratinginfo : ::windows::core::PCSTR , pdata : *const u8 , cbdata : u32 , ppratingdetails : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     RatingCheckUserAccess(pszusername.into_param().abi(), pszurl.into_param().abi(), pszratinginfo.into_param().abi(), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppratingdetails.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
@@ -416,7 +416,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingCheckUserAccessW ( pszusername : ::windows::core::PCWSTR , pszurl : ::windows::core::PCWSTR , pszratinginfo : ::windows::core::PCWSTR , pdata : *const u8 , cbdata : u32 , ppratingdetails : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "msrating.dll""system" fn RatingCheckUserAccessW ( pszusername : ::windows::core::PCWSTR , pszurl : ::windows::core::PCWSTR , pszratinginfo : ::windows::core::PCWSTR , pdata : *const u8 , cbdata : u32 , ppratingdetails : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     RatingCheckUserAccessW(pszusername.into_param().abi(), pszurl.into_param().abi(), pszratinginfo.into_param().abi(), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppratingdetails.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -428,7 +428,7 @@ where
     P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingClickedOnPRFInternal ( hwndowner : super::super::Foundation:: HWND , param1 : super::super::Foundation:: HMODULE , lpszfilename : ::windows::core::PCSTR , nshow : i32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "msrating.dll""system" fn RatingClickedOnPRFInternal ( hwndowner : super::super::Foundation:: HWND , param1 : super::super::Foundation:: HMODULE , lpszfilename : ::windows::core::PCSTR , nshow : i32 ) -> ::windows::core::HRESULT );
     RatingClickedOnPRFInternal(hwndowner.into_param().abi(), param1.into_param().abi(), lpszfilename.into_param().abi(), nshow).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -440,7 +440,7 @@ where
     P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingClickedOnRATInternal ( hwndowner : super::super::Foundation:: HWND , param1 : super::super::Foundation:: HMODULE , lpszfilename : ::windows::core::PCSTR , nshow : i32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "msrating.dll""system" fn RatingClickedOnRATInternal ( hwndowner : super::super::Foundation:: HWND , param1 : super::super::Foundation:: HMODULE , lpszfilename : ::windows::core::PCSTR , nshow : i32 ) -> ::windows::core::HRESULT );
     RatingClickedOnRATInternal(hwndowner.into_param().abi(), param1.into_param().abi(), lpszfilename.into_param().abi(), nshow).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -452,7 +452,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingEnable ( hwndparent : super::super::Foundation:: HWND , pszusername : ::windows::core::PCSTR , fenable : super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "msrating.dll""system" fn RatingEnable ( hwndparent : super::super::Foundation:: HWND , pszusername : ::windows::core::PCSTR , fenable : super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     RatingEnable(hwndparent.into_param().abi(), pszusername.into_param().abi(), fenable.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -464,25 +464,25 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingEnableW ( hwndparent : super::super::Foundation:: HWND , pszusername : ::windows::core::PCWSTR , fenable : super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "msrating.dll""system" fn RatingEnableW ( hwndparent : super::super::Foundation:: HWND , pszusername : ::windows::core::PCWSTR , fenable : super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     RatingEnableW(hwndparent.into_param().abi(), pszusername.into_param().abi(), fenable.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn RatingEnabledQuery() -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingEnabledQuery ( ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "msrating.dll""system" fn RatingEnabledQuery ( ) -> ::windows::core::HRESULT );
     RatingEnabledQuery().ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn RatingFreeDetails(pratingdetails: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingFreeDetails ( pratingdetails : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "msrating.dll""system" fn RatingFreeDetails ( pratingdetails : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     RatingFreeDetails(::core::mem::transmute(pratingdetails.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn RatingInit() -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingInit ( ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "msrating.dll""system" fn RatingInit ( ) -> ::windows::core::HRESULT );
     RatingInit().ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -492,7 +492,7 @@ pub unsafe fn RatingObtainCancel<P0>(hratingobtainquery: P0) -> ::windows::core:
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingObtainCancel ( hratingobtainquery : super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "msrating.dll""system" fn RatingObtainCancel ( hratingobtainquery : super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     RatingObtainCancel(hratingobtainquery.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -502,7 +502,7 @@ pub unsafe fn RatingObtainQuery<P0>(psztargeturl: P0, dwuserdata: u32, fcallback
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingObtainQuery ( psztargeturl : ::windows::core::PCSTR , dwuserdata : u32 , fcallback : isize , phratingobtainquery : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "msrating.dll""system" fn RatingObtainQuery ( psztargeturl : ::windows::core::PCSTR , dwuserdata : u32 , fcallback : isize , phratingobtainquery : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     RatingObtainQuery(psztargeturl.into_param().abi(), dwuserdata, fcallback, ::core::mem::transmute(phratingobtainquery.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -512,7 +512,7 @@ pub unsafe fn RatingObtainQueryW<P0>(psztargeturl: P0, dwuserdata: u32, fcallbac
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingObtainQueryW ( psztargeturl : ::windows::core::PCWSTR , dwuserdata : u32 , fcallback : isize , phratingobtainquery : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "msrating.dll""system" fn RatingObtainQueryW ( psztargeturl : ::windows::core::PCWSTR , dwuserdata : u32 , fcallback : isize , phratingobtainquery : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     RatingObtainQueryW(psztargeturl.into_param().abi(), dwuserdata, fcallback, ::core::mem::transmute(phratingobtainquery.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -523,7 +523,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingSetupUI ( hdlg : super::super::Foundation:: HWND , pszusername : ::windows::core::PCSTR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "msrating.dll""system" fn RatingSetupUI ( hdlg : super::super::Foundation:: HWND , pszusername : ::windows::core::PCSTR ) -> ::windows::core::HRESULT );
     RatingSetupUI(hdlg.into_param().abi(), pszusername.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -534,7 +534,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingSetupUIW ( hdlg : super::super::Foundation:: HWND , pszusername : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "msrating.dll""system" fn RatingSetupUIW ( hdlg : super::super::Foundation:: HWND , pszusername : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     RatingSetupUIW(hdlg.into_param().abi(), pszusername.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_System_Com\"`*"]
@@ -544,7 +544,7 @@ pub unsafe fn SniffStream<P0>(pinstream: P0, pnformat: *mut u32, ppoutstream: *m
 where
     P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
 {
-    ::windows::imp::link ! ( "imgutil.dll""system" fn SniffStream ( pinstream : * mut::core::ffi::c_void , pnformat : *mut u32 , ppoutstream : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "imgutil.dll""system" fn SniffStream ( pinstream : * mut::core::ffi::c_void , pnformat : *mut u32 , ppoutstream : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     SniffStream(pinstream.into_param().abi(), pnformat, ::core::mem::transmute(ppoutstream)).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]

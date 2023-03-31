@@ -5,7 +5,7 @@ pub unsafe fn CreateSecurityPage<P0>(psi: P0) -> ::windows::core::Result<super::
 where
     P0: ::windows::core::IntoParam<ISecurityInformation>,
 {
-    ::windows::imp::link ! ( "aclui.dll""system" fn CreateSecurityPage ( psi : * mut::core::ffi::c_void ) -> super::super::super::UI::Controls:: HPROPSHEETPAGE );
+    ::windows_targets::link ! ( "aclui.dll""system" fn CreateSecurityPage ( psi : * mut::core::ffi::c_void ) -> super::super::super::UI::Controls:: HPROPSHEETPAGE );
     let result__ = CreateSecurityPage(psi.into_param().abi());
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -17,7 +17,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<ISecurityInformation>,
 {
-    ::windows::imp::link ! ( "aclui.dll""system" fn EditSecurity ( hwndowner : super::super::super::Foundation:: HWND , psi : * mut::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows_targets::link ! ( "aclui.dll""system" fn EditSecurity ( hwndowner : super::super::super::Foundation:: HWND , psi : * mut::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     EditSecurity(hwndowner.into_param().abi(), psi.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
@@ -28,7 +28,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<ISecurityInformation>,
 {
-    ::windows::imp::link ! ( "aclui.dll""system" fn EditSecurityAdvanced ( hwndowner : super::super::super::Foundation:: HWND , psi : * mut::core::ffi::c_void , usipage : SI_PAGE_TYPE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "aclui.dll""system" fn EditSecurityAdvanced ( hwndowner : super::super::super::Foundation:: HWND , psi : * mut::core::ffi::c_void , usipage : SI_PAGE_TYPE ) -> ::windows::core::HRESULT );
     EditSecurityAdvanced(hwndowner.into_param().abi(), psi.into_param().abi(), usipage).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]

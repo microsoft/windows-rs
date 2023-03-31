@@ -73,7 +73,7 @@ fn main() {
         r#"
 [package]
 name = "windows-sys"
-version = "0.45.0"
+version = "0.48.0"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
@@ -88,8 +88,9 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 all-features = true
 
-[target.'cfg(not(windows_raw_dylib))'.dependencies]
-windows-targets = { path = "../targets",  version = "0.47.0" }
+[dependencies.windows-targets]
+version = "0.48.0"
+path = "../targets"
 
 [features]
 default = []

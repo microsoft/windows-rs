@@ -36,15 +36,12 @@ fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
 
     if gen.standalone {
         quote! {
-            #[link(name = "windows")]
-            extern #abi {
-                pub fn #name(#(#params),*) #return_type;
-            }
+            ::windows_targets::link!(#link #abi fn #name(#(#params),*) #return_type);
         }
     } else {
         quote! {
             #features
-            ::windows_sys::core::link!(#link #abi #doc fn #name(#(#params),*) #return_type);
+            ::windows_targets::link!(#link #abi #doc fn #name(#(#params),*) #return_type);
         }
     }
 }
@@ -94,7 +91,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
 
         if gen.namespace.starts_with("Windows.") {
             quote! {
-                ::windows::imp::link!(#link #extern_abi fn #name(#(#abi_params),*) #abi_return_type);
+                ::windows_targets::link!(#link #extern_abi fn #name(#(#abi_params),*) #abi_return_type);
             }
         } else {
             let link = link.trim_end_matches(".dll");

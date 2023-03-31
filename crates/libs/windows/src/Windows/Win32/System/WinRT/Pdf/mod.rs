@@ -5,7 +5,7 @@ pub unsafe fn PdfCreateRenderer<P0>(pdevice: P0) -> ::windows::core::Result<IPdf
 where
     P0: ::windows::core::IntoParam<super::super::super::Graphics::Dxgi::IDXGIDevice>,
 {
-    ::windows::imp::link ! ( "windows.data.pdf.dll""system" fn PdfCreateRenderer ( pdevice : * mut::core::ffi::c_void , pprenderer : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link ! ( "windows.data.pdf.dll""system" fn PdfCreateRenderer ( pdevice : * mut::core::ffi::c_void , pprenderer : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IPdfRendererNative>();
     PdfCreateRenderer(pdevice.into_param().abi(), &mut result__).from_abi(result__)
 }
