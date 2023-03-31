@@ -241,8 +241,61 @@ pub fn standalone(names: &[&str]) -> String {
         }
     });
 
+    let mut type_names = BTreeSet::new();
+
     for name in names {
         let type_name = TypeName::parse(name);
+        let mut found = false;
+
+        if let Some(def) = reader.get(type_name).next() {
+            found = true;
+            type_names.insert(type_name);
+            for def in reader.type_def_cfg(def, &[]).types.values().flatten() {
+                type_names.insert(reader.type_def_type_name(*def));
+            }
+        }
+
+        if !found {
+            if let Some(def) = reader
+                .get(TypeName::new(type_name.namespace, "Apis"))
+                .next()
+            {
+                for method in gen.reader.type_def_methods(def) {
+                    if found {
+                        break;
+                    }
+                    let name = gen.reader.method_def_name(method);
+                    if name == type_name.name {
+                        found = true;
+                        type_names.insert(type_name);
+                        for def in reader
+                            .signature_cfg(&reader.method_def_signature(method, &[]))
+                            .types
+                            .values()
+                            .flatten()
+                        {
+                            type_names.insert(reader.type_def_type_name(*def));
+                        }
+                    }
+                }
+                for field in gen.reader.type_def_fields(def) {
+                    if found {
+                        break;
+                    }
+                    let name = gen.reader.field_name(field);
+                    if name == type_name.name {
+                        found = true;
+                        type_names.insert(type_name);
+                        for def in reader.field_cfg(field).types.values().flatten() {
+                            type_names.insert(reader.type_def_type_name(*def));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    for type_name in type_names {
         let mut found = false;
 
         for def in reader.get(type_name) {
