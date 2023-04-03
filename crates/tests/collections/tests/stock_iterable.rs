@@ -8,7 +8,11 @@ fn calendar() -> Result<()> {
     use windows::Globalization::*;
 
     let languages = IIterable::try_from(vec![HSTRING::from("he-IL"), HSTRING::from("ja-JP")])?;
-    let calendar = Calendar::CreateCalendar(&languages, &CalendarIdentifiers::Hebrew()?, &ClockIdentifiers::TwentyFourHour()?)?;
+    let calendar = Calendar::CreateCalendar(
+        &languages,
+        &CalendarIdentifiers::Hebrew()?,
+        &ClockIdentifiers::TwentyFourHour()?,
+    )?;
 
     let languages2 = calendar.Languages()?;
     assert_eq!(languages2.Size()?, 2);
@@ -98,7 +102,11 @@ fn hstring() -> Result<()> {
     values.resize_with(5, Default::default);
     assert_eq!(iter.GetMany(&mut values)?, 0);
 
-    let able = IIterable::<HSTRING>::try_from(vec![HSTRING::from("one"), HSTRING::from("two"), HSTRING::from("three")])?;
+    let able = IIterable::<HSTRING>::try_from(vec![
+        HSTRING::from("one"),
+        HSTRING::from("two"),
+        HSTRING::from("three"),
+    ])?;
     let iter = able.First()?;
 
     assert_eq!(&iter.Current()?, h!("one"));
@@ -130,7 +138,16 @@ fn hstring() -> Result<()> {
     let mut values = vec![];
     values.resize_with(5, Default::default);
     assert_eq!(iter.GetMany(&mut values)?, 3);
-    assert_eq!(values, [HSTRING::from("one"), HSTRING::from("two"), HSTRING::from("three"), HSTRING::default(), HSTRING::default()]);
+    assert_eq!(
+        values,
+        [
+            HSTRING::from("one"),
+            HSTRING::from("two"),
+            HSTRING::from("three"),
+            HSTRING::default(),
+            HSTRING::default()
+        ]
+    );
     assert_eq!(iter.GetMany(&mut values)?, 0);
 
     let iter = able.First()?;
@@ -178,7 +195,11 @@ fn defaulted() -> Result<()> {
     values.resize(5, None);
     assert_eq!(iter.GetMany(&mut values)?, 0);
 
-    let able = IIterable::<IStringable>::try_from(vec![Some(stringable("one")), Some(stringable("two")), Some(stringable("three"))])?;
+    let able = IIterable::<IStringable>::try_from(vec![
+        Some(stringable("one")),
+        Some(stringable("two")),
+        Some(stringable("three")),
+    ])?;
     let iter = able.First()?;
 
     assert_eq!(iter.Current()?.ToString()?, "one");

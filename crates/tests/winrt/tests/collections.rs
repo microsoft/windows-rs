@@ -9,7 +9,9 @@ use windows::{
 
 #[test]
 fn uri() -> windows::core::Result<()> {
-    let uri = Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca?A=1&B=2&C=3"))?;
+    let uri = Uri::CreateUri(&windows::core::HSTRING::from(
+        "http://kennykerr.ca?A=1&B=2&C=3",
+    ))?;
     let query = uri.QueryParsed()?;
 
     assert!(query.Size()? == 3);
@@ -70,9 +72,18 @@ fn property_set() -> windows::core::Result<()> {
 
     let set = PropertySet::new()?;
 
-    set.Insert(&windows::core::HSTRING::from("A"), &windows::core::IInspectable::try_from(1)?)?;
-    set.Insert(&windows::core::HSTRING::from("B"), &windows::core::IInspectable::try_from(2)?)?;
-    set.Insert(&windows::core::HSTRING::from("C"), &windows::core::IInspectable::try_from(3)?)?;
+    set.Insert(
+        &windows::core::HSTRING::from("A"),
+        &windows::core::IInspectable::try_from(1)?,
+    )?;
+    set.Insert(
+        &windows::core::HSTRING::from("B"),
+        &windows::core::IInspectable::try_from(2)?,
+    )?;
+    set.Insert(
+        &windows::core::HSTRING::from("C"),
+        &windows::core::IInspectable::try_from(3)?,
+    )?;
 
     assert!(set.Size()? == 3);
 

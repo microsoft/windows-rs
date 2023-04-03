@@ -12,7 +12,10 @@ unsafe fn to_string(s: PCWSTR) -> String {
 fn path() {
     unsafe {
         let mut extension: PCWSTR = std::ptr::null();
-        assert_eq!(PathCchFindExtension(w!("A:\\file.txt"), 12, &mut extension), S_OK);
+        assert_eq!(
+            PathCchFindExtension(w!("A:\\file.txt"), 12, &mut extension),
+            S_OK
+        );
         assert_eq!(to_string(extension), ".txt");
     }
 }

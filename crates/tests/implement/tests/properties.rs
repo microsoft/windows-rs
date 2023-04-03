@@ -1,6 +1,9 @@
 #![allow(non_snake_case)]
 
-use windows::{core::*, Win32::System::Com::StructuredStorage::*, Win32::System::Com::*, Win32::UI::Shell::PropertiesSystem::*};
+use windows::{
+    core::*, Win32::System::Com::StructuredStorage::*, Win32::System::Com::*,
+    Win32::UI::Shell::PropertiesSystem::*,
+};
 
 #[implement(IInitializeWithStream, IPropertyStore, IPropertyStoreCapabilities)]
 struct Object();

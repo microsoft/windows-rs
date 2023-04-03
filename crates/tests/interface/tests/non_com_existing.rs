@@ -1,11 +1,17 @@
-use windows::{core::*, Win32::Foundation::*, Win32::Graphics::Direct3D10::*, Win32::Graphics::Direct3D12::*, Win32::Media::Audio::XAudio2::*, Win32::System::Com::*, Win32::System::SystemInformation::*};
+use windows::{
+    core::*, Win32::Foundation::*, Win32::Graphics::Direct3D10::*, Win32::Graphics::Direct3D12::*,
+    Win32::Media::Audio::XAudio2::*, Win32::System::Com::*, Win32::System::SystemInformation::*,
+};
 
 struct Reflection;
 
 impl ID3D12FunctionParameterReflection_Impl for Reflection {
     fn GetDesc(&self, pdesc: *mut D3D12_PARAMETER_DESC) -> Result<()> {
         unsafe {
-            *pdesc = D3D12_PARAMETER_DESC { Name: s!("test"), ..Default::default() };
+            *pdesc = D3D12_PARAMETER_DESC {
+                Name: s!("test"),
+                ..Default::default()
+            };
             Ok(())
         }
     }
@@ -42,16 +48,25 @@ impl ID3D10EffectVariable_Impl for Variable {
     fn GetAnnotationByIndex(&self, _: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         todo!();
     }
-    fn GetAnnotationByName(&self, _: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
+    fn GetAnnotationByName(
+        &self,
+        _: &::windows::core::PCSTR,
+    ) -> ::core::option::Option<ID3D10EffectVariable> {
         todo!();
     }
     fn GetMemberByIndex(&self, _: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         todo!();
     }
-    fn GetMemberByName(&self, _: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
+    fn GetMemberByName(
+        &self,
+        _: &::windows::core::PCSTR,
+    ) -> ::core::option::Option<ID3D10EffectVariable> {
         todo!();
     }
-    fn GetMemberBySemantic(&self, _: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
+    fn GetMemberBySemantic(
+        &self,
+        _: &::windows::core::PCSTR,
+    ) -> ::core::option::Option<ID3D10EffectVariable> {
         todo!();
     }
     fn GetElement(&self, _: u32) -> ::core::option::Option<ID3D10EffectVariable> {
@@ -99,10 +114,20 @@ impl ID3D10EffectVariable_Impl for Variable {
     fn AsSampler(&self) -> ::core::option::Option<ID3D10EffectSamplerVariable> {
         todo!();
     }
-    fn SetRawValue(&self, _: *const ::core::ffi::c_void, _: u32, _: u32) -> ::windows::core::Result<()> {
+    fn SetRawValue(
+        &self,
+        _: *const ::core::ffi::c_void,
+        _: u32,
+        _: u32,
+    ) -> ::windows::core::Result<()> {
         todo!();
     }
-    fn GetRawValue(&self, _: *mut ::core::ffi::c_void, _: u32, _: u32) -> ::windows::core::Result<()> {
+    fn GetRawValue(
+        &self,
+        _: *mut ::core::ffi::c_void,
+        _: u32,
+        _: u32,
+    ) -> ::windows::core::Result<()> {
         todo!();
     }
 }
@@ -162,7 +187,15 @@ fn test() -> Result<()> {
 
         // Pass the callback to another API (ignore the result)...
         let mut source = None;
-        _ = audio.CreateSourceVoice(&mut source, std::ptr::null(), 0, 0.0, &*callback, None, None);
+        _ = audio.CreateSourceVoice(
+            &mut source,
+            std::ptr::null(),
+            0,
+            0.0,
+            &*callback,
+            None,
+            None,
+        );
 
         Ok(())
     }

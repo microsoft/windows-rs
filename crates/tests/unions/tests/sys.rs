@@ -2,7 +2,12 @@ use windows_sys::Win32::System::IO::{OVERLAPPED, OVERLAPPED_0_0};
 
 #[test]
 fn test() {
-    let mut o = OVERLAPPED { Internal: 1, InternalHigh: 2, Anonymous: unsafe { std::mem::zeroed() }, hEvent: Default::default() };
+    let mut o = OVERLAPPED {
+        Internal: 1,
+        InternalHigh: 2,
+        Anonymous: unsafe { std::mem::zeroed() },
+        hEvent: Default::default(),
+    };
 
     assert_eq!(o.Internal, 1);
     o.Internal = 10;
@@ -33,7 +38,10 @@ fn test() {
         assert_eq!(o.Anonymous.Anonymous.OffsetHigh, 200);
     }
 
-    o.Anonymous.Anonymous = OVERLAPPED_0_0 { Offset: 10, OffsetHigh: 20 };
+    o.Anonymous.Anonymous = OVERLAPPED_0_0 {
+        Offset: 10,
+        OffsetHigh: 20,
+    };
 
     unsafe {
         assert_eq!(o.Anonymous.Anonymous.Offset, 10);

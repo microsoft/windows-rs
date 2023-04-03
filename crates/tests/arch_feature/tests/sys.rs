@@ -1,4 +1,7 @@
-use windows_sys::{Win32::System::Diagnostics::Debug::CONTEXT, Win32::System::Environment::VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD};
+use windows_sys::{
+    Win32::System::Diagnostics::Debug::CONTEXT,
+    Win32::System::Environment::VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD,
+};
 
 #[test]
 #[cfg(target_arch = "x86_64")]

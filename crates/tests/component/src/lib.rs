@@ -25,14 +25,24 @@ impl bindings::IClass_Impl for Class {
         *c = Array::from_slice(a);
         Ok(Array::from_slice(a))
     }
-    fn StringArray(&self, a: &[HSTRING], b: &mut [HSTRING], c: &mut Array<HSTRING>) -> Result<Array<HSTRING>> {
+    fn StringArray(
+        &self,
+        a: &[HSTRING],
+        b: &mut [HSTRING],
+        c: &mut Array<HSTRING>,
+    ) -> Result<Array<HSTRING>> {
         assert_eq!(a.len(), b.len());
         assert!(c.is_empty());
         b.clone_from_slice(a);
         *c = Array::from_slice(a);
         Ok(Array::from_slice(a))
     }
-    fn Input(&self, a: Option<&IInspectable>, b: Option<&bindings::Class>, c: Option<&IStringable>) -> Result<()> {
+    fn Input(
+        &self,
+        a: Option<&IInspectable>,
+        b: Option<&bindings::Class>,
+        c: Option<&IStringable>,
+    ) -> Result<()> {
         let a = a.unwrap();
         let b = b.unwrap();
         let c = c.unwrap();
@@ -56,7 +66,10 @@ impl IActivationFactory_Impl for ClassFactory {
 }
 
 #[no_mangle]
-unsafe extern "system" fn DllGetActivationFactory(name: std::mem::ManuallyDrop<HSTRING>, result: *mut *mut std::ffi::c_void) -> HRESULT {
+unsafe extern "system" fn DllGetActivationFactory(
+    name: std::mem::ManuallyDrop<HSTRING>,
+    result: *mut *mut std::ffi::c_void,
+) -> HRESULT {
     let factory: Option<IActivationFactory> = match (*name).to_string().as_str() {
         "test_component.Class" => Some(ClassFactory.into()),
         _ => None,
