@@ -193,28 +193,44 @@ fn test_debugger_visualizer() {
     let mut pstr_string = "This is a PSTR\0".to_string();
     let pstr = PSTR::from_raw(pstr_string.as_mut_ptr());
     unsafe {
-        assert_eq!(&pstr_string.as_bytes()[..(pstr_string.len() - 1)], pstr.as_bytes());
+        assert_eq!(
+            &pstr_string.as_bytes()[..(pstr_string.len() - 1)],
+            pstr.as_bytes()
+        );
     }
 
     // Test debugger visualizations for PCSTR
     let pcstr_string = "This is a PCSTR\0".to_string();
     let pcstr = PCSTR::from_raw(pcstr_string.as_ptr());
     unsafe {
-        assert_eq!(&pcstr_string.as_bytes()[..(pcstr_string.len() - 1)], pcstr.as_bytes());
+        assert_eq!(
+            &pcstr_string.as_bytes()[..(pcstr_string.len() - 1)],
+            pcstr.as_bytes()
+        );
     }
 
     // Test debugger visualizations for PWSTR
-    let mut pwstr_string: Vec<u16> = vec![84, 104, 105, 115, 32, 105, 115, 32, 97, 32, 80, 87, 83, 84, 82, 0];
+    let mut pwstr_string: Vec<u16> = vec![
+        84, 104, 105, 115, 32, 105, 115, 32, 97, 32, 80, 87, 83, 84, 82, 0,
+    ];
     let pwstr = PWSTR::from_raw(pwstr_string.as_mut_ptr());
     unsafe {
-        assert_eq!(&pwstr_string.as_slice()[..(pwstr_string.len() - 1)], pwstr.as_wide());
+        assert_eq!(
+            &pwstr_string.as_slice()[..(pwstr_string.len() - 1)],
+            pwstr.as_wide()
+        );
     }
 
     // Test debugger visualizations for PCWSTR
-    let pcwstr_string: Vec<u16> = vec![84, 104, 105, 115, 32, 105, 115, 32, 97, 32, 80, 67, 87, 83, 84, 82, 0];
+    let pcwstr_string: Vec<u16> = vec![
+        84, 104, 105, 115, 32, 105, 115, 32, 97, 32, 80, 67, 87, 83, 84, 82, 0,
+    ];
     let pcwstr = PCWSTR::from_raw(pcwstr_string.as_ptr());
     unsafe {
-        assert_eq!(&pcwstr_string.as_slice()[..(pcwstr_string.len() - 1)], pcwstr.as_wide());
+        assert_eq!(
+            &pcwstr_string.as_slice()[..(pcwstr_string.len() - 1)],
+            pcwstr.as_wide()
+        );
     }
 
     // Test debugger visualizations for HSTRING

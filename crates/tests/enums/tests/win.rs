@@ -1,4 +1,6 @@
-use windows::{core::*, Storage::Streams::*, Win32::Foundation::*, Win32::UI::WindowsAndMessaging::*};
+use windows::{
+    core::*, Storage::Streams::*, Win32::Foundation::*, Win32::UI::WindowsAndMessaging::*,
+};
 
 #[test]
 fn nested() {
@@ -8,7 +10,8 @@ fn nested() {
     let options = InputStreamOptions::Partial & InputStreamOptions::ReadAhead;
     assert!(options.0 == 0);
 
-    let options = (InputStreamOptions::Partial | InputStreamOptions::ReadAhead) & InputStreamOptions::ReadAhead;
+    let options = (InputStreamOptions::Partial | InputStreamOptions::ReadAhead)
+        & InputStreamOptions::ReadAhead;
     assert!(options.0 == 2);
     assert!(!options.contains(InputStreamOptions::Partial));
     assert!(options.contains(InputStreamOptions::ReadAhead));
@@ -40,7 +43,10 @@ fn win32_error() {
     assert!("WIN32_ERROR(5)" == format!("{e:?}"));
 
     let e: Error = h.into();
-    assert_eq!(r#"Error { code: HRESULT(0x80070005), message: "Access is denied." }"#, format!("{e:?}"));
+    assert_eq!(
+        r#"Error { code: HRESULT(0x80070005), message: "Access is denied." }"#,
+        format!("{e:?}")
+    );
     let e = WIN32_ERROR::from_error(&e).unwrap();
     assert!(e == ERROR_ACCESS_DENIED);
 }

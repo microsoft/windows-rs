@@ -44,7 +44,10 @@ impl IBackgroundTaskInstance_Impl for Borrowed {
     fn TriggerDetails(&self) -> Result<IInspectable> {
         todo!()
     }
-    fn Canceled(&self, _cancelhandler: Option<&BackgroundTaskCanceledEventHandler>) -> Result<EventRegistrationToken> {
+    fn Canceled(
+        &self,
+        _cancelhandler: Option<&BackgroundTaskCanceledEventHandler>,
+    ) -> Result<EventRegistrationToken> {
         todo!()
     }
     fn RemoveCanceled(&self, _cookie: &EventRegistrationToken) -> Result<()> {
@@ -72,7 +75,10 @@ fn test() -> Result<()> {
 
         let handler = BackgroundTaskCanceledEventHandler::new(|instance, reason| {
             if let Some(instance) = instance {
-                assert_eq!(instance.SuspendedCount()?, instance.cast::<IBorrowed>()?.Call());
+                assert_eq!(
+                    instance.SuspendedCount()?,
+                    instance.cast::<IBorrowed>()?.Call()
+                );
                 assert_eq!(reason, BackgroundTaskCancellationReason::Abort);
             } else {
                 assert_eq!(reason, BackgroundTaskCancellationReason::Terminating);

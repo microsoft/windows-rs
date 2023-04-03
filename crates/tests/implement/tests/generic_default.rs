@@ -85,7 +85,12 @@ fn test_implement() -> Result<()> {
     let url1: HSTRING = "http://one/".into();
     let url2: HSTRING = "http://two/".into();
     let url3: HSTRING = "http://three/".into();
-    let v: IVectorView<IStringable> = Thing(vec![Some(Uri::CreateUri(&url1)?.cast()?), Some(Uri::CreateUri(&url2)?.cast()?), Some(Uri::CreateUri(&url3)?.cast()?)]).into();
+    let v: IVectorView<IStringable> = Thing(vec![
+        Some(Uri::CreateUri(&url1)?.cast()?),
+        Some(Uri::CreateUri(&url2)?.cast()?),
+        Some(Uri::CreateUri(&url3)?.cast()?),
+    ])
+    .into();
 
     assert_eq!("http://one/", v.GetAt(0)?.ToString()?);
     assert_eq!("http://two/", v.GetAt(1)?.ToString()?);

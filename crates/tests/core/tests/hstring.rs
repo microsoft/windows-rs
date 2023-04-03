@@ -41,7 +41,10 @@ fn display_format() {
 
 #[test]
 fn display_invalid_format() {
-    let s = HSTRING::from_wide(&[0xD834, 0xDD1E, 0x006d, 0x0075, 0x0073, 0xDD1E, 0x0069, 0x0063, 0xD834]).unwrap();
+    let s = HSTRING::from_wide(&[
+        0xD834, 0xDD1E, 0x006d, 0x0075, 0x0073, 0xDD1E, 0x0069, 0x0063, 0xD834,
+    ])
+    .unwrap();
     let d = format!("{}", s);
     assert_eq!(d, "𝄞mus�ic�");
 }
@@ -205,11 +208,15 @@ fn hstring_compat() -> Result<()> {
         let buffer = WindowsGetStringRawBuffer(&world, Some(&mut len));
         assert_eq!(len, 5);
         // Adding +1 to the length of the slice to validate that it is null terminated.
-        assert_eq!(std::slice::from_raw_parts(buffer.0, 6), [87, 111, 114, 108, 100, 0]);
+        assert_eq!(
+            std::slice::from_raw_parts(buffer.0, 6),
+            [87, 111, 114, 108, 100, 0]
+        );
 
         // We need to drop to raw bindings to call the raw WindowsDeleteString function to avoid double-freeing the HSTRING,
         // but this test is important as it ensures that the allocators match.
-        let hresult = sys::WindowsDeleteString(std::mem::transmute_copy(&*std::mem::ManuallyDrop::new(hey)));
+        let hresult =
+            sys::WindowsDeleteString(std::mem::transmute_copy(&*std::mem::ManuallyDrop::new(hey)));
         assert_eq!(hresult, 0);
 
         // An HSTRING reference a.k.a. "fast pass" string is a kind of stack-based HSTRING used by C++ callers
@@ -218,7 +225,12 @@ fn hstring_compat() -> Result<()> {
         // and thereby excercise the windows::core::HSTRING support for HSTRING reference duplication.
         let mut header: sys::HSTRING_HEADER = std::mem::zeroed();
         let mut stack_hstring: sys::HSTRING = std::mem::zeroed();
-        let hresult = sys::WindowsCreateStringReference([87, 111, 114, 108, 100, 0].as_ptr(), 5, &mut header, &mut stack_hstring);
+        let hresult = sys::WindowsCreateStringReference(
+            [87, 111, 114, 108, 100, 0].as_ptr(),
+            5,
+            &mut header,
+            &mut stack_hstring,
+        );
         assert_eq!(hresult, 0);
         assert_eq!(header.length, 5);
         let stack_hstring: std::mem::ManuallyDrop<HSTRING> = std::mem::transmute(stack_hstring);
@@ -230,7 +242,10 @@ fn hstring_compat() -> Result<()> {
         let buffer = WindowsGetStringRawBuffer(&duplicate, Some(&mut len));
         assert_eq!(len, 5);
         // Adding +1 to the length of the slice to validate that it is null terminated.
-        assert_eq!(std::slice::from_raw_parts(buffer.0, 6), [87, 111, 114, 108, 100, 0]);
+        assert_eq!(
+            std::slice::from_raw_parts(buffer.0, 6),
+            [87, 111, 114, 108, 100, 0]
+        );
 
         Ok(())
     }

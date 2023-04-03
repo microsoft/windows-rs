@@ -91,7 +91,8 @@ fn test() -> Result<()> {
         d.GetData(&Default::default())?;
         d.GetDataHere(&Default::default(), &mut Default::default())?;
         d.QueryGetData(&Default::default()).ok()?;
-        d.GetCanonicalFormatEtc(&Default::default(), &mut Default::default()).ok()?;
+        d.GetCanonicalFormatEtc(&Default::default(), &mut Default::default())
+            .ok()?;
         d.SetData(&Default::default(), &Default::default(), false)?;
 
         // EnumFormatEtc returns a null result value with a successful (S_OK) return code.

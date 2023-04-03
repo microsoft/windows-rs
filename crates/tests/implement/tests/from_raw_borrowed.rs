@@ -17,7 +17,12 @@ impl IBorrowed_Impl for Borrowed {
 }
 
 impl IServiceProvider_Impl for Borrowed {
-    fn QueryService(&self, _service: *const GUID, iid: *const GUID, object: *mut *mut std::ffi::c_void) -> Result<()> {
+    fn QueryService(
+        &self,
+        _service: *const GUID,
+        iid: *const GUID,
+        object: *mut *mut std::ffi::c_void,
+    ) -> Result<()> {
         unsafe {
             let unknown: IUnknown = self.cast()?;
             unknown.query(&*iid, object as _).ok()
@@ -54,8 +59,14 @@ fn test() -> Result<()> {
 
         assert_eq!(service.ProfferService(&GUID::zeroed(), None)?, 0);
 
-        assert_eq!(service.ProfferService(&GUID::zeroed(), &one_two_three.cast::<IServiceProvider>()?)?, 123);
-        assert_eq!(service.ProfferService(&GUID::zeroed(), &four_five_six.cast::<IServiceProvider>()?)?, 456);
+        assert_eq!(
+            service.ProfferService(&GUID::zeroed(), &one_two_three.cast::<IServiceProvider>()?)?,
+            123
+        );
+        assert_eq!(
+            service.ProfferService(&GUID::zeroed(), &four_five_six.cast::<IServiceProvider>()?)?,
+            456
+        );
 
         Ok(())
     }

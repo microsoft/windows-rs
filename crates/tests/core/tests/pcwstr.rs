@@ -11,7 +11,10 @@ fn test() -> Result<()> {
     let p = PCWSTR::from_raw(invalid.as_ptr());
     let e: Error = unsafe { p.to_string().unwrap_err().into() };
     assert_eq!(e.code(), ERROR_NO_UNICODE_TRANSLATION.into());
-    assert_eq!(e.message(), "No mapping for the Unicode character exists in the target multi-byte code page.");
+    assert_eq!(
+        e.message(),
+        "No mapping for the Unicode character exists in the target multi-byte code page."
+    );
 
     let p: PCWSTR = w!("world");
     let s: HSTRING = unsafe { p.to_hstring()? };

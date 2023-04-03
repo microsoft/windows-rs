@@ -52,7 +52,11 @@ impl IMapView_Impl<i32, f32> for MapView {
     fn Lookup(&self, _key: &i32) -> Result<f32> {
         Ok(0.0)
     }
-    fn Split(&self, _first: &mut Option<IMapView<i32, f32>>, _second: &mut Option<IMapView<i32, f32>>) -> Result<()> {
+    fn Split(
+        &self,
+        _first: &mut Option<IMapView<i32, f32>>,
+        _second: &mut Option<IMapView<i32, f32>>,
+    ) -> Result<()> {
         Ok(())
     }
     fn Size(&self) -> Result<u32> {

@@ -1,7 +1,9 @@
 use windows::{
     core::HSTRING,
     ApplicationModel::Email::EmailAttachment,
-    Devices::WiFiDirect::{WiFiDirectConnectionParameters, WiFiDirectDevice, WiFiDirectDeviceSelectorType},
+    Devices::WiFiDirect::{
+        WiFiDirectConnectionParameters, WiFiDirectDevice, WiFiDirectDeviceSelectorType,
+    },
     Storage::Streams::{InMemoryRandomAccessStream, RandomAccessStreamReference},
 };
 
@@ -41,7 +43,11 @@ fn email() -> windows::core::Result<()> {
     assert!(b.FileName()? == "create.txt");
 
     // create from IEmailAttachmentFactory2 is renamed to create2
-    let c = EmailAttachment::Create2(&HSTRING::from("create2.txt"), &reference, &HSTRING::from("text"))?;
+    let c = EmailAttachment::Create2(
+        &HSTRING::from("create2.txt"),
+        &reference,
+        &HSTRING::from("text"),
+    )?;
     assert!(c.FileName()? == "create2.txt");
 
     Ok(())

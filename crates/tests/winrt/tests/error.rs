@@ -14,7 +14,8 @@ fn from_hresult() {
 
 #[test]
 fn originate() {
-    let error = windows::core::Error::new(windows::core::HRESULT(-2147467260), "test originate".into());
+    let error =
+        windows::core::Error::new(windows::core::HRESULT(-2147467260), "test originate".into());
 
     assert_eq!(error.code(), windows::core::HRESULT(-2147467260));
     assert_eq!(error.message(), "test originate");
@@ -41,7 +42,10 @@ fn bad_uri() {
 #[test]
 fn convertible() {
     fn windows_error() -> windows::core::Result<()> {
-        Err(windows::core::Error::new(E_NOINTERFACE, "test message".into()))
+        Err(windows::core::Error::new(
+            E_NOINTERFACE,
+            "test message".into(),
+        ))
     }
 
     fn convertible_error() -> core::result::Result<(), Box<dyn std::error::Error>> {
@@ -52,5 +56,8 @@ fn convertible() {
     let result = convertible_error();
     let format = format!("{result:?}");
 
-    assert_eq!(format, r#"Err(Error { code: HRESULT(0x80004002), message: "test message" })"#);
+    assert_eq!(
+        format,
+        r#"Err(Error { code: HRESULT(0x80004002), message: "test message" })"#
+    );
 }

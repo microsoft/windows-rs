@@ -6,7 +6,10 @@ fn test() -> Result<()> {
     let non_stringable: IInspectable = PropertySet::new()?.can_clone_into();
 
     assert_eq!(format!("{:?}", stringable), "\"https://kennykerr.ca/\"");
-    assert_eq!(format!("{:?}", non_stringable), "\"Windows.Foundation.Collections.PropertySet\"");
+    assert_eq!(
+        format!("{:?}", non_stringable),
+        "\"Windows.Foundation.Collections.PropertySet\""
+    );
 
     Ok(())
 }

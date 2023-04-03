@@ -3,7 +3,10 @@ use windows::{
     Win32::Foundation::{CloseHandle, BOOL, HANDLE, HWND, RECT, WAIT_OBJECT_0},
     Win32::Gaming::HasExpandedResources,
     Win32::Graphics::Direct3D::Fxc::*,
-    Win32::Graphics::{Direct2D::CLSID_D2D1Shadow, Direct3D11::D3DDisassemble11Trace, Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA, Dxgi::Common::*, Dxgi::*},
+    Win32::Graphics::{
+        Direct2D::CLSID_D2D1Shadow, Direct3D11::D3DDisassemble11Trace,
+        Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA, Dxgi::Common::*, Dxgi::*,
+    },
     Win32::Networking::Ldap::LDAPSearch,
     Win32::Security::Authorization::*,
     Win32::System::Com::StructuredStorage::*,
@@ -37,7 +40,12 @@ fn unsigned_enum32() {
 
 #[test]
 fn rect() {
-    let rect = RECT { left: 1, top: 2, right: 3, bottom: 4 };
+    let rect = RECT {
+        left: 1,
+        top: 2,
+        right: 3,
+        bottom: 4,
+    };
 
     assert!(rect.left == 1);
     assert!(rect.top == 2);
@@ -46,7 +54,15 @@ fn rect() {
 
     let clone = rect.clone();
 
-    assert!(clone == RECT { left: 1, top: 2, right: 3, bottom: 4 });
+    assert!(
+        clone
+            == RECT {
+                left: 1,
+                top: 2,
+                right: 3,
+                bottom: 4
+            }
+    );
 }
 
 #[test]
@@ -54,7 +70,10 @@ fn dxgi_mode_desc() {
     _ = DXGI_MODE_DESC {
         Width: 1,
         Height: 2,
-        RefreshRate: DXGI_RATIONAL { Numerator: 3, Denominator: 5 },
+        RefreshRate: DXGI_RATIONAL {
+            Numerator: 3,
+            Denominator: 5,
+        },
         Format: DXGI_FORMAT_R32_TYPELESS,
         ScanlineOrdering: DXGI_MODE_SCANLINE_ORDER_PROGRESSIVE,
         Scaling: DXGI_MODE_SCALING_CENTERED,
@@ -134,7 +153,9 @@ fn com() -> windows::core::Result<()> {
         let values = vec![1u8, 2u8, 3u8, 4u8];
 
         let mut copied = 0;
-        stream.Write(values.as_ptr() as _, values.len() as _, Some(&mut copied)).ok()?;
+        stream
+            .Write(values.as_ptr() as _, values.len() as _, Some(&mut copied))
+            .ok()?;
         assert!(copied == 4);
 
         let mut position = 0;
@@ -143,7 +164,13 @@ fn com() -> windows::core::Result<()> {
 
         let mut values = vec![0, 0, 0, 0];
         let mut copied = 0;
-        stream.Read(values.as_mut_ptr() as _, values.len() as _, Some(&mut copied)).ok()?;
+        stream
+            .Read(
+                values.as_mut_ptr() as _,
+                values.len() as _,
+                Some(&mut copied),
+            )
+            .ok()?;
         assert!(copied == 4);
         assert_eq!(values, vec![1u8, 2u8, 3u8, 4u8]);
     }
@@ -169,7 +196,13 @@ fn com_inheritance() {
         assert!(factory.GetCreationFlags() == 0);
 
         // IDXGIFactory7 (default)
-        assert!(factory.RegisterAdaptersChangedEvent(HANDLE(0)).unwrap_err().code() == DXGI_ERROR_INVALID_CALL);
+        assert!(
+            factory
+                .RegisterAdaptersChangedEvent(HANDLE(0))
+                .unwrap_err()
+                .code()
+                == DXGI_ERROR_INVALID_CALL
+        );
     }
 }
 

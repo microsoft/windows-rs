@@ -10,7 +10,13 @@ fn test() {
         SetEvent(event);
         WaitForSingleObject(event, 0);
         CloseHandle(event);
-        CoCreateInstance(std::ptr::null(), std::ptr::null_mut(), CLSCTX_ALL, std::ptr::null(), std::ptr::null_mut());
+        CoCreateInstance(
+            std::ptr::null(),
+            std::ptr::null_mut(),
+            CLSCTX_ALL,
+            std::ptr::null(),
+            std::ptr::null_mut(),
+        );
         assert_eq!(STGTY_REPEAT, 256);
 
         let expected = GUID::from_u128(0x4c1fc63a_695c_47e8_a339_1a194be3d0b8);

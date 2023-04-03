@@ -1,4 +1,6 @@
-use windows_sys::{Win32::Foundation::*, Win32::UI::Controls::*, Win32::UI::WindowsAndMessaging::*};
+use windows_sys::{
+    Win32::Foundation::*, Win32::UI::Controls::*, Win32::UI::WindowsAndMessaging::*,
+};
 
 /// These tests ensure `MAKEINTRESOURCEW` style constants an in particular negative constants like TD_ERROR_ICON
 /// work as expected.

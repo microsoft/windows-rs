@@ -8,7 +8,18 @@ fn test() -> Result<()> {
 
         assert!(0 != SetICMMode(dc, ICM_ON));
 
-        let input = [RGBTRIPLE { rgbtBlue: 1, rgbtGreen: 2, rgbtRed: 3 }, RGBTRIPLE { rgbtBlue: 4, rgbtGreen: 5, rgbtRed: 6 }];
+        let input = [
+            RGBTRIPLE {
+                rgbtBlue: 1,
+                rgbtGreen: 2,
+                rgbtRed: 3,
+            },
+            RGBTRIPLE {
+                rgbtBlue: 4,
+                rgbtGreen: 5,
+                rgbtRed: 6,
+            },
+        ];
 
         assert_eq!(results[0], 255);
         assert_eq!(results[1], 255);
