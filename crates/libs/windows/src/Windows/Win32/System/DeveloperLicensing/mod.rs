@@ -5,7 +5,7 @@ pub unsafe fn AcquireDeveloperLicense<P0>(hwndparent: P0) -> ::windows::core::Re
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link ! ( "wsclient.dll""system" fn AcquireDeveloperLicense ( hwndparent : super::super::Foundation:: HWND , pexpiration : *mut super::super::Foundation:: FILETIME ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("wsclient.dll" "system" fn AcquireDeveloperLicense(hwndparent : super::super::Foundation:: HWND, pexpiration : *mut super::super::Foundation:: FILETIME) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::FILETIME>();
     AcquireDeveloperLicense(hwndparent.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -13,7 +13,7 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CheckDeveloperLicense() -> ::windows::core::Result<super::super::Foundation::FILETIME> {
-    ::windows_targets::link ! ( "wsclient.dll""system" fn CheckDeveloperLicense ( pexpiration : *mut super::super::Foundation:: FILETIME ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("wsclient.dll" "system" fn CheckDeveloperLicense(pexpiration : *mut super::super::Foundation:: FILETIME) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::FILETIME>();
     CheckDeveloperLicense(&mut result__).from_abi(result__)
 }
@@ -24,7 +24,7 @@ pub unsafe fn RemoveDeveloperLicense<P0>(hwndparent: P0) -> ::windows::core::Res
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link ! ( "wsclient.dll""system" fn RemoveDeveloperLicense ( hwndparent : super::super::Foundation:: HWND ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("wsclient.dll" "system" fn RemoveDeveloperLicense(hwndparent : super::super::Foundation:: HWND) -> ::windows::core::HRESULT);
     RemoveDeveloperLicense(hwndparent.into_param().abi()).ok()
 }
 #[cfg(feature = "implement")]

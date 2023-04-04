@@ -5,19 +5,19 @@ pub unsafe fn DoMsCtfMonitor<P0>(dwflags: u32, heventforservicestop: P0) -> supe
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "msctfmonitor.dll""system" fn DoMsCtfMonitor ( dwflags : u32 , heventforservicestop : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link!("msctfmonitor.dll" "system" fn DoMsCtfMonitor(dwflags : u32, heventforservicestop : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     DoMsCtfMonitor(dwflags, heventforservicestop.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[inline]
 pub unsafe fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "msctfmonitor.dll""system" fn InitLocalMsCtfMonitor ( dwflags : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("msctfmonitor.dll" "system" fn InitLocalMsCtfMonitor(dwflags : u32) -> ::windows::core::HRESULT);
     InitLocalMsCtfMonitor(dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[inline]
 pub unsafe fn UninitLocalMsCtfMonitor() -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "msctfmonitor.dll""system" fn UninitLocalMsCtfMonitor ( ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("msctfmonitor.dll" "system" fn UninitLocalMsCtfMonitor() -> ::windows::core::HRESULT);
     UninitLocalMsCtfMonitor().ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]

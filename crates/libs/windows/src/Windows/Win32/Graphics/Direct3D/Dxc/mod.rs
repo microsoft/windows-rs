@@ -4,7 +4,7 @@ pub unsafe fn DxcCreateInstance<T>(rclsid: *const ::windows::core::GUID) -> ::wi
 where
     T: ::windows::core::ComInterface,
 {
-    ::windows_targets::link ! ( "dxcompiler.dll""system" fn DxcCreateInstance ( rclsid : *const ::windows::core::GUID , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("dxcompiler.dll" "system" fn DxcCreateInstance(rclsid : *const ::windows::core::GUID, riid : *const ::windows::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
     DxcCreateInstance(rclsid, &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
@@ -16,7 +16,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::System::Com::IMalloc>,
     T: ::windows::core::ComInterface,
 {
-    ::windows_targets::link ! ( "dxcompiler.dll""system" fn DxcCreateInstance2 ( pmalloc : * mut::core::ffi::c_void , rclsid : *const ::windows::core::GUID , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("dxcompiler.dll" "system" fn DxcCreateInstance2(pmalloc : * mut::core::ffi::c_void, rclsid : *const ::windows::core::GUID, riid : *const ::windows::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
     DxcCreateInstance2(pmalloc.into_param().abi(), rclsid, &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }

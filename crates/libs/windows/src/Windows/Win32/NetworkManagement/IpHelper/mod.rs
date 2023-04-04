@@ -1,14 +1,14 @@
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn AddIPAddress(address: u32, ipmask: u32, ifindex: u32, ntecontext: *mut u32, nteinstance: *mut u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn AddIPAddress ( address : u32 , ipmask : u32 , ifindex : u32 , ntecontext : *mut u32 , nteinstance : *mut u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn AddIPAddress(address : u32, ipmask : u32, ifindex : u32, ntecontext : *mut u32, nteinstance : *mut u32) -> u32);
     AddIPAddress(address, ipmask, ifindex, ntecontext, nteinstance)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CancelIPChangeNotify(notifyoverlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn CancelIPChangeNotify ( notifyoverlapped : *const super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn CancelIPChangeNotify(notifyoverlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     CancelIPChangeNotify(notifyoverlapped)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
@@ -18,28 +18,28 @@ pub unsafe fn CancelMibChangeNotify2<P0>(notificationhandle: P0) -> super::super
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn CancelMibChangeNotify2 ( notificationhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn CancelMibChangeNotify2(notificationhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
     CancelMibChangeNotify2(notificationhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
 pub unsafe fn CaptureInterfaceHardwareCrossTimestamp(interfaceluid: *const super::Ndis::NET_LUID_LH, crosstimestamp: *mut INTERFACE_HARDWARE_CROSSTIMESTAMP) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn CaptureInterfaceHardwareCrossTimestamp ( interfaceluid : *const super::Ndis:: NET_LUID_LH , crosstimestamp : *mut INTERFACE_HARDWARE_CROSSTIMESTAMP ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn CaptureInterfaceHardwareCrossTimestamp(interfaceluid : *const super::Ndis:: NET_LUID_LH, crosstimestamp : *mut INTERFACE_HARDWARE_CROSSTIMESTAMP) -> u32);
     CaptureInterfaceHardwareCrossTimestamp(interfaceluid, crosstimestamp)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ConvertCompartmentGuidToId(compartmentguid: *const ::windows::core::GUID, compartmentid: *mut u32) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn ConvertCompartmentGuidToId ( compartmentguid : *const ::windows::core::GUID , compartmentid : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn ConvertCompartmentGuidToId(compartmentguid : *const ::windows::core::GUID, compartmentid : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
     ConvertCompartmentGuidToId(compartmentguid, compartmentid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ConvertCompartmentIdToGuid(compartmentid: u32, compartmentguid: *mut ::windows::core::GUID) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn ConvertCompartmentIdToGuid ( compartmentid : u32 , compartmentguid : *mut ::windows::core::GUID ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn ConvertCompartmentIdToGuid(compartmentid : u32, compartmentguid : *mut ::windows::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
     ConvertCompartmentIdToGuid(compartmentid, compartmentguid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -49,56 +49,56 @@ pub unsafe fn ConvertInterfaceAliasToLuid<P0>(interfacealias: P0, interfaceluid:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn ConvertInterfaceAliasToLuid ( interfacealias : ::windows::core::PCWSTR , interfaceluid : *mut super::Ndis:: NET_LUID_LH ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn ConvertInterfaceAliasToLuid(interfacealias : ::windows::core::PCWSTR, interfaceluid : *mut super::Ndis:: NET_LUID_LH) -> super::super::Foundation:: WIN32_ERROR);
     ConvertInterfaceAliasToLuid(interfacealias.into_param().abi(), interfaceluid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn ConvertInterfaceGuidToLuid(interfaceguid: *const ::windows::core::GUID, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn ConvertInterfaceGuidToLuid ( interfaceguid : *const ::windows::core::GUID , interfaceluid : *mut super::Ndis:: NET_LUID_LH ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn ConvertInterfaceGuidToLuid(interfaceguid : *const ::windows::core::GUID, interfaceluid : *mut super::Ndis:: NET_LUID_LH) -> super::super::Foundation:: WIN32_ERROR);
     ConvertInterfaceGuidToLuid(interfaceguid, interfaceluid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn ConvertInterfaceIndexToLuid(interfaceindex: u32, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn ConvertInterfaceIndexToLuid ( interfaceindex : u32 , interfaceluid : *mut super::Ndis:: NET_LUID_LH ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn ConvertInterfaceIndexToLuid(interfaceindex : u32, interfaceluid : *mut super::Ndis:: NET_LUID_LH) -> super::super::Foundation:: WIN32_ERROR);
     ConvertInterfaceIndexToLuid(interfaceindex, interfaceluid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToAlias(interfaceluid: *const super::Ndis::NET_LUID_LH, interfacealias: &mut [u16]) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn ConvertInterfaceLuidToAlias ( interfaceluid : *const super::Ndis:: NET_LUID_LH , interfacealias : ::windows::core::PWSTR , length : usize ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToAlias(interfaceluid : *const super::Ndis:: NET_LUID_LH, interfacealias : ::windows::core::PWSTR, length : usize) -> super::super::Foundation:: WIN32_ERROR);
     ConvertInterfaceLuidToAlias(interfaceluid, ::core::mem::transmute(interfacealias.as_ptr()), interfacealias.len() as _)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToGuid(interfaceluid: *const super::Ndis::NET_LUID_LH, interfaceguid: *mut ::windows::core::GUID) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn ConvertInterfaceLuidToGuid ( interfaceluid : *const super::Ndis:: NET_LUID_LH , interfaceguid : *mut ::windows::core::GUID ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToGuid(interfaceluid : *const super::Ndis:: NET_LUID_LH, interfaceguid : *mut ::windows::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
     ConvertInterfaceLuidToGuid(interfaceluid, interfaceguid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToIndex(interfaceluid: *const super::Ndis::NET_LUID_LH, interfaceindex: *mut u32) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn ConvertInterfaceLuidToIndex ( interfaceluid : *const super::Ndis:: NET_LUID_LH , interfaceindex : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToIndex(interfaceluid : *const super::Ndis:: NET_LUID_LH, interfaceindex : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
     ConvertInterfaceLuidToIndex(interfaceluid, interfaceindex)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToNameA(interfaceluid: *const super::Ndis::NET_LUID_LH, interfacename: &mut [u8]) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn ConvertInterfaceLuidToNameA ( interfaceluid : *const super::Ndis:: NET_LUID_LH , interfacename : ::windows::core::PSTR , length : usize ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToNameA(interfaceluid : *const super::Ndis:: NET_LUID_LH, interfacename : ::windows::core::PSTR, length : usize) -> super::super::Foundation:: WIN32_ERROR);
     ConvertInterfaceLuidToNameA(interfaceluid, ::core::mem::transmute(interfacename.as_ptr()), interfacename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToNameW(interfaceluid: *const super::Ndis::NET_LUID_LH, interfacename: &mut [u16]) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn ConvertInterfaceLuidToNameW ( interfaceluid : *const super::Ndis:: NET_LUID_LH , interfacename : ::windows::core::PWSTR , length : usize ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToNameW(interfaceluid : *const super::Ndis:: NET_LUID_LH, interfacename : ::windows::core::PWSTR, length : usize) -> super::super::Foundation:: WIN32_ERROR);
     ConvertInterfaceLuidToNameW(interfaceluid, ::core::mem::transmute(interfacename.as_ptr()), interfacename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -108,7 +108,7 @@ pub unsafe fn ConvertInterfaceNameToLuidA<P0>(interfacename: P0, interfaceluid: 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn ConvertInterfaceNameToLuidA ( interfacename : ::windows::core::PCSTR , interfaceluid : *mut super::Ndis:: NET_LUID_LH ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn ConvertInterfaceNameToLuidA(interfacename : ::windows::core::PCSTR, interfaceluid : *mut super::Ndis:: NET_LUID_LH) -> super::super::Foundation:: WIN32_ERROR);
     ConvertInterfaceNameToLuidA(interfacename.into_param().abi(), interfaceluid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -118,206 +118,206 @@ pub unsafe fn ConvertInterfaceNameToLuidW<P0>(interfacename: P0, interfaceluid: 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn ConvertInterfaceNameToLuidW ( interfacename : ::windows::core::PCWSTR , interfaceluid : *mut super::Ndis:: NET_LUID_LH ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn ConvertInterfaceNameToLuidW(interfacename : ::windows::core::PCWSTR, interfaceluid : *mut super::Ndis:: NET_LUID_LH) -> super::super::Foundation:: WIN32_ERROR);
     ConvertInterfaceNameToLuidW(interfacename.into_param().abi(), interfaceluid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ConvertIpv4MaskToLength(mask: u32, masklength: *mut u8) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn ConvertIpv4MaskToLength ( mask : u32 , masklength : *mut u8 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn ConvertIpv4MaskToLength(mask : u32, masklength : *mut u8) -> super::super::Foundation:: WIN32_ERROR);
     ConvertIpv4MaskToLength(mask, masklength)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ConvertLengthToIpv4Mask(masklength: u32, mask: *mut u32) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn ConvertLengthToIpv4Mask ( masklength : u32 , mask : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn ConvertLengthToIpv4Mask(masklength : u32, mask : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
     ConvertLengthToIpv4Mask(masklength, mask)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn CreateAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn CreateAnycastIpAddressEntry ( row : *const MIB_ANYCASTIPADDRESS_ROW ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn CreateAnycastIpAddressEntry(row : *const MIB_ANYCASTIPADDRESS_ROW) -> super::super::Foundation:: WIN32_ERROR);
     CreateAnycastIpAddressEntry(row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn CreateIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn CreateIpForwardEntry ( proute : *const MIB_IPFORWARDROW ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn CreateIpForwardEntry(proute : *const MIB_IPFORWARDROW) -> u32);
     CreateIpForwardEntry(proute)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn CreateIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn CreateIpForwardEntry2 ( row : *const MIB_IPFORWARD_ROW2 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn CreateIpForwardEntry2(row : *const MIB_IPFORWARD_ROW2) -> super::super::Foundation:: WIN32_ERROR);
     CreateIpForwardEntry2(row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn CreateIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn CreateIpNetEntry ( parpentry : *const MIB_IPNETROW_LH ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn CreateIpNetEntry(parpentry : *const MIB_IPNETROW_LH) -> u32);
     CreateIpNetEntry(parpentry)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn CreateIpNetEntry2(row: *const MIB_IPNET_ROW2) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn CreateIpNetEntry2 ( row : *const MIB_IPNET_ROW2 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn CreateIpNetEntry2(row : *const MIB_IPNET_ROW2) -> super::super::Foundation:: WIN32_ERROR);
     CreateIpNetEntry2(row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn CreatePersistentTcpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn CreatePersistentTcpPortReservation ( startport : u16 , numberofports : u16 , token : *mut u64 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn CreatePersistentTcpPortReservation(startport : u16, numberofports : u16, token : *mut u64) -> u32);
     CreatePersistentTcpPortReservation(startport, numberofports, token)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn CreatePersistentUdpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn CreatePersistentUdpPortReservation ( startport : u16 , numberofports : u16 , token : *mut u64 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn CreatePersistentUdpPortReservation(startport : u16, numberofports : u16, token : *mut u64) -> u32);
     CreatePersistentUdpPortReservation(startport, numberofports, token)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn CreateProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn CreateProxyArpEntry ( dwaddress : u32 , dwmask : u32 , dwifindex : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn CreateProxyArpEntry(dwaddress : u32, dwmask : u32, dwifindex : u32) -> u32);
     CreateProxyArpEntry(dwaddress, dwmask, dwifindex)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn CreateSortedAddressPairs(sourceaddresslist: ::core::option::Option<*const super::super::Networking::WinSock::SOCKADDR_IN6>, sourceaddresscount: u32, destinationaddresslist: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddresscount: u32, addresssortoptions: u32, sortedaddresspairlist: *mut *mut super::super::Networking::WinSock::SOCKADDR_IN6_PAIR, sortedaddresspaircount: *mut u32) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn CreateSortedAddressPairs ( sourceaddresslist : *const super::super::Networking::WinSock:: SOCKADDR_IN6 , sourceaddresscount : u32 , destinationaddresslist : *const super::super::Networking::WinSock:: SOCKADDR_IN6 , destinationaddresscount : u32 , addresssortoptions : u32 , sortedaddresspairlist : *mut *mut super::super::Networking::WinSock:: SOCKADDR_IN6_PAIR , sortedaddresspaircount : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn CreateSortedAddressPairs(sourceaddresslist : *const super::super::Networking::WinSock:: SOCKADDR_IN6, sourceaddresscount : u32, destinationaddresslist : *const super::super::Networking::WinSock:: SOCKADDR_IN6, destinationaddresscount : u32, addresssortoptions : u32, sortedaddresspairlist : *mut *mut super::super::Networking::WinSock:: SOCKADDR_IN6_PAIR, sortedaddresspaircount : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
     CreateSortedAddressPairs(::core::mem::transmute(sourceaddresslist.unwrap_or(::std::ptr::null())), sourceaddresscount, destinationaddresslist, destinationaddresscount, addresssortoptions, sortedaddresspairlist, sortedaddresspaircount)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn CreateUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn CreateUnicastIpAddressEntry ( row : *const MIB_UNICASTIPADDRESS_ROW ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn CreateUnicastIpAddressEntry(row : *const MIB_UNICASTIPADDRESS_ROW) -> super::super::Foundation:: WIN32_ERROR);
     CreateUnicastIpAddressEntry(row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn DeleteAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn DeleteAnycastIpAddressEntry ( row : *const MIB_ANYCASTIPADDRESS_ROW ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn DeleteAnycastIpAddressEntry(row : *const MIB_ANYCASTIPADDRESS_ROW) -> super::super::Foundation:: WIN32_ERROR);
     DeleteAnycastIpAddressEntry(row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn DeleteIPAddress(ntecontext: u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn DeleteIPAddress ( ntecontext : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn DeleteIPAddress(ntecontext : u32) -> u32);
     DeleteIPAddress(ntecontext)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn DeleteIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn DeleteIpForwardEntry ( proute : *const MIB_IPFORWARDROW ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn DeleteIpForwardEntry(proute : *const MIB_IPFORWARDROW) -> u32);
     DeleteIpForwardEntry(proute)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn DeleteIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn DeleteIpForwardEntry2 ( row : *const MIB_IPFORWARD_ROW2 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn DeleteIpForwardEntry2(row : *const MIB_IPFORWARD_ROW2) -> super::super::Foundation:: WIN32_ERROR);
     DeleteIpForwardEntry2(row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn DeleteIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn DeleteIpNetEntry ( parpentry : *const MIB_IPNETROW_LH ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn DeleteIpNetEntry(parpentry : *const MIB_IPNETROW_LH) -> u32);
     DeleteIpNetEntry(parpentry)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn DeleteIpNetEntry2(row: *const MIB_IPNET_ROW2) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn DeleteIpNetEntry2 ( row : *const MIB_IPNET_ROW2 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn DeleteIpNetEntry2(row : *const MIB_IPNET_ROW2) -> super::super::Foundation:: WIN32_ERROR);
     DeleteIpNetEntry2(row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn DeletePersistentTcpPortReservation(startport: u16, numberofports: u16) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn DeletePersistentTcpPortReservation ( startport : u16 , numberofports : u16 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn DeletePersistentTcpPortReservation(startport : u16, numberofports : u16) -> u32);
     DeletePersistentTcpPortReservation(startport, numberofports)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn DeletePersistentUdpPortReservation(startport: u16, numberofports: u16) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn DeletePersistentUdpPortReservation ( startport : u16 , numberofports : u16 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn DeletePersistentUdpPortReservation(startport : u16, numberofports : u16) -> u32);
     DeletePersistentUdpPortReservation(startport, numberofports)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn DeleteProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn DeleteProxyArpEntry ( dwaddress : u32 , dwmask : u32 , dwifindex : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn DeleteProxyArpEntry(dwaddress : u32, dwmask : u32, dwifindex : u32) -> u32);
     DeleteProxyArpEntry(dwaddress, dwmask, dwifindex)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn DeleteUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn DeleteUnicastIpAddressEntry ( row : *const MIB_UNICASTIPADDRESS_ROW ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn DeleteUnicastIpAddressEntry(row : *const MIB_UNICASTIPADDRESS_ROW) -> super::super::Foundation:: WIN32_ERROR);
     DeleteUnicastIpAddressEntry(row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn DisableMediaSense(phandle: *mut super::super::Foundation::HANDLE, poverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn DisableMediaSense ( phandle : *mut super::super::Foundation:: HANDLE , poverlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn DisableMediaSense(phandle : *mut super::super::Foundation:: HANDLE, poverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
     DisableMediaSense(phandle, poverlapped)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn EnableRouter(phandle: *mut super::super::Foundation::HANDLE, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn EnableRouter ( phandle : *mut super::super::Foundation:: HANDLE , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn EnableRouter(phandle : *mut super::super::Foundation:: HANDLE, poverlapped : *mut super::super::System::IO:: OVERLAPPED) -> u32);
     EnableRouter(phandle, poverlapped)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn FlushIpNetTable(dwifindex: u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn FlushIpNetTable ( dwifindex : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn FlushIpNetTable(dwifindex : u32) -> u32);
     FlushIpNetTable(dwifindex)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn FlushIpNetTable2(family: super::super::Networking::WinSock::ADDRESS_FAMILY, interfaceindex: u32) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn FlushIpNetTable2 ( family : super::super::Networking::WinSock:: ADDRESS_FAMILY , interfaceindex : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn FlushIpNetTable2(family : super::super::Networking::WinSock:: ADDRESS_FAMILY, interfaceindex : u32) -> super::super::Foundation:: WIN32_ERROR);
     FlushIpNetTable2(family, interfaceindex)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn FlushIpPathTable(family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn FlushIpPathTable ( family : super::super::Networking::WinSock:: ADDRESS_FAMILY ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn FlushIpPathTable(family : super::super::Networking::WinSock:: ADDRESS_FAMILY) -> super::super::Foundation:: WIN32_ERROR);
     FlushIpPathTable(family)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn FreeDnsSettings(settings: *mut DNS_SETTINGS) {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn FreeDnsSettings ( settings : *mut DNS_SETTINGS ) -> ( ) );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn FreeDnsSettings(settings : *mut DNS_SETTINGS) -> ());
     FreeDnsSettings(settings)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeInterfaceDnsSettings(settings: *mut DNS_INTERFACE_SETTINGS) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn FreeInterfaceDnsSettings ( settings : *mut DNS_INTERFACE_SETTINGS ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn FreeInterfaceDnsSettings(settings : *mut DNS_INTERFACE_SETTINGS) -> super::super::Foundation:: WIN32_ERROR);
     FreeInterfaceDnsSettings(settings)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeMibTable(memory: *const ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn FreeMibTable ( memory : *const ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn FreeMibTable(memory : *const ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
     FreeMibTable(memory)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
@@ -326,95 +326,95 @@ pub unsafe fn GetAdapterIndex<P0>(adaptername: P0, ifindex: *mut u32) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetAdapterIndex ( adaptername : ::windows::core::PCWSTR , ifindex : *mut u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetAdapterIndex(adaptername : ::windows::core::PCWSTR, ifindex : *mut u32) -> u32);
     GetAdapterIndex(adaptername.into_param().abi(), ifindex)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetAdapterOrderMap() -> *mut IP_ADAPTER_ORDER_MAP {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetAdapterOrderMap ( ) -> *mut IP_ADAPTER_ORDER_MAP );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetAdapterOrderMap() -> *mut IP_ADAPTER_ORDER_MAP);
     GetAdapterOrderMap()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetAdaptersAddresses(family: u32, flags: GET_ADAPTERS_ADDRESSES_FLAGS, reserved: ::core::option::Option<*const ::core::ffi::c_void>, adapteraddresses: ::core::option::Option<*mut IP_ADAPTER_ADDRESSES_LH>, sizepointer: *mut u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetAdaptersAddresses ( family : u32 , flags : GET_ADAPTERS_ADDRESSES_FLAGS , reserved : *const ::core::ffi::c_void , adapteraddresses : *mut IP_ADAPTER_ADDRESSES_LH , sizepointer : *mut u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetAdaptersAddresses(family : u32, flags : GET_ADAPTERS_ADDRESSES_FLAGS, reserved : *const ::core::ffi::c_void, adapteraddresses : *mut IP_ADAPTER_ADDRESSES_LH, sizepointer : *mut u32) -> u32);
     GetAdaptersAddresses(family, flags, ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())), ::core::mem::transmute(adapteraddresses.unwrap_or(::std::ptr::null_mut())), sizepointer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAdaptersInfo(adapterinfo: ::core::option::Option<*mut IP_ADAPTER_INFO>, sizepointer: *mut u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetAdaptersInfo ( adapterinfo : *mut IP_ADAPTER_INFO , sizepointer : *mut u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetAdaptersInfo(adapterinfo : *mut IP_ADAPTER_INFO, sizepointer : *mut u32) -> u32);
     GetAdaptersInfo(::core::mem::transmute(adapterinfo.unwrap_or(::std::ptr::null_mut())), sizepointer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetAnycastIpAddressEntry(row: *mut MIB_ANYCASTIPADDRESS_ROW) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetAnycastIpAddressEntry ( row : *mut MIB_ANYCASTIPADDRESS_ROW ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetAnycastIpAddressEntry(row : *mut MIB_ANYCASTIPADDRESS_ROW) -> super::super::Foundation:: WIN32_ERROR);
     GetAnycastIpAddressEntry(row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetAnycastIpAddressTable(family: super::super::Networking::WinSock::ADDRESS_FAMILY, table: *mut *mut MIB_ANYCASTIPADDRESS_TABLE) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetAnycastIpAddressTable ( family : super::super::Networking::WinSock:: ADDRESS_FAMILY , table : *mut *mut MIB_ANYCASTIPADDRESS_TABLE ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetAnycastIpAddressTable(family : super::super::Networking::WinSock:: ADDRESS_FAMILY, table : *mut *mut MIB_ANYCASTIPADDRESS_TABLE) -> super::super::Foundation:: WIN32_ERROR);
     GetAnycastIpAddressTable(family, table)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetBestInterface(dwdestaddr: u32, pdwbestifindex: *mut u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetBestInterface ( dwdestaddr : u32 , pdwbestifindex : *mut u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetBestInterface(dwdestaddr : u32, pdwbestifindex : *mut u32) -> u32);
     GetBestInterface(dwdestaddr, pdwbestifindex)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn GetBestInterfaceEx(pdestaddr: *const super::super::Networking::WinSock::SOCKADDR, pdwbestifindex: *mut u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetBestInterfaceEx ( pdestaddr : *const super::super::Networking::WinSock:: SOCKADDR , pdwbestifindex : *mut u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetBestInterfaceEx(pdestaddr : *const super::super::Networking::WinSock:: SOCKADDR, pdwbestifindex : *mut u32) -> u32);
     GetBestInterfaceEx(pdestaddr, pdwbestifindex)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn GetBestRoute(dwdestaddr: u32, dwsourceaddr: u32, pbestroute: *mut MIB_IPFORWARDROW) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetBestRoute ( dwdestaddr : u32 , dwsourceaddr : u32 , pbestroute : *mut MIB_IPFORWARDROW ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetBestRoute(dwdestaddr : u32, dwsourceaddr : u32, pbestroute : *mut MIB_IPFORWARDROW) -> u32);
     GetBestRoute(dwdestaddr, dwsourceaddr, pbestroute)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetBestRoute2(interfaceluid: ::core::option::Option<*const super::Ndis::NET_LUID_LH>, interfaceindex: u32, sourceaddress: ::core::option::Option<*const super::super::Networking::WinSock::SOCKADDR_INET>, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_INET, addresssortoptions: u32, bestroute: *mut MIB_IPFORWARD_ROW2, bestsourceaddress: *mut super::super::Networking::WinSock::SOCKADDR_INET) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetBestRoute2 ( interfaceluid : *const super::Ndis:: NET_LUID_LH , interfaceindex : u32 , sourceaddress : *const super::super::Networking::WinSock:: SOCKADDR_INET , destinationaddress : *const super::super::Networking::WinSock:: SOCKADDR_INET , addresssortoptions : u32 , bestroute : *mut MIB_IPFORWARD_ROW2 , bestsourceaddress : *mut super::super::Networking::WinSock:: SOCKADDR_INET ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetBestRoute2(interfaceluid : *const super::Ndis:: NET_LUID_LH, interfaceindex : u32, sourceaddress : *const super::super::Networking::WinSock:: SOCKADDR_INET, destinationaddress : *const super::super::Networking::WinSock:: SOCKADDR_INET, addresssortoptions : u32, bestroute : *mut MIB_IPFORWARD_ROW2, bestsourceaddress : *mut super::super::Networking::WinSock:: SOCKADDR_INET) -> super::super::Foundation:: WIN32_ERROR);
     GetBestRoute2(::core::mem::transmute(interfaceluid.unwrap_or(::std::ptr::null())), interfaceindex, ::core::mem::transmute(sourceaddress.unwrap_or(::std::ptr::null())), destinationaddress, addresssortoptions, bestroute, bestsourceaddress)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentThreadCompartmentId() -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetCurrentThreadCompartmentId ( ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetCurrentThreadCompartmentId() -> super::super::Foundation:: WIN32_ERROR);
     GetCurrentThreadCompartmentId()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetCurrentThreadCompartmentScope(compartmentscope: *mut u32, compartmentid: *mut u32) {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetCurrentThreadCompartmentScope ( compartmentscope : *mut u32 , compartmentid : *mut u32 ) -> ( ) );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetCurrentThreadCompartmentScope(compartmentscope : *mut u32, compartmentid : *mut u32) -> ());
     GetCurrentThreadCompartmentScope(compartmentscope, compartmentid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDefaultCompartmentId() -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetDefaultCompartmentId ( ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetDefaultCompartmentId() -> super::super::Foundation:: WIN32_ERROR);
     GetDefaultCompartmentId()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDnsSettings(settings: *mut DNS_SETTINGS) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetDnsSettings ( settings : *mut DNS_SETTINGS ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetDnsSettings(settings : *mut DNS_SETTINGS) -> super::super::Foundation:: WIN32_ERROR);
     GetDnsSettings(settings)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
@@ -424,7 +424,7 @@ pub unsafe fn GetExtendedTcpTable<P0>(ptcptable: ::core::option::Option<*mut ::c
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetExtendedTcpTable ( ptcptable : *mut ::core::ffi::c_void , pdwsize : *mut u32 , border : super::super::Foundation:: BOOL , ulaf : u32 , tableclass : TCP_TABLE_CLASS , reserved : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetExtendedTcpTable(ptcptable : *mut ::core::ffi::c_void, pdwsize : *mut u32, border : super::super::Foundation:: BOOL, ulaf : u32, tableclass : TCP_TABLE_CLASS, reserved : u32) -> u32);
     GetExtendedTcpTable(::core::mem::transmute(ptcptable.unwrap_or(::std::ptr::null_mut())), pdwsize, border.into_param().abi(), ulaf, tableclass, reserved)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
@@ -434,52 +434,52 @@ pub unsafe fn GetExtendedUdpTable<P0>(pudptable: ::core::option::Option<*mut ::c
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetExtendedUdpTable ( pudptable : *mut ::core::ffi::c_void , pdwsize : *mut u32 , border : super::super::Foundation:: BOOL , ulaf : u32 , tableclass : UDP_TABLE_CLASS , reserved : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetExtendedUdpTable(pudptable : *mut ::core::ffi::c_void, pdwsize : *mut u32, border : super::super::Foundation:: BOOL, ulaf : u32, tableclass : UDP_TABLE_CLASS, reserved : u32) -> u32);
     GetExtendedUdpTable(::core::mem::transmute(pudptable.unwrap_or(::std::ptr::null_mut())), pdwsize, border.into_param().abi(), ulaf, tableclass, reserved)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetFriendlyIfIndex(ifindex: u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetFriendlyIfIndex ( ifindex : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetFriendlyIfIndex(ifindex : u32) -> u32);
     GetFriendlyIfIndex(ifindex)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetIcmpStatistics(statistics: *mut MIB_ICMP) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIcmpStatistics ( statistics : *mut MIB_ICMP ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIcmpStatistics(statistics : *mut MIB_ICMP) -> u32);
     GetIcmpStatistics(statistics)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetIcmpStatisticsEx(statistics: *mut MIB_ICMP_EX_XPSP1, family: u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIcmpStatisticsEx ( statistics : *mut MIB_ICMP_EX_XPSP1 , family : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIcmpStatisticsEx(statistics : *mut MIB_ICMP_EX_XPSP1, family : u32) -> u32);
     GetIcmpStatisticsEx(statistics, family)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetIfEntry(pifrow: *mut MIB_IFROW) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIfEntry ( pifrow : *mut MIB_IFROW ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIfEntry(pifrow : *mut MIB_IFROW) -> u32);
     GetIfEntry(pifrow)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn GetIfEntry2(row: *mut MIB_IF_ROW2) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIfEntry2 ( row : *mut MIB_IF_ROW2 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIfEntry2(row : *mut MIB_IF_ROW2) -> super::super::Foundation:: WIN32_ERROR);
     GetIfEntry2(row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn GetIfEntry2Ex(level: MIB_IF_ENTRY_LEVEL, row: *mut MIB_IF_ROW2) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIfEntry2Ex ( level : MIB_IF_ENTRY_LEVEL , row : *mut MIB_IF_ROW2 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIfEntry2Ex(level : MIB_IF_ENTRY_LEVEL, row : *mut MIB_IF_ROW2) -> super::super::Foundation:: WIN32_ERROR);
     GetIfEntry2Ex(level, row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetIfStackTable(table: *mut *mut MIB_IFSTACK_TABLE) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIfStackTable ( table : *mut *mut MIB_IFSTACK_TABLE ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIfStackTable(table : *mut *mut MIB_IFSTACK_TABLE) -> super::super::Foundation:: WIN32_ERROR);
     GetIfStackTable(table)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
@@ -489,55 +489,55 @@ pub unsafe fn GetIfTable<P0>(piftable: ::core::option::Option<*mut MIB_IFTABLE>,
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIfTable ( piftable : *mut MIB_IFTABLE , pdwsize : *mut u32 , border : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIfTable(piftable : *mut MIB_IFTABLE, pdwsize : *mut u32, border : super::super::Foundation:: BOOL) -> u32);
     GetIfTable(::core::mem::transmute(piftable.unwrap_or(::std::ptr::null_mut())), pdwsize, border.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn GetIfTable2(table: *mut *mut MIB_IF_TABLE2) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIfTable2 ( table : *mut *mut MIB_IF_TABLE2 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIfTable2(table : *mut *mut MIB_IF_TABLE2) -> super::super::Foundation:: WIN32_ERROR);
     GetIfTable2(table)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn GetIfTable2Ex(level: MIB_IF_TABLE_LEVEL, table: *mut *mut MIB_IF_TABLE2) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIfTable2Ex ( level : MIB_IF_TABLE_LEVEL , table : *mut *mut MIB_IF_TABLE2 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIfTable2Ex(level : MIB_IF_TABLE_LEVEL, table : *mut *mut MIB_IF_TABLE2) -> super::super::Foundation:: WIN32_ERROR);
     GetIfTable2Ex(level, table)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn GetInterfaceActiveTimestampCapabilities(interfaceluid: *const super::Ndis::NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetInterfaceActiveTimestampCapabilities ( interfaceluid : *const super::Ndis:: NET_LUID_LH , timestampcapabilites : *mut INTERFACE_TIMESTAMP_CAPABILITIES ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetInterfaceActiveTimestampCapabilities(interfaceluid : *const super::Ndis:: NET_LUID_LH, timestampcapabilites : *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32);
     GetInterfaceActiveTimestampCapabilities(interfaceluid, timestampcapabilites)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetInterfaceDnsSettings(interface: ::windows::core::GUID, settings: *mut DNS_INTERFACE_SETTINGS) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetInterfaceDnsSettings ( interface : ::windows::core::GUID , settings : *mut DNS_INTERFACE_SETTINGS ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetInterfaceDnsSettings(interface : ::windows::core::GUID, settings : *mut DNS_INTERFACE_SETTINGS) -> super::super::Foundation:: WIN32_ERROR);
     GetInterfaceDnsSettings(::core::mem::transmute(interface), settings)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetInterfaceInfo(piftable: ::core::option::Option<*mut IP_INTERFACE_INFO>, dwoutbuflen: *mut u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetInterfaceInfo ( piftable : *mut IP_INTERFACE_INFO , dwoutbuflen : *mut u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetInterfaceInfo(piftable : *mut IP_INTERFACE_INFO, dwoutbuflen : *mut u32) -> u32);
     GetInterfaceInfo(::core::mem::transmute(piftable.unwrap_or(::std::ptr::null_mut())), dwoutbuflen)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn GetInterfaceSupportedTimestampCapabilities(interfaceluid: *const super::Ndis::NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetInterfaceSupportedTimestampCapabilities ( interfaceluid : *const super::Ndis:: NET_LUID_LH , timestampcapabilites : *mut INTERFACE_TIMESTAMP_CAPABILITIES ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetInterfaceSupportedTimestampCapabilities(interfaceluid : *const super::Ndis:: NET_LUID_LH, timestampcapabilites : *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32);
     GetInterfaceSupportedTimestampCapabilities(interfaceluid, timestampcapabilites)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetInvertedIfStackTable(table: *mut *mut MIB_INVERTEDIFSTACK_TABLE) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetInvertedIfStackTable ( table : *mut *mut MIB_INVERTEDIFSTACK_TABLE ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetInvertedIfStackTable(table : *mut *mut MIB_INVERTEDIFSTACK_TABLE) -> super::super::Foundation:: WIN32_ERROR);
     GetInvertedIfStackTable(table)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
@@ -547,20 +547,20 @@ pub unsafe fn GetIpAddrTable<P0>(pipaddrtable: ::core::option::Option<*mut MIB_I
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIpAddrTable ( pipaddrtable : *mut MIB_IPADDRTABLE , pdwsize : *mut u32 , border : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIpAddrTable(pipaddrtable : *mut MIB_IPADDRTABLE, pdwsize : *mut u32, border : super::super::Foundation:: BOOL) -> u32);
     GetIpAddrTable(::core::mem::transmute(pipaddrtable.unwrap_or(::std::ptr::null_mut())), pdwsize, border.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetIpErrorString(errorcode: u32, buffer: ::windows::core::PWSTR, size: *mut u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIpErrorString ( errorcode : u32 , buffer : ::windows::core::PWSTR , size : *mut u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIpErrorString(errorcode : u32, buffer : ::windows::core::PWSTR, size : *mut u32) -> u32);
     GetIpErrorString(errorcode, ::core::mem::transmute(buffer), size)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetIpForwardEntry2(row: *mut MIB_IPFORWARD_ROW2) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIpForwardEntry2 ( row : *mut MIB_IPFORWARD_ROW2 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIpForwardEntry2(row : *mut MIB_IPFORWARD_ROW2) -> super::super::Foundation:: WIN32_ERROR);
     GetIpForwardEntry2(row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -570,35 +570,35 @@ pub unsafe fn GetIpForwardTable<P0>(pipforwardtable: ::core::option::Option<*mut
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIpForwardTable ( pipforwardtable : *mut MIB_IPFORWARDTABLE , pdwsize : *mut u32 , border : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIpForwardTable(pipforwardtable : *mut MIB_IPFORWARDTABLE, pdwsize : *mut u32, border : super::super::Foundation:: BOOL) -> u32);
     GetIpForwardTable(::core::mem::transmute(pipforwardtable.unwrap_or(::std::ptr::null_mut())), pdwsize, border.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetIpForwardTable2(family: super::super::Networking::WinSock::ADDRESS_FAMILY, table: *mut *mut MIB_IPFORWARD_TABLE2) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIpForwardTable2 ( family : super::super::Networking::WinSock:: ADDRESS_FAMILY , table : *mut *mut MIB_IPFORWARD_TABLE2 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIpForwardTable2(family : super::super::Networking::WinSock:: ADDRESS_FAMILY, table : *mut *mut MIB_IPFORWARD_TABLE2) -> super::super::Foundation:: WIN32_ERROR);
     GetIpForwardTable2(family, table)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIpInterfaceEntry ( row : *mut MIB_IPINTERFACE_ROW ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIpInterfaceEntry(row : *mut MIB_IPINTERFACE_ROW) -> super::super::Foundation:: WIN32_ERROR);
     GetIpInterfaceEntry(row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetIpInterfaceTable(family: super::super::Networking::WinSock::ADDRESS_FAMILY, table: *mut *mut MIB_IPINTERFACE_TABLE) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIpInterfaceTable ( family : super::super::Networking::WinSock:: ADDRESS_FAMILY , table : *mut *mut MIB_IPINTERFACE_TABLE ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIpInterfaceTable(family : super::super::Networking::WinSock:: ADDRESS_FAMILY, table : *mut *mut MIB_IPINTERFACE_TABLE) -> super::super::Foundation:: WIN32_ERROR);
     GetIpInterfaceTable(family, table)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetIpNetEntry2(row: *mut MIB_IPNET_ROW2) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIpNetEntry2 ( row : *mut MIB_IPNET_ROW2 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIpNetEntry2(row : *mut MIB_IPNET_ROW2) -> super::super::Foundation:: WIN32_ERROR);
     GetIpNetEntry2(row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
@@ -608,47 +608,47 @@ pub unsafe fn GetIpNetTable<P0>(ipnettable: ::core::option::Option<*mut MIB_IPNE
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIpNetTable ( ipnettable : *mut MIB_IPNETTABLE , sizepointer : *mut u32 , order : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIpNetTable(ipnettable : *mut MIB_IPNETTABLE, sizepointer : *mut u32, order : super::super::Foundation:: BOOL) -> u32);
     GetIpNetTable(::core::mem::transmute(ipnettable.unwrap_or(::std::ptr::null_mut())), sizepointer, order.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetIpNetTable2(family: super::super::Networking::WinSock::ADDRESS_FAMILY, table: *mut *mut MIB_IPNET_TABLE2) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIpNetTable2 ( family : super::super::Networking::WinSock:: ADDRESS_FAMILY , table : *mut *mut MIB_IPNET_TABLE2 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIpNetTable2(family : super::super::Networking::WinSock:: ADDRESS_FAMILY, table : *mut *mut MIB_IPNET_TABLE2) -> super::super::Foundation:: WIN32_ERROR);
     GetIpNetTable2(family, table)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetIpNetworkConnectionBandwidthEstimates(interfaceindex: u32, addressfamily: super::super::Networking::WinSock::ADDRESS_FAMILY, bandwidthestimates: *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIpNetworkConnectionBandwidthEstimates ( interfaceindex : u32 , addressfamily : super::super::Networking::WinSock:: ADDRESS_FAMILY , bandwidthestimates : *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIpNetworkConnectionBandwidthEstimates(interfaceindex : u32, addressfamily : super::super::Networking::WinSock:: ADDRESS_FAMILY, bandwidthestimates : *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES) -> super::super::Foundation:: WIN32_ERROR);
     GetIpNetworkConnectionBandwidthEstimates(interfaceindex, addressfamily, bandwidthestimates)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetIpPathEntry(row: *mut MIB_IPPATH_ROW) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIpPathEntry ( row : *mut MIB_IPPATH_ROW ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIpPathEntry(row : *mut MIB_IPPATH_ROW) -> super::super::Foundation:: WIN32_ERROR);
     GetIpPathEntry(row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetIpPathTable(family: super::super::Networking::WinSock::ADDRESS_FAMILY, table: *mut *mut MIB_IPPATH_TABLE) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIpPathTable ( family : super::super::Networking::WinSock:: ADDRESS_FAMILY , table : *mut *mut MIB_IPPATH_TABLE ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIpPathTable(family : super::super::Networking::WinSock:: ADDRESS_FAMILY, table : *mut *mut MIB_IPPATH_TABLE) -> super::super::Foundation:: WIN32_ERROR);
     GetIpPathTable(family, table)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetIpStatistics(statistics: *mut MIB_IPSTATS_LH) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIpStatistics ( statistics : *mut MIB_IPSTATS_LH ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIpStatistics(statistics : *mut MIB_IPSTATS_LH) -> u32);
     GetIpStatistics(statistics)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetIpStatisticsEx(statistics: *mut MIB_IPSTATS_LH, family: u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetIpStatisticsEx ( statistics : *mut MIB_IPSTATS_LH , family : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetIpStatisticsEx(statistics : *mut MIB_IPSTATS_LH, family : u32) -> u32);
     GetIpStatisticsEx(statistics, family)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
@@ -658,118 +658,118 @@ pub unsafe fn GetJobCompartmentId<P0>(jobhandle: P0) -> u32
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetJobCompartmentId ( jobhandle : super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetJobCompartmentId(jobhandle : super::super::Foundation:: HANDLE) -> u32);
     GetJobCompartmentId(jobhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetMulticastIpAddressEntry(row: *mut MIB_MULTICASTIPADDRESS_ROW) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetMulticastIpAddressEntry ( row : *mut MIB_MULTICASTIPADDRESS_ROW ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetMulticastIpAddressEntry(row : *mut MIB_MULTICASTIPADDRESS_ROW) -> super::super::Foundation:: WIN32_ERROR);
     GetMulticastIpAddressEntry(row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetMulticastIpAddressTable(family: super::super::Networking::WinSock::ADDRESS_FAMILY, table: *mut *mut MIB_MULTICASTIPADDRESS_TABLE) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetMulticastIpAddressTable ( family : super::super::Networking::WinSock:: ADDRESS_FAMILY , table : *mut *mut MIB_MULTICASTIPADDRESS_TABLE ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetMulticastIpAddressTable(family : super::super::Networking::WinSock:: ADDRESS_FAMILY, table : *mut *mut MIB_MULTICASTIPADDRESS_TABLE) -> super::super::Foundation:: WIN32_ERROR);
     GetMulticastIpAddressTable(family, table)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetNetworkConnectivityHint(connectivityhint: *mut super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetNetworkConnectivityHint ( connectivityhint : *mut super::super::Networking::WinSock:: NL_NETWORK_CONNECTIVITY_HINT ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetNetworkConnectivityHint(connectivityhint : *mut super::super::Networking::WinSock:: NL_NETWORK_CONNECTIVITY_HINT) -> super::super::Foundation:: WIN32_ERROR);
     GetNetworkConnectivityHint(connectivityhint)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetNetworkConnectivityHintForInterface(interfaceindex: u32, connectivityhint: *mut super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetNetworkConnectivityHintForInterface ( interfaceindex : u32 , connectivityhint : *mut super::super::Networking::WinSock:: NL_NETWORK_CONNECTIVITY_HINT ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetNetworkConnectivityHintForInterface(interfaceindex : u32, connectivityhint : *mut super::super::Networking::WinSock:: NL_NETWORK_CONNECTIVITY_HINT) -> super::super::Foundation:: WIN32_ERROR);
     GetNetworkConnectivityHintForInterface(interfaceindex, connectivityhint)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNetworkInformation(networkguid: *const ::windows::core::GUID, compartmentid: *mut u32, siteid: *mut u32, networkname: &mut [u16]) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetNetworkInformation ( networkguid : *const ::windows::core::GUID , compartmentid : *mut u32 , siteid : *mut u32 , networkname : ::windows::core::PWSTR , length : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetNetworkInformation(networkguid : *const ::windows::core::GUID, compartmentid : *mut u32, siteid : *mut u32, networkname : ::windows::core::PWSTR, length : u32) -> super::super::Foundation:: WIN32_ERROR);
     GetNetworkInformation(networkguid, compartmentid, siteid, ::core::mem::transmute(networkname.as_ptr()), networkname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNetworkParams(pfixedinfo: ::core::option::Option<*mut FIXED_INFO_W2KSP1>, poutbuflen: *mut u32) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetNetworkParams ( pfixedinfo : *mut FIXED_INFO_W2KSP1 , poutbuflen : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetNetworkParams(pfixedinfo : *mut FIXED_INFO_W2KSP1, poutbuflen : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
     GetNetworkParams(::core::mem::transmute(pfixedinfo.unwrap_or(::std::ptr::null_mut())), poutbuflen)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetNumberOfInterfaces(pdwnumif: *mut u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetNumberOfInterfaces ( pdwnumif : *mut u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetNumberOfInterfaces(pdwnumif : *mut u32) -> u32);
     GetNumberOfInterfaces(pdwnumif)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetOwnerModuleFromPidAndInfo(ulpid: u32, pinfo: *const u64, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetOwnerModuleFromPidAndInfo ( ulpid : u32 , pinfo : *const u64 , class : TCPIP_OWNER_MODULE_INFO_CLASS , pbuffer : *mut ::core::ffi::c_void , pdwsize : *mut u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetOwnerModuleFromPidAndInfo(ulpid : u32, pinfo : *const u64, class : TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer : *mut ::core::ffi::c_void, pdwsize : *mut u32) -> u32);
     GetOwnerModuleFromPidAndInfo(ulpid, pinfo, class, pbuffer, pdwsize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetOwnerModuleFromTcp6Entry(ptcpentry: *const MIB_TCP6ROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetOwnerModuleFromTcp6Entry ( ptcpentry : *const MIB_TCP6ROW_OWNER_MODULE , class : TCPIP_OWNER_MODULE_INFO_CLASS , pbuffer : *mut ::core::ffi::c_void , pdwsize : *mut u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetOwnerModuleFromTcp6Entry(ptcpentry : *const MIB_TCP6ROW_OWNER_MODULE, class : TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer : *mut ::core::ffi::c_void, pdwsize : *mut u32) -> u32);
     GetOwnerModuleFromTcp6Entry(ptcpentry, class, pbuffer, pdwsize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetOwnerModuleFromTcpEntry(ptcpentry: *const MIB_TCPROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetOwnerModuleFromTcpEntry ( ptcpentry : *const MIB_TCPROW_OWNER_MODULE , class : TCPIP_OWNER_MODULE_INFO_CLASS , pbuffer : *mut ::core::ffi::c_void , pdwsize : *mut u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetOwnerModuleFromTcpEntry(ptcpentry : *const MIB_TCPROW_OWNER_MODULE, class : TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer : *mut ::core::ffi::c_void, pdwsize : *mut u32) -> u32);
     GetOwnerModuleFromTcpEntry(ptcpentry, class, pbuffer, pdwsize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetOwnerModuleFromUdp6Entry(pudpentry: *const MIB_UDP6ROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetOwnerModuleFromUdp6Entry ( pudpentry : *const MIB_UDP6ROW_OWNER_MODULE , class : TCPIP_OWNER_MODULE_INFO_CLASS , pbuffer : *mut ::core::ffi::c_void , pdwsize : *mut u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetOwnerModuleFromUdp6Entry(pudpentry : *const MIB_UDP6ROW_OWNER_MODULE, class : TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer : *mut ::core::ffi::c_void, pdwsize : *mut u32) -> u32);
     GetOwnerModuleFromUdp6Entry(pudpentry, class, pbuffer, pdwsize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetOwnerModuleFromUdpEntry(pudpentry: *const MIB_UDPROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetOwnerModuleFromUdpEntry ( pudpentry : *const MIB_UDPROW_OWNER_MODULE , class : TCPIP_OWNER_MODULE_INFO_CLASS , pbuffer : *mut ::core::ffi::c_void , pdwsize : *mut u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetOwnerModuleFromUdpEntry(pudpentry : *const MIB_UDPROW_OWNER_MODULE, class : TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer : *mut ::core::ffi::c_void, pdwsize : *mut u32) -> u32);
     GetOwnerModuleFromUdpEntry(pudpentry, class, pbuffer, pdwsize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetPerAdapterInfo(ifindex: u32, pperadapterinfo: ::core::option::Option<*mut IP_PER_ADAPTER_INFO_W2KSP1>, poutbuflen: *mut u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetPerAdapterInfo ( ifindex : u32 , pperadapterinfo : *mut IP_PER_ADAPTER_INFO_W2KSP1 , poutbuflen : *mut u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetPerAdapterInfo(ifindex : u32, pperadapterinfo : *mut IP_PER_ADAPTER_INFO_W2KSP1, poutbuflen : *mut u32) -> u32);
     GetPerAdapterInfo(ifindex, ::core::mem::transmute(pperadapterinfo.unwrap_or(::std::ptr::null_mut())), poutbuflen)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn GetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TCP_ESTATS_TYPE, rw: ::core::option::Option<&mut [u8]>, rwversion: u32, ros: ::core::option::Option<&mut [u8]>, rosversion: u32, rod: ::core::option::Option<&mut [u8]>, rodversion: u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetPerTcp6ConnectionEStats ( row : *const MIB_TCP6ROW , estatstype : TCP_ESTATS_TYPE , rw : *mut u8 , rwversion : u32 , rwsize : u32 , ros : *mut u8 , rosversion : u32 , rossize : u32 , rod : *mut u8 , rodversion : u32 , rodsize : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetPerTcp6ConnectionEStats(row : *const MIB_TCP6ROW, estatstype : TCP_ESTATS_TYPE, rw : *mut u8, rwversion : u32, rwsize : u32, ros : *mut u8, rosversion : u32, rossize : u32, rod : *mut u8, rodversion : u32, rodsize : u32) -> u32);
     GetPerTcp6ConnectionEStats(row, estatstype, ::core::mem::transmute(rw.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rwversion, rw.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ros.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rosversion, ros.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rod.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rodversion, rod.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: TCP_ESTATS_TYPE, rw: ::core::option::Option<&mut [u8]>, rwversion: u32, ros: ::core::option::Option<&mut [u8]>, rosversion: u32, rod: ::core::option::Option<&mut [u8]>, rodversion: u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetPerTcpConnectionEStats ( row : *const MIB_TCPROW_LH , estatstype : TCP_ESTATS_TYPE , rw : *mut u8 , rwversion : u32 , rwsize : u32 , ros : *mut u8 , rosversion : u32 , rossize : u32 , rod : *mut u8 , rodversion : u32 , rodsize : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetPerTcpConnectionEStats(row : *const MIB_TCPROW_LH, estatstype : TCP_ESTATS_TYPE, rw : *mut u8, rwversion : u32, rwsize : u32, ros : *mut u8, rosversion : u32, rossize : u32, rod : *mut u8, rodversion : u32, rodsize : u32) -> u32);
     GetPerTcpConnectionEStats(row, estatstype, ::core::mem::transmute(rw.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rwversion, rw.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ros.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rosversion, ros.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rod.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rodversion, rod.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetRTTAndHopCount(destipaddress: u32, hopcount: *mut u32, maxhops: u32, rtt: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetRTTAndHopCount ( destipaddress : u32 , hopcount : *mut u32 , maxhops : u32 , rtt : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetRTTAndHopCount(destipaddress : u32, hopcount : *mut u32, maxhops : u32, rtt : *mut u32) -> super::super::Foundation:: BOOL);
     GetRTTAndHopCount(destipaddress, hopcount, maxhops, rtt)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSessionCompartmentId(sessionid: u32) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetSessionCompartmentId ( sessionid : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetSessionCompartmentId(sessionid : u32) -> super::super::Foundation:: WIN32_ERROR);
     GetSessionCompartmentId(sessionid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -779,7 +779,7 @@ pub unsafe fn GetTcp6Table<P0>(tcptable: *mut MIB_TCP6TABLE, sizepointer: *mut u
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetTcp6Table ( tcptable : *mut MIB_TCP6TABLE , sizepointer : *mut u32 , order : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetTcp6Table(tcptable : *mut MIB_TCP6TABLE, sizepointer : *mut u32, order : super::super::Foundation:: BOOL) -> u32);
     GetTcp6Table(tcptable, sizepointer, order.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -789,25 +789,25 @@ pub unsafe fn GetTcp6Table2<P0>(tcptable: *mut MIB_TCP6TABLE2, sizepointer: *mut
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetTcp6Table2 ( tcptable : *mut MIB_TCP6TABLE2 , sizepointer : *mut u32 , order : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetTcp6Table2(tcptable : *mut MIB_TCP6TABLE2, sizepointer : *mut u32, order : super::super::Foundation:: BOOL) -> u32);
     GetTcp6Table2(tcptable, sizepointer, order.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetTcpStatistics(statistics: *mut MIB_TCPSTATS_LH) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetTcpStatistics ( statistics : *mut MIB_TCPSTATS_LH ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetTcpStatistics(statistics : *mut MIB_TCPSTATS_LH) -> u32);
     GetTcpStatistics(statistics)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetTcpStatisticsEx(statistics: *mut MIB_TCPSTATS_LH, family: u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetTcpStatisticsEx ( statistics : *mut MIB_TCPSTATS_LH , family : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetTcpStatisticsEx(statistics : *mut MIB_TCPSTATS_LH, family : u32) -> u32);
     GetTcpStatisticsEx(statistics, family)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetTcpStatisticsEx2(statistics: *mut MIB_TCPSTATS2, family: u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetTcpStatisticsEx2 ( statistics : *mut MIB_TCPSTATS2 , family : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetTcpStatisticsEx2(statistics : *mut MIB_TCPSTATS2, family : u32) -> u32);
     GetTcpStatisticsEx2(statistics, family)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
@@ -817,7 +817,7 @@ pub unsafe fn GetTcpTable<P0>(tcptable: ::core::option::Option<*mut MIB_TCPTABLE
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetTcpTable ( tcptable : *mut MIB_TCPTABLE , sizepointer : *mut u32 , order : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetTcpTable(tcptable : *mut MIB_TCPTABLE, sizepointer : *mut u32, order : super::super::Foundation:: BOOL) -> u32);
     GetTcpTable(::core::mem::transmute(tcptable.unwrap_or(::std::ptr::null_mut())), sizepointer, order.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
@@ -827,14 +827,14 @@ pub unsafe fn GetTcpTable2<P0>(tcptable: ::core::option::Option<*mut MIB_TCPTABL
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetTcpTable2 ( tcptable : *mut MIB_TCPTABLE2 , sizepointer : *mut u32 , order : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetTcpTable2(tcptable : *mut MIB_TCPTABLE2, sizepointer : *mut u32, order : super::super::Foundation:: BOOL) -> u32);
     GetTcpTable2(::core::mem::transmute(tcptable.unwrap_or(::std::ptr::null_mut())), sizepointer, order.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTeredoPort(port: *mut u16) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetTeredoPort ( port : *mut u16 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetTeredoPort(port : *mut u16) -> super::super::Foundation:: WIN32_ERROR);
     GetTeredoPort(port)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -844,25 +844,25 @@ pub unsafe fn GetUdp6Table<P0>(udp6table: ::core::option::Option<*mut MIB_UDP6TA
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetUdp6Table ( udp6table : *mut MIB_UDP6TABLE , sizepointer : *mut u32 , order : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetUdp6Table(udp6table : *mut MIB_UDP6TABLE, sizepointer : *mut u32, order : super::super::Foundation:: BOOL) -> u32);
     GetUdp6Table(::core::mem::transmute(udp6table.unwrap_or(::std::ptr::null_mut())), sizepointer, order.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetUdpStatistics(stats: *mut MIB_UDPSTATS) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetUdpStatistics ( stats : *mut MIB_UDPSTATS ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetUdpStatistics(stats : *mut MIB_UDPSTATS) -> u32);
     GetUdpStatistics(stats)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetUdpStatisticsEx(statistics: *mut MIB_UDPSTATS, family: u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetUdpStatisticsEx ( statistics : *mut MIB_UDPSTATS , family : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetUdpStatisticsEx(statistics : *mut MIB_UDPSTATS, family : u32) -> u32);
     GetUdpStatisticsEx(statistics, family)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetUdpStatisticsEx2(statistics: *mut MIB_UDPSTATS2, family: u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetUdpStatisticsEx2 ( statistics : *mut MIB_UDPSTATS2 , family : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetUdpStatisticsEx2(statistics : *mut MIB_UDPSTATS2, family : u32) -> u32);
     GetUdpStatisticsEx2(statistics, family)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
@@ -872,40 +872,40 @@ pub unsafe fn GetUdpTable<P0>(udptable: ::core::option::Option<*mut MIB_UDPTABLE
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetUdpTable ( udptable : *mut MIB_UDPTABLE , sizepointer : *mut u32 , order : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetUdpTable(udptable : *mut MIB_UDPTABLE, sizepointer : *mut u32, order : super::super::Foundation:: BOOL) -> u32);
     GetUdpTable(::core::mem::transmute(udptable.unwrap_or(::std::ptr::null_mut())), sizepointer, order.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetUniDirectionalAdapterInfo(pipifinfo: ::core::option::Option<*mut IP_UNIDIRECTIONAL_ADAPTER_ADDRESS>, dwoutbuflen: *mut u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetUniDirectionalAdapterInfo ( pipifinfo : *mut IP_UNIDIRECTIONAL_ADAPTER_ADDRESS , dwoutbuflen : *mut u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetUniDirectionalAdapterInfo(pipifinfo : *mut IP_UNIDIRECTIONAL_ADAPTER_ADDRESS, dwoutbuflen : *mut u32) -> u32);
     GetUniDirectionalAdapterInfo(::core::mem::transmute(pipifinfo.unwrap_or(::std::ptr::null_mut())), dwoutbuflen)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetUnicastIpAddressEntry ( row : *mut MIB_UNICASTIPADDRESS_ROW ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetUnicastIpAddressEntry(row : *mut MIB_UNICASTIPADDRESS_ROW) -> super::super::Foundation:: WIN32_ERROR);
     GetUnicastIpAddressEntry(row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetUnicastIpAddressTable(family: super::super::Networking::WinSock::ADDRESS_FAMILY, table: *mut *mut MIB_UNICASTIPADDRESS_TABLE) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn GetUnicastIpAddressTable ( family : super::super::Networking::WinSock:: ADDRESS_FAMILY , table : *mut *mut MIB_UNICASTIPADDRESS_TABLE ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetUnicastIpAddressTable(family : super::super::Networking::WinSock:: ADDRESS_FAMILY, table : *mut *mut MIB_UNICASTIPADDRESS_TABLE) -> super::super::Foundation:: WIN32_ERROR);
     GetUnicastIpAddressTable(family, table)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn Icmp6CreateFile() -> ::windows::core::Result<IcmpHandle> {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn Icmp6CreateFile ( ) -> IcmpHandle );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn Icmp6CreateFile() -> IcmpHandle);
     let result__ = Icmp6CreateFile();
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn Icmp6ParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize: u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn Icmp6ParseReplies ( replybuffer : *mut ::core::ffi::c_void , replysize : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn Icmp6ParseReplies(replybuffer : *mut ::core::ffi::c_void, replysize : u32) -> u32);
     Icmp6ParseReplies(replybuffer, replysize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_System_WindowsProgramming\"`*"]
@@ -916,7 +916,7 @@ where
     P0: ::windows::core::IntoParam<IcmpHandle>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn Icmp6SendEcho2 ( icmphandle : IcmpHandle , event : super::super::Foundation:: HANDLE , apcroutine : super::super::System::WindowsProgramming:: PIO_APC_ROUTINE , apccontext : *const ::core::ffi::c_void , sourceaddress : *const super::super::Networking::WinSock:: SOCKADDR_IN6 , destinationaddress : *const super::super::Networking::WinSock:: SOCKADDR_IN6 , requestdata : *const ::core::ffi::c_void , requestsize : u16 , requestoptions : *const IP_OPTION_INFORMATION , replybuffer : *mut ::core::ffi::c_void , replysize : u32 , timeout : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn Icmp6SendEcho2(icmphandle : IcmpHandle, event : super::super::Foundation:: HANDLE, apcroutine : super::super::System::WindowsProgramming:: PIO_APC_ROUTINE, apccontext : *const ::core::ffi::c_void, sourceaddress : *const super::super::Networking::WinSock:: SOCKADDR_IN6, destinationaddress : *const super::super::Networking::WinSock:: SOCKADDR_IN6, requestdata : *const ::core::ffi::c_void, requestsize : u16, requestoptions : *const IP_OPTION_INFORMATION, replybuffer : *mut ::core::ffi::c_void, replysize : u32, timeout : u32) -> u32);
     Icmp6SendEcho2(icmphandle.into_param().abi(), event.into_param().abi(), apcroutine, ::core::mem::transmute(apccontext.unwrap_or(::std::ptr::null())), sourceaddress, destinationaddress, requestdata, requestsize, ::core::mem::transmute(requestoptions.unwrap_or(::std::ptr::null())), replybuffer, replysize, timeout)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
@@ -926,20 +926,20 @@ pub unsafe fn IcmpCloseHandle<P0>(icmphandle: P0) -> super::super::Foundation::B
 where
     P0: ::windows::core::IntoParam<IcmpHandle>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn IcmpCloseHandle ( icmphandle : IcmpHandle ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn IcmpCloseHandle(icmphandle : IcmpHandle) -> super::super::Foundation:: BOOL);
     IcmpCloseHandle(icmphandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn IcmpCreateFile() -> ::windows::core::Result<IcmpHandle> {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn IcmpCreateFile ( ) -> IcmpHandle );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn IcmpCreateFile() -> IcmpHandle);
     let result__ = IcmpCreateFile();
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn IcmpParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize: u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn IcmpParseReplies ( replybuffer : *mut ::core::ffi::c_void , replysize : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn IcmpParseReplies(replybuffer : *mut ::core::ffi::c_void, replysize : u32) -> u32);
     IcmpParseReplies(replybuffer, replysize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
@@ -948,7 +948,7 @@ pub unsafe fn IcmpSendEcho<P0>(icmphandle: P0, destinationaddress: u32, requestd
 where
     P0: ::windows::core::IntoParam<IcmpHandle>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn IcmpSendEcho ( icmphandle : IcmpHandle , destinationaddress : u32 , requestdata : *const ::core::ffi::c_void , requestsize : u16 , requestoptions : *const IP_OPTION_INFORMATION , replybuffer : *mut ::core::ffi::c_void , replysize : u32 , timeout : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn IcmpSendEcho(icmphandle : IcmpHandle, destinationaddress : u32, requestdata : *const ::core::ffi::c_void, requestsize : u16, requestoptions : *const IP_OPTION_INFORMATION, replybuffer : *mut ::core::ffi::c_void, replysize : u32, timeout : u32) -> u32);
     IcmpSendEcho(icmphandle.into_param().abi(), destinationaddress, requestdata, requestsize, ::core::mem::transmute(requestoptions.unwrap_or(::std::ptr::null())), replybuffer, replysize, timeout)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
@@ -959,7 +959,7 @@ where
     P0: ::windows::core::IntoParam<IcmpHandle>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn IcmpSendEcho2 ( icmphandle : IcmpHandle , event : super::super::Foundation:: HANDLE , apcroutine : super::super::System::WindowsProgramming:: PIO_APC_ROUTINE , apccontext : *const ::core::ffi::c_void , destinationaddress : u32 , requestdata : *const ::core::ffi::c_void , requestsize : u16 , requestoptions : *const IP_OPTION_INFORMATION , replybuffer : *mut ::core::ffi::c_void , replysize : u32 , timeout : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn IcmpSendEcho2(icmphandle : IcmpHandle, event : super::super::Foundation:: HANDLE, apcroutine : super::super::System::WindowsProgramming:: PIO_APC_ROUTINE, apccontext : *const ::core::ffi::c_void, destinationaddress : u32, requestdata : *const ::core::ffi::c_void, requestsize : u16, requestoptions : *const IP_OPTION_INFORMATION, replybuffer : *mut ::core::ffi::c_void, replysize : u32, timeout : u32) -> u32);
     IcmpSendEcho2(icmphandle.into_param().abi(), event.into_param().abi(), apcroutine, ::core::mem::transmute(apccontext.unwrap_or(::std::ptr::null())), destinationaddress, requestdata, requestsize, ::core::mem::transmute(requestoptions.unwrap_or(::std::ptr::null())), replybuffer, replysize, timeout)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
@@ -970,52 +970,52 @@ where
     P0: ::windows::core::IntoParam<IcmpHandle>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn IcmpSendEcho2Ex ( icmphandle : IcmpHandle , event : super::super::Foundation:: HANDLE , apcroutine : super::super::System::WindowsProgramming:: PIO_APC_ROUTINE , apccontext : *const ::core::ffi::c_void , sourceaddress : u32 , destinationaddress : u32 , requestdata : *const ::core::ffi::c_void , requestsize : u16 , requestoptions : *const IP_OPTION_INFORMATION , replybuffer : *mut ::core::ffi::c_void , replysize : u32 , timeout : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn IcmpSendEcho2Ex(icmphandle : IcmpHandle, event : super::super::Foundation:: HANDLE, apcroutine : super::super::System::WindowsProgramming:: PIO_APC_ROUTINE, apccontext : *const ::core::ffi::c_void, sourceaddress : u32, destinationaddress : u32, requestdata : *const ::core::ffi::c_void, requestsize : u16, requestoptions : *const IP_OPTION_INFORMATION, replybuffer : *mut ::core::ffi::c_void, replysize : u32, timeout : u32) -> u32);
     IcmpSendEcho2Ex(icmphandle.into_param().abi(), event.into_param().abi(), apcroutine, ::core::mem::transmute(apccontext.unwrap_or(::std::ptr::null())), sourceaddress, destinationaddress, requestdata, requestsize, ::core::mem::transmute(requestoptions.unwrap_or(::std::ptr::null())), replybuffer, replysize, timeout)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn InitializeIpForwardEntry(row: *mut MIB_IPFORWARD_ROW2) {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn InitializeIpForwardEntry ( row : *mut MIB_IPFORWARD_ROW2 ) -> ( ) );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn InitializeIpForwardEntry(row : *mut MIB_IPFORWARD_ROW2) -> ());
     InitializeIpForwardEntry(row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn InitializeIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn InitializeIpInterfaceEntry ( row : *mut MIB_IPINTERFACE_ROW ) -> ( ) );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn InitializeIpInterfaceEntry(row : *mut MIB_IPINTERFACE_ROW) -> ());
     InitializeIpInterfaceEntry(row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn InitializeUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW) {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn InitializeUnicastIpAddressEntry ( row : *mut MIB_UNICASTIPADDRESS_ROW ) -> ( ) );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn InitializeUnicastIpAddressEntry(row : *mut MIB_UNICASTIPADDRESS_ROW) -> ());
     InitializeUnicastIpAddressEntry(row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn IpReleaseAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn IpReleaseAddress ( adapterinfo : *const IP_ADAPTER_INDEX_MAP ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn IpReleaseAddress(adapterinfo : *const IP_ADAPTER_INDEX_MAP) -> u32);
     IpReleaseAddress(adapterinfo)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn IpRenewAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn IpRenewAddress ( adapterinfo : *const IP_ADAPTER_INDEX_MAP ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn IpRenewAddress(adapterinfo : *const IP_ADAPTER_INDEX_MAP) -> u32);
     IpRenewAddress(adapterinfo)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn LookupPersistentTcpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn LookupPersistentTcpPortReservation ( startport : u16 , numberofports : u16 , token : *mut u64 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn LookupPersistentTcpPortReservation(startport : u16, numberofports : u16, token : *mut u64) -> u32);
     LookupPersistentTcpPortReservation(startport, numberofports, token)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn LookupPersistentUdpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn LookupPersistentUdpPortReservation ( startport : u16 , numberofports : u16 , token : *mut u64 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn LookupPersistentUdpPortReservation(startport : u16, numberofports : u16, token : *mut u64) -> u32);
     LookupPersistentUdpPortReservation(startport, numberofports, token)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
@@ -1026,14 +1026,14 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn NhpAllocateAndGetInterfaceInfoFromStack ( pptable : *mut *mut IP_INTERFACE_NAME_INFO_W2KSP1 , pdwcount : *mut u32 , border : super::super::Foundation:: BOOL , hheap : super::super::Foundation:: HANDLE , dwflags : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn NhpAllocateAndGetInterfaceInfoFromStack(pptable : *mut *mut IP_INTERFACE_NAME_INFO_W2KSP1, pdwcount : *mut u32, border : super::super::Foundation:: BOOL, hheap : super::super::Foundation:: HANDLE, dwflags : u32) -> u32);
     NhpAllocateAndGetInterfaceInfoFromStack(pptable, pdwcount, border.into_param().abi(), hheap.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn NotifyAddrChange(handle: *mut super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn NotifyAddrChange ( handle : *mut super::super::Foundation:: HANDLE , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn NotifyAddrChange(handle : *mut super::super::Foundation:: HANDLE, overlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
     NotifyAddrChange(handle, overlapped)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -1043,7 +1043,7 @@ pub unsafe fn NotifyIpInterfaceChange<P0>(family: super::super::Networking::WinS
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn NotifyIpInterfaceChange ( family : super::super::Networking::WinSock:: ADDRESS_FAMILY , callback : PIPINTERFACE_CHANGE_CALLBACK , callercontext : *const ::core::ffi::c_void , initialnotification : super::super::Foundation:: BOOLEAN , notificationhandle : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn NotifyIpInterfaceChange(family : super::super::Networking::WinSock:: ADDRESS_FAMILY, callback : PIPINTERFACE_CHANGE_CALLBACK, callercontext : *const ::core::ffi::c_void, initialnotification : super::super::Foundation:: BOOLEAN, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
     NotifyIpInterfaceChange(family, callback, ::core::mem::transmute(callercontext.unwrap_or(::std::ptr::null())), initialnotification.into_param().abi(), notificationhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -1053,14 +1053,14 @@ pub unsafe fn NotifyNetworkConnectivityHintChange<P0>(callback: PNETWORK_CONNECT
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn NotifyNetworkConnectivityHintChange ( callback : PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK , callercontext : *const ::core::ffi::c_void , initialnotification : super::super::Foundation:: BOOLEAN , notificationhandle : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn NotifyNetworkConnectivityHintChange(callback : PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, callercontext : *const ::core::ffi::c_void, initialnotification : super::super::Foundation:: BOOLEAN, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
     NotifyNetworkConnectivityHintChange(callback, ::core::mem::transmute(callercontext.unwrap_or(::std::ptr::null())), initialnotification.into_param().abi(), notificationhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn NotifyRouteChange(handle: *mut super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn NotifyRouteChange ( handle : *mut super::super::Foundation:: HANDLE , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn NotifyRouteChange(handle : *mut super::super::Foundation:: HANDLE, overlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
     NotifyRouteChange(handle, overlapped)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -1070,14 +1070,14 @@ pub unsafe fn NotifyRouteChange2<P0>(addressfamily: super::super::Networking::Wi
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn NotifyRouteChange2 ( addressfamily : super::super::Networking::WinSock:: ADDRESS_FAMILY , callback : PIPFORWARD_CHANGE_CALLBACK , callercontext : *const ::core::ffi::c_void , initialnotification : super::super::Foundation:: BOOLEAN , notificationhandle : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn NotifyRouteChange2(addressfamily : super::super::Networking::WinSock:: ADDRESS_FAMILY, callback : PIPFORWARD_CHANGE_CALLBACK, callercontext : *const ::core::ffi::c_void, initialnotification : super::super::Foundation:: BOOLEAN, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
     NotifyRouteChange2(addressfamily, callback, callercontext, initialnotification.into_param().abi(), notificationhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn NotifyStableUnicastIpAddressTable(family: super::super::Networking::WinSock::ADDRESS_FAMILY, table: *mut *mut MIB_UNICASTIPADDRESS_TABLE, callercallback: PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, callercontext: *const ::core::ffi::c_void, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn NotifyStableUnicastIpAddressTable ( family : super::super::Networking::WinSock:: ADDRESS_FAMILY , table : *mut *mut MIB_UNICASTIPADDRESS_TABLE , callercallback : PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK , callercontext : *const ::core::ffi::c_void , notificationhandle : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn NotifyStableUnicastIpAddressTable(family : super::super::Networking::WinSock:: ADDRESS_FAMILY, table : *mut *mut MIB_UNICASTIPADDRESS_TABLE, callercallback : PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, callercontext : *const ::core::ffi::c_void, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
     NotifyStableUnicastIpAddressTable(family, table, callercallback, callercontext, notificationhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
@@ -1087,7 +1087,7 @@ pub unsafe fn NotifyTeredoPortChange<P0>(callback: PTEREDO_PORT_CHANGE_CALLBACK,
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn NotifyTeredoPortChange ( callback : PTEREDO_PORT_CHANGE_CALLBACK , callercontext : *const ::core::ffi::c_void , initialnotification : super::super::Foundation:: BOOLEAN , notificationhandle : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn NotifyTeredoPortChange(callback : PTEREDO_PORT_CHANGE_CALLBACK, callercontext : *const ::core::ffi::c_void, initialnotification : super::super::Foundation:: BOOLEAN, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
     NotifyTeredoPortChange(callback, callercontext, initialnotification.into_param().abi(), notificationhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -1097,31 +1097,31 @@ pub unsafe fn NotifyUnicastIpAddressChange<P0>(family: super::super::Networking:
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn NotifyUnicastIpAddressChange ( family : super::super::Networking::WinSock:: ADDRESS_FAMILY , callback : PUNICAST_IPADDRESS_CHANGE_CALLBACK , callercontext : *const ::core::ffi::c_void , initialnotification : super::super::Foundation:: BOOLEAN , notificationhandle : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn NotifyUnicastIpAddressChange(family : super::super::Networking::WinSock:: ADDRESS_FAMILY, callback : PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext : *const ::core::ffi::c_void, initialnotification : super::super::Foundation:: BOOLEAN, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
     NotifyUnicastIpAddressChange(family, callback, ::core::mem::transmute(callercontext.unwrap_or(::std::ptr::null())), initialnotification.into_param().abi(), notificationhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfAddFiltersToInterface(ih: *mut ::core::ffi::c_void, cinfilters: u32, pfiltin: *mut PF_FILTER_DESCRIPTOR, coutfilters: u32, pfiltout: *mut PF_FILTER_DESCRIPTOR, pfhandle: *mut *mut ::core::ffi::c_void) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn PfAddFiltersToInterface ( ih : *mut ::core::ffi::c_void , cinfilters : u32 , pfiltin : *mut PF_FILTER_DESCRIPTOR , coutfilters : u32 , pfiltout : *mut PF_FILTER_DESCRIPTOR , pfhandle : *mut *mut ::core::ffi::c_void ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn PfAddFiltersToInterface(ih : *mut ::core::ffi::c_void, cinfilters : u32, pfiltin : *mut PF_FILTER_DESCRIPTOR, coutfilters : u32, pfiltout : *mut PF_FILTER_DESCRIPTOR, pfhandle : *mut *mut ::core::ffi::c_void) -> u32);
     PfAddFiltersToInterface(ih, cinfilters, pfiltin, coutfilters, pfiltout, pfhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfAddGlobalFilterToInterface(pinterface: *mut ::core::ffi::c_void, gffilter: GLOBAL_FILTER) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn PfAddGlobalFilterToInterface ( pinterface : *mut ::core::ffi::c_void , gffilter : GLOBAL_FILTER ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn PfAddGlobalFilterToInterface(pinterface : *mut ::core::ffi::c_void, gffilter : GLOBAL_FILTER) -> u32);
     PfAddGlobalFilterToInterface(pinterface, gffilter)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfBindInterfaceToIPAddress(pinterface: *mut ::core::ffi::c_void, pfattype: PFADDRESSTYPE, ipaddress: *mut u8) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn PfBindInterfaceToIPAddress ( pinterface : *mut ::core::ffi::c_void , pfattype : PFADDRESSTYPE , ipaddress : *mut u8 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn PfBindInterfaceToIPAddress(pinterface : *mut ::core::ffi::c_void, pfattype : PFADDRESSTYPE, ipaddress : *mut u8) -> u32);
     PfBindInterfaceToIPAddress(pinterface, pfattype, ipaddress)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfBindInterfaceToIndex(pinterface: *mut ::core::ffi::c_void, dwindex: u32, pfatlinktype: PFADDRESSTYPE, linkipaddress: *mut u8) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn PfBindInterfaceToIndex ( pinterface : *mut ::core::ffi::c_void , dwindex : u32 , pfatlinktype : PFADDRESSTYPE , linkipaddress : *mut u8 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn PfBindInterfaceToIndex(pinterface : *mut ::core::ffi::c_void, dwindex : u32, pfatlinktype : PFADDRESSTYPE, linkipaddress : *mut u8) -> u32);
     PfBindInterfaceToIndex(pinterface, dwindex, pfatlinktype, linkipaddress)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
@@ -1132,19 +1132,19 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn PfCreateInterface ( dwname : u32 , inaction : PFFORWARD_ACTION , outaction : PFFORWARD_ACTION , buselog : super::super::Foundation:: BOOL , bmustbeunique : super::super::Foundation:: BOOL , ppinterface : *mut *mut ::core::ffi::c_void ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn PfCreateInterface(dwname : u32, inaction : PFFORWARD_ACTION, outaction : PFFORWARD_ACTION, buselog : super::super::Foundation:: BOOL, bmustbeunique : super::super::Foundation:: BOOL, ppinterface : *mut *mut ::core::ffi::c_void) -> u32);
     PfCreateInterface(dwname, inaction, outaction, buselog.into_param().abi(), bmustbeunique.into_param().abi(), ppinterface)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfDeleteInterface(pinterface: *mut ::core::ffi::c_void) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn PfDeleteInterface ( pinterface : *mut ::core::ffi::c_void ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn PfDeleteInterface(pinterface : *mut ::core::ffi::c_void) -> u32);
     PfDeleteInterface(pinterface)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfDeleteLog() -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn PfDeleteLog ( ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn PfDeleteLog() -> u32);
     PfDeleteLog()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
@@ -1154,7 +1154,7 @@ pub unsafe fn PfGetInterfaceStatistics<P0>(pinterface: *mut ::core::ffi::c_void,
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn PfGetInterfaceStatistics ( pinterface : *mut ::core::ffi::c_void , ppfstats : *mut PF_INTERFACE_STATS , pdwbuffersize : *mut u32 , fresetcounters : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn PfGetInterfaceStatistics(pinterface : *mut ::core::ffi::c_void, ppfstats : *mut PF_INTERFACE_STATS, pdwbuffersize : *mut u32, fresetcounters : super::super::Foundation:: BOOL) -> u32);
     PfGetInterfaceStatistics(pinterface, ppfstats, pdwbuffersize, fresetcounters.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
@@ -1164,168 +1164,168 @@ pub unsafe fn PfMakeLog<P0>(hevent: P0) -> u32
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn PfMakeLog ( hevent : super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn PfMakeLog(hevent : super::super::Foundation:: HANDLE) -> u32);
     PfMakeLog(hevent.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfRebindFilters(pinterface: *mut ::core::ffi::c_void, platebindinfo: *mut PF_LATEBIND_INFO) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn PfRebindFilters ( pinterface : *mut ::core::ffi::c_void , platebindinfo : *mut PF_LATEBIND_INFO ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn PfRebindFilters(pinterface : *mut ::core::ffi::c_void, platebindinfo : *mut PF_LATEBIND_INFO) -> u32);
     PfRebindFilters(pinterface, platebindinfo)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfRemoveFilterHandles(pinterface: *mut ::core::ffi::c_void, cfilters: u32, pvhandles: *mut *mut ::core::ffi::c_void) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn PfRemoveFilterHandles ( pinterface : *mut ::core::ffi::c_void , cfilters : u32 , pvhandles : *mut *mut ::core::ffi::c_void ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn PfRemoveFilterHandles(pinterface : *mut ::core::ffi::c_void, cfilters : u32, pvhandles : *mut *mut ::core::ffi::c_void) -> u32);
     PfRemoveFilterHandles(pinterface, cfilters, pvhandles)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfRemoveFiltersFromInterface(ih: *mut ::core::ffi::c_void, cinfilters: u32, pfiltin: *mut PF_FILTER_DESCRIPTOR, coutfilters: u32, pfiltout: *mut PF_FILTER_DESCRIPTOR) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn PfRemoveFiltersFromInterface ( ih : *mut ::core::ffi::c_void , cinfilters : u32 , pfiltin : *mut PF_FILTER_DESCRIPTOR , coutfilters : u32 , pfiltout : *mut PF_FILTER_DESCRIPTOR ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn PfRemoveFiltersFromInterface(ih : *mut ::core::ffi::c_void, cinfilters : u32, pfiltin : *mut PF_FILTER_DESCRIPTOR, coutfilters : u32, pfiltout : *mut PF_FILTER_DESCRIPTOR) -> u32);
     PfRemoveFiltersFromInterface(ih, cinfilters, pfiltin, coutfilters, pfiltout)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfRemoveGlobalFilterFromInterface(pinterface: *mut ::core::ffi::c_void, gffilter: GLOBAL_FILTER) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn PfRemoveGlobalFilterFromInterface ( pinterface : *mut ::core::ffi::c_void , gffilter : GLOBAL_FILTER ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn PfRemoveGlobalFilterFromInterface(pinterface : *mut ::core::ffi::c_void, gffilter : GLOBAL_FILTER) -> u32);
     PfRemoveGlobalFilterFromInterface(pinterface, gffilter)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfSetLogBuffer(pbbuffer: *mut u8, dwsize: u32, dwthreshold: u32, dwentries: u32, pdwloggedentries: *mut u32, pdwlostentries: *mut u32, pdwsizeused: *mut u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn PfSetLogBuffer ( pbbuffer : *mut u8 , dwsize : u32 , dwthreshold : u32 , dwentries : u32 , pdwloggedentries : *mut u32 , pdwlostentries : *mut u32 , pdwsizeused : *mut u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn PfSetLogBuffer(pbbuffer : *mut u8, dwsize : u32, dwthreshold : u32, dwentries : u32, pdwloggedentries : *mut u32, pdwlostentries : *mut u32, pdwsizeused : *mut u32) -> u32);
     PfSetLogBuffer(pbbuffer, dwsize, dwthreshold, dwentries, pdwloggedentries, pdwlostentries, pdwsizeused)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfTestPacket(pininterface: *mut ::core::ffi::c_void, poutinterface: *mut ::core::ffi::c_void, cbytes: u32, pbpacket: *mut u8, ppaction: *mut PFFORWARD_ACTION) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn PfTestPacket ( pininterface : *mut ::core::ffi::c_void , poutinterface : *mut ::core::ffi::c_void , cbytes : u32 , pbpacket : *mut u8 , ppaction : *mut PFFORWARD_ACTION ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn PfTestPacket(pininterface : *mut ::core::ffi::c_void, poutinterface : *mut ::core::ffi::c_void, cbytes : u32, pbpacket : *mut u8, ppaction : *mut PFFORWARD_ACTION) -> u32);
     PfTestPacket(pininterface, poutinterface, cbytes, pbpacket, ppaction)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfUnBindInterface(pinterface: *mut ::core::ffi::c_void) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn PfUnBindInterface ( pinterface : *mut ::core::ffi::c_void ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn PfUnBindInterface(pinterface : *mut ::core::ffi::c_void) -> u32);
     PfUnBindInterface(pinterface)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn RegisterInterfaceTimestampConfigChange(callback: PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK, callercontext: ::core::option::Option<*const ::core::ffi::c_void>, notificationhandle: *mut HIFTIMESTAMPCHANGE) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn RegisterInterfaceTimestampConfigChange ( callback : PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK , callercontext : *const ::core::ffi::c_void , notificationhandle : *mut HIFTIMESTAMPCHANGE ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn RegisterInterfaceTimestampConfigChange(callback : PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK, callercontext : *const ::core::ffi::c_void, notificationhandle : *mut HIFTIMESTAMPCHANGE) -> u32);
     RegisterInterfaceTimestampConfigChange(callback, ::core::mem::transmute(callercontext.unwrap_or(::std::ptr::null())), notificationhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn ResolveIpNetEntry2(row: *mut MIB_IPNET_ROW2, sourceaddress: ::core::option::Option<*const super::super::Networking::WinSock::SOCKADDR_INET>) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn ResolveIpNetEntry2 ( row : *mut MIB_IPNET_ROW2 , sourceaddress : *const super::super::Networking::WinSock:: SOCKADDR_INET ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn ResolveIpNetEntry2(row : *mut MIB_IPNET_ROW2, sourceaddress : *const super::super::Networking::WinSock:: SOCKADDR_INET) -> super::super::Foundation:: WIN32_ERROR);
     ResolveIpNetEntry2(row, ::core::mem::transmute(sourceaddress.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn ResolveNeighbor(networkaddress: *const super::super::Networking::WinSock::SOCKADDR, physicaladdress: *mut ::core::ffi::c_void, physicaladdresslength: *mut u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn ResolveNeighbor ( networkaddress : *const super::super::Networking::WinSock:: SOCKADDR , physicaladdress : *mut ::core::ffi::c_void , physicaladdresslength : *mut u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn ResolveNeighbor(networkaddress : *const super::super::Networking::WinSock:: SOCKADDR, physicaladdress : *mut ::core::ffi::c_void, physicaladdresslength : *mut u32) -> u32);
     ResolveNeighbor(networkaddress, physicaladdress, physicaladdresslength)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn RestoreMediaSense(poverlapped: *const super::super::System::IO::OVERLAPPED, lpdwenablecount: ::core::option::Option<*mut u32>) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn RestoreMediaSense ( poverlapped : *const super::super::System::IO:: OVERLAPPED , lpdwenablecount : *mut u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn RestoreMediaSense(poverlapped : *const super::super::System::IO:: OVERLAPPED, lpdwenablecount : *mut u32) -> u32);
     RestoreMediaSense(poverlapped, ::core::mem::transmute(lpdwenablecount.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn SendARP(destip: u32, srcip: u32, pmacaddr: *mut ::core::ffi::c_void, phyaddrlen: *mut u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn SendARP ( destip : u32 , srcip : u32 , pmacaddr : *mut ::core::ffi::c_void , phyaddrlen : *mut u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn SendARP(destip : u32, srcip : u32, pmacaddr : *mut ::core::ffi::c_void, phyaddrlen : *mut u32) -> u32);
     SendARP(destip, srcip, pmacaddr, phyaddrlen)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetCurrentThreadCompartmentId(compartmentid: u32) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn SetCurrentThreadCompartmentId ( compartmentid : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn SetCurrentThreadCompartmentId(compartmentid : u32) -> super::super::Foundation:: WIN32_ERROR);
     SetCurrentThreadCompartmentId(compartmentid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetCurrentThreadCompartmentScope(compartmentscope: u32) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn SetCurrentThreadCompartmentScope ( compartmentscope : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn SetCurrentThreadCompartmentScope(compartmentscope : u32) -> super::super::Foundation:: WIN32_ERROR);
     SetCurrentThreadCompartmentScope(compartmentscope)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetDnsSettings(settings: *const DNS_SETTINGS) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn SetDnsSettings ( settings : *const DNS_SETTINGS ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn SetDnsSettings(settings : *const DNS_SETTINGS) -> super::super::Foundation:: WIN32_ERROR);
     SetDnsSettings(settings)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn SetIfEntry(pifrow: *const MIB_IFROW) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn SetIfEntry ( pifrow : *const MIB_IFROW ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn SetIfEntry(pifrow : *const MIB_IFROW) -> u32);
     SetIfEntry(pifrow)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetInterfaceDnsSettings(interface: ::windows::core::GUID, settings: *const DNS_INTERFACE_SETTINGS) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn SetInterfaceDnsSettings ( interface : ::windows::core::GUID , settings : *const DNS_INTERFACE_SETTINGS ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn SetInterfaceDnsSettings(interface : ::windows::core::GUID, settings : *const DNS_INTERFACE_SETTINGS) -> super::super::Foundation:: WIN32_ERROR);
     SetInterfaceDnsSettings(::core::mem::transmute(interface), settings)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn SetIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn SetIpForwardEntry ( proute : *const MIB_IPFORWARDROW ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn SetIpForwardEntry(proute : *const MIB_IPFORWARDROW) -> u32);
     SetIpForwardEntry(proute)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn SetIpForwardEntry2(route: *const MIB_IPFORWARD_ROW2) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn SetIpForwardEntry2 ( route : *const MIB_IPFORWARD_ROW2 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn SetIpForwardEntry2(route : *const MIB_IPFORWARD_ROW2) -> super::super::Foundation:: WIN32_ERROR);
     SetIpForwardEntry2(route)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn SetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn SetIpInterfaceEntry ( row : *mut MIB_IPINTERFACE_ROW ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn SetIpInterfaceEntry(row : *mut MIB_IPINTERFACE_ROW) -> super::super::Foundation:: WIN32_ERROR);
     SetIpInterfaceEntry(row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn SetIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn SetIpNetEntry ( parpentry : *const MIB_IPNETROW_LH ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn SetIpNetEntry(parpentry : *const MIB_IPNETROW_LH) -> u32);
     SetIpNetEntry(parpentry)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn SetIpNetEntry2(row: *const MIB_IPNET_ROW2) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn SetIpNetEntry2 ( row : *const MIB_IPNET_ROW2 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn SetIpNetEntry2(row : *const MIB_IPNET_ROW2) -> super::super::Foundation:: WIN32_ERROR);
     SetIpNetEntry2(row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn SetIpStatistics(pipstats: *const MIB_IPSTATS_LH) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn SetIpStatistics ( pipstats : *const MIB_IPSTATS_LH ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn SetIpStatistics(pipstats : *const MIB_IPSTATS_LH) -> u32);
     SetIpStatistics(pipstats)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn SetIpStatisticsEx(statistics: *const MIB_IPSTATS_LH, family: u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn SetIpStatisticsEx ( statistics : *const MIB_IPSTATS_LH , family : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn SetIpStatisticsEx(statistics : *const MIB_IPSTATS_LH, family : u32) -> u32);
     SetIpStatisticsEx(statistics, family)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn SetIpTTL(nttl: u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn SetIpTTL ( nttl : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn SetIpTTL(nttl : u32) -> u32);
     SetIpTTL(nttl)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
@@ -1335,7 +1335,7 @@ pub unsafe fn SetJobCompartmentId<P0>(jobhandle: P0, compartmentid: u32) -> supe
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn SetJobCompartmentId ( jobhandle : super::super::Foundation:: HANDLE , compartmentid : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn SetJobCompartmentId(jobhandle : super::super::Foundation:: HANDLE, compartmentid : u32) -> super::super::Foundation:: WIN32_ERROR);
     SetJobCompartmentId(jobhandle.into_param().abi(), compartmentid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
@@ -1345,47 +1345,47 @@ pub unsafe fn SetNetworkInformation<P0>(networkguid: *const ::windows::core::GUI
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn SetNetworkInformation ( networkguid : *const ::windows::core::GUID , compartmentid : u32 , networkname : ::windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn SetNetworkInformation(networkguid : *const ::windows::core::GUID, compartmentid : u32, networkname : ::windows::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
     SetNetworkInformation(networkguid, compartmentid, networkname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn SetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TCP_ESTATS_TYPE, rw: &[u8], rwversion: u32, offset: u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn SetPerTcp6ConnectionEStats ( row : *const MIB_TCP6ROW , estatstype : TCP_ESTATS_TYPE , rw : *const u8 , rwversion : u32 , rwsize : u32 , offset : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn SetPerTcp6ConnectionEStats(row : *const MIB_TCP6ROW, estatstype : TCP_ESTATS_TYPE, rw : *const u8, rwversion : u32, rwsize : u32, offset : u32) -> u32);
     SetPerTcp6ConnectionEStats(row, estatstype, ::core::mem::transmute(rw.as_ptr()), rwversion, rw.len() as _, offset)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn SetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: TCP_ESTATS_TYPE, rw: &[u8], rwversion: u32, offset: u32) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn SetPerTcpConnectionEStats ( row : *const MIB_TCPROW_LH , estatstype : TCP_ESTATS_TYPE , rw : *const u8 , rwversion : u32 , rwsize : u32 , offset : u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn SetPerTcpConnectionEStats(row : *const MIB_TCPROW_LH, estatstype : TCP_ESTATS_TYPE, rw : *const u8, rwversion : u32, rwsize : u32, offset : u32) -> u32);
     SetPerTcpConnectionEStats(row, estatstype, ::core::mem::transmute(rw.as_ptr()), rwversion, rw.len() as _, offset)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSessionCompartmentId(sessionid: u32, compartmentid: u32) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn SetSessionCompartmentId ( sessionid : u32 , compartmentid : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn SetSessionCompartmentId(sessionid : u32, compartmentid : u32) -> super::super::Foundation:: WIN32_ERROR);
     SetSessionCompartmentId(sessionid, compartmentid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn SetTcpEntry(ptcprow: *const MIB_TCPROW_LH) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn SetTcpEntry ( ptcprow : *const MIB_TCPROW_LH ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn SetTcpEntry(ptcprow : *const MIB_TCPROW_LH) -> u32);
     SetTcpEntry(ptcprow)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn SetUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> super::super::Foundation::WIN32_ERROR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn SetUnicastIpAddressEntry ( row : *const MIB_UNICASTIPADDRESS_ROW ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn SetUnicastIpAddressEntry(row : *const MIB_UNICASTIPADDRESS_ROW) -> super::super::Foundation:: WIN32_ERROR);
     SetUnicastIpAddressEntry(row)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn UnenableRouter(poverlapped: *const super::super::System::IO::OVERLAPPED, lpdwenablecount: ::core::option::Option<*mut u32>) -> u32 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn UnenableRouter ( poverlapped : *const super::super::System::IO:: OVERLAPPED , lpdwenablecount : *mut u32 ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn UnenableRouter(poverlapped : *const super::super::System::IO:: OVERLAPPED, lpdwenablecount : *mut u32) -> u32);
     UnenableRouter(poverlapped, ::core::mem::transmute(lpdwenablecount.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
@@ -1394,13 +1394,13 @@ pub unsafe fn UnregisterInterfaceTimestampConfigChange<P0>(notificationhandle: P
 where
     P0: ::windows::core::IntoParam<HIFTIMESTAMPCHANGE>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn UnregisterInterfaceTimestampConfigChange ( notificationhandle : HIFTIMESTAMPCHANGE ) -> ( ) );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn UnregisterInterfaceTimestampConfigChange(notificationhandle : HIFTIMESTAMPCHANGE) -> ());
     UnregisterInterfaceTimestampConfigChange(notificationhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn if_indextoname(interfaceindex: u32, interfacename: &mut [u8; 256]) -> ::windows::core::PSTR {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn if_indextoname ( interfaceindex : u32 , interfacename : ::windows::core::PSTR ) -> ::windows::core::PSTR );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn if_indextoname(interfaceindex : u32, interfacename : ::windows::core::PSTR) -> ::windows::core::PSTR);
     if_indextoname(interfaceindex, ::core::mem::transmute(interfacename.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
@@ -1409,7 +1409,7 @@ pub unsafe fn if_nametoindex<P0>(interfacename: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows_targets::link ! ( "iphlpapi.dll""system" fn if_nametoindex ( interfacename : ::windows::core::PCSTR ) -> u32 );
+    ::windows_targets::link!("iphlpapi.dll" "system" fn if_nametoindex(interfacename : ::windows::core::PCSTR) -> u32);
     if_nametoindex(interfacename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]

@@ -5,7 +5,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn CoGetInstanceFromFile ( pserverinfo : *const super:: COSERVERINFO , pclsid : *const ::windows::core::GUID , punkouter : * mut::core::ffi::c_void , dwclsctx : super:: CLSCTX , grfmode : u32 , pwszname : ::windows::core::PCWSTR , dwcount : u32 , presults : *mut super:: MULTI_QI ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn CoGetInstanceFromFile(pserverinfo : *const super:: COSERVERINFO, pclsid : *const ::windows::core::GUID, punkouter : * mut::core::ffi::c_void, dwclsctx : super:: CLSCTX, grfmode : u32, pwszname : ::windows::core::PCWSTR, dwcount : u32, presults : *mut super:: MULTI_QI) -> ::windows::core::HRESULT);
     CoGetInstanceFromFile(::core::mem::transmute(pserverinfo.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pclsid.unwrap_or(::std::ptr::null())), punkouter.into_param().abi(), dwclsctx, grfmode, pwszname.into_param().abi(), presults.len() as _, ::core::mem::transmute(presults.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -15,7 +15,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     P1: ::windows::core::IntoParam<IStorage>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn CoGetInstanceFromIStorage ( pserverinfo : *const super:: COSERVERINFO , pclsid : *const ::windows::core::GUID , punkouter : * mut::core::ffi::c_void , dwclsctx : super:: CLSCTX , pstg : * mut::core::ffi::c_void , dwcount : u32 , presults : *mut super:: MULTI_QI ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn CoGetInstanceFromIStorage(pserverinfo : *const super:: COSERVERINFO, pclsid : *const ::windows::core::GUID, punkouter : * mut::core::ffi::c_void, dwclsctx : super:: CLSCTX, pstg : * mut::core::ffi::c_void, dwcount : u32, presults : *mut super:: MULTI_QI) -> ::windows::core::HRESULT);
     CoGetInstanceFromIStorage(::core::mem::transmute(pserverinfo.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pclsid.unwrap_or(::std::ptr::null())), punkouter.into_param().abi(), dwclsctx, pstg.into_param().abi(), presults.len() as _, ::core::mem::transmute(presults.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -25,7 +25,7 @@ where
     P0: ::windows::core::IntoParam<super::IStream>,
     T: ::windows::core::ComInterface,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn CoGetInterfaceAndReleaseStream ( pstm : * mut::core::ffi::c_void , iid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn CoGetInterfaceAndReleaseStream(pstm : * mut::core::ffi::c_void, iid : *const ::windows::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
     CoGetInterfaceAndReleaseStream(pstm.into_param().abi(), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
@@ -37,7 +37,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HGLOBAL>,
     P1: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn CreateILockBytesOnHGlobal ( hglobal : super::super::super::Foundation:: HGLOBAL , fdeleteonrelease : super::super::super::Foundation:: BOOL , pplkbyt : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn CreateILockBytesOnHGlobal(hglobal : super::super::super::Foundation:: HGLOBAL, fdeleteonrelease : super::super::super::Foundation:: BOOL, pplkbyt : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<ILockBytes>();
     CreateILockBytesOnHGlobal(hglobal.into_param().abi(), fdeleteonrelease.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -49,21 +49,21 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HGLOBAL>,
     P1: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn CreateStreamOnHGlobal ( hglobal : super::super::super::Foundation:: HGLOBAL , fdeleteonrelease : super::super::super::Foundation:: BOOL , ppstm : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn CreateStreamOnHGlobal(hglobal : super::super::super::Foundation:: HGLOBAL, fdeleteonrelease : super::super::super::Foundation:: BOOL, ppstm : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<super::IStream>();
     CreateStreamOnHGlobal(hglobal.into_param().abi(), fdeleteonrelease.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
 pub unsafe fn FmtIdToPropStgName(pfmtid: *const ::windows::core::GUID, oszname: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "ole32.dll""system" fn FmtIdToPropStgName ( pfmtid : *const ::windows::core::GUID , oszname : ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn FmtIdToPropStgName(pfmtid : *const ::windows::core::GUID, oszname : ::windows::core::PWSTR) -> ::windows::core::HRESULT);
     FmtIdToPropStgName(pfmtid, ::core::mem::transmute(oszname)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreePropVariantArray(rgvars: &mut [PROPVARIANT]) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "ole32.dll""system" fn FreePropVariantArray ( cvariants : u32 , rgvars : *mut PROPVARIANT ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn FreePropVariantArray(cvariants : u32, rgvars : *mut PROPVARIANT) -> ::windows::core::HRESULT);
     FreePropVariantArray(rgvars.len() as _, ::core::mem::transmute(rgvars.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -72,7 +72,7 @@ pub unsafe fn GetConvertStg<P0>(pstg: P0) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<IStorage>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn GetConvertStg ( pstg : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn GetConvertStg(pstg : * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     GetConvertStg(pstg.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
@@ -82,7 +82,7 @@ pub unsafe fn GetHGlobalFromILockBytes<P0>(plkbyt: P0) -> ::windows::core::Resul
 where
     P0: ::windows::core::IntoParam<ILockBytes>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn GetHGlobalFromILockBytes ( plkbyt : * mut::core::ffi::c_void , phglobal : *mut super::super::super::Foundation:: HGLOBAL ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn GetHGlobalFromILockBytes(plkbyt : * mut::core::ffi::c_void, phglobal : *mut super::super::super::Foundation:: HGLOBAL) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::HGLOBAL>();
     GetHGlobalFromILockBytes(plkbyt.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -93,7 +93,7 @@ pub unsafe fn GetHGlobalFromStream<P0>(pstm: P0) -> ::windows::core::Result<supe
 where
     P0: ::windows::core::IntoParam<super::IStream>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn GetHGlobalFromStream ( pstm : * mut::core::ffi::c_void , phglobal : *mut super::super::super::Foundation:: HGLOBAL ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn GetHGlobalFromStream(pstm : * mut::core::ffi::c_void, phglobal : *mut super::super::super::Foundation:: HGLOBAL) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::HGLOBAL>();
     GetHGlobalFromStream(pstm.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -103,7 +103,7 @@ pub unsafe fn OleConvertIStorageToOLESTREAM<P0>(pstg: P0) -> ::windows::core::Re
 where
     P0: ::windows::core::IntoParam<IStorage>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn OleConvertIStorageToOLESTREAM ( pstg : * mut::core::ffi::c_void , lpolestream : *mut OLESTREAM ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn OleConvertIStorageToOLESTREAM(pstg : * mut::core::ffi::c_void, lpolestream : *mut OLESTREAM) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<OLESTREAM>();
     OleConvertIStorageToOLESTREAM(pstg.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -114,7 +114,7 @@ pub unsafe fn OleConvertIStorageToOLESTREAMEx<P0>(pstg: P0, cfformat: u16, lwidt
 where
     P0: ::windows::core::IntoParam<IStorage>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn OleConvertIStorageToOLESTREAMEx ( pstg : * mut::core::ffi::c_void , cfformat : u16 , lwidth : i32 , lheight : i32 , dwsize : u32 , pmedium : *const super:: STGMEDIUM , polestm : *mut OLESTREAM ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn OleConvertIStorageToOLESTREAMEx(pstg : * mut::core::ffi::c_void, cfformat : u16, lwidth : i32, lheight : i32, dwsize : u32, pmedium : *const super:: STGMEDIUM, polestm : *mut OLESTREAM) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<OLESTREAM>();
     OleConvertIStorageToOLESTREAMEx(pstg.into_param().abi(), cfformat, lwidth, lheight, dwsize, pmedium, &mut result__).from_abi(result__)
 }
@@ -124,7 +124,7 @@ pub unsafe fn OleConvertOLESTREAMToIStorage<P0>(lpolestream: *const OLESTREAM, p
 where
     P0: ::windows::core::IntoParam<IStorage>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn OleConvertOLESTREAMToIStorage ( lpolestream : *const OLESTREAM , pstg : * mut::core::ffi::c_void , ptd : *const super:: DVTARGETDEVICE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorage(lpolestream : *const OLESTREAM, pstg : * mut::core::ffi::c_void, ptd : *const super:: DVTARGETDEVICE) -> ::windows::core::HRESULT);
     OleConvertOLESTREAMToIStorage(lpolestream, pstg.into_param().abi(), ptd).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -134,7 +134,7 @@ pub unsafe fn OleConvertOLESTREAMToIStorageEx<P0>(polestm: *const OLESTREAM, pst
 where
     P0: ::windows::core::IntoParam<IStorage>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn OleConvertOLESTREAMToIStorageEx ( polestm : *const OLESTREAM , pstg : * mut::core::ffi::c_void , pcfformat : *mut u16 , plwwidth : *mut i32 , plheight : *mut i32 , pdwsize : *mut u32 , pmedium : *mut super:: STGMEDIUM ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorageEx(polestm : *const OLESTREAM, pstg : * mut::core::ffi::c_void, pcfformat : *mut u16, plwwidth : *mut i32, plheight : *mut i32, pdwsize : *mut u32, pmedium : *mut super:: STGMEDIUM) -> ::windows::core::HRESULT);
     OleConvertOLESTREAMToIStorageEx(polestm, pstg.into_param().abi(), pcfformat, plwwidth, plheight, pdwsize, pmedium).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -143,7 +143,7 @@ pub unsafe fn PropStgNameToFmtId<P0>(oszname: P0) -> ::windows::core::Result<::w
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn PropStgNameToFmtId ( oszname : ::windows::core::PCWSTR , pfmtid : *mut ::windows::core::GUID ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn PropStgNameToFmtId(oszname : ::windows::core::PCWSTR, pfmtid : *mut ::windows::core::GUID) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     PropStgNameToFmtId(oszname.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -151,14 +151,14 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PropVariantClear(pvar: *mut PROPVARIANT) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "ole32.dll""system" fn PropVariantClear ( pvar : *mut PROPVARIANT ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn PropVariantClear(pvar : *mut PROPVARIANT) -> ::windows::core::HRESULT);
     PropVariantClear(pvar).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PropVariantCopy(pvardest: *mut PROPVARIANT, pvarsrc: *const PROPVARIANT) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "ole32.dll""system" fn PropVariantCopy ( pvardest : *mut PROPVARIANT , pvarsrc : *const PROPVARIANT ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn PropVariantCopy(pvardest : *mut PROPVARIANT, pvarsrc : *const PROPVARIANT) -> ::windows::core::HRESULT);
     PropVariantCopy(pvardest, pvarsrc).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -167,7 +167,7 @@ pub unsafe fn ReadClassStg<P0>(pstg: P0) -> ::windows::core::Result<::windows::c
 where
     P0: ::windows::core::IntoParam<IStorage>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn ReadClassStg ( pstg : * mut::core::ffi::c_void , pclsid : *mut ::windows::core::GUID ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn ReadClassStg(pstg : * mut::core::ffi::c_void, pclsid : *mut ::windows::core::GUID) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     ReadClassStg(pstg.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -177,7 +177,7 @@ pub unsafe fn ReadClassStm<P0>(pstm: P0) -> ::windows::core::Result<::windows::c
 where
     P0: ::windows::core::IntoParam<super::IStream>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn ReadClassStm ( pstm : * mut::core::ffi::c_void , pclsid : *mut ::windows::core::GUID ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn ReadClassStm(pstm : * mut::core::ffi::c_void, pclsid : *mut ::windows::core::GUID) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     ReadClassStm(pstm.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -187,7 +187,7 @@ pub unsafe fn ReadFmtUserTypeStg<P0>(pstg: P0, pcf: *mut u16, lplpszusertype: ::
 where
     P0: ::windows::core::IntoParam<IStorage>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn ReadFmtUserTypeStg ( pstg : * mut::core::ffi::c_void , pcf : *mut u16 , lplpszusertype : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn ReadFmtUserTypeStg(pstg : * mut::core::ffi::c_void, pcf : *mut u16, lplpszusertype : *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT);
     ReadFmtUserTypeStg(pstg.into_param().abi(), pcf, ::core::mem::transmute(lplpszusertype.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
@@ -198,14 +198,14 @@ where
     P0: ::windows::core::IntoParam<IStorage>,
     P1: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn SetConvertStg ( pstg : * mut::core::ffi::c_void , fconvert : super::super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn SetConvertStg(pstg : * mut::core::ffi::c_void, fconvert : super::super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
     SetConvertStg(pstg.into_param().abi(), fconvert.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StgConvertPropertyToVariant(pprop: *const SERIALIZEDPROPERTYVALUE, codepage: u16, pvar: *mut PROPVARIANT, pma: *const PMemoryAllocator) -> super::super::super::Foundation::BOOLEAN {
-    ::windows_targets::link ! ( "ole32.dll""system" fn StgConvertPropertyToVariant ( pprop : *const SERIALIZEDPROPERTYVALUE , codepage : u16 , pvar : *mut PROPVARIANT , pma : *const PMemoryAllocator ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("ole32.dll" "system" fn StgConvertPropertyToVariant(pprop : *const SERIALIZEDPROPERTYVALUE, codepage : u16, pvar : *mut PROPVARIANT, pma : *const PMemoryAllocator) -> super::super::super::Foundation:: BOOLEAN);
     StgConvertPropertyToVariant(pprop, codepage, pvar, pma)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
@@ -215,7 +215,7 @@ pub unsafe fn StgConvertVariantToProperty<P0>(pvar: *const PROPVARIANT, codepage
 where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOLEAN>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn StgConvertVariantToProperty ( pvar : *const PROPVARIANT , codepage : u16 , pprop : *mut SERIALIZEDPROPERTYVALUE , pcb : *mut u32 , pid : u32 , freserved : super::super::super::Foundation:: BOOLEAN , pcindirect : *mut u32 ) -> *mut SERIALIZEDPROPERTYVALUE );
+    ::windows_targets::link!("ole32.dll" "system" fn StgConvertVariantToProperty(pvar : *const PROPVARIANT, codepage : u16, pprop : *mut SERIALIZEDPROPERTYVALUE, pcb : *mut u32, pid : u32, freserved : super::super::super::Foundation:: BOOLEAN, pcindirect : *mut u32) -> *mut SERIALIZEDPROPERTYVALUE);
     StgConvertVariantToProperty(pvar, codepage, ::core::mem::transmute(pprop.unwrap_or(::std::ptr::null_mut())), pcb, pid, freserved.into_param().abi(), ::core::mem::transmute(pcindirect.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -224,7 +224,7 @@ pub unsafe fn StgCreateDocfile<P0>(pwcsname: P0, grfmode: super::STGM, reserved:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn StgCreateDocfile ( pwcsname : ::windows::core::PCWSTR , grfmode : super:: STGM , reserved : u32 , ppstgopen : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn StgCreateDocfile(pwcsname : ::windows::core::PCWSTR, grfmode : super:: STGM, reserved : u32, ppstgopen : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<IStorage>();
     StgCreateDocfile(pwcsname.into_param().abi(), grfmode, reserved, &mut result__).from_abi(result__)
 }
@@ -234,7 +234,7 @@ pub unsafe fn StgCreateDocfileOnILockBytes<P0>(plkbyt: P0, grfmode: super::STGM,
 where
     P0: ::windows::core::IntoParam<ILockBytes>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn StgCreateDocfileOnILockBytes ( plkbyt : * mut::core::ffi::c_void , grfmode : super:: STGM , reserved : u32 , ppstgopen : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn StgCreateDocfileOnILockBytes(plkbyt : * mut::core::ffi::c_void, grfmode : super:: STGM, reserved : u32, ppstgopen : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<IStorage>();
     StgCreateDocfileOnILockBytes(plkbyt.into_param().abi(), grfmode, reserved, &mut result__).from_abi(result__)
 }
@@ -244,7 +244,7 @@ pub unsafe fn StgCreatePropSetStg<P0>(pstorage: P0, dwreserved: u32) -> ::window
 where
     P0: ::windows::core::IntoParam<IStorage>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn StgCreatePropSetStg ( pstorage : * mut::core::ffi::c_void , dwreserved : u32 , pppropsetstg : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn StgCreatePropSetStg(pstorage : * mut::core::ffi::c_void, dwreserved : u32, pppropsetstg : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<IPropertySetStorage>();
     StgCreatePropSetStg(pstorage.into_param().abi(), dwreserved, &mut result__).from_abi(result__)
 }
@@ -254,7 +254,7 @@ pub unsafe fn StgCreatePropStg<P0>(punk: P0, fmtid: *const ::windows::core::GUID
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn StgCreatePropStg ( punk : * mut::core::ffi::c_void , fmtid : *const ::windows::core::GUID , pclsid : *const ::windows::core::GUID , grfflags : u32 , dwreserved : u32 , pppropstg : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn StgCreatePropStg(punk : * mut::core::ffi::c_void, fmtid : *const ::windows::core::GUID, pclsid : *const ::windows::core::GUID, grfflags : u32, dwreserved : u32, pppropstg : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<IPropertyStorage>();
     StgCreatePropStg(punk.into_param().abi(), fmtid, pclsid, grfflags, dwreserved, &mut result__).from_abi(result__)
 }
@@ -266,14 +266,14 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn StgCreateStorageEx ( pwcsname : ::windows::core::PCWSTR , grfmode : super:: STGM , stgfmt : STGFMT , grfattrs : u32 , pstgoptions : *mut STGOPTIONS , psecuritydescriptor : super::super::super::Security:: PSECURITY_DESCRIPTOR , riid : *const ::windows::core::GUID , ppobjectopen : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn StgCreateStorageEx(pwcsname : ::windows::core::PCWSTR, grfmode : super:: STGM, stgfmt : STGFMT, grfattrs : u32, pstgoptions : *mut STGOPTIONS, psecuritydescriptor : super::super::super::Security:: PSECURITY_DESCRIPTOR, riid : *const ::windows::core::GUID, ppobjectopen : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
     StgCreateStorageEx(pwcsname.into_param().abi(), grfmode, stgfmt, grfattrs, ::core::mem::transmute(pstgoptions.unwrap_or(::std::ptr::null_mut())), psecuritydescriptor.into_param().abi(), riid, ppobjectopen).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbmax: u32) -> ::windows::core::Result<PROPVARIANT> {
-    ::windows_targets::link ! ( "propsys.dll""system" fn StgDeserializePropVariant ( pprop : *const SERIALIZEDPROPERTYVALUE , cbmax : u32 , ppropvar : *mut PROPVARIANT ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("propsys.dll" "system" fn StgDeserializePropVariant(pprop : *const SERIALIZEDPROPERTYVALUE, cbmax : u32, ppropvar : *mut PROPVARIANT) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<PROPVARIANT>();
     StgDeserializePropVariant(pprop, cbmax, &mut result__).from_abi(result__)
 }
@@ -283,7 +283,7 @@ pub unsafe fn StgGetIFillLockBytesOnFile<P0>(pwcsname: P0) -> ::windows::core::R
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn StgGetIFillLockBytesOnFile ( pwcsname : ::windows::core::PCWSTR , ppflb : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn StgGetIFillLockBytesOnFile(pwcsname : ::windows::core::PCWSTR, ppflb : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<IFillLockBytes>();
     StgGetIFillLockBytesOnFile(pwcsname.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -293,7 +293,7 @@ pub unsafe fn StgGetIFillLockBytesOnILockBytes<P0>(pilb: P0) -> ::windows::core:
 where
     P0: ::windows::core::IntoParam<ILockBytes>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn StgGetIFillLockBytesOnILockBytes ( pilb : * mut::core::ffi::c_void , ppflb : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn StgGetIFillLockBytesOnILockBytes(pilb : * mut::core::ffi::c_void, ppflb : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<IFillLockBytes>();
     StgGetIFillLockBytesOnILockBytes(pilb.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -303,7 +303,7 @@ pub unsafe fn StgIsStorageFile<P0>(pwcsname: P0) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn StgIsStorageFile ( pwcsname : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn StgIsStorageFile(pwcsname : ::windows::core::PCWSTR) -> ::windows::core::HRESULT);
     StgIsStorageFile(pwcsname.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -312,7 +312,7 @@ pub unsafe fn StgIsStorageILockBytes<P0>(plkbyt: P0) -> ::windows::core::Result<
 where
     P0: ::windows::core::IntoParam<ILockBytes>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn StgIsStorageILockBytes ( plkbyt : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn StgIsStorageILockBytes(plkbyt : * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     StgIsStorageILockBytes(plkbyt.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -321,7 +321,7 @@ pub unsafe fn StgOpenAsyncDocfileOnIFillLockBytes<P0>(pflb: P0, grfmode: u32, as
 where
     P0: ::windows::core::IntoParam<IFillLockBytes>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn StgOpenAsyncDocfileOnIFillLockBytes ( pflb : * mut::core::ffi::c_void , grfmode : u32 , asyncflags : u32 , ppstgopen : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn StgOpenAsyncDocfileOnIFillLockBytes(pflb : * mut::core::ffi::c_void, grfmode : u32, asyncflags : u32, ppstgopen : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<IStorage>();
     StgOpenAsyncDocfileOnIFillLockBytes(pflb.into_param().abi(), grfmode, asyncflags, &mut result__).from_abi(result__)
 }
@@ -331,7 +331,7 @@ pub unsafe fn StgOpenLayoutDocfile<P0>(pwcsdfname: P0, grfmode: u32, reserved: u
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "dflayout.dll""system" fn StgOpenLayoutDocfile ( pwcsdfname : ::windows::core::PCWSTR , grfmode : u32 , reserved : u32 , ppstgopen : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("dflayout.dll" "system" fn StgOpenLayoutDocfile(pwcsdfname : ::windows::core::PCWSTR, grfmode : u32, reserved : u32, ppstgopen : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<IStorage>();
     StgOpenLayoutDocfile(pwcsdfname.into_param().abi(), grfmode, reserved, &mut result__).from_abi(result__)
 }
@@ -341,7 +341,7 @@ pub unsafe fn StgOpenPropStg<P0>(punk: P0, fmtid: *const ::windows::core::GUID, 
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn StgOpenPropStg ( punk : * mut::core::ffi::c_void , fmtid : *const ::windows::core::GUID , grfflags : u32 , dwreserved : u32 , pppropstg : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn StgOpenPropStg(punk : * mut::core::ffi::c_void, fmtid : *const ::windows::core::GUID, grfflags : u32, dwreserved : u32, pppropstg : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<IPropertyStorage>();
     StgOpenPropStg(punk.into_param().abi(), fmtid, grfflags, dwreserved, &mut result__).from_abi(result__)
 }
@@ -352,7 +352,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<IStorage>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn StgOpenStorage ( pwcsname : ::windows::core::PCWSTR , pstgpriority : * mut::core::ffi::c_void , grfmode : super:: STGM , snbexclude : *const *const u16 , reserved : u32 , ppstgopen : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn StgOpenStorage(pwcsname : ::windows::core::PCWSTR, pstgpriority : * mut::core::ffi::c_void, grfmode : super:: STGM, snbexclude : *const *const u16, reserved : u32, ppstgopen : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<IStorage>();
     StgOpenStorage(pwcsname.into_param().abi(), pstgpriority.into_param().abi(), grfmode, ::core::mem::transmute(snbexclude.unwrap_or(::std::ptr::null())), reserved, &mut result__).from_abi(result__)
 }
@@ -364,7 +364,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn StgOpenStorageEx ( pwcsname : ::windows::core::PCWSTR , grfmode : super:: STGM , stgfmt : STGFMT , grfattrs : u32 , pstgoptions : *mut STGOPTIONS , psecuritydescriptor : super::super::super::Security:: PSECURITY_DESCRIPTOR , riid : *const ::windows::core::GUID , ppobjectopen : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn StgOpenStorageEx(pwcsname : ::windows::core::PCWSTR, grfmode : super:: STGM, stgfmt : STGFMT, grfattrs : u32, pstgoptions : *mut STGOPTIONS, psecuritydescriptor : super::super::super::Security:: PSECURITY_DESCRIPTOR, riid : *const ::windows::core::GUID, ppobjectopen : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
     StgOpenStorageEx(pwcsname.into_param().abi(), grfmode, stgfmt, grfattrs, ::core::mem::transmute(pstgoptions.unwrap_or(::std::ptr::null_mut())), psecuritydescriptor.into_param().abi(), riid, ppobjectopen).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -374,21 +374,21 @@ where
     P0: ::windows::core::IntoParam<ILockBytes>,
     P1: ::windows::core::IntoParam<IStorage>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn StgOpenStorageOnILockBytes ( plkbyt : * mut::core::ffi::c_void , pstgpriority : * mut::core::ffi::c_void , grfmode : super:: STGM , snbexclude : *const *const u16 , reserved : u32 , ppstgopen : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn StgOpenStorageOnILockBytes(plkbyt : * mut::core::ffi::c_void, pstgpriority : * mut::core::ffi::c_void, grfmode : super:: STGM, snbexclude : *const *const u16, reserved : u32, ppstgopen : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<IStorage>();
     StgOpenStorageOnILockBytes(plkbyt.into_param().abi(), pstgpriority.into_param().abi(), grfmode, ::core::mem::transmute(snbexclude.unwrap_or(::std::ptr::null())), reserved, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
 pub unsafe fn StgPropertyLengthAsVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbprop: u32, codepage: u16, breserved: u8) -> u32 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn StgPropertyLengthAsVariant ( pprop : *const SERIALIZEDPROPERTYVALUE , cbprop : u32 , codepage : u16 , breserved : u8 ) -> u32 );
+    ::windows_targets::link!("ole32.dll" "system" fn StgPropertyLengthAsVariant(pprop : *const SERIALIZEDPROPERTYVALUE, cbprop : u32, codepage : u16, breserved : u8) -> u32);
     StgPropertyLengthAsVariant(pprop, cbprop, codepage, breserved)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StgSerializePropVariant(ppropvar: *const PROPVARIANT, ppprop: *mut *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "propsys.dll""system" fn StgSerializePropVariant ( ppropvar : *const PROPVARIANT , ppprop : *mut *mut SERIALIZEDPROPERTYVALUE , pcb : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("propsys.dll" "system" fn StgSerializePropVariant(ppropvar : *const PROPVARIANT, ppprop : *mut *mut SERIALIZEDPROPERTYVALUE, pcb : *mut u32) -> ::windows::core::HRESULT);
     StgSerializePropVariant(ppropvar, ppprop, pcb).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
@@ -398,7 +398,7 @@ pub unsafe fn StgSetTimes<P0>(lpszname: P0, pctime: ::core::option::Option<*cons
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn StgSetTimes ( lpszname : ::windows::core::PCWSTR , pctime : *const super::super::super::Foundation:: FILETIME , patime : *const super::super::super::Foundation:: FILETIME , pmtime : *const super::super::super::Foundation:: FILETIME ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn StgSetTimes(lpszname : ::windows::core::PCWSTR, pctime : *const super::super::super::Foundation:: FILETIME, patime : *const super::super::super::Foundation:: FILETIME, pmtime : *const super::super::super::Foundation:: FILETIME) -> ::windows::core::HRESULT);
     StgSetTimes(lpszname.into_param().abi(), ::core::mem::transmute(pctime.unwrap_or(::std::ptr::null())), ::core::mem::transmute(patime.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pmtime.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -407,7 +407,7 @@ pub unsafe fn WriteClassStg<P0>(pstg: P0, rclsid: *const ::windows::core::GUID) 
 where
     P0: ::windows::core::IntoParam<IStorage>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn WriteClassStg ( pstg : * mut::core::ffi::c_void , rclsid : *const ::windows::core::GUID ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn WriteClassStg(pstg : * mut::core::ffi::c_void, rclsid : *const ::windows::core::GUID) -> ::windows::core::HRESULT);
     WriteClassStg(pstg.into_param().abi(), rclsid).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -416,7 +416,7 @@ pub unsafe fn WriteClassStm<P0>(pstm: P0, rclsid: *const ::windows::core::GUID) 
 where
     P0: ::windows::core::IntoParam<super::IStream>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn WriteClassStm ( pstm : * mut::core::ffi::c_void , rclsid : *const ::windows::core::GUID ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn WriteClassStm(pstm : * mut::core::ffi::c_void, rclsid : *const ::windows::core::GUID) -> ::windows::core::HRESULT);
     WriteClassStm(pstm.into_param().abi(), rclsid).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -426,7 +426,7 @@ where
     P0: ::windows::core::IntoParam<IStorage>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn WriteFmtUserTypeStg ( pstg : * mut::core::ffi::c_void , cf : u16 , lpszusertype : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn WriteFmtUserTypeStg(pstg : * mut::core::ffi::c_void, cf : u16, lpszusertype : ::windows::core::PCWSTR) -> ::windows::core::HRESULT);
     WriteFmtUserTypeStg(pstg.into_param().abi(), cf, lpszusertype.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]

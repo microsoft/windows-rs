@@ -6,7 +6,7 @@ where
     P0: ::windows::core::IntoParam<super::Dxgi::IDXGIAdapter>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows_targets::link ! ( "d3d11.dll""system" fn D3D11CreateDevice ( padapter : * mut::core::ffi::c_void , drivertype : super::Direct3D:: D3D_DRIVER_TYPE , software : super::super::Foundation:: HMODULE , flags : D3D11_CREATE_DEVICE_FLAG , pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL , featurelevels : u32 , sdkversion : u32 , ppdevice : *mut * mut::core::ffi::c_void , pfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL , ppimmediatecontext : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("d3d11.dll" "system" fn D3D11CreateDevice(padapter : * mut::core::ffi::c_void, drivertype : super::Direct3D:: D3D_DRIVER_TYPE, software : super::super::Foundation:: HMODULE, flags : D3D11_CREATE_DEVICE_FLAG, pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL, featurelevels : u32, sdkversion : u32, ppdevice : *mut * mut::core::ffi::c_void, pfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL, ppimmediatecontext : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     D3D11CreateDevice(padapter.into_param().abi(), drivertype, software.into_param().abi(), flags, ::core::mem::transmute(pfeaturelevels.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pfeaturelevels.as_deref().map_or(0, |slice| slice.len() as _), sdkversion, ::core::mem::transmute(ppdevice.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfeaturelevel.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppimmediatecontext.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
@@ -17,7 +17,7 @@ where
     P0: ::windows::core::IntoParam<super::Dxgi::IDXGIAdapter>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows_targets::link ! ( "d3d11.dll""system" fn D3D11CreateDeviceAndSwapChain ( padapter : * mut::core::ffi::c_void , drivertype : super::Direct3D:: D3D_DRIVER_TYPE , software : super::super::Foundation:: HMODULE , flags : D3D11_CREATE_DEVICE_FLAG , pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL , featurelevels : u32 , sdkversion : u32 , pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC , ppswapchain : *mut * mut::core::ffi::c_void , ppdevice : *mut * mut::core::ffi::c_void , pfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL , ppimmediatecontext : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("d3d11.dll" "system" fn D3D11CreateDeviceAndSwapChain(padapter : * mut::core::ffi::c_void, drivertype : super::Direct3D:: D3D_DRIVER_TYPE, software : super::super::Foundation:: HMODULE, flags : D3D11_CREATE_DEVICE_FLAG, pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL, featurelevels : u32, sdkversion : u32, pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC, ppswapchain : *mut * mut::core::ffi::c_void, ppdevice : *mut * mut::core::ffi::c_void, pfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL, ppimmediatecontext : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     D3D11CreateDeviceAndSwapChain(
         padapter.into_param().abi(),
         drivertype,
@@ -41,7 +41,7 @@ pub unsafe fn D3DDisassemble11Trace<P0>(psrcdata: *const ::core::ffi::c_void, sr
 where
     P0: ::windows::core::IntoParam<ID3D11ShaderTrace>,
 {
-    ::windows_targets::link ! ( "d3dcompiler_47.dll""system" fn D3DDisassemble11Trace ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , ptrace : * mut::core::ffi::c_void , startstep : u32 , numsteps : u32 , flags : u32 , ppdisassembly : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("d3dcompiler_47.dll" "system" fn D3DDisassemble11Trace(psrcdata : *const ::core::ffi::c_void, srcdatasize : usize, ptrace : * mut::core::ffi::c_void, startstep : u32, numsteps : u32, flags : u32, ppdisassembly : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<super::Direct3D::ID3DBlob>();
     D3DDisassemble11Trace(psrcdata, srcdatasize, ptrace.into_param().abi(), startstep, numsteps, flags, &mut result__).from_abi(result__)
 }
@@ -51,7 +51,7 @@ pub unsafe fn D3DX11CreateFFT<P0>(pdevicecontext: P0, pdesc: *const D3DX11_FFT_D
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows_targets::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT ( pdevicecontext : * mut::core::ffi::c_void , pdesc : *const D3DX11_FFT_DESC , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("d3dcsx.dll" "system" fn D3DX11CreateFFT(pdevicecontext : * mut::core::ffi::c_void, pdesc : *const D3DX11_FFT_DESC, flags : u32, pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO, ppfft : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     D3DX11CreateFFT(pdevicecontext.into_param().abi(), pdesc, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -60,7 +60,7 @@ pub unsafe fn D3DX11CreateFFT1DComplex<P0>(pdevicecontext: P0, x: u32, flags: u3
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows_targets::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT1DComplex ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("d3dcsx.dll" "system" fn D3DX11CreateFFT1DComplex(pdevicecontext : * mut::core::ffi::c_void, x : u32, flags : u32, pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO, ppfft : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     D3DX11CreateFFT1DComplex(pdevicecontext.into_param().abi(), x, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -69,7 +69,7 @@ pub unsafe fn D3DX11CreateFFT1DReal<P0>(pdevicecontext: P0, x: u32, flags: u32, 
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows_targets::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT1DReal ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("d3dcsx.dll" "system" fn D3DX11CreateFFT1DReal(pdevicecontext : * mut::core::ffi::c_void, x : u32, flags : u32, pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO, ppfft : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     D3DX11CreateFFT1DReal(pdevicecontext.into_param().abi(), x, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -78,7 +78,7 @@ pub unsafe fn D3DX11CreateFFT2DComplex<P0>(pdevicecontext: P0, x: u32, y: u32, f
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows_targets::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT2DComplex ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("d3dcsx.dll" "system" fn D3DX11CreateFFT2DComplex(pdevicecontext : * mut::core::ffi::c_void, x : u32, y : u32, flags : u32, pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO, ppfft : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     D3DX11CreateFFT2DComplex(pdevicecontext.into_param().abi(), x, y, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -87,7 +87,7 @@ pub unsafe fn D3DX11CreateFFT2DReal<P0>(pdevicecontext: P0, x: u32, y: u32, flag
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows_targets::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT2DReal ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("d3dcsx.dll" "system" fn D3DX11CreateFFT2DReal(pdevicecontext : * mut::core::ffi::c_void, x : u32, y : u32, flags : u32, pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO, ppfft : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     D3DX11CreateFFT2DReal(pdevicecontext.into_param().abi(), x, y, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -96,7 +96,7 @@ pub unsafe fn D3DX11CreateFFT3DComplex<P0>(pdevicecontext: P0, x: u32, y: u32, z
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows_targets::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT3DComplex ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , z : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("d3dcsx.dll" "system" fn D3DX11CreateFFT3DComplex(pdevicecontext : * mut::core::ffi::c_void, x : u32, y : u32, z : u32, flags : u32, pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO, ppfft : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     D3DX11CreateFFT3DComplex(pdevicecontext.into_param().abi(), x, y, z, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -105,7 +105,7 @@ pub unsafe fn D3DX11CreateFFT3DReal<P0>(pdevicecontext: P0, x: u32, y: u32, z: u
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows_targets::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT3DReal ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , z : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("d3dcsx.dll" "system" fn D3DX11CreateFFT3DReal(pdevicecontext : * mut::core::ffi::c_void, x : u32, y : u32, z : u32, flags : u32, pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO, ppfft : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     D3DX11CreateFFT3DReal(pdevicecontext.into_param().abi(), x, y, z, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -114,7 +114,7 @@ pub unsafe fn D3DX11CreateScan<P0>(pdevicecontext: P0, maxelementscansize: u32, 
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows_targets::link ! ( "d3dcsx.dll""system" fn D3DX11CreateScan ( pdevicecontext : * mut::core::ffi::c_void , maxelementscansize : u32 , maxscancount : u32 , ppscan : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("d3dcsx.dll" "system" fn D3DX11CreateScan(pdevicecontext : * mut::core::ffi::c_void, maxelementscansize : u32, maxscancount : u32, ppscan : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<ID3DX11Scan>();
     D3DX11CreateScan(pdevicecontext.into_param().abi(), maxelementscansize, maxscancount, &mut result__).from_abi(result__)
 }
@@ -124,7 +124,7 @@ pub unsafe fn D3DX11CreateSegmentedScan<P0>(pdevicecontext: P0, maxelementscansi
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows_targets::link ! ( "d3dcsx.dll""system" fn D3DX11CreateSegmentedScan ( pdevicecontext : * mut::core::ffi::c_void , maxelementscansize : u32 , ppscan : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("d3dcsx.dll" "system" fn D3DX11CreateSegmentedScan(pdevicecontext : * mut::core::ffi::c_void, maxelementscansize : u32, ppscan : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<ID3DX11SegmentedScan>();
     D3DX11CreateSegmentedScan(pdevicecontext.into_param().abi(), maxelementscansize, &mut result__).from_abi(result__)
 }

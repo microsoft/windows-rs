@@ -7,4 +7,4 @@
     dead_code,
     clippy::all
 )]
-::windows_targets::link ! ( "kernel32.dll""system"  fn GetTickCount ( ) -> u32 );
+::windows_targets::link!("kernel32.dll" "system" fn GetTickCount() -> u32);

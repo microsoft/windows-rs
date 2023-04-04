@@ -346,7 +346,7 @@ impl<'a> Gen<'a> {
                 tokens.push_str(r#", `\"implement\"`"#)
             }
 
-            format!(r#"#[doc = "*Required features: {tokens}*"]"#).into()
+            format!(r#" #[doc = "*Required features: {tokens}*"]"#).into()
         }
     }
 
@@ -997,11 +997,11 @@ impl<'a> Gen<'a> {
     pub fn return_sig(&self, signature: &Signature) -> TokenStream {
         if let Some(return_type) = &signature.return_type {
             let tokens = self.type_default_name(return_type);
-            quote! { -> #tokens }
+            format!("-> {}", tokens.as_str()).into()
         } else if self.reader.method_def_does_not_return(signature.def) {
-            quote! { -> ! }
+            "-> !".into()
         } else {
-            quote! { -> () }
+            "-> ()".into()
         }
     }
     pub fn win32_args(&self, params: &[SignatureParam], kind: SignatureKind) -> TokenStream {

@@ -6,7 +6,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows_targets::link ! ( "dinput8.dll""system" fn DirectInput8Create ( hinst : super::super::Foundation:: HMODULE , dwversion : u32 , riidltf : *const ::windows::core::GUID , ppvout : *mut *mut ::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("dinput8.dll" "system" fn DirectInput8Create(hinst : super::super::Foundation:: HMODULE, dwversion : u32, riidltf : *const ::windows::core::GUID, ppvout : *mut *mut ::core::ffi::c_void, punkouter : * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     DirectInput8Create(hinst.into_param().abi(), dwversion, riidltf, ppvout, punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -16,14 +16,14 @@ pub unsafe fn HidD_FlushQueue<P0>(hiddeviceobject: P0) -> super::super::Foundati
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidD_FlushQueue ( hiddeviceobject : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("hid.dll" "system" fn HidD_FlushQueue(hiddeviceobject : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOLEAN);
     HidD_FlushQueue(hiddeviceobject.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidD_FreePreparsedData(preparseddata: isize) -> super::super::Foundation::BOOLEAN {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidD_FreePreparsedData ( preparseddata : isize ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("hid.dll" "system" fn HidD_FreePreparsedData(preparseddata : isize) -> super::super::Foundation:: BOOLEAN);
     HidD_FreePreparsedData(preparseddata)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -33,7 +33,7 @@ pub unsafe fn HidD_GetAttributes<P0>(hiddeviceobject: P0, attributes: *mut HIDD_
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidD_GetAttributes ( hiddeviceobject : super::super::Foundation:: HANDLE , attributes : *mut HIDD_ATTRIBUTES ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("hid.dll" "system" fn HidD_GetAttributes(hiddeviceobject : super::super::Foundation:: HANDLE, attributes : *mut HIDD_ATTRIBUTES) -> super::super::Foundation:: BOOLEAN);
     HidD_GetAttributes(hiddeviceobject.into_param().abi(), attributes)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -43,7 +43,7 @@ pub unsafe fn HidD_GetConfiguration<P0>(hiddeviceobject: P0, configuration: *mut
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidD_GetConfiguration ( hiddeviceobject : super::super::Foundation:: HANDLE , configuration : *mut HIDD_CONFIGURATION , configurationlength : u32 ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("hid.dll" "system" fn HidD_GetConfiguration(hiddeviceobject : super::super::Foundation:: HANDLE, configuration : *mut HIDD_CONFIGURATION, configurationlength : u32) -> super::super::Foundation:: BOOLEAN);
     HidD_GetConfiguration(hiddeviceobject.into_param().abi(), configuration, configurationlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -53,13 +53,13 @@ pub unsafe fn HidD_GetFeature<P0>(hiddeviceobject: P0, reportbuffer: *mut ::core
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidD_GetFeature ( hiddeviceobject : super::super::Foundation:: HANDLE , reportbuffer : *mut ::core::ffi::c_void , reportbufferlength : u32 ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("hid.dll" "system" fn HidD_GetFeature(hiddeviceobject : super::super::Foundation:: HANDLE, reportbuffer : *mut ::core::ffi::c_void, reportbufferlength : u32) -> super::super::Foundation:: BOOLEAN);
     HidD_GetFeature(hiddeviceobject.into_param().abi(), reportbuffer, reportbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[inline]
 pub unsafe fn HidD_GetHidGuid() -> ::windows::core::GUID {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidD_GetHidGuid ( hidguid : *mut ::windows::core::GUID ) -> ( ) );
+    ::windows_targets::link!("hid.dll" "system" fn HidD_GetHidGuid(hidguid : *mut ::windows::core::GUID) -> ());
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     HidD_GetHidGuid(&mut result__);
     ::std::mem::transmute(result__)
@@ -71,7 +71,7 @@ pub unsafe fn HidD_GetIndexedString<P0>(hiddeviceobject: P0, stringindex: u32, b
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidD_GetIndexedString ( hiddeviceobject : super::super::Foundation:: HANDLE , stringindex : u32 , buffer : *mut ::core::ffi::c_void , bufferlength : u32 ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("hid.dll" "system" fn HidD_GetIndexedString(hiddeviceobject : super::super::Foundation:: HANDLE, stringindex : u32, buffer : *mut ::core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
     HidD_GetIndexedString(hiddeviceobject.into_param().abi(), stringindex, buffer, bufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -81,7 +81,7 @@ pub unsafe fn HidD_GetInputReport<P0>(hiddeviceobject: P0, reportbuffer: *mut ::
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidD_GetInputReport ( hiddeviceobject : super::super::Foundation:: HANDLE , reportbuffer : *mut ::core::ffi::c_void , reportbufferlength : u32 ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("hid.dll" "system" fn HidD_GetInputReport(hiddeviceobject : super::super::Foundation:: HANDLE, reportbuffer : *mut ::core::ffi::c_void, reportbufferlength : u32) -> super::super::Foundation:: BOOLEAN);
     HidD_GetInputReport(hiddeviceobject.into_param().abi(), reportbuffer, reportbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -91,7 +91,7 @@ pub unsafe fn HidD_GetManufacturerString<P0>(hiddeviceobject: P0, buffer: *mut :
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidD_GetManufacturerString ( hiddeviceobject : super::super::Foundation:: HANDLE , buffer : *mut ::core::ffi::c_void , bufferlength : u32 ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("hid.dll" "system" fn HidD_GetManufacturerString(hiddeviceobject : super::super::Foundation:: HANDLE, buffer : *mut ::core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
     HidD_GetManufacturerString(hiddeviceobject.into_param().abi(), buffer, bufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -101,7 +101,7 @@ pub unsafe fn HidD_GetMsGenreDescriptor<P0>(hiddeviceobject: P0, buffer: *mut ::
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidD_GetMsGenreDescriptor ( hiddeviceobject : super::super::Foundation:: HANDLE , buffer : *mut ::core::ffi::c_void , bufferlength : u32 ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("hid.dll" "system" fn HidD_GetMsGenreDescriptor(hiddeviceobject : super::super::Foundation:: HANDLE, buffer : *mut ::core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
     HidD_GetMsGenreDescriptor(hiddeviceobject.into_param().abi(), buffer, bufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -111,7 +111,7 @@ pub unsafe fn HidD_GetNumInputBuffers<P0>(hiddeviceobject: P0, numberbuffers: *m
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidD_GetNumInputBuffers ( hiddeviceobject : super::super::Foundation:: HANDLE , numberbuffers : *mut u32 ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("hid.dll" "system" fn HidD_GetNumInputBuffers(hiddeviceobject : super::super::Foundation:: HANDLE, numberbuffers : *mut u32) -> super::super::Foundation:: BOOLEAN);
     HidD_GetNumInputBuffers(hiddeviceobject.into_param().abi(), numberbuffers)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -121,7 +121,7 @@ pub unsafe fn HidD_GetPhysicalDescriptor<P0>(hiddeviceobject: P0, buffer: *mut :
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidD_GetPhysicalDescriptor ( hiddeviceobject : super::super::Foundation:: HANDLE , buffer : *mut ::core::ffi::c_void , bufferlength : u32 ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("hid.dll" "system" fn HidD_GetPhysicalDescriptor(hiddeviceobject : super::super::Foundation:: HANDLE, buffer : *mut ::core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
     HidD_GetPhysicalDescriptor(hiddeviceobject.into_param().abi(), buffer, bufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -131,7 +131,7 @@ pub unsafe fn HidD_GetPreparsedData<P0>(hiddeviceobject: P0, preparseddata: *mut
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidD_GetPreparsedData ( hiddeviceobject : super::super::Foundation:: HANDLE , preparseddata : *mut isize ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("hid.dll" "system" fn HidD_GetPreparsedData(hiddeviceobject : super::super::Foundation:: HANDLE, preparseddata : *mut isize) -> super::super::Foundation:: BOOLEAN);
     HidD_GetPreparsedData(hiddeviceobject.into_param().abi(), preparseddata)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -141,7 +141,7 @@ pub unsafe fn HidD_GetProductString<P0>(hiddeviceobject: P0, buffer: *mut ::core
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidD_GetProductString ( hiddeviceobject : super::super::Foundation:: HANDLE , buffer : *mut ::core::ffi::c_void , bufferlength : u32 ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("hid.dll" "system" fn HidD_GetProductString(hiddeviceobject : super::super::Foundation:: HANDLE, buffer : *mut ::core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
     HidD_GetProductString(hiddeviceobject.into_param().abi(), buffer, bufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -151,7 +151,7 @@ pub unsafe fn HidD_GetSerialNumberString<P0>(hiddeviceobject: P0, buffer: *mut :
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidD_GetSerialNumberString ( hiddeviceobject : super::super::Foundation:: HANDLE , buffer : *mut ::core::ffi::c_void , bufferlength : u32 ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("hid.dll" "system" fn HidD_GetSerialNumberString(hiddeviceobject : super::super::Foundation:: HANDLE, buffer : *mut ::core::ffi::c_void, bufferlength : u32) -> super::super::Foundation:: BOOLEAN);
     HidD_GetSerialNumberString(hiddeviceobject.into_param().abi(), buffer, bufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -161,7 +161,7 @@ pub unsafe fn HidD_SetConfiguration<P0>(hiddeviceobject: P0, configuration: *con
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidD_SetConfiguration ( hiddeviceobject : super::super::Foundation:: HANDLE , configuration : *const HIDD_CONFIGURATION , configurationlength : u32 ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("hid.dll" "system" fn HidD_SetConfiguration(hiddeviceobject : super::super::Foundation:: HANDLE, configuration : *const HIDD_CONFIGURATION, configurationlength : u32) -> super::super::Foundation:: BOOLEAN);
     HidD_SetConfiguration(hiddeviceobject.into_param().abi(), configuration, configurationlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -171,7 +171,7 @@ pub unsafe fn HidD_SetFeature<P0>(hiddeviceobject: P0, reportbuffer: *const ::co
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidD_SetFeature ( hiddeviceobject : super::super::Foundation:: HANDLE , reportbuffer : *const ::core::ffi::c_void , reportbufferlength : u32 ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("hid.dll" "system" fn HidD_SetFeature(hiddeviceobject : super::super::Foundation:: HANDLE, reportbuffer : *const ::core::ffi::c_void, reportbufferlength : u32) -> super::super::Foundation:: BOOLEAN);
     HidD_SetFeature(hiddeviceobject.into_param().abi(), reportbuffer, reportbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -181,7 +181,7 @@ pub unsafe fn HidD_SetNumInputBuffers<P0>(hiddeviceobject: P0, numberbuffers: u3
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidD_SetNumInputBuffers ( hiddeviceobject : super::super::Foundation:: HANDLE , numberbuffers : u32 ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("hid.dll" "system" fn HidD_SetNumInputBuffers(hiddeviceobject : super::super::Foundation:: HANDLE, numberbuffers : u32) -> super::super::Foundation:: BOOLEAN);
     HidD_SetNumInputBuffers(hiddeviceobject.into_param().abi(), numberbuffers)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -191,193 +191,193 @@ pub unsafe fn HidD_SetOutputReport<P0>(hiddeviceobject: P0, reportbuffer: *const
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidD_SetOutputReport ( hiddeviceobject : super::super::Foundation:: HANDLE , reportbuffer : *const ::core::ffi::c_void , reportbufferlength : u32 ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("hid.dll" "system" fn HidD_SetOutputReport(hiddeviceobject : super::super::Foundation:: HANDLE, reportbuffer : *const ::core::ffi::c_void, reportbufferlength : u32) -> super::super::Foundation:: BOOLEAN);
     HidD_SetOutputReport(hiddeviceobject.into_param().abi(), reportbuffer, reportbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength: *mut u16, preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_GetButtonArray ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , buttondata : *mut HIDP_BUTTON_ARRAY_DATA , buttondatalength : *mut u16 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_GetButtonArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, buttondata : *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength : *mut u16, preparseddata : isize, report : ::windows::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
     HidP_GetButtonArray(reporttype, usagepage, linkcollection, usage, buttondata, buttondatalength, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetButtonCaps(reporttype: HIDP_REPORT_TYPE, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: isize) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_GetButtonCaps ( reporttype : HIDP_REPORT_TYPE , buttoncaps : *mut HIDP_BUTTON_CAPS , buttoncapslength : *mut u16 , preparseddata : isize ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_GetButtonCaps(reporttype : HIDP_REPORT_TYPE, buttoncaps : *mut HIDP_BUTTON_CAPS, buttoncapslength : *mut u16, preparseddata : isize) -> super::super::Foundation:: NTSTATUS);
     HidP_GetButtonCaps(reporttype, buttoncaps, buttoncapslength, preparseddata).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetCaps(preparseddata: isize, capabilities: *mut HIDP_CAPS) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_GetCaps ( preparseddata : isize , capabilities : *mut HIDP_CAPS ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_GetCaps(preparseddata : isize, capabilities : *mut HIDP_CAPS) -> super::super::Foundation:: NTSTATUS);
     HidP_GetCaps(preparseddata, capabilities).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: isize, report: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_GetData ( reporttype : HIDP_REPORT_TYPE , datalist : *mut HIDP_DATA , datalength : *mut u32 , preparseddata : isize , report : ::windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_GetData(reporttype : HIDP_REPORT_TYPE, datalist : *mut HIDP_DATA, datalength : *mut u32, preparseddata : isize, report : ::windows::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
     HidP_GetData(reporttype, datalist, datalength, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetExtendedAttributes(reporttype: HIDP_REPORT_TYPE, dataindex: u16, preparseddata: isize, attributes: *mut HIDP_EXTENDED_ATTRIBUTES, lengthattributes: *mut u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_GetExtendedAttributes ( reporttype : HIDP_REPORT_TYPE , dataindex : u16 , preparseddata : isize , attributes : *mut HIDP_EXTENDED_ATTRIBUTES , lengthattributes : *mut u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_GetExtendedAttributes(reporttype : HIDP_REPORT_TYPE, dataindex : u16, preparseddata : isize, attributes : *mut HIDP_EXTENDED_ATTRIBUTES, lengthattributes : *mut u32) -> super::super::Foundation:: NTSTATUS);
     HidP_GetExtendedAttributes(reporttype, dataindex, preparseddata, attributes, lengthattributes).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetLinkCollectionNodes(linkcollectionnodes: *mut HIDP_LINK_COLLECTION_NODE, linkcollectionnodeslength: *mut u32, preparseddata: isize) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_GetLinkCollectionNodes ( linkcollectionnodes : *mut HIDP_LINK_COLLECTION_NODE , linkcollectionnodeslength : *mut u32 , preparseddata : isize ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_GetLinkCollectionNodes(linkcollectionnodes : *mut HIDP_LINK_COLLECTION_NODE, linkcollectionnodeslength : *mut u32, preparseddata : isize) -> super::super::Foundation:: NTSTATUS);
     HidP_GetLinkCollectionNodes(linkcollectionnodes, linkcollectionnodeslength, preparseddata).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut i32, preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_GetScaledUsageValue ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : *mut i32 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_GetScaledUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : *mut i32, preparseddata : isize, report : ::windows::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
     HidP_GetScaledUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetSpecificButtonCaps(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: isize) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_GetSpecificButtonCaps ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , buttoncaps : *mut HIDP_BUTTON_CAPS , buttoncapslength : *mut u16 , preparseddata : isize ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_GetSpecificButtonCaps(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, buttoncaps : *mut HIDP_BUTTON_CAPS, buttoncapslength : *mut u16, preparseddata : isize) -> super::super::Foundation:: NTSTATUS);
     HidP_GetSpecificButtonCaps(reporttype, usagepage, linkcollection, usage, buttoncaps, buttoncapslength, preparseddata).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetSpecificValueCaps(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: isize) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_GetSpecificValueCaps ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , valuecaps : *mut HIDP_VALUE_CAPS , valuecapslength : *mut u16 , preparseddata : isize ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_GetSpecificValueCaps(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, valuecaps : *mut HIDP_VALUE_CAPS, valuecapslength : *mut u16, preparseddata : isize) -> super::super::Foundation:: NTSTATUS);
     HidP_GetSpecificValueCaps(reporttype, usagepage, linkcollection, usage, valuecaps, valuecapslength, preparseddata).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut u32, preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_GetUsageValue ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : *mut u32 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_GetUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : *mut u32, preparseddata : isize, report : ::windows::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
     HidP_GetUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: &mut [u8], preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_GetUsageValueArray ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : ::windows::core::PSTR , usagevaluebytelength : u16 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_GetUsageValueArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : ::windows::core::PSTR, usagevaluebytelength : u16, preparseddata : isize, report : ::windows::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
     HidP_GetUsageValueArray(reporttype, usagepage, linkcollection, usage, ::core::mem::transmute(usagevalue.as_ptr()), usagevalue.len() as _, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_GetUsages ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usagelist : *mut u16 , usagelength : *mut u32 , preparseddata : isize , report : ::windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_GetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : isize, report : ::windows::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
     HidP_GetUsages(reporttype, usagepage, linkcollection, usagelist, usagelength, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetUsagesEx(reporttype: HIDP_REPORT_TYPE, linkcollection: u16, buttonlist: *mut USAGE_AND_PAGE, usagelength: *mut u32, preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_GetUsagesEx ( reporttype : HIDP_REPORT_TYPE , linkcollection : u16 , buttonlist : *mut USAGE_AND_PAGE , usagelength : *mut u32 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_GetUsagesEx(reporttype : HIDP_REPORT_TYPE, linkcollection : u16, buttonlist : *mut USAGE_AND_PAGE, usagelength : *mut u32, preparseddata : isize, report : ::windows::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
     HidP_GetUsagesEx(reporttype, linkcollection, buttonlist, usagelength, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetValueCaps(reporttype: HIDP_REPORT_TYPE, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: isize) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_GetValueCaps ( reporttype : HIDP_REPORT_TYPE , valuecaps : *mut HIDP_VALUE_CAPS , valuecapslength : *mut u16 , preparseddata : isize ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_GetValueCaps(reporttype : HIDP_REPORT_TYPE, valuecaps : *mut HIDP_VALUE_CAPS, valuecapslength : *mut u16, preparseddata : isize) -> super::super::Foundation:: NTSTATUS);
     HidP_GetValueCaps(reporttype, valuecaps, valuecapslength, preparseddata).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_InitializeReportForID(reporttype: HIDP_REPORT_TYPE, reportid: u8, preparseddata: isize, report: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_InitializeReportForID ( reporttype : HIDP_REPORT_TYPE , reportid : u8 , preparseddata : isize , report : ::windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_InitializeReportForID(reporttype : HIDP_REPORT_TYPE, reportid : u8, preparseddata : isize, report : ::windows::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
     HidP_InitializeReportForID(reporttype, reportid, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[inline]
 pub unsafe fn HidP_MaxDataListLength(reporttype: HIDP_REPORT_TYPE, preparseddata: isize) -> u32 {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_MaxDataListLength ( reporttype : HIDP_REPORT_TYPE , preparseddata : isize ) -> u32 );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_MaxDataListLength(reporttype : HIDP_REPORT_TYPE, preparseddata : isize) -> u32);
     HidP_MaxDataListLength(reporttype, preparseddata)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[inline]
 pub unsafe fn HidP_MaxUsageListLength(reporttype: HIDP_REPORT_TYPE, usagepage: u16, preparseddata: isize) -> u32 {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_MaxUsageListLength ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , preparseddata : isize ) -> u32 );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_MaxUsageListLength(reporttype : HIDP_REPORT_TYPE, usagepage : u16, preparseddata : isize) -> u32);
     HidP_MaxUsageListLength(reporttype, usagepage, preparseddata)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: &[HIDP_BUTTON_ARRAY_DATA], preparseddata: isize, report: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_SetButtonArray ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , buttondata : *const HIDP_BUTTON_ARRAY_DATA , buttondatalength : u16 , preparseddata : isize , report : ::windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_SetButtonArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, buttondata : *const HIDP_BUTTON_ARRAY_DATA, buttondatalength : u16, preparseddata : isize, report : ::windows::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
     HidP_SetButtonArray(reporttype, usagepage, linkcollection, usage, ::core::mem::transmute(buttondata.as_ptr()), buttondata.len() as _, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_SetData ( reporttype : HIDP_REPORT_TYPE , datalist : *mut HIDP_DATA , datalength : *mut u32 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_SetData(reporttype : HIDP_REPORT_TYPE, datalist : *mut HIDP_DATA, datalength : *mut u32, preparseddata : isize, report : ::windows::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
     HidP_SetData(reporttype, datalist, datalength, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: i32, preparseddata: isize, report: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_SetScaledUsageValue ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : i32 , preparseddata : isize , report : ::windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_SetScaledUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : i32, preparseddata : isize, report : ::windows::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
     HidP_SetScaledUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: u32, preparseddata: isize, report: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_SetUsageValue ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : u32 , preparseddata : isize , report : ::windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_SetUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : u32, preparseddata : isize, report : ::windows::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
     HidP_SetUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: &[u8], preparseddata: isize, report: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_SetUsageValueArray ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : ::windows::core::PCSTR , usagevaluebytelength : u16 , preparseddata : isize , report : ::windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_SetUsageValueArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : ::windows::core::PCSTR, usagevaluebytelength : u16, preparseddata : isize, report : ::windows::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
     HidP_SetUsageValueArray(reporttype, usagepage, linkcollection, usage, ::core::mem::transmute(usagevalue.as_ptr()), usagevalue.len() as _, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_SetUsages ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usagelist : *mut u16 , usagelength : *mut u32 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_SetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : isize, report : ::windows::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
     HidP_SetUsages(reporttype, usagepage, linkcollection, usagelist, usagelength, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: &[u16], keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: PHIDP_INSERT_SCANCODES, insertcodescontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_TranslateUsagesToI8042ScanCodes ( changedusagelist : *const u16 , usagelistlength : u32 , keyaction : HIDP_KEYBOARD_DIRECTION , modifierstate : *mut HIDP_KEYBOARD_MODIFIER_STATE , insertcodesprocedure : PHIDP_INSERT_SCANCODES , insertcodescontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist : *const u16, usagelistlength : u32, keyaction : HIDP_KEYBOARD_DIRECTION, modifierstate : *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure : PHIDP_INSERT_SCANCODES, insertcodescontext : *const ::core::ffi::c_void) -> super::super::Foundation:: NTSTATUS);
     HidP_TranslateUsagesToI8042ScanCodes(::core::mem::transmute(changedusagelist.as_ptr()), changedusagelist.len() as _, keyaction, modifierstate, insertcodesprocedure, ::core::mem::transmute(insertcodescontext.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_UnsetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_UnsetUsages ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usagelist : *mut u16 , usagelength : *mut u32 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_UnsetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : isize, report : ::windows::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
     HidP_UnsetUsages(reporttype, usagepage, linkcollection, usagelist, usagelength, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_UsageListDifference(previoususagelist: *const u16, currentusagelist: *const u16, breakusagelist: *mut u16, makeusagelist: *mut u16, usagelistlength: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "hid.dll""system" fn HidP_UsageListDifference ( previoususagelist : *const u16 , currentusagelist : *const u16 , breakusagelist : *mut u16 , makeusagelist : *mut u16 , usagelistlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("hid.dll" "system" fn HidP_UsageListDifference(previoususagelist : *const u16, currentusagelist : *const u16, breakusagelist : *mut u16, makeusagelist : *mut u16, usagelistlength : u32) -> super::super::Foundation:: NTSTATUS);
     HidP_UsageListDifference(previoususagelist, currentusagelist, breakusagelist, makeusagelist, usagelistlength).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[inline]
 pub unsafe fn joyConfigChanged(dwflags: u32) -> u32 {
-    ::windows_targets::link ! ( "winmm.dll""system" fn joyConfigChanged ( dwflags : u32 ) -> u32 );
+    ::windows_targets::link!("winmm.dll" "system" fn joyConfigChanged(dwflags : u32) -> u32);
     joyConfigChanged(dwflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]

@@ -8,4 +8,4 @@
     clippy::all
 )]
 pub type PCSTR = *const u8;
-::windows_targets::link ! ( "kernel32.dll""system"  fn lstrlenA ( lpstring : PCSTR ) -> i32 );
+::windows_targets::link!("kernel32.dll" "system" fn lstrlenA(lpstring : PCSTR) -> i32);

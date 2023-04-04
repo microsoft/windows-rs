@@ -4,42 +4,42 @@ pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo<P0>(wszservername
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationDiagnoseConnectFailureAndGetInfo ( wszservername : ::windows::core::PCWSTR , netisoerror : *mut NETISO_ERROR_TYPE ) -> u32 );
+    ::windows_targets::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername : ::windows::core::PCWSTR, netisoerror : *mut NETISO_ERROR_TYPE) -> u32);
     NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername.into_param().abi(), netisoerror)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationEnumAppContainers(flags: u32, pdwnumpublicappcs: *mut u32, pppublicappcs: *mut *mut INET_FIREWALL_APP_CONTAINER) -> u32 {
-    ::windows_targets::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationEnumAppContainers ( flags : u32 , pdwnumpublicappcs : *mut u32 , pppublicappcs : *mut *mut INET_FIREWALL_APP_CONTAINER ) -> u32 );
+    ::windows_targets::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationEnumAppContainers(flags : u32, pdwnumpublicappcs : *mut u32, pppublicappcs : *mut *mut INET_FIREWALL_APP_CONTAINER) -> u32);
     NetworkIsolationEnumAppContainers(flags, pdwnumpublicappcs, pppublicappcs)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationFreeAppContainers(ppublicappcs: *const INET_FIREWALL_APP_CONTAINER) -> u32 {
-    ::windows_targets::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationFreeAppContainers ( ppublicappcs : *const INET_FIREWALL_APP_CONTAINER ) -> u32 );
+    ::windows_targets::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationFreeAppContainers(ppublicappcs : *const INET_FIREWALL_APP_CONTAINER) -> u32);
     NetworkIsolationFreeAppContainers(ppublicappcs)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: *mut u32, appcontainersids: *mut *mut super::super::Security::SID_AND_ATTRIBUTES) -> u32 {
-    ::windows_targets::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationGetAppContainerConfig ( pdwnumpublicappcs : *mut u32 , appcontainersids : *mut *mut super::super::Security:: SID_AND_ATTRIBUTES ) -> u32 );
+    ::windows_targets::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs : *mut u32, appcontainersids : *mut *mut super::super::Security:: SID_AND_ATTRIBUTES) -> u32);
     NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs, appcontainersids)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: PAC_CHANGES_CALLBACK_FN, context: ::core::option::Option<*const ::core::ffi::c_void>, registrationobject: *mut super::super::Foundation::HANDLE) -> u32 {
-    ::windows_targets::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationRegisterForAppContainerChanges ( flags : u32 , callback : PAC_CHANGES_CALLBACK_FN , context : *const ::core::ffi::c_void , registrationobject : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows_targets::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationRegisterForAppContainerChanges(flags : u32, callback : PAC_CHANGES_CALLBACK_FN, context : *const ::core::ffi::c_void, registrationobject : *mut super::super::Foundation:: HANDLE) -> u32);
     NetworkIsolationRegisterForAppContainerChanges(flags, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), registrationobject)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationSetAppContainerConfig(appcontainersids: &[super::super::Security::SID_AND_ATTRIBUTES]) -> u32 {
-    ::windows_targets::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationSetAppContainerConfig ( dwnumpublicappcs : u32 , appcontainersids : *const super::super::Security:: SID_AND_ATTRIBUTES ) -> u32 );
+    ::windows_targets::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationSetAppContainerConfig(dwnumpublicappcs : u32, appcontainersids : *const super::super::Security:: SID_AND_ATTRIBUTES) -> u32);
     NetworkIsolationSetAppContainerConfig(appcontainersids.len() as _, ::core::mem::transmute(appcontainersids.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
@@ -53,7 +53,7 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P4: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationSetupAppContainerBinaries ( applicationcontainersid : super::super::Foundation:: PSID , packagefullname : ::windows::core::PCWSTR , packagefolder : ::windows::core::PCWSTR , displayname : ::windows::core::PCWSTR , bbinariesfullycomputed : super::super::Foundation:: BOOL , binaries : *const ::windows::core::PCWSTR , binariescount : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationSetupAppContainerBinaries(applicationcontainersid : super::super::Foundation:: PSID, packagefullname : ::windows::core::PCWSTR, packagefolder : ::windows::core::PCWSTR, displayname : ::windows::core::PCWSTR, bbinariesfullycomputed : super::super::Foundation:: BOOL, binaries : *const ::windows::core::PCWSTR, binariescount : u32) -> ::windows::core::HRESULT);
     NetworkIsolationSetupAppContainerBinaries(applicationcontainersid.into_param().abi(), packagefullname.into_param().abi(), packagefolder.into_param().abi(), displayname.into_param().abi(), bbinariesfullycomputed.into_param().abi(), ::core::mem::transmute(binaries.as_ptr()), binaries.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
@@ -63,7 +63,7 @@ pub unsafe fn NetworkIsolationUnregisterForAppContainerChanges<P0>(registrationo
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationUnregisterForAppContainerChanges ( registrationobject : super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows_targets::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationUnregisterForAppContainerChanges(registrationobject : super::super::Foundation:: HANDLE) -> u32);
     NetworkIsolationUnregisterForAppContainerChanges(registrationobject.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
