@@ -34,15 +34,9 @@ fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
         quote! { #name: #tokens }
     });
 
-    if gen.standalone {
-        quote! {
-            ::windows_targets::link!(#link #abi fn #name(#(#params),*) #return_type);
-        }
-    } else {
-        quote! {
-            #features
-            ::windows_targets::link!(#link #abi #doc fn #name(#(#params),*) #return_type);
-        }
+    quote! {
+        #features
+        ::windows_targets::link!(#link #abi #doc fn #name(#(#params),*) #return_type);
     }
 }
 

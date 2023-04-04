@@ -8,4 +8,4 @@
     clippy::all
 )]
 pub type HSTRING = *mut ::core::ffi::c_void;
-::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsGetStringLen ( string : HSTRING ) -> u32 );
+::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system"  fn WindowsGetStringLen ( string : HSTRING ) -> u32 );

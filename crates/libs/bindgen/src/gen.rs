@@ -336,7 +336,7 @@ impl<'a> Gen<'a> {
             quote! {}
         } else {
             let mut tokens = format!(r#"`\"{}\"`"#, to_feature(self.namespace));
-            let features = cfg_features(cfg, self.namespace);
+            let features = self.cfg_features_imp(cfg, self.namespace);
 
             for features in features {
                 write!(tokens, r#", `\"{}\"`"#, to_feature(features)).unwrap();
@@ -356,7 +356,7 @@ impl<'a> Gen<'a> {
         if !self.doc {
             quote! {}
         } else {
-            let features = cfg_features(cfg, self.namespace);
+            let features = self.cfg_features_imp(cfg, self.namespace);
             if features.is_empty() {
                 quote! {}
             } else {
@@ -371,41 +371,55 @@ impl<'a> Gen<'a> {
     }
 
     pub(crate) fn cfg_features(&self, cfg: &Cfg) -> TokenStream {
-        if !self.cfg {
-            quote! {}
-        } else {
-            let arches = &cfg.arches;
-            let arch = match arches.len() {
-                0 => quote! {},
-                1 => {
-                    quote! { #[cfg(#(target_arch = #arches),*)] }
-                }
-                _ => {
-                    quote! { #[cfg(any(#(target_arch = #arches),*))] }
-                }
-            };
+        let arches = &cfg.arches;
+        let arch = match arches.len() {
+            0 => quote! {},
+            1 => {
+                quote! { #[cfg(#(target_arch = #arches),*)] }
+            }
+            _ => {
+                quote! { #[cfg(any(#(target_arch = #arches),*))] }
+            }
+        };
 
-            let features = cfg_features(cfg, self.namespace);
+        let features = self.cfg_features_imp(cfg, self.namespace);
 
-            let features = match features.len() {
-                0 => quote! {},
-                1 => {
-                    let features = features.iter().cloned().map(to_feature);
-                    quote! { #[cfg(#(feature = #features)*)] }
-                }
-                _ => {
-                    let features = features.iter().cloned().map(to_feature);
-                    quote! { #[cfg(all( #(feature = #features),* ))] }
-                }
-            };
+        let features = match features.len() {
+            0 => quote! {},
+            1 => {
+                let features = features.iter().cloned().map(to_feature);
+                quote! { #[cfg(#(feature = #features)*)] }
+            }
+            _ => {
+                let features = features.iter().cloned().map(to_feature);
+                quote! { #[cfg(all( #(feature = #features),* ))] }
+            }
+        };
 
-            quote! { #arch #features }
+        quote! { #arch #features }
+    }
+
+    fn cfg_features_imp(&self, cfg: &'a Cfg, namespace: &'a str) -> Vec<&'a str> {
+        let mut compact = Vec::<&'static str>::new();
+        if !self.standalone && !self.component {
+            for feature in cfg.types.keys() {
+                if !feature.is_empty() && !starts_with(namespace, feature) {
+                    for pos in 0..compact.len() {
+                        if starts_with(feature, unsafe { compact.get_unchecked(pos) }) {
+                            compact.remove(pos);
+                            break;
+                        }
+                    }
+                    compact.push(feature);
+                }
+            }
         }
+        compact
     }
 
     fn cfg_not_features(&self, cfg: &Cfg) -> TokenStream {
-        let features = cfg_features(cfg, self.namespace);
-        if !self.cfg || features.is_empty() {
+        let features = self.cfg_features_imp(cfg, self.namespace);
+        if features.is_empty() {
             quote! {}
         } else {
             match features.len() {
@@ -1332,22 +1346,6 @@ fn to_feature(name: &str) -> String {
     }
 
     feature
-}
-
-pub fn cfg_features<'a>(cfg: &'a Cfg, namespace: &'a str) -> Vec<&'a str> {
-    let mut compact = Vec::<&'static str>::new();
-    for feature in cfg.types.keys() {
-        if !feature.is_empty() && !starts_with(namespace, feature) {
-            for pos in 0..compact.len() {
-                if starts_with(feature, unsafe { compact.get_unchecked(pos) }) {
-                    compact.remove(pos);
-                    break;
-                }
-            }
-            compact.push(feature);
-        }
-    }
-    compact
 }
 
 fn starts_with(namespace: &str, feature: &str) -> bool {

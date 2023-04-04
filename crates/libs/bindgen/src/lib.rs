@@ -39,7 +39,7 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
     for (name, tree) in &tree.nested {
         let name = to_ident(name);
         let namespace = tree.namespace[tree.namespace.find('.').unwrap() + 1..].replace('.', "_");
-        if gen.cfg {
+        if !gen.component {
             tokens.combine(&quote! { #[cfg(feature = #namespace)] });
         }
         tokens.combine(&quote! { pub mod #name; });

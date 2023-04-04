@@ -123,7 +123,6 @@ fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &
     let mut gen = bindgen::Gen::new(reader);
     gen.namespace = tree.namespace;
     gen.sys = true;
-    gen.cfg = true;
     gen.doc = true;
     let mut tokens = bindgen::namespace(&gen, tree);
     lib::format(tree.namespace, &mut tokens);
