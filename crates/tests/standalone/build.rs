@@ -54,6 +54,6 @@ fn main() {
 }
 
 fn write(filename: &str, apis: &[&str]) {
-    let bindings = windows_bindgen::standalone(&apis);
+    let bindings = windows_bindgen::standalone(apis);
     std::fs::write(filename, bindings).unwrap();
 }
