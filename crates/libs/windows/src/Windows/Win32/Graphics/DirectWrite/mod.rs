@@ -4,7 +4,7 @@ pub unsafe fn DWriteCreateFactory<T>(factorytype: DWRITE_FACTORY_TYPE) -> ::wind
 where
     T: ::windows::core::ComInterface,
 {
-    ::windows_targets::link ! ( "dwrite.dll""system" fn DWriteCreateFactory ( factorytype : DWRITE_FACTORY_TYPE , iid : *const ::windows::core::GUID , factory : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("dwrite.dll" "system" fn DWriteCreateFactory(factorytype : DWRITE_FACTORY_TYPE, iid : *const ::windows::core::GUID, factory : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
     DWriteCreateFactory(factorytype, &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }

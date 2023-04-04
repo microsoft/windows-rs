@@ -6,7 +6,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "kernel32.dll""system" fn AssignProcessToJobObject ( hjob : super::super::Foundation:: HANDLE , hprocess : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link!("kernel32.dll" "system" fn AssignProcessToJobObject(hjob : super::super::Foundation:: HANDLE, hprocess : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     AssignProcessToJobObject(hjob.into_param().abi(), hprocess.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -16,7 +16,7 @@ pub unsafe fn CreateJobObjectA<P0>(lpjobattributes: ::core::option::Option<*cons
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows_targets::link ! ( "kernel32.dll""system" fn CreateJobObjectA ( lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : ::windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows_targets::link!("kernel32.dll" "system" fn CreateJobObjectA(lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : ::windows::core::PCSTR) -> super::super::Foundation:: HANDLE);
     let result__ = CreateJobObjectA(::core::mem::transmute(lpjobattributes.unwrap_or(::std::ptr::null())), lpname.into_param().abi());
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -27,7 +27,7 @@ pub unsafe fn CreateJobObjectW<P0>(lpjobattributes: ::core::option::Option<*cons
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "kernel32.dll""system" fn CreateJobObjectW ( lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : ::windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows_targets::link!("kernel32.dll" "system" fn CreateJobObjectW(lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : ::windows::core::PCWSTR) -> super::super::Foundation:: HANDLE);
     let result__ = CreateJobObjectW(::core::mem::transmute(lpjobattributes.unwrap_or(::std::ptr::null())), lpname.into_param().abi());
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -35,13 +35,13 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateJobSet(userjobset: &[JOB_SET_ARRAY], flags: u32) -> super::super::Foundation::BOOL {
-    ::windows_targets::link ! ( "kernel32.dll""system" fn CreateJobSet ( numjob : u32 , userjobset : *const JOB_SET_ARRAY , flags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link!("kernel32.dll" "system" fn CreateJobSet(numjob : u32, userjobset : *const JOB_SET_ARRAY, flags : u32) -> super::super::Foundation:: BOOL);
     CreateJobSet(userjobset.len() as _, ::core::mem::transmute(userjobset.as_ptr()), flags)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 #[inline]
 pub unsafe fn FreeMemoryJobObject(buffer: *const ::core::ffi::c_void) {
-    ::windows_targets::link ! ( "kernel32.dll""system" fn FreeMemoryJobObject ( buffer : *const ::core::ffi::c_void ) -> ( ) );
+    ::windows_targets::link!("kernel32.dll" "system" fn FreeMemoryJobObject(buffer : *const ::core::ffi::c_void) -> ());
     FreeMemoryJobObject(buffer)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
@@ -52,7 +52,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "kernel32.dll""system" fn IsProcessInJob ( processhandle : super::super::Foundation:: HANDLE , jobhandle : super::super::Foundation:: HANDLE , result : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link!("kernel32.dll" "system" fn IsProcessInJob(processhandle : super::super::Foundation:: HANDLE, jobhandle : super::super::Foundation:: HANDLE, result : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     IsProcessInJob(processhandle.into_param().abi(), jobhandle.into_param().abi(), result)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
@@ -63,7 +63,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows_targets::link ! ( "kernel32.dll""system" fn OpenJobObjectA ( dwdesiredaccess : u32 , binherithandle : super::super::Foundation:: BOOL , lpname : ::windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows_targets::link!("kernel32.dll" "system" fn OpenJobObjectA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : ::windows::core::PCSTR) -> super::super::Foundation:: HANDLE);
     let result__ = OpenJobObjectA(dwdesiredaccess, binherithandle.into_param().abi(), lpname.into_param().abi());
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -75,7 +75,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "kernel32.dll""system" fn OpenJobObjectW ( dwdesiredaccess : u32 , binherithandle : super::super::Foundation:: BOOL , lpname : ::windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows_targets::link!("kernel32.dll" "system" fn OpenJobObjectW(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : ::windows::core::PCWSTR) -> super::super::Foundation:: HANDLE);
     let result__ = OpenJobObjectW(dwdesiredaccess, binherithandle.into_param().abi(), lpname.into_param().abi());
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -86,7 +86,7 @@ pub unsafe fn QueryInformationJobObject<P0>(hjob: P0, jobobjectinformationclass:
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "kernel32.dll""system" fn QueryInformationJobObject ( hjob : super::super::Foundation:: HANDLE , jobobjectinformationclass : JOBOBJECTINFOCLASS , lpjobobjectinformation : *mut ::core::ffi::c_void , cbjobobjectinformationlength : u32 , lpreturnlength : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link!("kernel32.dll" "system" fn QueryInformationJobObject(hjob : super::super::Foundation:: HANDLE, jobobjectinformationclass : JOBOBJECTINFOCLASS, lpjobobjectinformation : *mut ::core::ffi::c_void, cbjobobjectinformationlength : u32, lpreturnlength : *mut u32) -> super::super::Foundation:: BOOL);
     QueryInformationJobObject(hjob.into_param().abi(), jobobjectinformationclass, lpjobobjectinformation, cbjobobjectinformationlength, ::core::mem::transmute(lpreturnlength.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
@@ -97,7 +97,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "kernel32.dll""system" fn QueryIoRateControlInformationJobObject ( hjob : super::super::Foundation:: HANDLE , volumename : ::windows::core::PCWSTR , infoblocks : *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION , infoblockcount : *mut u32 ) -> u32 );
+    ::windows_targets::link!("kernel32.dll" "system" fn QueryIoRateControlInformationJobObject(hjob : super::super::Foundation:: HANDLE, volumename : ::windows::core::PCWSTR, infoblocks : *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount : *mut u32) -> u32);
     QueryIoRateControlInformationJobObject(hjob.into_param().abi(), volumename.into_param().abi(), infoblocks, infoblockcount)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
@@ -107,7 +107,7 @@ pub unsafe fn SetInformationJobObject<P0>(hjob: P0, jobobjectinformationclass: J
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "kernel32.dll""system" fn SetInformationJobObject ( hjob : super::super::Foundation:: HANDLE , jobobjectinformationclass : JOBOBJECTINFOCLASS , lpjobobjectinformation : *const ::core::ffi::c_void , cbjobobjectinformationlength : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link!("kernel32.dll" "system" fn SetInformationJobObject(hjob : super::super::Foundation:: HANDLE, jobobjectinformationclass : JOBOBJECTINFOCLASS, lpjobobjectinformation : *const ::core::ffi::c_void, cbjobobjectinformationlength : u32) -> super::super::Foundation:: BOOL);
     SetInformationJobObject(hjob.into_param().abi(), jobobjectinformationclass, lpjobobjectinformation, cbjobobjectinformationlength)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
@@ -117,7 +117,7 @@ pub unsafe fn SetIoRateControlInformationJobObject<P0>(hjob: P0, ioratecontrolin
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "kernel32.dll""system" fn SetIoRateControlInformationJobObject ( hjob : super::super::Foundation:: HANDLE , ioratecontrolinfo : *const JOBOBJECT_IO_RATE_CONTROL_INFORMATION ) -> u32 );
+    ::windows_targets::link!("kernel32.dll" "system" fn SetIoRateControlInformationJobObject(hjob : super::super::Foundation:: HANDLE, ioratecontrolinfo : *const JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32);
     SetIoRateControlInformationJobObject(hjob.into_param().abi(), ioratecontrolinfo)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
@@ -127,7 +127,7 @@ pub unsafe fn TerminateJobObject<P0>(hjob: P0, uexitcode: u32) -> super::super::
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "kernel32.dll""system" fn TerminateJobObject ( hjob : super::super::Foundation:: HANDLE , uexitcode : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link!("kernel32.dll" "system" fn TerminateJobObject(hjob : super::super::Foundation:: HANDLE, uexitcode : u32) -> super::super::Foundation:: BOOL);
     TerminateJobObject(hjob.into_param().abi(), uexitcode)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
@@ -139,7 +139,7 @@ where
     P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link ! ( "user32.dll""system" fn UserHandleGrantAccess ( huserhandle : super::super::Foundation:: HANDLE , hjob : super::super::Foundation:: HANDLE , bgrant : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link!("user32.dll" "system" fn UserHandleGrantAccess(huserhandle : super::super::Foundation:: HANDLE, hjob : super::super::Foundation:: HANDLE, bgrant : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     UserHandleGrantAccess(huserhandle.into_param().abi(), hjob.into_param().abi(), bgrant.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]

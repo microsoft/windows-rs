@@ -2,97 +2,97 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn CollectionsListAllocateBufferAndSerialize(sourcecollection: *const SENSOR_COLLECTION_LIST, ptargetbuffersizeinbytes: *mut u32, ptargetbuffer: *mut *mut u8) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListAllocateBufferAndSerialize ( sourcecollection : *const SENSOR_COLLECTION_LIST , ptargetbuffersizeinbytes : *mut u32 , ptargetbuffer : *mut *mut u8 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn CollectionsListAllocateBufferAndSerialize(sourcecollection : *const SENSOR_COLLECTION_LIST, ptargetbuffersizeinbytes : *mut u32, ptargetbuffer : *mut *mut u8) -> super::super::Foundation:: NTSTATUS);
     CollectionsListAllocateBufferAndSerialize(sourcecollection, ptargetbuffersizeinbytes, ptargetbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn CollectionsListCopyAndMarshall(target: *mut SENSOR_COLLECTION_LIST, source: *const SENSOR_COLLECTION_LIST) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListCopyAndMarshall ( target : *mut SENSOR_COLLECTION_LIST , source : *const SENSOR_COLLECTION_LIST ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn CollectionsListCopyAndMarshall(target : *mut SENSOR_COLLECTION_LIST, source : *const SENSOR_COLLECTION_LIST) -> super::super::Foundation:: NTSTATUS);
     CollectionsListCopyAndMarshall(target, source).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn CollectionsListDeserializeFromBuffer(sourcebuffer: &[u8], targetcollection: *mut SENSOR_COLLECTION_LIST) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListDeserializeFromBuffer ( sourcebuffersizeinbytes : u32 , sourcebuffer : *const u8 , targetcollection : *mut SENSOR_COLLECTION_LIST ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn CollectionsListDeserializeFromBuffer(sourcebuffersizeinbytes : u32, sourcebuffer : *const u8, targetcollection : *mut SENSOR_COLLECTION_LIST) -> super::super::Foundation:: NTSTATUS);
     CollectionsListDeserializeFromBuffer(sourcebuffer.len() as _, ::core::mem::transmute(sourcebuffer.as_ptr()), targetcollection).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[inline]
 pub unsafe fn CollectionsListGetFillableCount(buffersizebytes: u32) -> u32 {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListGetFillableCount ( buffersizebytes : u32 ) -> u32 );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn CollectionsListGetFillableCount(buffersizebytes : u32) -> u32);
     CollectionsListGetFillableCount(buffersizebytes)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn CollectionsListGetMarshalledSize(collection: *const SENSOR_COLLECTION_LIST) -> u32 {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListGetMarshalledSize ( collection : *const SENSOR_COLLECTION_LIST ) -> u32 );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn CollectionsListGetMarshalledSize(collection : *const SENSOR_COLLECTION_LIST) -> u32);
     CollectionsListGetMarshalledSize(collection)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn CollectionsListGetMarshalledSizeWithoutSerialization(collection: *const SENSOR_COLLECTION_LIST) -> u32 {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListGetMarshalledSizeWithoutSerialization ( collection : *const SENSOR_COLLECTION_LIST ) -> u32 );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn CollectionsListGetMarshalledSizeWithoutSerialization(collection : *const SENSOR_COLLECTION_LIST) -> u32);
     CollectionsListGetMarshalledSizeWithoutSerialization(collection)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn CollectionsListGetSerializedSize(collection: *const SENSOR_COLLECTION_LIST) -> u32 {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListGetSerializedSize ( collection : *const SENSOR_COLLECTION_LIST ) -> u32 );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn CollectionsListGetSerializedSize(collection : *const SENSOR_COLLECTION_LIST) -> u32);
     CollectionsListGetSerializedSize(collection)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn CollectionsListMarshall(target: *mut SENSOR_COLLECTION_LIST) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListMarshall ( target : *mut SENSOR_COLLECTION_LIST ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn CollectionsListMarshall(target : *mut SENSOR_COLLECTION_LIST) -> super::super::Foundation:: NTSTATUS);
     CollectionsListMarshall(target).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn CollectionsListSerializeToBuffer(sourcecollection: *const SENSOR_COLLECTION_LIST, targetbuffer: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListSerializeToBuffer ( sourcecollection : *const SENSOR_COLLECTION_LIST , targetbuffersizeinbytes : u32 , targetbuffer : *mut u8 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn CollectionsListSerializeToBuffer(sourcecollection : *const SENSOR_COLLECTION_LIST, targetbuffersizeinbytes : u32, targetbuffer : *mut u8) -> super::super::Foundation:: NTSTATUS);
     CollectionsListSerializeToBuffer(sourcecollection, targetbuffer.len() as _, ::core::mem::transmute(targetbuffer.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn CollectionsListSortSubscribedActivitiesByConfidence(thresholds: *const SENSOR_COLLECTION_LIST, pcollection: *mut SENSOR_COLLECTION_LIST) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListSortSubscribedActivitiesByConfidence ( thresholds : *const SENSOR_COLLECTION_LIST , pcollection : *mut SENSOR_COLLECTION_LIST ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn CollectionsListSortSubscribedActivitiesByConfidence(thresholds : *const SENSOR_COLLECTION_LIST, pcollection : *mut SENSOR_COLLECTION_LIST) -> super::super::Foundation:: NTSTATUS);
     CollectionsListSortSubscribedActivitiesByConfidence(thresholds, pcollection).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn CollectionsListUpdateMarshalledPointer(collection: *mut SENSOR_COLLECTION_LIST) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListUpdateMarshalledPointer ( collection : *mut SENSOR_COLLECTION_LIST ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn CollectionsListUpdateMarshalledPointer(collection : *mut SENSOR_COLLECTION_LIST) -> super::super::Foundation:: NTSTATUS);
     CollectionsListUpdateMarshalledPointer(collection).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn EvaluateActivityThresholds(newsample: *const SENSOR_COLLECTION_LIST, oldsample: *const SENSOR_COLLECTION_LIST, thresholds: *const SENSOR_COLLECTION_LIST) -> super::super::Foundation::BOOLEAN {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn EvaluateActivityThresholds ( newsample : *const SENSOR_COLLECTION_LIST , oldsample : *const SENSOR_COLLECTION_LIST , thresholds : *const SENSOR_COLLECTION_LIST ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn EvaluateActivityThresholds(newsample : *const SENSOR_COLLECTION_LIST, oldsample : *const SENSOR_COLLECTION_LIST, thresholds : *const SENSOR_COLLECTION_LIST) -> super::super::Foundation:: BOOLEAN);
     EvaluateActivityThresholds(newsample, oldsample, thresholds)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPerformanceTime(timems: *mut u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn GetPerformanceTime ( timems : *mut u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn GetPerformanceTime(timems : *mut u32) -> super::super::Foundation:: NTSTATUS);
     GetPerformanceTime(timems).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromCLSIDArray(members: &[::windows::core::GUID]) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn InitPropVariantFromCLSIDArray ( members : *const ::windows::core::GUID , size : u32 , ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn InitPropVariantFromCLSIDArray(members : *const ::windows::core::GUID, size : u32, ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<super::super::System::Com::StructuredStorage::PROPVARIANT>();
     InitPropVariantFromCLSIDArray(::core::mem::transmute(members.as_ptr()), members.len() as _, &mut result__).from_abi(result__)
 }
@@ -100,7 +100,7 @@ pub unsafe fn InitPropVariantFromCLSIDArray(members: &[::windows::core::GUID]) -
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromFloat(fltval: f32) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn InitPropVariantFromFloat ( fltval : f32 , ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn InitPropVariantFromFloat(fltval : f32, ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<super::super::System::Com::StructuredStorage::PROPVARIANT>();
     InitPropVariantFromFloat(fltval, &mut result__).from_abi(result__)
 }
@@ -108,105 +108,105 @@ pub unsafe fn InitPropVariantFromFloat(fltval: f32) -> ::windows::core::Result<s
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn IsCollectionListSame(lista: *const SENSOR_COLLECTION_LIST, listb: *const SENSOR_COLLECTION_LIST) -> super::super::Foundation::BOOLEAN {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn IsCollectionListSame ( lista : *const SENSOR_COLLECTION_LIST , listb : *const SENSOR_COLLECTION_LIST ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn IsCollectionListSame(lista : *const SENSOR_COLLECTION_LIST, listb : *const SENSOR_COLLECTION_LIST) -> super::super::Foundation:: BOOLEAN);
     IsCollectionListSame(lista, listb)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsGUIDPresentInList(guidarray: &[::windows::core::GUID], guidelem: *const ::windows::core::GUID) -> super::super::Foundation::BOOLEAN {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn IsGUIDPresentInList ( guidarray : *const ::windows::core::GUID , arraylength : u32 , guidelem : *const ::windows::core::GUID ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn IsGUIDPresentInList(guidarray : *const ::windows::core::GUID, arraylength : u32, guidelem : *const ::windows::core::GUID) -> super::super::Foundation:: BOOLEAN);
     IsGUIDPresentInList(::core::mem::transmute(guidarray.as_ptr()), guidarray.len() as _, guidelem)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn IsKeyPresentInCollectionList(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> super::super::Foundation::BOOLEAN {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn IsKeyPresentInCollectionList ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn IsKeyPresentInCollectionList(plist : *const SENSOR_COLLECTION_LIST, pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY) -> super::super::Foundation:: BOOLEAN);
     IsKeyPresentInCollectionList(plist, pkey)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn IsKeyPresentInPropertyList(plist: *const SENSOR_PROPERTY_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> super::super::Foundation::BOOLEAN {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn IsKeyPresentInPropertyList ( plist : *const SENSOR_PROPERTY_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn IsKeyPresentInPropertyList(plist : *const SENSOR_PROPERTY_LIST, pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY) -> super::super::Foundation:: BOOLEAN);
     IsKeyPresentInPropertyList(plist, pkey)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn IsSensorSubscribed(subscriptionlist: *const SENSOR_COLLECTION_LIST, currenttype: ::windows::core::GUID) -> super::super::Foundation::BOOLEAN {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn IsSensorSubscribed ( subscriptionlist : *const SENSOR_COLLECTION_LIST , currenttype : ::windows::core::GUID ) -> super::super::Foundation:: BOOLEAN );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn IsSensorSubscribed(subscriptionlist : *const SENSOR_COLLECTION_LIST, currenttype : ::windows::core::GUID) -> super::super::Foundation:: BOOLEAN);
     IsSensorSubscribed(subscriptionlist, ::core::mem::transmute(currenttype))
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetBool(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetBool ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn PropKeyFindKeyGetBool(plist : *const SENSOR_COLLECTION_LIST, pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY, pretvalue : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: NTSTATUS);
     PropKeyFindKeyGetBool(plist, pkey, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetDouble(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut f64) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetDouble ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut f64 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn PropKeyFindKeyGetDouble(plist : *const SENSOR_COLLECTION_LIST, pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY, pretvalue : *mut f64) -> super::super::Foundation:: NTSTATUS);
     PropKeyFindKeyGetDouble(plist, pkey, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetFileTime(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetFileTime ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut super::super::Foundation:: FILETIME ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn PropKeyFindKeyGetFileTime(plist : *const SENSOR_COLLECTION_LIST, pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY, pretvalue : *mut super::super::Foundation:: FILETIME) -> super::super::Foundation:: NTSTATUS);
     PropKeyFindKeyGetFileTime(plist, pkey, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetFloat(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut f32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetFloat ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut f32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn PropKeyFindKeyGetFloat(plist : *const SENSOR_COLLECTION_LIST, pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY, pretvalue : *mut f32) -> super::super::Foundation:: NTSTATUS);
     PropKeyFindKeyGetFloat(plist, pkey, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetGuid(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetGuid ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut ::windows::core::GUID ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn PropKeyFindKeyGetGuid(plist : *const SENSOR_COLLECTION_LIST, pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY, pretvalue : *mut ::windows::core::GUID) -> super::super::Foundation:: NTSTATUS);
     PropKeyFindKeyGetGuid(plist, pkey, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetInt32(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut i32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetInt32 ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut i32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn PropKeyFindKeyGetInt32(plist : *const SENSOR_COLLECTION_LIST, pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY, pretvalue : *mut i32) -> super::super::Foundation:: NTSTATUS);
     PropKeyFindKeyGetInt32(plist, pkey, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetInt64(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut i64) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetInt64 ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut i64 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn PropKeyFindKeyGetInt64(plist : *const SENSOR_COLLECTION_LIST, pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY, pretvalue : *mut i64) -> super::super::Foundation:: NTSTATUS);
     PropKeyFindKeyGetInt64(plist, pkey, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetNthInt64(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: *mut i64) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetNthInt64 ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , occurrence : u32 , pretvalue : *mut i64 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn PropKeyFindKeyGetNthInt64(plist : *const SENSOR_COLLECTION_LIST, pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY, occurrence : u32, pretvalue : *mut i64) -> super::super::Foundation:: NTSTATUS);
     PropKeyFindKeyGetNthInt64(plist, pkey, occurrence, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetNthUlong(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: *mut u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetNthUlong ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , occurrence : u32 , pretvalue : *mut u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn PropKeyFindKeyGetNthUlong(plist : *const SENSOR_COLLECTION_LIST, pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY, occurrence : u32, pretvalue : *mut u32) -> super::super::Foundation:: NTSTATUS);
     PropKeyFindKeyGetNthUlong(plist, pkey, occurrence, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetNthUshort(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: *mut u16) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetNthUshort ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , occurrence : u32 , pretvalue : *mut u16 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn PropKeyFindKeyGetNthUshort(plist : *const SENSOR_COLLECTION_LIST, pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY, occurrence : u32, pretvalue : *mut u16) -> super::super::Foundation:: NTSTATUS);
     PropKeyFindKeyGetNthUshort(plist, pkey, occurrence, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -216,21 +216,21 @@ pub unsafe fn PropKeyFindKeyGetPropVariant<P0>(plist: *const SENSOR_COLLECTION_L
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetPropVariant ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , typecheck : super::super::Foundation:: BOOLEAN , pvalue : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn PropKeyFindKeyGetPropVariant(plist : *const SENSOR_COLLECTION_LIST, pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY, typecheck : super::super::Foundation:: BOOLEAN, pvalue : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> super::super::Foundation:: NTSTATUS);
     PropKeyFindKeyGetPropVariant(plist, pkey, typecheck.into_param().abi(), pvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetUlong(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetUlong ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn PropKeyFindKeyGetUlong(plist : *const SENSOR_COLLECTION_LIST, pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY, pretvalue : *mut u32) -> super::super::Foundation:: NTSTATUS);
     PropKeyFindKeyGetUlong(plist, pkey, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetUshort(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut u16) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetUshort ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut u16 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn PropKeyFindKeyGetUshort(plist : *const SENSOR_COLLECTION_LIST, pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY, pretvalue : *mut u16) -> super::super::Foundation:: NTSTATUS);
     PropKeyFindKeyGetUshort(plist, pkey, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -240,47 +240,47 @@ pub unsafe fn PropKeyFindKeySetPropVariant<P0>(plist: *mut SENSOR_COLLECTION_LIS
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeySetPropVariant ( plist : *mut SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , typecheck : super::super::Foundation:: BOOLEAN , pvalue : *const super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn PropKeyFindKeySetPropVariant(plist : *mut SENSOR_COLLECTION_LIST, pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY, typecheck : super::super::Foundation:: BOOLEAN, pvalue : *const super::super::System::Com::StructuredStorage:: PROPVARIANT) -> super::super::Foundation:: NTSTATUS);
     PropKeyFindKeySetPropVariant(plist, pkey, typecheck.into_param().abi(), pvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetInformation(propvariantvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, propvariantoffset: ::core::option::Option<*mut u32>, propvariantsize: ::core::option::Option<*mut u32>, propvariantpointer: ::core::option::Option<*mut *mut ::core::ffi::c_void>, remappedtype: ::core::option::Option<*mut super::Properties::DEVPROPTYPE>) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn PropVariantGetInformation ( propvariantvalue : *const super::super::System::Com::StructuredStorage:: PROPVARIANT , propvariantoffset : *mut u32 , propvariantsize : *mut u32 , propvariantpointer : *mut *mut ::core::ffi::c_void , remappedtype : *mut super::Properties:: DEVPROPTYPE ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn PropVariantGetInformation(propvariantvalue : *const super::super::System::Com::StructuredStorage:: PROPVARIANT, propvariantoffset : *mut u32, propvariantsize : *mut u32, propvariantpointer : *mut *mut ::core::ffi::c_void, remappedtype : *mut super::Properties:: DEVPROPTYPE) -> super::super::Foundation:: NTSTATUS);
     PropVariantGetInformation(propvariantvalue, ::core::mem::transmute(propvariantoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(propvariantsize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(propvariantpointer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(remappedtype.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropertiesListCopy(target: *mut SENSOR_PROPERTY_LIST, source: *const SENSOR_PROPERTY_LIST) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn PropertiesListCopy ( target : *mut SENSOR_PROPERTY_LIST , source : *const SENSOR_PROPERTY_LIST ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn PropertiesListCopy(target : *mut SENSOR_PROPERTY_LIST, source : *const SENSOR_PROPERTY_LIST) -> super::super::Foundation:: NTSTATUS);
     PropertiesListCopy(target, source).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[inline]
 pub unsafe fn PropertiesListGetFillableCount(buffersizebytes: u32) -> u32 {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn PropertiesListGetFillableCount ( buffersizebytes : u32 ) -> u32 );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn PropertiesListGetFillableCount(buffersizebytes : u32) -> u32);
     PropertiesListGetFillableCount(buffersizebytes)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn SensorCollectionGetAt(index: u32, psensorslist: *const SENSOR_COLLECTION_LIST, pkey: ::core::option::Option<*mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn SensorCollectionGetAt ( index : u32 , psensorslist : *const SENSOR_COLLECTION_LIST , pkey : *mut super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pvalue : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn SensorCollectionGetAt(index : u32, psensorslist : *const SENSOR_COLLECTION_LIST, pkey : *mut super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY, pvalue : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> super::super::Foundation:: NTSTATUS);
     SensorCollectionGetAt(index, psensorslist, ::core::mem::transmute(pkey.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SerializationBufferAllocate(sizeinbytes: u32, pbuffer: *mut *mut u8) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn SerializationBufferAllocate ( sizeinbytes : u32 , pbuffer : *mut *mut u8 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn SerializationBufferAllocate(sizeinbytes : u32, pbuffer : *mut *mut u8) -> super::super::Foundation:: NTSTATUS);
     SerializationBufferAllocate(sizeinbytes, pbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[inline]
 pub unsafe fn SerializationBufferFree(buffer: ::core::option::Option<*const u8>) {
-    ::windows_targets::link ! ( "sensorsutilsv2.dll""system" fn SerializationBufferFree ( buffer : *const u8 ) -> ( ) );
+    ::windows_targets::link!("sensorsutilsv2.dll" "system" fn SerializationBufferFree(buffer : *const u8) -> ());
     SerializationBufferFree(::core::mem::transmute(buffer.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]

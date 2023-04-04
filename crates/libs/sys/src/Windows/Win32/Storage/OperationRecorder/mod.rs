@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`, `\"Win32_Foundation\"`*"] fn OperationEnd ( operationendparams : *const OPERATION_END_PARAMETERS ) -> super::super::Foundation:: BOOL );
+::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`, `\"Win32_Foundation\"`*"] fn OperationEnd(operationendparams : *const OPERATION_END_PARAMETERS) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`, `\"Win32_Foundation\"`*"] fn OperationStart ( operationstartparams : *const OPERATION_START_PARAMETERS ) -> super::super::Foundation:: BOOL );
+::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`, `\"Win32_Foundation\"`*"] fn OperationStart(operationstartparams : *const OPERATION_START_PARAMETERS) -> super::super::Foundation:: BOOL);
 #[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`*"]
 pub type OPERATION_END_PARAMETERS_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`*"]

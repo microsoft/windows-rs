@@ -1,31 +1,31 @@
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioAcquireFocus() -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioAcquireFocus ( ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioAcquireFocus() -> ::windows::core::HRESULT);
     WinBioAcquireFocus().ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioAsyncEnumBiometricUnits(frameworkhandle: u32, factor: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioAsyncEnumBiometricUnits ( frameworkhandle : u32 , factor : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioAsyncEnumBiometricUnits(frameworkhandle : u32, factor : u32) -> ::windows::core::HRESULT);
     WinBioAsyncEnumBiometricUnits(frameworkhandle, factor).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioAsyncEnumDatabases(frameworkhandle: u32, factor: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioAsyncEnumDatabases ( frameworkhandle : u32 , factor : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioAsyncEnumDatabases(frameworkhandle : u32, factor : u32) -> ::windows::core::HRESULT);
     WinBioAsyncEnumDatabases(frameworkhandle, factor).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioAsyncEnumServiceProviders(frameworkhandle: u32, factor: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioAsyncEnumServiceProviders ( frameworkhandle : u32 , factor : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioAsyncEnumServiceProviders(frameworkhandle : u32, factor : u32) -> ::windows::core::HRESULT);
     WinBioAsyncEnumServiceProviders(frameworkhandle, factor).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle: u32, changetypes: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioAsyncMonitorFrameworkChanges ( frameworkhandle : u32 , changetypes : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle : u32, changetypes : u32) -> ::windows::core::HRESULT);
     WinBioAsyncMonitorFrameworkChanges(frameworkhandle, changetypes).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`, `\"Win32_Foundation\"`*"]
@@ -36,7 +36,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioAsyncOpenFramework ( notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD , targetwindow : super::super::Foundation:: HWND , messagecode : u32 , callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK , userdata : *const ::core::ffi::c_void , asynchronousopen : super::super::Foundation:: BOOL , frameworkhandle : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioAsyncOpenFramework(notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow : super::super::Foundation:: HWND, messagecode : u32, callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata : *const ::core::ffi::c_void, asynchronousopen : super::super::Foundation:: BOOL, frameworkhandle : *mut u32) -> ::windows::core::HRESULT);
     WinBioAsyncOpenFramework(notificationmethod, targetwindow.into_param().abi(), messagecode, callbackroutine, ::core::mem::transmute(userdata.unwrap_or(::std::ptr::null())), asynchronousopen.into_param().abi(), ::core::mem::transmute(frameworkhandle.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`, `\"Win32_Foundation\"`*"]
@@ -47,7 +47,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioAsyncOpenSession ( factor : u32 , pooltype : WINBIO_POOL , flags : u32 , unitarray : *const u32 , unitcount : usize , databaseid : *const ::windows::core::GUID , notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD , targetwindow : super::super::Foundation:: HWND , messagecode : u32 , callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK , userdata : *const ::core::ffi::c_void , asynchronousopen : super::super::Foundation:: BOOL , sessionhandle : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioAsyncOpenSession(factor : u32, pooltype : WINBIO_POOL, flags : u32, unitarray : *const u32, unitcount : usize, databaseid : *const ::windows::core::GUID, notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow : super::super::Foundation:: HWND, messagecode : u32, callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata : *const ::core::ffi::c_void, asynchronousopen : super::super::Foundation:: BOOL, sessionhandle : *mut u32) -> ::windows::core::HRESULT);
     WinBioAsyncOpenSession(
         factor,
         pooltype,
@@ -68,287 +68,287 @@ where
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioCancel(sessionhandle: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioCancel ( sessionhandle : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioCancel(sessionhandle : u32) -> ::windows::core::HRESULT);
     WinBioCancel(sessionhandle).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioCaptureSample(sessionhandle: u32, purpose: u8, flags: u8, unitid: ::core::option::Option<*mut u32>, sample: *mut *mut WINBIO_BIR, samplesize: ::core::option::Option<*mut usize>, rejectdetail: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioCaptureSample ( sessionhandle : u32 , purpose : u8 , flags : u8 , unitid : *mut u32 , sample : *mut *mut WINBIO_BIR , samplesize : *mut usize , rejectdetail : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioCaptureSample(sessionhandle : u32, purpose : u8, flags : u8, unitid : *mut u32, sample : *mut *mut WINBIO_BIR, samplesize : *mut usize, rejectdetail : *mut u32) -> ::windows::core::HRESULT);
     WinBioCaptureSample(sessionhandle, purpose, flags, ::core::mem::transmute(unitid.unwrap_or(::std::ptr::null_mut())), sample, ::core::mem::transmute(samplesize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(rejectdetail.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioCaptureSampleWithCallback(sessionhandle: u32, purpose: u8, flags: u8, capturecallback: PWINBIO_CAPTURE_CALLBACK, capturecallbackcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioCaptureSampleWithCallback ( sessionhandle : u32 , purpose : u8 , flags : u8 , capturecallback : PWINBIO_CAPTURE_CALLBACK , capturecallbackcontext : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioCaptureSampleWithCallback(sessionhandle : u32, purpose : u8, flags : u8, capturecallback : PWINBIO_CAPTURE_CALLBACK, capturecallbackcontext : *const ::core::ffi::c_void) -> ::windows::core::HRESULT);
     WinBioCaptureSampleWithCallback(sessionhandle, purpose, flags, capturecallback, ::core::mem::transmute(capturecallbackcontext.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioCloseFramework(frameworkhandle: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioCloseFramework ( frameworkhandle : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioCloseFramework(frameworkhandle : u32) -> ::windows::core::HRESULT);
     WinBioCloseFramework(frameworkhandle).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioCloseSession(sessionhandle: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioCloseSession ( sessionhandle : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioCloseSession(sessionhandle : u32) -> ::windows::core::HRESULT);
     WinBioCloseSession(sessionhandle).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioControlUnit(sessionhandle: u32, unitid: u32, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: &[u8], receivebuffer: &mut [u8], receivedatasize: *mut usize, operationstatus: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioControlUnit ( sessionhandle : u32 , unitid : u32 , component : WINBIO_COMPONENT , controlcode : u32 , sendbuffer : *const u8 , sendbuffersize : usize , receivebuffer : *mut u8 , receivebuffersize : usize , receivedatasize : *mut usize , operationstatus : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioControlUnit(sessionhandle : u32, unitid : u32, component : WINBIO_COMPONENT, controlcode : u32, sendbuffer : *const u8, sendbuffersize : usize, receivebuffer : *mut u8, receivebuffersize : usize, receivedatasize : *mut usize, operationstatus : *mut u32) -> ::windows::core::HRESULT);
     WinBioControlUnit(sessionhandle, unitid, component, controlcode, ::core::mem::transmute(sendbuffer.as_ptr()), sendbuffer.len() as _, ::core::mem::transmute(receivebuffer.as_ptr()), receivebuffer.len() as _, receivedatasize, ::core::mem::transmute(operationstatus.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioControlUnitPrivileged(sessionhandle: u32, unitid: u32, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: &[u8], receivebuffer: &mut [u8], receivedatasize: *mut usize, operationstatus: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioControlUnitPrivileged ( sessionhandle : u32 , unitid : u32 , component : WINBIO_COMPONENT , controlcode : u32 , sendbuffer : *const u8 , sendbuffersize : usize , receivebuffer : *mut u8 , receivebuffersize : usize , receivedatasize : *mut usize , operationstatus : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioControlUnitPrivileged(sessionhandle : u32, unitid : u32, component : WINBIO_COMPONENT, controlcode : u32, sendbuffer : *const u8, sendbuffersize : usize, receivebuffer : *mut u8, receivebuffersize : usize, receivedatasize : *mut usize, operationstatus : *mut u32) -> ::windows::core::HRESULT);
     WinBioControlUnitPrivileged(sessionhandle, unitid, component, controlcode, ::core::mem::transmute(sendbuffer.as_ptr()), sendbuffer.len() as _, ::core::mem::transmute(receivebuffer.as_ptr()), receivebuffer.len() as _, receivedatasize, ::core::mem::transmute(operationstatus.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioDeleteTemplate(sessionhandle: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioDeleteTemplate ( sessionhandle : u32 , unitid : u32 , identity : *const WINBIO_IDENTITY , subfactor : u8 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioDeleteTemplate(sessionhandle : u32, unitid : u32, identity : *const WINBIO_IDENTITY, subfactor : u8) -> ::windows::core::HRESULT);
     WinBioDeleteTemplate(sessionhandle, unitid, identity, subfactor).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioEnrollBegin(sessionhandle: u32, subfactor: u8, unitid: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioEnrollBegin ( sessionhandle : u32 , subfactor : u8 , unitid : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioEnrollBegin(sessionhandle : u32, subfactor : u8, unitid : u32) -> ::windows::core::HRESULT);
     WinBioEnrollBegin(sessionhandle, subfactor, unitid).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioEnrollCapture(sessionhandle: u32, rejectdetail: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioEnrollCapture ( sessionhandle : u32 , rejectdetail : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioEnrollCapture(sessionhandle : u32, rejectdetail : *mut u32) -> ::windows::core::HRESULT);
     WinBioEnrollCapture(sessionhandle, ::core::mem::transmute(rejectdetail.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioEnrollCaptureWithCallback(sessionhandle: u32, enrollcallback: PWINBIO_ENROLL_CAPTURE_CALLBACK, enrollcallbackcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioEnrollCaptureWithCallback ( sessionhandle : u32 , enrollcallback : PWINBIO_ENROLL_CAPTURE_CALLBACK , enrollcallbackcontext : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioEnrollCaptureWithCallback(sessionhandle : u32, enrollcallback : PWINBIO_ENROLL_CAPTURE_CALLBACK, enrollcallbackcontext : *const ::core::ffi::c_void) -> ::windows::core::HRESULT);
     WinBioEnrollCaptureWithCallback(sessionhandle, enrollcallback, ::core::mem::transmute(enrollcallbackcontext.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioEnrollCommit(sessionhandle: u32, identity: ::core::option::Option<*mut WINBIO_IDENTITY>, isnewtemplate: ::core::option::Option<*mut u8>) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioEnrollCommit ( sessionhandle : u32 , identity : *mut WINBIO_IDENTITY , isnewtemplate : *mut u8 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioEnrollCommit(sessionhandle : u32, identity : *mut WINBIO_IDENTITY, isnewtemplate : *mut u8) -> ::windows::core::HRESULT);
     WinBioEnrollCommit(sessionhandle, ::core::mem::transmute(identity.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(isnewtemplate.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioEnrollDiscard(sessionhandle: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioEnrollDiscard ( sessionhandle : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioEnrollDiscard(sessionhandle : u32) -> ::windows::core::HRESULT);
     WinBioEnrollDiscard(sessionhandle).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioEnrollSelect(sessionhandle: u32, selectorvalue: u64) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioEnrollSelect ( sessionhandle : u32 , selectorvalue : u64 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioEnrollSelect(sessionhandle : u32, selectorvalue : u64) -> ::windows::core::HRESULT);
     WinBioEnrollSelect(sessionhandle, selectorvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioEnumBiometricUnits(factor: u32, unitschemaarray: *mut *mut WINBIO_UNIT_SCHEMA, unitcount: *mut usize) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioEnumBiometricUnits ( factor : u32 , unitschemaarray : *mut *mut WINBIO_UNIT_SCHEMA , unitcount : *mut usize ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioEnumBiometricUnits(factor : u32, unitschemaarray : *mut *mut WINBIO_UNIT_SCHEMA, unitcount : *mut usize) -> ::windows::core::HRESULT);
     WinBioEnumBiometricUnits(factor, unitschemaarray, unitcount).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioEnumDatabases(factor: u32, storageschemaarray: *mut *mut WINBIO_STORAGE_SCHEMA, storagecount: *mut usize) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioEnumDatabases ( factor : u32 , storageschemaarray : *mut *mut WINBIO_STORAGE_SCHEMA , storagecount : *mut usize ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioEnumDatabases(factor : u32, storageschemaarray : *mut *mut WINBIO_STORAGE_SCHEMA, storagecount : *mut usize) -> ::windows::core::HRESULT);
     WinBioEnumDatabases(factor, storageschemaarray, storagecount).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioEnumEnrollments(sessionhandle: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactorarray: *mut *mut u8, subfactorcount: ::core::option::Option<*mut usize>) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioEnumEnrollments ( sessionhandle : u32 , unitid : u32 , identity : *const WINBIO_IDENTITY , subfactorarray : *mut *mut u8 , subfactorcount : *mut usize ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioEnumEnrollments(sessionhandle : u32, unitid : u32, identity : *const WINBIO_IDENTITY, subfactorarray : *mut *mut u8, subfactorcount : *mut usize) -> ::windows::core::HRESULT);
     WinBioEnumEnrollments(sessionhandle, unitid, identity, subfactorarray, ::core::mem::transmute(subfactorcount.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioEnumServiceProviders(factor: u32, bspschemaarray: *mut *mut WINBIO_BSP_SCHEMA, bspcount: *mut usize) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioEnumServiceProviders ( factor : u32 , bspschemaarray : *mut *mut WINBIO_BSP_SCHEMA , bspcount : *mut usize ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioEnumServiceProviders(factor : u32, bspschemaarray : *mut *mut WINBIO_BSP_SCHEMA, bspcount : *mut usize) -> ::windows::core::HRESULT);
     WinBioEnumServiceProviders(factor, bspschemaarray, bspcount).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioFree(address: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioFree ( address : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioFree(address : *const ::core::ffi::c_void) -> ::windows::core::HRESULT);
     WinBioFree(address).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioGetCredentialState(identity: WINBIO_IDENTITY, r#type: WINBIO_CREDENTIAL_TYPE) -> ::windows::core::Result<WINBIO_CREDENTIAL_STATE> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioGetCredentialState ( identity : WINBIO_IDENTITY , r#type : WINBIO_CREDENTIAL_TYPE , credentialstate : *mut WINBIO_CREDENTIAL_STATE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioGetCredentialState(identity : WINBIO_IDENTITY, r#type : WINBIO_CREDENTIAL_TYPE, credentialstate : *mut WINBIO_CREDENTIAL_STATE) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<WINBIO_CREDENTIAL_STATE>();
     WinBioGetCredentialState(::core::mem::transmute(identity), r#type, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioGetDomainLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE) {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioGetDomainLogonSetting ( value : *mut u8 , source : *mut WINBIO_SETTING_SOURCE ) -> ( ) );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioGetDomainLogonSetting(value : *mut u8, source : *mut WINBIO_SETTING_SOURCE) -> ());
     WinBioGetDomainLogonSetting(value, source)
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioGetEnabledSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE) {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioGetEnabledSetting ( value : *mut u8 , source : *mut WINBIO_SETTING_SOURCE ) -> ( ) );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioGetEnabledSetting(value : *mut u8, source : *mut WINBIO_SETTING_SOURCE) -> ());
     WinBioGetEnabledSetting(value, source)
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioGetEnrolledFactors(accountowner: *const WINBIO_IDENTITY) -> ::windows::core::Result<u32> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioGetEnrolledFactors ( accountowner : *const WINBIO_IDENTITY , enrolledfactors : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioGetEnrolledFactors(accountowner : *const WINBIO_IDENTITY, enrolledfactors : *mut u32) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<u32>();
     WinBioGetEnrolledFactors(accountowner, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioGetLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE) {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioGetLogonSetting ( value : *mut u8 , source : *mut WINBIO_SETTING_SOURCE ) -> ( ) );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioGetLogonSetting(value : *mut u8, source : *mut WINBIO_SETTING_SOURCE) -> ());
     WinBioGetLogonSetting(value, source)
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioGetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: ::core::option::Option<*const WINBIO_IDENTITY>, subfactor: u8, propertybuffer: *mut *mut ::core::ffi::c_void, propertybuffersize: ::core::option::Option<*mut usize>) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioGetProperty ( sessionhandle : u32 , propertytype : u32 , propertyid : u32 , unitid : u32 , identity : *const WINBIO_IDENTITY , subfactor : u8 , propertybuffer : *mut *mut ::core::ffi::c_void , propertybuffersize : *mut usize ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioGetProperty(sessionhandle : u32, propertytype : u32, propertyid : u32, unitid : u32, identity : *const WINBIO_IDENTITY, subfactor : u8, propertybuffer : *mut *mut ::core::ffi::c_void, propertybuffersize : *mut usize) -> ::windows::core::HRESULT);
     WinBioGetProperty(sessionhandle, propertytype, propertyid, unitid, ::core::mem::transmute(identity.unwrap_or(::std::ptr::null())), subfactor, propertybuffer, ::core::mem::transmute(propertybuffersize.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioIdentify(sessionhandle: u32, unitid: ::core::option::Option<*mut u32>, identity: ::core::option::Option<*mut WINBIO_IDENTITY>, subfactor: ::core::option::Option<*mut u8>, rejectdetail: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioIdentify ( sessionhandle : u32 , unitid : *mut u32 , identity : *mut WINBIO_IDENTITY , subfactor : *mut u8 , rejectdetail : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioIdentify(sessionhandle : u32, unitid : *mut u32, identity : *mut WINBIO_IDENTITY, subfactor : *mut u8, rejectdetail : *mut u32) -> ::windows::core::HRESULT);
     WinBioIdentify(sessionhandle, ::core::mem::transmute(unitid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(identity.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(subfactor.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(rejectdetail.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioIdentifyWithCallback(sessionhandle: u32, identifycallback: PWINBIO_IDENTIFY_CALLBACK, identifycallbackcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioIdentifyWithCallback ( sessionhandle : u32 , identifycallback : PWINBIO_IDENTIFY_CALLBACK , identifycallbackcontext : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioIdentifyWithCallback(sessionhandle : u32, identifycallback : PWINBIO_IDENTIFY_CALLBACK, identifycallbackcontext : *const ::core::ffi::c_void) -> ::windows::core::HRESULT);
     WinBioIdentifyWithCallback(sessionhandle, identifycallback, ::core::mem::transmute(identifycallbackcontext.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioImproveBegin(sessionhandle: u32, unitid: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioImproveBegin ( sessionhandle : u32 , unitid : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioImproveBegin(sessionhandle : u32, unitid : u32) -> ::windows::core::HRESULT);
     WinBioImproveBegin(sessionhandle, unitid).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioImproveEnd(sessionhandle: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioImproveEnd ( sessionhandle : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioImproveEnd(sessionhandle : u32) -> ::windows::core::HRESULT);
     WinBioImproveEnd(sessionhandle).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioLocateSensor(sessionhandle: u32, unitid: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioLocateSensor ( sessionhandle : u32 , unitid : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioLocateSensor(sessionhandle : u32, unitid : *mut u32) -> ::windows::core::HRESULT);
     WinBioLocateSensor(sessionhandle, ::core::mem::transmute(unitid.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioLocateSensorWithCallback(sessionhandle: u32, locatecallback: PWINBIO_LOCATE_SENSOR_CALLBACK, locatecallbackcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioLocateSensorWithCallback ( sessionhandle : u32 , locatecallback : PWINBIO_LOCATE_SENSOR_CALLBACK , locatecallbackcontext : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioLocateSensorWithCallback(sessionhandle : u32, locatecallback : PWINBIO_LOCATE_SENSOR_CALLBACK, locatecallbackcontext : *const ::core::ffi::c_void) -> ::windows::core::HRESULT);
     WinBioLocateSensorWithCallback(sessionhandle, locatecallback, ::core::mem::transmute(locatecallbackcontext.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioLockUnit(sessionhandle: u32, unitid: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioLockUnit ( sessionhandle : u32 , unitid : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioLockUnit(sessionhandle : u32, unitid : u32) -> ::windows::core::HRESULT);
     WinBioLockUnit(sessionhandle, unitid).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioLogonIdentifiedUser(sessionhandle: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioLogonIdentifiedUser ( sessionhandle : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioLogonIdentifiedUser(sessionhandle : u32) -> ::windows::core::HRESULT);
     WinBioLogonIdentifiedUser(sessionhandle).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioMonitorPresence(sessionhandle: u32, unitid: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioMonitorPresence ( sessionhandle : u32 , unitid : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioMonitorPresence(sessionhandle : u32, unitid : u32) -> ::windows::core::HRESULT);
     WinBioMonitorPresence(sessionhandle, unitid).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: ::core::option::Option<&[u32]>, databaseid: ::core::option::Option<*const ::windows::core::GUID>) -> ::windows::core::Result<u32> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioOpenSession ( factor : u32 , pooltype : WINBIO_POOL , flags : u32 , unitarray : *const u32 , unitcount : usize , databaseid : *const ::windows::core::GUID , sessionhandle : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioOpenSession(factor : u32, pooltype : WINBIO_POOL, flags : u32, unitarray : *const u32, unitcount : usize, databaseid : *const ::windows::core::GUID, sessionhandle : *mut u32) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<u32>();
     WinBioOpenSession(factor, pooltype, flags, ::core::mem::transmute(unitarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), unitarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(databaseid.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioRegisterEventMonitor(sessionhandle: u32, eventmask: u32, eventcallback: PWINBIO_EVENT_CALLBACK, eventcallbackcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioRegisterEventMonitor ( sessionhandle : u32 , eventmask : u32 , eventcallback : PWINBIO_EVENT_CALLBACK , eventcallbackcontext : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioRegisterEventMonitor(sessionhandle : u32, eventmask : u32, eventcallback : PWINBIO_EVENT_CALLBACK, eventcallbackcontext : *const ::core::ffi::c_void) -> ::windows::core::HRESULT);
     WinBioRegisterEventMonitor(sessionhandle, eventmask, eventcallback, ::core::mem::transmute(eventcallbackcontext.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioReleaseFocus() -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioReleaseFocus ( ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioReleaseFocus() -> ::windows::core::HRESULT);
     WinBioReleaseFocus().ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioRemoveAllCredentials() -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioRemoveAllCredentials ( ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioRemoveAllCredentials() -> ::windows::core::HRESULT);
     WinBioRemoveAllCredentials().ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioRemoveAllDomainCredentials() -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioRemoveAllDomainCredentials ( ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioRemoveAllDomainCredentials() -> ::windows::core::HRESULT);
     WinBioRemoveAllDomainCredentials().ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioRemoveCredential(identity: WINBIO_IDENTITY, r#type: WINBIO_CREDENTIAL_TYPE) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioRemoveCredential ( identity : WINBIO_IDENTITY , r#type : WINBIO_CREDENTIAL_TYPE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioRemoveCredential(identity : WINBIO_IDENTITY, r#type : WINBIO_CREDENTIAL_TYPE) -> ::windows::core::HRESULT);
     WinBioRemoveCredential(::core::mem::transmute(identity), r#type).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioSetCredential(r#type: WINBIO_CREDENTIAL_TYPE, credential: &[u8], format: WINBIO_CREDENTIAL_FORMAT) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioSetCredential ( r#type : WINBIO_CREDENTIAL_TYPE , credential : *const u8 , credentialsize : usize , format : WINBIO_CREDENTIAL_FORMAT ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioSetCredential(r#type : WINBIO_CREDENTIAL_TYPE, credential : *const u8, credentialsize : usize, format : WINBIO_CREDENTIAL_FORMAT) -> ::windows::core::HRESULT);
     WinBioSetCredential(r#type, ::core::mem::transmute(credential.as_ptr()), credential.len() as _, format).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioSetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: ::core::option::Option<*const WINBIO_IDENTITY>, subfactor: u8, propertybuffer: *const ::core::ffi::c_void, propertybuffersize: usize) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioSetProperty ( sessionhandle : u32 , propertytype : u32 , propertyid : u32 , unitid : u32 , identity : *const WINBIO_IDENTITY , subfactor : u8 , propertybuffer : *const ::core::ffi::c_void , propertybuffersize : usize ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioSetProperty(sessionhandle : u32, propertytype : u32, propertyid : u32, unitid : u32, identity : *const WINBIO_IDENTITY, subfactor : u8, propertybuffer : *const ::core::ffi::c_void, propertybuffersize : usize) -> ::windows::core::HRESULT);
     WinBioSetProperty(sessionhandle, propertytype, propertyid, unitid, ::core::mem::transmute(identity.unwrap_or(::std::ptr::null())), subfactor, propertybuffer, propertybuffersize).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioUnlockUnit(sessionhandle: u32, unitid: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioUnlockUnit ( sessionhandle : u32 , unitid : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioUnlockUnit(sessionhandle : u32, unitid : u32) -> ::windows::core::HRESULT);
     WinBioUnlockUnit(sessionhandle, unitid).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioUnregisterEventMonitor(sessionhandle: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioUnregisterEventMonitor ( sessionhandle : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioUnregisterEventMonitor(sessionhandle : u32) -> ::windows::core::HRESULT);
     WinBioUnregisterEventMonitor(sessionhandle).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioVerify(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, unitid: ::core::option::Option<*mut u32>, r#match: ::core::option::Option<*mut u8>, rejectdetail: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioVerify ( sessionhandle : u32 , identity : *const WINBIO_IDENTITY , subfactor : u8 , unitid : *mut u32 , r#match : *mut u8 , rejectdetail : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioVerify(sessionhandle : u32, identity : *const WINBIO_IDENTITY, subfactor : u8, unitid : *mut u32, r#match : *mut u8, rejectdetail : *mut u32) -> ::windows::core::HRESULT);
     WinBioVerify(sessionhandle, identity, subfactor, ::core::mem::transmute(unitid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(r#match.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(rejectdetail.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinBioVerifyWithCallback(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, verifycallback: PWINBIO_VERIFY_CALLBACK, verifycallbackcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioVerifyWithCallback ( sessionhandle : u32 , identity : *const WINBIO_IDENTITY , subfactor : u8 , verifycallback : PWINBIO_VERIFY_CALLBACK , verifycallbackcontext : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioVerifyWithCallback(sessionhandle : u32, identity : *const WINBIO_IDENTITY, subfactor : u8, verifycallback : PWINBIO_VERIFY_CALLBACK, verifycallbackcontext : *const ::core::ffi::c_void) -> ::windows::core::HRESULT);
     WinBioVerifyWithCallback(sessionhandle, identity, subfactor, verifycallback, ::core::mem::transmute(verifycallbackcontext.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]
 pub unsafe fn WinBioWait(sessionhandle: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "winbio.dll""system" fn WinBioWait ( sessionhandle : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winbio.dll" "system" fn WinBioWait(sessionhandle : u32) -> ::windows::core::HRESULT);
     WinBioWait(sessionhandle).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]

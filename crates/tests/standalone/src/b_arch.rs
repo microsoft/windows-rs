@@ -48,7 +48,7 @@ impl ::core::clone::Clone for WSADATA {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_targets::link ! ( "user32.dll""system"  fn GetWindowLongPtrW ( hwnd : HWND , nindex : WINDOW_LONG_PTR_INDEX ) -> isize );
+::windows_targets::link!("user32.dll" "system" fn GetWindowLongPtrW(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX) -> isize);
 pub type WINDOW_LONG_PTR_INDEX = i32;
 pub const GWL_EXSTYLE: WINDOW_LONG_PTR_INDEX = -20i32;
 pub const GWLP_HINSTANCE: WINDOW_LONG_PTR_INDEX = -6i32;

@@ -5,7 +5,7 @@ pub unsafe fn CloseGestureInfoHandle<P0>(hgestureinfo: P0) -> super::super::supe
 where
     P0: ::windows::core::IntoParam<HGESTUREINFO>,
 {
-    ::windows_targets::link ! ( "user32.dll""system" fn CloseGestureInfoHandle ( hgestureinfo : HGESTUREINFO ) -> super::super::super::Foundation:: BOOL );
+    ::windows_targets::link!("user32.dll" "system" fn CloseGestureInfoHandle(hgestureinfo : HGESTUREINFO) -> super::super::super::Foundation:: BOOL);
     CloseGestureInfoHandle(hgestureinfo.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
@@ -15,7 +15,7 @@ pub unsafe fn CloseTouchInputHandle<P0>(htouchinput: P0) -> super::super::super:
 where
     P0: ::windows::core::IntoParam<HTOUCHINPUT>,
 {
-    ::windows_targets::link ! ( "user32.dll""system" fn CloseTouchInputHandle ( htouchinput : HTOUCHINPUT ) -> super::super::super::Foundation:: BOOL );
+    ::windows_targets::link!("user32.dll" "system" fn CloseTouchInputHandle(htouchinput : HTOUCHINPUT) -> super::super::super::Foundation:: BOOL);
     CloseTouchInputHandle(htouchinput.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
@@ -25,7 +25,7 @@ pub unsafe fn GetGestureConfig<P0>(hwnd: P0, dwreserved: u32, dwflags: u32, pcid
 where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
 {
-    ::windows_targets::link ! ( "user32.dll""system" fn GetGestureConfig ( hwnd : super::super::super::Foundation:: HWND , dwreserved : u32 , dwflags : u32 , pcids : *const u32 , pgestureconfig : *mut GESTURECONFIG , cbsize : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows_targets::link!("user32.dll" "system" fn GetGestureConfig(hwnd : super::super::super::Foundation:: HWND, dwreserved : u32, dwflags : u32, pcids : *const u32, pgestureconfig : *mut GESTURECONFIG, cbsize : u32) -> super::super::super::Foundation:: BOOL);
     GetGestureConfig(hwnd.into_param().abi(), dwreserved, dwflags, pcids, pgestureconfig, cbsize)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
@@ -35,7 +35,7 @@ pub unsafe fn GetGestureExtraArgs<P0>(hgestureinfo: P0, pextraargs: &mut [u8]) -
 where
     P0: ::windows::core::IntoParam<HGESTUREINFO>,
 {
-    ::windows_targets::link ! ( "user32.dll""system" fn GetGestureExtraArgs ( hgestureinfo : HGESTUREINFO , cbextraargs : u32 , pextraargs : *mut u8 ) -> super::super::super::Foundation:: BOOL );
+    ::windows_targets::link!("user32.dll" "system" fn GetGestureExtraArgs(hgestureinfo : HGESTUREINFO, cbextraargs : u32, pextraargs : *mut u8) -> super::super::super::Foundation:: BOOL);
     GetGestureExtraArgs(hgestureinfo.into_param().abi(), pextraargs.len() as _, ::core::mem::transmute(pextraargs.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
@@ -45,7 +45,7 @@ pub unsafe fn GetGestureInfo<P0>(hgestureinfo: P0, pgestureinfo: *mut GESTUREINF
 where
     P0: ::windows::core::IntoParam<HGESTUREINFO>,
 {
-    ::windows_targets::link ! ( "user32.dll""system" fn GetGestureInfo ( hgestureinfo : HGESTUREINFO , pgestureinfo : *mut GESTUREINFO ) -> super::super::super::Foundation:: BOOL );
+    ::windows_targets::link!("user32.dll" "system" fn GetGestureInfo(hgestureinfo : HGESTUREINFO, pgestureinfo : *mut GESTUREINFO) -> super::super::super::Foundation:: BOOL);
     GetGestureInfo(hgestureinfo.into_param().abi(), pgestureinfo)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
@@ -55,7 +55,7 @@ pub unsafe fn GetTouchInputInfo<P0>(htouchinput: P0, pinputs: &mut [TOUCHINPUT],
 where
     P0: ::windows::core::IntoParam<HTOUCHINPUT>,
 {
-    ::windows_targets::link ! ( "user32.dll""system" fn GetTouchInputInfo ( htouchinput : HTOUCHINPUT , cinputs : u32 , pinputs : *mut TOUCHINPUT , cbsize : i32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows_targets::link!("user32.dll" "system" fn GetTouchInputInfo(htouchinput : HTOUCHINPUT, cinputs : u32, pinputs : *mut TOUCHINPUT, cbsize : i32) -> super::super::super::Foundation:: BOOL);
     GetTouchInputInfo(htouchinput.into_param().abi(), pinputs.len() as _, ::core::mem::transmute(pinputs.as_ptr()), cbsize)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
@@ -65,7 +65,7 @@ pub unsafe fn IsTouchWindow<P0>(hwnd: P0, pulflags: ::core::option::Option<*mut 
 where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
 {
-    ::windows_targets::link ! ( "user32.dll""system" fn IsTouchWindow ( hwnd : super::super::super::Foundation:: HWND , pulflags : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows_targets::link!("user32.dll" "system" fn IsTouchWindow(hwnd : super::super::super::Foundation:: HWND, pulflags : *mut u32) -> super::super::super::Foundation:: BOOL);
     IsTouchWindow(hwnd.into_param().abi(), ::core::mem::transmute(pulflags.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
@@ -75,7 +75,7 @@ pub unsafe fn RegisterTouchWindow<P0>(hwnd: P0, ulflags: REGISTER_TOUCH_WINDOW_F
 where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
 {
-    ::windows_targets::link ! ( "user32.dll""system" fn RegisterTouchWindow ( hwnd : super::super::super::Foundation:: HWND , ulflags : REGISTER_TOUCH_WINDOW_FLAGS ) -> super::super::super::Foundation:: BOOL );
+    ::windows_targets::link!("user32.dll" "system" fn RegisterTouchWindow(hwnd : super::super::super::Foundation:: HWND, ulflags : REGISTER_TOUCH_WINDOW_FLAGS) -> super::super::super::Foundation:: BOOL);
     RegisterTouchWindow(hwnd.into_param().abi(), ulflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
@@ -85,7 +85,7 @@ pub unsafe fn SetGestureConfig<P0>(hwnd: P0, dwreserved: u32, pgestureconfig: &[
 where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
 {
-    ::windows_targets::link ! ( "user32.dll""system" fn SetGestureConfig ( hwnd : super::super::super::Foundation:: HWND , dwreserved : u32 , cids : u32 , pgestureconfig : *const GESTURECONFIG , cbsize : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows_targets::link!("user32.dll" "system" fn SetGestureConfig(hwnd : super::super::super::Foundation:: HWND, dwreserved : u32, cids : u32, pgestureconfig : *const GESTURECONFIG, cbsize : u32) -> super::super::super::Foundation:: BOOL);
     SetGestureConfig(hwnd.into_param().abi(), dwreserved, pgestureconfig.len() as _, ::core::mem::transmute(pgestureconfig.as_ptr()), cbsize)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
@@ -95,7 +95,7 @@ pub unsafe fn UnregisterTouchWindow<P0>(hwnd: P0) -> super::super::super::Founda
 where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
 {
-    ::windows_targets::link ! ( "user32.dll""system" fn UnregisterTouchWindow ( hwnd : super::super::super::Foundation:: HWND ) -> super::super::super::Foundation:: BOOL );
+    ::windows_targets::link!("user32.dll" "system" fn UnregisterTouchWindow(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: BOOL);
     UnregisterTouchWindow(hwnd.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]

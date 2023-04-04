@@ -31,7 +31,7 @@ pub mod Storage;
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64) -> ::windows::core::Result<ServerInformation> {
-    ::windows_targets::link ! ( "ole32.dll""system" fn CoDecodeProxy ( dwclientpid : u32 , ui64proxyaddress : u64 , pserverinformation : *mut ServerInformation ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn CoDecodeProxy(dwclientpid : u32, ui64proxyaddress : u64, pserverinformation : *mut ServerInformation) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<ServerInformation>();
     CoDecodeProxy(dwclientpid, ui64proxyaddress, &mut result__).from_abi(result__)
 }
@@ -41,7 +41,7 @@ pub unsafe fn CreateControlInput<T>() -> ::windows::core::Result<T>
 where
     T: ::windows::core::ComInterface,
 {
-    ::windows_targets::link ! ( "windows.ui.dll""cdecl" fn CreateControlInput ( riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("windows.ui.dll" "cdecl" fn CreateControlInput(riid : *const ::windows::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
     CreateControlInput(&<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
@@ -52,7 +52,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     T: ::windows::core::ComInterface,
 {
-    ::windows_targets::link ! ( "windows.ui.dll""cdecl" fn CreateControlInputEx ( pcorewindow : * mut::core::ffi::c_void , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("windows.ui.dll" "cdecl" fn CreateControlInputEx(pcorewindow : * mut::core::ffi::c_void, riid : *const ::windows::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
     CreateControlInputEx(pcorewindow.into_param().abi(), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
@@ -60,7 +60,7 @@ where
 #[cfg(feature = "System")]
 #[inline]
 pub unsafe fn CreateDispatcherQueueController(options: DispatcherQueueOptions) -> ::windows::core::Result<super::super::super::System::DispatcherQueueController> {
-    ::windows_targets::link ! ( "coremessaging.dll""system" fn CreateDispatcherQueueController ( options : DispatcherQueueOptions , dispatcherqueuecontroller : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("coremessaging.dll" "system" fn CreateDispatcherQueueController(options : DispatcherQueueOptions, dispatcherqueuecontroller : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<super::super::super::System::DispatcherQueueController>();
     CreateDispatcherQueueController(::core::mem::transmute(options), &mut result__).from_abi(result__)
 }
@@ -71,7 +71,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     T: ::windows::core::ComInterface,
 {
-    ::windows_targets::link ! ( "api-ms-win-shcore-stream-winrt-l1-1-0.dll""system" fn CreateRandomAccessStreamOnFile ( filepath : ::windows::core::PCWSTR , accessmode : u32 , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-shcore-stream-winrt-l1-1-0.dll" "system" fn CreateRandomAccessStreamOnFile(filepath : ::windows::core::PCWSTR, accessmode : u32, riid : *const ::windows::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
     CreateRandomAccessStreamOnFile(filepath.into_param().abi(), accessmode, &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
@@ -83,7 +83,7 @@ where
     P0: ::windows::core::IntoParam<super::Com::IStream>,
     T: ::windows::core::ComInterface,
 {
-    ::windows_targets::link ! ( "api-ms-win-shcore-stream-winrt-l1-1-0.dll""system" fn CreateRandomAccessStreamOverStream ( stream : * mut::core::ffi::c_void , options : BSOS_OPTIONS , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-shcore-stream-winrt-l1-1-0.dll" "system" fn CreateRandomAccessStreamOverStream(stream : * mut::core::ffi::c_void, options : BSOS_OPTIONS, riid : *const ::windows::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
     CreateRandomAccessStreamOverStream(stream.into_param().abi(), options, &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
@@ -94,95 +94,95 @@ where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     T: ::windows::core::ComInterface,
 {
-    ::windows_targets::link ! ( "api-ms-win-shcore-stream-winrt-l1-1-0.dll""system" fn CreateStreamOverRandomAccessStream ( randomaccessstream : * mut::core::ffi::c_void , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-shcore-stream-winrt-l1-1-0.dll" "system" fn CreateStreamOverRandomAccessStream(randomaccessstream : * mut::core::ffi::c_void, riid : *const ::windows::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
     CreateStreamOverRandomAccessStream(randomaccessstream.into_param().abi(), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn GetRestrictedErrorInfo() -> ::windows::core::Result<IRestrictedErrorInfo> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-error-l1-1-0.dll""system" fn GetRestrictedErrorInfo ( pprestrictederrorinfo : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn GetRestrictedErrorInfo(pprestrictederrorinfo : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<IRestrictedErrorInfo>();
     GetRestrictedErrorInfo(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserFree(param0: *const u32, param1: *const ::windows::core::HSTRING) {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserFree ( param0 : *const u32 , param1 : *const ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> ( ) );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserFree(param0 : *const u32, param1 : *const ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> ());
     HSTRING_UserFree(param0, ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserFree64(param0: *const u32, param1: *const ::windows::core::HSTRING) {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserFree64 ( param0 : *const u32 , param1 : *const ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> ( ) );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserFree64(param0 : *const u32, param1 : *const ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> ());
     HSTRING_UserFree64(param0, ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const ::windows::core::HSTRING) -> *mut u8 {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserMarshal ( param0 : *const u32 , param1 : *mut u8 , param2 : *const ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> *mut u8 );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserMarshal(param0 : *const u32, param1 : *mut u8, param2 : *const ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> *mut u8);
     HSTRING_UserMarshal(param0, param1, ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const ::windows::core::HSTRING) -> *mut u8 {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserMarshal64 ( param0 : *const u32 , param1 : *mut u8 , param2 : *const ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> *mut u8 );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserMarshal64(param0 : *const u32, param1 : *mut u8, param2 : *const ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> *mut u8);
     HSTRING_UserMarshal64(param0, param1, ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserSize(param0: *const u32, param1: u32, param2: *const ::windows::core::HSTRING) -> u32 {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserSize ( param0 : *const u32 , param1 : u32 , param2 : *const ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> u32 );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserSize(param0 : *const u32, param1 : u32, param2 : *const ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> u32);
     HSTRING_UserSize(param0, param1, ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserSize64(param0: *const u32, param1: u32, param2: *const ::windows::core::HSTRING) -> u32 {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserSize64 ( param0 : *const u32 , param1 : u32 , param2 : *const ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> u32 );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserSize64(param0 : *const u32, param1 : u32, param2 : *const ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> u32);
     HSTRING_UserSize64(param0, param1, ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut ::windows::core::HSTRING) -> *mut u8 {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserUnmarshal ( param0 : *const u32 , param1 : *const u8 , param2 : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> *mut u8 );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> *mut u8);
     HSTRING_UserUnmarshal(param0, param1, ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut ::windows::core::HSTRING) -> *mut u8 {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserUnmarshal64 ( param0 : *const u32 , param1 : *const u8 , param2 : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> *mut u8 );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> *mut u8);
     HSTRING_UserUnmarshal64(param0, param1, ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsErrorPropagationEnabled() -> super::super::Foundation::BOOL {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-error-l1-1-1.dll""system" fn IsErrorPropagationEnabled ( ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn IsErrorPropagationEnabled() -> super::super::Foundation:: BOOL);
     IsErrorPropagationEnabled()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoActivateInstance(activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-l1-1-0.dll""system" fn RoActivateInstance ( activatableclassid : ::std::mem::MaybeUninit <::windows::core::HSTRING > , instance : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoActivateInstance(activatableclassid : ::std::mem::MaybeUninit <::windows::core::HSTRING >, instance : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<::windows::core::IInspectable>();
     RoActivateInstance(::core::mem::transmute_copy(activatableclassid), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoCaptureErrorContext(hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-error-l1-1-0.dll""system" fn RoCaptureErrorContext ( hr : ::windows::core::HRESULT ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoCaptureErrorContext(hr : ::windows::core::HRESULT) -> ::windows::core::HRESULT);
     RoCaptureErrorContext(hr).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoClearError() {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-error-l1-1-1.dll""system" fn RoClearError ( ) -> ( ) );
+    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoClearError() -> ());
     RoClearError()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoFailFastWithErrorContext(hrerror: ::windows::core::HRESULT) {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-error-l1-1-0.dll""system" fn RoFailFastWithErrorContext ( hrerror : ::windows::core::HRESULT ) -> ( ) );
+    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoFailFastWithErrorContext(hrerror : ::windows::core::HRESULT) -> ());
     RoFailFastWithErrorContext(hrerror)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -191,7 +191,7 @@ pub unsafe fn RoGetActivationFactory<T>(activatableclassid: &::windows::core::HS
 where
     T: ::windows::core::ComInterface,
 {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-l1-1-0.dll""system" fn RoGetActivationFactory ( activatableclassid : ::std::mem::MaybeUninit <::windows::core::HSTRING > , iid : *const ::windows::core::GUID , factory : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoGetActivationFactory(activatableclassid : ::std::mem::MaybeUninit <::windows::core::HSTRING >, iid : *const ::windows::core::GUID, factory : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
     RoGetActivationFactory(::core::mem::transmute_copy(activatableclassid), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
@@ -201,14 +201,14 @@ pub unsafe fn RoGetAgileReference<P0>(options: AgileReferenceOptions, riid: *con
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows_targets::link ! ( "ole32.dll""system" fn RoGetAgileReference ( options : AgileReferenceOptions , riid : *const ::windows::core::GUID , punk : * mut::core::ffi::c_void , ppagilereference : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("ole32.dll" "system" fn RoGetAgileReference(options : AgileReferenceOptions, riid : *const ::windows::core::GUID, punk : * mut::core::ffi::c_void, ppagilereference : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<IAgileReference>();
     RoGetAgileReference(options, riid, punk.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoGetApartmentIdentifier() -> ::windows::core::Result<u64> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-l1-1-0.dll""system" fn RoGetApartmentIdentifier ( apartmentidentifier : *mut u64 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoGetApartmentIdentifier(apartmentidentifier : *mut u64) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<u64>();
     RoGetApartmentIdentifier(&mut result__).from_abi(result__)
 }
@@ -216,46 +216,46 @@ pub unsafe fn RoGetApartmentIdentifier() -> ::windows::core::Result<u64> {
 #[cfg(feature = "Win32_System_Com_Marshal")]
 #[inline]
 pub unsafe fn RoGetBufferMarshaler() -> ::windows::core::Result<super::Com::Marshal::IMarshal> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-robuffer-l1-1-0.dll""system" fn RoGetBufferMarshaler ( buffermarshaler : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-robuffer-l1-1-0.dll" "system" fn RoGetBufferMarshaler(buffermarshaler : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<super::Com::Marshal::IMarshal>();
     RoGetBufferMarshaler(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoGetErrorReportingFlags() -> ::windows::core::Result<u32> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-error-l1-1-0.dll""system" fn RoGetErrorReportingFlags ( pflags : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoGetErrorReportingFlags(pflags : *mut u32) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<u32>();
     RoGetErrorReportingFlags(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoGetMatchingRestrictedErrorInfo(hrin: ::windows::core::HRESULT) -> ::windows::core::Result<IRestrictedErrorInfo> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-error-l1-1-1.dll""system" fn RoGetMatchingRestrictedErrorInfo ( hrin : ::windows::core::HRESULT , pprestrictederrorinfo : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoGetMatchingRestrictedErrorInfo(hrin : ::windows::core::HRESULT, pprestrictederrorinfo : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<IRestrictedErrorInfo>();
     RoGetMatchingRestrictedErrorInfo(hrin, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoGetServerActivatableClasses(servername: &::windows::core::HSTRING, activatableclassids: *mut *mut ::windows::core::HSTRING, count: *mut u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-registration-l1-1-0.dll""system" fn RoGetServerActivatableClasses ( servername : ::std::mem::MaybeUninit <::windows::core::HSTRING > , activatableclassids : *mut *mut ::windows::core::HSTRING , count : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-registration-l1-1-0.dll" "system" fn RoGetServerActivatableClasses(servername : ::std::mem::MaybeUninit <::windows::core::HSTRING >, activatableclassids : *mut *mut ::windows::core::HSTRING, count : *mut u32) -> ::windows::core::HRESULT);
     RoGetServerActivatableClasses(::core::mem::transmute_copy(servername), activatableclassids, count).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoInitialize(inittype: RO_INIT_TYPE) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-l1-1-0.dll""system" fn RoInitialize ( inittype : RO_INIT_TYPE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoInitialize(inittype : RO_INIT_TYPE) -> ::windows::core::HRESULT);
     RoInitialize(inittype).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress: usize, machine: u16, readmemorycallback: PINSPECT_MEMORY_CALLBACK, context: ::core::option::Option<*const ::core::ffi::c_void>, framecount: *mut u32, targetbacktraceaddress: *mut usize) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-error-l1-1-1.dll""system" fn RoInspectCapturedStackBackTrace ( targeterrorinfoaddress : usize , machine : u16 , readmemorycallback : PINSPECT_MEMORY_CALLBACK , context : *const ::core::ffi::c_void , framecount : *mut u32 , targetbacktraceaddress : *mut usize ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress : usize, machine : u16, readmemorycallback : PINSPECT_MEMORY_CALLBACK, context : *const ::core::ffi::c_void, framecount : *mut u32, targetbacktraceaddress : *mut usize) -> ::windows::core::HRESULT);
     RoInspectCapturedStackBackTrace(targeterrorinfoaddress, machine, readmemorycallback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), framecount, targetbacktraceaddress).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, readmemorycallback: PINSPECT_MEMORY_CALLBACK, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<usize> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-error-l1-1-1.dll""system" fn RoInspectThreadErrorInfo ( targettebaddress : usize , machine : u16 , readmemorycallback : PINSPECT_MEMORY_CALLBACK , context : *const ::core::ffi::c_void , targeterrorinfoaddress : *mut usize ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoInspectThreadErrorInfo(targettebaddress : usize, machine : u16, readmemorycallback : PINSPECT_MEMORY_CALLBACK, context : *const ::core::ffi::c_void, targeterrorinfoaddress : *mut usize) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<usize>();
     RoInspectThreadErrorInfo(targettebaddress, machine, readmemorycallback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
@@ -263,14 +263,14 @@ pub unsafe fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, re
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoOriginateError(error: ::windows::core::HRESULT, message: &::windows::core::HSTRING) -> super::super::Foundation::BOOL {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-error-l1-1-0.dll""system" fn RoOriginateError ( error : ::windows::core::HRESULT , message : ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoOriginateError(error : ::windows::core::HRESULT, message : ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> super::super::Foundation:: BOOL);
     RoOriginateError(error, ::core::mem::transmute_copy(message))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoOriginateErrorW(error: ::windows::core::HRESULT, cchmax: u32, message: ::core::option::Option<&[u16; 512]>) -> super::super::Foundation::BOOL {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-error-l1-1-0.dll""system" fn RoOriginateErrorW ( error : ::windows::core::HRESULT , cchmax : u32 , message : ::windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoOriginateErrorW(error : ::windows::core::HRESULT, cchmax : u32, message : ::windows::core::PCWSTR) -> super::super::Foundation:: BOOL);
     RoOriginateErrorW(error, cchmax, ::core::mem::transmute(message.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
@@ -280,13 +280,13 @@ pub unsafe fn RoOriginateLanguageException<P0>(error: ::windows::core::HRESULT, 
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-error-l1-1-1.dll""system" fn RoOriginateLanguageException ( error : ::windows::core::HRESULT , message : ::std::mem::MaybeUninit <::windows::core::HSTRING > , languageexception : * mut::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoOriginateLanguageException(error : ::windows::core::HRESULT, message : ::std::mem::MaybeUninit <::windows::core::HSTRING >, languageexception : * mut::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     RoOriginateLanguageException(error, ::core::mem::transmute_copy(message), languageexception.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const ::windows::core::HSTRING, activationfactorycallbacks: *const PFNGETACTIVATIONFACTORY, count: u32) -> ::windows::core::Result<isize> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-l1-1-0.dll""system" fn RoRegisterActivationFactories ( activatableclassids : *const ::std::mem::MaybeUninit <::windows::core::HSTRING > , activationfactorycallbacks : *const PFNGETACTIVATIONFACTORY , count : u32 , cookie : *mut isize ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRegisterActivationFactories(activatableclassids : *const ::std::mem::MaybeUninit <::windows::core::HSTRING >, activationfactorycallbacks : *const PFNGETACTIVATIONFACTORY, count : u32, cookie : *mut isize) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<isize>();
     RoRegisterActivationFactories(::core::mem::transmute(activatableclassids), activationfactorycallbacks, count, &mut result__).from_abi(result__)
 }
@@ -296,7 +296,7 @@ pub unsafe fn RoRegisterForApartmentShutdown<P0>(callbackobject: P0, apartmentid
 where
     P0: ::windows::core::IntoParam<IApartmentShutdown>,
 {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-l1-1-0.dll""system" fn RoRegisterForApartmentShutdown ( callbackobject : * mut::core::ffi::c_void , apartmentidentifier : *mut u64 , regcookie : *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRegisterForApartmentShutdown(callbackobject : * mut::core::ffi::c_void, apartmentidentifier : *mut u64, regcookie : *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> ::windows::core::HRESULT);
     RoRegisterForApartmentShutdown(callbackobject.into_param().abi(), apartmentidentifier, regcookie).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -306,7 +306,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     P1: ::windows::core::IntoParam<IRestrictedErrorInfo>,
 {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-error-l1-1-1.dll""system" fn RoReportFailedDelegate ( punkdelegate : * mut::core::ffi::c_void , prestrictederrorinfo : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoReportFailedDelegate(punkdelegate : * mut::core::ffi::c_void, prestrictederrorinfo : * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     RoReportFailedDelegate(punkdelegate.into_param().abi(), prestrictederrorinfo.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -315,7 +315,7 @@ pub unsafe fn RoReportUnhandledError<P0>(prestrictederrorinfo: P0) -> ::windows:
 where
     P0: ::windows::core::IntoParam<IRestrictedErrorInfo>,
 {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-error-l1-1-1.dll""system" fn RoReportUnhandledError ( prestrictederrorinfo : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoReportUnhandledError(prestrictederrorinfo : * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     RoReportUnhandledError(prestrictederrorinfo.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -324,40 +324,40 @@ pub unsafe fn RoResolveRestrictedErrorInfoReference<P0>(reference: P0) -> ::wind
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-error-l1-1-0.dll""system" fn RoResolveRestrictedErrorInfoReference ( reference : ::windows::core::PCWSTR , pprestrictederrorinfo : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoResolveRestrictedErrorInfoReference(reference : ::windows::core::PCWSTR, pprestrictederrorinfo : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<IRestrictedErrorInfo>();
     RoResolveRestrictedErrorInfoReference(reference.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoRevokeActivationFactories(cookie: isize) {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-l1-1-0.dll""system" fn RoRevokeActivationFactories ( cookie : isize ) -> ( ) );
+    ::windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRevokeActivationFactories(cookie : isize) -> ());
     RoRevokeActivationFactories(cookie)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoSetErrorReportingFlags(flags: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-error-l1-1-0.dll""system" fn RoSetErrorReportingFlags ( flags : u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoSetErrorReportingFlags(flags : u32) -> ::windows::core::HRESULT);
     RoSetErrorReportingFlags(flags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoTransformError(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, message: &::windows::core::HSTRING) -> super::super::Foundation::BOOL {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-error-l1-1-0.dll""system" fn RoTransformError ( olderror : ::windows::core::HRESULT , newerror : ::windows::core::HRESULT , message : ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoTransformError(olderror : ::windows::core::HRESULT, newerror : ::windows::core::HRESULT, message : ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> super::super::Foundation:: BOOL);
     RoTransformError(olderror, newerror, ::core::mem::transmute_copy(message))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoTransformErrorW(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, cchmax: u32, message: ::core::option::Option<&[u16; 512]>) -> super::super::Foundation::BOOL {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-error-l1-1-0.dll""system" fn RoTransformErrorW ( olderror : ::windows::core::HRESULT , newerror : ::windows::core::HRESULT , cchmax : u32 , message : ::windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoTransformErrorW(olderror : ::windows::core::HRESULT, newerror : ::windows::core::HRESULT, cchmax : u32, message : ::windows::core::PCWSTR) -> super::super::Foundation:: BOOL);
     RoTransformErrorW(olderror, newerror, cchmax, ::core::mem::transmute(message.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoUninitialize() {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-l1-1-0.dll""system" fn RoUninitialize ( ) -> ( ) );
+    ::windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoUninitialize() -> ());
     RoUninitialize()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -366,7 +366,7 @@ pub unsafe fn RoUnregisterForApartmentShutdown<P0>(regcookie: P0) -> ::windows::
 where
     P0: ::windows::core::IntoParam<APARTMENT_SHUTDOWN_REGISTRATION_COOKIE>,
 {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-l1-1-0.dll""system" fn RoUnregisterForApartmentShutdown ( regcookie : APARTMENT_SHUTDOWN_REGISTRATION_COOKIE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoUnregisterForApartmentShutdown(regcookie : APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> ::windows::core::HRESULT);
     RoUnregisterForApartmentShutdown(regcookie.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -375,27 +375,27 @@ pub unsafe fn SetRestrictedErrorInfo<P0>(prestrictederrorinfo: P0) -> ::windows:
 where
     P0: ::windows::core::IntoParam<IRestrictedErrorInfo>,
 {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-error-l1-1-0.dll""system" fn SetRestrictedErrorInfo ( prestrictederrorinfo : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn SetRestrictedErrorInfo(prestrictederrorinfo : * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     SetRestrictedErrorInfo(prestrictederrorinfo.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsCompareStringOrdinal(string1: &::windows::core::HSTRING, string2: &::windows::core::HSTRING) -> ::windows::core::Result<i32> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsCompareStringOrdinal ( string1 : ::std::mem::MaybeUninit <::windows::core::HSTRING > , string2 : ::std::mem::MaybeUninit <::windows::core::HSTRING > , result : *mut i32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCompareStringOrdinal(string1 : ::std::mem::MaybeUninit <::windows::core::HSTRING >, string2 : ::std::mem::MaybeUninit <::windows::core::HSTRING >, result : *mut i32) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<i32>();
     WindowsCompareStringOrdinal(::core::mem::transmute_copy(string1), ::core::mem::transmute_copy(string2), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsConcatString(string1: &::windows::core::HSTRING, string2: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsConcatString ( string1 : ::std::mem::MaybeUninit <::windows::core::HSTRING > , string2 : ::std::mem::MaybeUninit <::windows::core::HSTRING > , newstring : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsConcatString(string1 : ::std::mem::MaybeUninit <::windows::core::HSTRING >, string2 : ::std::mem::MaybeUninit <::windows::core::HSTRING >, newstring : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
     WindowsConcatString(::core::mem::transmute_copy(string1), ::core::mem::transmute_copy(string2), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsCreateString(sourcestring: ::core::option::Option<&[u16]>) -> ::windows::core::Result<::windows::core::HSTRING> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsCreateString ( sourcestring : ::windows::core::PCWSTR , length : u32 , string : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCreateString(sourcestring : ::windows::core::PCWSTR, length : u32, string : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
     WindowsCreateString(::core::mem::transmute(sourcestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), sourcestring.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
 }
@@ -405,13 +405,13 @@ pub unsafe fn WindowsCreateStringReference<P0>(sourcestring: P0, length: u32, hs
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsCreateStringReference ( sourcestring : ::windows::core::PCWSTR , length : u32 , hstringheader : *mut HSTRING_HEADER , string : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCreateStringReference(sourcestring : ::windows::core::PCWSTR, length : u32, hstringheader : *mut HSTRING_HEADER, string : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> ::windows::core::HRESULT);
     WindowsCreateStringReference(sourcestring.into_param().abi(), length, hstringheader, ::core::mem::transmute(string)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsDeleteString(string: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsDeleteString ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsDeleteString(string : ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> ::windows::core::HRESULT);
     WindowsDeleteString(::core::mem::transmute_copy(string)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -420,51 +420,51 @@ pub unsafe fn WindowsDeleteStringBuffer<P0>(bufferhandle: P0) -> ::windows::core
 where
     P0: ::windows::core::IntoParam<HSTRING_BUFFER>,
 {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsDeleteStringBuffer ( bufferhandle : HSTRING_BUFFER ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsDeleteStringBuffer(bufferhandle : HSTRING_BUFFER) -> ::windows::core::HRESULT);
     WindowsDeleteStringBuffer(bufferhandle.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsDuplicateString(string: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsDuplicateString ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > , newstring : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsDuplicateString(string : ::std::mem::MaybeUninit <::windows::core::HSTRING >, newstring : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
     WindowsDuplicateString(::core::mem::transmute_copy(string), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsGetStringLen(string: &::windows::core::HSTRING) -> u32 {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsGetStringLen ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> u32 );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsGetStringLen(string : ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> u32);
     WindowsGetStringLen(::core::mem::transmute_copy(string))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsGetStringRawBuffer(string: &::windows::core::HSTRING, length: ::core::option::Option<*mut u32>) -> ::windows::core::PCWSTR {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsGetStringRawBuffer ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > , length : *mut u32 ) -> ::windows::core::PCWSTR );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsGetStringRawBuffer(string : ::std::mem::MaybeUninit <::windows::core::HSTRING >, length : *mut u32) -> ::windows::core::PCWSTR);
     WindowsGetStringRawBuffer(::core::mem::transmute_copy(string), ::core::mem::transmute(length.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsInspectString(targethstring: usize, machine: u16, callback: PINSPECT_HSTRING_CALLBACK, context: ::core::option::Option<*const ::core::ffi::c_void>, length: *mut u32, targetstringaddress: *mut usize) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsInspectString ( targethstring : usize , machine : u16 , callback : PINSPECT_HSTRING_CALLBACK , context : *const ::core::ffi::c_void , length : *mut u32 , targetstringaddress : *mut usize ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsInspectString(targethstring : usize, machine : u16, callback : PINSPECT_HSTRING_CALLBACK, context : *const ::core::ffi::c_void, length : *mut u32, targetstringaddress : *mut usize) -> ::windows::core::HRESULT);
     WindowsInspectString(targethstring, machine, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), length, targetstringaddress).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsInspectString2(targethstring: u64, machine: u16, callback: PINSPECT_HSTRING_CALLBACK2, context: ::core::option::Option<*const ::core::ffi::c_void>, length: *mut u32, targetstringaddress: *mut u64) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-1.dll""system" fn WindowsInspectString2 ( targethstring : u64 , machine : u16 , callback : PINSPECT_HSTRING_CALLBACK2 , context : *const ::core::ffi::c_void , length : *mut u32 , targetstringaddress : *mut u64 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-1.dll" "system" fn WindowsInspectString2(targethstring : u64, machine : u16, callback : PINSPECT_HSTRING_CALLBACK2, context : *const ::core::ffi::c_void, length : *mut u32, targetstringaddress : *mut u64) -> ::windows::core::HRESULT);
     WindowsInspectString2(targethstring, machine, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), length, targetstringaddress).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WindowsIsStringEmpty(string: &::windows::core::HSTRING) -> super::super::Foundation::BOOL {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsIsStringEmpty ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> super::super::Foundation:: BOOL );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsIsStringEmpty(string : ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> super::super::Foundation:: BOOL);
     WindowsIsStringEmpty(::core::mem::transmute_copy(string))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsPreallocateStringBuffer(length: u32, charbuffer: *mut *mut u16, bufferhandle: *mut HSTRING_BUFFER) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsPreallocateStringBuffer ( length : u32 , charbuffer : *mut *mut u16 , bufferhandle : *mut HSTRING_BUFFER ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsPreallocateStringBuffer(length : u32, charbuffer : *mut *mut u16, bufferhandle : *mut HSTRING_BUFFER) -> ::windows::core::HRESULT);
     WindowsPreallocateStringBuffer(length, charbuffer, bufferhandle).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -473,14 +473,14 @@ pub unsafe fn WindowsPromoteStringBuffer<P0>(bufferhandle: P0) -> ::windows::cor
 where
     P0: ::windows::core::IntoParam<HSTRING_BUFFER>,
 {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsPromoteStringBuffer ( bufferhandle : HSTRING_BUFFER , string : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsPromoteStringBuffer(bufferhandle : HSTRING_BUFFER, string : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
     WindowsPromoteStringBuffer(bufferhandle.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsReplaceString(string: &::windows::core::HSTRING, stringreplaced: &::windows::core::HSTRING, stringreplacewith: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsReplaceString ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > , stringreplaced : ::std::mem::MaybeUninit <::windows::core::HSTRING > , stringreplacewith : ::std::mem::MaybeUninit <::windows::core::HSTRING > , newstring : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsReplaceString(string : ::std::mem::MaybeUninit <::windows::core::HSTRING >, stringreplaced : ::std::mem::MaybeUninit <::windows::core::HSTRING >, stringreplacewith : ::std::mem::MaybeUninit <::windows::core::HSTRING >, newstring : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
     WindowsReplaceString(::core::mem::transmute_copy(string), ::core::mem::transmute_copy(stringreplaced), ::core::mem::transmute_copy(stringreplacewith), &mut result__).from_abi(result__)
 }
@@ -488,35 +488,35 @@ pub unsafe fn WindowsReplaceString(string: &::windows::core::HSTRING, stringrepl
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WindowsStringHasEmbeddedNull(string: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsStringHasEmbeddedNull ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > , hasembednull : *mut super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsStringHasEmbeddedNull(string : ::std::mem::MaybeUninit <::windows::core::HSTRING >, hasembednull : *mut super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
     WindowsStringHasEmbeddedNull(::core::mem::transmute_copy(string), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsSubstring(string: &::windows::core::HSTRING, startindex: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsSubstring ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > , startindex : u32 , newstring : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsSubstring(string : ::std::mem::MaybeUninit <::windows::core::HSTRING >, startindex : u32, newstring : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
     WindowsSubstring(::core::mem::transmute_copy(string), startindex, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsSubstringWithSpecifiedLength(string: &::windows::core::HSTRING, startindex: u32, length: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsSubstringWithSpecifiedLength ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > , startindex : u32 , length : u32 , newstring : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsSubstringWithSpecifiedLength(string : ::std::mem::MaybeUninit <::windows::core::HSTRING >, startindex : u32, length : u32, newstring : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
     WindowsSubstringWithSpecifiedLength(::core::mem::transmute_copy(string), startindex, length, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsTrimStringEnd(string: &::windows::core::HSTRING, trimstring: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsTrimStringEnd ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > , trimstring : ::std::mem::MaybeUninit <::windows::core::HSTRING > , newstring : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsTrimStringEnd(string : ::std::mem::MaybeUninit <::windows::core::HSTRING >, trimstring : ::std::mem::MaybeUninit <::windows::core::HSTRING >, newstring : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
     WindowsTrimStringEnd(::core::mem::transmute_copy(string), ::core::mem::transmute_copy(trimstring), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsTrimStringStart(string: &::windows::core::HSTRING, trimstring: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
-    ::windows_targets::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsTrimStringStart ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > , trimstring : ::std::mem::MaybeUninit <::windows::core::HSTRING > , newstring : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsTrimStringStart(string : ::std::mem::MaybeUninit <::windows::core::HSTRING >, trimstring : ::std::mem::MaybeUninit <::windows::core::HSTRING >, newstring : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING >) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
     WindowsTrimStringStart(::core::mem::transmute_copy(string), ::core::mem::transmute_copy(trimstring), &mut result__).from_abi(result__)
 }

@@ -1,25 +1,25 @@
 #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`*"]
 #[inline]
 pub unsafe fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32 {
-    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlExtendCorrelationVector ( correlationvector : *mut CORRELATION_VECTOR ) -> u32 );
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlExtendCorrelationVector(correlationvector : *mut CORRELATION_VECTOR) -> u32);
     RtlExtendCorrelationVector(correlationvector)
 }
 #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`*"]
 #[inline]
 pub unsafe fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32 {
-    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlIncrementCorrelationVector ( correlationvector : *mut CORRELATION_VECTOR ) -> u32 );
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlIncrementCorrelationVector(correlationvector : *mut CORRELATION_VECTOR) -> u32);
     RtlIncrementCorrelationVector(correlationvector)
 }
 #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`*"]
 #[inline]
 pub unsafe fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: ::core::option::Option<*const ::windows::core::GUID>) -> u32 {
-    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlInitializeCorrelationVector ( correlationvector : *mut CORRELATION_VECTOR , version : i32 , guid : *const ::windows::core::GUID ) -> u32 );
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlInitializeCorrelationVector(correlationvector : *mut CORRELATION_VECTOR, version : i32, guid : *const ::windows::core::GUID) -> u32);
     RtlInitializeCorrelationVector(correlationvector, version, ::core::mem::transmute(guid.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`*"]
 #[inline]
 pub unsafe fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) -> u32 {
-    ::windows_targets::link ! ( "ntdll.dll""system" fn RtlValidateCorrelationVector ( vector : *const CORRELATION_VECTOR ) -> u32 );
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlValidateCorrelationVector(vector : *const CORRELATION_VECTOR) -> u32);
     RtlValidateCorrelationVector(vector)
 }
 #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`*"]

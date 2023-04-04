@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn CLRCreateInstance(clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn CLRCreateInstance ( clsid : *const ::windows::core::GUID , riid : *const ::windows::core::GUID , ppinterface : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn CLRCreateInstance(clsid : *const ::windows::core::GUID, riid : *const ::windows::core::GUID, ppinterface : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
     CLRCreateInstance(clsid, riid, ppinterface).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
@@ -12,7 +12,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn CallFunctionShim ( szdllname : ::windows::core::PCWSTR , szfunctionname : ::windows::core::PCSTR , lpvargument1 : *mut ::core::ffi::c_void , lpvargument2 : *mut ::core::ffi::c_void , szversion : ::windows::core::PCWSTR , pvreserved : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn CallFunctionShim(szdllname : ::windows::core::PCWSTR, szfunctionname : ::windows::core::PCSTR, lpvargument1 : *mut ::core::ffi::c_void, lpvargument2 : *mut ::core::ffi::c_void, szversion : ::windows::core::PCWSTR, pvreserved : *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
     CallFunctionShim(szdllname.into_param().abi(), szfunctionname.into_param().abi(), lpvargument1, lpvargument2, szversion.into_param().abi(), pvreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
@@ -21,7 +21,7 @@ pub unsafe fn ClrCreateManagedInstance<P0>(ptypename: P0, riid: *const ::windows
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn ClrCreateManagedInstance ( ptypename : ::windows::core::PCWSTR , riid : *const ::windows::core::GUID , ppobject : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn ClrCreateManagedInstance(ptypename : ::windows::core::PCWSTR, riid : *const ::windows::core::GUID, ppobject : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
     ClrCreateManagedInstance(ptypename.into_param().abi(), riid, ppobject).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
@@ -30,7 +30,7 @@ pub unsafe fn CorBindToCurrentRuntime<P0>(pwszfilename: P0, rclsid: *const ::win
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn CorBindToCurrentRuntime ( pwszfilename : ::windows::core::PCWSTR , rclsid : *const ::windows::core::GUID , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn CorBindToCurrentRuntime(pwszfilename : ::windows::core::PCWSTR, rclsid : *const ::windows::core::GUID, riid : *const ::windows::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
     CorBindToCurrentRuntime(pwszfilename.into_param().abi(), rclsid, riid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
@@ -40,7 +40,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn CorBindToRuntime ( pwszversion : ::windows::core::PCWSTR , pwszbuildflavor : ::windows::core::PCWSTR , rclsid : *const ::windows::core::GUID , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntime(pwszversion : ::windows::core::PCWSTR, pwszbuildflavor : ::windows::core::PCWSTR, rclsid : *const ::windows::core::GUID, riid : *const ::windows::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
     CorBindToRuntime(pwszversion.into_param().abi(), pwszbuildflavor.into_param().abi(), rclsid, riid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`, `\"Win32_System_Com\"`*"]
@@ -50,7 +50,7 @@ pub unsafe fn CorBindToRuntimeByCfg<P0>(pcfgstream: P0, reserved: u32, startupfl
 where
     P0: ::windows::core::IntoParam<super::Com::IStream>,
 {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn CorBindToRuntimeByCfg ( pcfgstream : * mut::core::ffi::c_void , reserved : u32 , startupflags : u32 , rclsid : *const ::windows::core::GUID , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntimeByCfg(pcfgstream : * mut::core::ffi::c_void, reserved : u32, startupflags : u32, rclsid : *const ::windows::core::GUID, riid : *const ::windows::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
     CorBindToRuntimeByCfg(pcfgstream.into_param().abi(), reserved, startupflags, rclsid, riid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
@@ -60,7 +60,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn CorBindToRuntimeEx ( pwszversion : ::windows::core::PCWSTR , pwszbuildflavor : ::windows::core::PCWSTR , startupflags : u32 , rclsid : *const ::windows::core::GUID , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntimeEx(pwszversion : ::windows::core::PCWSTR, pwszbuildflavor : ::windows::core::PCWSTR, startupflags : u32, rclsid : *const ::windows::core::GUID, riid : *const ::windows::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
     CorBindToRuntimeEx(pwszversion.into_param().abi(), pwszbuildflavor.into_param().abi(), startupflags, rclsid, riid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
@@ -71,13 +71,13 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn CorBindToRuntimeHost ( pwszversion : ::windows::core::PCWSTR , pwszbuildflavor : ::windows::core::PCWSTR , pwszhostconfigfile : ::windows::core::PCWSTR , preserved : *mut ::core::ffi::c_void , startupflags : u32 , rclsid : *const ::windows::core::GUID , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntimeHost(pwszversion : ::windows::core::PCWSTR, pwszbuildflavor : ::windows::core::PCWSTR, pwszhostconfigfile : ::windows::core::PCWSTR, preserved : *mut ::core::ffi::c_void, startupflags : u32, rclsid : *const ::windows::core::GUID, riid : *const ::windows::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
     CorBindToRuntimeHost(pwszversion.into_param().abi(), pwszbuildflavor.into_param().abi(), pwszhostconfigfile.into_param().abi(), preserved, startupflags, rclsid, riid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn CorExitProcess(exitcode: i32) {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn CorExitProcess ( exitcode : i32 ) -> ( ) );
+    ::windows_targets::link!("mscoree.dll" "system" fn CorExitProcess(exitcode : i32) -> ());
     CorExitProcess(exitcode)
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`, `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
@@ -87,13 +87,13 @@ pub unsafe fn CorLaunchApplication<P0>(dwclickoncehost: HOST_TYPE, pwzappfullnam
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn CorLaunchApplication ( dwclickoncehost : HOST_TYPE , pwzappfullname : ::windows::core::PCWSTR , dwmanifestpaths : u32 , ppwzmanifestpaths : *const ::windows::core::PCWSTR , dwactivationdata : u32 , ppwzactivationdata : *const ::windows::core::PCWSTR , lpprocessinformation : *mut super::Threading:: PROCESS_INFORMATION ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn CorLaunchApplication(dwclickoncehost : HOST_TYPE, pwzappfullname : ::windows::core::PCWSTR, dwmanifestpaths : u32, ppwzmanifestpaths : *const ::windows::core::PCWSTR, dwactivationdata : u32, ppwzactivationdata : *const ::windows::core::PCWSTR, lpprocessinformation : *mut super::Threading:: PROCESS_INFORMATION) -> ::windows::core::HRESULT);
     CorLaunchApplication(dwclickoncehost, pwzappfullname.into_param().abi(), dwmanifestpaths, ppwzmanifestpaths, dwactivationdata, ppwzactivationdata, lpprocessinformation).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn CorMarkThreadInThreadPool() {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn CorMarkThreadInThreadPool ( ) -> ( ) );
+    ::windows_targets::link!("mscoree.dll" "system" fn CorMarkThreadInThreadPool() -> ());
     CorMarkThreadInThreadPool()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
@@ -102,33 +102,33 @@ pub unsafe fn CreateDebuggingInterfaceFromVersion<P0>(idebuggerversion: i32, szd
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn CreateDebuggingInterfaceFromVersion ( idebuggerversion : i32 , szdebuggeeversion : ::windows::core::PCWSTR , ppcordb : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn CreateDebuggingInterfaceFromVersion(idebuggerversion : i32, szdebuggeeversion : ::windows::core::PCWSTR, ppcordb : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
     CreateDebuggingInterfaceFromVersion(idebuggerversion, szdebuggeeversion.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn GetCLRIdentityManager(riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn GetCLRIdentityManager ( riid : *const ::windows::core::GUID , ppmanager : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn GetCLRIdentityManager(riid : *const ::windows::core::GUID, ppmanager : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
     GetCLRIdentityManager(riid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn GetCORRequiredVersion(pbuffer: &mut [u16], dwlength: *mut u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn GetCORRequiredVersion ( pbuffer : ::windows::core::PWSTR , cchbuffer : u32 , dwlength : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn GetCORRequiredVersion(pbuffer : ::windows::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows::core::HRESULT);
     GetCORRequiredVersion(::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, dwlength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn GetCORSystemDirectory(pbuffer: &mut [u16], dwlength: *mut u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn GetCORSystemDirectory ( pbuffer : ::windows::core::PWSTR , cchbuffer : u32 , dwlength : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn GetCORSystemDirectory(pbuffer : ::windows::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows::core::HRESULT);
     GetCORSystemDirectory(::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, dwlength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn GetCORVersion(pbbuffer: &mut [u16], dwlength: *mut u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn GetCORVersion ( pbbuffer : ::windows::core::PWSTR , cchbuffer : u32 , dwlength : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn GetCORVersion(pbbuffer : ::windows::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows::core::HRESULT);
     GetCORVersion(::core::mem::transmute(pbbuffer.as_ptr()), pbbuffer.len() as _, dwlength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
@@ -137,7 +137,7 @@ pub unsafe fn GetFileVersion<P0>(szfilename: P0, szbuffer: ::core::option::Optio
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn GetFileVersion ( szfilename : ::windows::core::PCWSTR , szbuffer : ::windows::core::PWSTR , cchbuffer : u32 , dwlength : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn GetFileVersion(szfilename : ::windows::core::PCWSTR, szbuffer : ::windows::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows::core::HRESULT);
     GetFileVersion(szfilename.into_param().abi(), ::core::mem::transmute(szbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szbuffer.as_deref().map_or(0, |slice| slice.len() as _), dwlength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
@@ -146,7 +146,7 @@ pub unsafe fn GetRealProcAddress<P0>(pwszprocname: P0, ppv: *mut *mut ::core::ff
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn GetRealProcAddress ( pwszprocname : ::windows::core::PCSTR , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn GetRealProcAddress(pwszprocname : ::windows::core::PCSTR, ppv : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
     GetRealProcAddress(pwszprocname.into_param().abi(), ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
@@ -157,7 +157,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn GetRequestedRuntimeInfo ( pexe : ::windows::core::PCWSTR , pwszversion : ::windows::core::PCWSTR , pconfigurationfile : ::windows::core::PCWSTR , startupflags : u32 , runtimeinfoflags : u32 , pdirectory : ::windows::core::PWSTR , dwdirectory : u32 , dwdirectorylength : *mut u32 , pversion : ::windows::core::PWSTR , cchbuffer : u32 , dwlength : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn GetRequestedRuntimeInfo(pexe : ::windows::core::PCWSTR, pwszversion : ::windows::core::PCWSTR, pconfigurationfile : ::windows::core::PCWSTR, startupflags : u32, runtimeinfoflags : u32, pdirectory : ::windows::core::PWSTR, dwdirectory : u32, dwdirectorylength : *mut u32, pversion : ::windows::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows::core::HRESULT);
     GetRequestedRuntimeInfo(
         pexe.into_param().abi(),
         pwszversion.into_param().abi(),
@@ -179,13 +179,13 @@ pub unsafe fn GetRequestedRuntimeVersion<P0>(pexe: P0, pversion: &mut [u16], dwl
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn GetRequestedRuntimeVersion ( pexe : ::windows::core::PCWSTR , pversion : ::windows::core::PWSTR , cchbuffer : u32 , dwlength : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn GetRequestedRuntimeVersion(pexe : ::windows::core::PCWSTR, pversion : ::windows::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows::core::HRESULT);
     GetRequestedRuntimeVersion(pexe.into_param().abi(), ::core::mem::transmute(pversion.as_ptr()), pversion.len() as _, dwlength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn GetRequestedRuntimeVersionForCLSID(rclsid: *const ::windows::core::GUID, pversion: ::core::option::Option<&mut [u16]>, dwlength: ::core::option::Option<*mut u32>, dwresolutionflags: CLSID_RESOLUTION_FLAGS) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn GetRequestedRuntimeVersionForCLSID ( rclsid : *const ::windows::core::GUID , pversion : ::windows::core::PWSTR , cchbuffer : u32 , dwlength : *mut u32 , dwresolutionflags : CLSID_RESOLUTION_FLAGS ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn GetRequestedRuntimeVersionForCLSID(rclsid : *const ::windows::core::GUID, pversion : ::windows::core::PWSTR, cchbuffer : u32, dwlength : *mut u32, dwresolutionflags : CLSID_RESOLUTION_FLAGS) -> ::windows::core::HRESULT);
     GetRequestedRuntimeVersionForCLSID(rclsid, ::core::mem::transmute(pversion.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pversion.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(dwlength.unwrap_or(::std::ptr::null_mut())), dwresolutionflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`, `\"Win32_Foundation\"`*"]
@@ -195,7 +195,7 @@ pub unsafe fn GetVersionFromProcess<P0>(hprocess: P0, pversion: &mut [u16], dwle
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn GetVersionFromProcess ( hprocess : super::super::Foundation:: HANDLE , pversion : ::windows::core::PWSTR , cchbuffer : u32 , dwlength : *mut u32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn GetVersionFromProcess(hprocess : super::super::Foundation:: HANDLE, pversion : ::windows::core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows::core::HRESULT);
     GetVersionFromProcess(hprocess.into_param().abi(), ::core::mem::transmute(pversion.as_ptr()), pversion.len() as _, dwlength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`, `\"Win32_Foundation\"`*"]
@@ -206,25 +206,25 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn LoadLibraryShim ( szdllname : ::windows::core::PCWSTR , szversion : ::windows::core::PCWSTR , pvreserved : *mut ::core::ffi::c_void , phmoddll : *mut super::super::Foundation:: HMODULE ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn LoadLibraryShim(szdllname : ::windows::core::PCWSTR, szversion : ::windows::core::PCWSTR, pvreserved : *mut ::core::ffi::c_void, phmoddll : *mut super::super::Foundation:: HMODULE) -> ::windows::core::HRESULT);
     LoadLibraryShim(szdllname.into_param().abi(), szversion.into_param().abi(), pvreserved, phmoddll).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn LoadStringRC(iresouceid: u32, szbuffer: &mut [u16], bquiet: i32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn LoadStringRC ( iresouceid : u32 , szbuffer : ::windows::core::PWSTR , imax : i32 , bquiet : i32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn LoadStringRC(iresouceid : u32, szbuffer : ::windows::core::PWSTR, imax : i32, bquiet : i32) -> ::windows::core::HRESULT);
     LoadStringRC(iresouceid, ::core::mem::transmute(szbuffer.as_ptr()), szbuffer.len() as _, bquiet).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn LoadStringRCEx(lcid: u32, iresouceid: u32, szbuffer: &mut [u16], bquiet: i32, pcwchused: *mut i32) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn LoadStringRCEx ( lcid : u32 , iresouceid : u32 , szbuffer : ::windows::core::PWSTR , imax : i32 , bquiet : i32 , pcwchused : *mut i32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn LoadStringRCEx(lcid : u32, iresouceid : u32, szbuffer : ::windows::core::PWSTR, imax : i32, bquiet : i32, pcwchused : *mut i32) -> ::windows::core::HRESULT);
     LoadStringRCEx(lcid, iresouceid, ::core::mem::transmute(szbuffer.as_ptr()), szbuffer.len() as _, bquiet, pcwchused).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn LockClrVersion(hostcallback: FLockClrVersionCallback, pbeginhostsetup: *mut FLockClrVersionCallback, pendhostsetup: *mut FLockClrVersionCallback) -> ::windows::core::Result<()> {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn LockClrVersion ( hostcallback : FLockClrVersionCallback , pbeginhostsetup : *mut FLockClrVersionCallback , pendhostsetup : *mut FLockClrVersionCallback ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn LockClrVersion(hostcallback : FLockClrVersionCallback, pbeginhostsetup : *mut FLockClrVersionCallback, pendhostsetup : *mut FLockClrVersionCallback) -> ::windows::core::HRESULT);
     LockClrVersion(hostcallback, pbeginhostsetup, pendhostsetup).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`, `\"Win32_Foundation\"`*"]
@@ -236,7 +236,7 @@ where
     P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "mscoree.dll""system" fn RunDll32ShimW ( hwnd : super::super::Foundation:: HWND , hinst : super::super::Foundation:: HMODULE , lpszcmdline : ::windows::core::PCWSTR , ncmdshow : i32 ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mscoree.dll" "system" fn RunDll32ShimW(hwnd : super::super::Foundation:: HWND, hinst : super::super::Foundation:: HMODULE, lpszcmdline : ::windows::core::PCWSTR, ncmdshow : i32) -> ::windows::core::HRESULT);
     RunDll32ShimW(hwnd.into_param().abi(), hinst.into_param().abi(), lpszcmdline.into_param().abi(), ncmdshow).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]

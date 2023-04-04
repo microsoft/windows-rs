@@ -1,14 +1,14 @@
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[inline]
 pub unsafe fn MLCreateOperatorRegistry() -> ::windows::core::Result<IMLOperatorRegistry> {
-    ::windows_targets::link ! ( "windows.ai.machinelearning.dll""system" fn MLCreateOperatorRegistry ( registry : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("windows.ai.machinelearning.dll" "system" fn MLCreateOperatorRegistry(registry : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<IMLOperatorRegistry>();
     MLCreateOperatorRegistry(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[inline]
 pub unsafe fn WinMLCreateRuntime() -> ::windows::core::Result<IWinMLRuntime> {
-    ::windows_targets::link ! ( "winml.dll""system" fn WinMLCreateRuntime ( runtime : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("winml.dll" "system" fn WinMLCreateRuntime(runtime : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<IWinMLRuntime>();
     WinMLCreateRuntime(&mut result__).from_abi(result__)
 }

@@ -34,10 +34,33 @@ fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
         quote! { #name: #tokens }
     });
 
-    quote! {
-        #features
-        ::windows_targets::link!(#link #abi #doc fn #name(#(#params),*) #return_type);
+    let mut tokens = features;
+    tokens.combine(&gen_link(
+        &link,
+        abi,
+        doc.as_str(),
+        name.as_str(),
+        params,
+        return_type.as_str(),
+    ));
+    tokens
+}
+
+fn gen_link<P: IntoIterator<Item = TokenStream>>(
+    link: &str,
+    abi: &str,
+    doc: &str,
+    name: &str,
+    params: P,
+    return_type: &str,
+) -> TokenStream {
+    let return_type_space = if return_type.is_empty() { "" } else { " " };
+    let mut tokens = String::new();
+    for param in params {
+        tokens.push_str(&format!("{}, ", param.as_str()));
     }
+    let tokens = tokens.trim_end_matches(", ");
+    format!("::windows_targets::link!(\"{link}\" \"{abi}\"{doc} fn {name}({tokens}){return_type_space}{return_type});").into()
 }
 
 fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
@@ -84,9 +107,14 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
         }
 
         if gen.namespace.starts_with("Windows.") {
-            quote! {
-                ::windows_targets::link!(#link #extern_abi fn #name(#(#abi_params),*) #abi_return_type);
-            }
+            gen_link(
+                &link,
+                extern_abi,
+                "",
+                name.as_str(),
+                abi_params,
+                abi_return_type.as_str(),
+            )
         } else {
             let link = link.trim_end_matches(".dll");
             quote! {

@@ -7,7 +7,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows_targets::link ! ( "dssec.dll""system" fn DSCreateISecurityInfoObject ( pwszobjectpath : ::windows::core::PCWSTR , pwszobjectclass : ::windows::core::PCWSTR , dwflags : u32 , ppsi : *mut * mut::core::ffi::c_void , pfnreadsd : PFNREADOBJECTSECURITY , pfnwritesd : PFNWRITEOBJECTSECURITY , lpcontext : super::super::Foundation:: LPARAM ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("dssec.dll" "system" fn DSCreateISecurityInfoObject(pwszobjectpath : ::windows::core::PCWSTR, pwszobjectclass : ::windows::core::PCWSTR, dwflags : u32, ppsi : *mut * mut::core::ffi::c_void, pfnreadsd : PFNREADOBJECTSECURITY, pfnwritesd : PFNWRITEOBJECTSECURITY, lpcontext : super::super::Foundation:: LPARAM) -> ::windows::core::HRESULT);
     DSCreateISecurityInfoObject(pwszobjectpath.into_param().abi(), pwszobjectclass.into_param().abi(), dwflags, ::core::mem::transmute(ppsi), pfnreadsd, pfnwritesd, lpcontext.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DirectoryServices\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authorization_UI\"`*"]
@@ -22,7 +22,7 @@ where
     P4: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P5: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows_targets::link ! ( "dssec.dll""system" fn DSCreateISecurityInfoObjectEx ( pwszobjectpath : ::windows::core::PCWSTR , pwszobjectclass : ::windows::core::PCWSTR , pwszserver : ::windows::core::PCWSTR , pwszusername : ::windows::core::PCWSTR , pwszpassword : ::windows::core::PCWSTR , dwflags : u32 , ppsi : *mut * mut::core::ffi::c_void , pfnreadsd : PFNREADOBJECTSECURITY , pfnwritesd : PFNWRITEOBJECTSECURITY , lpcontext : super::super::Foundation:: LPARAM ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("dssec.dll" "system" fn DSCreateISecurityInfoObjectEx(pwszobjectpath : ::windows::core::PCWSTR, pwszobjectclass : ::windows::core::PCWSTR, pwszserver : ::windows::core::PCWSTR, pwszusername : ::windows::core::PCWSTR, pwszpassword : ::windows::core::PCWSTR, dwflags : u32, ppsi : *mut * mut::core::ffi::c_void, pfnreadsd : PFNREADOBJECTSECURITY, pfnwritesd : PFNWRITEOBJECTSECURITY, lpcontext : super::super::Foundation:: LPARAM) -> ::windows::core::HRESULT);
     DSCreateISecurityInfoObjectEx(pwszobjectpath.into_param().abi(), pwszobjectclass.into_param().abi(), pwszserver.into_param().abi(), pwszusername.into_param().abi(), pwszpassword.into_param().abi(), dwflags, ::core::mem::transmute(ppsi), pfnreadsd, pfnwritesd, lpcontext.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DirectoryServices\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
@@ -34,7 +34,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows_targets::link ! ( "dssec.dll""system" fn DSCreateSecurityPage ( pwszobjectpath : ::windows::core::PCWSTR , pwszobjectclass : ::windows::core::PCWSTR , dwflags : u32 , phpage : *mut super::super::UI::Controls:: HPROPSHEETPAGE , pfnreadsd : PFNREADOBJECTSECURITY , pfnwritesd : PFNWRITEOBJECTSECURITY , lpcontext : super::super::Foundation:: LPARAM ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("dssec.dll" "system" fn DSCreateSecurityPage(pwszobjectpath : ::windows::core::PCWSTR, pwszobjectclass : ::windows::core::PCWSTR, dwflags : u32, phpage : *mut super::super::UI::Controls:: HPROPSHEETPAGE, pfnreadsd : PFNREADOBJECTSECURITY, pfnwritesd : PFNWRITEOBJECTSECURITY, lpcontext : super::super::Foundation:: LPARAM) -> ::windows::core::HRESULT);
     DSCreateSecurityPage(pwszobjectpath.into_param().abi(), pwszobjectclass.into_param().abi(), dwflags, phpage, pfnreadsd, pfnwritesd, lpcontext.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DirectoryServices\"`, `\"Win32_Foundation\"`*"]
@@ -48,7 +48,7 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P4: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows_targets::link ! ( "dssec.dll""system" fn DSEditSecurity ( hwndowner : super::super::Foundation:: HWND , pwszobjectpath : ::windows::core::PCWSTR , pwszobjectclass : ::windows::core::PCWSTR , dwflags : u32 , pwszcaption : ::windows::core::PCWSTR , pfnreadsd : PFNREADOBJECTSECURITY , pfnwritesd : PFNWRITEOBJECTSECURITY , lpcontext : super::super::Foundation:: LPARAM ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("dssec.dll" "system" fn DSEditSecurity(hwndowner : super::super::Foundation:: HWND, pwszobjectpath : ::windows::core::PCWSTR, pwszobjectclass : ::windows::core::PCWSTR, dwflags : u32, pwszcaption : ::windows::core::PCWSTR, pfnreadsd : PFNREADOBJECTSECURITY, pfnwritesd : PFNWRITEOBJECTSECURITY, lpcontext : super::super::Foundation:: LPARAM) -> ::windows::core::HRESULT);
     DSEditSecurity(hwndowner.into_param().abi(), pwszobjectpath.into_param().abi(), pwszobjectclass.into_param().abi(), dwflags, pwszcaption.into_param().abi(), pfnreadsd, pfnwritesd, lpcontext.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DirectoryServices\"`*"]

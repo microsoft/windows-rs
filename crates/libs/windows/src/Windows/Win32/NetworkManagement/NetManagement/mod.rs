@@ -4,7 +4,7 @@ pub unsafe fn GetNetScheduleAccountInformation<P0>(pwszservername: P0, wszaccoun
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "mstask.dll""system" fn GetNetScheduleAccountInformation ( pwszservername : ::windows::core::PCWSTR , ccaccount : u32 , wszaccount : ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mstask.dll" "system" fn GetNetScheduleAccountInformation(pwszservername : ::windows::core::PCWSTR, ccaccount : u32, wszaccount : ::windows::core::PWSTR) -> ::windows::core::HRESULT);
     GetNetScheduleAccountInformation(pwszservername.into_param().abi(), wszaccount.len() as _, ::core::mem::transmute(wszaccount.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -13,43 +13,43 @@ pub unsafe fn I_NetLogonControl2<P0>(servername: P0, functioncode: u32, querylev
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn I_NetLogonControl2 ( servername : ::windows::core::PCWSTR , functioncode : u32 , querylevel : u32 , data : *const u8 , buffer : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn I_NetLogonControl2(servername : ::windows::core::PCWSTR, functioncode : u32, querylevel : u32, data : *const u8, buffer : *mut *mut u8) -> u32);
     I_NetLogonControl2(servername.into_param().abi(), functioncode, querylevel, data, buffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn LogErrorA(dwmessageid: u32, plpwssubstrings: &[::windows::core::PCSTR], dwerrorcode: u32) {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn LogErrorA ( dwmessageid : u32 , cnumberofsubstrings : u32 , plpwssubstrings : *const ::windows::core::PCSTR , dwerrorcode : u32 ) -> ( ) );
+    ::windows_targets::link!("rtutils.dll" "system" fn LogErrorA(dwmessageid : u32, cnumberofsubstrings : u32, plpwssubstrings : *const ::windows::core::PCSTR, dwerrorcode : u32) -> ());
     LogErrorA(dwmessageid, plpwssubstrings.len() as _, ::core::mem::transmute(plpwssubstrings.as_ptr()), dwerrorcode)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn LogErrorW(dwmessageid: u32, plpwssubstrings: &[::windows::core::PCWSTR], dwerrorcode: u32) {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn LogErrorW ( dwmessageid : u32 , cnumberofsubstrings : u32 , plpwssubstrings : *const ::windows::core::PCWSTR , dwerrorcode : u32 ) -> ( ) );
+    ::windows_targets::link!("rtutils.dll" "system" fn LogErrorW(dwmessageid : u32, cnumberofsubstrings : u32, plpwssubstrings : *const ::windows::core::PCWSTR, dwerrorcode : u32) -> ());
     LogErrorW(dwmessageid, plpwssubstrings.len() as _, ::core::mem::transmute(plpwssubstrings.as_ptr()), dwerrorcode)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn LogEventA(weventtype: u32, dwmessageid: u32, plpwssubstrings: &[::windows::core::PCSTR]) {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn LogEventA ( weventtype : u32 , dwmessageid : u32 , cnumberofsubstrings : u32 , plpwssubstrings : *const ::windows::core::PCSTR ) -> ( ) );
+    ::windows_targets::link!("rtutils.dll" "system" fn LogEventA(weventtype : u32, dwmessageid : u32, cnumberofsubstrings : u32, plpwssubstrings : *const ::windows::core::PCSTR) -> ());
     LogEventA(weventtype, dwmessageid, plpwssubstrings.len() as _, ::core::mem::transmute(plpwssubstrings.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn LogEventW(weventtype: u32, dwmessageid: u32, plpwssubstrings: &[::windows::core::PCWSTR]) {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn LogEventW ( weventtype : u32 , dwmessageid : u32 , cnumberofsubstrings : u32 , plpwssubstrings : *const ::windows::core::PCWSTR ) -> ( ) );
+    ::windows_targets::link!("rtutils.dll" "system" fn LogEventW(weventtype : u32, dwmessageid : u32, cnumberofsubstrings : u32, plpwssubstrings : *const ::windows::core::PCWSTR) -> ());
     LogEventW(weventtype, dwmessageid, plpwssubstrings.len() as _, ::core::mem::transmute(plpwssubstrings.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn MprSetupProtocolEnum(dwtransportid: u32, lplpbuffer: *mut *mut u8, lpdwentriesread: *mut u32) -> u32 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn MprSetupProtocolEnum ( dwtransportid : u32 , lplpbuffer : *mut *mut u8 , lpdwentriesread : *mut u32 ) -> u32 );
+    ::windows_targets::link!("rtutils.dll" "system" fn MprSetupProtocolEnum(dwtransportid : u32, lplpbuffer : *mut *mut u8, lpdwentriesread : *mut u32) -> u32);
     MprSetupProtocolEnum(dwtransportid, lplpbuffer, lpdwentriesread)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn MprSetupProtocolFree(lpbuffer: *mut ::core::ffi::c_void) -> u32 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn MprSetupProtocolFree ( lpbuffer : *mut ::core::ffi::c_void ) -> u32 );
+    ::windows_targets::link!("rtutils.dll" "system" fn MprSetupProtocolFree(lpbuffer : *mut ::core::ffi::c_void) -> u32);
     MprSetupProtocolFree(lpbuffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -58,7 +58,7 @@ pub unsafe fn NetAccessAdd<P0>(servername: P0, level: u32, buf: *const u8, parm_
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetAccessAdd ( servername : ::windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetAccessAdd(servername : ::windows::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
     NetAccessAdd(servername.into_param().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -68,7 +68,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetAccessDel ( servername : ::windows::core::PCWSTR , resource : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetAccessDel(servername : ::windows::core::PCWSTR, resource : ::windows::core::PCWSTR) -> u32);
     NetAccessDel(servername.into_param().abi(), resource.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -78,7 +78,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetAccessEnum ( servername : ::windows::core::PCWSTR , basepath : ::windows::core::PCWSTR , recursive : u32 , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetAccessEnum(servername : ::windows::core::PCWSTR, basepath : ::windows::core::PCWSTR, recursive : u32, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
     NetAccessEnum(servername.into_param().abi(), basepath.into_param().abi(), recursive, level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -88,7 +88,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetAccessGetInfo ( servername : ::windows::core::PCWSTR , resource : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetAccessGetInfo(servername : ::windows::core::PCWSTR, resource : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8) -> u32);
     NetAccessGetInfo(servername.into_param().abi(), resource.into_param().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -99,7 +99,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetAccessGetUserPerms ( servername : ::windows::core::PCWSTR , ugname : ::windows::core::PCWSTR , resource : ::windows::core::PCWSTR , perms : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetAccessGetUserPerms(servername : ::windows::core::PCWSTR, ugname : ::windows::core::PCWSTR, resource : ::windows::core::PCWSTR, perms : *mut u32) -> u32);
     NetAccessGetUserPerms(servername.into_param().abi(), ugname.into_param().abi(), resource.into_param().abi(), perms)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -109,7 +109,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetAccessSetInfo ( servername : ::windows::core::PCWSTR , resource : ::windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetAccessSetInfo(servername : ::windows::core::PCWSTR, resource : ::windows::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
     NetAccessSetInfo(servername.into_param().abi(), resource.into_param().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -121,7 +121,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetAddAlternateComputerName ( server : ::windows::core::PCWSTR , alternatename : ::windows::core::PCWSTR , domainaccount : ::windows::core::PCWSTR , domainaccountpassword : ::windows::core::PCWSTR , reserved : u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetAddAlternateComputerName(server : ::windows::core::PCWSTR, alternatename : ::windows::core::PCWSTR, domainaccount : ::windows::core::PCWSTR, domainaccountpassword : ::windows::core::PCWSTR, reserved : u32) -> u32);
     NetAddAlternateComputerName(server.into_param().abi(), alternatename.into_param().abi(), domainaccount.into_param().abi(), domainaccountpassword.into_param().abi(), reserved)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -133,7 +133,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetAddServiceAccount ( servername : ::windows::core::PCWSTR , accountname : ::windows::core::PCWSTR , password : ::windows::core::PCWSTR , flags : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetAddServiceAccount(servername : ::windows::core::PCWSTR, accountname : ::windows::core::PCWSTR, password : ::windows::core::PCWSTR, flags : u32) -> super::super::Foundation:: NTSTATUS);
     NetAddServiceAccount(servername.into_param().abi(), accountname.into_param().abi(), password.into_param().abi(), flags).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -142,7 +142,7 @@ pub unsafe fn NetAlertRaise<P0>(alerttype: P0, buffer: *const ::core::ffi::c_voi
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetAlertRaise ( alerttype : ::windows::core::PCWSTR , buffer : *const ::core::ffi::c_void , buffersize : u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetAlertRaise(alerttype : ::windows::core::PCWSTR, buffer : *const ::core::ffi::c_void, buffersize : u32) -> u32);
     NetAlertRaise(alerttype.into_param().abi(), buffer, buffersize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -152,31 +152,31 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetAlertRaiseEx ( alerttype : ::windows::core::PCWSTR , variableinfo : *const ::core::ffi::c_void , variableinfosize : u32 , servicename : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetAlertRaiseEx(alerttype : ::windows::core::PCWSTR, variableinfo : *const ::core::ffi::c_void, variableinfosize : u32, servicename : ::windows::core::PCWSTR) -> u32);
     NetAlertRaiseEx(alerttype.into_param().abi(), variableinfo, variableinfosize, servicename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetApiBufferAllocate(bytecount: u32, buffer: *mut *mut ::core::ffi::c_void) -> u32 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetApiBufferAllocate ( bytecount : u32 , buffer : *mut *mut ::core::ffi::c_void ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetApiBufferAllocate(bytecount : u32, buffer : *mut *mut ::core::ffi::c_void) -> u32);
     NetApiBufferAllocate(bytecount, buffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetApiBufferFree(buffer: ::core::option::Option<*const ::core::ffi::c_void>) -> u32 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetApiBufferFree ( buffer : *const ::core::ffi::c_void ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetApiBufferFree(buffer : *const ::core::ffi::c_void) -> u32);
     NetApiBufferFree(::core::mem::transmute(buffer.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetApiBufferReallocate(oldbuffer: ::core::option::Option<*const ::core::ffi::c_void>, newbytecount: u32, newbuffer: *mut *mut ::core::ffi::c_void) -> u32 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetApiBufferReallocate ( oldbuffer : *const ::core::ffi::c_void , newbytecount : u32 , newbuffer : *mut *mut ::core::ffi::c_void ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetApiBufferReallocate(oldbuffer : *const ::core::ffi::c_void, newbytecount : u32, newbuffer : *mut *mut ::core::ffi::c_void) -> u32);
     NetApiBufferReallocate(::core::mem::transmute(oldbuffer.unwrap_or(::std::ptr::null())), newbytecount, newbuffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetApiBufferSize(buffer: *const ::core::ffi::c_void, bytecount: *mut u32) -> u32 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetApiBufferSize ( buffer : *const ::core::ffi::c_void , bytecount : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetApiBufferSize(buffer : *const ::core::ffi::c_void, bytecount : *mut u32) -> u32);
     NetApiBufferSize(buffer, bytecount)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -187,7 +187,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetAuditClear ( server : ::windows::core::PCWSTR , backupfile : ::windows::core::PCWSTR , service : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetAuditClear(server : ::windows::core::PCWSTR, backupfile : ::windows::core::PCWSTR, service : ::windows::core::PCWSTR) -> u32);
     NetAuditClear(server.into_param().abi(), backupfile.into_param().abi(), service.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -197,7 +197,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetAuditRead ( server : ::windows::core::PCWSTR , service : ::windows::core::PCWSTR , auditloghandle : *mut HLOG , offset : u32 , reserved1 : *mut u32 , reserved2 : u32 , offsetflag : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , bytesread : *mut u32 , totalavailable : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetAuditRead(server : ::windows::core::PCWSTR, service : ::windows::core::PCWSTR, auditloghandle : *mut HLOG, offset : u32, reserved1 : *mut u32, reserved2 : u32, offsetflag : u32, bufptr : *mut *mut u8, prefmaxlen : u32, bytesread : *mut u32, totalavailable : *mut u32) -> u32);
     NetAuditRead(server.into_param().abi(), service.into_param().abi(), auditloghandle, offset, reserved1, reserved2, offsetflag, bufptr, prefmaxlen, bytesread, totalavailable)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -206,7 +206,7 @@ pub unsafe fn NetAuditWrite<P0>(r#type: u32, buf: *mut u8, numbytes: u32, servic
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetAuditWrite ( r#type : u32 , buf : *mut u8 , numbytes : u32 , service : ::windows::core::PCWSTR , reserved : *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetAuditWrite(r#type : u32, buf : *mut u8, numbytes : u32, service : ::windows::core::PCWSTR, reserved : *mut u8) -> u32);
     NetAuditWrite(r#type, buf, numbytes, service.into_param().abi(), reserved)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -217,7 +217,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetConfigGet ( server : ::windows::core::PCWSTR , component : ::windows::core::PCWSTR , parameter : ::windows::core::PCWSTR , bufptr : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetConfigGet(server : ::windows::core::PCWSTR, component : ::windows::core::PCWSTR, parameter : ::windows::core::PCWSTR, bufptr : *mut *mut u8) -> u32);
     NetConfigGet(server.into_param().abi(), component.into_param().abi(), parameter.into_param().abi(), bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -227,7 +227,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetConfigGetAll ( server : ::windows::core::PCWSTR , component : ::windows::core::PCWSTR , bufptr : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetConfigGetAll(server : ::windows::core::PCWSTR, component : ::windows::core::PCWSTR, bufptr : *mut *mut u8) -> u32);
     NetConfigGetAll(server.into_param().abi(), component.into_param().abi(), bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -238,13 +238,13 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetConfigSet ( server : ::windows::core::PCWSTR , reserved1 : ::windows::core::PCWSTR , component : ::windows::core::PCWSTR , level : u32 , reserved2 : u32 , buf : *mut u8 , reserved3 : u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetConfigSet(server : ::windows::core::PCWSTR, reserved1 : ::windows::core::PCWSTR, component : ::windows::core::PCWSTR, level : u32, reserved2 : u32, buf : *mut u8, reserved3 : u32) -> u32);
     NetConfigSet(server.into_param().abi(), reserved1.into_param().abi(), component.into_param().abi(), level, reserved2, buf, reserved3)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetCreateProvisioningPackage(pprovisioningparams: *const NETSETUP_PROVISIONING_PARAMS, pppackagebindata: ::core::option::Option<*mut *mut u8>, pdwpackagebindatasize: ::core::option::Option<*mut u32>, pppackagetextdata: ::core::option::Option<*mut ::windows::core::PWSTR>) -> u32 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetCreateProvisioningPackage ( pprovisioningparams : *const NETSETUP_PROVISIONING_PARAMS , pppackagebindata : *mut *mut u8 , pdwpackagebindatasize : *mut u32 , pppackagetextdata : *mut ::windows::core::PWSTR ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetCreateProvisioningPackage(pprovisioningparams : *const NETSETUP_PROVISIONING_PARAMS, pppackagebindata : *mut *mut u8, pdwpackagebindatasize : *mut u32, pppackagetextdata : *mut ::windows::core::PWSTR) -> u32);
     NetCreateProvisioningPackage(pprovisioningparams, ::core::mem::transmute(pppackagebindata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwpackagebindatasize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pppackagetextdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -253,7 +253,7 @@ pub unsafe fn NetEnumerateComputerNames<P0>(server: P0, nametype: NET_COMPUTER_N
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetEnumerateComputerNames ( server : ::windows::core::PCWSTR , nametype : NET_COMPUTER_NAME_TYPE , reserved : u32 , entrycount : *mut u32 , computernames : *mut *mut ::windows::core::PWSTR ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetEnumerateComputerNames(server : ::windows::core::PCWSTR, nametype : NET_COMPUTER_NAME_TYPE, reserved : u32, entrycount : *mut u32, computernames : *mut *mut ::windows::core::PWSTR) -> u32);
     NetEnumerateComputerNames(server.into_param().abi(), nametype, reserved, entrycount, computernames)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -263,7 +263,7 @@ pub unsafe fn NetEnumerateServiceAccounts<P0>(servername: P0, flags: u32, accoun
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetEnumerateServiceAccounts ( servername : ::windows::core::PCWSTR , flags : u32 , accountscount : *mut u32 , accounts : *mut *mut *mut u16 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetEnumerateServiceAccounts(servername : ::windows::core::PCWSTR, flags : u32, accountscount : *mut u32, accounts : *mut *mut *mut u16) -> super::super::Foundation:: NTSTATUS);
     NetEnumerateServiceAccounts(servername.into_param().abi(), flags, accountscount, accounts).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -273,7 +273,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetErrorLogClear ( uncservername : ::windows::core::PCWSTR , backupfile : ::windows::core::PCWSTR , reserved : *const u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetErrorLogClear(uncservername : ::windows::core::PCWSTR, backupfile : ::windows::core::PCWSTR, reserved : *const u8) -> u32);
     NetErrorLogClear(uncservername.into_param().abi(), backupfile.into_param().abi(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -283,7 +283,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetErrorLogRead ( uncservername : ::windows::core::PCWSTR , reserved1 : ::windows::core::PCWSTR , errorloghandle : *const HLOG , offset : u32 , reserved2 : *const u32 , reserved3 : u32 , offsetflag : u32 , bufptr : *mut *mut u8 , prefmaxsize : u32 , bytesread : *mut u32 , totalavailable : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetErrorLogRead(uncservername : ::windows::core::PCWSTR, reserved1 : ::windows::core::PCWSTR, errorloghandle : *const HLOG, offset : u32, reserved2 : *const u32, reserved3 : u32, offsetflag : u32, bufptr : *mut *mut u8, prefmaxsize : u32, bytesread : *mut u32, totalavailable : *mut u32) -> u32);
     NetErrorLogRead(uncservername.into_param().abi(), reserved1.into_param().abi(), errorloghandle, offset, ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null())), reserved3, offsetflag, bufptr, prefmaxsize, bytesread, totalavailable)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -292,14 +292,14 @@ pub unsafe fn NetErrorLogWrite<P0>(reserved1: ::core::option::Option<*const u8>,
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetErrorLogWrite ( reserved1 : *const u8 , code : u32 , component : ::windows::core::PCWSTR , buffer : *const u8 , numbytes : u32 , msgbuf : *const u8 , strcount : u32 , reserved2 : *const u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetErrorLogWrite(reserved1 : *const u8, code : u32, component : ::windows::core::PCWSTR, buffer : *const u8, numbytes : u32, msgbuf : *const u8, strcount : u32, reserved2 : *const u8) -> u32);
     NetErrorLogWrite(::core::mem::transmute(reserved1.unwrap_or(::std::ptr::null())), code, component.into_param().abi(), buffer, numbytes, msgbuf, strcount, ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn NetFreeAadJoinInformation(pjoininfo: ::core::option::Option<*const DSREG_JOIN_INFO>) {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetFreeAadJoinInformation ( pjoininfo : *const DSREG_JOIN_INFO ) -> ( ) );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetFreeAadJoinInformation(pjoininfo : *const DSREG_JOIN_INFO) -> ());
     NetFreeAadJoinInformation(::core::mem::transmute(pjoininfo.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
@@ -309,7 +309,7 @@ pub unsafe fn NetGetAadJoinInformation<P0>(pcsztenantid: P0) -> ::windows::core:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetGetAadJoinInformation ( pcsztenantid : ::windows::core::PCWSTR , ppjoininfo : *mut *mut DSREG_JOIN_INFO ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetGetAadJoinInformation(pcsztenantid : ::windows::core::PCWSTR, ppjoininfo : *mut *mut DSREG_JOIN_INFO) -> ::windows::core::HRESULT);
     let mut result__ = ::windows::core::zeroed::<*mut DSREG_JOIN_INFO>();
     NetGetAadJoinInformation(pcsztenantid.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -320,7 +320,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetGetAnyDCName ( servername : ::windows::core::PCWSTR , domainname : ::windows::core::PCWSTR , buffer : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetGetAnyDCName(servername : ::windows::core::PCWSTR, domainname : ::windows::core::PCWSTR, buffer : *mut *mut u8) -> u32);
     NetGetAnyDCName(servername.into_param().abi(), domainname.into_param().abi(), buffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -330,7 +330,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetGetDCName ( servername : ::windows::core::PCWSTR , domainname : ::windows::core::PCWSTR , buffer : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetGetDCName(servername : ::windows::core::PCWSTR, domainname : ::windows::core::PCWSTR, buffer : *mut *mut u8) -> u32);
     NetGetDCName(servername.into_param().abi(), domainname.into_param().abi(), buffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -340,7 +340,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetGetDisplayInformationIndex ( servername : ::windows::core::PCWSTR , level : u32 , prefix : ::windows::core::PCWSTR , index : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetGetDisplayInformationIndex(servername : ::windows::core::PCWSTR, level : u32, prefix : ::windows::core::PCWSTR, index : *mut u32) -> u32);
     NetGetDisplayInformationIndex(servername.into_param().abi(), level, prefix.into_param().abi(), index)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -349,7 +349,7 @@ pub unsafe fn NetGetJoinInformation<P0>(lpserver: P0, lpnamebuffer: *mut ::windo
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetGetJoinInformation ( lpserver : ::windows::core::PCWSTR , lpnamebuffer : *mut ::windows::core::PWSTR , buffertype : *mut NETSETUP_JOIN_STATUS ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetGetJoinInformation(lpserver : ::windows::core::PCWSTR, lpnamebuffer : *mut ::windows::core::PWSTR, buffertype : *mut NETSETUP_JOIN_STATUS) -> u32);
     NetGetJoinInformation(lpserver.into_param().abi(), lpnamebuffer, buffertype)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -361,7 +361,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetGetJoinableOUs ( lpserver : ::windows::core::PCWSTR , lpdomain : ::windows::core::PCWSTR , lpaccount : ::windows::core::PCWSTR , lppassword : ::windows::core::PCWSTR , oucount : *mut u32 , ous : *mut *mut ::windows::core::PWSTR ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetGetJoinableOUs(lpserver : ::windows::core::PCWSTR, lpdomain : ::windows::core::PCWSTR, lpaccount : ::windows::core::PCWSTR, lppassword : ::windows::core::PCWSTR, oucount : *mut u32, ous : *mut *mut ::windows::core::PWSTR) -> u32);
     NetGetJoinableOUs(lpserver.into_param().abi(), lpdomain.into_param().abi(), lpaccount.into_param().abi(), lppassword.into_param().abi(), oucount, ous)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -370,7 +370,7 @@ pub unsafe fn NetGroupAdd<P0>(servername: P0, level: u32, buf: *const u8, parm_e
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetGroupAdd ( servername : ::windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetGroupAdd(servername : ::windows::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
     NetGroupAdd(servername.into_param().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -381,7 +381,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetGroupAddUser ( servername : ::windows::core::PCWSTR , groupname : ::windows::core::PCWSTR , username : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetGroupAddUser(servername : ::windows::core::PCWSTR, groupname : ::windows::core::PCWSTR, username : ::windows::core::PCWSTR) -> u32);
     NetGroupAddUser(servername.into_param().abi(), groupname.into_param().abi(), username.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -391,7 +391,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetGroupDel ( servername : ::windows::core::PCWSTR , groupname : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetGroupDel(servername : ::windows::core::PCWSTR, groupname : ::windows::core::PCWSTR) -> u32);
     NetGroupDel(servername.into_param().abi(), groupname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -402,7 +402,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetGroupDelUser ( servername : ::windows::core::PCWSTR , groupname : ::windows::core::PCWSTR , username : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetGroupDelUser(servername : ::windows::core::PCWSTR, groupname : ::windows::core::PCWSTR, username : ::windows::core::PCWSTR) -> u32);
     NetGroupDelUser(servername.into_param().abi(), groupname.into_param().abi(), username.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -411,7 +411,7 @@ pub unsafe fn NetGroupEnum<P0>(servername: P0, level: u32, bufptr: *mut *mut u8,
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetGroupEnum ( servername : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut usize ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetGroupEnum(servername : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut usize) -> u32);
     NetGroupEnum(servername.into_param().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -421,7 +421,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetGroupGetInfo ( servername : ::windows::core::PCWSTR , groupname : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetGroupGetInfo(servername : ::windows::core::PCWSTR, groupname : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8) -> u32);
     NetGroupGetInfo(servername.into_param().abi(), groupname.into_param().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -431,7 +431,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetGroupGetUsers ( servername : ::windows::core::PCWSTR , groupname : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resumehandle : *mut usize ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetGroupGetUsers(servername : ::windows::core::PCWSTR, groupname : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut usize) -> u32);
     NetGroupGetUsers(servername.into_param().abi(), groupname.into_param().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resumehandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -441,7 +441,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetGroupSetInfo ( servername : ::windows::core::PCWSTR , groupname : ::windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetGroupSetInfo(servername : ::windows::core::PCWSTR, groupname : ::windows::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
     NetGroupSetInfo(servername.into_param().abi(), groupname.into_param().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -451,7 +451,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetGroupSetUsers ( servername : ::windows::core::PCWSTR , groupname : ::windows::core::PCWSTR , level : u32 , buf : *const u8 , totalentries : u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetGroupSetUsers(servername : ::windows::core::PCWSTR, groupname : ::windows::core::PCWSTR, level : u32, buf : *const u8, totalentries : u32) -> u32);
     NetGroupSetUsers(servername.into_param().abi(), groupname.into_param().abi(), level, buf, totalentries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -462,7 +462,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetIsServiceAccount ( servername : ::windows::core::PCWSTR , accountname : ::windows::core::PCWSTR , isservice : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetIsServiceAccount(servername : ::windows::core::PCWSTR, accountname : ::windows::core::PCWSTR, isservice : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: NTSTATUS);
     NetIsServiceAccount(servername.into_param().abi(), accountname.into_param().abi(), isservice).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -475,7 +475,7 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P4: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetJoinDomain ( lpserver : ::windows::core::PCWSTR , lpdomain : ::windows::core::PCWSTR , lpmachineaccountou : ::windows::core::PCWSTR , lpaccount : ::windows::core::PCWSTR , lppassword : ::windows::core::PCWSTR , fjoinoptions : NET_JOIN_DOMAIN_JOIN_OPTIONS ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetJoinDomain(lpserver : ::windows::core::PCWSTR, lpdomain : ::windows::core::PCWSTR, lpmachineaccountou : ::windows::core::PCWSTR, lpaccount : ::windows::core::PCWSTR, lppassword : ::windows::core::PCWSTR, fjoinoptions : NET_JOIN_DOMAIN_JOIN_OPTIONS) -> u32);
     NetJoinDomain(lpserver.into_param().abi(), lpdomain.into_param().abi(), lpmachineaccountou.into_param().abi(), lpaccount.into_param().abi(), lppassword.into_param().abi(), fjoinoptions)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -484,7 +484,7 @@ pub unsafe fn NetLocalGroupAdd<P0>(servername: P0, level: u32, buf: *const u8, p
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetLocalGroupAdd ( servername : ::windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupAdd(servername : ::windows::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
     NetLocalGroupAdd(servername.into_param().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -496,7 +496,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::PSID>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetLocalGroupAddMember ( servername : ::windows::core::PCWSTR , groupname : ::windows::core::PCWSTR , membersid : super::super::Foundation:: PSID ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupAddMember(servername : ::windows::core::PCWSTR, groupname : ::windows::core::PCWSTR, membersid : super::super::Foundation:: PSID) -> u32);
     NetLocalGroupAddMember(servername.into_param().abi(), groupname.into_param().abi(), membersid.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -506,7 +506,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetLocalGroupAddMembers ( servername : ::windows::core::PCWSTR , groupname : ::windows::core::PCWSTR , level : u32 , buf : *const u8 , totalentries : u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupAddMembers(servername : ::windows::core::PCWSTR, groupname : ::windows::core::PCWSTR, level : u32, buf : *const u8, totalentries : u32) -> u32);
     NetLocalGroupAddMembers(servername.into_param().abi(), groupname.into_param().abi(), level, buf, totalentries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -516,7 +516,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetLocalGroupDel ( servername : ::windows::core::PCWSTR , groupname : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupDel(servername : ::windows::core::PCWSTR, groupname : ::windows::core::PCWSTR) -> u32);
     NetLocalGroupDel(servername.into_param().abi(), groupname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -528,7 +528,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::PSID>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetLocalGroupDelMember ( servername : ::windows::core::PCWSTR , groupname : ::windows::core::PCWSTR , membersid : super::super::Foundation:: PSID ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupDelMember(servername : ::windows::core::PCWSTR, groupname : ::windows::core::PCWSTR, membersid : super::super::Foundation:: PSID) -> u32);
     NetLocalGroupDelMember(servername.into_param().abi(), groupname.into_param().abi(), membersid.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -538,7 +538,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetLocalGroupDelMembers ( servername : ::windows::core::PCWSTR , groupname : ::windows::core::PCWSTR , level : u32 , buf : *const u8 , totalentries : u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupDelMembers(servername : ::windows::core::PCWSTR, groupname : ::windows::core::PCWSTR, level : u32, buf : *const u8, totalentries : u32) -> u32);
     NetLocalGroupDelMembers(servername.into_param().abi(), groupname.into_param().abi(), level, buf, totalentries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -547,7 +547,7 @@ pub unsafe fn NetLocalGroupEnum<P0>(servername: P0, level: u32, bufptr: *mut *mu
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetLocalGroupEnum ( servername : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resumehandle : *mut usize ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupEnum(servername : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut usize) -> u32);
     NetLocalGroupEnum(servername.into_param().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resumehandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -557,7 +557,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetLocalGroupGetInfo ( servername : ::windows::core::PCWSTR , groupname : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupGetInfo(servername : ::windows::core::PCWSTR, groupname : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8) -> u32);
     NetLocalGroupGetInfo(servername.into_param().abi(), groupname.into_param().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -567,7 +567,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetLocalGroupGetMembers ( servername : ::windows::core::PCWSTR , localgroupname : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resumehandle : *mut usize ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupGetMembers(servername : ::windows::core::PCWSTR, localgroupname : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut usize) -> u32);
     NetLocalGroupGetMembers(servername.into_param().abi(), localgroupname.into_param().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resumehandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -577,7 +577,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetLocalGroupSetInfo ( servername : ::windows::core::PCWSTR , groupname : ::windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupSetInfo(servername : ::windows::core::PCWSTR, groupname : ::windows::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
     NetLocalGroupSetInfo(servername.into_param().abi(), groupname.into_param().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -587,7 +587,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetLocalGroupSetMembers ( servername : ::windows::core::PCWSTR , groupname : ::windows::core::PCWSTR , level : u32 , buf : *const u8 , totalentries : u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupSetMembers(servername : ::windows::core::PCWSTR, groupname : ::windows::core::PCWSTR, level : u32, buf : *const u8, totalentries : u32) -> u32);
     NetLocalGroupSetMembers(servername.into_param().abi(), groupname.into_param().abi(), level, buf, totalentries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -598,7 +598,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetMessageBufferSend ( servername : ::windows::core::PCWSTR , msgname : ::windows::core::PCWSTR , fromname : ::windows::core::PCWSTR , buf : *const u8 , buflen : u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetMessageBufferSend(servername : ::windows::core::PCWSTR, msgname : ::windows::core::PCWSTR, fromname : ::windows::core::PCWSTR, buf : *const u8, buflen : u32) -> u32);
     NetMessageBufferSend(servername.into_param().abi(), msgname.into_param().abi(), fromname.into_param().abi(), buf, buflen)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -608,7 +608,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetMessageNameAdd ( servername : ::windows::core::PCWSTR , msgname : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetMessageNameAdd(servername : ::windows::core::PCWSTR, msgname : ::windows::core::PCWSTR) -> u32);
     NetMessageNameAdd(servername.into_param().abi(), msgname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -618,7 +618,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetMessageNameDel ( servername : ::windows::core::PCWSTR , msgname : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetMessageNameDel(servername : ::windows::core::PCWSTR, msgname : ::windows::core::PCWSTR) -> u32);
     NetMessageNameDel(servername.into_param().abi(), msgname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -627,7 +627,7 @@ pub unsafe fn NetMessageNameEnum<P0>(servername: P0, level: u32, bufptr: *const 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetMessageNameEnum ( servername : ::windows::core::PCWSTR , level : u32 , bufptr : *const *const u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetMessageNameEnum(servername : ::windows::core::PCWSTR, level : u32, bufptr : *const *const u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
     NetMessageNameEnum(servername.into_param().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -637,7 +637,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetMessageNameGetInfo ( servername : ::windows::core::PCWSTR , msgname : ::windows::core::PCWSTR , level : u32 , bufptr : *const *const u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetMessageNameGetInfo(servername : ::windows::core::PCWSTR, msgname : ::windows::core::PCWSTR, level : u32, bufptr : *const *const u8) -> u32);
     NetMessageNameGetInfo(servername.into_param().abi(), msgname.into_param().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -649,7 +649,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetProvisionComputerAccount ( lpdomain : ::windows::core::PCWSTR , lpmachinename : ::windows::core::PCWSTR , lpmachineaccountou : ::windows::core::PCWSTR , lpdcname : ::windows::core::PCWSTR , dwoptions : NETSETUP_PROVISION , pprovisionbindata : *mut *mut u8 , pdwprovisionbindatasize : *mut u32 , pprovisiontextdata : *mut ::windows::core::PWSTR ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetProvisionComputerAccount(lpdomain : ::windows::core::PCWSTR, lpmachinename : ::windows::core::PCWSTR, lpmachineaccountou : ::windows::core::PCWSTR, lpdcname : ::windows::core::PCWSTR, dwoptions : NETSETUP_PROVISION, pprovisionbindata : *mut *mut u8, pdwprovisionbindatasize : *mut u32, pprovisiontextdata : *mut ::windows::core::PWSTR) -> u32);
     NetProvisionComputerAccount(lpdomain.into_param().abi(), lpmachinename.into_param().abi(), lpmachineaccountou.into_param().abi(), lpdcname.into_param().abi(), dwoptions, ::core::mem::transmute(pprovisionbindata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwprovisionbindatasize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pprovisiontextdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -658,7 +658,7 @@ pub unsafe fn NetQueryDisplayInformation<P0>(servername: P0, level: u32, index: 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetQueryDisplayInformation ( servername : ::windows::core::PCWSTR , level : u32 , index : u32 , entriesrequested : u32 , preferredmaximumlength : u32 , returnedentrycount : *mut u32 , sortedbuffer : *mut *mut ::core::ffi::c_void ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetQueryDisplayInformation(servername : ::windows::core::PCWSTR, level : u32, index : u32, entriesrequested : u32, preferredmaximumlength : u32, returnedentrycount : *mut u32, sortedbuffer : *mut *mut ::core::ffi::c_void) -> u32);
     NetQueryDisplayInformation(servername.into_param().abi(), level, index, entriesrequested, preferredmaximumlength, returnedentrycount, sortedbuffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -669,7 +669,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetQueryServiceAccount ( servername : ::windows::core::PCWSTR , accountname : ::windows::core::PCWSTR , infolevel : u32 , buffer : *mut *mut u8 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetQueryServiceAccount(servername : ::windows::core::PCWSTR, accountname : ::windows::core::PCWSTR, infolevel : u32, buffer : *mut *mut u8) -> super::super::Foundation:: NTSTATUS);
     NetQueryServiceAccount(servername.into_param().abi(), accountname.into_param().abi(), infolevel, buffer).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -678,7 +678,7 @@ pub unsafe fn NetRemoteComputerSupports<P0>(uncservername: P0, optionswanted: NE
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetRemoteComputerSupports ( uncservername : ::windows::core::PCWSTR , optionswanted : NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS , optionssupported : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetRemoteComputerSupports(uncservername : ::windows::core::PCWSTR, optionswanted : NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS, optionssupported : *mut u32) -> u32);
     NetRemoteComputerSupports(uncservername.into_param().abi(), optionswanted, optionssupported)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -687,7 +687,7 @@ pub unsafe fn NetRemoteTOD<P0>(uncservername: P0, bufferptr: *mut *mut u8) -> u3
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetRemoteTOD ( uncservername : ::windows::core::PCWSTR , bufferptr : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetRemoteTOD(uncservername : ::windows::core::PCWSTR, bufferptr : *mut *mut u8) -> u32);
     NetRemoteTOD(uncservername.into_param().abi(), bufferptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -699,7 +699,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetRemoveAlternateComputerName ( server : ::windows::core::PCWSTR , alternatename : ::windows::core::PCWSTR , domainaccount : ::windows::core::PCWSTR , domainaccountpassword : ::windows::core::PCWSTR , reserved : u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetRemoveAlternateComputerName(server : ::windows::core::PCWSTR, alternatename : ::windows::core::PCWSTR, domainaccount : ::windows::core::PCWSTR, domainaccountpassword : ::windows::core::PCWSTR, reserved : u32) -> u32);
     NetRemoveAlternateComputerName(server.into_param().abi(), alternatename.into_param().abi(), domainaccount.into_param().abi(), domainaccountpassword.into_param().abi(), reserved)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -710,7 +710,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetRemoveServiceAccount ( servername : ::windows::core::PCWSTR , accountname : ::windows::core::PCWSTR , flags : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetRemoveServiceAccount(servername : ::windows::core::PCWSTR, accountname : ::windows::core::PCWSTR, flags : u32) -> super::super::Foundation:: NTSTATUS);
     NetRemoveServiceAccount(servername.into_param().abi(), accountname.into_param().abi(), flags).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -722,7 +722,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetRenameMachineInDomain ( lpserver : ::windows::core::PCWSTR , lpnewmachinename : ::windows::core::PCWSTR , lpaccount : ::windows::core::PCWSTR , lppassword : ::windows::core::PCWSTR , frenameoptions : u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetRenameMachineInDomain(lpserver : ::windows::core::PCWSTR, lpnewmachinename : ::windows::core::PCWSTR, lpaccount : ::windows::core::PCWSTR, lppassword : ::windows::core::PCWSTR, frenameoptions : u32) -> u32);
     NetRenameMachineInDomain(lpserver.into_param().abi(), lpnewmachinename.into_param().abi(), lpaccount.into_param().abi(), lppassword.into_param().abi(), frenameoptions)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -731,7 +731,7 @@ pub unsafe fn NetReplExportDirAdd<P0>(servername: P0, level: u32, buf: *const u8
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetReplExportDirAdd ( servername : ::windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetReplExportDirAdd(servername : ::windows::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
     NetReplExportDirAdd(servername.into_param().abi(), level, buf, parm_err)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -741,7 +741,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetReplExportDirDel ( servername : ::windows::core::PCWSTR , dirname : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetReplExportDirDel(servername : ::windows::core::PCWSTR, dirname : ::windows::core::PCWSTR) -> u32);
     NetReplExportDirDel(servername.into_param().abi(), dirname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -750,7 +750,7 @@ pub unsafe fn NetReplExportDirEnum<P0>(servername: P0, level: u32, bufptr: *mut 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetReplExportDirEnum ( servername : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resumehandle : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetReplExportDirEnum(servername : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
     NetReplExportDirEnum(servername.into_param().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, resumehandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -760,7 +760,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetReplExportDirGetInfo ( servername : ::windows::core::PCWSTR , dirname : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetReplExportDirGetInfo(servername : ::windows::core::PCWSTR, dirname : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8) -> u32);
     NetReplExportDirGetInfo(servername.into_param().abi(), dirname.into_param().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -770,7 +770,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetReplExportDirLock ( servername : ::windows::core::PCWSTR , dirname : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetReplExportDirLock(servername : ::windows::core::PCWSTR, dirname : ::windows::core::PCWSTR) -> u32);
     NetReplExportDirLock(servername.into_param().abi(), dirname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -780,7 +780,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetReplExportDirSetInfo ( servername : ::windows::core::PCWSTR , dirname : ::windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetReplExportDirSetInfo(servername : ::windows::core::PCWSTR, dirname : ::windows::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
     NetReplExportDirSetInfo(servername.into_param().abi(), dirname.into_param().abi(), level, buf, parm_err)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -790,7 +790,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetReplExportDirUnlock ( servername : ::windows::core::PCWSTR , dirname : ::windows::core::PCWSTR , unlockforce : u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetReplExportDirUnlock(servername : ::windows::core::PCWSTR, dirname : ::windows::core::PCWSTR, unlockforce : u32) -> u32);
     NetReplExportDirUnlock(servername.into_param().abi(), dirname.into_param().abi(), unlockforce)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -799,7 +799,7 @@ pub unsafe fn NetReplGetInfo<P0>(servername: P0, level: u32, bufptr: *mut *mut u
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetReplGetInfo ( servername : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetReplGetInfo(servername : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8) -> u32);
     NetReplGetInfo(servername.into_param().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -808,7 +808,7 @@ pub unsafe fn NetReplImportDirAdd<P0>(servername: P0, level: u32, buf: *const u8
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetReplImportDirAdd ( servername : ::windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetReplImportDirAdd(servername : ::windows::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
     NetReplImportDirAdd(servername.into_param().abi(), level, buf, parm_err)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -818,7 +818,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetReplImportDirDel ( servername : ::windows::core::PCWSTR , dirname : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetReplImportDirDel(servername : ::windows::core::PCWSTR, dirname : ::windows::core::PCWSTR) -> u32);
     NetReplImportDirDel(servername.into_param().abi(), dirname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -827,7 +827,7 @@ pub unsafe fn NetReplImportDirEnum<P0>(servername: P0, level: u32, bufptr: *mut 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetReplImportDirEnum ( servername : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resumehandle : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetReplImportDirEnum(servername : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
     NetReplImportDirEnum(servername.into_param().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, resumehandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -837,7 +837,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetReplImportDirGetInfo ( servername : ::windows::core::PCWSTR , dirname : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetReplImportDirGetInfo(servername : ::windows::core::PCWSTR, dirname : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8) -> u32);
     NetReplImportDirGetInfo(servername.into_param().abi(), dirname.into_param().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -847,7 +847,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetReplImportDirLock ( servername : ::windows::core::PCWSTR , dirname : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetReplImportDirLock(servername : ::windows::core::PCWSTR, dirname : ::windows::core::PCWSTR) -> u32);
     NetReplImportDirLock(servername.into_param().abi(), dirname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -857,7 +857,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetReplImportDirUnlock ( servername : ::windows::core::PCWSTR , dirname : ::windows::core::PCWSTR , unlockforce : u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetReplImportDirUnlock(servername : ::windows::core::PCWSTR, dirname : ::windows::core::PCWSTR, unlockforce : u32) -> u32);
     NetReplImportDirUnlock(servername.into_param().abi(), dirname.into_param().abi(), unlockforce)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -866,7 +866,7 @@ pub unsafe fn NetReplSetInfo<P0>(servername: P0, level: u32, buf: *const u8, par
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetReplSetInfo ( servername : ::windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetReplSetInfo(servername : ::windows::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
     NetReplSetInfo(servername.into_param().abi(), level, buf, parm_err)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -875,7 +875,7 @@ pub unsafe fn NetRequestOfflineDomainJoin<P0>(pprovisionbindata: &[u8], dwoption
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetRequestOfflineDomainJoin ( pprovisionbindata : *const u8 , cbprovisionbindatasize : u32 , dwoptions : NET_REQUEST_PROVISION_OPTIONS , lpwindowspath : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetRequestOfflineDomainJoin(pprovisionbindata : *const u8, cbprovisionbindatasize : u32, dwoptions : NET_REQUEST_PROVISION_OPTIONS, lpwindowspath : ::windows::core::PCWSTR) -> u32);
     NetRequestOfflineDomainJoin(::core::mem::transmute(pprovisionbindata.as_ptr()), pprovisionbindata.len() as _, dwoptions, lpwindowspath.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -884,7 +884,7 @@ pub unsafe fn NetRequestProvisioningPackageInstall<P0>(ppackagebindata: &[u8], d
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetRequestProvisioningPackageInstall ( ppackagebindata : *const u8 , dwpackagebindatasize : u32 , dwprovisionoptions : NET_REQUEST_PROVISION_OPTIONS , lpwindowspath : ::windows::core::PCWSTR , pvreserved : *const ::core::ffi::c_void ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetRequestProvisioningPackageInstall(ppackagebindata : *const u8, dwpackagebindatasize : u32, dwprovisionoptions : NET_REQUEST_PROVISION_OPTIONS, lpwindowspath : ::windows::core::PCWSTR, pvreserved : *const ::core::ffi::c_void) -> u32);
     NetRequestProvisioningPackageInstall(::core::mem::transmute(ppackagebindata.as_ptr()), ppackagebindata.len() as _, dwprovisionoptions, lpwindowspath.into_param().abi(), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -893,7 +893,7 @@ pub unsafe fn NetScheduleJobAdd<P0>(servername: P0, buffer: *mut u8, jobid: *mut
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetScheduleJobAdd ( servername : ::windows::core::PCWSTR , buffer : *mut u8 , jobid : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetScheduleJobAdd(servername : ::windows::core::PCWSTR, buffer : *mut u8, jobid : *mut u32) -> u32);
     NetScheduleJobAdd(servername.into_param().abi(), buffer, jobid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -902,7 +902,7 @@ pub unsafe fn NetScheduleJobDel<P0>(servername: P0, minjobid: u32, maxjobid: u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetScheduleJobDel ( servername : ::windows::core::PCWSTR , minjobid : u32 , maxjobid : u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetScheduleJobDel(servername : ::windows::core::PCWSTR, minjobid : u32, maxjobid : u32) -> u32);
     NetScheduleJobDel(servername.into_param().abi(), minjobid, maxjobid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -911,7 +911,7 @@ pub unsafe fn NetScheduleJobEnum<P0>(servername: P0, pointertobuffer: *mut *mut 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetScheduleJobEnum ( servername : ::windows::core::PCWSTR , pointertobuffer : *mut *mut u8 , prefferedmaximumlength : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resumehandle : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetScheduleJobEnum(servername : ::windows::core::PCWSTR, pointertobuffer : *mut *mut u8, prefferedmaximumlength : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
     NetScheduleJobEnum(servername.into_param().abi(), pointertobuffer, prefferedmaximumlength, entriesread, totalentries, resumehandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -920,7 +920,7 @@ pub unsafe fn NetScheduleJobGetInfo<P0>(servername: P0, jobid: u32, pointertobuf
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetScheduleJobGetInfo ( servername : ::windows::core::PCWSTR , jobid : u32 , pointertobuffer : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetScheduleJobGetInfo(servername : ::windows::core::PCWSTR, jobid : u32, pointertobuffer : *mut *mut u8) -> u32);
     NetScheduleJobGetInfo(servername.into_param().abi(), jobid, pointertobuffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -931,7 +931,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetServerComputerNameAdd ( servername : ::windows::core::PCWSTR , emulateddomainname : ::windows::core::PCWSTR , emulatedservername : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetServerComputerNameAdd(servername : ::windows::core::PCWSTR, emulateddomainname : ::windows::core::PCWSTR, emulatedservername : ::windows::core::PCWSTR) -> u32);
     NetServerComputerNameAdd(servername.into_param().abi(), emulateddomainname.into_param().abi(), emulatedservername.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -941,7 +941,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetServerComputerNameDel ( servername : ::windows::core::PCWSTR , emulatedservername : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetServerComputerNameDel(servername : ::windows::core::PCWSTR, emulatedservername : ::windows::core::PCWSTR) -> u32);
     NetServerComputerNameDel(servername.into_param().abi(), emulatedservername.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -950,7 +950,7 @@ pub unsafe fn NetServerDiskEnum<P0>(servername: P0, level: u32, bufptr: *mut *mu
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetServerDiskEnum ( servername : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetServerDiskEnum(servername : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
     NetServerDiskEnum(servername.into_param().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -960,7 +960,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetServerEnum ( servername : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , servertype : NET_SERVER_TYPE , domain : ::windows::core::PCWSTR , resume_handle : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetServerEnum(servername : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, servertype : NET_SERVER_TYPE, domain : ::windows::core::PCWSTR, resume_handle : *mut u32) -> u32);
     NetServerEnum(servername.into_param().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, servertype, domain.into_param().abi(), ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -969,7 +969,7 @@ pub unsafe fn NetServerGetInfo<P0>(servername: P0, level: u32, bufptr: *mut *mut
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetServerGetInfo ( servername : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetServerGetInfo(servername : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8) -> u32);
     NetServerGetInfo(servername.into_param().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -978,7 +978,7 @@ pub unsafe fn NetServerSetInfo<P0>(servername: P0, level: u32, buf: *const u8, p
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetServerSetInfo ( servername : ::windows::core::PCWSTR , level : u32 , buf : *const u8 , parmerror : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetServerSetInfo(servername : ::windows::core::PCWSTR, level : u32, buf : *const u8, parmerror : *mut u32) -> u32);
     NetServerSetInfo(servername.into_param().abi(), level, buf, ::core::mem::transmute(parmerror.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -987,7 +987,7 @@ pub unsafe fn NetServerTransportAdd<P0>(servername: P0, level: u32, bufptr: *con
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetServerTransportAdd ( servername : ::windows::core::PCWSTR , level : u32 , bufptr : *const u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetServerTransportAdd(servername : ::windows::core::PCWSTR, level : u32, bufptr : *const u8) -> u32);
     NetServerTransportAdd(servername.into_param().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -996,7 +996,7 @@ pub unsafe fn NetServerTransportAddEx<P0>(servername: P0, level: u32, bufptr: *c
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetServerTransportAddEx ( servername : ::windows::core::PCWSTR , level : u32 , bufptr : *const u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetServerTransportAddEx(servername : ::windows::core::PCWSTR, level : u32, bufptr : *const u8) -> u32);
     NetServerTransportAddEx(servername.into_param().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1005,7 +1005,7 @@ pub unsafe fn NetServerTransportDel<P0>(servername: P0, level: u32, bufptr: *con
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetServerTransportDel ( servername : ::windows::core::PCWSTR , level : u32 , bufptr : *const u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetServerTransportDel(servername : ::windows::core::PCWSTR, level : u32, bufptr : *const u8) -> u32);
     NetServerTransportDel(servername.into_param().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1014,7 +1014,7 @@ pub unsafe fn NetServerTransportEnum<P0>(servername: P0, level: u32, bufptr: *mu
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetServerTransportEnum ( servername : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetServerTransportEnum(servername : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
     NetServerTransportEnum(servername.into_param().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1024,7 +1024,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetServiceControl ( servername : ::windows::core::PCWSTR , service : ::windows::core::PCWSTR , opcode : u32 , arg : u32 , bufptr : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetServiceControl(servername : ::windows::core::PCWSTR, service : ::windows::core::PCWSTR, opcode : u32, arg : u32, bufptr : *mut *mut u8) -> u32);
     NetServiceControl(servername.into_param().abi(), service.into_param().abi(), opcode, arg, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1033,7 +1033,7 @@ pub unsafe fn NetServiceEnum<P0>(servername: P0, level: u32, bufptr: *mut *mut u
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetServiceEnum ( servername : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetServiceEnum(servername : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
     NetServiceEnum(servername.into_param().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1043,7 +1043,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetServiceGetInfo ( servername : ::windows::core::PCWSTR , service : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetServiceGetInfo(servername : ::windows::core::PCWSTR, service : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8) -> u32);
     NetServiceGetInfo(servername.into_param().abi(), service.into_param().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1053,7 +1053,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetServiceInstall ( servername : ::windows::core::PCWSTR , service : ::windows::core::PCWSTR , argc : u32 , argv : *const ::windows::core::PCWSTR , bufptr : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetServiceInstall(servername : ::windows::core::PCWSTR, service : ::windows::core::PCWSTR, argc : u32, argv : *const ::windows::core::PCWSTR, bufptr : *mut *mut u8) -> u32);
     NetServiceInstall(servername.into_param().abi(), service.into_param().abi(), argv.len() as _, ::core::mem::transmute(argv.as_ptr()), bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1065,7 +1065,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetSetPrimaryComputerName ( server : ::windows::core::PCWSTR , primaryname : ::windows::core::PCWSTR , domainaccount : ::windows::core::PCWSTR , domainaccountpassword : ::windows::core::PCWSTR , reserved : u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetSetPrimaryComputerName(server : ::windows::core::PCWSTR, primaryname : ::windows::core::PCWSTR, domainaccount : ::windows::core::PCWSTR, domainaccountpassword : ::windows::core::PCWSTR, reserved : u32) -> u32);
     NetSetPrimaryComputerName(server.into_param().abi(), primaryname.into_param().abi(), domainaccount.into_param().abi(), domainaccountpassword.into_param().abi(), reserved)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1076,13 +1076,13 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetUnjoinDomain ( lpserver : ::windows::core::PCWSTR , lpaccount : ::windows::core::PCWSTR , lppassword : ::windows::core::PCWSTR , funjoinoptions : u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetUnjoinDomain(lpserver : ::windows::core::PCWSTR, lpaccount : ::windows::core::PCWSTR, lppassword : ::windows::core::PCWSTR, funjoinoptions : u32) -> u32);
     NetUnjoinDomain(lpserver.into_param().abi(), lpaccount.into_param().abi(), lppassword.into_param().abi(), funjoinoptions)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetUseAdd(servername: ::core::option::Option<*const i8>, levelflags: u32, buf: *const u8, parm_err: ::core::option::Option<*mut u32>) -> u32 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetUseAdd ( servername : *const i8 , levelflags : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetUseAdd(servername : *const i8, levelflags : u32, buf : *const u8, parm_err : *mut u32) -> u32);
     NetUseAdd(::core::mem::transmute(servername.unwrap_or(::std::ptr::null())), levelflags, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1092,7 +1092,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetUseDel ( uncservername : ::windows::core::PCWSTR , usename : ::windows::core::PCWSTR , forcelevelflags : FORCE_LEVEL_FLAGS ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetUseDel(uncservername : ::windows::core::PCWSTR, usename : ::windows::core::PCWSTR, forcelevelflags : FORCE_LEVEL_FLAGS) -> u32);
     NetUseDel(uncservername.into_param().abi(), usename.into_param().abi(), forcelevelflags)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1101,7 +1101,7 @@ pub unsafe fn NetUseEnum<P0>(uncservername: P0, levelflags: u32, bufptr: ::core:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetUseEnum ( uncservername : ::windows::core::PCWSTR , levelflags : u32 , bufptr : *mut *mut u8 , preferedmaximumsize : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resumehandle : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetUseEnum(uncservername : ::windows::core::PCWSTR, levelflags : u32, bufptr : *mut *mut u8, preferedmaximumsize : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
     NetUseEnum(uncservername.into_param().abi(), levelflags, ::core::mem::transmute(bufptr.unwrap_or(::std::ptr::null_mut())), preferedmaximumsize, ::core::mem::transmute(entriesread.unwrap_or(::std::ptr::null_mut())), totalentries, ::core::mem::transmute(resumehandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1111,7 +1111,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetUseGetInfo ( uncservername : ::windows::core::PCWSTR , usename : ::windows::core::PCWSTR , levelflags : u32 , bufptr : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetUseGetInfo(uncservername : ::windows::core::PCWSTR, usename : ::windows::core::PCWSTR, levelflags : u32, bufptr : *mut *mut u8) -> u32);
     NetUseGetInfo(uncservername.into_param().abi(), usename.into_param().abi(), levelflags, ::core::mem::transmute(bufptr.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1120,7 +1120,7 @@ pub unsafe fn NetUserAdd<P0>(servername: P0, level: u32, buf: *const u8, parm_er
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetUserAdd ( servername : ::windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetUserAdd(servername : ::windows::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
     NetUserAdd(servername.into_param().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1132,7 +1132,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetUserChangePassword ( domainname : ::windows::core::PCWSTR , username : ::windows::core::PCWSTR , oldpassword : ::windows::core::PCWSTR , newpassword : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetUserChangePassword(domainname : ::windows::core::PCWSTR, username : ::windows::core::PCWSTR, oldpassword : ::windows::core::PCWSTR, newpassword : ::windows::core::PCWSTR) -> u32);
     NetUserChangePassword(domainname.into_param().abi(), username.into_param().abi(), oldpassword.into_param().abi(), newpassword.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1142,7 +1142,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetUserDel ( servername : ::windows::core::PCWSTR , username : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetUserDel(servername : ::windows::core::PCWSTR, username : ::windows::core::PCWSTR) -> u32);
     NetUserDel(servername.into_param().abi(), username.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1151,7 +1151,7 @@ pub unsafe fn NetUserEnum<P0>(servername: P0, level: u32, filter: NET_USER_ENUM_
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetUserEnum ( servername : ::windows::core::PCWSTR , level : u32 , filter : NET_USER_ENUM_FILTER_FLAGS , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetUserEnum(servername : ::windows::core::PCWSTR, level : u32, filter : NET_USER_ENUM_FILTER_FLAGS, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
     NetUserEnum(servername.into_param().abi(), level, filter, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1161,7 +1161,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetUserGetGroups ( servername : ::windows::core::PCWSTR , username : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetUserGetGroups(servername : ::windows::core::PCWSTR, username : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32) -> u32);
     NetUserGetGroups(servername.into_param().abi(), username.into_param().abi(), level, bufptr, prefmaxlen, entriesread, totalentries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1171,7 +1171,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetUserGetInfo ( servername : ::windows::core::PCWSTR , username : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetUserGetInfo(servername : ::windows::core::PCWSTR, username : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8) -> u32);
     NetUserGetInfo(servername.into_param().abi(), username.into_param().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1181,7 +1181,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetUserGetLocalGroups ( servername : ::windows::core::PCWSTR , username : ::windows::core::PCWSTR , level : u32 , flags : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetUserGetLocalGroups(servername : ::windows::core::PCWSTR, username : ::windows::core::PCWSTR, level : u32, flags : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32) -> u32);
     NetUserGetLocalGroups(servername.into_param().abi(), username.into_param().abi(), level, flags, bufptr, prefmaxlen, entriesread, totalentries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1190,7 +1190,7 @@ pub unsafe fn NetUserModalsGet<P0>(servername: P0, level: u32, bufptr: *mut *mut
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetUserModalsGet ( servername : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetUserModalsGet(servername : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8) -> u32);
     NetUserModalsGet(servername.into_param().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1199,7 +1199,7 @@ pub unsafe fn NetUserModalsSet<P0>(servername: P0, level: u32, buf: *const u8, p
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetUserModalsSet ( servername : ::windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetUserModalsSet(servername : ::windows::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
     NetUserModalsSet(servername.into_param().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1209,7 +1209,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetUserSetGroups ( servername : ::windows::core::PCWSTR , username : ::windows::core::PCWSTR , level : u32 , buf : *const u8 , num_entries : u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetUserSetGroups(servername : ::windows::core::PCWSTR, username : ::windows::core::PCWSTR, level : u32, buf : *const u8, num_entries : u32) -> u32);
     NetUserSetGroups(servername.into_param().abi(), username.into_param().abi(), level, buf, num_entries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1219,7 +1219,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetUserSetInfo ( servername : ::windows::core::PCWSTR , username : ::windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetUserSetInfo(servername : ::windows::core::PCWSTR, username : ::windows::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
     NetUserSetInfo(servername.into_param().abi(), username.into_param().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1231,7 +1231,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetValidateName ( lpserver : ::windows::core::PCWSTR , lpname : ::windows::core::PCWSTR , lpaccount : ::windows::core::PCWSTR , lppassword : ::windows::core::PCWSTR , nametype : NETSETUP_NAME_TYPE ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetValidateName(lpserver : ::windows::core::PCWSTR, lpname : ::windows::core::PCWSTR, lpaccount : ::windows::core::PCWSTR, lppassword : ::windows::core::PCWSTR, nametype : NETSETUP_NAME_TYPE) -> u32);
     NetValidateName(lpserver.into_param().abi(), lpname.into_param().abi(), lpaccount.into_param().abi(), lppassword.into_param().abi(), nametype)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1240,13 +1240,13 @@ pub unsafe fn NetValidatePasswordPolicy<P0>(servername: P0, qualifier: *mut ::co
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetValidatePasswordPolicy ( servername : ::windows::core::PCWSTR , qualifier : *mut ::core::ffi::c_void , validationtype : NET_VALIDATE_PASSWORD_TYPE , inputarg : *mut ::core::ffi::c_void , outputarg : *mut *mut ::core::ffi::c_void ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetValidatePasswordPolicy(servername : ::windows::core::PCWSTR, qualifier : *mut ::core::ffi::c_void, validationtype : NET_VALIDATE_PASSWORD_TYPE, inputarg : *mut ::core::ffi::c_void, outputarg : *mut *mut ::core::ffi::c_void) -> u32);
     NetValidatePasswordPolicy(servername.into_param().abi(), qualifier, validationtype, inputarg, outputarg)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetValidatePasswordPolicyFree(outputarg: *mut *mut ::core::ffi::c_void) -> u32 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetValidatePasswordPolicyFree ( outputarg : *mut *mut ::core::ffi::c_void ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetValidatePasswordPolicyFree(outputarg : *mut *mut ::core::ffi::c_void) -> u32);
     NetValidatePasswordPolicyFree(outputarg)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1255,7 +1255,7 @@ pub unsafe fn NetWkstaGetInfo<P0>(servername: P0, level: u32, bufptr: ::core::op
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetWkstaGetInfo ( servername : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetWkstaGetInfo(servername : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8) -> u32);
     NetWkstaGetInfo(servername.into_param().abi(), level, ::core::mem::transmute(bufptr.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1264,13 +1264,13 @@ pub unsafe fn NetWkstaSetInfo<P0>(servername: P0, level: u32, buffer: *const u8,
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetWkstaSetInfo ( servername : ::windows::core::PCWSTR , level : u32 , buffer : *const u8 , parm_err : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetWkstaSetInfo(servername : ::windows::core::PCWSTR, level : u32, buffer : *const u8, parm_err : *mut u32) -> u32);
     NetWkstaSetInfo(servername.into_param().abi(), level, buffer, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetWkstaTransportAdd(servername: ::core::option::Option<*const i8>, level: u32, buf: *const u8, parm_err: ::core::option::Option<*mut u32>) -> u32 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetWkstaTransportAdd ( servername : *const i8 , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetWkstaTransportAdd(servername : *const i8, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
     NetWkstaTransportAdd(::core::mem::transmute(servername.unwrap_or(::std::ptr::null())), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1280,13 +1280,13 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetWkstaTransportDel ( servername : ::windows::core::PCWSTR , transportname : ::windows::core::PCWSTR , ucond : FORCE_LEVEL_FLAGS ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetWkstaTransportDel(servername : ::windows::core::PCWSTR, transportname : ::windows::core::PCWSTR, ucond : FORCE_LEVEL_FLAGS) -> u32);
     NetWkstaTransportDel(servername.into_param().abi(), transportname.into_param().abi(), ucond)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetWkstaTransportEnum(servername: ::core::option::Option<*const i8>, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: ::core::option::Option<*mut u32>) -> u32 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetWkstaTransportEnum ( servername : *const i8 , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetWkstaTransportEnum(servername : *const i8, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
     NetWkstaTransportEnum(::core::mem::transmute(servername.unwrap_or(::std::ptr::null())), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1295,7 +1295,7 @@ pub unsafe fn NetWkstaUserEnum<P0>(servername: P0, level: u32, bufptr: ::core::o
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetWkstaUserEnum ( servername : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resumehandle : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetWkstaUserEnum(servername : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
     NetWkstaUserEnum(servername.into_param().abi(), level, ::core::mem::transmute(bufptr.unwrap_or(::std::ptr::null_mut())), prefmaxlen, ::core::mem::transmute(entriesread.unwrap_or(::std::ptr::null_mut())), totalentries, ::core::mem::transmute(resumehandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1304,7 +1304,7 @@ pub unsafe fn NetWkstaUserGetInfo<P0>(reserved: P0, level: u32, bufptr: *mut *mu
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetWkstaUserGetInfo ( reserved : ::windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetWkstaUserGetInfo(reserved : ::windows::core::PCWSTR, level : u32, bufptr : *mut *mut u8) -> u32);
     NetWkstaUserGetInfo(reserved.into_param().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1313,7 +1313,7 @@ pub unsafe fn NetWkstaUserSetInfo<P0>(reserved: P0, level: u32, buf: *const u8, 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "netapi32.dll""system" fn NetWkstaUserSetInfo ( reserved : ::windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
+    ::windows_targets::link!("netapi32.dll" "system" fn NetWkstaUserSetInfo(reserved : ::windows::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
     NetWkstaUserSetInfo(reserved.into_param().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1324,19 +1324,19 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn RouterAssert ( pszfailedassertion : ::windows::core::PCSTR , pszfilename : ::windows::core::PCSTR , dwlinenumber : u32 , pszmessage : ::windows::core::PCSTR ) -> ( ) );
+    ::windows_targets::link!("rtutils.dll" "system" fn RouterAssert(pszfailedassertion : ::windows::core::PCSTR, pszfilename : ::windows::core::PCSTR, dwlinenumber : u32, pszmessage : ::windows::core::PCSTR) -> ());
     RouterAssert(pszfailedassertion.into_param().abi(), pszfilename.into_param().abi(), dwlinenumber, pszmessage.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn RouterGetErrorStringA(dwerrorcode: u32, lplpszerrorstring: *mut ::windows::core::PSTR) -> u32 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn RouterGetErrorStringA ( dwerrorcode : u32 , lplpszerrorstring : *mut ::windows::core::PSTR ) -> u32 );
+    ::windows_targets::link!("rtutils.dll" "system" fn RouterGetErrorStringA(dwerrorcode : u32, lplpszerrorstring : *mut ::windows::core::PSTR) -> u32);
     RouterGetErrorStringA(dwerrorcode, lplpszerrorstring)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: *mut ::windows::core::PWSTR) -> u32 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn RouterGetErrorStringW ( dwerrorcode : u32 , lplpwszerrorstring : *mut ::windows::core::PWSTR ) -> u32 );
+    ::windows_targets::link!("rtutils.dll" "system" fn RouterGetErrorStringW(dwerrorcode : u32, lplpwszerrorstring : *mut ::windows::core::PWSTR) -> u32);
     RouterGetErrorStringW(dwerrorcode, lplpwszerrorstring)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -1346,7 +1346,7 @@ pub unsafe fn RouterLogDeregisterA<P0>(hloghandle: P0)
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn RouterLogDeregisterA ( hloghandle : super::super::Foundation:: HANDLE ) -> ( ) );
+    ::windows_targets::link!("rtutils.dll" "system" fn RouterLogDeregisterA(hloghandle : super::super::Foundation:: HANDLE) -> ());
     RouterLogDeregisterA(hloghandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -1356,7 +1356,7 @@ pub unsafe fn RouterLogDeregisterW<P0>(hloghandle: P0)
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn RouterLogDeregisterW ( hloghandle : super::super::Foundation:: HANDLE ) -> ( ) );
+    ::windows_targets::link!("rtutils.dll" "system" fn RouterLogDeregisterW(hloghandle : super::super::Foundation:: HANDLE) -> ());
     RouterLogDeregisterW(hloghandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -1366,7 +1366,7 @@ pub unsafe fn RouterLogEventA<P0>(hloghandle: P0, dweventtype: u32, dwmessageid:
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn RouterLogEventA ( hloghandle : super::super::Foundation:: HANDLE , dweventtype : u32 , dwmessageid : u32 , dwsubstringcount : u32 , plpszsubstringarray : *const ::windows::core::PCSTR , dwerrorcode : u32 ) -> ( ) );
+    ::windows_targets::link!("rtutils.dll" "system" fn RouterLogEventA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows::core::PCSTR, dwerrorcode : u32) -> ());
     RouterLogEventA(hloghandle.into_param().abi(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwerrorcode)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -1376,7 +1376,7 @@ pub unsafe fn RouterLogEventDataA<P0>(hloghandle: P0, dweventtype: u32, dwmessag
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn RouterLogEventDataA ( hloghandle : super::super::Foundation:: HANDLE , dweventtype : u32 , dwmessageid : u32 , dwsubstringcount : u32 , plpszsubstringarray : *const ::windows::core::PCSTR , dwdatabytes : u32 , lpdatabytes : *mut u8 ) -> ( ) );
+    ::windows_targets::link!("rtutils.dll" "system" fn RouterLogEventDataA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows::core::PCSTR, dwdatabytes : u32, lpdatabytes : *mut u8) -> ());
     RouterLogEventDataA(hloghandle.into_param().abi(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwdatabytes, lpdatabytes)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -1386,7 +1386,7 @@ pub unsafe fn RouterLogEventDataW<P0>(hloghandle: P0, dweventtype: u32, dwmessag
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn RouterLogEventDataW ( hloghandle : super::super::Foundation:: HANDLE , dweventtype : u32 , dwmessageid : u32 , dwsubstringcount : u32 , plpszsubstringarray : *const ::windows::core::PCWSTR , dwdatabytes : u32 , lpdatabytes : *mut u8 ) -> ( ) );
+    ::windows_targets::link!("rtutils.dll" "system" fn RouterLogEventDataW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows::core::PCWSTR, dwdatabytes : u32, lpdatabytes : *mut u8) -> ());
     RouterLogEventDataW(hloghandle.into_param().abi(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwdatabytes, lpdatabytes)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -1397,7 +1397,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""cdecl" fn RouterLogEventExA ( hloghandle : super::super::Foundation:: HANDLE , dweventtype : u32 , dwerrorcode : u32 , dwmessageid : u32 , ptszformat : ::windows::core::PCSTR ) -> ( ) );
+    ::windows_targets::link!("rtutils.dll" "cdecl" fn RouterLogEventExA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : ::windows::core::PCSTR) -> ());
     RouterLogEventExA(hloghandle.into_param().abi(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -1408,7 +1408,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""cdecl" fn RouterLogEventExW ( hloghandle : super::super::Foundation:: HANDLE , dweventtype : u32 , dwerrorcode : u32 , dwmessageid : u32 , ptszformat : ::windows::core::PCWSTR ) -> ( ) );
+    ::windows_targets::link!("rtutils.dll" "cdecl" fn RouterLogEventExW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : ::windows::core::PCWSTR) -> ());
     RouterLogEventExW(hloghandle.into_param().abi(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -1418,7 +1418,7 @@ pub unsafe fn RouterLogEventStringA<P0>(hloghandle: P0, dweventtype: u32, dwmess
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn RouterLogEventStringA ( hloghandle : super::super::Foundation:: HANDLE , dweventtype : u32 , dwmessageid : u32 , dwsubstringcount : u32 , plpszsubstringarray : *const ::windows::core::PCSTR , dwerrorcode : u32 , dwerrorindex : u32 ) -> ( ) );
+    ::windows_targets::link!("rtutils.dll" "system" fn RouterLogEventStringA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows::core::PCSTR, dwerrorcode : u32, dwerrorindex : u32) -> ());
     RouterLogEventStringA(hloghandle.into_param().abi(), dweventtype, dwmessageid, plpszsubstringarray.len() as _, ::core::mem::transmute(plpszsubstringarray.as_ptr()), dwerrorcode, dwerrorindex)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -1428,7 +1428,7 @@ pub unsafe fn RouterLogEventStringW<P0>(hloghandle: P0, dweventtype: u32, dwmess
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn RouterLogEventStringW ( hloghandle : super::super::Foundation:: HANDLE , dweventtype : u32 , dwmessageid : u32 , dwsubstringcount : u32 , plpszsubstringarray : *const ::windows::core::PCWSTR , dwerrorcode : u32 , dwerrorindex : u32 ) -> ( ) );
+    ::windows_targets::link!("rtutils.dll" "system" fn RouterLogEventStringW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows::core::PCWSTR, dwerrorcode : u32, dwerrorindex : u32) -> ());
     RouterLogEventStringW(hloghandle.into_param().abi(), dweventtype, dwmessageid, plpszsubstringarray.len() as _, ::core::mem::transmute(plpszsubstringarray.as_ptr()), dwerrorcode, dwerrorindex)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -1439,7 +1439,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn RouterLogEventValistExA ( hloghandle : super::super::Foundation:: HANDLE , dweventtype : u32 , dwerrorcode : u32 , dwmessageid : u32 , ptszformat : ::windows::core::PCSTR , arglist : *mut i8 ) -> ( ) );
+    ::windows_targets::link!("rtutils.dll" "system" fn RouterLogEventValistExA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : ::windows::core::PCSTR, arglist : *mut i8) -> ());
     RouterLogEventValistExA(hloghandle.into_param().abi(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into_param().abi(), arglist)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -1450,7 +1450,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn RouterLogEventValistExW ( hloghandle : super::super::Foundation:: HANDLE , dweventtype : u32 , dwerrorcode : u32 , dwmessageid : u32 , ptszformat : ::windows::core::PCWSTR , arglist : *mut i8 ) -> ( ) );
+    ::windows_targets::link!("rtutils.dll" "system" fn RouterLogEventValistExW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : ::windows::core::PCWSTR, arglist : *mut i8) -> ());
     RouterLogEventValistExW(hloghandle.into_param().abi(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into_param().abi(), arglist)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -1460,7 +1460,7 @@ pub unsafe fn RouterLogEventW<P0>(hloghandle: P0, dweventtype: u32, dwmessageid:
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn RouterLogEventW ( hloghandle : super::super::Foundation:: HANDLE , dweventtype : u32 , dwmessageid : u32 , dwsubstringcount : u32 , plpszsubstringarray : *const ::windows::core::PCWSTR , dwerrorcode : u32 ) -> ( ) );
+    ::windows_targets::link!("rtutils.dll" "system" fn RouterLogEventW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows::core::PCWSTR, dwerrorcode : u32) -> ());
     RouterLogEventW(hloghandle.into_param().abi(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwerrorcode)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -1470,7 +1470,7 @@ pub unsafe fn RouterLogRegisterA<P0>(lpszsource: P0) -> super::super::Foundation
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn RouterLogRegisterA ( lpszsource : ::windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows_targets::link!("rtutils.dll" "system" fn RouterLogRegisterA(lpszsource : ::windows::core::PCSTR) -> super::super::Foundation:: HANDLE);
     RouterLogRegisterA(lpszsource.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -1480,7 +1480,7 @@ pub unsafe fn RouterLogRegisterW<P0>(lpszsource: P0) -> super::super::Foundation
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn RouterLogRegisterW ( lpszsource : ::windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows_targets::link!("rtutils.dll" "system" fn RouterLogRegisterW(lpszsource : ::windows::core::PCWSTR) -> super::super::Foundation:: HANDLE);
     RouterLogRegisterW(lpszsource.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1491,31 +1491,31 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "mstask.dll""system" fn SetNetScheduleAccountInformation ( pwszservername : ::windows::core::PCWSTR , pwszaccount : ::windows::core::PCWSTR , pwszpassword : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
+    ::windows_targets::link!("mstask.dll" "system" fn SetNetScheduleAccountInformation(pwszservername : ::windows::core::PCWSTR, pwszaccount : ::windows::core::PCWSTR, pwszpassword : ::windows::core::PCWSTR) -> ::windows::core::HRESULT);
     SetNetScheduleAccountInformation(pwszservername.into_param().abi(), pwszaccount.into_param().abi(), pwszpassword.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn TraceDeregisterA(dwtraceid: u32) -> u32 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn TraceDeregisterA ( dwtraceid : u32 ) -> u32 );
+    ::windows_targets::link!("rtutils.dll" "system" fn TraceDeregisterA(dwtraceid : u32) -> u32);
     TraceDeregisterA(dwtraceid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn TraceDeregisterExA(dwtraceid: u32, dwflags: u32) -> u32 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn TraceDeregisterExA ( dwtraceid : u32 , dwflags : u32 ) -> u32 );
+    ::windows_targets::link!("rtutils.dll" "system" fn TraceDeregisterExA(dwtraceid : u32, dwflags : u32) -> u32);
     TraceDeregisterExA(dwtraceid, dwflags)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn TraceDeregisterExW(dwtraceid: u32, dwflags: u32) -> u32 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn TraceDeregisterExW ( dwtraceid : u32 , dwflags : u32 ) -> u32 );
+    ::windows_targets::link!("rtutils.dll" "system" fn TraceDeregisterExW(dwtraceid : u32, dwflags : u32) -> u32);
     TraceDeregisterExW(dwtraceid, dwflags)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn TraceDeregisterW(dwtraceid: u32) -> u32 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn TraceDeregisterW ( dwtraceid : u32 ) -> u32 );
+    ::windows_targets::link!("rtutils.dll" "system" fn TraceDeregisterW(dwtraceid : u32) -> u32);
     TraceDeregisterW(dwtraceid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -1526,7 +1526,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn TraceDumpExA ( dwtraceid : u32 , dwflags : u32 , lpbbytes : *mut u8 , dwbytecount : u32 , dwgroupsize : u32 , baddressprefix : super::super::Foundation:: BOOL , lpszprefix : ::windows::core::PCSTR ) -> u32 );
+    ::windows_targets::link!("rtutils.dll" "system" fn TraceDumpExA(dwtraceid : u32, dwflags : u32, lpbbytes : *mut u8, dwbytecount : u32, dwgroupsize : u32, baddressprefix : super::super::Foundation:: BOOL, lpszprefix : ::windows::core::PCSTR) -> u32);
     TraceDumpExA(dwtraceid, dwflags, lpbbytes, dwbytecount, dwgroupsize, baddressprefix.into_param().abi(), lpszprefix.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -1537,21 +1537,21 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn TraceDumpExW ( dwtraceid : u32 , dwflags : u32 , lpbbytes : *mut u8 , dwbytecount : u32 , dwgroupsize : u32 , baddressprefix : super::super::Foundation:: BOOL , lpszprefix : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link!("rtutils.dll" "system" fn TraceDumpExW(dwtraceid : u32, dwflags : u32, lpbbytes : *mut u8, dwbytecount : u32, dwgroupsize : u32, baddressprefix : super::super::Foundation:: BOOL, lpszprefix : ::windows::core::PCWSTR) -> u32);
     TraceDumpExW(dwtraceid, dwflags, lpbbytes, dwbytecount, dwgroupsize, baddressprefix.into_param().abi(), lpszprefix.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TraceGetConsoleA(dwtraceid: u32, lphconsole: *mut super::super::Foundation::HANDLE) -> u32 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn TraceGetConsoleA ( dwtraceid : u32 , lphconsole : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows_targets::link!("rtutils.dll" "system" fn TraceGetConsoleA(dwtraceid : u32, lphconsole : *mut super::super::Foundation:: HANDLE) -> u32);
     TraceGetConsoleA(dwtraceid, lphconsole)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TraceGetConsoleW(dwtraceid: u32, lphconsole: *mut super::super::Foundation::HANDLE) -> u32 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn TraceGetConsoleW ( dwtraceid : u32 , lphconsole : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows_targets::link!("rtutils.dll" "system" fn TraceGetConsoleW(dwtraceid : u32, lphconsole : *mut super::super::Foundation:: HANDLE) -> u32);
     TraceGetConsoleW(dwtraceid, lphconsole)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1560,7 +1560,7 @@ pub unsafe fn TracePrintfA<P0>(dwtraceid: u32, lpszformat: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""cdecl" fn TracePrintfA ( dwtraceid : u32 , lpszformat : ::windows::core::PCSTR ) -> u32 );
+    ::windows_targets::link!("rtutils.dll" "cdecl" fn TracePrintfA(dwtraceid : u32, lpszformat : ::windows::core::PCSTR) -> u32);
     TracePrintfA(dwtraceid, lpszformat.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1569,7 +1569,7 @@ pub unsafe fn TracePrintfExA<P0>(dwtraceid: u32, dwflags: u32, lpszformat: P0) -
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""cdecl" fn TracePrintfExA ( dwtraceid : u32 , dwflags : u32 , lpszformat : ::windows::core::PCSTR ) -> u32 );
+    ::windows_targets::link!("rtutils.dll" "cdecl" fn TracePrintfExA(dwtraceid : u32, dwflags : u32, lpszformat : ::windows::core::PCSTR) -> u32);
     TracePrintfExA(dwtraceid, dwflags, lpszformat.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1578,7 +1578,7 @@ pub unsafe fn TracePrintfExW<P0>(dwtraceid: u32, dwflags: u32, lpszformat: P0) -
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""cdecl" fn TracePrintfExW ( dwtraceid : u32 , dwflags : u32 , lpszformat : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link!("rtutils.dll" "cdecl" fn TracePrintfExW(dwtraceid : u32, dwflags : u32, lpszformat : ::windows::core::PCWSTR) -> u32);
     TracePrintfExW(dwtraceid, dwflags, lpszformat.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1587,7 +1587,7 @@ pub unsafe fn TracePrintfW<P0>(dwtraceid: u32, lpszformat: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""cdecl" fn TracePrintfW ( dwtraceid : u32 , lpszformat : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link!("rtutils.dll" "cdecl" fn TracePrintfW(dwtraceid : u32, lpszformat : ::windows::core::PCWSTR) -> u32);
     TracePrintfW(dwtraceid, lpszformat.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1596,7 +1596,7 @@ pub unsafe fn TracePutsExA<P0>(dwtraceid: u32, dwflags: u32, lpszstring: P0) -> 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn TracePutsExA ( dwtraceid : u32 , dwflags : u32 , lpszstring : ::windows::core::PCSTR ) -> u32 );
+    ::windows_targets::link!("rtutils.dll" "system" fn TracePutsExA(dwtraceid : u32, dwflags : u32, lpszstring : ::windows::core::PCSTR) -> u32);
     TracePutsExA(dwtraceid, dwflags, lpszstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1605,7 +1605,7 @@ pub unsafe fn TracePutsExW<P0>(dwtraceid: u32, dwflags: u32, lpszstring: P0) -> 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn TracePutsExW ( dwtraceid : u32 , dwflags : u32 , lpszstring : ::windows::core::PCWSTR ) -> u32 );
+    ::windows_targets::link!("rtutils.dll" "system" fn TracePutsExW(dwtraceid : u32, dwflags : u32, lpszstring : ::windows::core::PCWSTR) -> u32);
     TracePutsExW(dwtraceid, dwflags, lpszstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1614,7 +1614,7 @@ pub unsafe fn TraceRegisterExA<P0>(lpszcallername: P0, dwflags: u32) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn TraceRegisterExA ( lpszcallername : ::windows::core::PCSTR , dwflags : u32 ) -> u32 );
+    ::windows_targets::link!("rtutils.dll" "system" fn TraceRegisterExA(lpszcallername : ::windows::core::PCSTR, dwflags : u32) -> u32);
     TraceRegisterExA(lpszcallername.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1623,7 +1623,7 @@ pub unsafe fn TraceRegisterExW<P0>(lpszcallername: P0, dwflags: u32) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn TraceRegisterExW ( lpszcallername : ::windows::core::PCWSTR , dwflags : u32 ) -> u32 );
+    ::windows_targets::link!("rtutils.dll" "system" fn TraceRegisterExW(lpszcallername : ::windows::core::PCWSTR, dwflags : u32) -> u32);
     TraceRegisterExW(lpszcallername.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1632,7 +1632,7 @@ pub unsafe fn TraceVprintfExA<P0>(dwtraceid: u32, dwflags: u32, lpszformat: P0, 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn TraceVprintfExA ( dwtraceid : u32 , dwflags : u32 , lpszformat : ::windows::core::PCSTR , arglist : *mut i8 ) -> u32 );
+    ::windows_targets::link!("rtutils.dll" "system" fn TraceVprintfExA(dwtraceid : u32, dwflags : u32, lpszformat : ::windows::core::PCSTR, arglist : *mut i8) -> u32);
     TraceVprintfExA(dwtraceid, dwflags, lpszformat.into_param().abi(), arglist)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -1641,7 +1641,7 @@ pub unsafe fn TraceVprintfExW<P0>(dwtraceid: u32, dwflags: u32, lpszformat: P0, 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link ! ( "rtutils.dll""system" fn TraceVprintfExW ( dwtraceid : u32 , dwflags : u32 , lpszformat : ::windows::core::PCWSTR , arglist : *mut i8 ) -> u32 );
+    ::windows_targets::link!("rtutils.dll" "system" fn TraceVprintfExW(dwtraceid : u32, dwflags : u32, lpszformat : ::windows::core::PCWSTR, arglist : *mut i8) -> u32);
     TraceVprintfExW(dwtraceid, dwflags, lpszformat.into_param().abi(), arglist)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]

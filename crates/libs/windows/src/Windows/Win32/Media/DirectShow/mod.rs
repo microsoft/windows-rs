@@ -5,13 +5,13 @@ pub mod Xml;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[inline]
 pub unsafe fn AMGetErrorTextA(hr: ::windows::core::HRESULT, pbuffer: &mut [u8]) -> u32 {
-    ::windows_targets::link ! ( "quartz.dll""system" fn AMGetErrorTextA ( hr : ::windows::core::HRESULT , pbuffer : ::windows::core::PSTR , maxlen : u32 ) -> u32 );
+    ::windows_targets::link!("quartz.dll" "system" fn AMGetErrorTextA(hr : ::windows::core::HRESULT, pbuffer : ::windows::core::PSTR, maxlen : u32) -> u32);
     AMGetErrorTextA(hr, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[inline]
 pub unsafe fn AMGetErrorTextW(hr: ::windows::core::HRESULT, pbuffer: &mut [u16]) -> u32 {
-    ::windows_targets::link ! ( "quartz.dll""system" fn AMGetErrorTextW ( hr : ::windows::core::HRESULT , pbuffer : ::windows::core::PWSTR , maxlen : u32 ) -> u32 );
+    ::windows_targets::link!("quartz.dll" "system" fn AMGetErrorTextW(hr : ::windows::core::HRESULT, pbuffer : ::windows::core::PWSTR, maxlen : u32) -> u32);
     AMGetErrorTextW(hr, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
