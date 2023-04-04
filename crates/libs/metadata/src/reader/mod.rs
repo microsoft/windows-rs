@@ -1614,7 +1614,11 @@ impl<'a> Reader<'a> {
 
         if let Some(outer) = enclosing {
             if full_name.namespace.is_empty() {
-                return Type::TypeDef((self.nested[&outer][full_name.name], Vec::new()));
+                let nested = &self.nested[&outer];
+                let Some(inner) = nested.get(full_name.name) else {
+                    panic!("Nested type not found: {}.{}", self.type_def_type_name(outer), full_name.name);
+                };
+                return Type::TypeDef((*inner, Vec::new()));
             }
         }
 
