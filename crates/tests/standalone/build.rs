@@ -40,6 +40,19 @@ fn main() {
     write("src/b_guid.rs", &["Windows.Win32.System.Com.CoCreateGuid"]);
 
     write(
+        "src/b_arch.rs",
+        &[
+            "Windows.Win32.Networking.WinSock.WSADATA",
+            "Windows.Win32.UI.WindowsAndMessaging.GetWindowLongPtrW",
+        ],
+    );
+
+    write(
+        "src/b_depends.rs",
+        &["Windows.Win32.Networking.WinSock.WSASENDMSG"],
+    );
+
+    write(
         "src/b_test.rs",
         &[
             "Windows.Win32.Foundation.CloseHandle",
