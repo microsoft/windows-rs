@@ -54,13 +54,15 @@ fn gen_link<P: IntoIterator<Item = TokenStream>>(
     params: P,
     return_type: &str,
 ) -> TokenStream {
-    let return_type_space = if return_type.is_empty() { "" } else { " " };
     let mut tokens = String::new();
     for param in params {
         tokens.push_str(&format!("{}, ", param.as_str()));
     }
     let tokens = tokens.trim_end_matches(", ");
-    format!("::windows_targets::link!(\"{link}\" \"{abi}\"{doc} fn {name}({tokens}){return_type_space}{return_type});").into()
+    format!(
+        "::windows_targets::link!(\"{link}\" \"{abi}\"{doc} fn {name}({tokens}) {return_type});"
+    )
+    .into()
 }
 
 fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
