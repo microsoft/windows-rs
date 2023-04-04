@@ -157,6 +157,7 @@ pub struct SignatureParam {
 #[derive(Default, Clone)]
 pub struct Cfg<'a> {
     pub types: BTreeMap<&'a str, BTreeSet<TypeDef>>,
+    pub core_types: BTreeSet<Type>,
     pub arches: BTreeSet<&'static str>,
     pub implement: bool,
 }
@@ -1469,7 +1470,7 @@ impl<'a> Reader<'a> {
             Type::MutPtr((ty, _)) => self.type_cfg_combine(ty, cfg),
             Type::WinrtArray(ty) => self.type_cfg_combine(ty, cfg),
             Type::WinrtArrayRef(ty) => self.type_cfg_combine(ty, cfg),
-            _ => {}
+            ty => _ = cfg.core_types.insert(ty.clone()),
         }
     }
     pub fn type_interfaces(&self, ty: &Type) -> Vec<Interface> {
