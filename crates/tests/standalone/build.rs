@@ -41,7 +41,10 @@ fn main() {
 
     write(
         "src/b_arch.rs",
-        &["Windows.Win32.Networking.WinSock.WSADATA"],
+        &[
+            "Windows.Win32.Networking.WinSock.WSADATA",
+            "Windows.Win32.UI.WindowsAndMessaging.GetWindowLongPtrW",
+        ],
     );
 
     write(

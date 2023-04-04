@@ -8,6 +8,7 @@
     clippy::all
 )]
 pub type PSTR = *mut u8;
+pub type HWND = isize;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct WSADATA {
@@ -46,3 +47,18 @@ impl ::core::clone::Clone for WSADATA {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+::windows_targets::link ! ( "user32.dll""system"  fn GetWindowLongPtrW ( hwnd : HWND , nindex : WINDOW_LONG_PTR_INDEX ) -> isize );
+pub type WINDOW_LONG_PTR_INDEX = i32;
+pub const GWL_EXSTYLE: WINDOW_LONG_PTR_INDEX = -20i32;
+pub const GWLP_HINSTANCE: WINDOW_LONG_PTR_INDEX = -6i32;
+pub const GWLP_HWNDPARENT: WINDOW_LONG_PTR_INDEX = -8i32;
+pub const GWLP_ID: WINDOW_LONG_PTR_INDEX = -12i32;
+pub const GWL_STYLE: WINDOW_LONG_PTR_INDEX = -16i32;
+pub const GWLP_USERDATA: WINDOW_LONG_PTR_INDEX = -21i32;
+pub const GWLP_WNDPROC: WINDOW_LONG_PTR_INDEX = -4i32;
+pub const GWL_HINSTANCE: WINDOW_LONG_PTR_INDEX = -6i32;
+pub const GWL_ID: WINDOW_LONG_PTR_INDEX = -12i32;
+pub const GWL_USERDATA: WINDOW_LONG_PTR_INDEX = -21i32;
+pub const GWL_WNDPROC: WINDOW_LONG_PTR_INDEX = -4i32;
+pub const GWL_HWNDPARENT: WINDOW_LONG_PTR_INDEX = -8i32;
