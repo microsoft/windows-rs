@@ -10,9 +10,6 @@
 pub type PSTR = *mut u8;
 pub type HANDLE = isize;
 pub type ADDRESS_FAMILY = u16;
-pub const AF_INET: ADDRESS_FAMILY = 2u16;
-pub const AF_INET6: ADDRESS_FAMILY = 23u16;
-pub const AF_UNSPEC: ADDRESS_FAMILY = 0u16;
 pub type LPWSAOVERLAPPED_COMPLETION_ROUTINE = ::core::option::Option<
     unsafe extern "system" fn(
         dwerror: u32,

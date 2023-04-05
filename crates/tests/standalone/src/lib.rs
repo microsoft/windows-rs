@@ -14,6 +14,8 @@ mod b_pstr;
 mod b_pwstr;
 mod b_test;
 mod b_unknown;
+mod b_enumeration;
+mod b_enumerator;
 
 #[test]
 fn bstr() {

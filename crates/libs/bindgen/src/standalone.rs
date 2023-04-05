@@ -19,6 +19,7 @@ pub fn standalone(names: &[&str]) -> String {
 
     let mut type_names = BTreeSet::new();
     let mut core_types = BTreeSet::new();
+    let mut enums = BTreeMap::new();
 
     for name in names {
         let type_name = TypeName::parse(name);
@@ -73,6 +74,28 @@ pub fn standalone(names: &[&str]) -> String {
                         core_types.append(&mut cfg.core_types);
                         for def in cfg.types.values().flatten() {
                             type_names.insert(reader.type_def_type_name(*def));
+                        }
+                    }
+                }
+            }
+        }
+
+        if !found {
+            for def in reader.namespace_types(type_name.namespace, &Default::default()) {
+                if found {
+                    break;
+                }
+                if gen.reader.type_def_kind(def) == TypeKind::Enum {
+                    for field in gen.reader.type_def_fields(def) {
+                        if found {
+                            break;
+                        }
+                        let name = gen.reader.field_name(field);
+                        if name == type_name.name {
+                            found = true;
+                            let enum_name = gen.reader.type_def_type_name(def);
+                            type_names.insert(enum_name);
+                            enums.insert(enum_name, type_name.name);
                         }
                     }
                 }
@@ -174,6 +197,25 @@ pub fn standalone(names: &[&str]) -> String {
                         found = true;
                         tokens.combine(&constants::gen(gen, field));
                     }
+                }
+            }
+        }
+    }
+
+    for (enum_type, field_name) in enums {
+        if let Some(def) = reader.get(enum_type).next() {
+            for field in gen.reader.type_def_fields(def) {
+                if gen.reader.field_name(field) == field_name {
+                    let field_name = to_ident(field_name);
+                    let ident = to_ident(enum_type.name);
+                    let constant = gen.reader.field_constant(field).unwrap();
+                    let value = gen.value(&gen.reader.constant_value(constant));
+
+                    tokens.combine(&quote! {
+                        pub const #field_name: #ident = #value;
+                    });
+
+                    break;
                 }
             }
         }
