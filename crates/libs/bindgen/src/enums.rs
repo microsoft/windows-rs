@@ -86,7 +86,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         quote! {
             #(#fields)*
         }
-    } else {
+    } else if !gen.standalone {
         let fields = fields.iter().map(|(field_name, value)| {
             quote! {
                 #doc
@@ -98,6 +98,8 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         quote! {
             #(#fields)*
         }
+    } else {
+        quote! {}
     });
 
     if is_scoped || !gen.sys {

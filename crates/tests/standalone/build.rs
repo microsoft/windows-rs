@@ -53,10 +53,21 @@ fn main() {
     );
 
     write(
+        "src/b_enumeration.rs",
+        &["Windows.Win32.Foundation.WIN32_ERROR"],
+    );
+
+    write(
+        "src/b_enumerator.rs",
+        &["Windows.Win32.Foundation.WAIT_IO_COMPLETION"],
+    );
+
+    write(
         "src/b_test.rs",
         &[
             "Windows.Win32.Foundation.CloseHandle",
             "Windows.Win32.System.Com.CoCreateInstance",
+            "Windows.Win32.System.Com.CLSCTX_ALL",
             "Windows.Win32.System.Com.STGTY_REPEAT",
             "Windows.Win32.System.Threading.CreateEventW",
             "Windows.Win32.System.Threading.SetEvent",
