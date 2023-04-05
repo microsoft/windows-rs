@@ -58,6 +58,10 @@ fn gen_link<P: IntoIterator<Item = TokenStream>>(
     for param in params {
         tokens.push_str(&format!("{}, ", param.as_str()));
     }
+
+    // Strip the dll suffix, including it will cause runtime failures as the
+    // dynamic loader will look for eg. "kernel32.dll.dll"
+    let link = link.strip_suffix(".dll").unwrap_or(link);
     let tokens = tokens.trim_end_matches(", ");
     format!(
         "::windows_targets::link!(\"{link}\" \"{abi}\"{doc} fn {name}({tokens}) {return_type});"
