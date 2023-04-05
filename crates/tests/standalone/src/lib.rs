@@ -3,6 +3,8 @@
 mod b_arch;
 mod b_bstr;
 mod b_depends;
+mod b_enumeration;
+mod b_enumerator;
 mod b_guid;
 mod b_hresult;
 mod b_hstring;
@@ -14,8 +16,6 @@ mod b_pstr;
 mod b_pwstr;
 mod b_test;
 mod b_unknown;
-mod b_enumeration;
-mod b_enumerator;
 
 #[test]
 fn bstr() {
