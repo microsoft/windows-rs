@@ -1,3 +1,5 @@
+#![cfg_attr(windows_raw_dylib, feature(raw_dylib))]
+
 use windows_sys::{
     Win32::Foundation::*, Win32::Graphics::Gdi::*, Win32::System::ProcessStatus::*,
     Win32::System::Threading::*, Win32::Web::InternetExplorer::*,
