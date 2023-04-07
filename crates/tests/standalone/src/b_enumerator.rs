@@ -9,3 +9,4 @@
 )]
 pub type WIN32_ERROR = u32;
 pub const WAIT_IO_COMPLETION: WIN32_ERROR = 192u32;
+pub const WAIT_TIMEOUT: WIN32_ERROR = 258u32;

@@ -59,7 +59,10 @@ fn main() {
 
     write(
         "src/b_enumerator.rs",
-        &["Windows.Win32.Foundation.WAIT_IO_COMPLETION"],
+        &[
+            "Windows.Win32.Foundation.WAIT_IO_COMPLETION",
+            "Windows.Win32.Foundation.WAIT_TIMEOUT",
+        ],
     );
 
     write(
