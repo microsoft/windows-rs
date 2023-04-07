@@ -98,6 +98,12 @@ fn unknown() {
 }
 
 #[test]
+fn enumerator() {
+    assert_eq!(b_enumerator::WAIT_IO_COMPLETION, 192);
+    assert_eq!(b_enumerator::WAIT_TIMEOUT, 258);
+}
+
+#[test]
 fn test() {
     use b_test::*;
     unsafe {

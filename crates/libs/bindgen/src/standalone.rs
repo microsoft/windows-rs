@@ -19,7 +19,7 @@ pub fn standalone(names: &[&str]) -> String {
 
     let mut type_names = BTreeSet::new();
     let mut core_types = BTreeSet::new();
-    let mut enums = BTreeMap::new();
+    let mut enums = BTreeSet::new();
 
     for name in names {
         let type_name = TypeName::parse(name);
@@ -95,7 +95,7 @@ pub fn standalone(names: &[&str]) -> String {
                             found = true;
                             let enum_name = gen.reader.type_def_type_name(def);
                             type_names.insert(enum_name);
-                            enums.insert(enum_name, type_name.name);
+                            enums.insert((enum_name, type_name.name));
                         }
                     }
                 }
