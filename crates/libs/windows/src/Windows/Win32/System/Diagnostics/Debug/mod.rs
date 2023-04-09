@@ -7728,6 +7728,8 @@ pub const PROCESSOR_ARCHITECTURE_INTEL: PROCESSOR_ARCHITECTURE = PROCESSOR_ARCHI
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const PROCESSOR_ARCHITECTURE_ARM: PROCESSOR_ARCHITECTURE = PROCESSOR_ARCHITECTURE(5u16);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const PROCESSOR_ARCHITECTURE_ARM64: PROCESSOR_ARCHITECTURE = PROCESSOR_ARCHITECTURE(12u16);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const PROCESSOR_ARCHITECTURE_UNKNOWN: PROCESSOR_ARCHITECTURE = PROCESSOR_ARCHITECTURE(65535u16);
 impl ::core::marker::Copy for PROCESSOR_ARCHITECTURE {}
 impl ::core::clone::Clone for PROCESSOR_ARCHITECTURE {
