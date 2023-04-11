@@ -35,14 +35,26 @@ fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
     });
 
     let mut tokens = features;
-    tokens.combine(&gen_link(
-        &link,
-        abi,
-        doc.as_str(),
-        name.as_str(),
-        params,
-        return_type.as_str(),
-    ));
+
+    if gen.std {
+        let link = link.trim_end_matches(".dll");
+        tokens.combine(&quote! {
+            #[link(name = #link)]
+            extern #abi {
+                fn #name(#(#params),*) #return_type;
+            }
+        });
+    } else {
+        tokens.combine(&gen_link(
+            &link,
+            abi,
+            doc.as_str(),
+            name.as_str(),
+            params,
+            return_type.as_str(),
+        ));
+    }
+
     tokens
 }
 

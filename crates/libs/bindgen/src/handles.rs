@@ -10,10 +10,23 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
 
 pub fn gen_sys_handle(gen: &Gen, def: TypeDef) -> TokenStream {
     let ident = to_ident(gen.reader.type_def_name(def));
-    let signature = gen.type_default_name(&gen.reader.type_def_underlying_type(def));
+    match gen.reader.type_def_underlying_type(def) {
+        Type::ISize if gen.std => quote! {
+            pub type #ident = *mut ::core::ffi::c_void;
+        },
+        Type::USize if gen.std => quote! {
+            #[cfg(target_pointer_width = "32")]
+            pub type #ident = u32;
+            #[cfg(target_pointer_width = "64")]
+            pub type #ident = u64;
+        },
+        underlying_type => {
+            let signature = gen.type_default_name(&underlying_type);
 
-    quote! {
-        pub type #ident = #signature;
+            quote! {
+                pub type #ident = #signature;
+            }
+        }
     }
 }
 

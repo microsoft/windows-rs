@@ -65,6 +65,19 @@ fn main() {
         ],
     );
 
+    write_std(
+        "src/b_std.rs",
+        &[
+            "Windows.Win32.Foundation.CloseHandle",
+            "Windows.Win32.Foundation.GetLastError",
+            "Windows.Win32.Storage.FileSystem.FindFileHandle",
+            "Windows.Win32.Security.Cryptography.BCRYPT_ALG_HANDLE",
+            "Windows.Win32.Foundation.HMODULE",
+            "Windows.Win32.Foundation.INVALID_HANDLE_VALUE",
+            "Windows.Win32.Networking.WinSock.socket",
+        ],
+    );
+
     write(
         "src/b_test.rs",
         &[
@@ -82,5 +95,10 @@ fn main() {
 
 fn write(filename: &str, apis: &[&str]) {
     let bindings = windows_bindgen::standalone(apis);
+    std::fs::write(filename, bindings).unwrap();
+}
+
+fn write_std(filename: &str, apis: &[&str]) {
+    let bindings = windows_bindgen::standalone_std(apis);
     std::fs::write(filename, bindings).unwrap();
 }
