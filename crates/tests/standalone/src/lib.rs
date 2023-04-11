@@ -1,6 +1,7 @@
 #![cfg(test)]
 #![cfg_attr(windows_raw_dylib, feature(raw_dylib))]
 #![allow(clashing_extern_declarations)]
+#![feature(strict_provenance)]
 
 mod b_arch;
 mod b_bstr;
@@ -103,6 +104,14 @@ fn unknown() {
 fn enumerator() {
     assert_eq!(b_enumerator::WAIT_IO_COMPLETION, 192);
     assert_eq!(b_enumerator::WAIT_TIMEOUT, 258);
+}
+
+#[test]
+fn std() {
+    unsafe {
+        assert_eq!(b_std::CloseHandle(std::ptr::null_mut()), 0);
+        assert_eq!(b_std::INVALID_HANDLE_VALUE, ::core::ptr::invalid_mut(!0));
+    }
 }
 
 #[test]

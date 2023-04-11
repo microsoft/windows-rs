@@ -10,15 +10,15 @@
 pub type BOOL = i32;
 #[link(name = "kernel32")]
 extern "system" {
-    fn CloseHandle(hobject: HANDLE) -> BOOL;
+    pub fn CloseHandle(hobject: HANDLE) -> BOOL;
 }
 #[link(name = "kernel32")]
 extern "system" {
-    fn GetLastError() -> WIN32_ERROR;
+    pub fn GetLastError() -> WIN32_ERROR;
 }
 pub type HANDLE = *mut ::core::ffi::c_void;
 pub type HMODULE = *mut ::core::ffi::c_void;
-pub const INVALID_HANDLE_VALUE: HANDLE = -1i32 as _;
+pub const INVALID_HANDLE_VALUE: HANDLE = ::core::ptr::invalid_mut(-1i32 as _);
 pub type WIN32_ERROR = u32;
 #[cfg(target_pointer_width = "32")]
 pub type SOCKET = u32;
@@ -27,7 +27,7 @@ pub type SOCKET = u64;
 pub type WINSOCK_SOCKET_TYPE = i32;
 #[link(name = "ws2_32")]
 extern "system" {
-    fn socket(af: i32, r#type: WINSOCK_SOCKET_TYPE, protocol: i32) -> SOCKET;
+    pub fn socket(af: i32, r#type: WINSOCK_SOCKET_TYPE, protocol: i32) -> SOCKET;
 }
 pub type BCRYPT_ALG_HANDLE = *mut ::core::ffi::c_void;
 pub type FindFileHandle = *mut ::core::ffi::c_void;

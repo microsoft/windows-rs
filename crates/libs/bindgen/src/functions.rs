@@ -41,7 +41,7 @@ fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
         tokens.combine(&quote! {
             #[link(name = #link)]
             extern #abi {
-                fn #name(#(#params),*) #return_type;
+                pub fn #name(#(#params),*) #return_type;
             }
         });
     } else {

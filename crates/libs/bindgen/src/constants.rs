@@ -39,12 +39,15 @@ pub fn gen(gen: &Gen, def: Field) -> TokenStream {
         } else {
             let kind = gen.type_default_name(&ty);
             let value = gen.value(&gen.reader.constant_value(constant));
+            let underlying_type = gen.reader.type_underlying_type(&ty);
 
-            let value = if gen.reader.type_underlying_type(&ty) == constant_type {
+            let value = if underlying_type == constant_type {
                 value
             // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1029
             } else if ty == Type::PCWSTR && value.0.starts_with('-') {
                 quote! { #value as u16 as _ }
+            } else if gen.std && underlying_type == Type::ISize {
+                quote! { ::core::ptr::invalid_mut(#value as _) }
             } else {
                 quote! { #value as _ }
             };
