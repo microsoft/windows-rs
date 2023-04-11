@@ -49,6 +49,7 @@ fn combine(files: &[metadata::reader::File], libraries: &mut BTreeMap<String, BT
                 if library == "forceinline" {
                     continue;
                 }
+                let impl_map = reader.method_def_impl_map(method).expect("ImplMap not found");
                 let flags = reader.impl_map_flags(impl_map);
                 if flags.contains(metadata::PInvokeAttributes::CONV_PLATFORM) {
                     let params = reader.method_def_size(method);

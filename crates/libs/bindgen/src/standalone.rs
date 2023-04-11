@@ -117,41 +117,46 @@ fn standalone_imp(gen: &Gen, names: &[&str]) -> String {
 
     for ty in core_types {
         match ty {
-            Type::HRESULT => { sorted.insert("HRESULT", quote! { pub type HRESULT = i32; }); }
-            Type::String => {
-                sorted.insert("HSTRING", quote! { pub type HSTRING = *mut ::core::ffi::c_void; });
-            }
-            Type::IUnknown => {
-                sorted.insert("IUnknown", quote! { pub type IUnknown = *mut ::core::ffi::c_void; });
-            }
-            Type::IInspectable => {
-                sorted.insert("IInspectable", quote! { pub type IInspectable = *mut ::core::ffi::c_void; });
-            }
-            Type::PSTR => { sorted.insert("PSTR", quote! { pub type PSTR = *mut u8; }); }
-            Type::PWSTR => { sorted.insert("PWSTR", quote! { pub type PWSTR = *mut u16; }); }
-            Type::PCSTR => { sorted.insert("PCSTR", quote! { pub type PCSTR = *const u8; }); }
-            Type::PCWSTR => { sorted.insert("PCWSTR", quote! { pub type PCWSTR = *const u16; }); }
-            Type::BSTR => { sorted.insert("BSTR", quote! { pub type BSTR = *const u16; }); }
-            Type::GUID => {sorted.insert("GUID", quote! {
-                #[repr(C)]
-                pub struct GUID {
-                    pub data1: u32,
-                    pub data2: u16,
-                    pub data3: u16,
-                    pub data4: [u8; 8],
-                }
-                impl GUID {
-                    pub const fn from_u128(uuid: u128) -> Self {
-                        Self { data1: (uuid >> 96) as u32, data2: (uuid >> 80 & 0xffff) as u16, data3: (uuid >> 64 & 0xffff) as u16, data4: (uuid as u64).to_be_bytes() }
+            Type::HRESULT => sorted.insert("HRESULT", quote! { pub type HRESULT = i32; }),
+            Type::String => sorted.insert(
+                "HSTRING",
+                quote! { pub type HSTRING = *mut ::core::ffi::c_void; },
+            ),
+            Type::IUnknown => sorted.insert(
+                "IUnknown",
+                quote! { pub type IUnknown = *mut ::core::ffi::c_void; },
+            ),
+            Type::IInspectable => sorted.insert(
+                "IInspectable",
+                quote! { pub type IInspectable = *mut ::core::ffi::c_void; },
+            ),
+            Type::PSTR => sorted.insert("PSTR", quote! { pub type PSTR = *mut u8; }),
+            Type::PWSTR => sorted.insert("PWSTR", quote! { pub type PWSTR = *mut u16; }),
+            Type::PCSTR => sorted.insert("PCSTR", quote! { pub type PCSTR = *const u8; }),
+            Type::PCWSTR => sorted.insert("PCWSTR", quote! { pub type PCWSTR = *const u16; }),
+            Type::BSTR => sorted.insert("BSTR", quote! { pub type BSTR = *const u16; }),
+            Type::GUID => {
+                sorted.insert("GUID", quote! {
+                    #[repr(C)]
+                    pub struct GUID {
+                        pub data1: u32,
+                        pub data2: u16,
+                        pub data3: u16,
+                        pub data4: [u8; 8],
                     }
-                }
-                impl ::core::marker::Copy for GUID {}
-                impl ::core::clone::Clone for GUID {
-                    fn clone(&self) -> Self {
-                        *self
+                    impl GUID {
+                        pub const fn from_u128(uuid: u128) -> Self {
+                            Self { data1: (uuid >> 96) as u32, data2: (uuid >> 80 & 0xffff) as u16, data3: (uuid >> 64 & 0xffff) as u16, data4: (uuid as u64).to_be_bytes() }
+                        }
                     }
-                }
-            }); }
+                    impl ::core::marker::Copy for GUID {}
+                    impl ::core::clone::Clone for GUID {
+                        fn clone(&self) -> Self {
+                            *self
+                        }
+                    }
+                });
+            }
             _ => {}
         }
     }
@@ -165,22 +170,29 @@ fn standalone_imp(gen: &Gen, names: &[&str]) -> String {
 
             match kind {
                 TypeKind::Class | TypeKind::Interface => unimplemented!(),
-                TypeKind::Enum => { sorted.insert(gen.reader.type_def_name(def), enums::gen(gen, def)); }
+                TypeKind::Enum => {
+                    sorted.insert(gen.reader.type_def_name(def), enums::gen(gen, def));
+                }
                 TypeKind::Struct => {
                     if gen.reader.type_def_fields(def).next().is_none() {
                         if let Some(guid) = gen.reader.type_def_guid(def) {
                             let ident = to_ident(type_name.name);
                             let value = gen.guid(&guid);
                             let guid = gen.type_name(&Type::GUID);
-                            sorted.insert(type_name.name, quote! {
-                                pub const #ident: #guid = #value;
-                            });
+                            sorted.insert(
+                                type_name.name,
+                                quote! {
+                                    pub const #ident: #guid = #value;
+                                },
+                            );
                             continue;
                         }
                     }
                     sorted.insert(gen.reader.type_def_name(def), structs::gen(gen, def));
                 }
-                TypeKind::Delegate => { sorted.insert(gen.reader.type_def_name(def),delegates::gen(gen, def)); }
+                TypeKind::Delegate => {
+                    sorted.insert(gen.reader.type_def_name(def), delegates::gen(gen, def));
+                }
             }
         }
 
@@ -197,7 +209,10 @@ fn standalone_imp(gen: &Gen, names: &[&str]) -> String {
                     let name = gen.reader.method_def_name(method);
                     if name == type_name.name {
                         found = true;
-                        sorted.insert(&format!(".{}.{name}", gen.reader.method_def_module_name(method)), functions::gen(gen, method));
+                        sorted.insert(
+                            &format!(".{}.{name}", gen.reader.method_def_module_name(method)),
+                            functions::gen(gen, method),
+                        );
                     }
                 }
                 for field in gen.reader.type_def_fields(def) {
@@ -207,7 +222,7 @@ fn standalone_imp(gen: &Gen, names: &[&str]) -> String {
                     let name = gen.reader.field_name(field);
                     if name == type_name.name {
                         found = true;
-                        sorted.insert(name,constants::gen(gen, field));
+                        sorted.insert(name, constants::gen(gen, field));
                     }
                 }
             }
@@ -223,9 +238,12 @@ fn standalone_imp(gen: &Gen, names: &[&str]) -> String {
                     let constant = gen.reader.field_constant(field).unwrap();
                     let value = gen.value(&gen.reader.constant_value(constant));
 
-                    sorted.insert(field_name,quote! {
-                        pub const #ident: #ty = #value;
-                    });
+                    sorted.insert(
+                        field_name,
+                        quote! {
+                            pub const #ident: #ty = #value;
+                        },
+                    );
 
                     break;
                 }
@@ -287,6 +305,6 @@ struct SortedTokens(BTreeMap<String, TokenStream>);
 
 impl SortedTokens {
     fn insert(&mut self, key: &str, tokens: TokenStream) {
-        self.0. entry(key.to_string()).or_default().combine(&tokens);
+        self.0.entry(key.to_string()).or_default().combine(&tokens);
     }
 }
