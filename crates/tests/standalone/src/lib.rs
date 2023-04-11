@@ -1,7 +1,6 @@
 #![cfg(test)]
 #![cfg_attr(windows_raw_dylib, feature(raw_dylib))]
 #![allow(clashing_extern_declarations)]
-#![feature(strict_provenance)]
 
 mod b_arch;
 mod b_bstr;
@@ -110,7 +109,6 @@ fn enumerator() {
 fn std() {
     unsafe {
         assert_eq!(b_std::CloseHandle(std::ptr::null_mut()), 0);
-        assert_eq!(b_std::INVALID_HANDLE_VALUE, ::core::ptr::invalid_mut(!0));
     }
 }
 
