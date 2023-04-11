@@ -7,7 +7,6 @@
     dead_code,
     clippy::all
 )]
-pub type PWSTR = *mut u16;
 #[repr(C)]
 pub struct CALPOLESTR {
     pub cElems: u32,
@@ -19,3 +18,4 @@ impl ::core::clone::Clone for CALPOLESTR {
         *self
     }
 }
+pub type PWSTR = *mut u16;

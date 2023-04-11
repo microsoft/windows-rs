@@ -7,9 +7,8 @@
     dead_code,
     clippy::all
 )]
-pub type PSTR = *mut u8;
-pub type HANDLE = isize;
 pub type ADDRESS_FAMILY = u16;
+pub type HANDLE = isize;
 pub type LPWSAOVERLAPPED_COMPLETION_ROUTINE = ::core::option::Option<
     unsafe extern "system" fn(
         dwerror: u32,
@@ -18,6 +17,42 @@ pub type LPWSAOVERLAPPED_COMPLETION_ROUTINE = ::core::option::Option<
         dwflags: u32,
     ) -> (),
 >;
+#[repr(C)]
+pub struct OVERLAPPED {
+    pub Internal: usize,
+    pub InternalHigh: usize,
+    pub Anonymous: OVERLAPPED_0,
+    pub hEvent: HANDLE,
+}
+impl ::core::marker::Copy for OVERLAPPED {}
+impl ::core::clone::Clone for OVERLAPPED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union OVERLAPPED_0 {
+    pub Anonymous: OVERLAPPED_0_0,
+    pub Pointer: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for OVERLAPPED_0 {}
+impl ::core::clone::Clone for OVERLAPPED_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct OVERLAPPED_0_0 {
+    pub Offset: u32,
+    pub OffsetHigh: u32,
+}
+impl ::core::marker::Copy for OVERLAPPED_0_0 {}
+impl ::core::clone::Clone for OVERLAPPED_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub type PSTR = *mut u8;
 #[repr(C)]
 pub struct SOCKADDR {
     pub sa_family: ADDRESS_FAMILY,
@@ -65,41 +100,6 @@ pub struct WSASENDMSG {
 }
 impl ::core::marker::Copy for WSASENDMSG {}
 impl ::core::clone::Clone for WSASENDMSG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct OVERLAPPED {
-    pub Internal: usize,
-    pub InternalHigh: usize,
-    pub Anonymous: OVERLAPPED_0,
-    pub hEvent: HANDLE,
-}
-impl ::core::marker::Copy for OVERLAPPED {}
-impl ::core::clone::Clone for OVERLAPPED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub union OVERLAPPED_0 {
-    pub Anonymous: OVERLAPPED_0_0,
-    pub Pointer: *mut ::core::ffi::c_void,
-}
-impl ::core::marker::Copy for OVERLAPPED_0 {}
-impl ::core::clone::Clone for OVERLAPPED_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct OVERLAPPED_0_0 {
-    pub Offset: u32,
-    pub OffsetHigh: u32,
-}
-impl ::core::marker::Copy for OVERLAPPED_0_0 {}
-impl ::core::clone::Clone for OVERLAPPED_0_0 {
     fn clone(&self) -> Self {
         *self
     }

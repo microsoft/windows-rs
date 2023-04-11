@@ -7,46 +7,46 @@
     dead_code,
     clippy::all
 )]
-pub type PSTR = *mut u8;
-pub type HWND = isize;
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-pub struct WSADATA {
-    pub wVersion: u16,
-    pub wHighVersion: u16,
-    pub iMaxSockets: u16,
-    pub iMaxUdpDg: u16,
-    pub lpVendorInfo: PSTR,
-    pub szDescription: [u8; 257],
-    pub szSystemStatus: [u8; 129],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for WSADATA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for WSADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-pub struct WSADATA {
-    pub wVersion: u16,
-    pub wHighVersion: u16,
-    pub szDescription: [u8; 257],
-    pub szSystemStatus: [u8; 129],
-    pub iMaxSockets: u16,
-    pub iMaxUdpDg: u16,
-    pub lpVendorInfo: PSTR,
-}
-#[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for WSADATA {}
-#[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for WSADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 ::windows_targets::link!("user32.dll" "system" fn GetWindowLongPtrW(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX) -> isize);
+pub type HWND = isize;
+pub type PSTR = *mut u8;
 pub type WINDOW_LONG_PTR_INDEX = i32;
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+pub struct WSADATA {
+    pub wVersion: u16,
+    pub wHighVersion: u16,
+    pub iMaxSockets: u16,
+    pub iMaxUdpDg: u16,
+    pub lpVendorInfo: PSTR,
+    pub szDescription: [u8; 257],
+    pub szSystemStatus: [u8; 129],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::marker::Copy for WSADATA {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::clone::Clone for WSADATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+pub struct WSADATA {
+    pub wVersion: u16,
+    pub wHighVersion: u16,
+    pub szDescription: [u8; 257],
+    pub szSystemStatus: [u8; 129],
+    pub iMaxSockets: u16,
+    pub iMaxUdpDg: u16,
+    pub lpVendorInfo: PSTR,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for WSADATA {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for WSADATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

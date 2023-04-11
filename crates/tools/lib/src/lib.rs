@@ -45,9 +45,7 @@ fn combine(files: &[metadata::reader::File], libraries: &mut BTreeMap<String, BT
     for tree in root.flatten() {
         if let Some(apis) = reader.get(metadata::reader::TypeName::new(tree.namespace, "Apis")).next() {
             for method in reader.type_def_methods(apis) {
-                let impl_map = reader.method_def_impl_map(method).expect("ImplMap not found");
-                let scope = reader.impl_map_scope(impl_map);
-                let library = reader.module_ref_name(scope).to_lowercase();
+                let library = reader.method_def_module_name(method);
                 if library == "forceinline" {
                     continue;
                 }
