@@ -7,5 +7,5 @@
     dead_code,
     clippy::all
 )]
-pub type PCWSTR = *const u16;
 ::windows_targets::link!("kernel32.dll" "system" fn lstrlenW(lpstring : PCWSTR) -> i32);
+pub type PCWSTR = *const u16;

@@ -7,6 +7,14 @@
     dead_code,
     clippy::all
 )]
+::windows_targets::link!("kernel32.dll" "system" fn CloseHandle(hobject : HANDLE) -> BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn CreateEventW(lpeventattributes : *const SECURITY_ATTRIBUTES, bmanualreset : BOOL, binitialstate : BOOL, lpname : PCWSTR) -> HANDLE);
+::windows_targets::link!("kernel32.dll" "system" fn SetEvent(hevent : HANDLE) -> BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObject(hhandle : HANDLE, dwmilliseconds : u32) -> WIN32_ERROR);
+::windows_targets::link!("ole32.dll" "system" fn CoCreateInstance(rclsid : *const GUID, punkouter : IUnknown, dwclscontext : CLSCTX, riid : *const GUID, ppv : *mut *mut ::core::ffi::c_void) -> HRESULT);
+pub type BOOL = i32;
+pub type CLSCTX = u32;
+pub const CLSCTX_ALL: CLSCTX = 23u32;
 #[repr(C)]
 pub struct GUID {
     pub data1: u32,
@@ -30,13 +38,10 @@ impl ::core::clone::Clone for GUID {
         *self
     }
 }
-pub type IUnknown = *mut ::core::ffi::c_void;
-pub type HRESULT = i32;
-pub type PCWSTR = *const u16;
-pub type BOOL = i32;
-::windows_targets::link!("kernel32.dll" "system" fn CloseHandle(hobject : HANDLE) -> BOOL);
 pub type HANDLE = isize;
-pub type WIN32_ERROR = u32;
+pub type HRESULT = i32;
+pub type IUnknown = *mut ::core::ffi::c_void;
+pub type PCWSTR = *const u16;
 #[repr(C)]
 pub struct SECURITY_ATTRIBUTES {
     pub nLength: u32,
@@ -49,11 +54,6 @@ impl ::core::clone::Clone for SECURITY_ATTRIBUTES {
         *self
     }
 }
-pub type CLSCTX = u32;
-::windows_targets::link!("ole32.dll" "system" fn CoCreateInstance(rclsid : *const GUID, punkouter : IUnknown, dwclscontext : CLSCTX, riid : *const GUID, ppv : *mut *mut ::core::ffi::c_void) -> HRESULT);
 pub const STGTY_REPEAT: i32 = 256i32;
-::windows_targets::link!("kernel32.dll" "system" fn CreateEventW(lpeventattributes : *const SECURITY_ATTRIBUTES, bmanualreset : BOOL, binitialstate : BOOL, lpname : PCWSTR) -> HANDLE);
-::windows_targets::link!("kernel32.dll" "system" fn SetEvent(hevent : HANDLE) -> BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObject(hhandle : HANDLE, dwmilliseconds : u32) -> WIN32_ERROR);
 pub const UIAnimationManager: GUID = GUID::from_u128(0x4c1fc63a_695c_47e8_a339_1a194be3d0b8);
-pub const CLSCTX_ALL: CLSCTX = 23u32;
+pub type WIN32_ERROR = u32;

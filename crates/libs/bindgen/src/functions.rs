@@ -16,12 +16,7 @@ fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
     let features = gen.cfg_features(&cfg);
     let return_type = gen.return_sig(&signature);
     let abi = gen.reader.method_def_extern_abi(def);
-    let impl_map = gen
-        .reader
-        .method_def_impl_map(def)
-        .expect("ImplMap not found");
-    let scope = gen.reader.impl_map_scope(impl_map);
-    let link = gen.reader.module_ref_name(scope).to_lowercase();
+    let link = gen.reader.method_def_module_name(def);
 
     // TODO: skip inline functions for now.
     if link == "forceinline" {
@@ -35,14 +30,26 @@ fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
     });
 
     let mut tokens = features;
-    tokens.combine(&gen_link(
-        &link,
-        abi,
-        doc.as_str(),
-        name.as_str(),
-        params,
-        return_type.as_str(),
-    ));
+
+    if gen.std {
+        let link = link.trim_end_matches(".dll");
+        tokens.combine(&quote! {
+            #[link(name = #link)]
+            extern #abi {
+                pub fn #name(#(#params),*) #return_type;
+            }
+        });
+    } else {
+        tokens.combine(&gen_link(
+            &link,
+            abi,
+            doc.as_str(),
+            name.as_str(),
+            params,
+            return_type.as_str(),
+        ));
+    }
+
     tokens
 }
 
@@ -96,12 +103,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             }
         }
     } else {
-        let impl_map = gen
-            .reader
-            .method_def_impl_map(def)
-            .expect("ImplMap not found");
-        let scope = gen.reader.impl_map_scope(impl_map);
-        let link = gen.reader.module_ref_name(scope).to_lowercase();
+        let link = gen.reader.method_def_module_name(def);
 
         // TODO: skip inline functions for now.
         if link == "forceinline" {

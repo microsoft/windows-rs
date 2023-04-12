@@ -568,6 +568,14 @@ impl<'a> Reader<'a> {
     pub fn method_def_impl_map(&self, row: MethodDef) -> Option<ImplMap> {
         self.row_equal_range(row.0, TABLE_IMPLMAP, 1, MemberForwarded::MethodDef(row).encode()).map(ImplMap).next()
     }
+    pub fn method_def_module_name(&self, row: MethodDef) -> String {
+        if let Some(impl_map) = self.method_def_impl_map(row) {
+            let scope = self.impl_map_scope(impl_map);
+            self.module_ref_name(scope).to_lowercase()
+        } else {
+            String::new()
+        }
+    }
     pub fn method_def_signature(&self, row: MethodDef, generics: &[Type]) -> Signature {
         let mut blob = self.row_blob(row.0, 4);
         blob.read_usize();

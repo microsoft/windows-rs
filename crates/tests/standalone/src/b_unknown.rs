@@ -7,6 +7,6 @@
     dead_code,
     clippy::all
 )]
-pub type IUnknown = *mut ::core::ffi::c_void;
-pub type BOOL = i32;
 ::windows_targets::link!("ole32.dll" "system" fn CoIsHandlerConnected(punk : IUnknown) -> BOOL);
+pub type BOOL = i32;
+pub type IUnknown = *mut ::core::ffi::c_void;

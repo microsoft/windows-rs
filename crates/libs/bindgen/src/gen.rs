@@ -8,6 +8,7 @@ pub struct Gen<'a> {
     pub doc: bool,
     pub component: bool,
     pub standalone: bool,
+    pub std: bool,
 }
 
 impl<'a> Gen<'a> {
@@ -20,6 +21,7 @@ impl<'a> Gen<'a> {
             doc: false,
             component: false,
             standalone: false,
+            std: false,
         }
     }
 

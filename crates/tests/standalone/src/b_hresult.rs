@@ -7,5 +7,5 @@
     dead_code,
     clippy::all
 )]
-pub type HRESULT = i32;
 ::windows_targets::link!("ole32.dll" "system" fn CoInitialize(pvreserved : *const ::core::ffi::c_void) -> HRESULT);
+pub type HRESULT = i32;
