@@ -29,7 +29,6 @@ fn main() -> std::io::Result<()> {
         "src/bindings.rs",
         bindgen::component("test_component", &files),
     )?;
-    Command::new("rustfmt").arg("src/bindings.rs").status()?;
 
     Ok(())
 }

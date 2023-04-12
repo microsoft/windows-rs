@@ -1,21 +1,4 @@
 use std::collections::*;
-use std::io::*;
-
-/// Formats the token string
-pub fn format(namespace: &str, tokens: &mut String) {
-    let mut child = std::process::Command::new("rustfmt").stdin(std::process::Stdio::piped()).stdout(std::process::Stdio::piped()).stderr(std::process::Stdio::null()).spawn().expect("Failed to spawn `rustfmt`");
-    let mut stdin = child.stdin.take().expect("Failed to open stdin");
-    stdin.write_all(tokens.as_bytes()).unwrap();
-    drop(stdin);
-    let output = child.wait_with_output().unwrap();
-
-    if output.status.success() {
-        *tokens = String::from_utf8(output.stdout).expect("Failed to parse UTF-8");
-    } else {
-        // TODO: This doesn't print anything useful
-        println!("rustfmt failed for `{namespace}` with status {}\nError:\n{}", output.status, String::from_utf8_lossy(&output.stderr));
-    }
-}
 
 /// Returns the libraries and their function and stack sizes used by the gnu and msvc tools to build the umbrella libs.
 pub fn libraries() -> BTreeMap<String, BTreeMap<String, CallingConvention>> {
