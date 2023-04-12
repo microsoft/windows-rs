@@ -114,6 +114,7 @@ jobs:
           cargo clippy -p test_string_param &&
           cargo clippy -p test_structs &&
           cargo clippy -p test_sys &&
+          cargo clippy -p test_targets &&
           cargo clippy -p test_unions &&
           cargo clippy -p test_wdk &&
           cargo clippy -p test_weak &&
