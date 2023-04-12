@@ -37,7 +37,8 @@ jobs:
       - name: Test
         run: >
           cargo test -p test_calling_convention &&
+          cargo test -p test_lib &&
           cargo test -p test_standalone &&
+          cargo test -p test_targets &&
           cargo test -p test_win32 &&
-          cargo test -p test_winrt &&
-          cargo test -p test_lib
+          cargo test -p test_winrt
