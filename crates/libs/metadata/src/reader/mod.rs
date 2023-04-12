@@ -572,9 +572,9 @@ impl<'a> Reader<'a> {
         if let Some(impl_map) = self.method_def_impl_map(row) {
             let scope = self.impl_map_scope(impl_map);
             let name = self.module_ref_name(scope);
-            // If the module name lacks a `.` then its likely either an inline function, which windows-rs doesn't
-            // currently support, or it's an invalid import library since the extension must be known to generate
-            // an import table entry ambiguous.
+            // If the module name lacks a `.` then it's likely either an inline function, which windows-rs
+            // doesn't currently support, or an invalid import library since the extension must be known
+            // in order to generate an import table entry unambiguously.
             if name.contains('.') {
                 return name.to_lowercase();
             }
