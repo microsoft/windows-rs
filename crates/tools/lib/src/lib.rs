@@ -46,7 +46,7 @@ fn combine(files: &[metadata::reader::File], libraries: &mut BTreeMap<String, BT
         if let Some(apis) = reader.get(metadata::reader::TypeName::new(tree.namespace, "Apis")).next() {
             for method in reader.type_def_methods(apis) {
                 let library = reader.method_def_module_name(method);
-                if library == "forceinline" {
+                if library.is_empty() {
                     continue;
                 }
                 let impl_map = reader.method_def_impl_map(method).expect("ImplMap not found");

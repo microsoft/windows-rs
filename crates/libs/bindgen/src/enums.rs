@@ -1,13 +1,7 @@
 use super::*;
 
 pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
-    let mut type_name = gen.reader.type_def_type_name(def);
-
-    // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1497
-    if type_name.name == "MENU_POPUPSUBMENU_HCHOT" {
-        type_name.name = "POPUPSUBMENUHCHOTSTATES";
-    }
-
+    let type_name = gen.reader.type_def_type_name(def);
     let ident = to_ident(type_name.name);
     let underlying_type = gen.reader.type_def_underlying_type(def);
     let underlying_type = gen.type_name(&underlying_type);

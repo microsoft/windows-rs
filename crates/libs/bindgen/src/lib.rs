@@ -72,7 +72,7 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
                         .entry(kind)
                         .or_default()
                         .insert(name, classes::gen(gen, def));
-                } else {
+                } else if gen.reader.type_def_name(def) == "Apis" {
                     for method in gen.reader.type_def_methods(def) {
                         let name = gen.reader.method_def_name(method);
                         functions
