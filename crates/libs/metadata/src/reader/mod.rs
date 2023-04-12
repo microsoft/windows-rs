@@ -571,10 +571,12 @@ impl<'a> Reader<'a> {
     pub fn method_def_module_name(&self, row: MethodDef) -> String {
         if let Some(impl_map) = self.method_def_impl_map(row) {
             let scope = self.impl_map_scope(impl_map);
-            self.module_ref_name(scope).to_lowercase()
-        } else {
-            String::new()
+            let name = self.module_ref_name(scope);
+            if name.contains('.') {
+                return name.to_lowercase();
+            }
         }
+        String::new()
     }
     pub fn method_def_signature(&self, row: MethodDef, generics: &[Type]) -> Signature {
         let mut blob = self.row_blob(row.0, 4);
@@ -751,7 +753,7 @@ impl<'a> Reader<'a> {
     // ModuleRef table queries
     //
 
-    pub fn module_ref_name(&self, row: ModuleRef) -> &str {
+    fn module_ref_name(&self, row: ModuleRef) -> &str {
         self.row_str(row.0, 0)
     }
 

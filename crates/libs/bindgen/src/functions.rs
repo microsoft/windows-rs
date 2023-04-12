@@ -18,8 +18,7 @@ fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
     let abi = gen.reader.method_def_extern_abi(def);
     let link = gen.reader.method_def_module_name(def);
 
-    // TODO: skip inline functions for now.
-    if link == "forceinline" {
+    if link.is_empty() {
         return TokenStream::new();
     }
 
@@ -105,8 +104,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
     } else {
         let link = gen.reader.method_def_module_name(def);
 
-        // TODO: skip inline functions for now.
-        if link == "forceinline" {
+        if link.is_empty() {
             return TokenStream::new();
         }
 
