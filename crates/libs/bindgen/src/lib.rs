@@ -15,15 +15,18 @@ mod implements;
 mod interfaces;
 mod iterators;
 mod method_names;
+mod standalone;
 mod structs;
+mod try_format;
 mod winrt_methods;
+
 use metadata::reader::*;
 use method_names::*;
+pub use standalone::*;
 use std::collections::*;
 use std::fmt::Write;
 use tokens::*;
-mod standalone;
-pub use standalone::*;
+use try_format::*;
 
 #[doc(hidden)]
 pub use gen::*;
@@ -149,7 +152,7 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
     }
 
     tokens.combine(&extensions::gen_mod(gen, tree.namespace));
-    tokens.into_string()
+    try_format(tokens.into_string())
 }
 
 #[doc(hidden)]
@@ -181,7 +184,7 @@ pub fn namespace_impl(gen: &Gen, tree: &Tree) -> String {
     };
 
     tokens.combine(&extensions::gen_impl(tree.namespace));
-    tokens.into_string()
+    try_format(tokens.into_string())
 }
 
 /// Generates bindings for a specific component namespace.
@@ -193,7 +196,7 @@ pub fn component(namespace: &str, files: &[File]) -> String {
     gen.component = true;
     let mut bindings = crate::namespace(&gen, &tree);
     bindings.push_str(&namespace_impl(&gen, &tree));
-    bindings
+    try_format(bindings)
 }
 
 fn allow() -> TokenStream {
