@@ -99,7 +99,13 @@ fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &
     gen.namespace = tree.namespace;
     gen.doc = true;
     let mut tokens = bindgen::namespace(&gen, tree);
-    tokens.push_str(r#"#[cfg(feature = "implement")] ::core::include!("impl.rs");"#);
+
+    tokens.push_str(
+        r#"#[cfg(feature = "implement")]
+::core::include!("impl.rs");
+"#,
+    );
+
     std::fs::write(path.join("mod.rs"), tokens).unwrap();
     let tokens = bindgen::namespace_impl(&gen, tree);
     std::fs::write(path.join("impl.rs"), tokens).unwrap();
