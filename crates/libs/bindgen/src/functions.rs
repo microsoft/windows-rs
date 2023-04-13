@@ -205,7 +205,7 @@ fn gen_link(gen: &Gen, signature: &Signature, cfg: &Cfg) -> TokenStream {
         quote! { #name: #tokens }
     });
 
-    let return_type = gen.return_sig(&signature);
+    let return_type = gen.return_sig(signature);
 
     if gen.std || !gen.namespace.starts_with("Windows.") {
         let library = library.trim_end_matches(".dll");
@@ -233,7 +233,7 @@ fn gen_link(gen: &Gen, signature: &Signature, cfg: &Cfg) -> TokenStream {
         };
 
         let doc = if gen.sys {
-            gen.cfg_doc(&cfg).0
+            gen.cfg_doc(cfg).0
         } else {
             String::new()
         };
