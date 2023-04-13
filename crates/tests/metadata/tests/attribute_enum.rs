@@ -5,15 +5,8 @@ fn attribute_enum() {
     let files = File::with_default(&[]).unwrap();
     let reader = &Reader::new(&files);
 
-    let def = reader
-        .get(TypeName::new(
-            "Windows.Win32.UI.WindowsAndMessaging",
-            "Apis",
-        ))
-        .next()
-        .unwrap();
     let method = reader
-        .type_def_methods(def)
+        .namespace_functions("Windows.Win32.UI.WindowsAndMessaging")
         .find(|&m| reader.method_def_name(m) == "SetWindowLongPtrA")
         .unwrap();
     let attrs = reader.method_def_attributes(method);

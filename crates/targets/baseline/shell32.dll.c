@@ -27,7 +27,6 @@ void __stdcall ExtractIconA(int p0, int p1, int p2) {}
 void __stdcall ExtractIconExA(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall ExtractIconExW(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall ExtractIconW(int p0, int p1, int p2) {}
-void __stdcall FileIconInit(int p0) {}
 void __stdcall FindExecutableA(int p0, int p1, int p2) {}
 void __stdcall FindExecutableW(int p0, int p1, int p2) {}
 void __stdcall GetCurrentProcessExplicitAppUserModelID(int p0) {}

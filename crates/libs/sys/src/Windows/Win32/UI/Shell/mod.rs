@@ -88,8 +88,6 @@ pub mod PropertiesSystem;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 ::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ExtractIconW(hinst : super::super::Foundation:: HMODULE, pszexefilename : ::windows_sys::core::PCWSTR, niconindex : u32) -> super::WindowsAndMessaging:: HICON);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn FileIconInit(frestorecache : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn FindExecutableA(lpfile : ::windows_sys::core::PCSTR, lpdirectory : ::windows_sys::core::PCSTR, lpresult : ::windows_sys::core::PSTR) -> super::super::Foundation:: HMODULE);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn FindExecutableW(lpfile : ::windows_sys::core::PCWSTR, lpdirectory : ::windows_sys::core::PCWSTR, lpresult : ::windows_sys::core::PWSTR) -> super::super::Foundation:: HMODULE);
