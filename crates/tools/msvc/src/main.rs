@@ -76,8 +76,6 @@ fn main() {
 }
 
 fn build_library(output: &std::path::Path, library: &str, functions: &BTreeMap<String, lib::CallingConvention>) {
-    println!("{library}");
-
     // Note that we don't use set_extension as it confuses PathBuf when the library name includes a period.
 
     let mut path = std::path::PathBuf::from(output);

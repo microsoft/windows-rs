@@ -168,6 +168,10 @@ impl<'a> Gen<'a> {
         }
     }
     pub fn type_abi_name(&self, ty: &Type) -> TokenStream {
+        if self.sys {
+            return self.type_default_name(ty);
+        }
+
         match ty {
             Type::IUnknown | Type::IInspectable => {
                 quote! { *mut ::core::ffi::c_void }
@@ -999,11 +1003,11 @@ impl<'a> Gen<'a> {
     pub fn return_sig(&self, signature: &Signature) -> TokenStream {
         if let Some(return_type) = &signature.return_type {
             let tokens = self.type_default_name(return_type);
-            format!("-> {}", tokens.as_str()).into()
+            format!(" -> {}", tokens.as_str()).into()
         } else if self.reader.method_def_does_not_return(signature.def) {
-            "-> !".into()
+            " -> !".into()
         } else {
-            "-> ()".into()
+            " -> ()".into()
         }
     }
     pub fn win32_args(&self, params: &[SignatureParam], kind: SignatureKind) -> TokenStream {

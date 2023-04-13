@@ -9,62 +9,11 @@ pub fn gen(gen: &Gen, def: MethodDef) -> TokenStream {
 }
 
 fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
-    let name = to_ident(gen.reader.method_def_name(def));
     let signature = gen.reader.method_def_signature(def, &[]);
     let cfg = gen.reader.signature_cfg(&signature);
-    let doc = gen.cfg_doc(&cfg);
-    let features = gen.cfg_features(&cfg);
-    let return_type = gen.return_sig(&signature);
-    let abi = gen.reader.method_def_extern_abi(def);
-    let link = gen.reader.method_def_module_name(def);
-
-    let params = signature.params.iter().map(|p| {
-        let name = gen.param_name(p.def);
-        let tokens = gen.type_default_name(&p.ty);
-        quote! { #name: #tokens }
-    });
-
-    let mut tokens = features;
-
-    if gen.std {
-        let link = link.trim_end_matches(".dll");
-        tokens.combine(&quote! {
-            #[link(name = #link)]
-            extern #abi {
-                pub fn #name(#(#params),*) #return_type;
-            }
-        });
-    } else {
-        tokens.combine(&gen_link(
-            &link,
-            abi,
-            doc.as_str(),
-            name.as_str(),
-            params,
-            return_type.as_str(),
-        ));
-    }
-
+    let mut tokens = gen.cfg_features(&cfg);
+    tokens.combine(&gen_link(gen, &signature, &cfg));
     tokens
-}
-
-fn gen_link<P: IntoIterator<Item = TokenStream>>(
-    link: &str,
-    abi: &str,
-    doc: &str,
-    name: &str,
-    params: P,
-    return_type: &str,
-) -> TokenStream {
-    let mut tokens = String::new();
-    for param in params {
-        tokens.push_str(&format!("{}, ", param.as_str()));
-    }
-    let tokens = tokens.trim_end_matches(", ");
-    format!(
-        "::windows_targets::link!(\"{link}\" \"{abi}\"{doc} fn {name}({tokens}) {return_type});"
-    )
-    .into()
 }
 
 fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
@@ -72,57 +21,11 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
     let signature = gen.reader.method_def_signature(def, &[]);
     let generics = gen.constraint_generics(&signature.params);
     let where_clause = gen.where_clause(&signature.params);
-
-    let abi_params = signature.params.iter().map(|p| {
-        let name = gen.param_name(p.def);
-        match p.kind {
-            SignatureParamKind::ValueType => {
-                let abi = gen.type_default_name(&p.ty);
-                quote! { #name: #abi }
-            }
-            _ => {
-                let abi = gen.type_abi_name(&p.ty);
-                quote! { #name: #abi }
-            }
-        }
-    });
-
-    let extern_abi = gen.reader.method_def_extern_abi(def);
     let abi_return_type = gen.return_sig(&signature);
-
-    let link = if let Some(link) = gen.reader.method_def_static_lib(def) {
-        quote! {
-            #[link(name = #link, kind = "static")]
-            extern #extern_abi {
-                fn #name(#(#abi_params),*) #abi_return_type;
-            }
-        }
-    } else {
-        let link = gen.reader.method_def_module_name(def);
-
-        if gen.namespace.starts_with("Windows.") {
-            gen_link(
-                &link,
-                extern_abi,
-                "",
-                name.as_str(),
-                abi_params,
-                abi_return_type.as_str(),
-            )
-        } else {
-            let link = link.trim_end_matches(".dll");
-            quote! {
-                #[link(name = #link)]
-                extern #extern_abi {
-                    fn #name(#(#abi_params),*) #abi_return_type;
-                }
-            }
-        }
-    };
-
     let cfg = gen.reader.signature_cfg(&signature);
     let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
+    let link = gen_link(gen, &signature, &cfg);
 
     let kind = gen.reader.signature_kind(&signature);
     match kind {
@@ -271,6 +174,79 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 }
             }
         }
+    }
+}
+
+fn gen_link(gen: &Gen, signature: &Signature, cfg: &Cfg) -> TokenStream {
+    let name = gen.reader.method_def_name(signature.def);
+    let ident = to_ident(name);
+    let library = gen.reader.method_def_module_name(signature.def);
+    let abi = gen.reader.method_def_extern_abi(signature.def);
+
+    let symbol = if let Some(impl_map) = gen.reader.method_def_impl_map(signature.def) {
+        gen.reader.impl_map_import_name(impl_map)
+    } else {
+        name
+    };
+
+    let link_name = if symbol != name {
+        quote! { #[link_name = {#symbol}] }
+    } else {
+        quote! {}
+    };
+
+    let params = signature.params.iter().map(|p| {
+        let name = gen.param_name(p.def);
+        let tokens = if p.kind == SignatureParamKind::ValueType {
+            gen.type_default_name(&p.ty)
+        } else {
+            gen.type_abi_name(&p.ty)
+        };
+        quote! { #name: #tokens }
+    });
+
+    let return_type = gen.return_sig(&signature);
+
+    if gen.std || !gen.namespace.starts_with("Windows.") {
+        let library = library.trim_end_matches(".dll");
+
+        quote! {
+            #[link(name = #library)]
+            extern #abi {
+                #link_name
+                pub fn #ident(#(#params),*) #return_type;
+            }
+        }
+    } else if let Some(library) = gen.reader.method_def_static_lib(signature.def) {
+        quote! {
+            #[link(name = #library, kind = "static")]
+            extern #abi {
+                #link_name
+                pub fn #ident(#(#params),*) #return_type;
+            }
+        }
+    } else {
+        let symbol = if symbol != name {
+            format!(" \"{symbol}\"")
+        } else {
+            String::new()
+        };
+
+        let doc = if gen.sys {
+            gen.cfg_doc(&cfg).0
+        } else {
+            String::new()
+        };
+
+        let mut tokens = String::new();
+        for param in params {
+            tokens.push_str(&format!("{}, ", param.as_str()));
+        }
+        let tokens = tokens.trim_end_matches(", ");
+        format!(
+            r#"::windows_targets::link!("{library}" "{abi}"{symbol}{doc} fn {name}({tokens}){return_type});"#
+        )
+        .into()
     }
 }
 
