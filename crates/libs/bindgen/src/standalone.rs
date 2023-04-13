@@ -4,9 +4,7 @@ use super::*;
 pub fn standalone(names: &[&str]) -> String {
     let files = &File::with_default(&[]).unwrap();
     let reader = &Reader::new(files);
-    let mut gen = &mut Gen::new(reader);
-    gen.standalone = true;
-    gen.sys = true;
+    let gen = &mut Gen::new(reader);
     standalone_imp(gen, names)
 }
 
@@ -14,14 +12,16 @@ pub fn standalone(names: &[&str]) -> String {
 pub fn standalone_std(names: &[&str]) -> String {
     let files = &File::with_default(&[]).unwrap();
     let reader = &Reader::new(files);
-    let mut gen = &mut Gen::new(reader);
-    gen.standalone = true;
-    gen.sys = true;
+    let gen = &mut Gen::new(reader);
     gen.std = true;
     standalone_imp(gen, names)
 }
 
-fn standalone_imp(gen: &Gen, names: &[&str]) -> String {
+fn standalone_imp(gen: &mut Gen, names: &[&str]) -> String {
+    gen.namespace = "Windows.";
+    gen.standalone = true;
+    gen.sys = true;
+
     let mut type_names = BTreeSet::new();
     let mut core_types = BTreeSet::new();
     let mut enums = BTreeSet::new();

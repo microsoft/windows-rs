@@ -27,11 +27,12 @@ fn combine(files: &[metadata::reader::File], libraries: &mut BTreeMap<String, BT
         let library = reader.method_def_module_name(method);
         let impl_map = reader.method_def_impl_map(method).expect("ImplMap not found");
         let flags = reader.impl_map_flags(impl_map);
+        let name = reader.impl_map_import_name(impl_map).to_string();
         if flags.contains(metadata::PInvokeAttributes::CONV_PLATFORM) {
             let params = reader.method_def_size(method);
-            libraries.entry(library).or_default().insert(reader.method_def_name(method).to_string(), CallingConvention::Stdcall(params));
+            libraries.entry(library).or_default().insert(name, CallingConvention::Stdcall(params));
         } else if flags.contains(metadata::PInvokeAttributes::CONV_CDECL) {
-            libraries.entry(library).or_default().insert(reader.method_def_name(method).to_string(), CallingConvention::Cdecl);
+            libraries.entry(library).or_default().insert(name, CallingConvention::Cdecl);
         } else {
             unimplemented!();
         }
