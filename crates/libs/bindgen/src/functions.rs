@@ -18,10 +18,6 @@ fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
     let abi = gen.reader.method_def_extern_abi(def);
     let link = gen.reader.method_def_module_name(def);
 
-    if link.is_empty() {
-        return TokenStream::new();
-    }
-
     let params = signature.params.iter().map(|p| {
         let name = gen.param_name(p.def);
         let tokens = gen.type_default_name(&p.ty);
@@ -103,10 +99,6 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
         }
     } else {
         let link = gen.reader.method_def_module_name(def);
-
-        if link.is_empty() {
-            return TokenStream::new();
-        }
 
         if gen.namespace.starts_with("Windows.") {
             gen_link(

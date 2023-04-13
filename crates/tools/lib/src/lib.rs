@@ -25,9 +25,6 @@ fn combine(files: &[metadata::reader::File], libraries: &mut BTreeMap<String, BT
     let reader = &metadata::reader::Reader::new(files);
     for method in reader.namespaces().flat_map(|namespace| reader.namespace_functions(namespace)) {
         let library = reader.method_def_module_name(method);
-        if library.is_empty() {
-            continue;
-        }
         let impl_map = reader.method_def_impl_map(method).expect("ImplMap not found");
         let flags = reader.impl_map_flags(impl_map);
         if flags.contains(metadata::PInvokeAttributes::CONV_PLATFORM) {

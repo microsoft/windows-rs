@@ -251,13 +251,20 @@ impl<'a> Reader<'a> {
     }
     pub fn namespace_functions(&self, namespace: &str) -> impl Iterator<Item = MethodDef> + '_ {
         self.get(TypeName::new(namespace, "Apis")).flat_map(move |apis| self.type_def_methods(apis)).filter(move |method| {
-            if let Some(impl_map) = self.method_def_impl_map(*method) {
-                // Skip functions exported by ordinal
-                if !self.impl_map_import_name(impl_map).starts_with('#') {
-                    return true;
-                }
+            // The ImplMap table contains import information, without which the function cannot be linked.
+            let Some(impl_map) = self.method_def_impl_map(*method) else {
+                return false;
+            };
+
+            // Skip functions exported by ordinal.
+            if self.impl_map_import_name(impl_map).starts_with('#') {
+                return false;
             }
-            false
+
+            // If the module name lacks a `.` then it's likely either an inline function, which windows-rs
+            // doesn't currently support, or an invalid import library since the extension must be known
+            // in order to generate an import table entry unambiguously.
+            return self.module_ref_name(self.impl_map_scope(impl_map)).contains('.');
         })
     }
     pub fn namespace_constants(&self, namespace: &str) -> impl Iterator<Item = Field> + '_ {
@@ -589,17 +596,10 @@ impl<'a> Reader<'a> {
         self.row_equal_range(row.0, TABLE_IMPLMAP, 1, MemberForwarded::MethodDef(row).encode()).map(ImplMap).next()
     }
     pub fn method_def_module_name(&self, row: MethodDef) -> String {
-        if let Some(impl_map) = self.method_def_impl_map(row) {
-            let scope = self.impl_map_scope(impl_map);
-            let name = self.module_ref_name(scope);
-            // If the module name lacks a `.` then it's likely either an inline function, which windows-rs
-            // doesn't currently support, or an invalid import library since the extension must be known
-            // in order to generate an import table entry unambiguously.
-            if name.contains('.') {
-                return name.to_lowercase();
-            }
-        }
-        String::new()
+        let Some(impl_map) = self.method_def_impl_map(row) else {
+            return String::new();
+        };
+        self.module_ref_name(self.impl_map_scope(impl_map)).to_lowercase()
     }
     pub fn method_def_signature(&self, row: MethodDef, generics: &[Type]) -> Signature {
         let mut blob = self.row_blob(row.0, 4);
