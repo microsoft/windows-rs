@@ -47,41 +47,35 @@ fn standalone_imp(gen: &Gen, names: &[&str]) -> String {
         }
 
         if !found {
-            if let Some(def) = gen
-                .reader
-                .get(TypeName::new(type_name.namespace, "Apis"))
-                .next()
-            {
-                for method in gen.reader.type_def_methods(def) {
-                    if found {
-                        break;
-                    }
-                    let name = gen.reader.method_def_name(method);
-                    if name == type_name.name {
-                        found = true;
-                        type_names.insert(type_name);
-                        let mut cfg = gen
-                            .reader
-                            .signature_cfg(&gen.reader.method_def_signature(method, &[]));
-                        core_types.append(&mut cfg.core_types);
-                        for def in cfg.types.values().flatten() {
-                            type_names.insert(gen.reader.type_def_type_name(*def));
-                        }
+            for method in gen.reader.namespace_functions(type_name.namespace) {
+                if found {
+                    break;
+                }
+                let name = gen.reader.method_def_name(method);
+                if name == type_name.name {
+                    found = true;
+                    type_names.insert(type_name);
+                    let mut cfg = gen
+                        .reader
+                        .signature_cfg(&gen.reader.method_def_signature(method, &[]));
+                    core_types.append(&mut cfg.core_types);
+                    for def in cfg.types.values().flatten() {
+                        type_names.insert(gen.reader.type_def_type_name(*def));
                     }
                 }
-                for field in gen.reader.type_def_fields(def) {
-                    if found {
-                        break;
-                    }
-                    let name = gen.reader.field_name(field);
-                    if name == type_name.name {
-                        found = true;
-                        type_names.insert(type_name);
-                        let mut cfg = gen.reader.field_cfg(field);
-                        core_types.append(&mut cfg.core_types);
-                        for def in cfg.types.values().flatten() {
-                            type_names.insert(gen.reader.type_def_type_name(*def));
-                        }
+            }
+            for field in gen.reader.namespace_constants(type_name.namespace) {
+                if found {
+                    break;
+                }
+                let name = gen.reader.field_name(field);
+                if name == type_name.name {
+                    found = true;
+                    type_names.insert(type_name);
+                    let mut cfg = gen.reader.field_cfg(field);
+                    core_types.append(&mut cfg.core_types);
+                    for def in cfg.types.values().flatten() {
+                        type_names.insert(gen.reader.type_def_type_name(*def));
                     }
                 }
             }
@@ -197,33 +191,27 @@ fn standalone_imp(gen: &Gen, names: &[&str]) -> String {
         }
 
         if !found {
-            if let Some(def) = gen
-                .reader
-                .get(TypeName::new(type_name.namespace, "Apis"))
-                .next()
-            {
-                for method in gen.reader.type_def_methods(def) {
-                    if found {
-                        break;
-                    }
-                    let name = gen.reader.method_def_name(method);
-                    if name == type_name.name {
-                        found = true;
-                        sorted.insert(
-                            &format!(".{}.{name}", gen.reader.method_def_module_name(method)),
-                            functions::gen(gen, method),
-                        );
-                    }
+            for method in gen.reader.namespace_functions(type_name.namespace) {
+                if found {
+                    break;
                 }
-                for field in gen.reader.type_def_fields(def) {
-                    if found {
-                        break;
-                    }
-                    let name = gen.reader.field_name(field);
-                    if name == type_name.name {
-                        found = true;
-                        sorted.insert(name, constants::gen(gen, field));
-                    }
+                let name = gen.reader.method_def_name(method);
+                if name == type_name.name {
+                    found = true;
+                    sorted.insert(
+                        &format!(".{}.{name}", gen.reader.method_def_module_name(method)),
+                        functions::gen(gen, method),
+                    );
+                }
+            }
+            for field in gen.reader.namespace_constants(type_name.namespace) {
+                if found {
+                    break;
+                }
+                let name = gen.reader.field_name(field);
+                if name == type_name.name {
+                    found = true;
+                    sorted.insert(name, constants::gen(gen, field));
                 }
             }
         }

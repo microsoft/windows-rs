@@ -1,10 +1,12 @@
+use metadata::reader::*;
+
 #[test]
 fn size() {
     // Note: you can double check these export names from a Visual Studio x86 command prompt as follows:
     // dumpbin /exports kernel32.lib | findstr /i RtmConvertIpv6AddressAndLengthToNetAddress
 
-    let files = metadata::reader::File::with_default(&[]).unwrap();
-    let reader = &metadata::reader::Reader::new(&files);
+    let files = File::with_default(&[]).unwrap();
+    let reader = &Reader::new(&files);
 
     assert_eq!(
         struct_size(reader, "Windows.Win32.System.Com", "VARIANT"),
@@ -305,25 +307,17 @@ fn size() {
     );
 }
 
-fn function_size(reader: &metadata::reader::Reader, namespace: &str, name: &str) -> usize {
-    if let Some(def) = reader
-        .get(metadata::reader::TypeName::new(namespace, "Apis"))
-        .next()
-    {
-        for method in reader.type_def_methods(def) {
-            if reader.method_def_name(method) == name {
-                return reader.method_def_size(method);
-            }
+fn function_size(reader: &Reader, namespace: &str, name: &str) -> usize {
+    for method in reader.namespace_functions(namespace) {
+        if reader.method_def_name(method) == name {
+            return reader.method_def_size(method);
         }
     }
     0
 }
 
-fn struct_size(reader: &metadata::reader::Reader, namespace: &str, name: &str) -> usize {
-    if let Some(def) = reader
-        .get(metadata::reader::TypeName::new(namespace, name))
-        .next()
-    {
+fn struct_size(reader: &Reader, namespace: &str, name: &str) -> usize {
+    for def in reader.get(TypeName::new(namespace, name)) {
         return reader.type_def_size(def);
     }
     0

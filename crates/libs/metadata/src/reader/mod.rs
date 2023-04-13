@@ -232,6 +232,9 @@ impl<'a> Reader<'a> {
     // Hash functions for fast type lookup
     //
 
+    pub fn namespaces(&self) -> impl Iterator<Item = &str> + '_ {
+        self.types.keys().copied()
+    }
     pub fn namespace_types(&'a self, namespace: &str, filter: &'a Filter) -> impl Iterator<Item = TypeDef> + '_ {
         self.types.get(namespace).map(move |types| types.values().flatten().copied().filter(move |ty| filter.includes_type(self, *ty))).into_iter().flatten()
     }
@@ -245,6 +248,27 @@ impl<'a> Reader<'a> {
             }
         }
         None.into_iter().flatten()
+    }
+    pub fn namespace_functions(&self, namespace: &str) -> impl Iterator<Item = MethodDef> + '_ {
+        self.get(TypeName::new(namespace, "Apis")).flat_map(move |apis| self.type_def_methods(apis)).filter(move |method| {
+            // The ImplMap table contains import information, without which the function cannot be linked.
+            let Some(impl_map) = self.method_def_impl_map(*method) else {
+                return false;
+            };
+
+            // Skip functions exported by ordinal.
+            if self.impl_map_import_name(impl_map).starts_with('#') {
+                return false;
+            }
+
+            // If the module name lacks a `.` then it's likely either an inline function, which windows-rs
+            // doesn't currently support, or an invalid import library since the extension must be known
+            // in order to generate an import table entry unambiguously.
+            return self.module_ref_name(self.impl_map_scope(impl_map)).contains('.');
+        })
+    }
+    pub fn namespace_constants(&self, namespace: &str) -> impl Iterator<Item = Field> + '_ {
+        self.get(TypeName::new(namespace, "Apis")).flat_map(move |apis| self.type_def_fields(apis))
     }
 
     //
@@ -462,6 +486,9 @@ impl<'a> Reader<'a> {
     pub fn impl_map_scope(&self, row: ImplMap) -> ModuleRef {
         ModuleRef(Row::new(self.row_usize(row.0, 3) - 1, TABLE_MODULEREF, row.0.file as _))
     }
+    pub fn impl_map_import_name(&self, row: ImplMap) -> &str {
+        self.row_str(row.0, 2)
+    }
 
     //
     // InterfaceImpl table queries
@@ -569,17 +596,10 @@ impl<'a> Reader<'a> {
         self.row_equal_range(row.0, TABLE_IMPLMAP, 1, MemberForwarded::MethodDef(row).encode()).map(ImplMap).next()
     }
     pub fn method_def_module_name(&self, row: MethodDef) -> String {
-        if let Some(impl_map) = self.method_def_impl_map(row) {
-            let scope = self.impl_map_scope(impl_map);
-            let name = self.module_ref_name(scope);
-            // If the module name lacks a `.` then it's likely either an inline function, which windows-rs
-            // doesn't currently support, or an invalid import library since the extension must be known
-            // in order to generate an import table entry unambiguously.
-            if name.contains('.') {
-                return name.to_lowercase();
-            }
-        }
-        String::new()
+        let Some(impl_map) = self.method_def_impl_map(row) else {
+            return String::new();
+        };
+        self.module_ref_name(self.impl_map_scope(impl_map)).to_lowercase()
     }
     pub fn method_def_signature(&self, row: MethodDef, generics: &[Type]) -> Signature {
         let mut blob = self.row_blob(row.0, 4);

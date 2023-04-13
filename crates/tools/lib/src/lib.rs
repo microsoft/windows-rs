@@ -23,26 +23,17 @@ pub enum CallingConvention {
 
 fn combine(files: &[metadata::reader::File], libraries: &mut BTreeMap<String, BTreeMap<String, CallingConvention>>) {
     let reader = &metadata::reader::Reader::new(files);
-    let root = reader.tree("Windows", &Default::default());
-
-    for tree in root.flatten() {
-        if let Some(apis) = reader.get(metadata::reader::TypeName::new(tree.namespace, "Apis")).next() {
-            for method in reader.type_def_methods(apis) {
-                let library = reader.method_def_module_name(method);
-                if library.is_empty() {
-                    continue;
-                }
-                let impl_map = reader.method_def_impl_map(method).expect("ImplMap not found");
-                let flags = reader.impl_map_flags(impl_map);
-                if flags.contains(metadata::PInvokeAttributes::CONV_PLATFORM) {
-                    let params = reader.method_def_size(method);
-                    libraries.entry(library).or_default().insert(reader.method_def_name(method).to_string(), CallingConvention::Stdcall(params));
-                } else if flags.contains(metadata::PInvokeAttributes::CONV_CDECL) {
-                    libraries.entry(library).or_default().insert(reader.method_def_name(method).to_string(), CallingConvention::Cdecl);
-                } else {
-                    unimplemented!();
-                }
-            }
+    for method in reader.namespaces().flat_map(|namespace| reader.namespace_functions(namespace)) {
+        let library = reader.method_def_module_name(method);
+        let impl_map = reader.method_def_impl_map(method).expect("ImplMap not found");
+        let flags = reader.impl_map_flags(impl_map);
+        if flags.contains(metadata::PInvokeAttributes::CONV_PLATFORM) {
+            let params = reader.method_def_size(method);
+            libraries.entry(library).or_default().insert(reader.method_def_name(method).to_string(), CallingConvention::Stdcall(params));
+        } else if flags.contains(metadata::PInvokeAttributes::CONV_CDECL) {
+            libraries.entry(library).or_default().insert(reader.method_def_name(method).to_string(), CallingConvention::Cdecl);
+        } else {
+            unimplemented!();
         }
     }
 }
