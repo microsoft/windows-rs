@@ -1,4 +1,4 @@
-use windows::{core::*, Win32::Globalization::*, Win32::System::Com::*};
+use windows::{core::*, Win32::Foundation::*, Win32::Globalization::*, Win32::System::Com::*};
 
 fn main() -> Result<()> {
     let input = std::env::args()
@@ -26,7 +26,15 @@ fn main() -> Result<()> {
     let errors = unsafe { checker.ComprehensiveCheck(&HSTRING::from(&input))? };
 
     // Loop through all the errors
-    while let Ok(error) = unsafe { errors.Next() } {
+    loop {
+        let mut error = None;
+
+        if unsafe { errors.Next(&mut error) } != S_OK {
+            break;
+        }
+
+        let error = error.unwrap();
+
         // Get the start index and length of the error
         let start_index = unsafe { error.StartIndex()? };
         let length = unsafe { error.Length()? };

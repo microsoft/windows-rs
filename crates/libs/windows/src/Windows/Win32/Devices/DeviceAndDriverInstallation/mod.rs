@@ -874,8 +874,8 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Get_Hardware_Profile_InfoA(ulindex: u32, phwprofileinfo: *mut HWProfileInfo_sA, ulflags: u32) -> CONFIGRET {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Hardware_Profile_InfoA(ulindex : u32, phwprofileinfo : *mut HWProfileInfo_sA, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Hardware_Profile_InfoA(ulindex: u32, phwprofileinfo: *mut HWPROFILEINFO_A, ulflags: u32) -> CONFIGRET {
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Hardware_Profile_InfoA(ulindex : u32, phwprofileinfo : *mut HWPROFILEINFO_A, ulflags : u32) -> CONFIGRET);
     CM_Get_Hardware_Profile_InfoA(ulindex, phwprofileinfo, ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -886,8 +886,8 @@ pub unsafe fn CM_Get_Hardware_Profile_InfoW(ulindex: u32, phwprofileinfo: *mut H
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Get_Hardware_Profile_Info_ExA(ulindex: u32, phwprofileinfo: *mut HWProfileInfo_sA, ulflags: u32, hmachine: isize) -> CONFIGRET {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Hardware_Profile_Info_ExA(ulindex : u32, phwprofileinfo : *mut HWProfileInfo_sA, ulflags : u32, hmachine : isize) -> CONFIGRET);
+pub unsafe fn CM_Get_Hardware_Profile_Info_ExA(ulindex: u32, phwprofileinfo: *mut HWPROFILEINFO_A, ulflags: u32, hmachine: isize) -> CONFIGRET {
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Hardware_Profile_Info_ExA(ulindex : u32, phwprofileinfo : *mut HWPROFILEINFO_A, ulflags : u32, hmachine : isize) -> CONFIGRET);
     CM_Get_Hardware_Profile_Info_ExA(ulindex, phwprofileinfo, ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -1637,12 +1637,12 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DiInstallDevice<P0, P1>(hwndparent: P0, deviceinfoset: P1, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: ::core::option::Option<*const SP_DRVINFO_DATA_V2_A>, flags: u32, needreboot: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> super::super::Foundation::BOOL
+pub unsafe fn DiInstallDevice<P0, P1>(hwndparent: P0, deviceinfoset: P1, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: ::core::option::Option<*const SP_DRVINFO_DATA_V2_W>, flags: u32, needreboot: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> super::super::Foundation::BOOL
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<HDEVINFO>,
 {
-    ::windows_targets::link!("newdev.dll" "system" fn DiInstallDevice(hwndparent : super::super::Foundation:: HWND, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, driverinfodata : *const SP_DRVINFO_DATA_V2_A, flags : u32, needreboot : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("newdev.dll" "system" fn DiInstallDevice(hwndparent : super::super::Foundation:: HWND, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, driverinfodata : *const SP_DRVINFO_DATA_V2_W, flags : u32, needreboot : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     DiInstallDevice(hwndparent.into_param().abi(), deviceinfoset.into_param().abi(), deviceinfodata, ::core::mem::transmute(driverinfodata.unwrap_or(::std::ptr::null())), flags, ::core::mem::transmute(needreboot.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -9844,6 +9844,27 @@ impl ::windows::core::TypeKind for HDEVINFO {
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub struct HWPROFILEINFO_A {
+    pub HWPI_ulHWProfile: u32,
+    pub HWPI_szFriendlyName: [u8; 80],
+    pub HWPI_dwFlags: u32,
+}
+impl ::core::marker::Copy for HWPROFILEINFO_A {}
+impl ::core::clone::Clone for HWPROFILEINFO_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for HWPROFILEINFO_A {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::default::Default for HWPROFILEINFO_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct HWPROFILEINFO_W {
     pub HWPI_ulHWProfile: u32,
     pub HWPI_szFriendlyName: [u16; 80],
@@ -9859,27 +9880,6 @@ impl ::windows::core::TypeKind for HWPROFILEINFO_W {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for HWPROFILEINFO_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub struct HWProfileInfo_sA {
-    pub HWPI_ulHWProfile: u32,
-    pub HWPI_szFriendlyName: [u8; 80],
-    pub HWPI_dwFlags: u32,
-}
-impl ::core::marker::Copy for HWProfileInfo_sA {}
-impl ::core::clone::Clone for HWProfileInfo_sA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows::core::TypeKind for HWProfileInfo_sA {
-    type TypeKind = ::windows::core::CopyType;
-}
-impl ::core::default::Default for HWProfileInfo_sA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -11580,7 +11580,7 @@ pub struct SP_DEVINSTALL_PARAMS_W {
     pub Flags: u32,
     pub FlagsEx: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub InstallMsgHandler: PSP_FILE_CALLBACK_A,
+    pub InstallMsgHandler: PSP_FILE_CALLBACK_W,
     pub InstallMsgHandlerContext: *mut ::core::ffi::c_void,
     pub FileQueue: *mut ::core::ffi::c_void,
     pub ClassInstallReserved: usize,
@@ -11618,7 +11618,7 @@ pub struct SP_DEVINSTALL_PARAMS_W {
     pub Flags: u32,
     pub FlagsEx: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub InstallMsgHandler: PSP_FILE_CALLBACK_A,
+    pub InstallMsgHandler: PSP_FILE_CALLBACK_W,
     pub InstallMsgHandlerContext: *mut ::core::ffi::c_void,
     pub FileQueue: *mut ::core::ffi::c_void,
     pub ClassInstallReserved: usize,

@@ -23,7 +23,7 @@ const EXCLUDE_NAMESPACES: [&str; 28] = [
     "Windows.Win32.Graphics.DXCore",
     "Windows.Win32.Graphics.Dxgi",
     "Windows.Win32.Graphics.Imaging",
-    "Windows.Win32.Interop",
+    "Windows.Win32.Foundation.Metadata",
     "Windows.Win32.Media.Audio.DirectSound",
     "Windows.Win32.Media.DirectShow",
     "Windows.Win32.Media.MediaFoundation",

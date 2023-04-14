@@ -13,23 +13,23 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DeviceCapabilitiesA<P0, P1>(pdevice: P0, pport: P1, fwcapability: DEVICE_CAPABILITIES, poutput: ::windows::core::PSTR, pdevmode: ::core::option::Option<*const super::super::Graphics::Gdi::DEVMODEA>) -> i32
+pub unsafe fn DeviceCapabilitiesA<P0, P1>(pdevice: P0, pport: P1, fwcapability: PRINTER_DEVICE_CAPABILITIES, poutput: ::windows::core::PSTR, pdevmode: ::core::option::Option<*const super::super::Graphics::Gdi::DEVMODEA>) -> i32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows_targets::link!("winspool.drv" "system" fn DeviceCapabilitiesA(pdevice : ::windows::core::PCSTR, pport : ::windows::core::PCSTR, fwcapability : DEVICE_CAPABILITIES, poutput : ::windows::core::PSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA) -> i32);
+    ::windows_targets::link!("winspool.drv" "system" fn DeviceCapabilitiesA(pdevice : ::windows::core::PCSTR, pport : ::windows::core::PCSTR, fwcapability : PRINTER_DEVICE_CAPABILITIES, poutput : ::windows::core::PSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA) -> i32);
     DeviceCapabilitiesA(pdevice.into_param().abi(), pport.into_param().abi(), fwcapability, ::core::mem::transmute(poutput), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DeviceCapabilitiesW<P0, P1>(pdevice: P0, pport: P1, fwcapability: DEVICE_CAPABILITIES, poutput: ::windows::core::PWSTR, pdevmode: ::core::option::Option<*const super::super::Graphics::Gdi::DEVMODEW>) -> i32
+pub unsafe fn DeviceCapabilitiesW<P0, P1>(pdevice: P0, pport: P1, fwcapability: PRINTER_DEVICE_CAPABILITIES, poutput: ::windows::core::PWSTR, pdevmode: ::core::option::Option<*const super::super::Graphics::Gdi::DEVMODEW>) -> i32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows_targets::link!("winspool.drv" "system" fn DeviceCapabilitiesW(pdevice : ::windows::core::PCWSTR, pport : ::windows::core::PCWSTR, fwcapability : DEVICE_CAPABILITIES, poutput : ::windows::core::PWSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW) -> i32);
+    ::windows_targets::link!("winspool.drv" "system" fn DeviceCapabilitiesW(pdevice : ::windows::core::PCWSTR, pport : ::windows::core::PCWSTR, fwcapability : PRINTER_DEVICE_CAPABILITIES, poutput : ::windows::core::PWSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW) -> i32);
     DeviceCapabilitiesW(pdevice.into_param().abi(), pport.into_param().abi(), fwcapability, ::core::mem::transmute(poutput), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -7778,84 +7778,84 @@ pub const XpsSignatureManager: ::windows::core::GUID = ::windows::core::GUID::fr
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DEVICE_CAPABILITIES(pub u16);
+pub struct PRINTER_DEVICE_CAPABILITIES(pub u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_BINNAMES: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(12u16);
+pub const DC_BINNAMES: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(12u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_BINS: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(6u16);
+pub const DC_BINS: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(6u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_COLLATE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(22u16);
+pub const DC_COLLATE: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(22u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_COLORDEVICE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(32u16);
+pub const DC_COLORDEVICE: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(32u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_COPIES: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(18u16);
+pub const DC_COPIES: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(18u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_DRIVER: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(11u16);
+pub const DC_DRIVER: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(11u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_DUPLEX: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(7u16);
+pub const DC_DUPLEX: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(7u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_ENUMRESOLUTIONS: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(13u16);
+pub const DC_ENUMRESOLUTIONS: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(13u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_EXTRA: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(9u16);
+pub const DC_EXTRA: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(9u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_FIELDS: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(1u16);
+pub const DC_FIELDS: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(1u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_FILEDEPENDENCIES: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(14u16);
+pub const DC_FILEDEPENDENCIES: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(14u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_MAXEXTENT: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(5u16);
+pub const DC_MAXEXTENT: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(5u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_MEDIAREADY: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(29u16);
+pub const DC_MEDIAREADY: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(29u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_MEDIATYPENAMES: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(34u16);
+pub const DC_MEDIATYPENAMES: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(34u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_MEDIATYPES: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(35u16);
+pub const DC_MEDIATYPES: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(35u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_MINEXTENT: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(4u16);
+pub const DC_MINEXTENT: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(4u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_ORIENTATION: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(17u16);
+pub const DC_ORIENTATION: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(17u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_NUP: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(33u16);
+pub const DC_NUP: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(33u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_PAPERNAMES: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(16u16);
+pub const DC_PAPERNAMES: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(16u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_PAPERS: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(2u16);
+pub const DC_PAPERS: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(2u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_PAPERSIZE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(3u16);
+pub const DC_PAPERSIZE: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(3u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_PERSONALITY: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(25u16);
+pub const DC_PERSONALITY: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(25u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_PRINTERMEM: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(28u16);
+pub const DC_PRINTERMEM: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(28u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_PRINTRATE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(26u16);
+pub const DC_PRINTRATE: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(26u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_PRINTRATEPPM: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(31u16);
+pub const DC_PRINTRATEPPM: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(31u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_PRINTRATEUNIT: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(27u16);
+pub const DC_PRINTRATEUNIT: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(27u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_SIZE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(8u16);
+pub const DC_SIZE: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(8u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_STAPLE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(30u16);
+pub const DC_STAPLE: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(30u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_TRUETYPE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(15u16);
+pub const DC_TRUETYPE: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(15u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
-pub const DC_VERSION: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(10u16);
-impl ::core::marker::Copy for DEVICE_CAPABILITIES {}
-impl ::core::clone::Clone for DEVICE_CAPABILITIES {
+pub const DC_VERSION: PRINTER_DEVICE_CAPABILITIES = PRINTER_DEVICE_CAPABILITIES(10u16);
+impl ::core::marker::Copy for PRINTER_DEVICE_CAPABILITIES {}
+impl ::core::clone::Clone for PRINTER_DEVICE_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for DEVICE_CAPABILITIES {
+impl ::core::default::Default for PRINTER_DEVICE_CAPABILITIES {
     fn default() -> Self {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DEVICE_CAPABILITIES {
+impl ::windows::core::TypeKind for PRINTER_DEVICE_CAPABILITIES {
     type TypeKind = ::windows::core::CopyType;
 }
-impl ::core::fmt::Debug for DEVICE_CAPABILITIES {
+impl ::core::fmt::Debug for PRINTER_DEVICE_CAPABILITIES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DEVICE_CAPABILITIES").field(&self.0).finish()
+        f.debug_tuple("PRINTER_DEVICE_CAPABILITIES").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]

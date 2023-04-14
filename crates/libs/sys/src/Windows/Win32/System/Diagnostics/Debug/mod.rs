@@ -3649,18 +3649,6 @@ pub type OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const WCT_ASYNC_OPEN_FLAG: OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS = 1u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub type PROCESSOR_ARCHITECTURE = u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROCESSOR_ARCHITECTURE_AMD64: PROCESSOR_ARCHITECTURE = 9u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROCESSOR_ARCHITECTURE_IA64: PROCESSOR_ARCHITECTURE = 6u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROCESSOR_ARCHITECTURE_INTEL: PROCESSOR_ARCHITECTURE = 0u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROCESSOR_ARCHITECTURE_ARM: PROCESSOR_ARCHITECTURE = 5u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROCESSOR_ARCHITECTURE_UNKNOWN: PROCESSOR_ARCHITECTURE = 65535u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub type PROP_INFO_FLAGS = i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const PROP_INFO_NAME: PROP_INFO_FLAGS = 1i32;
@@ -7249,9 +7237,10 @@ impl ::core::clone::Clone for MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
+#[cfg(feature = "Win32_System_SystemInformation")]
 pub struct MINIDUMP_SYSTEM_INFO {
-    pub ProcessorArchitecture: PROCESSOR_ARCHITECTURE,
+    pub ProcessorArchitecture: super::super::SystemInformation::PROCESSOR_ARCHITECTURE,
     pub ProcessorLevel: u16,
     pub ProcessorRevision: u16,
     pub Anonymous1: MINIDUMP_SYSTEM_INFO_0,
@@ -7263,55 +7252,69 @@ pub struct MINIDUMP_SYSTEM_INFO {
     pub Anonymous2: MINIDUMP_SYSTEM_INFO_1,
     pub Cpu: CPU_INFORMATION,
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::marker::Copy for MINIDUMP_SYSTEM_INFO {}
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::clone::Clone for MINIDUMP_SYSTEM_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
+#[cfg(feature = "Win32_System_SystemInformation")]
 pub union MINIDUMP_SYSTEM_INFO_0 {
     pub Reserved0: u16,
     pub Anonymous: MINIDUMP_SYSTEM_INFO_0_0,
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::marker::Copy for MINIDUMP_SYSTEM_INFO_0 {}
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::clone::Clone for MINIDUMP_SYSTEM_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
+#[cfg(feature = "Win32_System_SystemInformation")]
 pub struct MINIDUMP_SYSTEM_INFO_0_0 {
     pub NumberOfProcessors: u8,
     pub ProductType: u8,
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::marker::Copy for MINIDUMP_SYSTEM_INFO_0_0 {}
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::clone::Clone for MINIDUMP_SYSTEM_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
+#[cfg(feature = "Win32_System_SystemInformation")]
 pub union MINIDUMP_SYSTEM_INFO_1 {
     pub Reserved1: u32,
     pub Anonymous: MINIDUMP_SYSTEM_INFO_1_0,
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::marker::Copy for MINIDUMP_SYSTEM_INFO_1 {}
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::clone::Clone for MINIDUMP_SYSTEM_INFO_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
+#[cfg(feature = "Win32_System_SystemInformation")]
 pub struct MINIDUMP_SYSTEM_INFO_1_0 {
     pub SuiteMask: u16,
     pub Reserved2: u16,
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::marker::Copy for MINIDUMP_SYSTEM_INFO_1_0 {}
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::clone::Clone for MINIDUMP_SYSTEM_INFO_1_0 {
     fn clone(&self) -> Self {
         *self

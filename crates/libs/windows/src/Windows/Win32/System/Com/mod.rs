@@ -12198,7 +12198,7 @@ impl ::core::default::Default for STATSTG {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct STGMEDIUM {
     pub tymed: TYMED,
-    pub Anonymous: STGMEDIUM_0,
+    pub u: STGMEDIUM_0,
     pub pUnkForRelease: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
@@ -12804,60 +12804,47 @@ impl ::core::default::Default for uCLSSPEC_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_SystemServices\"`*"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 pub struct userFLAG_STGMEDIUM {
     pub ContextFlags: i32,
     pub fPassOwnership: i32,
     pub Stgmed: userSTGMEDIUM,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 impl ::core::clone::Clone for userFLAG_STGMEDIUM {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-impl ::core::fmt::Debug for userFLAG_STGMEDIUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("userFLAG_STGMEDIUM").field("ContextFlags", &self.ContextFlags).field("fPassOwnership", &self.fPassOwnership).field("Stgmed", &self.Stgmed).finish()
-    }
-}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 impl ::windows::core::TypeKind for userFLAG_STGMEDIUM {
     type TypeKind = ::windows::core::CopyType;
 }
-impl ::core::cmp::PartialEq for userFLAG_STGMEDIUM {
-    fn eq(&self, other: &Self) -> bool {
-        self.ContextFlags == other.ContextFlags && self.fPassOwnership == other.fPassOwnership && self.Stgmed == other.Stgmed
-    }
-}
-impl ::core::cmp::Eq for userFLAG_STGMEDIUM {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 impl ::core::default::Default for userFLAG_STGMEDIUM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_SystemServices\"`*"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 pub struct userSTGMEDIUM {
+    pub u: userSTGMEDIUM_0,
     pub pUnkForRelease: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 impl ::core::clone::Clone for userSTGMEDIUM {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-impl ::core::fmt::Debug for userSTGMEDIUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("userSTGMEDIUM").field("pUnkForRelease", &self.pUnkForRelease).finish()
-    }
-}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 impl ::windows::core::TypeKind for userSTGMEDIUM {
     type TypeKind = ::windows::core::CopyType;
 }
-impl ::core::cmp::PartialEq for userSTGMEDIUM {
-    fn eq(&self, other: &Self) -> bool {
-        self.pUnkForRelease == other.pUnkForRelease
-    }
-}
-impl ::core::cmp::Eq for userSTGMEDIUM {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 impl ::core::default::Default for userSTGMEDIUM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

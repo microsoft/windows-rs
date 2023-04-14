@@ -1,34 +1,34 @@
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn CompareStringA(locale: u32, dwcmpflags: u32, lpstring1: &[i8], lpstring2: &[i8]) -> i32 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CompareStringA(locale : u32, dwcmpflags : u32, lpstring1 : *const i8, cchcount1 : i32, lpstring2 : *const i8, cchcount2 : i32) -> i32);
+pub unsafe fn CompareStringA(locale: u32, dwcmpflags: u32, lpstring1: &[i8], lpstring2: &[i8]) -> COMPARESTRING_RESULT {
+    ::windows_targets::link!("kernel32.dll" "system" fn CompareStringA(locale : u32, dwcmpflags : u32, lpstring1 : *const i8, cchcount1 : i32, lpstring2 : *const i8, cchcount2 : i32) -> COMPARESTRING_RESULT);
     CompareStringA(locale, dwcmpflags, ::core::mem::transmute(lpstring1.as_ptr()), lpstring1.len() as _, ::core::mem::transmute(lpstring2.as_ptr()), lpstring2.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CompareStringEx<P0, P1>(lplocalename: P0, dwcmpflags: COMPARE_STRING_FLAGS, lpstring1: &[u16], lpstring2: &[u16], lpversioninformation: ::core::option::Option<*const NLSVERSIONINFO>, lpreserved: ::core::option::Option<*const ::core::ffi::c_void>, lparam: P1) -> i32
+pub unsafe fn CompareStringEx<P0, P1>(lplocalename: P0, dwcmpflags: COMPARE_STRING_FLAGS, lpstring1: &[u16], lpstring2: &[u16], lpversioninformation: ::core::option::Option<*const NLSVERSIONINFO>, lpreserved: ::core::option::Option<*const ::core::ffi::c_void>, lparam: P1) -> COMPARESTRING_RESULT
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::Foundation::LPARAM>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CompareStringEx(lplocalename : ::windows::core::PCWSTR, dwcmpflags : COMPARE_STRING_FLAGS, lpstring1 : ::windows::core::PCWSTR, cchcount1 : i32, lpstring2 : ::windows::core::PCWSTR, cchcount2 : i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const ::core::ffi::c_void, lparam : super::Foundation:: LPARAM) -> i32);
+    ::windows_targets::link!("kernel32.dll" "system" fn CompareStringEx(lplocalename : ::windows::core::PCWSTR, dwcmpflags : COMPARE_STRING_FLAGS, lpstring1 : ::windows::core::PCWSTR, cchcount1 : i32, lpstring2 : ::windows::core::PCWSTR, cchcount2 : i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const ::core::ffi::c_void, lparam : super::Foundation:: LPARAM) -> COMPARESTRING_RESULT);
     CompareStringEx(lplocalename.into_param().abi(), dwcmpflags, ::core::mem::transmute(lpstring1.as_ptr()), lpstring1.len() as _, ::core::mem::transmute(lpstring2.as_ptr()), lpstring2.len() as _, ::core::mem::transmute(lpversioninformation.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())), lparam.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CompareStringOrdinal<P0>(lpstring1: &[u16], lpstring2: &[u16], bignorecase: P0) -> i32
+pub unsafe fn CompareStringOrdinal<P0>(lpstring1: &[u16], lpstring2: &[u16], bignorecase: P0) -> COMPARESTRING_RESULT
 where
     P0: ::windows::core::IntoParam<super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CompareStringOrdinal(lpstring1 : ::windows::core::PCWSTR, cchcount1 : i32, lpstring2 : ::windows::core::PCWSTR, cchcount2 : i32, bignorecase : super::Foundation:: BOOL) -> i32);
+    ::windows_targets::link!("kernel32.dll" "system" fn CompareStringOrdinal(lpstring1 : ::windows::core::PCWSTR, cchcount1 : i32, lpstring2 : ::windows::core::PCWSTR, cchcount2 : i32, bignorecase : super::Foundation:: BOOL) -> COMPARESTRING_RESULT);
     CompareStringOrdinal(::core::mem::transmute(lpstring1.as_ptr()), lpstring1.len() as _, ::core::mem::transmute(lpstring2.as_ptr()), lpstring2.len() as _, bignorecase.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn CompareStringW(locale: u32, dwcmpflags: u32, lpstring1: &[u16], lpstring2: &[u16]) -> i32 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CompareStringW(locale : u32, dwcmpflags : u32, lpstring1 : ::windows::core::PCWSTR, cchcount1 : i32, lpstring2 : ::windows::core::PCWSTR, cchcount2 : i32) -> i32);
+pub unsafe fn CompareStringW(locale: u32, dwcmpflags: u32, lpstring1: &[u16], lpstring2: &[u16]) -> COMPARESTRING_RESULT {
+    ::windows_targets::link!("kernel32.dll" "system" fn CompareStringW(locale : u32, dwcmpflags : u32, lpstring1 : ::windows::core::PCWSTR, cchcount1 : i32, lpstring2 : ::windows::core::PCWSTR, cchcount2 : i32) -> COMPARESTRING_RESULT);
     CompareStringW(locale, dwcmpflags, ::core::mem::transmute(lpstring1.as_ptr()), lpstring1.len() as _, ::core::mem::transmute(lpstring2.as_ptr()), lpstring2.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -8500,9 +8500,8 @@ pub struct IEnumScript_Vtbl {
 #[repr(transparent)]
 pub struct IEnumSpellingError(::windows::core::IUnknown);
 impl IEnumSpellingError {
-    pub unsafe fn Next(&self) -> ::windows::core::Result<ISpellingError> {
-        let mut result__ = ::windows::core::zeroed::<ISpellingError>();
-        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Next(&self, value: *mut ::core::option::Option<ISpellingError>) -> ::windows::core::HRESULT {
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value))
     }
 }
 ::windows::imp::interface_hierarchy!(IEnumSpellingError, ::windows::core::IUnknown);
@@ -10731,12 +10730,6 @@ pub const CP_UTF7: u32 = 65000u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const CP_UTF8: u32 = 65001u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const CSTR_EQUAL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const CSTR_GREATER_THAN: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const CSTR_LESS_THAN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const CTRY_ALBANIA: u32 = 355u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const CTRY_ALGERIA: u32 = 213u32;
@@ -12234,6 +12227,35 @@ pub const WC_ERR_INVALID_CHARS: u32 = 128u32;
 pub const WC_NO_BEST_FIT_CHARS: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const WC_SEPCHARS: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMPARESTRING_RESULT(pub u32);
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const CSTR_LESS_THAN: COMPARESTRING_RESULT = COMPARESTRING_RESULT(1u32);
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const CSTR_EQUAL: COMPARESTRING_RESULT = COMPARESTRING_RESULT(2u32);
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const CSTR_GREATER_THAN: COMPARESTRING_RESULT = COMPARESTRING_RESULT(3u32);
+impl ::core::marker::Copy for COMPARESTRING_RESULT {}
+impl ::core::clone::Clone for COMPARESTRING_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMPARESTRING_RESULT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for COMPARESTRING_RESULT {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for COMPARESTRING_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMPARESTRING_RESULT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

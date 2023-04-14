@@ -892,29 +892,9 @@ pub const FAIL_FAST_NO_HARD_ERROR_DLG: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FIBER_FLAG_FLOAT_SWITCH: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_COMPLETE_IF_OPLOCKED: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FILE_CREATED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_CREATE_TREE_CONNECTION: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_DELETE_ON_CLOSE: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_DIRECTORY_FILE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FILE_DIR_DISALLOWED: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_DISPOSITION_FLAG_DELETE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_DISPOSITION_FLAG_DO_NOT_DELETE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_DISPOSITION_FLAG_FORCE_IMAGE_SECTION_CHECK: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_DISPOSITION_FLAG_IGNORE_READONLY_ATTRIBUTE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_DISPOSITION_FLAG_ON_CLOSE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_DISPOSITION_FLAG_POSIX_SEMANTICS: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FILE_DOES_NOT_EXIST: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -928,33 +908,15 @@ pub const FILE_IS_ENCRYPTED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FILE_MAXIMUM_DISPOSITION: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_NON_DIRECTORY_FILE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FILE_NO_COMPRESSION: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_NO_EA_KNOWLEDGE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_NO_INTERMEDIATE_BUFFERING: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FILE_OPENED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_OPEN_BY_FILE_ID: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_OPEN_FOR_BACKUP_INTENT: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_OPEN_FOR_FREE_SPACE_QUERY: u32 = 8388608u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FILE_OPEN_NO_RECALL: u32 = 4194304u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FILE_OPEN_REMOTE_INSTANCE: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_OPEN_REPARSE_POINT: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_OPEN_REQUIRING_OPLOCK: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FILE_OVERWRITTEN: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_RANDOM_ACCESS: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FILE_READ_ONLY: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -964,21 +926,13 @@ pub const FILE_RENAME_FLAG_REPLACE_IF_EXISTS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FILE_RENAME_FLAG_SUPPRESS_PIN_STATE_INHERITANCE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_RESERVE_OPFILTER: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FILE_ROOT_DIR: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_SEQUENTIAL_ONLY: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FILE_SKIP_COMPLETION_PORT_ON_SUCCESS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FILE_SKIP_SET_EVENT_ON_HANDLE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FILE_SUPERSEDED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_SYNCHRONOUS_IO_ALERT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_SYNCHRONOUS_IO_NONALERT: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FILE_SYSTEM_ATTR: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -997,8 +951,6 @@ pub const FILE_VALID_OPTION_FLAGS: u32 = 16777215u32;
 pub const FILE_VALID_PIPE_OPTION_FLAGS: u32 = 50u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FILE_VALID_SET_FLAGS: u32 = 54u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_WRITE_THROUGH: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FIND_ACTCTX_SECTION_KEY_RETURN_ASSEMBLY_METADATA: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -1577,14 +1529,6 @@ pub const TC_SIGNAL: u32 = 3u32;
 pub const THREAD_PRIORITY_ERROR_RETURN: u32 = 2147483647u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const UMS_VERSION: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const VOLUME_NAME_DOS: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const VOLUME_NAME_GUID: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const VOLUME_NAME_NONE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const VOLUME_NAME_NT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WINWATCHNOTIFY_CHANGED: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -2317,17 +2261,6 @@ pub struct FILE_CASE_SENSITIVE_INFO {
 }
 impl ::core::marker::Copy for FILE_CASE_SENSITIVE_INFO {}
 impl ::core::clone::Clone for FILE_CASE_SENSITIVE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub struct FILE_DISPOSITION_INFO_EX {
-    pub Flags: u32,
-}
-impl ::core::marker::Copy for FILE_DISPOSITION_INFO_EX {}
-impl ::core::clone::Clone for FILE_DISPOSITION_INFO_EX {
     fn clone(&self) -> Self {
         *self
     }

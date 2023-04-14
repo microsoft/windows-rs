@@ -1655,21 +1655,21 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFinalPathNameByHandleA<P0>(hfile: P0, lpszfilepath: &mut [u8], dwflags: FILE_NAME) -> u32
+pub unsafe fn GetFinalPathNameByHandleA<P0>(hfile: P0, lpszfilepath: &mut [u8], dwflags: GETFINALPATHNAMEBYHANDLE_FLAGS) -> u32
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetFinalPathNameByHandleA(hfile : super::super::Foundation:: HANDLE, lpszfilepath : ::windows::core::PSTR, cchfilepath : u32, dwflags : FILE_NAME) -> u32);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetFinalPathNameByHandleA(hfile : super::super::Foundation:: HANDLE, lpszfilepath : ::windows::core::PSTR, cchfilepath : u32, dwflags : GETFINALPATHNAMEBYHANDLE_FLAGS) -> u32);
     GetFinalPathNameByHandleA(hfile.into_param().abi(), ::core::mem::transmute(lpszfilepath.as_ptr()), lpszfilepath.len() as _, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFinalPathNameByHandleW<P0>(hfile: P0, lpszfilepath: &mut [u16], dwflags: FILE_NAME) -> u32
+pub unsafe fn GetFinalPathNameByHandleW<P0>(hfile: P0, lpszfilepath: &mut [u16], dwflags: GETFINALPATHNAMEBYHANDLE_FLAGS) -> u32
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetFinalPathNameByHandleW(hfile : super::super::Foundation:: HANDLE, lpszfilepath : ::windows::core::PWSTR, cchfilepath : u32, dwflags : FILE_NAME) -> u32);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetFinalPathNameByHandleW(hfile : super::super::Foundation:: HANDLE, lpszfilepath : ::windows::core::PWSTR, cchfilepath : u32, dwflags : GETFINALPATHNAMEBYHANDLE_FLAGS) -> u32);
     GetFinalPathNameByHandleW(hfile.into_param().abi(), ::core::mem::transmute(lpszfilepath.as_ptr()), lpszfilepath.len() as _, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2560,13 +2560,6 @@ where
 pub unsafe fn NetStatisticsGet(servername: *const i8, service: *const i8, level: u32, options: u32, buffer: *mut *mut u8) -> u32 {
     ::windows_targets::link!("netapi32.dll" "system" fn NetStatisticsGet(servername : *const i8, service : *const i8, level : u32, options : u32, buffer : *mut *mut u8) -> u32);
     NetStatisticsGet(servername, service, level, options, buffer)
-}
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
-#[inline]
-pub unsafe fn NtCreateFile(filehandle: *mut super::super::Foundation::HANDLE, desiredaccess: u32, objectattributes: *mut super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES, iostatusblock: *mut super::super::System::WindowsProgramming::IO_STATUS_BLOCK, allocationsize: *mut i64, fileattributes: u32, shareaccess: FILE_SHARE_MODE, createdisposition: NT_CREATE_FILE_DISPOSITION, createoptions: u32, eabuffer: *mut ::core::ffi::c_void, ealength: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("ntdll.dll" "system" fn NtCreateFile(filehandle : *mut super::super::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *mut super::super::System::WindowsProgramming:: OBJECT_ATTRIBUTES, iostatusblock : *mut super::super::System::WindowsProgramming:: IO_STATUS_BLOCK, allocationsize : *mut i64, fileattributes : u32, shareaccess : FILE_SHARE_MODE, createdisposition : NT_CREATE_FILE_DISPOSITION, createoptions : u32, eabuffer : *mut ::core::ffi::c_void, ealength : u32) -> super::super::Foundation:: NTSTATUS);
-    NtCreateFile(filehandle, desiredaccess, objectattributes, iostatusblock, allocationsize, fileattributes, shareaccess, createdisposition, createoptions, eabuffer, ealength).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -5812,6 +5805,41 @@ impl ::core::fmt::Debug for FILE_DEVICE_TYPE {
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FILE_DISPOSITION_INFO_EX_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DISPOSITION_FLAG_DO_NOT_DELETE: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DISPOSITION_FLAG_DELETE: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DISPOSITION_FLAG_POSIX_SEMANTICS: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DISPOSITION_FLAG_FORCE_IMAGE_SECTION_CHECK: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DISPOSITION_FLAG_ON_CLOSE: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DISPOSITION_FLAG_IGNORE_READONLY_ATTRIBUTE: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(16u32);
+impl ::core::marker::Copy for FILE_DISPOSITION_INFO_EX_FLAGS {}
+impl ::core::clone::Clone for FILE_DISPOSITION_INFO_EX_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FILE_DISPOSITION_INFO_EX_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for FILE_DISPOSITION_INFO_EX_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for FILE_DISPOSITION_INFO_EX_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FILE_DISPOSITION_INFO_EX_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_FLAGS_AND_ATTRIBUTES(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_READONLY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1u32);
@@ -6126,33 +6154,6 @@ impl ::core::ops::Not for FILE_INFO_FLAGS_PERMISSIONS {
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FILE_NAME(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_NAME_NORMALIZED: FILE_NAME = FILE_NAME(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_NAME_OPENED: FILE_NAME = FILE_NAME(8u32);
-impl ::core::marker::Copy for FILE_NAME {}
-impl ::core::clone::Clone for FILE_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FILE_NAME {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows::core::TypeKind for FILE_NAME {
-    type TypeKind = ::windows::core::CopyType;
-}
-impl ::core::fmt::Debug for FILE_NAME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FILE_NAME").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_NOTIFY_CHANGE(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_NOTIFY_CHANGE_FILE_NAME: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(1u32);
@@ -6439,6 +6440,41 @@ impl ::core::ops::Not for FIND_FIRST_EX_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GETFINALPATHNAMEBYHANDLE_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOLUME_NAME_DOS: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOLUME_NAME_GUID: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOLUME_NAME_NT: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOLUME_NAME_NONE: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_NAME_NORMALIZED: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_NAME_OPENED: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(8u32);
+impl ::core::marker::Copy for GETFINALPATHNAMEBYHANDLE_FLAGS {}
+impl ::core::clone::Clone for GETFINALPATHNAMEBYHANDLE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GETFINALPATHNAMEBYHANDLE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for GETFINALPATHNAMEBYHANDLE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for GETFINALPATHNAMEBYHANDLE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GETFINALPATHNAMEBYHANDLE_FLAGS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -7158,41 +7194,6 @@ impl ::windows::core::TypeKind for NTMS_OMID_TYPE {
 impl ::core::fmt::Debug for NTMS_OMID_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NTMS_OMID_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NT_CREATE_FILE_DISPOSITION(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_SUPERSEDE: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_CREATE: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_OPEN: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_OPEN_IF: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(3u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_OVERWRITE: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_OVERWRITE_IF: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(5u32);
-impl ::core::marker::Copy for NT_CREATE_FILE_DISPOSITION {}
-impl ::core::clone::Clone for NT_CREATE_FILE_DISPOSITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NT_CREATE_FILE_DISPOSITION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows::core::TypeKind for NT_CREATE_FILE_DISPOSITION {
-    type TypeKind = ::windows::core::CopyType;
-}
-impl ::core::fmt::Debug for NT_CREATE_FILE_DISPOSITION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NT_CREATE_FILE_DISPOSITION").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -12038,6 +12039,36 @@ impl ::core::cmp::PartialEq for FILE_DISPOSITION_INFO {
 impl ::core::cmp::Eq for FILE_DISPOSITION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FILE_DISPOSITION_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub struct FILE_DISPOSITION_INFO_EX {
+    pub Flags: FILE_DISPOSITION_INFO_EX_FLAGS,
+}
+impl ::core::marker::Copy for FILE_DISPOSITION_INFO_EX {}
+impl ::core::clone::Clone for FILE_DISPOSITION_INFO_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for FILE_DISPOSITION_INFO_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_DISPOSITION_INFO_EX").field("Flags", &self.Flags).finish()
+    }
+}
+impl ::windows::core::TypeKind for FILE_DISPOSITION_INFO_EX {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for FILE_DISPOSITION_INFO_EX {
+    fn eq(&self, other: &Self) -> bool {
+        self.Flags == other.Flags
+    }
+}
+impl ::core::cmp::Eq for FILE_DISPOSITION_INFO_EX {}
+impl ::core::default::Default for FILE_DISPOSITION_INFO_EX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

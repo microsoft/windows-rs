@@ -559,9 +559,9 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn RegisterClassW(lpwndclass : *const WNDCLASSW) -> u16);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn RegisterDeviceNotificationA(hrecipient : super::super::Foundation:: HANDLE, notificationfilter : *const ::core::ffi::c_void, flags : REGISTER_NOTIFICATION_FLAGS) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn RegisterDeviceNotificationA(hrecipient : super::super::Foundation:: HANDLE, notificationfilter : *const ::core::ffi::c_void, flags : REGISTER_NOTIFICATION_FLAGS) -> HDEVNOTIFY);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn RegisterDeviceNotificationW(hrecipient : super::super::Foundation:: HANDLE, notificationfilter : *const ::core::ffi::c_void, flags : REGISTER_NOTIFICATION_FLAGS) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn RegisterDeviceNotificationW(hrecipient : super::super::Foundation:: HANDLE, notificationfilter : *const ::core::ffi::c_void, flags : REGISTER_NOTIFICATION_FLAGS) -> HDEVNOTIFY);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn RegisterShellHookWindow(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"] fn RegisterWindowMessageA(lpstring : ::windows_sys::core::PCSTR) -> u32);
@@ -735,7 +735,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn UnregisterClassW(lpclassname : ::windows_sys::core::PCWSTR, hinstance : super::super::Foundation:: HMODULE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn UnregisterDeviceNotification(handle : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn UnregisterDeviceNotification(handle : HDEVNOTIFY) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn UpdateLayeredWindow(hwnd : super::super::Foundation:: HWND, hdcdst : super::super::Graphics::Gdi:: HDC, pptdst : *const super::super::Foundation:: POINT, psize : *const super::super::Foundation:: SIZE, hdcsrc : super::super::Graphics::Gdi:: HDC, pptsrc : *const super::super::Foundation:: POINT, crkey : super::super::Foundation:: COLORREF, pblend : *const super::super::Graphics::Gdi:: BLENDFUNCTION, dwflags : UPDATE_LAYERED_WINDOW_FLAGS) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1842,41 +1842,41 @@ pub const IDANI_CAPTION: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const IDANI_OPEN: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const IDC_APPSTARTING: ::windows_sys::core::PCWSTR = 32650i16 as _;
+pub const IDC_APPSTARTING: ::windows_sys::core::PCWSTR = 32650u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const IDC_ARROW: ::windows_sys::core::PCWSTR = 32512i16 as _;
+pub const IDC_ARROW: ::windows_sys::core::PCWSTR = 32512u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const IDC_CROSS: ::windows_sys::core::PCWSTR = 32515i16 as _;
+pub const IDC_CROSS: ::windows_sys::core::PCWSTR = 32515u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const IDC_HAND: ::windows_sys::core::PCWSTR = 32649i16 as _;
+pub const IDC_HAND: ::windows_sys::core::PCWSTR = 32649u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const IDC_HELP: ::windows_sys::core::PCWSTR = 32651i16 as _;
+pub const IDC_HELP: ::windows_sys::core::PCWSTR = 32651u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const IDC_IBEAM: ::windows_sys::core::PCWSTR = 32513i16 as _;
+pub const IDC_IBEAM: ::windows_sys::core::PCWSTR = 32513u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const IDC_ICON: ::windows_sys::core::PCWSTR = 32641i16 as _;
+pub const IDC_ICON: ::windows_sys::core::PCWSTR = 32641u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const IDC_NO: ::windows_sys::core::PCWSTR = 32648i16 as _;
+pub const IDC_NO: ::windows_sys::core::PCWSTR = 32648u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const IDC_PERSON: ::windows_sys::core::PCWSTR = 32672i16 as _;
+pub const IDC_PERSON: ::windows_sys::core::PCWSTR = 32672u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const IDC_PIN: ::windows_sys::core::PCWSTR = 32671i16 as _;
+pub const IDC_PIN: ::windows_sys::core::PCWSTR = 32671u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const IDC_SIZE: ::windows_sys::core::PCWSTR = 32640i16 as _;
+pub const IDC_SIZE: ::windows_sys::core::PCWSTR = 32640u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const IDC_SIZEALL: ::windows_sys::core::PCWSTR = 32646i16 as _;
+pub const IDC_SIZEALL: ::windows_sys::core::PCWSTR = 32646u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const IDC_SIZENESW: ::windows_sys::core::PCWSTR = 32643i16 as _;
+pub const IDC_SIZENESW: ::windows_sys::core::PCWSTR = 32643u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const IDC_SIZENS: ::windows_sys::core::PCWSTR = 32645i16 as _;
+pub const IDC_SIZENS: ::windows_sys::core::PCWSTR = 32645u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const IDC_SIZENWSE: ::windows_sys::core::PCWSTR = 32642i16 as _;
+pub const IDC_SIZENWSE: ::windows_sys::core::PCWSTR = 32642u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const IDC_SIZEWE: ::windows_sys::core::PCWSTR = 32644i16 as _;
+pub const IDC_SIZEWE: ::windows_sys::core::PCWSTR = 32644u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const IDC_UPARROW: ::windows_sys::core::PCWSTR = 32516i16 as _;
+pub const IDC_UPARROW: ::windows_sys::core::PCWSTR = 32516u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const IDC_WAIT: ::windows_sys::core::PCWSTR = 32514i16 as _;
+pub const IDC_WAIT: ::windows_sys::core::PCWSTR = 32514u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const IDHOT_SNAPDESKTOP: i32 = -2i32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -2542,39 +2542,39 @@ pub const RI_MOUSE_RIGHT_BUTTON_UP: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const RI_MOUSE_WHEEL: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const RT_ACCELERATOR: ::windows_sys::core::PCWSTR = 9i16 as _;
+pub const RT_ACCELERATOR: ::windows_sys::core::PCWSTR = 9u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const RT_ANICURSOR: ::windows_sys::core::PCWSTR = 21i16 as _;
+pub const RT_ANICURSOR: ::windows_sys::core::PCWSTR = 21u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const RT_ANIICON: ::windows_sys::core::PCWSTR = 22i16 as _;
+pub const RT_ANIICON: ::windows_sys::core::PCWSTR = 22u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const RT_BITMAP: ::windows_sys::core::PCWSTR = 2i16 as _;
+pub const RT_BITMAP: ::windows_sys::core::PCWSTR = 2u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const RT_CURSOR: ::windows_sys::core::PCWSTR = 1i16 as _;
+pub const RT_CURSOR: ::windows_sys::core::PCWSTR = 1u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const RT_DIALOG: ::windows_sys::core::PCWSTR = 5i16 as _;
+pub const RT_DIALOG: ::windows_sys::core::PCWSTR = 5u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const RT_DLGINCLUDE: ::windows_sys::core::PCWSTR = 17i16 as _;
+pub const RT_DLGINCLUDE: ::windows_sys::core::PCWSTR = 17u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const RT_FONT: ::windows_sys::core::PCWSTR = 8i16 as _;
+pub const RT_FONT: ::windows_sys::core::PCWSTR = 8u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const RT_FONTDIR: ::windows_sys::core::PCWSTR = 7i16 as _;
+pub const RT_FONTDIR: ::windows_sys::core::PCWSTR = 7u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const RT_HTML: ::windows_sys::core::PCWSTR = 23i16 as _;
+pub const RT_HTML: ::windows_sys::core::PCWSTR = 23u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const RT_ICON: ::windows_sys::core::PCWSTR = 3i16 as _;
+pub const RT_ICON: ::windows_sys::core::PCWSTR = 3u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const RT_MANIFEST: u32 = 24u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const RT_MENU: ::windows_sys::core::PCWSTR = 4i16 as _;
+pub const RT_MENU: ::windows_sys::core::PCWSTR = 4u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const RT_MESSAGETABLE: ::windows_sys::core::PCWSTR = 11i16 as _;
+pub const RT_MESSAGETABLE: ::windows_sys::core::PCWSTR = 11u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const RT_PLUGPLAY: ::windows_sys::core::PCWSTR = 19i16 as _;
+pub const RT_PLUGPLAY: ::windows_sys::core::PCWSTR = 19u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const RT_VERSION: ::windows_sys::core::PCWSTR = 16i16 as _;
+pub const RT_VERSION: ::windows_sys::core::PCWSTR = 16u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const RT_VXD: ::windows_sys::core::PCWSTR = 20i16 as _;
+pub const RT_VXD: ::windows_sys::core::PCWSTR = 20u16 as _;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const SBM_ENABLE_ARROWS: u32 = 228u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -5782,7 +5782,7 @@ pub struct DEV_BROADCAST_HANDLE {
     pub dbch_devicetype: u32,
     pub dbch_reserved: u32,
     pub dbch_handle: super::super::Foundation::HANDLE,
-    pub dbch_hdevnotify: *mut ::core::ffi::c_void,
+    pub dbch_hdevnotify: HDEVNOTIFY,
     pub dbch_eventguid: ::windows_sys::core::GUID,
     pub dbch_nameoffset: i32,
     pub dbch_data: [u8; 1],
@@ -6085,6 +6085,7 @@ impl ::core::clone::Clone for HARDWAREHOOKSTRUCT {
     }
 }
 pub type HCURSOR = isize;
+pub type HDEVNOTIFY = *mut ::core::ffi::c_void;
 pub type HDWP = isize;
 pub type HHOOK = isize;
 pub type HICON = isize;

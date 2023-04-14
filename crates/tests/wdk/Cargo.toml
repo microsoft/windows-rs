@@ -8,6 +8,7 @@ edition = "2018"
 path = "../../libs/windows"
 features = [
     "Win32_Foundation",
+    "Wdk_System_SystemServices",
     "Wdk_System_OfflineRegistry",
 ]
 
@@ -15,5 +16,6 @@ features = [
 path = "../../libs/sys"
 features = [
     "Win32_Foundation",
+    "Wdk_System_SystemServices",
     "Wdk_System_OfflineRegistry",
 ]
