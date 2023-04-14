@@ -13139,6 +13139,15 @@ impl ::core::default::Default for MI_Module {
 }
 #[repr(C)]
 pub struct MI_Module_Self(pub u8);
+impl ::core::marker::Copy for MI_Module_Self {}
+impl ::core::clone::Clone for MI_Module_Self {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for MI_Module_Self {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub struct MI_ObjectDecl {

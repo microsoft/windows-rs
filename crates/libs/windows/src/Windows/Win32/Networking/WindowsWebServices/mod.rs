@@ -7214,6 +7214,15 @@ impl ::core::default::Default for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
 }
 #[repr(C)]
 pub struct WS_CHANNEL(pub u8);
+impl ::core::marker::Copy for WS_CHANNEL {}
+impl ::core::clone::Clone for WS_CHANNEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for WS_CHANNEL {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_CHANNEL_DECODER {
@@ -8254,6 +8263,15 @@ impl ::core::default::Default for WS_ENUM_VALUE {
 }
 #[repr(C)]
 pub struct WS_ERROR(pub u8);
+impl ::core::marker::Copy for WS_ERROR {}
+impl ::core::clone::Clone for WS_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for WS_ERROR {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_ERROR_PROPERTY {
@@ -8580,6 +8598,15 @@ impl ::core::default::Default for WS_GUID_DESCRIPTION {
 }
 #[repr(C)]
 pub struct WS_HEAP(pub u8);
+impl ::core::marker::Copy for WS_HEAP {}
+impl ::core::clone::Clone for WS_HEAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for WS_HEAP {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_HEAP_PROPERTIES {
@@ -9858,6 +9885,15 @@ impl ::core::default::Default for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEM
 }
 #[repr(C)]
 pub struct WS_LISTENER(pub u8);
+impl ::core::marker::Copy for WS_LISTENER {}
+impl ::core::clone::Clone for WS_LISTENER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for WS_LISTENER {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_LISTENER_PROPERTIES {
@@ -9923,6 +9959,15 @@ impl ::core::default::Default for WS_LISTENER_PROPERTY {
 }
 #[repr(C)]
 pub struct WS_MESSAGE(pub u8);
+impl ::core::marker::Copy for WS_MESSAGE {}
+impl ::core::clone::Clone for WS_MESSAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for WS_MESSAGE {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10027,6 +10072,15 @@ impl ::core::default::Default for WS_MESSAGE_PROPERTY {
 }
 #[repr(C)]
 pub struct WS_METADATA(pub u8);
+impl ::core::marker::Copy for WS_METADATA {}
+impl ::core::clone::Clone for WS_METADATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for WS_METADATA {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10319,6 +10373,15 @@ impl ::core::default::Default for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
 }
 #[repr(C)]
 pub struct WS_OPERATION_CONTEXT(pub u8);
+impl ::core::marker::Copy for WS_OPERATION_CONTEXT {}
+impl ::core::clone::Clone for WS_OPERATION_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for WS_OPERATION_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10391,6 +10454,15 @@ impl ::core::default::Default for WS_PARAMETER_DESCRIPTION {
 }
 #[repr(C)]
 pub struct WS_POLICY(pub u8);
+impl ::core::marker::Copy for WS_POLICY {}
+impl ::core::clone::Clone for WS_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for WS_POLICY {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_POLICY_CONSTRAINTS {
@@ -11124,6 +11196,15 @@ impl ::core::default::Default for WS_SECURITY_CONSTRAINTS {
 }
 #[repr(C)]
 pub struct WS_SECURITY_CONTEXT(pub u8);
+impl ::core::marker::Copy for WS_SECURITY_CONTEXT {}
+impl ::core::clone::Clone for WS_SECURITY_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for WS_SECURITY_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
@@ -11534,6 +11615,15 @@ impl ::core::default::Default for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
 }
 #[repr(C)]
 pub struct WS_SECURITY_TOKEN(pub u8);
+impl ::core::marker::Copy for WS_SECURITY_TOKEN {}
+impl ::core::clone::Clone for WS_SECURITY_TOKEN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for WS_SECURITY_TOKEN {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11678,6 +11768,15 @@ impl ::core::default::Default for WS_SERVICE_ENDPOINT_PROPERTY {
 }
 #[repr(C)]
 pub struct WS_SERVICE_HOST(pub u8);
+impl ::core::marker::Copy for WS_SERVICE_HOST {}
+impl ::core::clone::Clone for WS_SERVICE_HOST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for WS_SERVICE_HOST {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11840,6 +11939,15 @@ impl ::core::default::Default for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
 }
 #[repr(C)]
 pub struct WS_SERVICE_PROXY(pub u8);
+impl ::core::marker::Copy for WS_SERVICE_PROXY {}
+impl ::core::clone::Clone for WS_SERVICE_PROXY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for WS_SERVICE_PROXY {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_SERVICE_SECURITY_IDENTITIES {
@@ -13656,6 +13764,15 @@ impl ::core::default::Default for WS_XML_BOOL_TEXT {
 }
 #[repr(C)]
 pub struct WS_XML_BUFFER(pub u8);
+impl ::core::marker::Copy for WS_XML_BUFFER {}
+impl ::core::clone::Clone for WS_XML_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for WS_XML_BUFFER {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_XML_BUFFER_PROPERTY {
@@ -14302,6 +14419,15 @@ impl ::core::default::Default for WS_XML_QNAME_TEXT {
 }
 #[repr(C)]
 pub struct WS_XML_READER(pub u8);
+impl ::core::marker::Copy for WS_XML_READER {}
+impl ::core::clone::Clone for WS_XML_READER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for WS_XML_READER {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14990,6 +15116,15 @@ impl ::core::default::Default for WS_XML_UTF8_TEXT {
 }
 #[repr(C)]
 pub struct WS_XML_WRITER(pub u8);
+impl ::core::marker::Copy for WS_XML_WRITER {}
+impl ::core::clone::Clone for WS_XML_WRITER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for WS_XML_WRITER {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -1919,6 +1919,12 @@ impl ::core::clone::Clone for HYPER_SIZEDARR {
 }
 #[repr(C)]
 pub struct IContext(pub u8);
+impl ::core::marker::Copy for IContext {}
+impl ::core::clone::Clone for IContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct IDLDESC {
@@ -1933,6 +1939,12 @@ impl ::core::clone::Clone for IDLDESC {
 }
 #[repr(C)]
 pub struct IEnumContextProps(pub u8);
+impl ::core::marker::Copy for IEnumContextProps {}
+impl ::core::clone::Clone for IEnumContextProps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct INTERFACEINFO {

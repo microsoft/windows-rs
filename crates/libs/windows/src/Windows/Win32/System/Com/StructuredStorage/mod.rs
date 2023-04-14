@@ -2458,6 +2458,15 @@ impl ::core::default::Default for OLESTREAMVTBL {
 }
 #[repr(C)]
 pub struct PMemoryAllocator(pub u8);
+impl ::core::marker::Copy for PMemoryAllocator {}
+impl ::core::clone::Clone for PMemoryAllocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for PMemoryAllocator {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub struct PROPBAG2 {

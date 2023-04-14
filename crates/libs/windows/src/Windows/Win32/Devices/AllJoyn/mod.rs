@@ -6258,10 +6258,37 @@ impl ::core::fmt::Debug for alljoyn_typeid {
 }
 #[repr(C)]
 pub struct _alljoyn_abouticon_handle(pub u8);
+impl ::core::marker::Copy for _alljoyn_abouticon_handle {}
+impl ::core::clone::Clone for _alljoyn_abouticon_handle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _alljoyn_abouticon_handle {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _alljoyn_abouticonobj_handle(pub u8);
+impl ::core::marker::Copy for _alljoyn_abouticonobj_handle {}
+impl ::core::clone::Clone for _alljoyn_abouticonobj_handle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _alljoyn_abouticonobj_handle {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _alljoyn_abouticonproxy_handle(pub u8);
+impl ::core::marker::Copy for _alljoyn_abouticonproxy_handle {}
+impl ::core::clone::Clone for _alljoyn_abouticonproxy_handle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _alljoyn_abouticonproxy_handle {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_aboutdata(pub isize);

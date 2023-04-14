@@ -3300,6 +3300,12 @@ impl ::core::clone::Clone for MI_Module {
 }
 #[repr(C)]
 pub struct MI_Module_Self(pub u8);
+impl ::core::marker::Copy for MI_Module_Self {}
+impl ::core::clone::Clone for MI_Module_Self {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub struct MI_ObjectDecl {

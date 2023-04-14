@@ -15718,6 +15718,15 @@ impl ::core::default::Default for MDL {
 }
 #[repr(C)]
 pub struct MDL_0(pub u8);
+impl ::core::marker::Copy for MDL_0 {}
+impl ::core::clone::Clone for MDL_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for MDL_0 {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct PROCESS_LIST {
@@ -16216,12 +16225,48 @@ impl ::core::default::Default for VMEMR {
 }
 #[repr(C)]
 pub struct _DDFXROP(pub u8);
+impl ::core::marker::Copy for _DDFXROP {}
+impl ::core::clone::Clone for _DDFXROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _DDFXROP {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _DD_DESTROYDRIVERDATA(pub u8);
+impl ::core::marker::Copy for _DD_DESTROYDRIVERDATA {}
+impl ::core::clone::Clone for _DD_DESTROYDRIVERDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _DD_DESTROYDRIVERDATA {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _DD_GETVPORTAUTOFLIPSURFACEDATA(pub u8);
+impl ::core::marker::Copy for _DD_GETVPORTAUTOFLIPSURFACEDATA {}
+impl ::core::clone::Clone for _DD_GETVPORTAUTOFLIPSURFACEDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _DD_GETVPORTAUTOFLIPSURFACEDATA {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _DD_SETMODEDATA(pub u8);
+impl ::core::marker::Copy for _DD_SETMODEDATA {}
+impl ::core::clone::Clone for _DD_SETMODEDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _DD_SETMODEDATA {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPCLIPPERCALLBACK = ::core::option::Option<unsafe extern "system" fn(lpddclipper: ::core::option::Option<IDirectDrawClipper>, hwnd: super::super::Foundation::HWND, code: u32, lpcontext: *mut ::core::ffi::c_void) -> u32>;

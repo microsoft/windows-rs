@@ -62631,6 +62631,15 @@ impl ::core::default::Default for NC_ADDRESS {
 }
 #[repr(C)]
 pub struct NC_ADDRESS_0(pub u8);
+impl ::core::marker::Copy for NC_ADDRESS_0 {}
+impl ::core::clone::Clone for NC_ADDRESS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for NC_ADDRESS_0 {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -66005,8 +66014,26 @@ impl ::core::default::Default for WTS_THUMBNAILID {
 }
 #[repr(C)]
 pub struct _APPCONSTRAIN_REGISTRATION(pub u8);
+impl ::core::marker::Copy for _APPCONSTRAIN_REGISTRATION {}
+impl ::core::clone::Clone for _APPCONSTRAIN_REGISTRATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _APPCONSTRAIN_REGISTRATION {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _APPSTATE_REGISTRATION(pub u8);
+impl ::core::marker::Copy for _APPSTATE_REGISTRATION {}
+impl ::core::clone::Clone for _APPSTATE_REGISTRATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _APPSTATE_REGISTRATION {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type APPLET_PROC = ::core::option::Option<unsafe extern "system" fn(hwndcpl: super::super::Foundation::HWND, msg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> i32>;

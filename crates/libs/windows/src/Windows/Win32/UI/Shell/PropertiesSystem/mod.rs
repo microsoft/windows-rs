@@ -5560,5 +5560,14 @@ impl ::core::default::Default for PROPPRG {
 }
 #[repr(C)]
 pub struct SERIALIZEDPROPSTORAGE(pub u8);
+impl ::core::marker::Copy for SERIALIZEDPROPSTORAGE {}
+impl ::core::clone::Clone for SERIALIZEDPROPSTORAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for SERIALIZEDPROPSTORAGE {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

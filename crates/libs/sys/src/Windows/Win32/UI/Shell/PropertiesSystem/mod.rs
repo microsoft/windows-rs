@@ -976,3 +976,9 @@ impl ::core::clone::Clone for PROPPRG {
 }
 #[repr(C)]
 pub struct SERIALIZEDPROPSTORAGE(pub u8);
+impl ::core::marker::Copy for SERIALIZEDPROPSTORAGE {}
+impl ::core::clone::Clone for SERIALIZEDPROPSTORAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

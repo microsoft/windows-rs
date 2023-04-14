@@ -21444,6 +21444,15 @@ impl ::core::fmt::Debug for D3DX11_SCAN_OPCODE {
 }
 #[repr(C)]
 pub struct CD3D11_VIDEO_DEFAULT(pub u8);
+impl ::core::marker::Copy for CD3D11_VIDEO_DEFAULT {}
+impl ::core::clone::Clone for CD3D11_VIDEO_DEFAULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for CD3D11_VIDEO_DEFAULT {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub struct D3D11_AES_CTR_IV {

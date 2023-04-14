@@ -1975,6 +1975,12 @@ impl ::core::clone::Clone for TP_CALLBACK_ENVIRON_V3 {
 }
 #[repr(C)]
 pub struct TP_CALLBACK_ENVIRON_V3_0(pub u8);
+impl ::core::marker::Copy for TP_CALLBACK_ENVIRON_V3_0 {}
+impl ::core::clone::Clone for TP_CALLBACK_ENVIRON_V3_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub union TP_CALLBACK_ENVIRON_V3_1 {
