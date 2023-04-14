@@ -10,6 +10,7 @@ features = [
     "Win32_Foundation",
     "Win32_UI_Controls",
     "Win32_UI_WindowsAndMessaging",
+    "Win32_System_Com",
 ]
 
 [dependencies.windows-sys]
@@ -18,4 +19,5 @@ features = [
     "Win32_Foundation",
     "Win32_UI_Controls",
     "Win32_UI_WindowsAndMessaging",
+    "Win32_System_Com",
 ]

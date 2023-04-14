@@ -8,11 +8,6 @@ pub fn libraries() -> BTreeMap<String, BTreeMap<String, CallingConvention>> {
     let files = File::with_default(&[]).unwrap();
     combine(&files, &mut libraries);
 
-    // TODO: This is a workaround for https://github.com/microsoft/win32metadata/issues/1496
-    // to ensure that the generated libs are additive only - those functions should not have been removed from the Win32 metadata definitions.
-    let files = vec![File::from_buffer(std::include_bytes!("../../../libs/metadata/default/Windows.winmd").to_vec()).unwrap(), File::from_buffer(std::include_bytes!("../Windows.Win32.44.winmd").to_vec()).unwrap()];
-    combine(&files, &mut libraries);
-
     libraries
 }
 
