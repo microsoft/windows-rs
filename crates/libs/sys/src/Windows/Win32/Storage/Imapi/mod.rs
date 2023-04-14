@@ -1427,6 +1427,12 @@ impl ::core::clone::Clone for SPropAttrArray {
 }
 #[repr(C)]
 pub struct _MSGSESS(pub u8);
+impl ::core::marker::Copy for _MSGSESS {}
+impl ::core::clone::Clone for _MSGSESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub struct tagIMMPID_GUIDLIST_ITEM {

@@ -6739,6 +6739,15 @@ impl ::core::fmt::Debug for SCROLLABLECONTEXTMENU_PLACEMENT {
 }
 #[repr(C)]
 pub struct HTMLPersistEvents(pub u8);
+impl ::core::marker::Copy for HTMLPersistEvents {}
+impl ::core::clone::Clone for HTMLPersistEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for HTMLPersistEvents {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub struct IELAUNCHURLINFO {
@@ -6773,6 +6782,15 @@ impl ::core::default::Default for IELAUNCHURLINFO {
 }
 #[repr(C)]
 pub struct LayoutRectEvents(pub u8);
+impl ::core::marker::Copy for LayoutRectEvents {}
+impl ::core::clone::Clone for LayoutRectEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for LayoutRectEvents {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub struct NAVIGATEDATA {

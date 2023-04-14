@@ -10789,6 +10789,12 @@ impl ::core::clone::Clone for INCREMENTAL_ACCESS_INFO {
 }
 #[repr(C)]
 pub struct IRowsetExactScroll(pub u8);
+impl ::core::marker::Copy for IRowsetExactScroll {}
+impl ::core::clone::Clone for IRowsetExactScroll {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

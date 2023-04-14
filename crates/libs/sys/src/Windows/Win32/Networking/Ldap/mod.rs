@@ -1354,6 +1354,12 @@ impl ::core::clone::Clone for LDAPModW_0 {
 }
 #[repr(C)]
 pub struct LDAPSearch(pub u8);
+impl ::core::marker::Copy for LDAPSearch {}
+impl ::core::clone::Clone for LDAPSearch {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

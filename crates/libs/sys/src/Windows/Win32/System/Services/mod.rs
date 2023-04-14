@@ -1095,6 +1095,12 @@ impl ::core::clone::Clone for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
 }
 #[repr(C)]
 pub struct _SC_NOTIFICATION_REGISTRATION(pub u8);
+impl ::core::marker::Copy for _SC_NOTIFICATION_REGISTRATION {}
+impl ::core::clone::Clone for _SC_NOTIFICATION_REGISTRATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub type HANDLER_FUNCTION = ::core::option::Option<unsafe extern "system" fn(dwcontrol: u32) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]

@@ -4660,10 +4660,37 @@ impl ::core::default::Default for WINBIO_VERSION {
 }
 #[repr(C)]
 pub struct _WINIBIO_ENGINE_CONTEXT(pub u8);
+impl ::core::marker::Copy for _WINIBIO_ENGINE_CONTEXT {}
+impl ::core::clone::Clone for _WINIBIO_ENGINE_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _WINIBIO_ENGINE_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _WINIBIO_SENSOR_CONTEXT(pub u8);
+impl ::core::marker::Copy for _WINIBIO_SENSOR_CONTEXT {}
+impl ::core::clone::Clone for _WINIBIO_SENSOR_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _WINIBIO_SENSOR_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _WINIBIO_STORAGE_CONTEXT(pub u8);
+impl ::core::marker::Copy for _WINIBIO_STORAGE_CONTEXT {}
+impl ::core::clone::Clone for _WINIBIO_STORAGE_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _WINIBIO_STORAGE_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type PIBIO_ENGINE_ACCEPT_PRIVATE_SENSOR_TYPE_INFO_FN = ::core::option::Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, typeinfobufferaddress: *const u8, typeinfobuffersize: usize) -> ::windows::core::HRESULT>;

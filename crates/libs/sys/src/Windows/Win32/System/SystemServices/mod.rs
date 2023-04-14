@@ -6633,6 +6633,12 @@ impl ::core::clone::Clone for APPLICATIONLAUNCH_SETTING_VALUE {
 }
 #[repr(C)]
 pub struct AtlThunkData_t(pub u8);
+impl ::core::marker::Copy for AtlThunkData_t {}
+impl ::core::clone::Clone for AtlThunkData_t {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct COMPONENT_FILTER {
@@ -9563,6 +9569,12 @@ impl ::core::clone::Clone for TAPE_WMI_OPERATIONS {
 }
 #[repr(C)]
 pub struct TEB(pub u8);
+impl ::core::marker::Copy for TEB {}
+impl ::core::clone::Clone for TEB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9594,8 +9606,20 @@ impl ::core::clone::Clone for TOKEN_SID_INFORMATION {
 }
 #[repr(C)]
 pub struct TP_CLEANUP_GROUP(pub u8);
+impl ::core::marker::Copy for TP_CLEANUP_GROUP {}
+impl ::core::clone::Clone for TP_CLEANUP_GROUP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TP_POOL(pub u8);
+impl ::core::marker::Copy for TP_POOL {}
+impl ::core::clone::Clone for TP_POOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct TRANSACTIONMANAGER_BASIC_INFORMATION {

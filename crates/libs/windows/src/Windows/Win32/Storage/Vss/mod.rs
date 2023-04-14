@@ -3646,6 +3646,15 @@ impl ::core::fmt::Debug for VSS_WRITER_STATE {
 }
 #[repr(C)]
 pub struct IVssExamineWriterMetadata(pub u8);
+impl ::core::marker::Copy for IVssExamineWriterMetadata {}
+impl ::core::clone::Clone for IVssExamineWriterMetadata {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for IVssExamineWriterMetadata {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub struct VSS_DIFF_AREA_PROP {

@@ -6368,6 +6368,12 @@ impl ::core::clone::Clone for RIO_BUF {
 }
 #[repr(C)]
 pub struct RIO_BUFFERID_t(pub u8);
+impl ::core::marker::Copy for RIO_BUFFERID_t {}
+impl ::core::clone::Clone for RIO_BUFFERID_t {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub struct RIO_CMSG_BUFFER {
@@ -6381,6 +6387,12 @@ impl ::core::clone::Clone for RIO_CMSG_BUFFER {
 }
 #[repr(C)]
 pub struct RIO_CQ_t(pub u8);
+impl ::core::marker::Copy for RIO_CQ_t {}
+impl ::core::clone::Clone for RIO_CQ_t {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6471,6 +6483,12 @@ impl ::core::clone::Clone for RIO_NOTIFICATION_COMPLETION_0_1 {
 }
 #[repr(C)]
 pub struct RIO_RQ_t(pub u8);
+impl ::core::marker::Copy for RIO_RQ_t {}
+impl ::core::clone::Clone for RIO_RQ_t {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

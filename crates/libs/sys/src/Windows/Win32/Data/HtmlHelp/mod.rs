@@ -844,10 +844,28 @@ impl ::core::clone::Clone for HH_WINTYPE {
 }
 #[repr(C)]
 pub struct IITGroup(pub u8);
+impl ::core::marker::Copy for IITGroup {}
+impl ::core::clone::Clone for IITGroup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IITQuery(pub u8);
+impl ::core::marker::Copy for IITQuery {}
+impl ::core::clone::Clone for IITQuery {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IITStopWordList(pub u8);
+impl ::core::marker::Copy for IITStopWordList {}
+impl ::core::clone::Clone for IITStopWordList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 pub struct ROWSTATUS {

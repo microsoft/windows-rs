@@ -2838,6 +2838,15 @@ impl ::core::default::Default for ServerInformation {
 }
 #[repr(C)]
 pub struct _RO_REGISTRATION_COOKIE(pub u8);
+impl ::core::marker::Copy for _RO_REGISTRATION_COOKIE {}
+impl ::core::clone::Clone for _RO_REGISTRATION_COOKIE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _RO_REGISTRATION_COOKIE {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub type PFNGETACTIVATIONFACTORY = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::HSTRING, param1: *mut ::core::option::Option<IActivationFactory>) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]

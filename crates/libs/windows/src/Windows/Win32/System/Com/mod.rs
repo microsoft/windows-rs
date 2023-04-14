@@ -11668,6 +11668,15 @@ impl ::core::default::Default for HYPER_SIZEDARR {
 }
 #[repr(C)]
 pub struct IContext(pub u8);
+impl ::core::marker::Copy for IContext {}
+impl ::core::clone::Clone for IContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for IContext {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct IDLDESC {
@@ -11701,6 +11710,15 @@ impl ::core::default::Default for IDLDESC {
 }
 #[repr(C)]
 pub struct IEnumContextProps(pub u8);
+impl ::core::marker::Copy for IEnumContextProps {}
+impl ::core::clone::Clone for IEnumContextProps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for IEnumContextProps {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct INTERFACEINFO {

@@ -12052,6 +12052,15 @@ impl ::core::default::Default for USAGE_AND_PAGE {
 }
 #[repr(C)]
 pub struct _HIDP_PREPARSED_DATA(pub u8);
+impl ::core::marker::Copy for _HIDP_PREPARSED_DATA {}
+impl ::core::clone::Clone for _HIDP_PREPARSED_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HIDP_PREPARSED_DATA {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDICONFIGUREDEVICESCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<::windows::core::IUnknown>, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;

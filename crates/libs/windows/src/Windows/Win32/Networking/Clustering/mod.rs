@@ -17638,56 +17638,290 @@ impl ::core::default::Default for WitnessTagUpdateHelper {
 }
 #[repr(C)]
 pub struct _HCHANGE(pub u8);
+impl ::core::marker::Copy for _HCHANGE {}
+impl ::core::clone::Clone for _HCHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HCHANGE {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HCLUSCRYPTPROVIDER(pub u8);
+impl ::core::marker::Copy for _HCLUSCRYPTPROVIDER {}
+impl ::core::clone::Clone for _HCLUSCRYPTPROVIDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HCLUSCRYPTPROVIDER {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HCLUSENUM(pub u8);
+impl ::core::marker::Copy for _HCLUSENUM {}
+impl ::core::clone::Clone for _HCLUSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HCLUSENUM {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HCLUSENUMEX(pub u8);
+impl ::core::marker::Copy for _HCLUSENUMEX {}
+impl ::core::clone::Clone for _HCLUSENUMEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HCLUSENUMEX {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HCLUSTER(pub u8);
+impl ::core::marker::Copy for _HCLUSTER {}
+impl ::core::clone::Clone for _HCLUSTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HCLUSTER {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HGROUP(pub u8);
+impl ::core::marker::Copy for _HGROUP {}
+impl ::core::clone::Clone for _HGROUP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HGROUP {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HGROUPENUM(pub u8);
+impl ::core::marker::Copy for _HGROUPENUM {}
+impl ::core::clone::Clone for _HGROUPENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HGROUPENUM {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HGROUPENUMEX(pub u8);
+impl ::core::marker::Copy for _HGROUPENUMEX {}
+impl ::core::clone::Clone for _HGROUPENUMEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HGROUPENUMEX {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HGROUPSET(pub u8);
+impl ::core::marker::Copy for _HGROUPSET {}
+impl ::core::clone::Clone for _HGROUPSET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HGROUPSET {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HGROUPSETENUM(pub u8);
+impl ::core::marker::Copy for _HGROUPSETENUM {}
+impl ::core::clone::Clone for _HGROUPSETENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HGROUPSETENUM {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HNETINTERFACE(pub u8);
+impl ::core::marker::Copy for _HNETINTERFACE {}
+impl ::core::clone::Clone for _HNETINTERFACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HNETINTERFACE {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HNETINTERFACEENUM(pub u8);
+impl ::core::marker::Copy for _HNETINTERFACEENUM {}
+impl ::core::clone::Clone for _HNETINTERFACEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HNETINTERFACEENUM {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HNETWORK(pub u8);
+impl ::core::marker::Copy for _HNETWORK {}
+impl ::core::clone::Clone for _HNETWORK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HNETWORK {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HNETWORKENUM(pub u8);
+impl ::core::marker::Copy for _HNETWORKENUM {}
+impl ::core::clone::Clone for _HNETWORKENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HNETWORKENUM {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HNODE(pub u8);
+impl ::core::marker::Copy for _HNODE {}
+impl ::core::clone::Clone for _HNODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HNODE {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HNODEENUM(pub u8);
+impl ::core::marker::Copy for _HNODEENUM {}
+impl ::core::clone::Clone for _HNODEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HNODEENUM {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HNODEENUMEX(pub u8);
+impl ::core::marker::Copy for _HNODEENUMEX {}
+impl ::core::clone::Clone for _HNODEENUMEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HNODEENUMEX {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HREGBATCH(pub u8);
+impl ::core::marker::Copy for _HREGBATCH {}
+impl ::core::clone::Clone for _HREGBATCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HREGBATCH {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HREGBATCHNOTIFICATION(pub u8);
+impl ::core::marker::Copy for _HREGBATCHNOTIFICATION {}
+impl ::core::clone::Clone for _HREGBATCHNOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HREGBATCHNOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HREGBATCHPORT(pub u8);
+impl ::core::marker::Copy for _HREGBATCHPORT {}
+impl ::core::clone::Clone for _HREGBATCHPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HREGBATCHPORT {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HREGREADBATCH(pub u8);
+impl ::core::marker::Copy for _HREGREADBATCH {}
+impl ::core::clone::Clone for _HREGREADBATCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HREGREADBATCH {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HREGREADBATCHREPLY(pub u8);
+impl ::core::marker::Copy for _HREGREADBATCHREPLY {}
+impl ::core::clone::Clone for _HREGREADBATCHREPLY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HREGREADBATCHREPLY {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HRESENUM(pub u8);
+impl ::core::marker::Copy for _HRESENUM {}
+impl ::core::clone::Clone for _HRESENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HRESENUM {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HRESENUMEX(pub u8);
+impl ::core::marker::Copy for _HRESENUMEX {}
+impl ::core::clone::Clone for _HRESENUMEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HRESENUMEX {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HRESOURCE(pub u8);
+impl ::core::marker::Copy for _HRESOURCE {}
+impl ::core::clone::Clone for _HRESOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HRESOURCE {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _HRESTYPEENUM(pub u8);
+impl ::core::marker::Copy for _HRESTYPEENUM {}
+impl ::core::clone::Clone for _HRESTYPEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _HRESTYPEENUM {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub type LPGROUP_CALLBACK_EX = ::core::option::Option<unsafe extern "system" fn(param0: *mut _HCLUSTER, param1: *mut _HGROUP, param2: *mut _HGROUP, param3: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]

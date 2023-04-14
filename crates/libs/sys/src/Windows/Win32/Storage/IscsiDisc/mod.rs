@@ -2134,5 +2134,11 @@ impl ::core::clone::Clone for STORAGE_FIRMWARE_SLOT_INFO_V2 {
 }
 #[repr(C)]
 pub struct _ADAPTER_OBJECT(pub u8);
+impl ::core::marker::Copy for _ADAPTER_OBJECT {}
+impl ::core::clone::Clone for _ADAPTER_OBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub type PDUMP_DEVICE_POWERON_ROUTINE = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> i32>;
