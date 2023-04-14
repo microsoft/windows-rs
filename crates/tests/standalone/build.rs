@@ -74,6 +74,7 @@ fn main() {
             "Windows.Win32.Networking.WinSock.socket",
             "Windows.Win32.Security.Cryptography.BCRYPT_ALG_HANDLE",
             "Windows.Win32.Storage.FileSystem.FindFileHandle",
+            "Windows.Win32.Security.Authentication.Identity.RtlGenRandom",
         ],
     );
 

@@ -190,7 +190,7 @@ fn gen_link(gen: &Gen, signature: &Signature, cfg: &Cfg) -> TokenStream {
     };
 
     let link_name = if symbol != name {
-        quote! { #[link_name = {#symbol}] }
+        quote! { #[link_name = #symbol] }
     } else {
         quote! {}
     };
