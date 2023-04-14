@@ -197,6 +197,12 @@ impl ::core::clone::Clone for DEVICE_OBJECT_0 {
 }
 #[repr(C)]
 pub struct DEVICE_OBJECT_POWER_EXTENSION(pub u8);
+impl ::core::marker::Copy for DEVICE_OBJECT_POWER_EXTENSION {}
+impl ::core::clone::Clone for DEVICE_OBJECT_POWER_EXTENSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
@@ -585,8 +591,20 @@ impl ::core::clone::Clone for DRIVER_OBJECT {
 }
 #[repr(C)]
 pub struct ECP_LIST(pub u8);
+impl ::core::marker::Copy for ECP_LIST {}
+impl ::core::clone::Clone for ECP_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct EJOB(pub u8);
+impl ::core::marker::Copy for EJOB {}
+impl ::core::clone::Clone for EJOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -1524,6 +1542,12 @@ impl ::core::clone::Clone for IO_STACK_LOCATION_0_38 {
 }
 #[repr(C)]
 pub struct IO_TIMER(pub u8);
+impl ::core::marker::Copy for IO_TIMER {}
+impl ::core::clone::Clone for IO_TIMER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
@@ -1651,6 +1675,12 @@ impl ::core::clone::Clone for IRP_2_0_1 {
 }
 #[repr(C)]
 pub struct IRP_2_0_1_0(pub u8);
+impl ::core::marker::Copy for IRP_2_0_1_0 {}
+impl ::core::clone::Clone for IRP_2_0_1_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
@@ -1877,6 +1907,12 @@ impl ::core::clone::Clone for KMUTANT_0_0 {
 }
 #[repr(C)]
 pub struct KPROCESS(pub u8);
+impl ::core::marker::Copy for KPROCESS {}
+impl ::core::clone::Clone for KPROCESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -1897,6 +1933,12 @@ impl ::core::clone::Clone for KQUEUE {
 }
 #[repr(C)]
 pub struct KTHREAD(pub u8);
+impl ::core::marker::Copy for KTHREAD {}
+impl ::core::clone::Clone for KTHREAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -1949,6 +1991,12 @@ impl ::core::clone::Clone for OBJECT_NAME_INFORMATION {
 }
 #[repr(C)]
 pub struct OBJECT_TYPE(pub u8);
+impl ::core::marker::Copy for OBJECT_TYPE {}
+impl ::core::clone::Clone for OBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Foundation\"`*"]
 pub struct OWNER_ENTRY {

@@ -12195,6 +12195,12 @@ impl ::core::clone::Clone for CRASHDUMP_FUNCTIONS_INTERFACE {
 }
 #[repr(C)]
 pub struct CREATE_DISK(pub u8);
+impl ::core::marker::Copy for CREATE_DISK {}
+impl ::core::clone::Clone for CREATE_DISK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub struct CREATE_USER_PROCESS_ECP_CONTEXT {
@@ -12847,6 +12853,12 @@ impl ::core::clone::Clone for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_1 {
 }
 #[repr(C)]
 pub struct DMA_COMMON_BUFFER_VECTOR(pub u8);
+impl ::core::marker::Copy for DMA_COMMON_BUFFER_VECTOR {}
+impl ::core::clone::Clone for DMA_COMMON_BUFFER_VECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub struct DMA_CONFIGURATION_BYTE0 {
@@ -13187,8 +13199,20 @@ impl ::core::clone::Clone for DRIVER_VERIFIER_THUNK_PAIRS {
 }
 #[repr(C)]
 pub struct DRIVE_LAYOUT_INFORMATION(pub u8);
+impl ::core::marker::Copy for DRIVE_LAYOUT_INFORMATION {}
+impl ::core::clone::Clone for DRIVE_LAYOUT_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DRIVE_LAYOUT_INFORMATION_EX(pub u8);
+impl ::core::marker::Copy for DRIVE_LAYOUT_INFORMATION_EX {}
+impl ::core::clone::Clone for DRIVE_LAYOUT_INFORMATION_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub struct EFI_ACPI_RAS_SIGNAL_TABLE {
@@ -14212,8 +14236,20 @@ impl ::core::clone::Clone for IMAGE_INFO_EX {
 }
 #[repr(C)]
 pub struct IMAGE_NT_HEADERS32(pub u8);
+impl ::core::marker::Copy for IMAGE_NT_HEADERS32 {}
+impl ::core::clone::Clone for IMAGE_NT_HEADERS32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IMAGE_NT_HEADERS64(pub u8);
+impl ::core::marker::Copy for IMAGE_NT_HEADERS64 {}
+impl ::core::clone::Clone for IMAGE_NT_HEADERS64 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14405,8 +14441,20 @@ impl ::core::clone::Clone for IOMMU_DEVICE_CREATION_CONFIGURATION_ACPI {
 }
 #[repr(C)]
 pub struct IOMMU_DMA_DEVICE(pub u8);
+impl ::core::marker::Copy for IOMMU_DMA_DEVICE {}
+impl ::core::clone::Clone for IOMMU_DMA_DEVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IOMMU_DMA_DOMAIN(pub u8);
+impl ::core::marker::Copy for IOMMU_DMA_DOMAIN {}
+impl ::core::clone::Clone for IOMMU_DMA_DOMAIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub union IOMMU_DMA_DOMAIN_CREATION_FLAGS {
@@ -15664,6 +15712,12 @@ impl ::core::clone::Clone for KDPC_WATCHDOG_INFORMATION {
 }
 #[repr(C)]
 pub struct KENLISTMENT(pub u8);
+impl ::core::marker::Copy for KENLISTMENT {}
+impl ::core::clone::Clone for KENLISTMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub struct KERNEL_CET_CONTEXT {
@@ -16106,14 +16160,44 @@ impl ::core::clone::Clone for KPCR_0_0 {
 }
 #[repr(C)]
 pub struct KPCR_1(pub u8);
+impl ::core::marker::Copy for KPCR_1 {}
+impl ::core::clone::Clone for KPCR_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KPCR_2(pub u8);
+impl ::core::marker::Copy for KPCR_2 {}
+impl ::core::clone::Clone for KPCR_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KPCR_3(pub u8);
+impl ::core::marker::Copy for KPCR_3 {}
+impl ::core::clone::Clone for KPCR_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KPCR_4(pub u8);
+impl ::core::marker::Copy for KPCR_4 {}
+impl ::core::clone::Clone for KPCR_4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KRESOURCEMANAGER(pub u8);
+impl ::core::marker::Copy for KRESOURCEMANAGER {}
+impl ::core::clone::Clone for KRESOURCEMANAGER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`, `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -16174,6 +16258,12 @@ impl ::core::clone::Clone for KTIMER {
 }
 #[repr(C)]
 pub struct KTM(pub u8);
+impl ::core::marker::Copy for KTM {}
+impl ::core::clone::Clone for KTM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub struct KTMOBJECT_CURSOR {
@@ -16189,6 +16279,12 @@ impl ::core::clone::Clone for KTMOBJECT_CURSOR {
 }
 #[repr(C)]
 pub struct KTRANSACTION(pub u8);
+impl ::core::marker::Copy for KTRANSACTION {}
+impl ::core::clone::Clone for KTRANSACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -21010,6 +21106,12 @@ impl ::core::clone::Clone for PCW_REGISTRATION_INFORMATION {
 }
 #[repr(C)]
 pub struct PEB(pub u8);
+impl ::core::marker::Copy for PEB {}
+impl ::core::clone::Clone for PEB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23830,6 +23932,12 @@ impl ::core::clone::Clone for SECURE_DRIVER_INTERFACE {
 pub type SECURITY_CONTEXT_TRACKING_MODE = u8;
 #[repr(C)]
 pub struct SET_PARTITION_INFORMATION_EX(pub u8);
+impl ::core::marker::Copy for SET_PARTITION_INFORMATION_EX {}
+impl ::core::clone::Clone for SET_PARTITION_INFORMATION_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub struct SET_POWER_SETTING_VALUE {
@@ -29099,20 +29207,68 @@ impl ::core::clone::Clone for ZONE_SEGMENT_HEADER {
 }
 #[repr(C)]
 pub struct _ADAPTER_OBJECT(pub u8);
+impl ::core::marker::Copy for _ADAPTER_OBJECT {}
+impl ::core::clone::Clone for _ADAPTER_OBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _AFFINITY_TOKEN(pub u8);
+impl ::core::marker::Copy for _AFFINITY_TOKEN {}
+impl ::core::clone::Clone for _AFFINITY_TOKEN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _BUS_HANDLER(pub u8);
+impl ::core::marker::Copy for _BUS_HANDLER {}
+impl ::core::clone::Clone for _BUS_HANDLER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _CALLBACK_OBJECT(pub u8);
+impl ::core::marker::Copy for _CALLBACK_OBJECT {}
+impl ::core::clone::Clone for _CALLBACK_OBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _DEVICE_HANDLER_OBJECT(pub u8);
+impl ::core::marker::Copy for _DEVICE_HANDLER_OBJECT {}
+impl ::core::clone::Clone for _DEVICE_HANDLER_OBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _DISK_PARTITION(pub u8);
+impl ::core::marker::Copy for _DISK_PARTITION {}
+impl ::core::clone::Clone for _DISK_PARTITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _EPROCESS(pub u8);
+impl ::core::marker::Copy for _EPROCESS {}
+impl ::core::clone::Clone for _EPROCESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _ETHREAD(pub u8);
+impl ::core::marker::Copy for _ETHREAD {}
+impl ::core::clone::Clone for _ETHREAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub struct _EXT_SET_PARAMETERS_V0 {
@@ -29128,26 +29284,92 @@ impl ::core::clone::Clone for _EXT_SET_PARAMETERS_V0 {
 }
 #[repr(C)]
 pub struct _EX_RUNDOWN_REF_CACHE_AWARE(pub u8);
+impl ::core::marker::Copy for _EX_RUNDOWN_REF_CACHE_AWARE {}
+impl ::core::clone::Clone for _EX_RUNDOWN_REF_CACHE_AWARE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _EX_TIMER(pub u8);
+impl ::core::marker::Copy for _EX_TIMER {}
+impl ::core::clone::Clone for _EX_TIMER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _IO_REMOVE_LOCK_TRACKING_BLOCK(pub u8);
+impl ::core::marker::Copy for _IO_REMOVE_LOCK_TRACKING_BLOCK {}
+impl ::core::clone::Clone for _IO_REMOVE_LOCK_TRACKING_BLOCK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _IO_WORKITEM(pub u8);
+impl ::core::marker::Copy for _IO_WORKITEM {}
+impl ::core::clone::Clone for _IO_WORKITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _KINTERRUPT(pub u8);
+impl ::core::marker::Copy for _KINTERRUPT {}
+impl ::core::clone::Clone for _KINTERRUPT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _LOADER_PARAMETER_BLOCK(pub u8);
+impl ::core::marker::Copy for _LOADER_PARAMETER_BLOCK {}
+impl ::core::clone::Clone for _LOADER_PARAMETER_BLOCK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _PCW_BUFFER(pub u8);
+impl ::core::marker::Copy for _PCW_BUFFER {}
+impl ::core::clone::Clone for _PCW_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _PCW_INSTANCE(pub u8);
+impl ::core::marker::Copy for _PCW_INSTANCE {}
+impl ::core::clone::Clone for _PCW_INSTANCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _PCW_REGISTRATION(pub u8);
+impl ::core::marker::Copy for _PCW_REGISTRATION {}
+impl ::core::clone::Clone for _PCW_REGISTRATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _SCSI_REQUEST_BLOCK(pub u8);
+impl ::core::marker::Copy for _SCSI_REQUEST_BLOCK {}
+impl ::core::clone::Clone for _SCSI_REQUEST_BLOCK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _SILO_MONITOR(pub u8);
+impl ::core::marker::Copy for _SILO_MONITOR {}
+impl ::core::clone::Clone for _SILO_MONITOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`, `\"Wdk_Foundation\"`*"]
 #[cfg(feature = "Wdk_Foundation")]
 pub type ALLOCATE_FUNCTION = ::core::option::Option<unsafe extern "system" fn(pooltype: super::super::Foundation::POOL_TYPE, numberofbytes: usize, tag: u32) -> *mut ::core::ffi::c_void>;

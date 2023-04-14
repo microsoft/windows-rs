@@ -7275,6 +7275,12 @@ impl ::core::clone::Clone for DUPLICATE_EXTENTS_DATA_EX {
 }
 #[repr(C)]
 pub struct ECP_HEADER(pub u8);
+impl ::core::marker::Copy for ECP_HEADER {}
+impl ::core::clone::Clone for ECP_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Storage_FileSystem\"`*"]
 pub struct ECP_OPEN_PARAMETERS {
@@ -13669,6 +13675,12 @@ impl ::core::clone::Clone for SMB_SHARE_FLUSH_AND_PURGE_OUTPUT {
 }
 #[repr(C)]
 pub struct SOCKADDR_STORAGE(pub u8);
+impl ::core::marker::Copy for SOCKADDR_STORAGE {}
+impl ::core::clone::Clone for SOCKADDR_STORAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14458,6 +14470,12 @@ impl ::core::clone::Clone for SecurityFunctionTableW {
 }
 #[repr(C)]
 pub struct SspiAsyncContext(pub u8);
+impl ::core::marker::Copy for SspiAsyncContext {}
+impl ::core::clone::Clone for SspiAsyncContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -15602,6 +15620,12 @@ impl ::core::clone::Clone for WRITE_USN_REASON_INPUT {
 }
 #[repr(C)]
 pub struct _REAL_NOTIFY_SYNC(pub u8);
+impl ::core::marker::Copy for _REAL_NOTIFY_SYNC {}
+impl ::core::clone::Clone for _REAL_NOTIFY_SYNC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[doc = "*Required features: `\"Wdk_Storage_FileSystem\"`*"]
 pub type ACCEPT_SECURITY_CONTEXT_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut SecHandle, param1: *mut SecHandle, param2: *mut SecBufferDesc, param3: u32, param4: u32, param5: *mut SecHandle, param6: *mut SecBufferDesc, param7: *mut u32, param8: *mut i64) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]

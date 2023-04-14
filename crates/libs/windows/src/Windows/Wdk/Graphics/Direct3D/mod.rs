@@ -30272,6 +30272,15 @@ impl ::core::default::Default for GPUP_DRIVER_ESCAPE_INPUT {
 }
 #[repr(C)]
 pub struct OBJECT_ATTRIBUTES(pub u8);
+impl ::core::marker::Copy for OBJECT_ATTRIBUTES {}
+impl ::core::clone::Clone for OBJECT_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for OBJECT_ATTRIBUTES {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
