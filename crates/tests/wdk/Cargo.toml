@@ -15,5 +15,6 @@ features = [
 path = "../../libs/sys"
 features = [
     "Win32_Foundation",
+    "Wdk_System_SystemServices",
     "Wdk_System_OfflineRegistry",
 ]
