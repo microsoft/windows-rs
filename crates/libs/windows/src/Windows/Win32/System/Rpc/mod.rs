@@ -8242,6 +8242,15 @@ impl ::core::default::Default for NDR64_VAR_ARRAY_HEADER_FORMAT {
 }
 #[repr(C)]
 pub struct NDR_ALLOC_ALL_NODES_CONTEXT(pub u8);
+impl ::core::marker::Copy for NDR_ALLOC_ALL_NODES_CONTEXT {}
+impl ::core::clone::Clone for NDR_ALLOC_ALL_NODES_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for NDR_ALLOC_ALL_NODES_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub struct NDR_CS_ROUTINES {
@@ -8333,6 +8342,15 @@ impl ::core::default::Default for NDR_EXPR_DESC {
 }
 #[repr(C)]
 pub struct NDR_POINTER_QUEUE_STATE(pub u8);
+impl ::core::marker::Copy for NDR_POINTER_QUEUE_STATE {}
+impl ::core::clone::Clone for NDR_POINTER_QUEUE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for NDR_POINTER_QUEUE_STATE {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub struct NDR_SCONTEXT {
@@ -11284,10 +11302,37 @@ impl ::core::default::Default for XMIT_ROUTINE_QUINTUPLE {
 }
 #[repr(C)]
 pub struct _NDR_ASYNC_MESSAGE(pub u8);
+impl ::core::marker::Copy for _NDR_ASYNC_MESSAGE {}
+impl ::core::clone::Clone for _NDR_ASYNC_MESSAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _NDR_ASYNC_MESSAGE {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _NDR_CORRELATION_INFO(pub u8);
+impl ::core::marker::Copy for _NDR_CORRELATION_INFO {}
+impl ::core::clone::Clone for _NDR_CORRELATION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _NDR_CORRELATION_INFO {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _NDR_PROC_CONTEXT(pub u8);
+impl ::core::marker::Copy for _NDR_PROC_CONTEXT {}
+impl ::core::clone::Clone for _NDR_PROC_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _NDR_PROC_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub type CS_TAG_GETTING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, fserverside: i32, pulsendingtag: *mut u32, puldesiredreceivingtag: *mut u32, pulreceivingtag: *mut u32, pstatus: *mut u32) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]

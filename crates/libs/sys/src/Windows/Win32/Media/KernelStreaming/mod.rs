@@ -4492,10 +4492,28 @@ impl ::core::clone::Clone for DS3DVECTOR_2 {
 }
 #[repr(C)]
 pub struct IKsAllocator(pub u8);
+impl ::core::marker::Copy for IKsAllocator {}
+impl ::core::clone::Clone for IKsAllocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IKsAllocatorEx(pub u8);
+impl ::core::marker::Copy for IKsAllocatorEx {}
+impl ::core::clone::Clone for IKsAllocatorEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IKsPin(pub u8);
+impl ::core::marker::Copy for IKsPin {}
+impl ::core::clone::Clone for IKsPin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct INTERLEAVED_AUDIO_FORMAT_INFORMATION {

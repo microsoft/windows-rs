@@ -3050,6 +3050,15 @@ impl ::core::fmt::Debug for WSManShellFlag {
 }
 #[repr(C)]
 pub struct WSMAN_API(pub u8);
+impl ::core::marker::Copy for WSMAN_API {}
+impl ::core::clone::Clone for WSMAN_API {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for WSMAN_API {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub struct WSMAN_AUTHENTICATION_CREDENTIALS {
@@ -3158,6 +3167,15 @@ impl ::core::default::Default for WSMAN_CERTIFICATE_DETAILS {
 }
 #[repr(C)]
 pub struct WSMAN_COMMAND(pub u8);
+impl ::core::marker::Copy for WSMAN_COMMAND {}
+impl ::core::clone::Clone for WSMAN_COMMAND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for WSMAN_COMMAND {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub struct WSMAN_COMMAND_ARG_SET {
@@ -3521,6 +3539,15 @@ impl ::core::default::Default for WSMAN_KEY {
 }
 #[repr(C)]
 pub struct WSMAN_OPERATION(pub u8);
+impl ::core::marker::Copy for WSMAN_OPERATION {}
+impl ::core::clone::Clone for WSMAN_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for WSMAN_OPERATION {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3911,8 +3938,26 @@ impl ::core::default::Default for WSMAN_SENDER_DETAILS {
 }
 #[repr(C)]
 pub struct WSMAN_SESSION(pub u8);
+impl ::core::marker::Copy for WSMAN_SESSION {}
+impl ::core::clone::Clone for WSMAN_SESSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for WSMAN_SESSION {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct WSMAN_SHELL(pub u8);
+impl ::core::marker::Copy for WSMAN_SHELL {}
+impl ::core::clone::Clone for WSMAN_SHELL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for WSMAN_SHELL {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub struct WSMAN_SHELL_ASYNC {

@@ -705,6 +705,12 @@ pub const VSS_WS_FAILED_AT_BACKUPSHUTDOWN: VSS_WRITER_STATE = 15i32;
 pub const VSS_WS_COUNT: VSS_WRITER_STATE = 16i32;
 #[repr(C)]
 pub struct IVssExamineWriterMetadata(pub u8);
+impl ::core::marker::Copy for IVssExamineWriterMetadata {}
+impl ::core::clone::Clone for IVssExamineWriterMetadata {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub struct VSS_DIFF_AREA_PROP {

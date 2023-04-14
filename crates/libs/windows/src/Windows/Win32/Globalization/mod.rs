@@ -22134,12 +22134,48 @@ impl ::core::default::Default for TEXTRANGE_PROPERTIES {
 }
 #[repr(C)]
 pub struct UBiDi(pub u8);
+impl ::core::marker::Copy for UBiDi {}
+impl ::core::clone::Clone for UBiDi {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UBiDi {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UBiDiTransform(pub u8);
+impl ::core::marker::Copy for UBiDiTransform {}
+impl ::core::clone::Clone for UBiDiTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UBiDiTransform {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UBreakIterator(pub u8);
+impl ::core::marker::Copy for UBreakIterator {}
+impl ::core::clone::Clone for UBreakIterator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UBreakIterator {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UCPMap(pub u8);
+impl ::core::marker::Copy for UCPMap {}
+impl ::core::clone::Clone for UCPMap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UCPMap {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct UCPTrie {
@@ -22195,6 +22231,15 @@ impl ::core::default::Default for UCPTrieData {
 }
 #[repr(C)]
 pub struct UCaseMap(pub u8);
+impl ::core::marker::Copy for UCaseMap {}
+impl ::core::clone::Clone for UCaseMap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UCaseMap {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct UCharIterator {
@@ -22236,16 +22281,70 @@ impl ::core::default::Default for UCharIterator {
 }
 #[repr(C)]
 pub struct UCharsetDetector(pub u8);
+impl ::core::marker::Copy for UCharsetDetector {}
+impl ::core::clone::Clone for UCharsetDetector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UCharsetDetector {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UCharsetMatch(pub u8);
+impl ::core::marker::Copy for UCharsetMatch {}
+impl ::core::clone::Clone for UCharsetMatch {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UCharsetMatch {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UCollationElements(pub u8);
+impl ::core::marker::Copy for UCollationElements {}
+impl ::core::clone::Clone for UCollationElements {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UCollationElements {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UCollator(pub u8);
+impl ::core::marker::Copy for UCollator {}
+impl ::core::clone::Clone for UCollator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UCollator {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UConstrainedFieldPosition(pub u8);
+impl ::core::marker::Copy for UConstrainedFieldPosition {}
+impl ::core::clone::Clone for UConstrainedFieldPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UConstrainedFieldPosition {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UConverter(pub u8);
+impl ::core::marker::Copy for UConverter {}
+impl ::core::clone::Clone for UConverter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UConverter {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct UConverterFromUnicodeArgs {
@@ -22285,6 +22384,15 @@ impl ::core::default::Default for UConverterFromUnicodeArgs {
 }
 #[repr(C)]
 pub struct UConverterSelector(pub u8);
+impl ::core::marker::Copy for UConverterSelector {}
+impl ::core::clone::Clone for UConverterSelector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UConverterSelector {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct UConverterToUnicodeArgs {
@@ -22324,10 +22432,37 @@ impl ::core::default::Default for UConverterToUnicodeArgs {
 }
 #[repr(C)]
 pub struct UDateFormatSymbols(pub u8);
+impl ::core::marker::Copy for UDateFormatSymbols {}
+impl ::core::clone::Clone for UDateFormatSymbols {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UDateFormatSymbols {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UDateIntervalFormat(pub u8);
+impl ::core::marker::Copy for UDateIntervalFormat {}
+impl ::core::clone::Clone for UDateIntervalFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UDateIntervalFormat {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UEnumeration(pub u8);
+impl ::core::marker::Copy for UEnumeration {}
+impl ::core::clone::Clone for UEnumeration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UEnumeration {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct UFieldPosition {
@@ -22362,24 +22497,114 @@ impl ::core::default::Default for UFieldPosition {
 }
 #[repr(C)]
 pub struct UFieldPositionIterator(pub u8);
+impl ::core::marker::Copy for UFieldPositionIterator {}
+impl ::core::clone::Clone for UFieldPositionIterator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UFieldPositionIterator {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UFormattedDateInterval(pub u8);
+impl ::core::marker::Copy for UFormattedDateInterval {}
+impl ::core::clone::Clone for UFormattedDateInterval {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UFormattedDateInterval {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UFormattedList(pub u8);
+impl ::core::marker::Copy for UFormattedList {}
+impl ::core::clone::Clone for UFormattedList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UFormattedList {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UFormattedNumber(pub u8);
+impl ::core::marker::Copy for UFormattedNumber {}
+impl ::core::clone::Clone for UFormattedNumber {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UFormattedNumber {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UFormattedNumberRange(pub u8);
+impl ::core::marker::Copy for UFormattedNumberRange {}
+impl ::core::clone::Clone for UFormattedNumberRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UFormattedNumberRange {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UFormattedRelativeDateTime(pub u8);
+impl ::core::marker::Copy for UFormattedRelativeDateTime {}
+impl ::core::clone::Clone for UFormattedRelativeDateTime {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UFormattedRelativeDateTime {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UFormattedValue(pub u8);
+impl ::core::marker::Copy for UFormattedValue {}
+impl ::core::clone::Clone for UFormattedValue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UFormattedValue {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UGenderInfo(pub u8);
+impl ::core::marker::Copy for UGenderInfo {}
+impl ::core::clone::Clone for UGenderInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UGenderInfo {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UHashtable(pub u8);
+impl ::core::marker::Copy for UHashtable {}
+impl ::core::clone::Clone for UHashtable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UHashtable {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UIDNA(pub u8);
+impl ::core::marker::Copy for UIDNA {}
+impl ::core::clone::Clone for UIDNA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UIDNA {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct UIDNAInfo {
@@ -22417,12 +22642,48 @@ impl ::core::default::Default for UIDNAInfo {
 }
 #[repr(C)]
 pub struct UListFormatter(pub u8);
+impl ::core::marker::Copy for UListFormatter {}
+impl ::core::clone::Clone for UListFormatter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UListFormatter {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct ULocaleData(pub u8);
+impl ::core::marker::Copy for ULocaleData {}
+impl ::core::clone::Clone for ULocaleData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for ULocaleData {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct ULocaleDisplayNames(pub u8);
+impl ::core::marker::Copy for ULocaleDisplayNames {}
+impl ::core::clone::Clone for ULocaleDisplayNames {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for ULocaleDisplayNames {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UMutableCPTrie(pub u8);
+impl ::core::marker::Copy for UMutableCPTrie {}
+impl ::core::clone::Clone for UMutableCPTrie {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UMutableCPTrie {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct UNICODERANGE {
@@ -22456,10 +22717,37 @@ impl ::core::default::Default for UNICODERANGE {
 }
 #[repr(C)]
 pub struct UNormalizer2(pub u8);
+impl ::core::marker::Copy for UNormalizer2 {}
+impl ::core::clone::Clone for UNormalizer2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UNormalizer2 {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UNumberFormatter(pub u8);
+impl ::core::marker::Copy for UNumberFormatter {}
+impl ::core::clone::Clone for UNumberFormatter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UNumberFormatter {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UNumberingSystem(pub u8);
+impl ::core::marker::Copy for UNumberingSystem {}
+impl ::core::clone::Clone for UNumberingSystem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UNumberingSystem {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct UParseError {
@@ -22495,12 +22783,48 @@ impl ::core::default::Default for UParseError {
 }
 #[repr(C)]
 pub struct UPluralRules(pub u8);
+impl ::core::marker::Copy for UPluralRules {}
+impl ::core::clone::Clone for UPluralRules {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UPluralRules {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct URegion(pub u8);
+impl ::core::marker::Copy for URegion {}
+impl ::core::clone::Clone for URegion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for URegion {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct URegularExpression(pub u8);
+impl ::core::marker::Copy for URegularExpression {}
+impl ::core::clone::Clone for URegularExpression {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for URegularExpression {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct URelativeDateTimeFormatter(pub u8);
+impl ::core::marker::Copy for URelativeDateTimeFormatter {}
+impl ::core::clone::Clone for URelativeDateTimeFormatter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for URelativeDateTimeFormatter {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct UReplaceableCallbacks {
@@ -22538,8 +22862,26 @@ impl ::core::default::Default for UReplaceableCallbacks {
 }
 #[repr(C)]
 pub struct UResourceBundle(pub u8);
+impl ::core::marker::Copy for UResourceBundle {}
+impl ::core::clone::Clone for UResourceBundle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UResourceBundle {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct USearch(pub u8);
+impl ::core::marker::Copy for USearch {}
+impl ::core::clone::Clone for USearch {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for USearch {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct USerializedSet {
@@ -22575,14 +22917,59 @@ impl ::core::default::Default for USerializedSet {
 }
 #[repr(C)]
 pub struct USet(pub u8);
+impl ::core::marker::Copy for USet {}
+impl ::core::clone::Clone for USet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for USet {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct USpoofCheckResult(pub u8);
+impl ::core::marker::Copy for USpoofCheckResult {}
+impl ::core::clone::Clone for USpoofCheckResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for USpoofCheckResult {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct USpoofChecker(pub u8);
+impl ::core::marker::Copy for USpoofChecker {}
+impl ::core::clone::Clone for USpoofChecker {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for USpoofChecker {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UStringPrepProfile(pub u8);
+impl ::core::marker::Copy for UStringPrepProfile {}
+impl ::core::clone::Clone for UStringPrepProfile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UStringPrepProfile {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct UStringSearch(pub u8);
+impl ::core::marker::Copy for UStringSearch {}
+impl ::core::clone::Clone for UStringSearch {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for UStringSearch {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct UText {

@@ -1910,10 +1910,28 @@ impl ::core::clone::Clone for EMRPIXELFORMAT {
 }
 #[repr(C)]
 pub struct GLUnurbs(pub u8);
+impl ::core::marker::Copy for GLUnurbs {}
+impl ::core::clone::Clone for GLUnurbs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct GLUquadric(pub u8);
+impl ::core::marker::Copy for GLUquadric {}
+impl ::core::clone::Clone for GLUquadric {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct GLUtesselator(pub u8);
+impl ::core::marker::Copy for GLUtesselator {}
+impl ::core::clone::Clone for GLUtesselator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub struct GLYPHMETRICSFLOAT {

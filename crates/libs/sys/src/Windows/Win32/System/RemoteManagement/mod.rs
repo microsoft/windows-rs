@@ -1352,6 +1352,12 @@ pub const WSMAN_FLAG_SERVER_BUFFERING_MODE_BLOCK: WSManShellFlag = 8i32;
 pub const WSMAN_FLAG_RECEIVE_DELAY_OUTPUT_STREAM: WSManShellFlag = 16i32;
 #[repr(C)]
 pub struct WSMAN_API(pub u8);
+impl ::core::marker::Copy for WSMAN_API {}
+impl ::core::clone::Clone for WSMAN_API {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub struct WSMAN_AUTHENTICATION_CREDENTIALS {
@@ -1406,6 +1412,12 @@ impl ::core::clone::Clone for WSMAN_CERTIFICATE_DETAILS {
 }
 #[repr(C)]
 pub struct WSMAN_COMMAND(pub u8);
+impl ::core::marker::Copy for WSMAN_COMMAND {}
+impl ::core::clone::Clone for WSMAN_COMMAND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub struct WSMAN_COMMAND_ARG_SET {
@@ -1566,6 +1578,12 @@ impl ::core::clone::Clone for WSMAN_KEY {
 }
 #[repr(C)]
 pub struct WSMAN_OPERATION(pub u8);
+impl ::core::marker::Copy for WSMAN_OPERATION {}
+impl ::core::clone::Clone for WSMAN_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1745,8 +1763,20 @@ impl ::core::clone::Clone for WSMAN_SENDER_DETAILS {
 }
 #[repr(C)]
 pub struct WSMAN_SESSION(pub u8);
+impl ::core::marker::Copy for WSMAN_SESSION {}
+impl ::core::clone::Clone for WSMAN_SESSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WSMAN_SHELL(pub u8);
+impl ::core::marker::Copy for WSMAN_SHELL {}
+impl ::core::clone::Clone for WSMAN_SHELL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub struct WSMAN_SHELL_ASYNC {

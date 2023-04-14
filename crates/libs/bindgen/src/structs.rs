@@ -16,10 +16,24 @@ fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -
     let name = to_ident(struct_name);
 
     if gen.reader.type_def_fields(def).next().is_none() {
-        return quote! {
+        let mut tokens = quote! {
             #[repr(C)]
             pub struct #name(pub u8);
+            impl ::core::marker::Copy for #name {}
+            impl ::core::clone::Clone for #name {
+                fn clone(&self) -> Self {
+                    *self
+                }
+            }
         };
+        if !gen.sys {
+            tokens.combine(&quote! {
+                impl ::windows::core::TypeKind for #name {
+                    type TypeKind = ::windows::core::CopyType;
+                }
+            });
+        }
+        return tokens;
     }
 
     let flags = gen.reader.type_def_flags(def);

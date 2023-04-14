@@ -1647,6 +1647,12 @@ impl ::core::clone::Clone for WAB_PARAM {
 }
 #[repr(C)]
 pub struct _WABACTIONITEM(pub u8);
+impl ::core::marker::Copy for _WABACTIONITEM {}
+impl ::core::clone::Clone for _WABACTIONITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]

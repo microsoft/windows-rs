@@ -2127,6 +2127,12 @@ impl ::core::clone::Clone for DHCP_CLIENT_INFO_VQ {
 }
 #[repr(C)]
 pub struct DHCP_CLIENT_SEARCH_UNION(pub u8);
+impl ::core::marker::Copy for DHCP_CLIENT_SEARCH_UNION {}
+impl ::core::clone::Clone for DHCP_CLIENT_SEARCH_UNION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub struct DHCP_FAILOVER_RELATIONSHIP {
@@ -2564,6 +2570,12 @@ impl ::core::clone::Clone for DHCP_OPTION_DATA_ELEMENT_0 {
 }
 #[repr(C)]
 pub struct DHCP_OPTION_ELEMENT_UNION(pub u8);
+impl ::core::marker::Copy for DHCP_OPTION_ELEMENT_UNION {}
+impl ::core::clone::Clone for DHCP_OPTION_ELEMENT_UNION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub struct DHCP_OPTION_LIST {
@@ -2630,6 +2642,12 @@ impl ::core::clone::Clone for DHCP_OPTION_SCOPE_INFO6_0 {
 }
 #[repr(C)]
 pub struct DHCP_OPTION_SCOPE_UNION6(pub u8);
+impl ::core::marker::Copy for DHCP_OPTION_SCOPE_UNION6 {}
+impl ::core::clone::Clone for DHCP_OPTION_SCOPE_UNION6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub struct DHCP_OPTION_VALUE {
@@ -3264,10 +3282,28 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
 }
 #[repr(C)]
 pub struct DHCP_SUBNET_ELEMENT_UNION(pub u8);
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_UNION {}
+impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_UNION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DHCP_SUBNET_ELEMENT_UNION_V4(pub u8);
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_UNION_V4 {}
+impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_UNION_V4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DHCP_SUBNET_ELEMENT_UNION_V6(pub u8);
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_UNION_V6 {}
+impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_UNION_V6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub struct DHCP_SUBNET_INFO {

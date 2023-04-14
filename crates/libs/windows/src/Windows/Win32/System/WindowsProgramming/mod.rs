@@ -7565,8 +7565,26 @@ impl ::core::default::Default for WLDP_HOST_INFORMATION {
 }
 #[repr(C)]
 pub struct _D3DHAL_CALLBACKS(pub u8);
+impl ::core::marker::Copy for _D3DHAL_CALLBACKS {}
+impl ::core::clone::Clone for _D3DHAL_CALLBACKS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _D3DHAL_CALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 pub struct _D3DHAL_GLOBALDRIVERDATA(pub u8);
+impl ::core::marker::Copy for _D3DHAL_GLOBALDRIVERDATA {}
+impl ::core::clone::Clone for _D3DHAL_GLOBALDRIVERDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for _D3DHAL_GLOBALDRIVERDATA {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub type APPLICATION_RECOVERY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pvparameter: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
