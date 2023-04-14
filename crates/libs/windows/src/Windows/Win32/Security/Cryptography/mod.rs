@@ -307,11 +307,11 @@ pub unsafe fn BCryptFreeBuffer(pvbuffer: *const ::core::ffi::c_void) {
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BCryptGenRandom<P0>(halgorithm: P0, pbbuffer: &mut [u8], dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn BCryptGenRandom<P0>(halgorithm: P0, pbbuffer: &mut [u8], dwflags: BCRYPTGENRANDOM_FLAGS) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<BCRYPT_ALG_HANDLE>,
 {
-    ::windows_targets::link!("bcrypt.dll" "system" fn BCryptGenRandom(halgorithm : BCRYPT_ALG_HANDLE, pbbuffer : *mut u8, cbbuffer : u32, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
+    ::windows_targets::link!("bcrypt.dll" "system" fn BCryptGenRandom(halgorithm : BCRYPT_ALG_HANDLE, pbbuffer : *mut u8, cbbuffer : u32, dwflags : BCRYPTGENRANDOM_FLAGS) -> super::super::Foundation:: NTSTATUS);
     BCryptGenRandom(halgorithm.into_param().abi(), ::core::mem::transmute(pbbuffer.as_ptr()), pbbuffer.len() as _, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
@@ -4866,8 +4866,6 @@ pub const BCRYPT_RNG_DUAL_EC_ALGORITHM: ::windows::core::PCWSTR = ::windows::cor
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_RNG_FIPS186_DSA_ALGORITHM: ::windows::core::PCWSTR = ::windows::core::w!("FIPS186DSARNG");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_RNG_USE_ENTROPY_IN_BUFFER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_RSAFULLPRIVATE_BLOB: ::windows::core::PCWSTR = ::windows::core::w!("RSAFULLPRIVATEBLOB");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_RSAPRIVATE_BLOB: ::windows::core::PCWSTR = ::windows::core::w!("RSAPRIVATEBLOB");
@@ -4927,8 +4925,6 @@ pub const BCRYPT_TLS1_2_KDF_ALGORITHM: ::windows::core::PCWSTR = ::windows::core
 pub const BCRYPT_TLS1_2_KDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(881u32 as _);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_TLS_CBC_HMAC_VERIFY_FLAG: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_USE_SYSTEM_PREFERRED_RNG: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_XTS_AES_ALGORITHM: ::windows::core::PCWSTR = ::windows::core::w!("XTS-AES");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -9961,6 +9957,33 @@ pub const wszXMLNS_DIGSIG: ::windows::core::PCWSTR = ::windows::core::w!("http:/
 pub const wszXMLNS_DIGSIG_Id: ::windows::core::PCWSTR = ::windows::core::w!("Id");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const wszXMLNS_DIGSIG_SignatureProperties: ::windows::core::PCWSTR = ::windows::core::w!("http://www.w3.org/2000/09/xmldsig#SignatureProperties");
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BCRYPTGENRANDOM_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_RNG_USE_ENTROPY_IN_BUFFER: BCRYPTGENRANDOM_FLAGS = BCRYPTGENRANDOM_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_USE_SYSTEM_PREFERRED_RNG: BCRYPTGENRANDOM_FLAGS = BCRYPTGENRANDOM_FLAGS(2u32);
+impl ::core::marker::Copy for BCRYPTGENRANDOM_FLAGS {}
+impl ::core::clone::Clone for BCRYPTGENRANDOM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BCRYPTGENRANDOM_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for BCRYPTGENRANDOM_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for BCRYPTGENRANDOM_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BCRYPTGENRANDOM_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

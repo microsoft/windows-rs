@@ -23,6 +23,7 @@ void __stdcall FreeContextBuffer(int p0) {}
 void __stdcall FreeCredentialsHandle(int p0) {}
 void __stdcall GetComputerObjectNameA(int p0, int p1, int p2) {}
 void __stdcall GetComputerObjectNameW(int p0, int p1, int p2) {}
+void __stdcall GetSecurityUserInfo(int p0, int p1, int p2) {}
 void __stdcall GetUserNameExA(int p0, int p1, int p2) {}
 void __stdcall GetUserNameExW(int p0, int p1, int p2) {}
 void __stdcall ImpersonateSecurityContext(int p0) {}

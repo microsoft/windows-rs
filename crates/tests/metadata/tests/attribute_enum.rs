@@ -15,7 +15,7 @@ fn attribute_enum() {
         attrs,
         "SupportedArchitectureAttribute",
         "",
-        "Windows.Win32.Interop.Architecture",
+        "Windows.Win32.Foundation.Metadata.Architecture",
         4 | 2,
     );
 

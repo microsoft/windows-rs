@@ -21,7 +21,7 @@ fn test() -> Result<()> {
         let object_len = u32::from_le_bytes(object_len);
 
         let mut shared_secret = vec![0; object_len as _];
-        BCryptGenRandom(rng, &mut shared_secret, 0)?;
+        BCryptGenRandom(rng, &mut shared_secret, Default::default())?;
 
         let mut encrypt_key = Default::default();
         BCryptGenerateSymmetricKey(des, &mut encrypt_key, None, &shared_secret, 0)?;

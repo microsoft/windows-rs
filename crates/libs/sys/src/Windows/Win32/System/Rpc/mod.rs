@@ -1883,8 +1883,8 @@ impl ::core::clone::Clone for MIDL_STUBLESS_PROXY_INFO {
 #[cfg(feature = "Win32_System_Com")]
 pub struct MIDL_STUB_DESC {
     pub RpcInterfaceInformation: *mut ::core::ffi::c_void,
-    pub pfnAllocate: isize,
-    pub pfnFree: isize,
+    pub pfnAllocate: PFN_RPC_ALLOCATE,
+    pub pfnFree: PFN_RPC_FREE,
     pub IMPLICIT_HANDLE_INFO: MIDL_STUB_DESC_0,
     pub apfnNdrRundownRoutines: *const NDR_RUNDOWN,
     pub aGenericBindingRoutinePairs: *const GENERIC_BINDING_ROUTINE_PAIR,
@@ -1953,8 +1953,8 @@ pub struct MIDL_STUB_MESSAGE {
     pub MaxCount: usize,
     pub Offset: u32,
     pub ActualCount: u32,
-    pub pfnAllocate: isize,
-    pub pfnFree: isize,
+    pub pfnAllocate: PFN_RPC_ALLOCATE,
+    pub pfnFree: PFN_RPC_FREE,
     pub StackTop: *mut u8,
     pub pPresentedType: *mut u8,
     pub pTransmitType: *mut u8,
@@ -4430,6 +4430,10 @@ pub type NDR_RUNDOWN = ::core::option::Option<unsafe extern "system" fn(context:
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type PFN_RPCNOTIFICATION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(pasync: *mut RPC_ASYNC_STATE, context: *mut ::core::ffi::c_void, event: RPC_ASYNC_EVENT) -> ()>;
+#[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
+pub type PFN_RPC_ALLOCATE = ::core::option::Option<unsafe extern "system" fn(param0: usize) -> *mut ::core::ffi::c_void>;
+#[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
+pub type PFN_RPC_FREE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub type PRPC_RUNDOWN = ::core::option::Option<unsafe extern "system" fn(associationcontext: *mut ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]

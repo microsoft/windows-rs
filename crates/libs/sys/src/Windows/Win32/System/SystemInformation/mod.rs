@@ -14,8 +14,7 @@
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"] fn GetLogicalProcessorInformation(buffer : *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION, returnedlength : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"] fn GetLogicalProcessorInformationEx(relationshiptype : LOGICAL_PROCESSOR_RELATIONSHIP, buffer : *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX, returnedlength : *mut u32) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_System_Diagnostics_Debug\"`*"] fn GetNativeSystemInfo(lpsysteminfo : *mut SYSTEM_INFO) -> ());
+::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"] fn GetNativeSystemInfo(lpsysteminfo : *mut SYSTEM_INFO) -> ());
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("api-ms-win-core-sysinfo-l1-2-3.dll" "system" #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"] fn GetOsManufacturingMode(pbenabled : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -32,8 +31,7 @@
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"] fn GetSystemDirectoryA(lpbuffer : ::windows_sys::core::PSTR, usize : u32) -> u32);
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"] fn GetSystemDirectoryW(lpbuffer : ::windows_sys::core::PWSTR, usize : u32) -> u32);
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"] fn GetSystemFirmwareTable(firmwaretableprovidersignature : FIRMWARE_TABLE_PROVIDER, firmwaretableid : FIRMWARE_TABLE_ID, pfirmwaretablebuffer : *mut ::core::ffi::c_void, buffersize : u32) -> u32);
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_System_Diagnostics_Debug\"`*"] fn GetSystemInfo(lpsysteminfo : *mut SYSTEM_INFO) -> ());
+::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"] fn GetSystemInfo(lpsysteminfo : *mut SYSTEM_INFO) -> ());
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"] fn GetSystemLeapSecondInformation(enabled : *mut super::super::Foundation:: BOOL, flags : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -803,6 +801,40 @@ pub const PRODUCT_WEB_SERVER: OS_PRODUCT_TYPE = 17u32;
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const PRODUCT_WEB_SERVER_CORE: OS_PRODUCT_TYPE = 29u32;
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub type PROCESSOR_ARCHITECTURE = u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const PROCESSOR_ARCHITECTURE_INTEL: PROCESSOR_ARCHITECTURE = 0u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const PROCESSOR_ARCHITECTURE_MIPS: PROCESSOR_ARCHITECTURE = 1u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const PROCESSOR_ARCHITECTURE_ALPHA: PROCESSOR_ARCHITECTURE = 2u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const PROCESSOR_ARCHITECTURE_PPC: PROCESSOR_ARCHITECTURE = 3u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const PROCESSOR_ARCHITECTURE_SHX: PROCESSOR_ARCHITECTURE = 4u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const PROCESSOR_ARCHITECTURE_ARM: PROCESSOR_ARCHITECTURE = 5u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const PROCESSOR_ARCHITECTURE_IA64: PROCESSOR_ARCHITECTURE = 6u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const PROCESSOR_ARCHITECTURE_ALPHA64: PROCESSOR_ARCHITECTURE = 7u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const PROCESSOR_ARCHITECTURE_MSIL: PROCESSOR_ARCHITECTURE = 8u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const PROCESSOR_ARCHITECTURE_AMD64: PROCESSOR_ARCHITECTURE = 9u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const PROCESSOR_ARCHITECTURE_IA32_ON_WIN64: PROCESSOR_ARCHITECTURE = 10u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const PROCESSOR_ARCHITECTURE_NEUTRAL: PROCESSOR_ARCHITECTURE = 11u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const PROCESSOR_ARCHITECTURE_ARM64: PROCESSOR_ARCHITECTURE = 12u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const PROCESSOR_ARCHITECTURE_ARM32_ON_WIN64: PROCESSOR_ARCHITECTURE = 13u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const PROCESSOR_ARCHITECTURE_IA32_ON_ARM64: PROCESSOR_ARCHITECTURE = 14u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const PROCESSOR_ARCHITECTURE_UNKNOWN: PROCESSOR_ARCHITECTURE = 65535u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub type PROCESSOR_CACHE_TYPE = i32;
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const CacheUnified: PROCESSOR_CACHE_TYPE = 0i32;
@@ -1201,8 +1233,7 @@ impl ::core::clone::Clone for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub struct SYSTEM_INFO {
     pub Anonymous: SYSTEM_INFO_0,
     pub dwPageSize: u32,
@@ -1215,39 +1246,31 @@ pub struct SYSTEM_INFO {
     pub wProcessorLevel: u16,
     pub wProcessorRevision: u16,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::marker::Copy for SYSTEM_INFO {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::clone::Clone for SYSTEM_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub union SYSTEM_INFO_0 {
     pub dwOemId: u32,
     pub Anonymous: SYSTEM_INFO_0_0,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::marker::Copy for SYSTEM_INFO_0 {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::clone::Clone for SYSTEM_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub struct SYSTEM_INFO_0_0 {
-    pub wProcessorArchitecture: super::Diagnostics::Debug::PROCESSOR_ARCHITECTURE,
+    pub wProcessorArchitecture: PROCESSOR_ARCHITECTURE,
     pub wReserved: u16,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::marker::Copy for SYSTEM_INFO_0_0 {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::clone::Clone for SYSTEM_INFO_0_0 {
     fn clone(&self) -> Self {
         *self

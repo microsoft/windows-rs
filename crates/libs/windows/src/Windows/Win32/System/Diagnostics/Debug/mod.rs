@@ -7718,39 +7718,6 @@ impl ::core::fmt::Debug for OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PROCESSOR_ARCHITECTURE(pub u16);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROCESSOR_ARCHITECTURE_AMD64: PROCESSOR_ARCHITECTURE = PROCESSOR_ARCHITECTURE(9u16);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROCESSOR_ARCHITECTURE_IA64: PROCESSOR_ARCHITECTURE = PROCESSOR_ARCHITECTURE(6u16);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROCESSOR_ARCHITECTURE_INTEL: PROCESSOR_ARCHITECTURE = PROCESSOR_ARCHITECTURE(0u16);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROCESSOR_ARCHITECTURE_ARM: PROCESSOR_ARCHITECTURE = PROCESSOR_ARCHITECTURE(5u16);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROCESSOR_ARCHITECTURE_UNKNOWN: PROCESSOR_ARCHITECTURE = PROCESSOR_ARCHITECTURE(65535u16);
-impl ::core::marker::Copy for PROCESSOR_ARCHITECTURE {}
-impl ::core::clone::Clone for PROCESSOR_ARCHITECTURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROCESSOR_ARCHITECTURE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows::core::TypeKind for PROCESSOR_ARCHITECTURE {
-    type TypeKind = ::windows::core::CopyType;
-}
-impl ::core::fmt::Debug for PROCESSOR_ARCHITECTURE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PROCESSOR_ARCHITECTURE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROP_INFO_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const PROP_INFO_NAME: PROP_INFO_FLAGS = PROP_INFO_FLAGS(1i32);
@@ -14907,9 +14874,10 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
+#[cfg(feature = "Win32_System_SystemInformation")]
 pub struct MINIDUMP_SYSTEM_INFO {
-    pub ProcessorArchitecture: PROCESSOR_ARCHITECTURE,
+    pub ProcessorArchitecture: super::super::SystemInformation::PROCESSOR_ARCHITECTURE,
     pub ProcessorLevel: u16,
     pub ProcessorRevision: u16,
     pub Anonymous1: MINIDUMP_SYSTEM_INFO_0,
@@ -14921,117 +14889,147 @@ pub struct MINIDUMP_SYSTEM_INFO {
     pub Anonymous2: MINIDUMP_SYSTEM_INFO_1,
     pub Cpu: CPU_INFORMATION,
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::marker::Copy for MINIDUMP_SYSTEM_INFO {}
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::clone::Clone for MINIDUMP_SYSTEM_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::windows::core::TypeKind for MINIDUMP_SYSTEM_INFO {
     type TypeKind = ::windows::core::CopyType;
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::default::Default for MINIDUMP_SYSTEM_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
+#[cfg(feature = "Win32_System_SystemInformation")]
 pub union MINIDUMP_SYSTEM_INFO_0 {
     pub Reserved0: u16,
     pub Anonymous: MINIDUMP_SYSTEM_INFO_0_0,
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::marker::Copy for MINIDUMP_SYSTEM_INFO_0 {}
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::clone::Clone for MINIDUMP_SYSTEM_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::windows::core::TypeKind for MINIDUMP_SYSTEM_INFO_0 {
     type TypeKind = ::windows::core::CopyType;
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::default::Default for MINIDUMP_SYSTEM_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
+#[cfg(feature = "Win32_System_SystemInformation")]
 pub struct MINIDUMP_SYSTEM_INFO_0_0 {
     pub NumberOfProcessors: u8,
     pub ProductType: u8,
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::marker::Copy for MINIDUMP_SYSTEM_INFO_0_0 {}
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::clone::Clone for MINIDUMP_SYSTEM_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::fmt::Debug for MINIDUMP_SYSTEM_INFO_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("MINIDUMP_SYSTEM_INFO_0_0").field("NumberOfProcessors", &self.NumberOfProcessors).field("ProductType", &self.ProductType).finish()
     }
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::windows::core::TypeKind for MINIDUMP_SYSTEM_INFO_0_0 {
     type TypeKind = ::windows::core::CopyType;
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::cmp::PartialEq for MINIDUMP_SYSTEM_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.NumberOfProcessors == other.NumberOfProcessors && self.ProductType == other.ProductType
     }
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::cmp::Eq for MINIDUMP_SYSTEM_INFO_0_0 {}
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::default::Default for MINIDUMP_SYSTEM_INFO_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
+#[cfg(feature = "Win32_System_SystemInformation")]
 pub union MINIDUMP_SYSTEM_INFO_1 {
     pub Reserved1: u32,
     pub Anonymous: MINIDUMP_SYSTEM_INFO_1_0,
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::marker::Copy for MINIDUMP_SYSTEM_INFO_1 {}
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::clone::Clone for MINIDUMP_SYSTEM_INFO_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::windows::core::TypeKind for MINIDUMP_SYSTEM_INFO_1 {
     type TypeKind = ::windows::core::CopyType;
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::default::Default for MINIDUMP_SYSTEM_INFO_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
+#[cfg(feature = "Win32_System_SystemInformation")]
 pub struct MINIDUMP_SYSTEM_INFO_1_0 {
     pub SuiteMask: u16,
     pub Reserved2: u16,
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::marker::Copy for MINIDUMP_SYSTEM_INFO_1_0 {}
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::clone::Clone for MINIDUMP_SYSTEM_INFO_1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::fmt::Debug for MINIDUMP_SYSTEM_INFO_1_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("MINIDUMP_SYSTEM_INFO_1_0").field("SuiteMask", &self.SuiteMask).field("Reserved2", &self.Reserved2).finish()
     }
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::windows::core::TypeKind for MINIDUMP_SYSTEM_INFO_1_0 {
     type TypeKind = ::windows::core::CopyType;
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::cmp::PartialEq for MINIDUMP_SYSTEM_INFO_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self.SuiteMask == other.SuiteMask && self.Reserved2 == other.Reserved2
     }
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::cmp::Eq for MINIDUMP_SYSTEM_INFO_1_0 {}
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::default::Default for MINIDUMP_SYSTEM_INFO_1_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

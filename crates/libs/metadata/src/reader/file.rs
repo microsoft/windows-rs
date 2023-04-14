@@ -52,7 +52,7 @@ fn error_invalid_winmd() -> Error {
 
 impl File {
     pub fn with_default(paths: &[&str]) -> Result<Vec<Self>> {
-        let mut files = vec![Self::from_buffer(std::include_bytes!("../../default/Windows.winmd").to_vec())?, Self::from_buffer(std::include_bytes!("../../default/Windows.Wdk.winmd").to_vec())?, Self::from_buffer(std::include_bytes!("../../default/Windows.Win32.winmd").to_vec())?, Self::from_buffer(std::include_bytes!("../../default/Windows.Win32.Interop.winmd").to_vec())?];
+        let mut files = vec![Self::from_buffer(std::include_bytes!("../../default/Windows.winmd").to_vec())?, Self::from_buffer(std::include_bytes!("../../default/Windows.Wdk.winmd").to_vec())?, Self::from_buffer(std::include_bytes!("../../default/Windows.Win32.winmd").to_vec())?];
 
         for path in paths {
             files.push(Self::new(std::path::Path::new(path))?);

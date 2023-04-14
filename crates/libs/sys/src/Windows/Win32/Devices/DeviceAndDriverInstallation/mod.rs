@@ -134,9 +134,9 @@
 ::windows_targets::link!("cfgmgr32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_HW_Prof_FlagsW(pdeviceid : ::windows_sys::core::PCWSTR, ulhardwareprofile : u32, pulvalue : *mut u32, ulflags : u32) -> CONFIGRET);
 ::windows_targets::link!("cfgmgr32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_HW_Prof_Flags_ExA(pdeviceid : ::windows_sys::core::PCSTR, ulhardwareprofile : u32, pulvalue : *mut u32, ulflags : u32, hmachine : isize) -> CONFIGRET);
 ::windows_targets::link!("cfgmgr32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_HW_Prof_Flags_ExW(pdeviceid : ::windows_sys::core::PCWSTR, ulhardwareprofile : u32, pulvalue : *mut u32, ulflags : u32, hmachine : isize) -> CONFIGRET);
-::windows_targets::link!("cfgmgr32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Hardware_Profile_InfoA(ulindex : u32, phwprofileinfo : *mut HWProfileInfo_sA, ulflags : u32) -> CONFIGRET);
+::windows_targets::link!("cfgmgr32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Hardware_Profile_InfoA(ulindex : u32, phwprofileinfo : *mut HWPROFILEINFO_A, ulflags : u32) -> CONFIGRET);
 ::windows_targets::link!("cfgmgr32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Hardware_Profile_InfoW(ulindex : u32, phwprofileinfo : *mut HWPROFILEINFO_W, ulflags : u32) -> CONFIGRET);
-::windows_targets::link!("cfgmgr32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Hardware_Profile_Info_ExA(ulindex : u32, phwprofileinfo : *mut HWProfileInfo_sA, ulflags : u32, hmachine : isize) -> CONFIGRET);
+::windows_targets::link!("cfgmgr32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Hardware_Profile_Info_ExA(ulindex : u32, phwprofileinfo : *mut HWPROFILEINFO_A, ulflags : u32, hmachine : isize) -> CONFIGRET);
 ::windows_targets::link!("cfgmgr32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Hardware_Profile_Info_ExW(ulindex : u32, phwprofileinfo : *mut HWPROFILEINFO_W, ulflags : u32, hmachine : isize) -> CONFIGRET);
 ::windows_targets::link!("cfgmgr32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Log_Conf_Priority(lclogconf : usize, ppriority : *mut u32, ulflags : u32) -> CONFIGRET);
 ::windows_targets::link!("cfgmgr32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Log_Conf_Priority_Ex(lclogconf : usize, ppriority : *mut u32, ulflags : u32, hmachine : isize) -> CONFIGRET);
@@ -266,7 +266,7 @@
 ::windows_targets::link!("cfgmgr32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Unregister_Device_Interface_ExW(pszdeviceinterface : ::windows_sys::core::PCWSTR, ulflags : u32, hmachine : isize) -> CONFIGRET);
 ::windows_targets::link!("cfgmgr32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Unregister_Notification(notifycontext : HCMNOTIFICATION) -> CONFIGRET);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("newdev.dll" "system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn DiInstallDevice(hwndparent : super::super::Foundation:: HWND, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, driverinfodata : *const SP_DRVINFO_DATA_V2_A, flags : u32, needreboot : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("newdev.dll" "system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn DiInstallDevice(hwndparent : super::super::Foundation:: HWND, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, driverinfodata : *const SP_DRVINFO_DATA_V2_W, flags : u32, needreboot : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("newdev.dll" "system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn DiInstallDriverA(hwndparent : super::super::Foundation:: HWND, infpath : ::windows_sys::core::PCSTR, flags : u32, needreboot : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -4945,6 +4945,19 @@ pub type HCMNOTIFICATION = isize;
 pub type HDEVINFO = isize;
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub struct HWPROFILEINFO_A {
+    pub HWPI_ulHWProfile: u32,
+    pub HWPI_szFriendlyName: [u8; 80],
+    pub HWPI_dwFlags: u32,
+}
+impl ::core::marker::Copy for HWPROFILEINFO_A {}
+impl ::core::clone::Clone for HWPROFILEINFO_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct HWPROFILEINFO_W {
     pub HWPI_ulHWProfile: u32,
     pub HWPI_szFriendlyName: [u16; 80],
@@ -4952,19 +4965,6 @@ pub struct HWPROFILEINFO_W {
 }
 impl ::core::marker::Copy for HWPROFILEINFO_W {}
 impl ::core::clone::Clone for HWPROFILEINFO_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub struct HWProfileInfo_sA {
-    pub HWPI_ulHWProfile: u32,
-    pub HWPI_szFriendlyName: [u8; 80],
-    pub HWPI_dwFlags: u32,
-}
-impl ::core::marker::Copy for HWProfileInfo_sA {}
-impl ::core::clone::Clone for HWProfileInfo_sA {
     fn clone(&self) -> Self {
         *self
     }
@@ -6049,7 +6049,7 @@ pub struct SP_DEVINSTALL_PARAMS_W {
     pub Flags: u32,
     pub FlagsEx: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub InstallMsgHandler: PSP_FILE_CALLBACK_A,
+    pub InstallMsgHandler: PSP_FILE_CALLBACK_W,
     pub InstallMsgHandlerContext: *mut ::core::ffi::c_void,
     pub FileQueue: *mut ::core::ffi::c_void,
     pub ClassInstallReserved: usize,
@@ -6075,7 +6075,7 @@ pub struct SP_DEVINSTALL_PARAMS_W {
     pub Flags: u32,
     pub FlagsEx: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub InstallMsgHandler: PSP_FILE_CALLBACK_A,
+    pub InstallMsgHandler: PSP_FILE_CALLBACK_W,
     pub InstallMsgHandlerContext: *mut ::core::ffi::c_void,
     pub FileQueue: *mut ::core::ffi::c_void,
     pub ClassInstallReserved: usize,

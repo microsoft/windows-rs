@@ -302,9 +302,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("version.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn GetFileVersionInfoW(lptstrfilename : ::windows_sys::core::PCWSTR, dwhandle : u32, dwlen : u32, lpdata : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn GetFinalPathNameByHandleA(hfile : super::super::Foundation:: HANDLE, lpszfilepath : ::windows_sys::core::PSTR, cchfilepath : u32, dwflags : FILE_NAME) -> u32);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn GetFinalPathNameByHandleA(hfile : super::super::Foundation:: HANDLE, lpszfilepath : ::windows_sys::core::PSTR, cchfilepath : u32, dwflags : GETFINALPATHNAMEBYHANDLE_FLAGS) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn GetFinalPathNameByHandleW(hfile : super::super::Foundation:: HANDLE, lpszfilepath : ::windows_sys::core::PWSTR, cchfilepath : u32, dwflags : FILE_NAME) -> u32);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn GetFinalPathNameByHandleW(hfile : super::super::Foundation:: HANDLE, lpszfilepath : ::windows_sys::core::PWSTR, cchfilepath : u32, dwflags : GETFINALPATHNAMEBYHANDLE_FLAGS) -> u32);
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn GetFullPathNameA(lpfilename : ::windows_sys::core::PCSTR, nbufferlength : u32, lpbuffer : ::windows_sys::core::PSTR, lpfilepart : *mut ::windows_sys::core::PSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn GetFullPathNameTransactedA(lpfilename : ::windows_sys::core::PCSTR, nbufferlength : u32, lpbuffer : ::windows_sys::core::PSTR, lpfilepart : *mut ::windows_sys::core::PSTR, htransaction : super::super::Foundation:: HANDLE) -> u32);
@@ -449,8 +449,6 @@
 ::windows_targets::link!("netapi32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn NetShareGetInfo(servername : ::windows_sys::core::PCWSTR, netname : ::windows_sys::core::PCWSTR, level : u32, bufptr : *mut *mut u8) -> u32);
 ::windows_targets::link!("netapi32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn NetShareSetInfo(servername : ::windows_sys::core::PCWSTR, netname : ::windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
 ::windows_targets::link!("netapi32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn NetStatisticsGet(servername : *const i8, service : *const i8, level : u32, options : u32, buffer : *mut *mut u8) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
-::windows_targets::link!("ntdll.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"] fn NtCreateFile(filehandle : *mut super::super::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *mut super::super::System::WindowsProgramming:: OBJECT_ATTRIBUTES, iostatusblock : *mut super::super::System::WindowsProgramming:: IO_STATUS_BLOCK, allocationsize : *mut i64, fileattributes : u32, shareaccess : FILE_SHARE_MODE, createdisposition : NT_CREATE_FILE_DISPOSITION, createoptions : u32, eabuffer : *mut ::core::ffi::c_void, ealength : u32) -> super::super::Foundation:: NTSTATUS);
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn OpenEncryptedFileRawA(lpfilename : ::windows_sys::core::PCSTR, ulflags : u32, pvcontext : *mut *mut ::core::ffi::c_void) -> u32);
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn OpenEncryptedFileRawW(lpfilename : ::windows_sys::core::PCWSTR, ulflags : u32, pvcontext : *mut *mut ::core::ffi::c_void) -> u32);
 #[cfg(feature = "Win32_Foundation")]
@@ -1581,6 +1579,20 @@ pub const FILE_DEVICE_TAPE: FILE_DEVICE_TYPE = 31u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_DEVICE_DVD: FILE_DEVICE_TYPE = 51u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub type FILE_DISPOSITION_INFO_EX_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DISPOSITION_FLAG_DO_NOT_DELETE: FILE_DISPOSITION_INFO_EX_FLAGS = 0u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DISPOSITION_FLAG_DELETE: FILE_DISPOSITION_INFO_EX_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DISPOSITION_FLAG_POSIX_SEMANTICS: FILE_DISPOSITION_INFO_EX_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DISPOSITION_FLAG_FORCE_IMAGE_SECTION_CHECK: FILE_DISPOSITION_INFO_EX_FLAGS = 4u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DISPOSITION_FLAG_ON_CLOSE: FILE_DISPOSITION_INFO_EX_FLAGS = 8u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DISPOSITION_FLAG_IGNORE_READONLY_ATTRIBUTE: FILE_DISPOSITION_INFO_EX_FLAGS = 16u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type FILE_FLAGS_AND_ATTRIBUTES = u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_READONLY: FILE_FLAGS_AND_ATTRIBUTES = 1u32;
@@ -1745,12 +1757,6 @@ pub const PERM_FILE_WRITE: FILE_INFO_FLAGS_PERMISSIONS = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const PERM_FILE_CREATE: FILE_INFO_FLAGS_PERMISSIONS = 4u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub type FILE_NAME = u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_NAME_NORMALIZED: FILE_NAME = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_NAME_OPENED: FILE_NAME = 8u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type FILE_NOTIFY_CHANGE = u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_NOTIFY_CHANGE_FILE_NAME: FILE_NOTIFY_CHANGE = 1u32;
@@ -1816,6 +1822,20 @@ pub const FIND_FIRST_EX_CASE_SENSITIVE: FIND_FIRST_EX_FLAGS = 1u32;
 pub const FIND_FIRST_EX_LARGE_FETCH: FIND_FIRST_EX_FLAGS = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FIND_FIRST_EX_ON_DISK_ENTRIES_ONLY: FIND_FIRST_EX_FLAGS = 4u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub type GETFINALPATHNAMEBYHANDLE_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOLUME_NAME_DOS: GETFINALPATHNAMEBYHANDLE_FLAGS = 0u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOLUME_NAME_GUID: GETFINALPATHNAMEBYHANDLE_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOLUME_NAME_NT: GETFINALPATHNAMEBYHANDLE_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOLUME_NAME_NONE: GETFINALPATHNAMEBYHANDLE_FLAGS = 4u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_NAME_NORMALIZED: GETFINALPATHNAMEBYHANDLE_FLAGS = 0u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_NAME_OPENED: GETFINALPATHNAMEBYHANDLE_FLAGS = 8u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type GET_FILEEX_INFO_LEVELS = i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1956,20 +1976,6 @@ pub type NTMS_OMID_TYPE = u32;
 pub const NTMS_OMID_TYPE_FILESYSTEM_INFO: NTMS_OMID_TYPE = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OMID_TYPE_RAW_LABEL: NTMS_OMID_TYPE = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub type NT_CREATE_FILE_DISPOSITION = u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_SUPERSEDE: NT_CREATE_FILE_DISPOSITION = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_CREATE: NT_CREATE_FILE_DISPOSITION = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_OPEN: NT_CREATE_FILE_DISPOSITION = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_OPEN_IF: NT_CREATE_FILE_DISPOSITION = 3u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_OVERWRITE: NT_CREATE_FILE_DISPOSITION = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_OVERWRITE_IF: NT_CREATE_FILE_DISPOSITION = 5u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type NtmsAccessMask = i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -3831,6 +3837,17 @@ pub struct FILE_DISPOSITION_INFO {
 impl ::core::marker::Copy for FILE_DISPOSITION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FILE_DISPOSITION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub struct FILE_DISPOSITION_INFO_EX {
+    pub Flags: FILE_DISPOSITION_INFO_EX_FLAGS,
+}
+impl ::core::marker::Copy for FILE_DISPOSITION_INFO_EX {}
+impl ::core::clone::Clone for FILE_DISPOSITION_INFO_EX {
     fn clone(&self) -> Self {
         *self
     }

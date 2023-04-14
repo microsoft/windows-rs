@@ -5751,8 +5751,8 @@ impl ::core::default::Default for MIDL_STUBLESS_PROXY_INFO {
 #[cfg(feature = "Win32_System_Com")]
 pub struct MIDL_STUB_DESC {
     pub RpcInterfaceInformation: *mut ::core::ffi::c_void,
-    pub pfnAllocate: isize,
-    pub pfnFree: isize,
+    pub pfnAllocate: PFN_RPC_ALLOCATE,
+    pub pfnFree: PFN_RPC_FREE,
     pub IMPLICIT_HANDLE_INFO: MIDL_STUB_DESC_0,
     pub apfnNdrRundownRoutines: *const NDR_RUNDOWN,
     pub aGenericBindingRoutinePairs: *const GENERIC_BINDING_ROUTINE_PAIR,
@@ -5841,8 +5841,8 @@ pub struct MIDL_STUB_MESSAGE {
     pub MaxCount: usize,
     pub Offset: u32,
     pub ActualCount: u32,
-    pub pfnAllocate: isize,
-    pub pfnFree: isize,
+    pub pfnAllocate: PFN_RPC_ALLOCATE,
+    pub pfnFree: PFN_RPC_FREE,
     pub StackTop: *mut u8,
     pub pPresentedType: *mut u8,
     pub pTransmitType: *mut u8,
@@ -5911,8 +5911,6 @@ impl ::core::fmt::Debug for MIDL_STUB_MESSAGE {
             .field("MaxCount", &self.MaxCount)
             .field("Offset", &self.Offset)
             .field("ActualCount", &self.ActualCount)
-            .field("pfnAllocate", &self.pfnAllocate)
-            .field("pfnFree", &self.pfnFree)
             .field("StackTop", &self.StackTop)
             .field("pPresentedType", &self.pPresentedType)
             .field("pTransmitType", &self.pTransmitType)
@@ -5955,72 +5953,6 @@ impl ::core::fmt::Debug for MIDL_STUB_MESSAGE {
 impl ::windows::core::TypeKind for MIDL_STUB_MESSAGE {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for MIDL_STUB_MESSAGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.RpcMsg == other.RpcMsg
-            && self.Buffer == other.Buffer
-            && self.BufferStart == other.BufferStart
-            && self.BufferEnd == other.BufferEnd
-            && self.BufferMark == other.BufferMark
-            && self.BufferLength == other.BufferLength
-            && self.MemorySize == other.MemorySize
-            && self.Memory == other.Memory
-            && self.IsClient == other.IsClient
-            && self.Pad == other.Pad
-            && self.uFlags2 == other.uFlags2
-            && self.ReuseBuffer == other.ReuseBuffer
-            && self.pAllocAllNodesContext == other.pAllocAllNodesContext
-            && self.pPointerQueueState == other.pPointerQueueState
-            && self.IgnoreEmbeddedPointers == other.IgnoreEmbeddedPointers
-            && self.PointerBufferMark == other.PointerBufferMark
-            && self.CorrDespIncrement == other.CorrDespIncrement
-            && self.uFlags == other.uFlags
-            && self.UniquePtrCount == other.UniquePtrCount
-            && self.MaxCount == other.MaxCount
-            && self.Offset == other.Offset
-            && self.ActualCount == other.ActualCount
-            && self.pfnAllocate == other.pfnAllocate
-            && self.pfnFree == other.pfnFree
-            && self.StackTop == other.StackTop
-            && self.pPresentedType == other.pPresentedType
-            && self.pTransmitType == other.pTransmitType
-            && self.SavedHandle == other.SavedHandle
-            && self.StubDesc == other.StubDesc
-            && self.FullPtrXlatTables == other.FullPtrXlatTables
-            && self.FullPtrRefId == other.FullPtrRefId
-            && self.PointerLength == other.PointerLength
-            && self._bitfield == other._bitfield
-            && self.dwDestContext == other.dwDestContext
-            && self.pvDestContext == other.pvDestContext
-            && self.SavedContextHandles == other.SavedContextHandles
-            && self.ParamNumber == other.ParamNumber
-            && self.pRpcChannelBuffer == other.pRpcChannelBuffer
-            && self.pArrayInfo == other.pArrayInfo
-            && self.SizePtrCountArray == other.SizePtrCountArray
-            && self.SizePtrOffsetArray == other.SizePtrOffsetArray
-            && self.SizePtrLengthArray == other.SizePtrLengthArray
-            && self.pArgQueue == other.pArgQueue
-            && self.dwStubPhase == other.dwStubPhase
-            && self.LowStackMark == other.LowStackMark
-            && self.pAsyncMsg == other.pAsyncMsg
-            && self.pCorrInfo == other.pCorrInfo
-            && self.pCorrMemory == other.pCorrMemory
-            && self.pMemoryList == other.pMemoryList
-            && self.pCSInfo == other.pCSInfo
-            && self.ConformanceMark == other.ConformanceMark
-            && self.VarianceMark == other.VarianceMark
-            && self.Unused == other.Unused
-            && self.pContext == other.pContext
-            && self.ContextHandleHash == other.ContextHandleHash
-            && self.pUserMarshalList == other.pUserMarshalList
-            && self.Reserved51_3 == other.Reserved51_3
-            && self.Reserved51_4 == other.Reserved51_4
-            && self.Reserved51_5 == other.Reserved51_5
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for MIDL_STUB_MESSAGE {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MIDL_STUB_MESSAGE {
     fn default() -> Self {
@@ -11338,6 +11270,10 @@ pub type NDR_RUNDOWN = ::core::option::Option<unsafe extern "system" fn(context:
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type PFN_RPCNOTIFICATION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(pasync: *mut RPC_ASYNC_STATE, context: *mut ::core::ffi::c_void, event: RPC_ASYNC_EVENT) -> ()>;
+#[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
+pub type PFN_RPC_ALLOCATE = ::core::option::Option<unsafe extern "system" fn(param0: usize) -> *mut ::core::ffi::c_void>;
+#[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
+pub type PFN_RPC_FREE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub type PRPC_RUNDOWN = ::core::option::Option<unsafe extern "system" fn(associationcontext: *mut ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]

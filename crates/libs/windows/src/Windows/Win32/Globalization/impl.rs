@@ -150,7 +150,7 @@ impl IEnumScript_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
 pub trait IEnumSpellingError_Impl: Sized {
-    fn Next(&self) -> ::windows::core::Result<ISpellingError>;
+    fn Next(&self, value: *mut ::core::option::Option<ISpellingError>) -> ::windows::core::HRESULT;
 }
 impl ::windows::core::RuntimeName for IEnumSpellingError {}
 impl IEnumSpellingError_Vtbl {
@@ -158,13 +158,7 @@ impl IEnumSpellingError_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumSpellingError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Next() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.Next(::core::mem::transmute_copy(&value))
         }
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
