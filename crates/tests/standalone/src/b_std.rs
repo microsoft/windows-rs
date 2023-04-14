@@ -7,6 +7,12 @@
     dead_code,
     clippy::all
 )]
+#[link(name = "advapi32")]
+extern "system" {
+    #[link_name = "SystemFunction036"]
+    pub fn RtlGenRandom(randombuffer: *mut ::core::ffi::c_void, randombufferlength: u32)
+        -> BOOLEAN;
+}
 #[link(name = "kernel32")]
 extern "system" {
     pub fn CloseHandle(hobject: HANDLE) -> BOOL;
@@ -21,6 +27,7 @@ extern "system" {
 }
 pub type BCRYPT_ALG_HANDLE = *mut ::core::ffi::c_void;
 pub type BOOL = i32;
+pub type BOOLEAN = u8;
 pub type FindFileHandle = *mut ::core::ffi::c_void;
 pub type HANDLE = *mut ::core::ffi::c_void;
 pub type HMODULE = *mut ::core::ffi::c_void;
