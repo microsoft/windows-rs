@@ -1,5 +1,6 @@
 use windows::{
-    core::*, Win32::Foundation::*, Win32::UI::Controls::*, Win32::UI::WindowsAndMessaging::*,
+    core::*, Win32::Foundation::*, Win32::System::Com::*, Win32::UI::Controls::*,
+    Win32::UI::WindowsAndMessaging::*,
 };
 
 /// These tests ensure `MAKEINTRESOURCEW` style constants an in particular negative constants like TD_ERROR_ICON
@@ -15,6 +16,8 @@ fn win() -> Result<()> {
             LoadIconW(None, TD_ERROR_ICON).unwrap_err().code(),
             ERROR_RESOURCE_TYPE_NOT_FOUND.into()
         );
+
+        assert_eq!(COLE_DEFAULT_PRINCIPAL.0 as usize, usize::MAX);
 
         Ok(())
     }
