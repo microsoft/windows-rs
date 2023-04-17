@@ -8,6 +8,6 @@ description = "Windows metadata compiler"
 repository = "https://github.com/microsoft/windows-rs"
 
 [dependencies]
-metadata = { package = "windows-metadata", path = "../../libs/metadata", version = "0.48.0" }
+metadata = { package = "windows-metadata", path = "../../libs/metadata", version = "0.49.0" }
 syn = { version = "1.0", features = ["full", "extra-traits"] }
 proc-macro2 = {version = "1.0", features = ["span-locations"] } 
