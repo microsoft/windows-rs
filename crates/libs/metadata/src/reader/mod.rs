@@ -146,6 +146,7 @@ pub struct Signature {
     pub def: MethodDef,
     pub params: Vec<SignatureParam>,
     pub return_type: Option<Type>,
+    pub vararg: bool,
 }
 
 pub struct SignatureParam {
@@ -603,9 +604,8 @@ impl<'a> Reader<'a> {
     }
     pub fn method_def_signature(&self, row: MethodDef, generics: &[Type]) -> Signature {
         let mut blob = self.row_blob(row.0, 4);
-        blob.read_usize();
-        blob.read_usize();
-
+        let vararg = blob.read_usize() == 0x05;
+        let _param_count = blob.read_usize();
         let mut return_type = self.type_from_blob(&mut blob, None, generics);
 
         let mut params: Vec<SignatureParam> = self
@@ -704,7 +704,7 @@ impl<'a> Reader<'a> {
             }
         }
 
-        Signature { def: row, params, return_type }
+        Signature { def: row, params, return_type, vararg }
     }
     pub fn method_def_extern_abi(&self, def: MethodDef) -> &'static str {
         let impl_map = self.method_def_impl_map(def).expect("ImplMap not found");
