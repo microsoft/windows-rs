@@ -208,11 +208,12 @@ fn gen_link(gen: &Gen, signature: &Signature, cfg: &Cfg) -> TokenStream {
     let return_type = gen.return_sig(signature);
 
     // TODO: blocked on https://github.com/rust-lang/rust/issues/110505
-    let vararg = if signature.vararg && false {
-        "...".into()
-    } else {
-        quote! {}
-    };
+    // let vararg = if signature.vararg {
+    //     "...".into()
+    // } else {
+    //     quote! {}
+    // };
+    let vararg = quote! {};
 
     if gen.std || !gen.namespace.starts_with("Windows.") {
         let library = library.trim_end_matches(".dll");
