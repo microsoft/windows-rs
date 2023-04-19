@@ -746,8 +746,8 @@
 ::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn WindowFromPhysicalPoint(point : super::super::Foundation:: POINT) -> super::super::Foundation:: HWND);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn WindowFromPoint(point : super::super::Foundation:: POINT) -> super::super::Foundation:: HWND);
-::windows_targets::link!("user32.dll" "cdecl" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"] fn wsprintfA(param0 : ::windows_sys::core::PSTR, param1 : ::windows_sys::core::PCSTR) -> i32);
-::windows_targets::link!("user32.dll" "cdecl" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"] fn wsprintfW(param0 : ::windows_sys::core::PWSTR, param1 : ::windows_sys::core::PCWSTR) -> i32);
+::windows_targets::link!("user32.dll" "cdecl" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"] fn wsprintfA(param0 : ::windows_sys::core::PSTR, param1 : ::windows_sys::core::PCSTR, ...) -> i32);
+::windows_targets::link!("user32.dll" "cdecl" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"] fn wsprintfW(param0 : ::windows_sys::core::PWSTR, param1 : ::windows_sys::core::PCWSTR, ...) -> i32);
 ::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"] fn wvsprintfA(param0 : ::windows_sys::core::PSTR, param1 : ::windows_sys::core::PCSTR, arglist : *const i8) -> i32);
 ::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"] fn wvsprintfW(param0 : ::windows_sys::core::PWSTR, param1 : ::windows_sys::core::PCWSTR, arglist : *const i8) -> i32);
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]

@@ -207,13 +207,11 @@ fn gen_link(gen: &Gen, signature: &Signature, cfg: &Cfg) -> TokenStream {
 
     let return_type = gen.return_sig(signature);
 
-    // TODO: blocked on https://github.com/rust-lang/rust/issues/110505
-    // let vararg = if signature.vararg {
-    //     "...".into()
-    // } else {
-    //     quote! {}
-    // };
-    let vararg = quote! {};
+    let vararg = if gen.sys && signature.vararg {
+        "...".into()
+    } else {
+        quote! {}
+    };
 
     if gen.std || !gen.namespace.starts_with("Windows.") {
         let library = library.trim_end_matches(".dll");
@@ -222,7 +220,7 @@ fn gen_link(gen: &Gen, signature: &Signature, cfg: &Cfg) -> TokenStream {
             #[link(name = #library)]
             extern #abi {
                 #link_name
-                pub fn #ident(#(#params),* #vararg) #return_type;
+                pub fn #ident(#(#params,)* #vararg) #return_type;
             }
         }
     } else if let Some(library) = gen.reader.method_def_static_lib(signature.def) {
@@ -230,7 +228,7 @@ fn gen_link(gen: &Gen, signature: &Signature, cfg: &Cfg) -> TokenStream {
             #[link(name = #library, kind = "static")]
             extern #abi {
                 #link_name
-                pub fn #ident(#(#params),* #vararg) #return_type;
+                pub fn #ident(#(#params,)* #vararg) #return_type;
             }
         }
     } else {

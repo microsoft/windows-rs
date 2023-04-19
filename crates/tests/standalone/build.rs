@@ -75,6 +75,7 @@ fn main() {
             "Windows.Win32.Security.Cryptography.BCRYPT_ALG_HANDLE",
             "Windows.Win32.Storage.FileSystem.FindFileHandle",
             "Windows.Win32.Security.Authentication.Identity.RtlGenRandom",
+            "Windows.Win32.UI.WindowsAndMessaging.wsprintfA",
         ],
     );
 
@@ -89,6 +90,7 @@ fn main() {
             "Windows.Win32.System.Threading.SetEvent",
             "Windows.Win32.System.Threading.WaitForSingleObject",
             "Windows.Win32.UI.Animation.UIAnimationManager",
+            "Windows.Win32.UI.WindowsAndMessaging.wsprintfA",
         ],
     );
 }

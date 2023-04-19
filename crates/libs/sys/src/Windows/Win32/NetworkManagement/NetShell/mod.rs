@@ -5,10 +5,10 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("netsh.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"] fn PreprocessCommand(hmodule : super::super::Foundation:: HANDLE, ppwcarguments : *mut ::windows_sys::core::PWSTR, dwcurrentindex : u32, dwargcount : u32, ptttags : *mut TAG_TYPE, dwtagcount : u32, dwminargs : u32, dwmaxargs : u32, pdwtagtype : *mut u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("netsh.dll" "cdecl" #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"] fn PrintError(hmodule : super::super::Foundation:: HANDLE, dwerrid : u32) -> u32);
-::windows_targets::link!("netsh.dll" "cdecl" #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"] fn PrintMessage(pwszformat : ::windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("netsh.dll" "cdecl" #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"] fn PrintError(hmodule : super::super::Foundation:: HANDLE, dwerrid : u32, ...) -> u32);
+::windows_targets::link!("netsh.dll" "cdecl" #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"] fn PrintMessage(pwszformat : ::windows_sys::core::PCWSTR, ...) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("netsh.dll" "cdecl" #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"] fn PrintMessageFromModule(hmodule : super::super::Foundation:: HANDLE, dwmsgid : u32) -> u32);
+::windows_targets::link!("netsh.dll" "cdecl" #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"] fn PrintMessageFromModule(hmodule : super::super::Foundation:: HANDLE, dwmsgid : u32, ...) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("netsh.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"] fn RegisterContext(pchildcontext : *const NS_CONTEXT_ATTRIBUTES) -> u32);
 ::windows_targets::link!("netsh.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"] fn RegisterHelper(pguidparentcontext : *const ::windows_sys::core::GUID, pfnregistersubcontext : *const NS_HELPER_ATTRIBUTES) -> u32);

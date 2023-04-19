@@ -73,7 +73,7 @@
 ::windows_targets::link!("snmpapi.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"] fn SnmpUtilAsnAnyCpy(panydst : *mut AsnAny, panysrc : *mut AsnAny) -> i32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("snmpapi.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"] fn SnmpUtilAsnAnyFree(pany : *mut AsnAny) -> ());
-::windows_targets::link!("snmpapi.dll" "cdecl" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpUtilDbgPrint(nloglevel : SNMP_LOG, szformat : ::windows_sys::core::PCSTR) -> ());
+::windows_targets::link!("snmpapi.dll" "cdecl" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpUtilDbgPrint(nloglevel : SNMP_LOG, szformat : ::windows_sys::core::PCSTR, ...) -> ());
 ::windows_targets::link!("snmpapi.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpUtilIdsToA(ids : *mut u32, idlength : u32) -> ::windows_sys::core::PSTR);
 ::windows_targets::link!("snmpapi.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpUtilMemAlloc(nbytes : u32) -> *mut ::core::ffi::c_void);
 ::windows_targets::link!("snmpapi.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpUtilMemFree(pmem : *mut ::core::ffi::c_void) -> ());

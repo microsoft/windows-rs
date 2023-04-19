@@ -160,9 +160,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("rtutils.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"] fn RouterLogEventDataW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows_sys::core::PCWSTR, dwdatabytes : u32, lpdatabytes : *mut u8) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rtutils.dll" "cdecl" #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"] fn RouterLogEventExA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : ::windows_sys::core::PCSTR) -> ());
+::windows_targets::link!("rtutils.dll" "cdecl" #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"] fn RouterLogEventExA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : ::windows_sys::core::PCSTR, ...) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rtutils.dll" "cdecl" #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"] fn RouterLogEventExW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : ::windows_sys::core::PCWSTR) -> ());
+::windows_targets::link!("rtutils.dll" "cdecl" #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"] fn RouterLogEventExW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : ::windows_sys::core::PCWSTR, ...) -> ());
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("rtutils.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"] fn RouterLogEventStringA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const ::windows_sys::core::PCSTR, dwerrorcode : u32, dwerrorindex : u32) -> ());
 #[cfg(feature = "Win32_Foundation")]
@@ -190,10 +190,10 @@
 ::windows_targets::link!("rtutils.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"] fn TraceGetConsoleA(dwtraceid : u32, lphconsole : *mut super::super::Foundation:: HANDLE) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("rtutils.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"] fn TraceGetConsoleW(dwtraceid : u32, lphconsole : *mut super::super::Foundation:: HANDLE) -> u32);
-::windows_targets::link!("rtutils.dll" "cdecl" #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"] fn TracePrintfA(dwtraceid : u32, lpszformat : ::windows_sys::core::PCSTR) -> u32);
-::windows_targets::link!("rtutils.dll" "cdecl" #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"] fn TracePrintfExA(dwtraceid : u32, dwflags : u32, lpszformat : ::windows_sys::core::PCSTR) -> u32);
-::windows_targets::link!("rtutils.dll" "cdecl" #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"] fn TracePrintfExW(dwtraceid : u32, dwflags : u32, lpszformat : ::windows_sys::core::PCWSTR) -> u32);
-::windows_targets::link!("rtutils.dll" "cdecl" #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"] fn TracePrintfW(dwtraceid : u32, lpszformat : ::windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("rtutils.dll" "cdecl" #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"] fn TracePrintfA(dwtraceid : u32, lpszformat : ::windows_sys::core::PCSTR, ...) -> u32);
+::windows_targets::link!("rtutils.dll" "cdecl" #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"] fn TracePrintfExA(dwtraceid : u32, dwflags : u32, lpszformat : ::windows_sys::core::PCSTR, ...) -> u32);
+::windows_targets::link!("rtutils.dll" "cdecl" #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"] fn TracePrintfExW(dwtraceid : u32, dwflags : u32, lpszformat : ::windows_sys::core::PCWSTR, ...) -> u32);
+::windows_targets::link!("rtutils.dll" "cdecl" #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"] fn TracePrintfW(dwtraceid : u32, lpszformat : ::windows_sys::core::PCWSTR, ...) -> u32);
 ::windows_targets::link!("rtutils.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"] fn TracePutsExA(dwtraceid : u32, dwflags : u32, lpszstring : ::windows_sys::core::PCSTR) -> u32);
 ::windows_targets::link!("rtutils.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"] fn TracePutsExW(dwtraceid : u32, dwflags : u32, lpszstring : ::windows_sys::core::PCWSTR) -> u32);
 ::windows_targets::link!("rtutils.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"] fn TraceRegisterExA(lpszcallername : ::windows_sys::core::PCSTR, dwflags : u32) -> u32);

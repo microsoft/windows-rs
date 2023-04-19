@@ -18,4 +18,5 @@ features = [
     "Win32_Foundation",
     "Win32_Networking_Ldap",
     "Win32_System_SystemInformation",
+    "Win32_UI_WindowsAndMessaging",
 ]
