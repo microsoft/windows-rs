@@ -1096,7 +1096,6 @@ impl<'a> Reader<'a> {
         None
     }
     pub fn type_def_bases(&self, mut row: TypeDef) -> Vec<TypeDef> {
-        // TODO: maybe return Vec<Type>
         let mut bases = Vec::new();
         loop {
             match self.type_def_extends(row) {
