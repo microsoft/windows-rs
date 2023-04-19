@@ -16,7 +16,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
 }
 
 fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
-    if gen.reader.type_def_extends(def) == TypeName::Attribute {
+    if gen.reader.type_def_extends(def) == Some(TypeName::Attribute) {
         return TokenStream::new();
     }
 
