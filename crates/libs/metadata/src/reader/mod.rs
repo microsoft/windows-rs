@@ -1151,7 +1151,8 @@ impl<'a> Reader<'a> {
     pub fn type_def_is_nullable(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
             TypeKind::Interface | TypeKind::Class => true,
-            // TODO: win32 callbacks should be nullable...
+            // Win32 callbacks are defined as `Option<T>` so we don't include them here to avoid them
+            // from being doubly wrapped in `Option`.
             TypeKind::Delegate => self.type_def_flags(row).contains(TypeAttributes::WINRT),
             _ => false,
         }
@@ -1404,7 +1405,8 @@ impl<'a> Reader<'a> {
         if self.type_size(&param.ty.deref()) > 16 {
             return false;
         }
-        // TODO: find a way to treat this like COM interface result values.
+        // Win32 callbacks are defined as `Option<T>` so we don't include them here to avoid
+        // producing the `Result<Option<T>>` anti-pattern.
         !self.type_is_callback(&param.ty.deref())
     }
     pub fn signature_kind(&self, signature: &Signature) -> SignatureKind {
