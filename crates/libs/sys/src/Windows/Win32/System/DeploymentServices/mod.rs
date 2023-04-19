@@ -41,7 +41,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("wdspxe.dll" "system" #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"] fn PxeSendReply(hclientrequest : super::super::Foundation:: HANDLE, ppacket : *const ::core::ffi::c_void, upacketlen : u32, paddress : *const PXE_ADDRESS) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wdspxe.dll" "cdecl" #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"] fn PxeTrace(hprovider : super::super::Foundation:: HANDLE, severity : u32, pszformat : ::windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("wdspxe.dll" "cdecl" #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"] fn PxeTrace(hprovider : super::super::Foundation:: HANDLE, severity : u32, pszformat : ::windows_sys::core::PCWSTR, ...) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("wdspxe.dll" "system" #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"] fn PxeTraceV(hprovider : super::super::Foundation:: HANDLE, severity : u32, pszformat : ::windows_sys::core::PCWSTR, params : *const i8) -> u32);
 #[cfg(feature = "Win32_Foundation")]
@@ -115,7 +115,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("wdsclientapi.dll" "system" #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"] fn WdsCliInitializeLog(hsession : super::super::Foundation:: HANDLE, ulclientarchitecture : CPU_ARCHITECTURE, pwszclientid : ::windows_sys::core::PCWSTR, pwszclientaddress : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wdsclientapi.dll" "cdecl" #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"] fn WdsCliLog(hsession : super::super::Foundation:: HANDLE, ulloglevel : u32, ulmessagecode : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wdsclientapi.dll" "cdecl" #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"] fn WdsCliLog(hsession : super::super::Foundation:: HANDLE, ulloglevel : u32, ulmessagecode : u32, ...) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("wdsclientapi.dll" "system" #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"] fn WdsCliObtainDriverPackages(himage : super::super::Foundation:: HANDLE, ppwszservername : *mut ::windows_sys::core::PWSTR, pppwszdriverpackages : *mut *mut ::windows_sys::core::PWSTR, pulcount : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
@@ -159,7 +159,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("wdsmc.dll" "system" #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"] fn WdsTransportServerRegisterCallback(hprovider : super::super::Foundation:: HANDLE, callbackid : TRANSPORTPROVIDER_CALLBACK_ID, pfncallback : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wdsmc.dll" "cdecl" #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"] fn WdsTransportServerTrace(hprovider : super::super::Foundation:: HANDLE, severity : u32, pwszformat : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wdsmc.dll" "cdecl" #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"] fn WdsTransportServerTrace(hprovider : super::super::Foundation:: HANDLE, severity : u32, pwszformat : ::windows_sys::core::PCWSTR, ...) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("wdsmc.dll" "system" #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"] fn WdsTransportServerTraceV(hprovider : super::super::Foundation:: HANDLE, severity : u32, pwszformat : ::windows_sys::core::PCWSTR, params : *const i8) -> ::windows_sys::core::HRESULT);
 pub type IWdsTransportCacheable = *mut ::core::ffi::c_void;

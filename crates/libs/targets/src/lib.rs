@@ -24,7 +24,7 @@ macro_rules! link {
 macro_rules! link {
     ($library:literal $abi:literal $($link_name:literal)? $(#[$doc:meta])? fn $($function:tt)*) => (
         #[link(name = $library, kind = "raw-dylib", modifiers = "+verbatim")]
-        extern "system" {
+        extern "C" {
             $(#[$doc])?
             $(#[link_name=$link_name])?
             pub fn $($function)*;

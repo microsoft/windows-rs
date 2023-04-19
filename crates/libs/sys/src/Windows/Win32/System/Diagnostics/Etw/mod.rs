@@ -107,7 +107,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn TraceEventInstance(tracehandle : u64, eventtrace : *const EVENT_INSTANCE_HEADER, instinfo : *const EVENT_INSTANCE_INFO, parentinstinfo : *const EVENT_INSTANCE_INFO) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "cdecl" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn TraceMessage(loggerhandle : u64, messageflags : TRACE_MESSAGE_FLAGS, messageguid : *const ::windows_sys::core::GUID, messagenumber : u16) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "cdecl" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn TraceMessage(loggerhandle : u64, messageflags : TRACE_MESSAGE_FLAGS, messageguid : *const ::windows_sys::core::GUID, messagenumber : u16, ...) -> super::super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn TraceMessageVa(loggerhandle : u64, messageflags : TRACE_MESSAGE_FLAGS, messageguid : *const ::windows_sys::core::GUID, messagenumber : u16, messagearglist : *const i8) -> super::super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]

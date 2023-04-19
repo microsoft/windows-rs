@@ -13,8 +13,8 @@
 ::windows_targets::link!("wldap32.dll" "cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ber_init(pberval : *mut LDAP_BERVAL) -> *mut BerElement);
 ::windows_targets::link!("wldap32.dll" "cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ber_next_element(pberelement : *mut BerElement, plen : *mut u32, opaque : ::windows_sys::core::PCSTR) -> u32);
 ::windows_targets::link!("wldap32.dll" "cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ber_peek_tag(pberelement : *mut BerElement, plen : *mut u32) -> u32);
-::windows_targets::link!("wldap32.dll" "cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ber_printf(pberelement : *mut BerElement, fmt : ::windows_sys::core::PCSTR) -> i32);
-::windows_targets::link!("wldap32.dll" "cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ber_scanf(pberelement : *mut BerElement, fmt : ::windows_sys::core::PCSTR) -> u32);
+::windows_targets::link!("wldap32.dll" "cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ber_printf(pberelement : *mut BerElement, fmt : ::windows_sys::core::PCSTR, ...) -> i32);
+::windows_targets::link!("wldap32.dll" "cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ber_scanf(pberelement : *mut BerElement, fmt : ::windows_sys::core::PCSTR, ...) -> u32);
 ::windows_targets::link!("wldap32.dll" "cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ber_skip_tag(pberelement : *mut BerElement, plen : *mut u32) -> u32);
 ::windows_targets::link!("wldap32.dll" "cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn cldap_open(hostname : ::windows_sys::core::PCSTR, portnumber : u32) -> *mut LDAP);
 ::windows_targets::link!("wldap32.dll" "cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn cldap_openA(hostname : ::windows_sys::core::PCSTR, portnumber : u32) -> *mut LDAP);

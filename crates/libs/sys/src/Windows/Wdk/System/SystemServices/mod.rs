@@ -124,9 +124,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("ntoskrnl.exe" "system" #[doc = "*Required features: `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`*"] fn CmUnRegisterCallback(cookie : i64) -> super::super::super::Win32::Foundation:: NTSTATUS);
 ::windows_targets::link!("ntoskrnl.exe" "system" #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"] fn DbgBreakPointWithStatus(status : u32) -> ());
-::windows_targets::link!("ntdll.dll" "cdecl" #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"] fn DbgPrint(format : ::windows_sys::core::PCSTR) -> u32);
-::windows_targets::link!("ntdll.dll" "cdecl" #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"] fn DbgPrintEx(componentid : u32, level : u32, format : ::windows_sys::core::PCSTR) -> u32);
-::windows_targets::link!("ntdll.dll" "cdecl" #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"] fn DbgPrintReturnControlC(format : ::windows_sys::core::PCSTR) -> u32);
+::windows_targets::link!("ntdll.dll" "cdecl" #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"] fn DbgPrint(format : ::windows_sys::core::PCSTR, ...) -> u32);
+::windows_targets::link!("ntdll.dll" "cdecl" #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"] fn DbgPrintEx(componentid : u32, level : u32, format : ::windows_sys::core::PCSTR, ...) -> u32);
+::windows_targets::link!("ntdll.dll" "cdecl" #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"] fn DbgPrintReturnControlC(format : ::windows_sys::core::PCSTR, ...) -> u32);
 ::windows_targets::link!("ntdll.dll" "system" #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"] fn DbgPrompt(prompt : ::windows_sys::core::PCSTR, response : ::windows_sys::core::PSTR, length : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("ntdll.dll" "system" #[doc = "*Required features: `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`*"] fn DbgQueryDebugFilterState(componentid : u32, level : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);

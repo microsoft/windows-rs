@@ -922,7 +922,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("ntdll.dll" "system" #[doc = "*Required features: `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn RtlInitializeSid(sid : super::super::super::Win32::Foundation:: PSID, identifierauthority : *const SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8) -> super::super::super::Win32::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdll.dll" "cdecl" #[doc = "*Required features: `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn RtlInitializeSidEx(sid : super::super::super::Win32::Foundation:: PSID, identifierauthority : *const SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8) -> super::super::super::Win32::Foundation:: NTSTATUS);
+::windows_targets::link!("ntdll.dll" "cdecl" #[doc = "*Required features: `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn RtlInitializeSidEx(sid : super::super::super::Win32::Foundation:: PSID, identifierauthority : *const SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8, ...) -> super::super::super::Win32::Foundation:: NTSTATUS);
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
 ::windows_targets::link!("ntoskrnl.exe" "system" #[doc = "*Required features: `\"Wdk_Storage_FileSystem\"`, `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`*"] fn RtlInitializeUnicodePrefix(prefixtable : *mut UNICODE_PREFIX_TABLE) -> ());
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
