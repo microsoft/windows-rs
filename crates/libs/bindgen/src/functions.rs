@@ -220,7 +220,7 @@ fn gen_link(gen: &Gen, signature: &Signature, cfg: &Cfg) -> TokenStream {
             #[link(name = #library)]
             extern #abi {
                 #link_name
-                pub fn #ident(#(#params),* #vararg) #return_type;
+                pub fn #ident(#(#params,)* #vararg) #return_type;
             }
         }
     } else if let Some(library) = gen.reader.method_def_static_lib(signature.def) {
@@ -228,7 +228,7 @@ fn gen_link(gen: &Gen, signature: &Signature, cfg: &Cfg) -> TokenStream {
             #[link(name = #library, kind = "static")]
             extern #abi {
                 #link_name
-                pub fn #ident(#(#params),* #vararg) #return_type;
+                pub fn #ident(#(#params,)* #vararg) #return_type;
             }
         }
     } else {

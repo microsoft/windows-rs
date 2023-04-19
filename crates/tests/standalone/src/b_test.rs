@@ -12,6 +12,7 @@
 ::windows_targets::link!("kernel32.dll" "system" fn SetEvent(hevent : HANDLE) -> BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObject(hhandle : HANDLE, dwmilliseconds : u32) -> WIN32_ERROR);
 ::windows_targets::link!("ole32.dll" "system" fn CoCreateInstance(rclsid : *const GUID, punkouter : IUnknown, dwclscontext : CLSCTX, riid : *const GUID, ppv : *mut *mut ::core::ffi::c_void) -> HRESULT);
+::windows_targets::link!("user32.dll" "cdecl" fn wsprintfA(param0 : PSTR, param1 : PCSTR, ...) -> i32);
 pub type BOOL = i32;
 pub type CLSCTX = u32;
 pub const CLSCTX_ALL: CLSCTX = 23u32;
@@ -41,7 +42,9 @@ impl ::core::clone::Clone for GUID {
 pub type HANDLE = isize;
 pub type HRESULT = i32;
 pub type IUnknown = *mut ::core::ffi::c_void;
+pub type PCSTR = *const u8;
 pub type PCWSTR = *const u16;
+pub type PSTR = *mut u8;
 #[repr(C)]
 pub struct SECURITY_ATTRIBUTES {
     pub nLength: u32,
