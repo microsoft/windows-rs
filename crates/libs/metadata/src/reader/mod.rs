@@ -861,8 +861,11 @@ impl<'a> Reader<'a> {
     pub fn type_def_type_name(&self, row: TypeDef) -> TypeName {
         TypeName::new(self.type_def_namespace(row), self.type_def_name(row))
     }
-    pub fn type_def_extends(&self, row: TypeDef) -> TypeName {
-        self.type_def_or_ref(self.row_decode(row.0, 3))
+    pub fn type_def_extends(&self, row: TypeDef) -> Option<TypeName> {
+        match self.row_usize(row.0, 3) {
+            0 => None,
+            code => Some(self.type_def_or_ref(TypeDefOrRef::decode(row.0.file as _, code))),
+        }
     }
     pub fn type_def_fields(&self, row: TypeDef) -> impl Iterator<Item = Field> {
         self.row_list(row.0, TABLE_FIELD, 4).map(Field)
@@ -894,15 +897,12 @@ impl<'a> Reader<'a> {
         }
     }
     pub fn type_def_kind(&self, row: TypeDef) -> TypeKind {
-        if self.type_def_flags(row).contains(TypeAttributes::INTERFACE) {
-            TypeKind::Interface
-        } else {
-            match self.type_def_extends(row) {
-                TypeName::Enum => TypeKind::Enum,
-                TypeName::Delegate => TypeKind::Delegate,
-                TypeName::Struct => TypeKind::Struct,
-                _ => TypeKind::Class,
-            }
+        match self.type_def_extends(row) {
+            None => TypeKind::Interface,
+            Some(TypeName::Enum) => TypeKind::Enum,
+            Some(TypeName::Delegate) => TypeKind::Delegate,
+            Some(TypeName::Struct) => TypeKind::Struct,
+            Some(_) => TypeKind::Class,
         }
     }
     pub fn type_def_stdcall(&self, row: TypeDef) -> usize {
@@ -1099,12 +1099,12 @@ impl<'a> Reader<'a> {
         // TODO: maybe return Vec<Type>
         let mut bases = Vec::new();
         loop {
-            let extends = self.type_def_extends(row);
-            if extends == TypeName::Object {
-                break;
-            } else {
-                row = self.get(extends).next().expect("Type not found");
-                bases.push(row);
+            match self.type_def_extends(row) {
+                Some(base) if base != TypeName::Object => {
+                    row = self.get(base).next().expect("Type not found");
+                    bases.push(row);
+                }
+                _ => break,
             }
         }
         bases
