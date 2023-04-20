@@ -99,6 +99,7 @@ fn filter<'a>(reader: &'a Reader) -> Filter<'a> {
     let mut exclude = vec![];
 
     for namespace in reader.namespaces() {
+        // Find any COM interfaces in this namespace.
         let mut interfaces = false;
         for def in reader.namespace_types(namespace, &Default::default()) {
             if reader.type_def_kind(def) == TypeKind::Interface {
@@ -106,6 +107,8 @@ fn filter<'a>(reader: &'a Reader) -> Filter<'a> {
                 break;
             }
         }
+        
+        // Find any function that does *not* refer to a COM interface.
         let mut functions = false;
         for function in reader.namespace_functions(namespace) {
             let cfg = reader.signature_cfg(&reader.method_def_signature(function, &[]));
@@ -124,12 +127,9 @@ fn filter<'a>(reader: &'a Reader) -> Filter<'a> {
         }
     }
 
-    const EXCLUDE:  [&str; 17] = [
-        "Windows.Win32.AI.MachineLearning",
+    // Exclude additional namespace not covered by the hieuristic above. 
+    const EXCLUDE:  [&str; 13] = [
         "Windows.Win32.Graphics.Direct2D",
-        "Windows.Win32.Graphics.Direct3D10",
-        "Windows.Win32.Graphics.Direct3D12",
-        "Windows.Win32.Graphics.Direct3D9",
         "Windows.Win32.Graphics.DirectComposition",
         "Windows.Win32.Graphics.DirectDraw",
         "Windows.Win32.Graphics.DirectWrite",
@@ -146,7 +146,7 @@ fn filter<'a>(reader: &'a Reader) -> Filter<'a> {
 
     for namespace in &EXCLUDE {
         if exclude.contains(namespace) {
-            println!("already excluded `{namespace}`");
+            panic!("already excluded `{}`", namespace);
         } else {
             exclude.push(namespace);
         }
