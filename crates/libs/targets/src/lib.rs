@@ -8,12 +8,12 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
 #[macro_export]
 #[doc(hidden)]
 macro_rules! link {
-    ($library:literal $abi:literal $($link_name:literal)? $(#[$doc:meta])? fn $($function:tt)*) => (
+    ($library:literal $abi:literal $($link_name:literal)? $(#[$doc:meta])? $vis:vis fn $($function:tt)*) => (
         #[link(name = $library, kind = "raw-dylib", modifiers = "+verbatim", import_name_type = "undecorated")]
         extern $abi {
             $(#[$doc])?
             $(#[link_name=$link_name])?
-            pub fn $($function)*;
+            $vis fn $($function)*;
         }
     )
 }
@@ -22,12 +22,12 @@ macro_rules! link {
 #[macro_export]
 #[doc(hidden)]
 macro_rules! link {
-    ($library:literal $abi:literal $($link_name:literal)? $(#[$doc:meta])? fn $($function:tt)*) => (
+    ($library:literal $abi:literal $($link_name:literal)? $(#[$doc:meta])? $vis:vis fn $($function:tt)*) => (
         #[link(name = $library, kind = "raw-dylib", modifiers = "+verbatim")]
         extern "C" {
             $(#[$doc])?
             $(#[link_name=$link_name])?
-            pub fn $($function)*;
+            $vis fn $($function)*;
         }
     )
 }
@@ -36,12 +36,12 @@ macro_rules! link {
 #[macro_export]
 #[doc(hidden)]
 macro_rules! link {
-    ($library:literal $abi:literal $($link_name:literal)? $(#[$doc:meta])? fn $($function:tt)*) => (
+    ($library:literal $abi:literal $($link_name:literal)? $(#[$doc:meta])? $vis:vis fn $($function:tt)*) => (
         #[link(name = "windows.0.48.0")]
         extern $abi {
             $(#[$doc])?
             $(#[link_name=$link_name])?
-            pub fn $($function)*;
+            $vis fn $($function)*;
         }
     )
 }
@@ -50,10 +50,10 @@ macro_rules! link {
 #[macro_export]
 #[doc(hidden)]
 macro_rules! link {
-    ($library:literal $abi:literal $($link_name:literal)? $(#[$doc:meta])? fn $($function:tt)*) => (
+    ($library:literal $abi:literal $($link_name:literal)? $(#[$doc:meta])? $vis:vis fn $($function:tt)*) => (
         extern $abi {
             $(#[$doc])?
-            pub fn $($function)*;
+            $vis fn $($function)*;
         }
     )
 }
