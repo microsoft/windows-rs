@@ -1,5 +1,3 @@
-#[cfg(feature = "Win32_Security_Authentication_Identity_Provider")]
-pub mod Provider;
 #[cfg(feature = "Win32_Security_Credentials")]
 ::windows_targets::link!("secur32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"] fn AcceptSecurityContext(phcredential : *const super::super::Credentials:: SecHandle, phcontext : *const super::super::Credentials:: SecHandle, pinput : *const SecBufferDesc, fcontextreq : ASC_REQ_FLAGS, targetdatarep : u32, phnewcontext : *mut super::super::Credentials:: SecHandle, poutput : *mut SecBufferDesc, pfcontextattr : *mut u32, ptsexpiry : *mut i64) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security_Credentials")]

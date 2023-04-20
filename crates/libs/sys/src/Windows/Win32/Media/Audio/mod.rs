@@ -1,11 +1,3 @@
-#[cfg(feature = "Win32_Media_Audio_Apo")]
-pub mod Apo;
-#[cfg(feature = "Win32_Media_Audio_DirectMusic")]
-pub mod DirectMusic;
-#[cfg(feature = "Win32_Media_Audio_Endpoints")]
-pub mod Endpoints;
-#[cfg(feature = "Win32_Media_Audio_XAudio2")]
-pub mod XAudio2;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 ::windows_targets::link!("mmdevapi.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"] fn ActivateAudioInterfaceAsync(deviceinterfacepath : ::windows_sys::core::PCWSTR, riid : *const ::windows_sys::core::GUID, activationparams : *const super::super::System::Com::StructuredStorage:: PROPVARIANT, completionhandler : IActivateAudioInterfaceCompletionHandler, activationoperation : *mut IActivateAudioInterfaceAsyncOperation) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn CoRegisterMessageFilter(lpmessagefilter : IMessageFilter, lplpmessagefilter : *mut IMessageFilter) -> ::windows_sys::core::HRESULT);

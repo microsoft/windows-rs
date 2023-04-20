@@ -1,5 +1,3 @@
-#[cfg(feature = "Win32_Storage_Xps_Printing")]
-pub mod Printing;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdi32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"] fn AbortDoc(hdc : super::super::Graphics::Gdi:: HDC) -> i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]

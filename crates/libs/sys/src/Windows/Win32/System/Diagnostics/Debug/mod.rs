@@ -1,5 +1,3 @@
-#[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
-pub mod ActiveScript;
 #[cfg(feature = "Win32_System_Diagnostics_Debug_Extensions")]
 pub mod Extensions;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]

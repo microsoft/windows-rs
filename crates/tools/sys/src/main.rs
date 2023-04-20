@@ -1,40 +1,6 @@
+use metadata::reader::*;
 use rayon::prelude::*;
 use std::io::prelude::*;
-
-/// Namespaces to include/exclude from code generation for the `windows-sys` crate.
-
-const INCLUDE_NAMESPACES: [&str; 2] = ["Windows.Win32", "Windows.Wdk"];
-
-const EXCLUDE_NAMESPACES: [&str; 28] = [
-    "Windows.Win32.AI.MachineLearning",
-    "Windows.Win32.Graphics.CompositionSwapchain",
-    "Windows.Win32.Graphics.Direct2D",
-    "Windows.Win32.Graphics.Direct3D",
-    "Windows.Win32.Graphics.Direct3D10",
-    "Windows.Win32.Graphics.Direct3D11",
-    "Windows.Win32.Graphics.Direct3D11on12",
-    "Windows.Win32.Graphics.Direct3D12",
-    "Windows.Win32.Graphics.Direct3D9",
-    "Windows.Win32.Graphics.Direct3D9on12",
-    "Windows.Win32.Graphics.DirectComposition",
-    "Windows.Win32.Graphics.DirectDraw",
-    "Windows.Win32.Graphics.DirectManipulation",
-    "Windows.Win32.Graphics.DirectWrite",
-    "Windows.Win32.Graphics.DXCore",
-    "Windows.Win32.Graphics.Dxgi",
-    "Windows.Win32.Graphics.Imaging",
-    "Windows.Win32.Foundation.Metadata",
-    "Windows.Win32.Media.Audio.DirectSound",
-    "Windows.Win32.Media.DirectShow",
-    "Windows.Win32.Media.MediaFoundation",
-    "Windows.Win32.Media.PictureAcquisition",
-    "Windows.Win32.System.Diagnostics.Debug.WebApp",
-    "Windows.Win32.System.SideShow",
-    "Windows.Win32.System.TransactionServer",
-    "Windows.Win32.System.WinRT",
-    "Windows.Win32.Web.MsHtml",
-    "Windows.Win32.UI.Xaml",
-];
 
 fn main() {
     let time = std::time::Instant::now();
@@ -55,14 +21,15 @@ fn main() {
         _ = std::fs::remove_dir_all(&output);
     }
     output.pop();
-    let files = metadata::reader::File::with_default(&[]).unwrap();
-    let reader = &metadata::reader::Reader::new(&files);
+    let files = File::with_default(&[]).unwrap();
+    let reader = &Reader::new(&files);
     if !namespace.is_empty() {
         let tree = reader.tree(&namespace, &Default::default());
         gen_tree(reader, &output, &tree);
         return;
     }
-    let root = reader.tree("Windows", &metadata::reader::Filter::new(&INCLUDE_NAMESPACES, &EXCLUDE_NAMESPACES));
+
+    let root = reader.tree("Windows", &filter(reader));
     let trees = root.flatten();
     trees.par_iter().for_each(|tree| gen_tree(reader, &output, tree));
     output.pop();
@@ -115,7 +82,7 @@ default = []
     println!("  Finished in {:.2}s", time.elapsed().as_secs_f32());
 }
 
-fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &metadata::reader::Tree) {
+fn gen_tree(reader: &Reader, output: &std::path::Path, tree: &Tree) {
     let mut path = std::path::PathBuf::from(output);
     path.push(tree.namespace.replace('.', "/"));
     std::fs::create_dir_all(&path).unwrap();
@@ -126,4 +93,62 @@ fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &
     gen.doc = true;
     let tokens = bindgen::namespace(&gen, tree);
     std::fs::write(path.join("mod.rs"), tokens).unwrap();
+}
+
+fn filter<'a>(reader: &'a Reader) -> Filter<'a> {
+    let mut exclude = vec![];
+
+    for namespace in reader.namespaces() {
+        let mut interfaces = 0;
+        for def in reader.namespace_types(namespace, &Default::default()) {
+            if reader.type_def_kind(def) == TypeKind::Interface {
+                interfaces += 1;
+            }
+        }
+        let mut functions = 0;
+        for function in reader.namespace_functions(namespace) {
+            let cfg = reader.signature_cfg(&reader.method_def_signature(function, &[]));
+            if cfg.types.values().flatten().any(|def| reader.type_def_kind(*def) == TypeKind::Interface) {
+                continue;
+            }
+            if cfg.core_types.iter().any(|ty| matches!(ty, Type::IUnknown | Type::IInspectable)) {
+                continue;
+            }
+            functions += 1;
+        }
+
+        if interfaces > 0 && functions == 0 {
+            exclude.push(namespace);
+        }
+    }
+
+    const EXCLUDE:  [&str; 17] = [
+        "Windows.Win32.AI.MachineLearning",
+        "Windows.Win32.Graphics.Direct2D",
+        "Windows.Win32.Graphics.Direct3D10",
+        "Windows.Win32.Graphics.Direct3D12",
+        "Windows.Win32.Graphics.Direct3D9",
+        "Windows.Win32.Graphics.DirectComposition",
+        "Windows.Win32.Graphics.DirectDraw",
+        "Windows.Win32.Graphics.DirectWrite",
+        "Windows.Win32.Graphics.DXCore",
+        "Windows.Win32.Graphics.Dxgi",
+        "Windows.Win32.Graphics.Imaging",
+        "Windows.Win32.Foundation.Metadata",
+        "Windows.Win32.Media.Audio.DirectSound",
+        "Windows.Win32.Media.DirectShow",
+        "Windows.Win32.Media.MediaFoundation",
+        "Windows.Win32.System.WinRT",
+        "Windows.Win32.UI.Xaml",
+    ];
+
+    for namespace in &EXCLUDE {
+        if exclude.contains(namespace) {
+            println!("already excluded `{namespace}`");
+        } else {
+            exclude.push(namespace);
+        }
+    }
+
+    Filter::new(&["Windows.Win32", "Windows.Wdk"], &exclude)
 }
