@@ -1,7 +1,5 @@
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
 pub mod Dialogs;
-#[cfg(feature = "Win32_UI_Controls_RichEdit")]
-pub mod RichEdit;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_targets::link!("uxtheme.dll" "system" #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn BeginBufferedAnimation(hwnd : super::super::Foundation:: HWND, hdctarget : super::super::Graphics::Gdi:: HDC, prctarget : *const super::super::Foundation:: RECT, dwformat : BP_BUFFERFORMAT, ppaintparams : *const BP_PAINTPARAMS, panimationparams : *const BP_ANIMATIONPARAMS, phdcfrom : *mut super::super::Graphics::Gdi:: HDC, phdcto : *mut super::super::Graphics::Gdi:: HDC) -> isize);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]

@@ -4,16 +4,10 @@ pub mod Cabinets;
 pub mod CloudFilters;
 #[cfg(feature = "Win32_Storage_Compression")]
 pub mod Compression;
-#[cfg(feature = "Win32_Storage_DataDeduplication")]
-pub mod DataDeduplication;
 #[cfg(feature = "Win32_Storage_DistributedFileSystem")]
 pub mod DistributedFileSystem;
-#[cfg(feature = "Win32_Storage_EnhancedStorage")]
-pub mod EnhancedStorage;
 #[cfg(feature = "Win32_Storage_FileHistory")]
 pub mod FileHistory;
-#[cfg(feature = "Win32_Storage_FileServerResourceManager")]
-pub mod FileServerResourceManager;
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub mod FileSystem;
 #[cfg(feature = "Win32_Storage_Imapi")]
@@ -38,9 +32,5 @@ pub mod ProjectedFileSystem;
 pub mod StructuredStorage;
 #[cfg(feature = "Win32_Storage_Vhd")]
 pub mod Vhd;
-#[cfg(feature = "Win32_Storage_VirtualDiskService")]
-pub mod VirtualDiskService;
-#[cfg(feature = "Win32_Storage_Vss")]
-pub mod Vss;
 #[cfg(feature = "Win32_Storage_Xps")]
 pub mod Xps;

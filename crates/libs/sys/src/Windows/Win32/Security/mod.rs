@@ -4,8 +4,6 @@ pub mod AppLocker;
 pub mod Authentication;
 #[cfg(feature = "Win32_Security_Authorization")]
 pub mod Authorization;
-#[cfg(feature = "Win32_Security_ConfigurationSnapin")]
-pub mod ConfigurationSnapin;
 #[cfg(feature = "Win32_Security_Credentials")]
 pub mod Credentials;
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -24,8 +22,6 @@ pub mod Isolation;
 pub mod LicenseProtection;
 #[cfg(feature = "Win32_Security_NetworkAccessProtection")]
 pub mod NetworkAccessProtection;
-#[cfg(feature = "Win32_Security_Tpm")]
-pub mod Tpm;
 #[cfg(feature = "Win32_Security_WinTrust")]
 pub mod WinTrust;
 #[cfg(feature = "Win32_Security_WinWlx")]

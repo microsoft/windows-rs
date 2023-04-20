@@ -6,8 +6,6 @@ pub mod BiometricFramework;
 pub mod Bluetooth;
 #[cfg(feature = "Win32_Devices_Communication")]
 pub mod Communication;
-#[cfg(feature = "Win32_Devices_DeviceAccess")]
-pub mod DeviceAccess;
 #[cfg(feature = "Win32_Devices_DeviceAndDriverInstallation")]
 pub mod DeviceAndDriverInstallation;
 #[cfg(feature = "Win32_Devices_DeviceQuery")]
@@ -18,14 +16,8 @@ pub mod Display;
 pub mod Enumeration;
 #[cfg(feature = "Win32_Devices_Fax")]
 pub mod Fax;
-#[cfg(feature = "Win32_Devices_FunctionDiscovery")]
-pub mod FunctionDiscovery;
-#[cfg(feature = "Win32_Devices_Geolocation")]
-pub mod Geolocation;
 #[cfg(feature = "Win32_Devices_HumanInterfaceDevice")]
 pub mod HumanInterfaceDevice;
-#[cfg(feature = "Win32_Devices_ImageAcquisition")]
-pub mod ImageAcquisition;
 #[cfg(feature = "Win32_Devices_PortableDevices")]
 pub mod PortableDevices;
 #[cfg(feature = "Win32_Devices_Properties")]
