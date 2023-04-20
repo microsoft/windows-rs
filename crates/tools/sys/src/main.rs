@@ -99,13 +99,14 @@ fn filter<'a>(reader: &'a Reader) -> Filter<'a> {
     let mut exclude = vec![];
 
     for namespace in reader.namespaces() {
-        let mut interfaces = 0;
+        let mut interfaces = false;
         for def in reader.namespace_types(namespace, &Default::default()) {
             if reader.type_def_kind(def) == TypeKind::Interface {
-                interfaces += 1;
+                interfaces = true;
+                break;
             }
         }
-        let mut functions = 0;
+        let mut functions = false;
         for function in reader.namespace_functions(namespace) {
             let cfg = reader.signature_cfg(&reader.method_def_signature(function, &[]));
             if cfg.types.values().flatten().any(|def| reader.type_def_kind(*def) == TypeKind::Interface) {
@@ -114,10 +115,11 @@ fn filter<'a>(reader: &'a Reader) -> Filter<'a> {
             if cfg.core_types.iter().any(|ty| matches!(ty, Type::IUnknown | Type::IInspectable)) {
                 continue;
             }
-            functions += 1;
+            functions = true;
+            break;
         }
 
-        if interfaces > 0 && functions == 0 {
+        if interfaces && !functions {
             exclude.push(namespace);
         }
     }
