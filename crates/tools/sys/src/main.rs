@@ -100,49 +100,27 @@ fn filter<'a>(reader: &'a Reader) -> Filter<'a> {
 
     for namespace in reader.namespaces() {
         // Find any COM interfaces in this namespace.
-        let mut interfaces = false;
-        for def in reader.namespace_types(namespace, &Default::default()) {
-            if reader.type_def_kind(def) == TypeKind::Interface {
-                interfaces = true;
-                break;
-            }
-        }
-        
-        // Find any function that does *not* refer to a COM interface.
-        let mut functions = false;
-        for function in reader.namespace_functions(namespace) {
+        let interfaces = reader.namespace_types(namespace, &Default::default()).any(|def| reader.type_def_kind(def) == TypeKind::Interface);
+
+        // Find any interfaces-independent functions in this namespace.
+        let functions = reader.namespace_functions(namespace).any(|function| {
             let cfg = reader.signature_cfg(&reader.method_def_signature(function, &[]));
             if cfg.types.values().flatten().any(|def| reader.type_def_kind(*def) == TypeKind::Interface) {
-                continue;
+                return false;
             }
             if cfg.core_types.iter().any(|ty| matches!(ty, Type::IUnknown | Type::IInspectable)) {
-                continue;
+                return false;
             }
-            functions = true;
-            break;
-        }
+            true
+        });
 
         if interfaces && !functions {
             exclude.push(namespace);
         }
     }
 
-    // Exclude additional namespace not covered by the hieuristic above. 
-    const EXCLUDE:  [&str; 13] = [
-        "Windows.Win32.Graphics.Direct2D",
-        "Windows.Win32.Graphics.DirectComposition",
-        "Windows.Win32.Graphics.DirectDraw",
-        "Windows.Win32.Graphics.DirectWrite",
-        "Windows.Win32.Graphics.DXCore",
-        "Windows.Win32.Graphics.Dxgi",
-        "Windows.Win32.Graphics.Imaging",
-        "Windows.Win32.Foundation.Metadata",
-        "Windows.Win32.Media.Audio.DirectSound",
-        "Windows.Win32.Media.DirectShow",
-        "Windows.Win32.Media.MediaFoundation",
-        "Windows.Win32.System.WinRT",
-        "Windows.Win32.UI.Xaml",
-    ];
+    // Exclude additional namespace not covered by the hieuristic above.
+    const EXCLUDE: [&str; 13] = ["Windows.Win32.Graphics.Direct2D", "Windows.Win32.Graphics.DirectComposition", "Windows.Win32.Graphics.DirectDraw", "Windows.Win32.Graphics.DirectWrite", "Windows.Win32.Graphics.DXCore", "Windows.Win32.Graphics.Dxgi", "Windows.Win32.Graphics.Imaging", "Windows.Win32.Foundation.Metadata", "Windows.Win32.Media.Audio.DirectSound", "Windows.Win32.Media.DirectShow", "Windows.Win32.Media.MediaFoundation", "Windows.Win32.System.WinRT", "Windows.Win32.UI.Xaml"];
 
     for namespace in &EXCLUDE {
         if exclude.contains(namespace) {
