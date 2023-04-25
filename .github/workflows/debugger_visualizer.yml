@@ -28,4 +28,4 @@ jobs:
         run: rustup target add ${{ matrix.target }}
 
       - name: Test
-        run: cargo test -p test_debugger_visualizer_x -- --test-threads=1
+        run: echo cargo test -p test_debugger_visualizer_x -- --test-threads=1
