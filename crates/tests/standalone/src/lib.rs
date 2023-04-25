@@ -145,3 +145,20 @@ fn test() {
         assert!(UIAnimationManager.data4 == expected.data4);
     }
 }
+
+#[test]
+fn uri() -> windows_core::Result<()> {
+    use b_uri::*;
+    let uri = Uri::CreateUri(windows_core::h!("https://kennykerr.ca/"))?;
+    assert_eq!(uri.Domain()?, "kennykerr.ca");
+    Ok(())
+}
+
+#[test]
+fn calendar() -> windows_core::Result<()> {
+    use b_calendar::*;
+    let calendar = Calendar::new()?;
+    let year = calendar.Year()?;
+    calendar.SetYear(year)?;
+    Ok(())
+}
