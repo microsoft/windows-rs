@@ -8,7 +8,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
     let identity_type = if let Some(first) = attributes.implement.get(0) {
         first.to_ident()
     } else {
-        quote! { ::windows_core::IInspectable }
+        quote! { ::windows::core::IInspectable }
     };
 
     let original_type2 = original_type.clone();
@@ -63,9 +63,9 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                     unsafe { ::core::mem::transmute(vtable_ptr) }
                 }
             }
-            impl #generics ::windows_core::AsImpl<#original_ident::#generics> for #interface_ident where #constraints {
+            impl #generics ::windows::core::AsImpl<#original_ident::#generics> for #interface_ident where #constraints {
                 fn as_impl(&self) -> &#original_ident::#generics {
-                    let this = ::windows_core::Interface::as_raw(self);
+                    let this = ::windows::core::Interface::as_raw(self);
                     // SAFETY: the offset is guranteed to be in bounds, and the implementation struct
                     // is guaranteed to live at least as long as `self`.
                     unsafe {
@@ -82,33 +82,33 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
     let tokens = quote! {
         #[repr(C)]
         struct #impl_ident#generics where #constraints {
-            identity: *const ::windows_core::IInspectable_Vtbl,
+            identity: *const ::windows::core::IInspectable_Vtbl,
             vtables: (#(*const #vtbl_idents,)*),
              this: #original_ident::#generics,
-            count: ::windows_core::imp::WeakRefCount,
+            count: ::windows::core::imp::WeakRefCount,
         }
         impl #generics #impl_ident::#generics where #constraints {
             const VTABLES: (#(#vtbl_idents2,)*) = (#(#vtable_news,)*);
-            const IDENTITY: ::windows_core::IInspectable_Vtbl = ::windows_core::IInspectable_Vtbl::new::<Self, #identity_type, 0>();
+            const IDENTITY: ::windows::core::IInspectable_Vtbl = ::windows::core::IInspectable_Vtbl::new::<Self, #identity_type, 0>();
             fn new(this: #original_ident::#generics) -> Self {
                 Self {
                     identity: &Self::IDENTITY,
                     vtables:(#(&Self::VTABLES.#offset,)*),
                     this,
-                    count: ::windows_core::imp::WeakRefCount::new(),
+                    count: ::windows::core::imp::WeakRefCount::new(),
                 }
             }
         }
-         impl #generics ::windows_core::IUnknownImpl for #impl_ident::#generics where #constraints {
+         impl #generics ::windows::core::IUnknownImpl for #impl_ident::#generics where #constraints {
             type Impl = #original_ident::#generics;
             fn get_impl(&self) -> &Self::Impl {
                 &self.this
             }
-            unsafe fn QueryInterface(&self, iid: &::windows_core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows_core::HRESULT {
+            unsafe fn QueryInterface(&self, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
                 unsafe {
-                    *interface = if iid == &<::windows_core::IUnknown as ::windows_core::ComInterface>::IID
-                        || iid == &<::windows_core::IInspectable as ::windows_core::ComInterface>::IID
-                        || iid == &<::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID {
+                    *interface = if iid == &<::windows::core::IUnknown as ::windows::core::ComInterface>::IID
+                        || iid == &<::windows::core::IInspectable as ::windows::core::ComInterface>::IID
+                        || iid == &<::windows::core::imp::IAgileObject as ::windows::core::ComInterface>::IID {
                             &self.identity as *const _ as *const _
                     } #(#queries)* else {
                         ::core::ptr::null_mut()
@@ -116,15 +116,15 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
 
                     if !(*interface).is_null() {
                         self.count.add_ref();
-                        return ::windows_core::HRESULT(0);
+                        return ::windows::core::HRESULT(0);
                     }
 
                     *interface = self.count.query(iid, &self.identity as *const _ as *mut _);
 
                     if (*interface).is_null() {
-                        ::windows_core::HRESULT(0x8000_4002) // E_NOINTERFACE
+                        ::windows::core::HRESULT(0x8000_4002) // E_NOINTERFACE
                     } else {
-                        ::windows_core::HRESULT(0)
+                        ::windows::core::HRESULT(0)
                     }
                 }
             }
@@ -148,13 +148,13 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             ///
             /// This function can only be safely called if `self` has been heap allocated and pinned using
             /// the mechanisms provided by `implement` macro.
-            unsafe fn cast<I: ::windows_core::ComInterface>(&self) -> ::windows_core::Result<I> {
+            unsafe fn cast<I: ::windows::core::ComInterface>(&self) -> ::windows::core::Result<I> {
                 let boxed = (self as *const _ as *const *mut ::core::ffi::c_void).sub(1 + #interfaces_len) as *mut #impl_ident::#generics;
                 let mut result = None;
-                <#impl_ident::#generics as ::windows_core::IUnknownImpl>::QueryInterface(&*boxed, &I::IID, &mut result as *mut _ as _).and_some(result)
+                <#impl_ident::#generics as ::windows::core::IUnknownImpl>::QueryInterface(&*boxed, &I::IID, &mut result as *mut _ as _).and_some(result)
             }
         }
-        impl #generics ::core::convert::From<#original_ident::#generics> for ::windows_core::IUnknown where #constraints {
+        impl #generics ::core::convert::From<#original_ident::#generics> for ::windows::core::IUnknown where #constraints {
             fn from(this: #original_ident::#generics) -> Self {
                 let this = #impl_ident::#generics::new(this);
                 let boxed = ::core::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
@@ -163,7 +163,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 }
             }
         }
-        impl #generics ::core::convert::From<#original_ident::#generics> for ::windows_core::IInspectable where #constraints {
+        impl #generics ::core::convert::From<#original_ident::#generics> for ::windows::core::IInspectable where #constraints {
             fn from(this: #original_ident::#generics) -> Self {
                 let this = #impl_ident::#generics::new(this);
                 let boxed = ::core::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
@@ -195,7 +195,7 @@ impl ImplementType {
     fn to_vtbl_ident(&self) -> proc_macro2::TokenStream {
         let ident = self.to_ident();
         quote! {
-            <#ident as ::windows_core::Interface>::Vtable
+            <#ident as ::windows::core::Interface>::Vtable
         }
     }
 }
