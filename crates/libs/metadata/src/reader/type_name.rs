@@ -37,6 +37,8 @@ impl<'a> TypeName<'a> {
     pub const HANDLE: Self = Self::from_const("Windows.Win32.Foundation", "HANDLE");
     pub const HRESULT: Self = Self::from_const("Windows.Win32.Foundation", "HRESULT");
     pub const CHAR: Self = Self::from_const("Windows.Win32.Foundation", "CHAR");
+    pub const BOOL: Self = Self::from_const("Windows.Win32.Foundation", "BOOL");
+    pub const WIN32_ERROR: Self = Self::from_const("Windows.Win32.Foundation", "WIN32_ERROR");
 
     pub const D2D_MATRIX_3X2_F: Self = Self::from_const("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_3X2_F");
     pub const D3DMATRIX: Self = Self::from_const("Windows.Win32.Graphics.Direct3D", "D3DMATRIX");

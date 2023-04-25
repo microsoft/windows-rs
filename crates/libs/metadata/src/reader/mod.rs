@@ -602,6 +602,13 @@ impl<'a> Reader<'a> {
         };
         self.module_ref_name(self.impl_map_scope(impl_map)).to_lowercase()
     }
+    pub fn method_def_last_error(&self, row: MethodDef) -> bool {
+        if let Some(map) = self.method_def_impl_map(row) {
+            self.impl_map_flags(map).contains(PInvokeAttributes::LAST_ERROR)
+        } else {
+            false
+        }
+    }
     pub fn method_def_signature(&self, row: MethodDef, generics: &[Type]) -> Signature {
         let mut blob = self.row_blob(row.0, 4);
         let vararg = blob.read_usize() == 0x05;
@@ -1435,6 +1442,12 @@ impl<'a> Reader<'a> {
                     return SignatureKind::ResultVoid;
                 }
                 Type::TypeDef((def, _)) if self.type_def_type_name(*def) == TypeName::NTSTATUS => {
+                    return SignatureKind::ResultVoid;
+                }
+                Type::TypeDef((def, _)) if self.type_def_type_name(*def) == TypeName::WIN32_ERROR => {
+                    return SignatureKind::ResultVoid;
+                }
+                Type::TypeDef((def, _)) if self.type_def_type_name(*def) == TypeName::BOOL && self.method_def_last_error(signature.def) => {
                     return SignatureKind::ResultVoid;
                 }
                 _ if self.type_is_struct(return_type) => {
