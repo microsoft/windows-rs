@@ -4,6 +4,9 @@ version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2018"
 
+[dependencies.windows-core]
+path = "../../libs/core"
+
 [dependencies.windows]
 path = "../../libs/windows"
 features = [

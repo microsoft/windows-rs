@@ -4,6 +4,7 @@
 
 mod b_arch;
 mod b_bstr;
+mod b_calendar;
 mod b_depends;
 mod b_enumeration;
 mod b_enumerator;
@@ -17,8 +18,10 @@ mod b_pcwstr;
 mod b_pstr;
 mod b_pwstr;
 mod b_std;
+mod b_stringable;
 mod b_test;
 mod b_unknown;
+mod b_uri;
 
 #[test]
 fn bstr() {

@@ -9,6 +9,14 @@
 )]
 ::windows_targets::link!("ole32.dll" "system" fn CoCreateGuid(pguid : *mut GUID) -> HRESULT);
 #[repr(C)]
+#[derive(
+    ::core::marker::Copy,
+    ::core::clone::Clone,
+    ::core::default::Default,
+    ::core::cmp::PartialEq,
+    ::core::cmp::Eq,
+    ::core::hash::Hash,
+)]
 pub struct GUID {
     pub data1: u32,
     pub data2: u16,
@@ -23,12 +31,6 @@ impl GUID {
             data3: (uuid >> 64 & 0xffff) as u16,
             data4: (uuid as u64).to_be_bytes(),
         }
-    }
-}
-impl ::core::marker::Copy for GUID {}
-impl ::core::clone::Clone for GUID {
-    fn clone(&self) -> Self {
-        *self
     }
 }
 pub type HRESULT = i32;
