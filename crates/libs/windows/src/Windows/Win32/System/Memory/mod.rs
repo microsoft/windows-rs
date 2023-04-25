@@ -12,7 +12,7 @@ pub unsafe fn AddSecureMemoryCacheCallback(pfncallback: PSECURE_MEMORY_CACHE_CAL
 #[inline]
 pub unsafe fn AllocateUserPhysicalPages<P0>(hprocess: P0, numberofpages: *mut usize, pagearray: *mut usize) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn AllocateUserPhysicalPages(hprocess : super::super::Foundation:: HANDLE, numberofpages : *mut usize, pagearray : *mut usize) -> super::super::Foundation:: BOOL);
     AllocateUserPhysicalPages(hprocess.into_param().abi(), numberofpages, pagearray)
@@ -22,7 +22,7 @@ where
 #[inline]
 pub unsafe fn AllocateUserPhysicalPages2<P0>(objecthandle: P0, numberofpages: *mut usize, pagearray: *mut usize, extendedparameters: ::core::option::Option<&mut [MEM_EXTENDED_PARAMETER]>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("api-ms-win-core-memory-l1-1-8.dll" "system" fn AllocateUserPhysicalPages2(objecthandle : super::super::Foundation:: HANDLE, numberofpages : *mut usize, pagearray : *mut usize, extendedparameters : *mut MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> super::super::Foundation:: BOOL);
     AllocateUserPhysicalPages2(objecthandle.into_param().abi(), numberofpages, pagearray, ::core::mem::transmute(extendedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len() as _))
@@ -32,7 +32,7 @@ where
 #[inline]
 pub unsafe fn AllocateUserPhysicalPagesNuma<P0>(hprocess: P0, numberofpages: *mut usize, pagearray: *mut usize, nndpreferred: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn AllocateUserPhysicalPagesNuma(hprocess : super::super::Foundation:: HANDLE, numberofpages : *mut usize, pagearray : *mut usize, nndpreferred : u32) -> super::super::Foundation:: BOOL);
     AllocateUserPhysicalPagesNuma(hprocess.into_param().abi(), numberofpages, pagearray, nndpreferred)
@@ -40,82 +40,82 @@ where
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateFileMapping2<P0, P1>(file: P0, securityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, desiredaccess: u32, pageprotection: PAGE_PROTECTION_FLAGS, allocationattributes: u32, maximumsize: u64, name: P1, extendedparameters: ::core::option::Option<&mut [MEM_EXTENDED_PARAMETER]>) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateFileMapping2<P0, P1>(file: P0, securityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, desiredaccess: u32, pageprotection: PAGE_PROTECTION_FLAGS, allocationattributes: u32, maximumsize: u64, name: P1, extendedparameters: ::core::option::Option<&mut [MEM_EXTENDED_PARAMETER]>) -> ::windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("api-ms-win-core-memory-l1-1-7.dll" "system" fn CreateFileMapping2(file : super::super::Foundation:: HANDLE, securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, desiredaccess : u32, pageprotection : PAGE_PROTECTION_FLAGS, allocationattributes : u32, maximumsize : u64, name : ::windows::core::PCWSTR, extendedparameters : *mut MEM_EXTENDED_PARAMETER, parametercount : u32) -> super::super::Foundation:: HANDLE);
+    ::windows_targets::link!("api-ms-win-core-memory-l1-1-7.dll" "system" fn CreateFileMapping2(file : super::super::Foundation:: HANDLE, securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, desiredaccess : u32, pageprotection : PAGE_PROTECTION_FLAGS, allocationattributes : u32, maximumsize : u64, name : ::windows_core::PCWSTR, extendedparameters : *mut MEM_EXTENDED_PARAMETER, parametercount : u32) -> super::super::Foundation:: HANDLE);
     let result__ = CreateFileMapping2(file.into_param().abi(), ::core::mem::transmute(securityattributes.unwrap_or(::std::ptr::null())), desiredaccess, pageprotection, allocationattributes, maximumsize, name.into_param().abi(), ::core::mem::transmute(extendedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len() as _));
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateFileMappingA<P0, P1>(hfile: P0, lpfilemappingattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateFileMappingA<P0, P1>(hfile: P0, lpfilemappingattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: P1) -> ::windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateFileMappingA(hfile : super::super::Foundation:: HANDLE, lpfilemappingattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, flprotect : PAGE_PROTECTION_FLAGS, dwmaximumsizehigh : u32, dwmaximumsizelow : u32, lpname : ::windows::core::PCSTR) -> super::super::Foundation:: HANDLE);
+    ::windows_targets::link!("kernel32.dll" "system" fn CreateFileMappingA(hfile : super::super::Foundation:: HANDLE, lpfilemappingattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, flprotect : PAGE_PROTECTION_FLAGS, dwmaximumsizehigh : u32, dwmaximumsizelow : u32, lpname : ::windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
     let result__ = CreateFileMappingA(hfile.into_param().abi(), ::core::mem::transmute(lpfilemappingattributes.unwrap_or(::std::ptr::null())), flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname.into_param().abi());
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateFileMappingFromApp<P0, P1>(hfile: P0, securityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, pageprotection: PAGE_PROTECTION_FLAGS, maximumsize: u64, name: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateFileMappingFromApp<P0, P1>(hfile: P0, securityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, pageprotection: PAGE_PROTECTION_FLAGS, maximumsize: u64, name: P1) -> ::windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateFileMappingFromApp(hfile : super::super::Foundation:: HANDLE, securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, pageprotection : PAGE_PROTECTION_FLAGS, maximumsize : u64, name : ::windows::core::PCWSTR) -> super::super::Foundation:: HANDLE);
+    ::windows_targets::link!("kernel32.dll" "system" fn CreateFileMappingFromApp(hfile : super::super::Foundation:: HANDLE, securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, pageprotection : PAGE_PROTECTION_FLAGS, maximumsize : u64, name : ::windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
     let result__ = CreateFileMappingFromApp(hfile.into_param().abi(), ::core::mem::transmute(securityattributes.unwrap_or(::std::ptr::null())), pageprotection, maximumsize, name.into_param().abi());
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateFileMappingNumaA<P0, P1>(hfile: P0, lpfilemappingattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: P1, nndpreferred: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateFileMappingNumaA<P0, P1>(hfile: P0, lpfilemappingattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: P1, nndpreferred: u32) -> ::windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateFileMappingNumaA(hfile : super::super::Foundation:: HANDLE, lpfilemappingattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, flprotect : PAGE_PROTECTION_FLAGS, dwmaximumsizehigh : u32, dwmaximumsizelow : u32, lpname : ::windows::core::PCSTR, nndpreferred : u32) -> super::super::Foundation:: HANDLE);
+    ::windows_targets::link!("kernel32.dll" "system" fn CreateFileMappingNumaA(hfile : super::super::Foundation:: HANDLE, lpfilemappingattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, flprotect : PAGE_PROTECTION_FLAGS, dwmaximumsizehigh : u32, dwmaximumsizelow : u32, lpname : ::windows_core::PCSTR, nndpreferred : u32) -> super::super::Foundation:: HANDLE);
     let result__ = CreateFileMappingNumaA(hfile.into_param().abi(), ::core::mem::transmute(lpfilemappingattributes.unwrap_or(::std::ptr::null())), flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname.into_param().abi(), nndpreferred);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateFileMappingNumaW<P0, P1>(hfile: P0, lpfilemappingattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: P1, nndpreferred: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateFileMappingNumaW<P0, P1>(hfile: P0, lpfilemappingattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: P1, nndpreferred: u32) -> ::windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateFileMappingNumaW(hfile : super::super::Foundation:: HANDLE, lpfilemappingattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, flprotect : PAGE_PROTECTION_FLAGS, dwmaximumsizehigh : u32, dwmaximumsizelow : u32, lpname : ::windows::core::PCWSTR, nndpreferred : u32) -> super::super::Foundation:: HANDLE);
+    ::windows_targets::link!("kernel32.dll" "system" fn CreateFileMappingNumaW(hfile : super::super::Foundation:: HANDLE, lpfilemappingattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, flprotect : PAGE_PROTECTION_FLAGS, dwmaximumsizehigh : u32, dwmaximumsizelow : u32, lpname : ::windows_core::PCWSTR, nndpreferred : u32) -> super::super::Foundation:: HANDLE);
     let result__ = CreateFileMappingNumaW(hfile.into_param().abi(), ::core::mem::transmute(lpfilemappingattributes.unwrap_or(::std::ptr::null())), flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname.into_param().abi(), nndpreferred);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateFileMappingW<P0, P1>(hfile: P0, lpfilemappingattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateFileMappingW<P0, P1>(hfile: P0, lpfilemappingattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: P1) -> ::windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateFileMappingW(hfile : super::super::Foundation:: HANDLE, lpfilemappingattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, flprotect : PAGE_PROTECTION_FLAGS, dwmaximumsizehigh : u32, dwmaximumsizelow : u32, lpname : ::windows::core::PCWSTR) -> super::super::Foundation:: HANDLE);
+    ::windows_targets::link!("kernel32.dll" "system" fn CreateFileMappingW(hfile : super::super::Foundation:: HANDLE, lpfilemappingattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, flprotect : PAGE_PROTECTION_FLAGS, dwmaximumsizehigh : u32, dwmaximumsizelow : u32, lpname : ::windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
     let result__ = CreateFileMappingW(hfile.into_param().abi(), ::core::mem::transmute(lpfilemappingattributes.unwrap_or(::std::ptr::null())), flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname.into_param().abi());
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateMemoryResourceNotification(notificationtype: MEMORY_RESOURCE_NOTIFICATION_TYPE) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn CreateMemoryResourceNotification(notificationtype: MEMORY_RESOURCE_NOTIFICATION_TYPE) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
     ::windows_targets::link!("kernel32.dll" "system" fn CreateMemoryResourceNotification(notificationtype : MEMORY_RESOURCE_NOTIFICATION_TYPE) -> super::super::Foundation:: HANDLE);
     let result__ = CreateMemoryResourceNotification(notificationtype);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -135,7 +135,7 @@ pub unsafe fn FlushViewOfFile(lpbaseaddress: *const ::core::ffi::c_void, dwnumbe
 #[inline]
 pub unsafe fn FreeUserPhysicalPages<P0>(hprocess: P0, numberofpages: *mut usize, pagearray: *const usize) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn FreeUserPhysicalPages(hprocess : super::super::Foundation:: HANDLE, numberofpages : *mut usize, pagearray : *const usize) -> super::super::Foundation:: BOOL);
     FreeUserPhysicalPages(hprocess.into_param().abi(), numberofpages, pagearray)
@@ -155,10 +155,10 @@ pub unsafe fn GetMemoryErrorHandlingCapabilities(capabilities: *mut u32) -> supe
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
-pub unsafe fn GetProcessHeap() -> ::windows::core::Result<HeapHandle> {
+pub unsafe fn GetProcessHeap() -> ::windows_core::Result<HeapHandle> {
     ::windows_targets::link!("kernel32.dll" "system" fn GetProcessHeap() -> HeapHandle);
     let result__ = GetProcessHeap();
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -171,7 +171,7 @@ pub unsafe fn GetProcessHeaps(processheaps: &mut [HeapHandle]) -> u32 {
 #[inline]
 pub unsafe fn GetProcessWorkingSetSizeEx<P0>(hprocess: P0, lpminimumworkingsetsize: *mut usize, lpmaximumworkingsetsize: *mut usize, flags: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetProcessWorkingSetSizeEx(hprocess : super::super::Foundation:: HANDLE, lpminimumworkingsetsize : *mut usize, lpmaximumworkingsetsize : *mut usize, flags : *mut u32) -> super::super::Foundation:: BOOL);
     GetProcessWorkingSetSizeEx(hprocess.into_param().abi(), lpminimumworkingsetsize, lpmaximumworkingsetsize, flags)
@@ -192,17 +192,17 @@ pub unsafe fn GetWriteWatch(dwflags: u32, lpbaseaddress: *const ::core::ffi::c_v
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GlobalAlloc(uflags: GLOBAL_ALLOC_FLAGS, dwbytes: usize) -> ::windows::core::Result<super::super::Foundation::HGLOBAL> {
+pub unsafe fn GlobalAlloc(uflags: GLOBAL_ALLOC_FLAGS, dwbytes: usize) -> ::windows_core::Result<super::super::Foundation::HGLOBAL> {
     ::windows_targets::link!("kernel32.dll" "system" fn GlobalAlloc(uflags : GLOBAL_ALLOC_FLAGS, dwbytes : usize) -> super::super::Foundation:: HGLOBAL);
     let result__ = GlobalAlloc(uflags, dwbytes);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GlobalFlags<P0>(hmem: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HGLOBAL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HGLOBAL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GlobalFlags(hmem : super::super::Foundation:: HGLOBAL) -> u32);
     GlobalFlags(hmem.into_param().abi())
@@ -210,28 +210,28 @@ where
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GlobalFree<P0>(hmem: P0) -> ::windows::core::Result<super::super::Foundation::HGLOBAL>
+pub unsafe fn GlobalFree<P0>(hmem: P0) -> ::windows_core::Result<super::super::Foundation::HGLOBAL>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HGLOBAL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HGLOBAL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GlobalFree(hmem : super::super::Foundation:: HGLOBAL) -> super::super::Foundation:: HGLOBAL);
     let result__ = GlobalFree(hmem.into_param().abi());
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GlobalHandle(pmem: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HGLOBAL> {
+pub unsafe fn GlobalHandle(pmem: *const ::core::ffi::c_void) -> ::windows_core::Result<super::super::Foundation::HGLOBAL> {
     ::windows_targets::link!("kernel32.dll" "system" fn GlobalHandle(pmem : *const ::core::ffi::c_void) -> super::super::Foundation:: HGLOBAL);
     let result__ = GlobalHandle(pmem);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GlobalLock<P0>(hmem: P0) -> *mut ::core::ffi::c_void
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HGLOBAL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HGLOBAL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GlobalLock(hmem : super::super::Foundation:: HGLOBAL) -> *mut ::core::ffi::c_void);
     GlobalLock(hmem.into_param().abi())
@@ -239,20 +239,20 @@ where
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GlobalReAlloc<P0>(hmem: P0, dwbytes: usize, uflags: u32) -> ::windows::core::Result<super::super::Foundation::HGLOBAL>
+pub unsafe fn GlobalReAlloc<P0>(hmem: P0, dwbytes: usize, uflags: u32) -> ::windows_core::Result<super::super::Foundation::HGLOBAL>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HGLOBAL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HGLOBAL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GlobalReAlloc(hmem : super::super::Foundation:: HGLOBAL, dwbytes : usize, uflags : u32) -> super::super::Foundation:: HGLOBAL);
     let result__ = GlobalReAlloc(hmem.into_param().abi(), dwbytes, uflags);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GlobalSize<P0>(hmem: P0) -> usize
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HGLOBAL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HGLOBAL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GlobalSize(hmem : super::super::Foundation:: HGLOBAL) -> usize);
     GlobalSize(hmem.into_param().abi())
@@ -262,7 +262,7 @@ where
 #[inline]
 pub unsafe fn GlobalUnlock<P0>(hmem: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HGLOBAL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HGLOBAL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GlobalUnlock(hmem : super::super::Foundation:: HGLOBAL) -> super::super::Foundation:: BOOL);
     GlobalUnlock(hmem.into_param().abi())
@@ -271,7 +271,7 @@ where
 #[inline]
 pub unsafe fn HeapAlloc<P0>(hheap: P0, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::core::ffi::c_void
 where
-    P0: ::windows::core::IntoParam<HeapHandle>,
+    P0: ::windows_core::IntoParam<HeapHandle>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn HeapAlloc(hheap : HeapHandle, dwflags : HEAP_FLAGS, dwbytes : usize) -> *mut ::core::ffi::c_void);
     HeapAlloc(hheap.into_param().abi(), dwflags, dwbytes)
@@ -280,24 +280,24 @@ where
 #[inline]
 pub unsafe fn HeapCompact<P0>(hheap: P0, dwflags: HEAP_FLAGS) -> usize
 where
-    P0: ::windows::core::IntoParam<HeapHandle>,
+    P0: ::windows_core::IntoParam<HeapHandle>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn HeapCompact(hheap : HeapHandle, dwflags : HEAP_FLAGS) -> usize);
     HeapCompact(hheap.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
-pub unsafe fn HeapCreate(floptions: HEAP_FLAGS, dwinitialsize: usize, dwmaximumsize: usize) -> ::windows::core::Result<HeapHandle> {
+pub unsafe fn HeapCreate(floptions: HEAP_FLAGS, dwinitialsize: usize, dwmaximumsize: usize) -> ::windows_core::Result<HeapHandle> {
     ::windows_targets::link!("kernel32.dll" "system" fn HeapCreate(floptions : HEAP_FLAGS, dwinitialsize : usize, dwmaximumsize : usize) -> HeapHandle);
     let result__ = HeapCreate(floptions, dwinitialsize, dwmaximumsize);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HeapDestroy<P0>(hheap: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HeapHandle>,
+    P0: ::windows_core::IntoParam<HeapHandle>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn HeapDestroy(hheap : HeapHandle) -> super::super::Foundation:: BOOL);
     HeapDestroy(hheap.into_param().abi())
@@ -307,7 +307,7 @@ where
 #[inline]
 pub unsafe fn HeapFree<P0>(hheap: P0, dwflags: HEAP_FLAGS, lpmem: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HeapHandle>,
+    P0: ::windows_core::IntoParam<HeapHandle>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn HeapFree(hheap : HeapHandle, dwflags : HEAP_FLAGS, lpmem : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     HeapFree(hheap.into_param().abi(), dwflags, ::core::mem::transmute(lpmem.unwrap_or(::std::ptr::null())))
@@ -317,7 +317,7 @@ where
 #[inline]
 pub unsafe fn HeapLock<P0>(hheap: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HeapHandle>,
+    P0: ::windows_core::IntoParam<HeapHandle>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn HeapLock(hheap : HeapHandle) -> super::super::Foundation:: BOOL);
     HeapLock(hheap.into_param().abi())
@@ -327,7 +327,7 @@ where
 #[inline]
 pub unsafe fn HeapQueryInformation<P0>(heaphandle: P0, heapinformationclass: HEAP_INFORMATION_CLASS, heapinformation: ::core::option::Option<*mut ::core::ffi::c_void>, heapinformationlength: usize, returnlength: ::core::option::Option<*mut usize>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HeapHandle>,
+    P0: ::windows_core::IntoParam<HeapHandle>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn HeapQueryInformation(heaphandle : HeapHandle, heapinformationclass : HEAP_INFORMATION_CLASS, heapinformation : *mut ::core::ffi::c_void, heapinformationlength : usize, returnlength : *mut usize) -> super::super::Foundation:: BOOL);
     HeapQueryInformation(heaphandle.into_param().abi(), heapinformationclass, ::core::mem::transmute(heapinformation.unwrap_or(::std::ptr::null_mut())), heapinformationlength, ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut())))
@@ -336,7 +336,7 @@ where
 #[inline]
 pub unsafe fn HeapReAlloc<P0>(hheap: P0, dwflags: HEAP_FLAGS, lpmem: ::core::option::Option<*const ::core::ffi::c_void>, dwbytes: usize) -> *mut ::core::ffi::c_void
 where
-    P0: ::windows::core::IntoParam<HeapHandle>,
+    P0: ::windows_core::IntoParam<HeapHandle>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn HeapReAlloc(hheap : HeapHandle, dwflags : HEAP_FLAGS, lpmem : *const ::core::ffi::c_void, dwbytes : usize) -> *mut ::core::ffi::c_void);
     HeapReAlloc(hheap.into_param().abi(), dwflags, ::core::mem::transmute(lpmem.unwrap_or(::std::ptr::null())), dwbytes)
@@ -346,7 +346,7 @@ where
 #[inline]
 pub unsafe fn HeapSetInformation<P0>(heaphandle: P0, heapinformationclass: HEAP_INFORMATION_CLASS, heapinformation: ::core::option::Option<*const ::core::ffi::c_void>, heapinformationlength: usize) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HeapHandle>,
+    P0: ::windows_core::IntoParam<HeapHandle>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn HeapSetInformation(heaphandle : HeapHandle, heapinformationclass : HEAP_INFORMATION_CLASS, heapinformation : *const ::core::ffi::c_void, heapinformationlength : usize) -> super::super::Foundation:: BOOL);
     HeapSetInformation(heaphandle.into_param().abi(), heapinformationclass, ::core::mem::transmute(heapinformation.unwrap_or(::std::ptr::null())), heapinformationlength)
@@ -355,7 +355,7 @@ where
 #[inline]
 pub unsafe fn HeapSize<P0>(hheap: P0, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void) -> usize
 where
-    P0: ::windows::core::IntoParam<HeapHandle>,
+    P0: ::windows_core::IntoParam<HeapHandle>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn HeapSize(hheap : HeapHandle, dwflags : HEAP_FLAGS, lpmem : *const ::core::ffi::c_void) -> usize);
     HeapSize(hheap.into_param().abi(), dwflags, lpmem)
@@ -365,7 +365,7 @@ where
 #[inline]
 pub unsafe fn HeapSummary<P0>(hheap: P0, dwflags: u32, lpsummary: *mut HEAP_SUMMARY) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn HeapSummary(hheap : super::super::Foundation:: HANDLE, dwflags : u32, lpsummary : *mut HEAP_SUMMARY) -> super::super::Foundation:: BOOL);
     HeapSummary(hheap.into_param().abi(), dwflags, lpsummary)
@@ -375,7 +375,7 @@ where
 #[inline]
 pub unsafe fn HeapUnlock<P0>(hheap: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HeapHandle>,
+    P0: ::windows_core::IntoParam<HeapHandle>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn HeapUnlock(hheap : HeapHandle) -> super::super::Foundation:: BOOL);
     HeapUnlock(hheap.into_param().abi())
@@ -385,7 +385,7 @@ where
 #[inline]
 pub unsafe fn HeapValidate<P0>(hheap: P0, dwflags: HEAP_FLAGS, lpmem: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HeapHandle>,
+    P0: ::windows_core::IntoParam<HeapHandle>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn HeapValidate(hheap : HeapHandle, dwflags : HEAP_FLAGS, lpmem : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     HeapValidate(hheap.into_param().abi(), dwflags, ::core::mem::transmute(lpmem.unwrap_or(::std::ptr::null())))
@@ -395,7 +395,7 @@ where
 #[inline]
 pub unsafe fn HeapWalk<P0>(hheap: P0, lpentry: *mut PROCESS_HEAP_ENTRY) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HeapHandle>,
+    P0: ::windows_core::IntoParam<HeapHandle>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn HeapWalk(hheap : HeapHandle, lpentry : *mut PROCESS_HEAP_ENTRY) -> super::super::Foundation:: BOOL);
     HeapWalk(hheap.into_param().abi(), lpentry)
@@ -419,9 +419,9 @@ pub unsafe fn IsBadReadPtr(lp: ::core::option::Option<*const ::core::ffi::c_void
 #[inline]
 pub unsafe fn IsBadStringPtrA<P0>(lpsz: P0, ucchmax: usize) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn IsBadStringPtrA(lpsz : ::windows::core::PCSTR, ucchmax : usize) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn IsBadStringPtrA(lpsz : ::windows_core::PCSTR, ucchmax : usize) -> super::super::Foundation:: BOOL);
     IsBadStringPtrA(lpsz.into_param().abi(), ucchmax)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
@@ -429,9 +429,9 @@ where
 #[inline]
 pub unsafe fn IsBadStringPtrW<P0>(lpsz: P0, ucchmax: usize) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn IsBadStringPtrW(lpsz : ::windows::core::PCWSTR, ucchmax : usize) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn IsBadStringPtrW(lpsz : ::windows_core::PCWSTR, ucchmax : usize) -> super::super::Foundation:: BOOL);
     IsBadStringPtrW(lpsz.into_param().abi(), ucchmax)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
@@ -444,17 +444,17 @@ pub unsafe fn IsBadWritePtr(lp: ::core::option::Option<*const ::core::ffi::c_voi
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LocalAlloc(uflags: LOCAL_ALLOC_FLAGS, ubytes: usize) -> ::windows::core::Result<super::super::Foundation::HLOCAL> {
+pub unsafe fn LocalAlloc(uflags: LOCAL_ALLOC_FLAGS, ubytes: usize) -> ::windows_core::Result<super::super::Foundation::HLOCAL> {
     ::windows_targets::link!("kernel32.dll" "system" fn LocalAlloc(uflags : LOCAL_ALLOC_FLAGS, ubytes : usize) -> super::super::Foundation:: HLOCAL);
     let result__ = LocalAlloc(uflags, ubytes);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LocalFlags<P0>(hmem: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HLOCAL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HLOCAL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn LocalFlags(hmem : super::super::Foundation:: HLOCAL) -> u32);
     LocalFlags(hmem.into_param().abi())
@@ -462,28 +462,28 @@ where
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LocalFree<P0>(hmem: P0) -> ::windows::core::Result<super::super::Foundation::HLOCAL>
+pub unsafe fn LocalFree<P0>(hmem: P0) -> ::windows_core::Result<super::super::Foundation::HLOCAL>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HLOCAL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HLOCAL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn LocalFree(hmem : super::super::Foundation:: HLOCAL) -> super::super::Foundation:: HLOCAL);
     let result__ = LocalFree(hmem.into_param().abi());
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LocalHandle(pmem: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HLOCAL> {
+pub unsafe fn LocalHandle(pmem: *const ::core::ffi::c_void) -> ::windows_core::Result<super::super::Foundation::HLOCAL> {
     ::windows_targets::link!("kernel32.dll" "system" fn LocalHandle(pmem : *const ::core::ffi::c_void) -> super::super::Foundation:: HLOCAL);
     let result__ = LocalHandle(pmem);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LocalLock<P0>(hmem: P0) -> *mut ::core::ffi::c_void
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HLOCAL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HLOCAL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn LocalLock(hmem : super::super::Foundation:: HLOCAL) -> *mut ::core::ffi::c_void);
     LocalLock(hmem.into_param().abi())
@@ -491,20 +491,20 @@ where
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LocalReAlloc<P0>(hmem: P0, ubytes: usize, uflags: u32) -> ::windows::core::Result<super::super::Foundation::HLOCAL>
+pub unsafe fn LocalReAlloc<P0>(hmem: P0, ubytes: usize, uflags: u32) -> ::windows_core::Result<super::super::Foundation::HLOCAL>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HLOCAL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HLOCAL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn LocalReAlloc(hmem : super::super::Foundation:: HLOCAL, ubytes : usize, uflags : u32) -> super::super::Foundation:: HLOCAL);
     let result__ = LocalReAlloc(hmem.into_param().abi(), ubytes, uflags);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LocalSize<P0>(hmem: P0) -> usize
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HLOCAL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HLOCAL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn LocalSize(hmem : super::super::Foundation:: HLOCAL) -> usize);
     LocalSize(hmem.into_param().abi())
@@ -514,7 +514,7 @@ where
 #[inline]
 pub unsafe fn LocalUnlock<P0>(hmem: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HLOCAL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HLOCAL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn LocalUnlock(hmem : super::super::Foundation:: HLOCAL) -> super::super::Foundation:: BOOL);
     LocalUnlock(hmem.into_param().abi())
@@ -538,7 +538,7 @@ pub unsafe fn MapUserPhysicalPagesScatter(virtualaddresses: *const *const ::core
 #[inline]
 pub unsafe fn MapViewOfFile<P0>(hfilemappingobject: P0, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize) -> *mut ::core::ffi::c_void
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn MapViewOfFile(hfilemappingobject : super::super::Foundation:: HANDLE, dwdesiredaccess : FILE_MAP, dwfileoffsethigh : u32, dwfileoffsetlow : u32, dwnumberofbytestomap : usize) -> *mut ::core::ffi::c_void);
     MapViewOfFile(hfilemappingobject.into_param().abi(), dwdesiredaccess, dwfileoffsethigh, dwfileoffsetlow, dwnumberofbytestomap)
@@ -548,8 +548,8 @@ where
 #[inline]
 pub unsafe fn MapViewOfFile3<P0, P1>(filemapping: P0, process: P1, baseaddress: ::core::option::Option<*const ::core::ffi::c_void>, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: ::core::option::Option<&mut [MEM_EXTENDED_PARAMETER]>) -> *mut ::core::ffi::c_void
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("api-ms-win-core-memory-l1-1-6.dll" "system" fn MapViewOfFile3(filemapping : super::super::Foundation:: HANDLE, process : super::super::Foundation:: HANDLE, baseaddress : *const ::core::ffi::c_void, offset : u64, viewsize : usize, allocationtype : VIRTUAL_ALLOCATION_TYPE, pageprotection : u32, extendedparameters : *mut MEM_EXTENDED_PARAMETER, parametercount : u32) -> *mut ::core::ffi::c_void);
     MapViewOfFile3(filemapping.into_param().abi(), process.into_param().abi(), ::core::mem::transmute(baseaddress.unwrap_or(::std::ptr::null())), offset, viewsize, allocationtype, pageprotection, ::core::mem::transmute(extendedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len() as _))
@@ -559,8 +559,8 @@ where
 #[inline]
 pub unsafe fn MapViewOfFile3FromApp<P0, P1>(filemapping: P0, process: P1, baseaddress: ::core::option::Option<*const ::core::ffi::c_void>, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: ::core::option::Option<&mut [MEM_EXTENDED_PARAMETER]>) -> *mut ::core::ffi::c_void
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("api-ms-win-core-memory-l1-1-6.dll" "system" fn MapViewOfFile3FromApp(filemapping : super::super::Foundation:: HANDLE, process : super::super::Foundation:: HANDLE, baseaddress : *const ::core::ffi::c_void, offset : u64, viewsize : usize, allocationtype : VIRTUAL_ALLOCATION_TYPE, pageprotection : u32, extendedparameters : *mut MEM_EXTENDED_PARAMETER, parametercount : u32) -> *mut ::core::ffi::c_void);
     MapViewOfFile3FromApp(filemapping.into_param().abi(), process.into_param().abi(), ::core::mem::transmute(baseaddress.unwrap_or(::std::ptr::null())), offset, viewsize, allocationtype, pageprotection, ::core::mem::transmute(extendedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len() as _))
@@ -570,7 +570,7 @@ where
 #[inline]
 pub unsafe fn MapViewOfFileEx<P0>(hfilemappingobject: P0, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize, lpbaseaddress: ::core::option::Option<*const ::core::ffi::c_void>) -> *mut ::core::ffi::c_void
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn MapViewOfFileEx(hfilemappingobject : super::super::Foundation:: HANDLE, dwdesiredaccess : FILE_MAP, dwfileoffsethigh : u32, dwfileoffsetlow : u32, dwnumberofbytestomap : usize, lpbaseaddress : *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void);
     MapViewOfFileEx(hfilemappingobject.into_param().abi(), dwdesiredaccess, dwfileoffsethigh, dwfileoffsetlow, dwnumberofbytestomap, ::core::mem::transmute(lpbaseaddress.unwrap_or(::std::ptr::null())))
@@ -580,7 +580,7 @@ where
 #[inline]
 pub unsafe fn MapViewOfFileExNuma<P0>(hfilemappingobject: P0, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize, lpbaseaddress: ::core::option::Option<*const ::core::ffi::c_void>, nndpreferred: u32) -> *mut ::core::ffi::c_void
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn MapViewOfFileExNuma(hfilemappingobject : super::super::Foundation:: HANDLE, dwdesiredaccess : FILE_MAP, dwfileoffsethigh : u32, dwfileoffsetlow : u32, dwnumberofbytestomap : usize, lpbaseaddress : *const ::core::ffi::c_void, nndpreferred : u32) -> *mut ::core::ffi::c_void);
     MapViewOfFileExNuma(hfilemappingobject.into_param().abi(), dwdesiredaccess, dwfileoffsethigh, dwfileoffsetlow, dwnumberofbytestomap, ::core::mem::transmute(lpbaseaddress.unwrap_or(::std::ptr::null())), nndpreferred)
@@ -590,7 +590,7 @@ where
 #[inline]
 pub unsafe fn MapViewOfFileFromApp<P0>(hfilemappingobject: P0, desiredaccess: FILE_MAP, fileoffset: u64, numberofbytestomap: usize) -> *mut ::core::ffi::c_void
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn MapViewOfFileFromApp(hfilemappingobject : super::super::Foundation:: HANDLE, desiredaccess : FILE_MAP, fileoffset : u64, numberofbytestomap : usize) -> *mut ::core::ffi::c_void);
     MapViewOfFileFromApp(hfilemappingobject.into_param().abi(), desiredaccess, fileoffset, numberofbytestomap)
@@ -600,8 +600,8 @@ where
 #[inline]
 pub unsafe fn MapViewOfFileNuma2<P0, P1>(filemappinghandle: P0, processhandle: P1, offset: u64, baseaddress: ::core::option::Option<*const ::core::ffi::c_void>, viewsize: usize, allocationtype: u32, pageprotection: u32, preferrednode: u32) -> *mut ::core::ffi::c_void
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("api-ms-win-core-memory-l1-1-5.dll" "system" fn MapViewOfFileNuma2(filemappinghandle : super::super::Foundation:: HANDLE, processhandle : super::super::Foundation:: HANDLE, offset : u64, baseaddress : *const ::core::ffi::c_void, viewsize : usize, allocationtype : u32, pageprotection : u32, preferrednode : u32) -> *mut ::core::ffi::c_void);
     MapViewOfFileNuma2(filemappinghandle.into_param().abi(), processhandle.into_param().abi(), offset, ::core::mem::transmute(baseaddress.unwrap_or(::std::ptr::null())), viewsize, allocationtype, pageprotection, preferrednode)
@@ -617,8 +617,8 @@ pub unsafe fn OfferVirtualMemory(virtualaddress: &mut [u8], priority: OFFER_PRIO
 #[inline]
 pub unsafe fn OpenDedicatedMemoryPartition<P0, P1>(partition: P0, dedicatedmemorytypeid: u64, desiredaccess: u32, inherithandle: P1) -> super::super::Foundation::HANDLE
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("api-ms-win-core-memory-l1-1-8.dll" "system" fn OpenDedicatedMemoryPartition(partition : super::super::Foundation:: HANDLE, dedicatedmemorytypeid : u64, desiredaccess : u32, inherithandle : super::super::Foundation:: BOOL) -> super::super::Foundation:: HANDLE);
     OpenDedicatedMemoryPartition(partition.into_param().abi(), dedicatedmemorytypeid, desiredaccess, inherithandle.into_param().abi())
@@ -626,45 +626,45 @@ where
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenFileMappingA<P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn OpenFileMappingA<P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> ::windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn OpenFileMappingA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : ::windows::core::PCSTR) -> super::super::Foundation:: HANDLE);
+    ::windows_targets::link!("kernel32.dll" "system" fn OpenFileMappingA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : ::windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
     let result__ = OpenFileMappingA(dwdesiredaccess, binherithandle.into_param().abi(), lpname.into_param().abi());
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenFileMappingFromApp<P0, P1>(desiredaccess: u32, inherithandle: P0, name: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn OpenFileMappingFromApp<P0, P1>(desiredaccess: u32, inherithandle: P0, name: P1) -> ::windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("api-ms-win-core-memory-l1-1-3.dll" "system" fn OpenFileMappingFromApp(desiredaccess : u32, inherithandle : super::super::Foundation:: BOOL, name : ::windows::core::PCWSTR) -> super::super::Foundation:: HANDLE);
+    ::windows_targets::link!("api-ms-win-core-memory-l1-1-3.dll" "system" fn OpenFileMappingFromApp(desiredaccess : u32, inherithandle : super::super::Foundation:: BOOL, name : ::windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
     let result__ = OpenFileMappingFromApp(desiredaccess, inherithandle.into_param().abi(), name.into_param().abi());
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenFileMappingW<P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn OpenFileMappingW<P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> ::windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn OpenFileMappingW(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : ::windows::core::PCWSTR) -> super::super::Foundation:: HANDLE);
+    ::windows_targets::link!("kernel32.dll" "system" fn OpenFileMappingW(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : ::windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
     let result__ = OpenFileMappingW(dwdesiredaccess, binherithandle.into_param().abi(), lpname.into_param().abi());
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrefetchVirtualMemory<P0>(hprocess: P0, virtualaddresses: &[WIN32_MEMORY_RANGE_ENTRY], flags: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn PrefetchVirtualMemory(hprocess : super::super::Foundation:: HANDLE, numberofentries : usize, virtualaddresses : *const WIN32_MEMORY_RANGE_ENTRY, flags : u32) -> super::super::Foundation:: BOOL);
     PrefetchVirtualMemory(hprocess.into_param().abi(), virtualaddresses.len() as _, ::core::mem::transmute(virtualaddresses.as_ptr()), flags)
@@ -674,7 +674,7 @@ where
 #[inline]
 pub unsafe fn QueryMemoryResourceNotification<P0>(resourcenotificationhandle: P0, resourcestate: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn QueryMemoryResourceNotification(resourcenotificationhandle : super::super::Foundation:: HANDLE, resourcestate : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     QueryMemoryResourceNotification(resourcenotificationhandle.into_param().abi(), resourcestate)
@@ -684,7 +684,7 @@ where
 #[inline]
 pub unsafe fn QueryPartitionInformation<P0>(partition: P0, partitioninformationclass: WIN32_MEMORY_PARTITION_INFORMATION_CLASS, partitioninformation: *mut ::core::ffi::c_void, partitioninformationlength: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("api-ms-win-core-memory-l1-1-8.dll" "system" fn QueryPartitionInformation(partition : super::super::Foundation:: HANDLE, partitioninformationclass : WIN32_MEMORY_PARTITION_INFORMATION_CLASS, partitioninformation : *mut ::core::ffi::c_void, partitioninformationlength : u32) -> super::super::Foundation:: BOOL);
     QueryPartitionInformation(partition.into_param().abi(), partitioninformationclass, partitioninformation, partitioninformationlength)
@@ -694,7 +694,7 @@ where
 #[inline]
 pub unsafe fn QueryVirtualMemoryInformation<P0>(process: P0, virtualaddress: *const ::core::ffi::c_void, memoryinformationclass: WIN32_MEMORY_INFORMATION_CLASS, memoryinformation: *mut ::core::ffi::c_void, memoryinformationsize: usize, returnsize: ::core::option::Option<*mut usize>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("api-ms-win-core-memory-l1-1-4.dll" "system" fn QueryVirtualMemoryInformation(process : super::super::Foundation:: HANDLE, virtualaddress : *const ::core::ffi::c_void, memoryinformationclass : WIN32_MEMORY_INFORMATION_CLASS, memoryinformation : *mut ::core::ffi::c_void, memoryinformationsize : usize, returnsize : *mut usize) -> super::super::Foundation:: BOOL);
     QueryVirtualMemoryInformation(process.into_param().abi(), virtualaddress, memoryinformationclass, memoryinformation, memoryinformationsize, ::core::mem::transmute(returnsize.unwrap_or(::std::ptr::null_mut())))
@@ -754,7 +754,7 @@ pub unsafe fn RtlIsZeroMemory(buffer: *const ::core::ffi::c_void, length: usize)
 #[inline]
 pub unsafe fn SetProcessValidCallTargets<P0>(hprocess: P0, virtualaddress: *const ::core::ffi::c_void, regionsize: usize, offsetinformation: &mut [CFG_CALL_TARGET_INFO]) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("api-ms-win-core-memory-l1-1-3.dll" "system" fn SetProcessValidCallTargets(hprocess : super::super::Foundation:: HANDLE, virtualaddress : *const ::core::ffi::c_void, regionsize : usize, numberofoffsets : u32, offsetinformation : *mut CFG_CALL_TARGET_INFO) -> super::super::Foundation:: BOOL);
     SetProcessValidCallTargets(hprocess.into_param().abi(), virtualaddress, regionsize, offsetinformation.len() as _, ::core::mem::transmute(offsetinformation.as_ptr()))
@@ -764,8 +764,8 @@ where
 #[inline]
 pub unsafe fn SetProcessValidCallTargetsForMappedView<P0, P1>(process: P0, virtualaddress: *const ::core::ffi::c_void, regionsize: usize, offsetinformation: &mut [CFG_CALL_TARGET_INFO], section: P1, expectedfileoffset: u64) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("api-ms-win-core-memory-l1-1-7.dll" "system" fn SetProcessValidCallTargetsForMappedView(process : super::super::Foundation:: HANDLE, virtualaddress : *const ::core::ffi::c_void, regionsize : usize, numberofoffsets : u32, offsetinformation : *mut CFG_CALL_TARGET_INFO, section : super::super::Foundation:: HANDLE, expectedfileoffset : u64) -> super::super::Foundation:: BOOL);
     SetProcessValidCallTargetsForMappedView(process.into_param().abi(), virtualaddress, regionsize, offsetinformation.len() as _, ::core::mem::transmute(offsetinformation.as_ptr()), section.into_param().abi(), expectedfileoffset)
@@ -775,7 +775,7 @@ where
 #[inline]
 pub unsafe fn SetProcessWorkingSetSizeEx<P0>(hprocess: P0, dwminimumworkingsetsize: usize, dwmaximumworkingsetsize: usize, flags: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn SetProcessWorkingSetSizeEx(hprocess : super::super::Foundation:: HANDLE, dwminimumworkingsetsize : usize, dwmaximumworkingsetsize : usize, flags : u32) -> super::super::Foundation:: BOOL);
     SetProcessWorkingSetSizeEx(hprocess.into_param().abi(), dwminimumworkingsetsize, dwmaximumworkingsetsize, flags)
@@ -799,7 +799,7 @@ pub unsafe fn UnmapViewOfFile(lpbaseaddress: *const ::core::ffi::c_void) -> supe
 #[inline]
 pub unsafe fn UnmapViewOfFile2<P0>(process: P0, baseaddress: *const ::core::ffi::c_void, unmapflags: UNMAP_VIEW_OF_FILE_FLAGS) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("api-ms-win-core-memory-l1-1-5.dll" "system" fn UnmapViewOfFile2(process : super::super::Foundation:: HANDLE, baseaddress : *const ::core::ffi::c_void, unmapflags : UNMAP_VIEW_OF_FILE_FLAGS) -> super::super::Foundation:: BOOL);
     UnmapViewOfFile2(process.into_param().abi(), baseaddress, unmapflags)
@@ -829,7 +829,7 @@ pub unsafe fn VirtualAlloc(lpaddress: ::core::option::Option<*const ::core::ffi:
 #[inline]
 pub unsafe fn VirtualAlloc2<P0>(process: P0, baseaddress: ::core::option::Option<*const ::core::ffi::c_void>, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: ::core::option::Option<&mut [MEM_EXTENDED_PARAMETER]>) -> *mut ::core::ffi::c_void
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("api-ms-win-core-memory-l1-1-6.dll" "system" fn VirtualAlloc2(process : super::super::Foundation:: HANDLE, baseaddress : *const ::core::ffi::c_void, size : usize, allocationtype : VIRTUAL_ALLOCATION_TYPE, pageprotection : u32, extendedparameters : *mut MEM_EXTENDED_PARAMETER, parametercount : u32) -> *mut ::core::ffi::c_void);
     VirtualAlloc2(process.into_param().abi(), ::core::mem::transmute(baseaddress.unwrap_or(::std::ptr::null())), size, allocationtype, pageprotection, ::core::mem::transmute(extendedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len() as _))
@@ -839,7 +839,7 @@ where
 #[inline]
 pub unsafe fn VirtualAlloc2FromApp<P0>(process: P0, baseaddress: ::core::option::Option<*const ::core::ffi::c_void>, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: ::core::option::Option<&mut [MEM_EXTENDED_PARAMETER]>) -> *mut ::core::ffi::c_void
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("api-ms-win-core-memory-l1-1-6.dll" "system" fn VirtualAlloc2FromApp(process : super::super::Foundation:: HANDLE, baseaddress : *const ::core::ffi::c_void, size : usize, allocationtype : VIRTUAL_ALLOCATION_TYPE, pageprotection : u32, extendedparameters : *mut MEM_EXTENDED_PARAMETER, parametercount : u32) -> *mut ::core::ffi::c_void);
     VirtualAlloc2FromApp(process.into_param().abi(), ::core::mem::transmute(baseaddress.unwrap_or(::std::ptr::null())), size, allocationtype, pageprotection, ::core::mem::transmute(extendedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len() as _))
@@ -849,7 +849,7 @@ where
 #[inline]
 pub unsafe fn VirtualAllocEx<P0>(hprocess: P0, lpaddress: ::core::option::Option<*const ::core::ffi::c_void>, dwsize: usize, flallocationtype: VIRTUAL_ALLOCATION_TYPE, flprotect: PAGE_PROTECTION_FLAGS) -> *mut ::core::ffi::c_void
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn VirtualAllocEx(hprocess : super::super::Foundation:: HANDLE, lpaddress : *const ::core::ffi::c_void, dwsize : usize, flallocationtype : VIRTUAL_ALLOCATION_TYPE, flprotect : PAGE_PROTECTION_FLAGS) -> *mut ::core::ffi::c_void);
     VirtualAllocEx(hprocess.into_param().abi(), ::core::mem::transmute(lpaddress.unwrap_or(::std::ptr::null())), dwsize, flallocationtype, flprotect)
@@ -859,7 +859,7 @@ where
 #[inline]
 pub unsafe fn VirtualAllocExNuma<P0>(hprocess: P0, lpaddress: ::core::option::Option<*const ::core::ffi::c_void>, dwsize: usize, flallocationtype: VIRTUAL_ALLOCATION_TYPE, flprotect: u32, nndpreferred: u32) -> *mut ::core::ffi::c_void
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn VirtualAllocExNuma(hprocess : super::super::Foundation:: HANDLE, lpaddress : *const ::core::ffi::c_void, dwsize : usize, flallocationtype : VIRTUAL_ALLOCATION_TYPE, flprotect : u32, nndpreferred : u32) -> *mut ::core::ffi::c_void);
     VirtualAllocExNuma(hprocess.into_param().abi(), ::core::mem::transmute(lpaddress.unwrap_or(::std::ptr::null())), dwsize, flallocationtype, flprotect, nndpreferred)
@@ -882,7 +882,7 @@ pub unsafe fn VirtualFree(lpaddress: *mut ::core::ffi::c_void, dwsize: usize, dw
 #[inline]
 pub unsafe fn VirtualFreeEx<P0>(hprocess: P0, lpaddress: *mut ::core::ffi::c_void, dwsize: usize, dwfreetype: VIRTUAL_FREE_TYPE) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn VirtualFreeEx(hprocess : super::super::Foundation:: HANDLE, lpaddress : *mut ::core::ffi::c_void, dwsize : usize, dwfreetype : VIRTUAL_FREE_TYPE) -> super::super::Foundation:: BOOL);
     VirtualFreeEx(hprocess.into_param().abi(), lpaddress, dwsize, dwfreetype)
@@ -906,7 +906,7 @@ pub unsafe fn VirtualProtect(lpaddress: *const ::core::ffi::c_void, dwsize: usiz
 #[inline]
 pub unsafe fn VirtualProtectEx<P0>(hprocess: P0, lpaddress: *const ::core::ffi::c_void, dwsize: usize, flnewprotect: PAGE_PROTECTION_FLAGS, lpfloldprotect: *mut PAGE_PROTECTION_FLAGS) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn VirtualProtectEx(hprocess : super::super::Foundation:: HANDLE, lpaddress : *const ::core::ffi::c_void, dwsize : usize, flnewprotect : PAGE_PROTECTION_FLAGS, lpfloldprotect : *mut PAGE_PROTECTION_FLAGS) -> super::super::Foundation:: BOOL);
     VirtualProtectEx(hprocess.into_param().abi(), lpaddress, dwsize, flnewprotect, lpfloldprotect)
@@ -929,7 +929,7 @@ pub unsafe fn VirtualQuery(lpaddress: ::core::option::Option<*const ::core::ffi:
 #[inline]
 pub unsafe fn VirtualQueryEx<P0>(hprocess: P0, lpaddress: ::core::option::Option<*const ::core::ffi::c_void>, lpbuffer: *mut MEMORY_BASIC_INFORMATION, dwlength: usize) -> usize
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn VirtualQueryEx(hprocess : super::super::Foundation:: HANDLE, lpaddress : *const ::core::ffi::c_void, lpbuffer : *mut MEMORY_BASIC_INFORMATION, dwlength : usize) -> usize);
     VirtualQueryEx(hprocess.into_param().abi(), ::core::mem::transmute(lpaddress.unwrap_or(::std::ptr::null())), lpbuffer, dwlength)
@@ -946,7 +946,7 @@ pub unsafe fn VirtualUnlock(lpaddress: *const ::core::ffi::c_void, dwsize: usize
 #[inline]
 pub unsafe fn VirtualUnlockEx<P0>(process: P0, address: *const ::core::ffi::c_void, size: usize) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("api-ms-win-core-memory-l1-1-5.dll" "system" fn VirtualUnlockEx(process : super::super::Foundation:: HANDLE, address : *const ::core::ffi::c_void, size : usize) -> super::super::Foundation:: BOOL);
     VirtualUnlockEx(process.into_param().abi(), address, size)
@@ -992,8 +992,8 @@ impl ::core::default::Default for FILE_MAP {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for FILE_MAP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FILE_MAP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for FILE_MAP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1058,8 +1058,8 @@ impl ::core::default::Default for GLOBAL_ALLOC_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for GLOBAL_ALLOC_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GLOBAL_ALLOC_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for GLOBAL_ALLOC_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1148,8 +1148,8 @@ impl ::core::default::Default for HEAP_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HEAP_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEAP_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HEAP_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1212,8 +1212,8 @@ impl ::core::default::Default for HEAP_INFORMATION_CLASS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HEAP_INFORMATION_CLASS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEAP_INFORMATION_CLASS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HEAP_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1249,8 +1249,8 @@ impl ::core::default::Default for LOCAL_ALLOC_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LOCAL_ALLOC_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LOCAL_ALLOC_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LOCAL_ALLOC_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1309,8 +1309,8 @@ impl ::core::default::Default for MEMORY_RESOURCE_NOTIFICATION_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MEMORY_RESOURCE_NOTIFICATION_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MEMORY_RESOURCE_NOTIFICATION_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MEMORY_RESOURCE_NOTIFICATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1342,8 +1342,8 @@ impl ::core::default::Default for MEM_DEDICATED_ATTRIBUTE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MEM_DEDICATED_ATTRIBUTE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MEM_DEDICATED_ATTRIBUTE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MEM_DEDICATED_ATTRIBUTE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1381,8 +1381,8 @@ impl ::core::default::Default for MEM_EXTENDED_PARAMETER_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MEM_EXTENDED_PARAMETER_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MEM_EXTENDED_PARAMETER_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MEM_EXTENDED_PARAMETER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1414,8 +1414,8 @@ impl ::core::default::Default for MEM_SECTION_EXTENDED_PARAMETER_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MEM_SECTION_EXTENDED_PARAMETER_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MEM_SECTION_EXTENDED_PARAMETER_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MEM_SECTION_EXTENDED_PARAMETER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1445,8 +1445,8 @@ impl ::core::default::Default for OFFER_PRIORITY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for OFFER_PRIORITY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OFFER_PRIORITY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for OFFER_PRIORITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1546,8 +1546,8 @@ impl ::core::default::Default for PAGE_PROTECTION_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for PAGE_PROTECTION_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PAGE_PROTECTION_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for PAGE_PROTECTION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1608,8 +1608,8 @@ impl ::core::default::Default for PAGE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for PAGE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PAGE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for PAGE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1678,8 +1678,8 @@ impl ::core::default::Default for SECTION_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SECTION_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SECTION_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SECTION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1740,8 +1740,8 @@ impl ::core::default::Default for UNMAP_VIEW_OF_FILE_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for UNMAP_VIEW_OF_FILE_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UNMAP_VIEW_OF_FILE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for UNMAP_VIEW_OF_FILE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1779,8 +1779,8 @@ impl ::core::default::Default for VIRTUAL_ALLOCATION_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for VIRTUAL_ALLOCATION_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIRTUAL_ALLOCATION_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for VIRTUAL_ALLOCATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1839,8 +1839,8 @@ impl ::core::default::Default for VIRTUAL_FREE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for VIRTUAL_FREE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIRTUAL_FREE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for VIRTUAL_FREE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1864,8 +1864,8 @@ impl ::core::default::Default for WIN32_MEMORY_INFORMATION_CLASS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WIN32_MEMORY_INFORMATION_CLASS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WIN32_MEMORY_INFORMATION_CLASS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WIN32_MEMORY_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1891,8 +1891,8 @@ impl ::core::default::Default for WIN32_MEMORY_PARTITION_INFORMATION_CLASS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WIN32_MEMORY_PARTITION_INFORMATION_CLASS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WIN32_MEMORY_PARTITION_INFORMATION_CLASS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WIN32_MEMORY_PARTITION_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1916,8 +1916,8 @@ impl ::core::fmt::Debug for CFG_CALL_TARGET_INFO {
         f.debug_struct("CFG_CALL_TARGET_INFO").field("Offset", &self.Offset).field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows::core::TypeKind for CFG_CALL_TARGET_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CFG_CALL_TARGET_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for CFG_CALL_TARGET_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -1950,8 +1950,8 @@ impl ::core::fmt::Debug for HEAP_SUMMARY {
         f.debug_struct("HEAP_SUMMARY").field("cb", &self.cb).field("cbAllocated", &self.cbAllocated).field("cbCommitted", &self.cbCommitted).field("cbReserved", &self.cbReserved).field("cbMaxReserve", &self.cbMaxReserve).finish()
     }
 }
-impl ::windows::core::TypeKind for HEAP_SUMMARY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEAP_SUMMARY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for HEAP_SUMMARY {
     fn eq(&self, other: &Self) -> bool {
@@ -1988,8 +1988,8 @@ impl ::core::fmt::Debug for HeapHandle {
         f.debug_tuple("HeapHandle").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for HeapHandle {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HeapHandle {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
@@ -2019,8 +2019,8 @@ impl ::core::fmt::Debug for MEMORY_BASIC_INFORMATION {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::windows::core::TypeKind for MEMORY_BASIC_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MEMORY_BASIC_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for MEMORY_BASIC_INFORMATION {
@@ -2063,8 +2063,8 @@ impl ::core::fmt::Debug for MEMORY_BASIC_INFORMATION {
     }
 }
 #[cfg(target_arch = "x86")]
-impl ::windows::core::TypeKind for MEMORY_BASIC_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MEMORY_BASIC_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for MEMORY_BASIC_INFORMATION {
@@ -2102,8 +2102,8 @@ impl ::core::fmt::Debug for MEMORY_BASIC_INFORMATION32 {
         f.debug_struct("MEMORY_BASIC_INFORMATION32").field("BaseAddress", &self.BaseAddress).field("AllocationBase", &self.AllocationBase).field("AllocationProtect", &self.AllocationProtect).field("RegionSize", &self.RegionSize).field("State", &self.State).field("Protect", &self.Protect).field("Type", &self.Type).finish()
     }
 }
-impl ::windows::core::TypeKind for MEMORY_BASIC_INFORMATION32 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MEMORY_BASIC_INFORMATION32 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MEMORY_BASIC_INFORMATION32 {
     fn eq(&self, other: &Self) -> bool {
@@ -2140,8 +2140,8 @@ impl ::core::fmt::Debug for MEMORY_BASIC_INFORMATION64 {
         f.debug_struct("MEMORY_BASIC_INFORMATION64").field("BaseAddress", &self.BaseAddress).field("AllocationBase", &self.AllocationBase).field("AllocationProtect", &self.AllocationProtect).field("__alignment1", &self.__alignment1).field("RegionSize", &self.RegionSize).field("State", &self.State).field("Protect", &self.Protect).field("Type", &self.Type).field("__alignment2", &self.__alignment2).finish()
     }
 }
-impl ::windows::core::TypeKind for MEMORY_BASIC_INFORMATION64 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MEMORY_BASIC_INFORMATION64 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MEMORY_BASIC_INFORMATION64 {
     fn eq(&self, other: &Self) -> bool {
@@ -2172,8 +2172,8 @@ impl ::core::fmt::Debug for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
         f.debug_struct("MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE").field("Type", &self.Type).field("Reserved", &self.Reserved).field("Value", &self.Value).finish()
     }
 }
-impl ::windows::core::TypeKind for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
     fn eq(&self, other: &Self) -> bool {
@@ -2208,8 +2208,8 @@ impl ::core::fmt::Debug for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
         f.debug_struct("MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("SizeOfInformation", &self.SizeOfInformation).field("Flags", &self.Flags).field("AttributesOffset", &self.AttributesOffset).field("AttributeCount", &self.AttributeCount).field("Reserved", &self.Reserved).field("TypeId", &self.TypeId).finish()
     }
 }
-impl ::windows::core::TypeKind for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -2240,8 +2240,8 @@ impl ::core::fmt::Debug for MEM_ADDRESS_REQUIREMENTS {
         f.debug_struct("MEM_ADDRESS_REQUIREMENTS").field("LowestStartingAddress", &self.LowestStartingAddress).field("HighestEndingAddress", &self.HighestEndingAddress).field("Alignment", &self.Alignment).finish()
     }
 }
-impl ::windows::core::TypeKind for MEM_ADDRESS_REQUIREMENTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MEM_ADDRESS_REQUIREMENTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MEM_ADDRESS_REQUIREMENTS {
     fn eq(&self, other: &Self) -> bool {
@@ -2270,8 +2270,8 @@ impl ::core::clone::Clone for MEM_EXTENDED_PARAMETER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for MEM_EXTENDED_PARAMETER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MEM_EXTENDED_PARAMETER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MEM_EXTENDED_PARAMETER {
@@ -2300,8 +2300,8 @@ impl ::core::fmt::Debug for MEM_EXTENDED_PARAMETER_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for MEM_EXTENDED_PARAMETER_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MEM_EXTENDED_PARAMETER_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MEM_EXTENDED_PARAMETER_0 {
@@ -2336,8 +2336,8 @@ impl ::core::clone::Clone for MEM_EXTENDED_PARAMETER_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for MEM_EXTENDED_PARAMETER_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MEM_EXTENDED_PARAMETER_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MEM_EXTENDED_PARAMETER_1 {
@@ -2365,8 +2365,8 @@ impl ::core::clone::Clone for PROCESS_HEAP_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for PROCESS_HEAP_ENTRY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROCESS_HEAP_ENTRY {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PROCESS_HEAP_ENTRY {
@@ -2390,8 +2390,8 @@ impl ::core::clone::Clone for PROCESS_HEAP_ENTRY_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for PROCESS_HEAP_ENTRY_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROCESS_HEAP_ENTRY_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PROCESS_HEAP_ENTRY_0 {
@@ -2421,8 +2421,8 @@ impl ::core::fmt::Debug for PROCESS_HEAP_ENTRY_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for PROCESS_HEAP_ENTRY_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROCESS_HEAP_ENTRY_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROCESS_HEAP_ENTRY_0_0 {
@@ -2462,8 +2462,8 @@ impl ::core::fmt::Debug for PROCESS_HEAP_ENTRY_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for PROCESS_HEAP_ENTRY_0_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROCESS_HEAP_ENTRY_0_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROCESS_HEAP_ENTRY_0_1 {
@@ -2529,8 +2529,8 @@ impl ::core::fmt::Debug for WIN32_MEMORY_PARTITION_INFORMATION {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for WIN32_MEMORY_PARTITION_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WIN32_MEMORY_PARTITION_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIN32_MEMORY_PARTITION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -2560,8 +2560,8 @@ impl ::core::fmt::Debug for WIN32_MEMORY_RANGE_ENTRY {
         f.debug_struct("WIN32_MEMORY_RANGE_ENTRY").field("VirtualAddress", &self.VirtualAddress).field("NumberOfBytes", &self.NumberOfBytes).finish()
     }
 }
-impl ::windows::core::TypeKind for WIN32_MEMORY_RANGE_ENTRY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WIN32_MEMORY_RANGE_ENTRY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIN32_MEMORY_RANGE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -2589,8 +2589,8 @@ impl ::core::clone::Clone for WIN32_MEMORY_REGION_INFORMATION {
         *self
     }
 }
-impl ::windows::core::TypeKind for WIN32_MEMORY_REGION_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WIN32_MEMORY_REGION_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WIN32_MEMORY_REGION_INFORMATION {
     fn default() -> Self {
@@ -2609,8 +2609,8 @@ impl ::core::clone::Clone for WIN32_MEMORY_REGION_INFORMATION_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for WIN32_MEMORY_REGION_INFORMATION_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WIN32_MEMORY_REGION_INFORMATION_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WIN32_MEMORY_REGION_INFORMATION_0 {
     fn default() -> Self {
@@ -2633,8 +2633,8 @@ impl ::core::fmt::Debug for WIN32_MEMORY_REGION_INFORMATION_0_0 {
         f.debug_struct("WIN32_MEMORY_REGION_INFORMATION_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WIN32_MEMORY_REGION_INFORMATION_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WIN32_MEMORY_REGION_INFORMATION_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIN32_MEMORY_REGION_INFORMATION_0_0 {
     fn eq(&self, other: &Self) -> bool {

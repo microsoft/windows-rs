@@ -3,7 +3,7 @@
 #[inline]
 pub unsafe fn MgmAddGroupMembershipEntry<P0>(hprotocol: P0, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("rtm.dll" "system" fn MgmAddGroupMembershipEntry(hprotocol : super::super::Foundation:: HANDLE, dwsourceaddr : u32, dwsourcemask : u32, dwgroupaddr : u32, dwgroupmask : u32, dwifindex : u32, dwifnexthopipaddr : u32, dwflags : u32) -> u32);
     MgmAddGroupMembershipEntry(hprotocol.into_param().abi(), dwsourceaddr, dwsourcemask, dwgroupaddr, dwgroupmask, dwifindex, dwifnexthopipaddr, dwflags)
@@ -13,7 +13,7 @@ where
 #[inline]
 pub unsafe fn MgmDeRegisterMProtocol<P0>(hprotocol: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("rtm.dll" "system" fn MgmDeRegisterMProtocol(hprotocol : super::super::Foundation:: HANDLE) -> u32);
     MgmDeRegisterMProtocol(hprotocol.into_param().abi())
@@ -23,7 +23,7 @@ where
 #[inline]
 pub unsafe fn MgmDeleteGroupMembershipEntry<P0>(hprotocol: P0, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("rtm.dll" "system" fn MgmDeleteGroupMembershipEntry(hprotocol : super::super::Foundation:: HANDLE, dwsourceaddr : u32, dwsourcemask : u32, dwgroupaddr : u32, dwgroupmask : u32, dwifindex : u32, dwifnexthopipaddr : u32, dwflags : u32) -> u32);
     MgmDeleteGroupMembershipEntry(hprotocol.into_param().abi(), dwsourceaddr, dwsourcemask, dwgroupaddr, dwgroupmask, dwifindex, dwifnexthopipaddr, dwflags)
@@ -79,7 +79,7 @@ pub unsafe fn MgmGetProtocolOnInterface(dwifindex: u32, dwifnexthopaddr: u32, pd
 #[inline]
 pub unsafe fn MgmGroupEnumerationEnd<P0>(henum: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("rtm.dll" "system" fn MgmGroupEnumerationEnd(henum : super::super::Foundation:: HANDLE) -> u32);
     MgmGroupEnumerationEnd(henum.into_param().abi())
@@ -89,7 +89,7 @@ where
 #[inline]
 pub unsafe fn MgmGroupEnumerationGetNext<P0>(henum: P0, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("rtm.dll" "system" fn MgmGroupEnumerationGetNext(henum : super::super::Foundation:: HANDLE, pdwbuffersize : *mut u32, pbbuffer : *mut u8, pdwnumentries : *mut u32) -> u32);
     MgmGroupEnumerationGetNext(henum.into_param().abi(), pdwbuffersize, pbbuffer, pdwnumentries)
@@ -99,7 +99,7 @@ where
 #[inline]
 pub unsafe fn MgmGroupEnumerationStart<P0>(hprotocol: P0, metenumtype: MGM_ENUM_TYPES, phenumhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("rtm.dll" "system" fn MgmGroupEnumerationStart(hprotocol : super::super::Foundation:: HANDLE, metenumtype : MGM_ENUM_TYPES, phenumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
     MgmGroupEnumerationStart(hprotocol.into_param().abi(), metenumtype, phenumhandle)
@@ -116,7 +116,7 @@ pub unsafe fn MgmRegisterMProtocol(prpiinfo: *mut ROUTING_PROTOCOL_CONFIG, dwpro
 #[inline]
 pub unsafe fn MgmReleaseInterfaceOwnership<P0>(hprotocol: P0, dwifindex: u32, dwifnexthopaddr: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("rtm.dll" "system" fn MgmReleaseInterfaceOwnership(hprotocol : super::super::Foundation:: HANDLE, dwifindex : u32, dwifnexthopaddr : u32) -> u32);
     MgmReleaseInterfaceOwnership(hprotocol.into_param().abi(), dwifindex, dwifnexthopaddr)
@@ -126,7 +126,7 @@ where
 #[inline]
 pub unsafe fn MgmTakeInterfaceOwnership<P0>(hprotocol: P0, dwifindex: u32, dwifnexthopaddr: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("rtm.dll" "system" fn MgmTakeInterfaceOwnership(hprotocol : super::super::Foundation:: HANDLE, dwifindex : u32, dwifnexthopaddr : u32) -> u32);
     MgmTakeInterfaceOwnership(hprotocol.into_param().abi(), dwifindex, dwifnexthopaddr)
@@ -142,7 +142,7 @@ pub unsafe fn MprAdminBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32 {
 #[inline]
 pub unsafe fn MprAdminConnectionClearStats<P0>(hrasserver: isize, hrasconnection: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminConnectionClearStats(hrasserver : isize, hrasconnection : super::super::Foundation:: HANDLE) -> u32);
     MprAdminConnectionClearStats(hrasserver, hrasconnection.into_param().abi())
@@ -165,7 +165,7 @@ pub unsafe fn MprAdminConnectionEnumEx(hrasserver: isize, pobjectheader: *const 
 #[inline]
 pub unsafe fn MprAdminConnectionGetInfo<P0>(hrasserver: isize, dwlevel: u32, hrasconnection: P0, lplpbbuffer: *mut *mut u8) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminConnectionGetInfo(hrasserver : isize, dwlevel : u32, hrasconnection : super::super::Foundation:: HANDLE, lplpbbuffer : *mut *mut u8) -> u32);
     MprAdminConnectionGetInfo(hrasserver, dwlevel, hrasconnection.into_param().abi(), lplpbbuffer)
@@ -175,7 +175,7 @@ where
 #[inline]
 pub unsafe fn MprAdminConnectionGetInfoEx<P0>(hrasserver: isize, hrasconnection: P0, prasconnection: *mut RAS_CONNECTION_EX) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminConnectionGetInfoEx(hrasserver : isize, hrasconnection : super::super::Foundation:: HANDLE, prasconnection : *mut RAS_CONNECTION_EX) -> u32);
     MprAdminConnectionGetInfoEx(hrasserver, hrasconnection.into_param().abi(), prasconnection)
@@ -185,9 +185,9 @@ where
 #[inline]
 pub unsafe fn MprAdminConnectionRemoveQuarantine<P0, P1, P2>(hrasserver: P0, hrasconnection: P1, fisipaddress: P2) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminConnectionRemoveQuarantine(hrasserver : super::super::Foundation:: HANDLE, hrasconnection : super::super::Foundation:: HANDLE, fisipaddress : super::super::Foundation:: BOOL) -> u32);
     MprAdminConnectionRemoveQuarantine(hrasserver.into_param().abi(), hrasconnection.into_param().abi(), fisipaddress.into_param().abi())
@@ -197,7 +197,7 @@ where
 #[inline]
 pub unsafe fn MprAdminDeregisterConnectionNotification<P0>(hmprserver: isize, heventnotification: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminDeregisterConnectionNotification(hmprserver : isize, heventnotification : super::super::Foundation:: HANDLE) -> u32);
     MprAdminDeregisterConnectionNotification(hmprserver, heventnotification.into_param().abi())
@@ -213,27 +213,27 @@ pub unsafe fn MprAdminDeviceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer: *
 #[inline]
 pub unsafe fn MprAdminEstablishDomainRasServer<P0, P1, P2>(pszdomain: P0, pszmachine: P1, benable: P2) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminEstablishDomainRasServer(pszdomain : ::windows::core::PCWSTR, pszmachine : ::windows::core::PCWSTR, benable : super::super::Foundation:: BOOL) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminEstablishDomainRasServer(pszdomain : ::windows_core::PCWSTR, pszmachine : ::windows_core::PCWSTR, benable : super::super::Foundation:: BOOL) -> u32);
     MprAdminEstablishDomainRasServer(pszdomain.into_param().abi(), pszmachine.into_param().abi(), benable.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn MprAdminGetErrorString(dwerror: u32, lplpwserrorstring: *mut ::windows::core::PWSTR) -> u32 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminGetErrorString(dwerror : u32, lplpwserrorstring : *mut ::windows::core::PWSTR) -> u32);
+pub unsafe fn MprAdminGetErrorString(dwerror: u32, lplpwserrorstring: *mut ::windows_core::PWSTR) -> u32 {
+    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminGetErrorString(dwerror : u32, lplpwserrorstring : *mut ::windows_core::PWSTR) -> u32);
     MprAdminGetErrorString(dwerror, lplpwserrorstring)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn MprAdminGetPDCServer<P0, P1>(lpszdomain: P0, lpszserver: P1, lpszpdcserver: ::windows::core::PWSTR) -> u32
+pub unsafe fn MprAdminGetPDCServer<P0, P1>(lpszdomain: P0, lpszserver: P1, lpszpdcserver: ::windows_core::PWSTR) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminGetPDCServer(lpszdomain : ::windows::core::PCWSTR, lpszserver : ::windows::core::PCWSTR, lpszpdcserver : ::windows::core::PWSTR) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminGetPDCServer(lpszdomain : ::windows_core::PCWSTR, lpszserver : ::windows_core::PCWSTR, lpszpdcserver : ::windows_core::PWSTR) -> u32);
     MprAdminGetPDCServer(lpszdomain.into_param().abi(), lpszserver.into_param().abi(), ::core::mem::transmute(lpszpdcserver))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -241,9 +241,9 @@ where
 #[inline]
 pub unsafe fn MprAdminInterfaceConnect<P0, P1, P2>(hmprserver: isize, hinterface: P0, hevent: P1, fsynchronous: P2) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceConnect(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, hevent : super::super::Foundation:: HANDLE, fsynchronous : super::super::Foundation:: BOOL) -> u32);
     MprAdminInterfaceConnect(hmprserver, hinterface.into_param().abi(), hevent.into_param().abi(), fsynchronous.into_param().abi())
@@ -260,7 +260,7 @@ pub unsafe fn MprAdminInterfaceCreate(hmprserver: isize, dwlevel: u32, lpbbuffer
 #[inline]
 pub unsafe fn MprAdminInterfaceDelete<P0>(hmprserver: isize, hinterface: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceDelete(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE) -> u32);
     MprAdminInterfaceDelete(hmprserver, hinterface.into_param().abi())
@@ -270,7 +270,7 @@ where
 #[inline]
 pub unsafe fn MprAdminInterfaceDeviceGetInfo<P0>(hmprserver: isize, hinterface: P0, dwindex: u32, dwlevel: u32, lplpbuffer: *mut *mut u8) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceDeviceGetInfo(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwindex : u32, dwlevel : u32, lplpbuffer : *mut *mut u8) -> u32);
     MprAdminInterfaceDeviceGetInfo(hmprserver, hinterface.into_param().abi(), dwindex, dwlevel, lplpbuffer)
@@ -280,7 +280,7 @@ where
 #[inline]
 pub unsafe fn MprAdminInterfaceDeviceSetInfo<P0>(hmprserver: isize, hinterface: P0, dwindex: u32, dwlevel: u32, lpbbuffer: *const u8) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceDeviceSetInfo(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwindex : u32, dwlevel : u32, lpbbuffer : *const u8) -> u32);
     MprAdminInterfaceDeviceSetInfo(hmprserver, hinterface.into_param().abi(), dwindex, dwlevel, lpbbuffer)
@@ -290,7 +290,7 @@ where
 #[inline]
 pub unsafe fn MprAdminInterfaceDisconnect<P0>(hmprserver: isize, hinterface: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceDisconnect(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE) -> u32);
     MprAdminInterfaceDisconnect(hmprserver, hinterface.into_param().abi())
@@ -303,12 +303,12 @@ pub unsafe fn MprAdminInterfaceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn MprAdminInterfaceGetCredentials<P0, P1>(lpwsserver: P0, lpwsinterfacename: P1, lpwsusername: ::windows::core::PWSTR, lpwspassword: ::windows::core::PWSTR, lpwsdomainname: ::windows::core::PWSTR) -> u32
+pub unsafe fn MprAdminInterfaceGetCredentials<P0, P1>(lpwsserver: P0, lpwsinterfacename: P1, lpwsusername: ::windows_core::PWSTR, lpwspassword: ::windows_core::PWSTR, lpwsdomainname: ::windows_core::PWSTR) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceGetCredentials(lpwsserver : ::windows::core::PCWSTR, lpwsinterfacename : ::windows::core::PCWSTR, lpwsusername : ::windows::core::PWSTR, lpwspassword : ::windows::core::PWSTR, lpwsdomainname : ::windows::core::PWSTR) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceGetCredentials(lpwsserver : ::windows_core::PCWSTR, lpwsinterfacename : ::windows_core::PCWSTR, lpwsusername : ::windows_core::PWSTR, lpwspassword : ::windows_core::PWSTR, lpwsdomainname : ::windows_core::PWSTR) -> u32);
     MprAdminInterfaceGetCredentials(lpwsserver.into_param().abi(), lpwsinterfacename.into_param().abi(), ::core::mem::transmute(lpwsusername), ::core::mem::transmute(lpwspassword), ::core::mem::transmute(lpwsdomainname))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -316,7 +316,7 @@ where
 #[inline]
 pub unsafe fn MprAdminInterfaceGetCredentialsEx<P0>(hmprserver: isize, hinterface: P0, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceGetCredentialsEx(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwlevel : u32, lplpbbuffer : *mut *mut u8) -> u32);
     MprAdminInterfaceGetCredentialsEx(hmprserver, hinterface.into_param().abi(), dwlevel, lplpbbuffer)
@@ -326,7 +326,7 @@ where
 #[inline]
 pub unsafe fn MprAdminInterfaceGetCustomInfoEx<P0>(hmprserver: isize, hinterface: P0, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceGetCustomInfoEx(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, pcustominfo : *mut MPR_IF_CUSTOMINFOEX2) -> u32);
     MprAdminInterfaceGetCustomInfoEx(hmprserver, hinterface.into_param().abi(), pcustominfo)
@@ -336,10 +336,10 @@ where
 #[inline]
 pub unsafe fn MprAdminInterfaceGetHandle<P0, P1>(hmprserver: isize, lpwsinterfacename: P0, phinterface: *mut super::super::Foundation::HANDLE, fincludeclientinterfaces: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceGetHandle(hmprserver : isize, lpwsinterfacename : ::windows::core::PCWSTR, phinterface : *mut super::super::Foundation:: HANDLE, fincludeclientinterfaces : super::super::Foundation:: BOOL) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceGetHandle(hmprserver : isize, lpwsinterfacename : ::windows_core::PCWSTR, phinterface : *mut super::super::Foundation:: HANDLE, fincludeclientinterfaces : super::super::Foundation:: BOOL) -> u32);
     MprAdminInterfaceGetHandle(hmprserver, lpwsinterfacename.into_param().abi(), phinterface, fincludeclientinterfaces.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -347,7 +347,7 @@ where
 #[inline]
 pub unsafe fn MprAdminInterfaceGetInfo<P0>(hmprserver: isize, hinterface: P0, dwlevel: u32, lplpbbuffer: *const *const u8) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceGetInfo(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwlevel : u32, lplpbbuffer : *const *const u8) -> u32);
     MprAdminInterfaceGetInfo(hmprserver, hinterface.into_param().abi(), dwlevel, lplpbbuffer)
@@ -357,7 +357,7 @@ where
 #[inline]
 pub unsafe fn MprAdminInterfaceQueryUpdateResult<P0>(hmprserver: isize, hinterface: P0, dwprotocolid: u32, lpdwupdateresult: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceQueryUpdateResult(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwprotocolid : u32, lpdwupdateresult : *mut u32) -> u32);
     MprAdminInterfaceQueryUpdateResult(hmprserver, hinterface.into_param().abi(), dwprotocolid, lpdwupdateresult)
@@ -366,13 +366,13 @@ where
 #[inline]
 pub unsafe fn MprAdminInterfaceSetCredentials<P0, P1, P2, P3, P4>(lpwsserver: P0, lpwsinterfacename: P1, lpwsusername: P2, lpwsdomainname: P3, lpwspassword: P4) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P4: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P4: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceSetCredentials(lpwsserver : ::windows::core::PCWSTR, lpwsinterfacename : ::windows::core::PCWSTR, lpwsusername : ::windows::core::PCWSTR, lpwsdomainname : ::windows::core::PCWSTR, lpwspassword : ::windows::core::PCWSTR) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceSetCredentials(lpwsserver : ::windows_core::PCWSTR, lpwsinterfacename : ::windows_core::PCWSTR, lpwsusername : ::windows_core::PCWSTR, lpwsdomainname : ::windows_core::PCWSTR, lpwspassword : ::windows_core::PCWSTR) -> u32);
     MprAdminInterfaceSetCredentials(lpwsserver.into_param().abi(), lpwsinterfacename.into_param().abi(), lpwsusername.into_param().abi(), lpwsdomainname.into_param().abi(), lpwspassword.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -380,7 +380,7 @@ where
 #[inline]
 pub unsafe fn MprAdminInterfaceSetCredentialsEx<P0>(hmprserver: isize, hinterface: P0, dwlevel: u32, lpbbuffer: *const u8) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceSetCredentialsEx(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwlevel : u32, lpbbuffer : *const u8) -> u32);
     MprAdminInterfaceSetCredentialsEx(hmprserver, hinterface.into_param().abi(), dwlevel, lpbbuffer)
@@ -390,7 +390,7 @@ where
 #[inline]
 pub unsafe fn MprAdminInterfaceSetCustomInfoEx<P0>(hmprserver: isize, hinterface: P0, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceSetCustomInfoEx(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, pcustominfo : *const MPR_IF_CUSTOMINFOEX2) -> u32);
     MprAdminInterfaceSetCustomInfoEx(hmprserver, hinterface.into_param().abi(), pcustominfo)
@@ -400,7 +400,7 @@ where
 #[inline]
 pub unsafe fn MprAdminInterfaceSetInfo<P0>(hmprserver: isize, hinterface: P0, dwlevel: u32, lpbbuffer: *const u8) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceSetInfo(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwlevel : u32, lpbbuffer : *const u8) -> u32);
     MprAdminInterfaceSetInfo(hmprserver, hinterface.into_param().abi(), dwlevel, lpbbuffer)
@@ -410,7 +410,7 @@ where
 #[inline]
 pub unsafe fn MprAdminInterfaceTransportAdd<P0>(hmprserver: isize, hinterface: P0, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceTransportAdd(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwtransportid : u32, pinterfaceinfo : *const u8, dwinterfaceinfosize : u32) -> u32);
     MprAdminInterfaceTransportAdd(hmprserver, hinterface.into_param().abi(), dwtransportid, pinterfaceinfo, dwinterfaceinfosize)
@@ -420,7 +420,7 @@ where
 #[inline]
 pub unsafe fn MprAdminInterfaceTransportGetInfo<P0>(hmprserver: isize, hinterface: P0, dwtransportid: u32, ppinterfaceinfo: *mut *mut u8, lpdwinterfaceinfosize: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceTransportGetInfo(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwtransportid : u32, ppinterfaceinfo : *mut *mut u8, lpdwinterfaceinfosize : *mut u32) -> u32);
     MprAdminInterfaceTransportGetInfo(hmprserver, hinterface.into_param().abi(), dwtransportid, ppinterfaceinfo, ::core::mem::transmute(lpdwinterfaceinfosize.unwrap_or(::std::ptr::null_mut())))
@@ -430,7 +430,7 @@ where
 #[inline]
 pub unsafe fn MprAdminInterfaceTransportRemove<P0>(hmprserver: isize, hinterface: P0, dwtransportid: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceTransportRemove(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwtransportid : u32) -> u32);
     MprAdminInterfaceTransportRemove(hmprserver, hinterface.into_param().abi(), dwtransportid)
@@ -440,7 +440,7 @@ where
 #[inline]
 pub unsafe fn MprAdminInterfaceTransportSetInfo<P0>(hmprserver: isize, hinterface: P0, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceTransportSetInfo(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwtransportid : u32, pinterfaceinfo : *const u8, dwinterfaceinfosize : u32) -> u32);
     MprAdminInterfaceTransportSetInfo(hmprserver, hinterface.into_param().abi(), dwtransportid, pinterfaceinfo, dwinterfaceinfosize)
@@ -450,7 +450,7 @@ where
 #[inline]
 pub unsafe fn MprAdminInterfaceUpdatePhonebookInfo<P0>(hmprserver: isize, hinterface: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceUpdatePhonebookInfo(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE) -> u32);
     MprAdminInterfaceUpdatePhonebookInfo(hmprserver, hinterface.into_param().abi())
@@ -460,8 +460,8 @@ where
 #[inline]
 pub unsafe fn MprAdminInterfaceUpdateRoutes<P0, P1>(hmprserver: isize, hinterface: P0, dwprotocolid: u32, hevent: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceUpdateRoutes(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwprotocolid : u32, hevent : super::super::Foundation:: HANDLE) -> u32);
     MprAdminInterfaceUpdateRoutes(hmprserver, hinterface.into_param().abi(), dwprotocolid, hevent.into_param().abi())
@@ -471,10 +471,10 @@ where
 #[inline]
 pub unsafe fn MprAdminIsDomainRasServer<P0, P1>(pszdomain: P0, pszmachine: P1, pbisrasserver: *mut super::super::Foundation::BOOL) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminIsDomainRasServer(pszdomain : ::windows::core::PCWSTR, pszmachine : ::windows::core::PCWSTR, pbisrasserver : *mut super::super::Foundation:: BOOL) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminIsDomainRasServer(pszdomain : ::windows_core::PCWSTR, pszmachine : ::windows_core::PCWSTR, pbisrasserver : *mut super::super::Foundation:: BOOL) -> u32);
     MprAdminIsDomainRasServer(pszdomain.into_param().abi(), pszmachine.into_param().abi(), pbisrasserver)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -482,9 +482,9 @@ where
 #[inline]
 pub unsafe fn MprAdminIsServiceInitialized<P0>(lpwsservername: P0, fisserviceinitialized: *const super::super::Foundation::BOOL) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminIsServiceInitialized(lpwsservername : ::windows::core::PCWSTR, fisserviceinitialized : *const super::super::Foundation:: BOOL) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminIsServiceInitialized(lpwsservername : ::windows_core::PCWSTR, fisserviceinitialized : *const super::super::Foundation:: BOOL) -> u32);
     MprAdminIsServiceInitialized(lpwsservername.into_param().abi(), fisserviceinitialized)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -492,9 +492,9 @@ where
 #[inline]
 pub unsafe fn MprAdminIsServiceRunning<P0>(lpwsservername: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminIsServiceRunning(lpwsservername : ::windows::core::PCWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminIsServiceRunning(lpwsservername : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     MprAdminIsServiceRunning(lpwsservername.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
@@ -543,9 +543,9 @@ pub unsafe fn MprAdminMIBEntrySet(hmibserver: isize, dwprotocolid: u32, dwroutin
 #[inline]
 pub unsafe fn MprAdminMIBServerConnect<P0>(lpwsservername: P0, phmibserver: *mut isize) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminMIBServerConnect(lpwsservername : ::windows::core::PCWSTR, phmibserver : *mut isize) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminMIBServerConnect(lpwsservername : ::windows_core::PCWSTR, phmibserver : *mut isize) -> u32);
     MprAdminMIBServerConnect(lpwsservername.into_param().abi(), phmibserver)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
@@ -559,7 +559,7 @@ pub unsafe fn MprAdminMIBServerDisconnect(hmibserver: isize) {
 #[inline]
 pub unsafe fn MprAdminPortClearStats<P0>(hrasserver: isize, hport: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminPortClearStats(hrasserver : isize, hport : super::super::Foundation:: HANDLE) -> u32);
     MprAdminPortClearStats(hrasserver, hport.into_param().abi())
@@ -569,7 +569,7 @@ where
 #[inline]
 pub unsafe fn MprAdminPortDisconnect<P0>(hrasserver: isize, hport: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminPortDisconnect(hrasserver : isize, hport : super::super::Foundation:: HANDLE) -> u32);
     MprAdminPortDisconnect(hrasserver, hport.into_param().abi())
@@ -579,7 +579,7 @@ where
 #[inline]
 pub unsafe fn MprAdminPortEnum<P0>(hrasserver: isize, dwlevel: u32, hrasconnection: P0, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: ::core::option::Option<*const u32>) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminPortEnum(hrasserver : isize, dwlevel : u32, hrasconnection : super::super::Foundation:: HANDLE, lplpbbuffer : *mut *mut u8, dwprefmaxlen : u32, lpdwentriesread : *mut u32, lpdwtotalentries : *mut u32, lpdwresumehandle : *const u32) -> u32);
     MprAdminPortEnum(hrasserver, dwlevel, hrasconnection.into_param().abi(), lplpbbuffer, dwprefmaxlen, lpdwentriesread, lpdwtotalentries, ::core::mem::transmute(lpdwresumehandle.unwrap_or(::std::ptr::null())))
@@ -589,7 +589,7 @@ where
 #[inline]
 pub unsafe fn MprAdminPortGetInfo<P0>(hrasserver: isize, dwlevel: u32, hport: P0, lplpbbuffer: *mut *mut u8) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminPortGetInfo(hrasserver : isize, dwlevel : u32, hport : super::super::Foundation:: HANDLE, lplpbbuffer : *mut *mut u8) -> u32);
     MprAdminPortGetInfo(hrasserver, dwlevel, hport.into_param().abi(), lplpbbuffer)
@@ -599,7 +599,7 @@ where
 #[inline]
 pub unsafe fn MprAdminPortReset<P0>(hrasserver: isize, hport: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminPortReset(hrasserver : isize, hport : super::super::Foundation:: HANDLE) -> u32);
     MprAdminPortReset(hrasserver, hport.into_param().abi())
@@ -609,7 +609,7 @@ where
 #[inline]
 pub unsafe fn MprAdminRegisterConnectionNotification<P0>(hmprserver: isize, heventnotification: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminRegisterConnectionNotification(hmprserver : isize, heventnotification : super::super::Foundation:: HANDLE) -> u32);
     MprAdminRegisterConnectionNotification(hmprserver, heventnotification.into_param().abi())
@@ -619,19 +619,19 @@ where
 #[inline]
 pub unsafe fn MprAdminSendUserMessage<P0, P1>(hmprserver: isize, hconnection: P0, lpwszmessage: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminSendUserMessage(hmprserver : isize, hconnection : super::super::Foundation:: HANDLE, lpwszmessage : ::windows::core::PCWSTR) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminSendUserMessage(hmprserver : isize, hconnection : super::super::Foundation:: HANDLE, lpwszmessage : ::windows_core::PCWSTR) -> u32);
     MprAdminSendUserMessage(hmprserver, hconnection.into_param().abi(), lpwszmessage.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminServerConnect<P0>(lpwsservername: P0, phmprserver: *mut isize) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminServerConnect(lpwsservername : ::windows::core::PCWSTR, phmprserver : *mut isize) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminServerConnect(lpwsservername : ::windows_core::PCWSTR, phmprserver : *mut isize) -> u32);
     MprAdminServerConnect(lpwsservername.into_param().abi(), phmprserver)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
@@ -682,10 +682,10 @@ pub unsafe fn MprAdminServerSetInfoEx(hmprserver: isize, pserverinfo: *const MPR
 #[inline]
 pub unsafe fn MprAdminTransportCreate<P0, P1>(hmprserver: isize, dwtransportid: u32, lpwstransportname: P0, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: ::core::option::Option<*const u8>, dwclientinterfaceinfosize: u32, lpwsdllpath: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminTransportCreate(hmprserver : isize, dwtransportid : u32, lpwstransportname : ::windows::core::PCWSTR, pglobalinfo : *const u8, dwglobalinfosize : u32, pclientinterfaceinfo : *const u8, dwclientinterfaceinfosize : u32, lpwsdllpath : ::windows::core::PCWSTR) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminTransportCreate(hmprserver : isize, dwtransportid : u32, lpwstransportname : ::windows_core::PCWSTR, pglobalinfo : *const u8, dwglobalinfosize : u32, pclientinterfaceinfo : *const u8, dwclientinterfaceinfosize : u32, lpwsdllpath : ::windows_core::PCWSTR) -> u32);
     MprAdminTransportCreate(hmprserver, dwtransportid, lpwstransportname.into_param().abi(), pglobalinfo, dwglobalinfosize, ::core::mem::transmute(pclientinterfaceinfo.unwrap_or(::std::ptr::null())), dwclientinterfaceinfosize, lpwsdllpath.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
@@ -705,7 +705,7 @@ pub unsafe fn MprAdminTransportSetInfo(hmprserver: isize, dwtransportid: u32, pg
 #[inline]
 pub unsafe fn MprAdminUpdateConnection<P0>(hrasserver: isize, hrasconnection: P0, prasupdateconnection: *const RAS_UPDATE_CONNECTION) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminUpdateConnection(hrasserver : isize, hrasconnection : super::super::Foundation:: HANDLE, prasupdateconnection : *const RAS_UPDATE_CONNECTION) -> u32);
     MprAdminUpdateConnection(hrasserver, hrasconnection.into_param().abi(), prasupdateconnection)
@@ -714,20 +714,20 @@ where
 #[inline]
 pub unsafe fn MprAdminUserGetInfo<P0, P1>(lpszserver: P0, lpszuser: P1, dwlevel: u32, lpbbuffer: *mut u8) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminUserGetInfo(lpszserver : ::windows::core::PCWSTR, lpszuser : ::windows::core::PCWSTR, dwlevel : u32, lpbbuffer : *mut u8) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminUserGetInfo(lpszserver : ::windows_core::PCWSTR, lpszuser : ::windows_core::PCWSTR, dwlevel : u32, lpbbuffer : *mut u8) -> u32);
     MprAdminUserGetInfo(lpszserver.into_param().abi(), lpszuser.into_param().abi(), dwlevel, lpbbuffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminUserSetInfo<P0, P1>(lpszserver: P0, lpszuser: P1, dwlevel: u32, lpbbuffer: *const u8) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminUserSetInfo(lpszserver : ::windows::core::PCWSTR, lpszuser : ::windows::core::PCWSTR, dwlevel : u32, lpbbuffer : *const u8) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprAdminUserSetInfo(lpszserver : ::windows_core::PCWSTR, lpszuser : ::windows_core::PCWSTR, dwlevel : u32, lpbbuffer : *const u8) -> u32);
     MprAdminUserSetInfo(lpszserver.into_param().abi(), lpszuser.into_param().abi(), dwlevel, lpbbuffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
@@ -741,7 +741,7 @@ pub unsafe fn MprConfigBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32 {
 #[inline]
 pub unsafe fn MprConfigFilterGetInfo<P0>(hmprconfig: P0, dwlevel: u32, dwtransportid: u32, lpbuffer: *mut u8) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigFilterGetInfo(hmprconfig : super::super::Foundation:: HANDLE, dwlevel : u32, dwtransportid : u32, lpbuffer : *mut u8) -> u32);
     MprConfigFilterGetInfo(hmprconfig.into_param().abi(), dwlevel, dwtransportid, lpbuffer)
@@ -751,7 +751,7 @@ where
 #[inline]
 pub unsafe fn MprConfigFilterSetInfo<P0>(hmprconfig: P0, dwlevel: u32, dwtransportid: u32, lpbuffer: *const u8) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigFilterSetInfo(hmprconfig : super::super::Foundation:: HANDLE, dwlevel : u32, dwtransportid : u32, lpbuffer : *const u8) -> u32);
     MprConfigFilterSetInfo(hmprconfig.into_param().abi(), dwlevel, dwtransportid, lpbuffer)
@@ -759,23 +759,23 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigGetFriendlyName<P0, P1>(hmprconfig: P0, pszguidname: P1, pszbuffer: ::windows::core::PWSTR, dwbuffersize: u32) -> u32
+pub unsafe fn MprConfigGetFriendlyName<P0, P1>(hmprconfig: P0, pszguidname: P1, pszbuffer: ::windows_core::PWSTR, dwbuffersize: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprConfigGetFriendlyName(hmprconfig : super::super::Foundation:: HANDLE, pszguidname : ::windows::core::PCWSTR, pszbuffer : ::windows::core::PWSTR, dwbuffersize : u32) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprConfigGetFriendlyName(hmprconfig : super::super::Foundation:: HANDLE, pszguidname : ::windows_core::PCWSTR, pszbuffer : ::windows_core::PWSTR, dwbuffersize : u32) -> u32);
     MprConfigGetFriendlyName(hmprconfig.into_param().abi(), pszguidname.into_param().abi(), ::core::mem::transmute(pszbuffer), dwbuffersize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigGetGuidName<P0, P1>(hmprconfig: P0, pszfriendlyname: P1, pszbuffer: ::windows::core::PWSTR, dwbuffersize: u32) -> u32
+pub unsafe fn MprConfigGetGuidName<P0, P1>(hmprconfig: P0, pszfriendlyname: P1, pszbuffer: ::windows_core::PWSTR, dwbuffersize: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprConfigGetGuidName(hmprconfig : super::super::Foundation:: HANDLE, pszfriendlyname : ::windows::core::PCWSTR, pszbuffer : ::windows::core::PWSTR, dwbuffersize : u32) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprConfigGetGuidName(hmprconfig : super::super::Foundation:: HANDLE, pszfriendlyname : ::windows_core::PCWSTR, pszbuffer : ::windows_core::PWSTR, dwbuffersize : u32) -> u32);
     MprConfigGetGuidName(hmprconfig.into_param().abi(), pszfriendlyname.into_param().abi(), ::core::mem::transmute(pszbuffer), dwbuffersize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -783,7 +783,7 @@ where
 #[inline]
 pub unsafe fn MprConfigInterfaceCreate<P0>(hmprconfig: P0, dwlevel: u32, lpbbuffer: *const u8, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigInterfaceCreate(hmprconfig : super::super::Foundation:: HANDLE, dwlevel : u32, lpbbuffer : *const u8, phrouterinterface : *mut super::super::Foundation:: HANDLE) -> u32);
     MprConfigInterfaceCreate(hmprconfig.into_param().abi(), dwlevel, lpbbuffer, phrouterinterface)
@@ -793,8 +793,8 @@ where
 #[inline]
 pub unsafe fn MprConfigInterfaceDelete<P0, P1>(hmprconfig: P0, hrouterinterface: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigInterfaceDelete(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE) -> u32);
     MprConfigInterfaceDelete(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi())
@@ -804,7 +804,7 @@ where
 #[inline]
 pub unsafe fn MprConfigInterfaceEnum<P0>(hmprconfig: P0, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigInterfaceEnum(hmprconfig : super::super::Foundation:: HANDLE, dwlevel : u32, lplpbuffer : *mut *mut u8, dwprefmaxlen : u32, lpdwentriesread : *mut u32, lpdwtotalentries : *mut u32, lpdwresumehandle : *mut u32) -> u32);
     MprConfigInterfaceEnum(hmprconfig.into_param().abi(), dwlevel, lplpbuffer, dwprefmaxlen, lpdwentriesread, lpdwtotalentries, ::core::mem::transmute(lpdwresumehandle.unwrap_or(::std::ptr::null_mut())))
@@ -814,8 +814,8 @@ where
 #[inline]
 pub unsafe fn MprConfigInterfaceGetCustomInfoEx<P0, P1>(hmprconfig: P0, hrouterinterface: P1, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigInterfaceGetCustomInfoEx(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, pcustominfo : *mut MPR_IF_CUSTOMINFOEX2) -> u32);
     MprConfigInterfaceGetCustomInfoEx(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), pcustominfo)
@@ -825,10 +825,10 @@ where
 #[inline]
 pub unsafe fn MprConfigInterfaceGetHandle<P0, P1>(hmprconfig: P0, lpwsinterfacename: P1, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprConfigInterfaceGetHandle(hmprconfig : super::super::Foundation:: HANDLE, lpwsinterfacename : ::windows::core::PCWSTR, phrouterinterface : *mut super::super::Foundation:: HANDLE) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprConfigInterfaceGetHandle(hmprconfig : super::super::Foundation:: HANDLE, lpwsinterfacename : ::windows_core::PCWSTR, phrouterinterface : *mut super::super::Foundation:: HANDLE) -> u32);
     MprConfigInterfaceGetHandle(hmprconfig.into_param().abi(), lpwsinterfacename.into_param().abi(), phrouterinterface)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -836,8 +836,8 @@ where
 #[inline]
 pub unsafe fn MprConfigInterfaceGetInfo<P0, P1>(hmprconfig: P0, hrouterinterface: P1, dwlevel: u32, lplpbuffer: *mut *mut u8, lpdwbuffersize: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigInterfaceGetInfo(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, dwlevel : u32, lplpbuffer : *mut *mut u8, lpdwbuffersize : *mut u32) -> u32);
     MprConfigInterfaceGetInfo(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), dwlevel, lplpbuffer, lpdwbuffersize)
@@ -847,8 +847,8 @@ where
 #[inline]
 pub unsafe fn MprConfigInterfaceSetCustomInfoEx<P0, P1>(hmprconfig: P0, hrouterinterface: P1, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigInterfaceSetCustomInfoEx(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, pcustominfo : *const MPR_IF_CUSTOMINFOEX2) -> u32);
     MprConfigInterfaceSetCustomInfoEx(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), pcustominfo)
@@ -858,8 +858,8 @@ where
 #[inline]
 pub unsafe fn MprConfigInterfaceSetInfo<P0, P1>(hmprconfig: P0, hrouterinterface: P1, dwlevel: u32, lpbbuffer: *const u8) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigInterfaceSetInfo(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, dwlevel : u32, lpbbuffer : *const u8) -> u32);
     MprConfigInterfaceSetInfo(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), dwlevel, lpbbuffer)
@@ -869,11 +869,11 @@ where
 #[inline]
 pub unsafe fn MprConfigInterfaceTransportAdd<P0, P1, P2>(hmprconfig: P0, hrouterinterface: P1, dwtransportid: u32, lpwstransportname: P2, pinterfaceinfo: &[u8], phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportAdd(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, dwtransportid : u32, lpwstransportname : ::windows::core::PCWSTR, pinterfaceinfo : *const u8, dwinterfaceinfosize : u32, phrouteriftransport : *mut super::super::Foundation:: HANDLE) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportAdd(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, dwtransportid : u32, lpwstransportname : ::windows_core::PCWSTR, pinterfaceinfo : *const u8, dwinterfaceinfosize : u32, phrouteriftransport : *mut super::super::Foundation:: HANDLE) -> u32);
     MprConfigInterfaceTransportAdd(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), dwtransportid, lpwstransportname.into_param().abi(), ::core::mem::transmute(pinterfaceinfo.as_ptr()), pinterfaceinfo.len() as _, phrouteriftransport)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -881,8 +881,8 @@ where
 #[inline]
 pub unsafe fn MprConfigInterfaceTransportEnum<P0, P1>(hmprconfig: P0, hrouterinterface: P1, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportEnum(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, dwlevel : u32, lplpbuffer : *mut *mut u8, dwprefmaxlen : u32, lpdwentriesread : *mut u32, lpdwtotalentries : *mut u32, lpdwresumehandle : *mut u32) -> u32);
     MprConfigInterfaceTransportEnum(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), dwlevel, lplpbuffer, dwprefmaxlen, lpdwentriesread, lpdwtotalentries, ::core::mem::transmute(lpdwresumehandle.unwrap_or(::std::ptr::null_mut())))
@@ -892,8 +892,8 @@ where
 #[inline]
 pub unsafe fn MprConfigInterfaceTransportGetHandle<P0, P1>(hmprconfig: P0, hrouterinterface: P1, dwtransportid: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportGetHandle(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, dwtransportid : u32, phrouteriftransport : *mut super::super::Foundation:: HANDLE) -> u32);
     MprConfigInterfaceTransportGetHandle(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), dwtransportid, phrouteriftransport)
@@ -903,9 +903,9 @@ where
 #[inline]
 pub unsafe fn MprConfigInterfaceTransportGetInfo<P0, P1, P2>(hmprconfig: P0, hrouterinterface: P1, hrouteriftransport: P2, ppinterfaceinfo: ::core::option::Option<*mut *mut u8>, lpdwinterfaceinfosize: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P2: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportGetInfo(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, hrouteriftransport : super::super::Foundation:: HANDLE, ppinterfaceinfo : *mut *mut u8, lpdwinterfaceinfosize : *mut u32) -> u32);
     MprConfigInterfaceTransportGetInfo(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), hrouteriftransport.into_param().abi(), ::core::mem::transmute(ppinterfaceinfo.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdwinterfaceinfosize.unwrap_or(::std::ptr::null_mut())))
@@ -915,9 +915,9 @@ where
 #[inline]
 pub unsafe fn MprConfigInterfaceTransportRemove<P0, P1, P2>(hmprconfig: P0, hrouterinterface: P1, hrouteriftransport: P2) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P2: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportRemove(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, hrouteriftransport : super::super::Foundation:: HANDLE) -> u32);
     MprConfigInterfaceTransportRemove(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), hrouteriftransport.into_param().abi())
@@ -927,9 +927,9 @@ where
 #[inline]
 pub unsafe fn MprConfigInterfaceTransportSetInfo<P0, P1, P2>(hmprconfig: P0, hrouterinterface: P1, hrouteriftransport: P2, pinterfaceinfo: ::core::option::Option<&[u8]>) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P2: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportSetInfo(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, hrouteriftransport : super::super::Foundation:: HANDLE, pinterfaceinfo : *const u8, dwinterfaceinfosize : u32) -> u32);
     MprConfigInterfaceTransportSetInfo(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), hrouteriftransport.into_param().abi(), ::core::mem::transmute(pinterfaceinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pinterfaceinfo.as_deref().map_or(0, |slice| slice.len() as _))
@@ -939,10 +939,10 @@ where
 #[inline]
 pub unsafe fn MprConfigServerBackup<P0, P1>(hmprconfig: P0, lpwspath: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprConfigServerBackup(hmprconfig : super::super::Foundation:: HANDLE, lpwspath : ::windows::core::PCWSTR) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprConfigServerBackup(hmprconfig : super::super::Foundation:: HANDLE, lpwspath : ::windows_core::PCWSTR) -> u32);
     MprConfigServerBackup(hmprconfig.into_param().abi(), lpwspath.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -950,9 +950,9 @@ where
 #[inline]
 pub unsafe fn MprConfigServerConnect<P0>(lpwsservername: P0, phmprconfig: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprConfigServerConnect(lpwsservername : ::windows::core::PCWSTR, phmprconfig : *mut super::super::Foundation:: HANDLE) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprConfigServerConnect(lpwsservername : ::windows_core::PCWSTR, phmprconfig : *mut super::super::Foundation:: HANDLE) -> u32);
     MprConfigServerConnect(lpwsservername.into_param().abi(), phmprconfig)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -960,7 +960,7 @@ where
 #[inline]
 pub unsafe fn MprConfigServerDisconnect<P0>(hmprconfig: P0)
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigServerDisconnect(hmprconfig : super::super::Foundation:: HANDLE) -> ());
     MprConfigServerDisconnect(hmprconfig.into_param().abi())
@@ -970,7 +970,7 @@ where
 #[inline]
 pub unsafe fn MprConfigServerGetInfo<P0>(hmprconfig: P0, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigServerGetInfo(hmprconfig : super::super::Foundation:: HANDLE, dwlevel : u32, lplpbbuffer : *mut *mut u8) -> u32);
     MprConfigServerGetInfo(hmprconfig.into_param().abi(), dwlevel, lplpbbuffer)
@@ -980,7 +980,7 @@ where
 #[inline]
 pub unsafe fn MprConfigServerGetInfoEx<P0>(hmprconfig: P0, pserverinfo: *mut MPR_SERVER_EX1) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigServerGetInfoEx(hmprconfig : super::super::Foundation:: HANDLE, pserverinfo : *mut MPR_SERVER_EX1) -> u32);
     MprConfigServerGetInfoEx(hmprconfig.into_param().abi(), pserverinfo)
@@ -996,7 +996,7 @@ pub unsafe fn MprConfigServerInstall(dwlevel: u32, pbuffer: *const ::core::ffi::
 #[inline]
 pub unsafe fn MprConfigServerRefresh<P0>(hmprconfig: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigServerRefresh(hmprconfig : super::super::Foundation:: HANDLE) -> u32);
     MprConfigServerRefresh(hmprconfig.into_param().abi())
@@ -1006,10 +1006,10 @@ where
 #[inline]
 pub unsafe fn MprConfigServerRestore<P0, P1>(hmprconfig: P0, lpwspath: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprConfigServerRestore(hmprconfig : super::super::Foundation:: HANDLE, lpwspath : ::windows::core::PCWSTR) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprConfigServerRestore(hmprconfig : super::super::Foundation:: HANDLE, lpwspath : ::windows_core::PCWSTR) -> u32);
     MprConfigServerRestore(hmprconfig.into_param().abi(), lpwspath.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
@@ -1023,7 +1023,7 @@ pub unsafe fn MprConfigServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer:
 #[inline]
 pub unsafe fn MprConfigServerSetInfoEx<P0>(hmprconfig: P0, psetserverconfig: *const MPR_SERVER_SET_CONFIG_EX1) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigServerSetInfoEx(hmprconfig : super::super::Foundation:: HANDLE, psetserverconfig : *const MPR_SERVER_SET_CONFIG_EX1) -> u32);
     MprConfigServerSetInfoEx(hmprconfig.into_param().abi(), psetserverconfig)
@@ -1033,11 +1033,11 @@ where
 #[inline]
 pub unsafe fn MprConfigTransportCreate<P0, P1, P2>(hmprconfig: P0, dwtransportid: u32, lpwstransportname: P1, pglobalinfo: &[u8], pclientinterfaceinfo: ::core::option::Option<&[u8]>, lpwsdllpath: P2, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprConfigTransportCreate(hmprconfig : super::super::Foundation:: HANDLE, dwtransportid : u32, lpwstransportname : ::windows::core::PCWSTR, pglobalinfo : *const u8, dwglobalinfosize : u32, pclientinterfaceinfo : *const u8, dwclientinterfaceinfosize : u32, lpwsdllpath : ::windows::core::PCWSTR, phroutertransport : *mut super::super::Foundation:: HANDLE) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprConfigTransportCreate(hmprconfig : super::super::Foundation:: HANDLE, dwtransportid : u32, lpwstransportname : ::windows_core::PCWSTR, pglobalinfo : *const u8, dwglobalinfosize : u32, pclientinterfaceinfo : *const u8, dwclientinterfaceinfosize : u32, lpwsdllpath : ::windows_core::PCWSTR, phroutertransport : *mut super::super::Foundation:: HANDLE) -> u32);
     MprConfigTransportCreate(hmprconfig.into_param().abi(), dwtransportid, lpwstransportname.into_param().abi(), ::core::mem::transmute(pglobalinfo.as_ptr()), pglobalinfo.len() as _, ::core::mem::transmute(pclientinterfaceinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pclientinterfaceinfo.as_deref().map_or(0, |slice| slice.len() as _), lpwsdllpath.into_param().abi(), phroutertransport)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1045,8 +1045,8 @@ where
 #[inline]
 pub unsafe fn MprConfigTransportDelete<P0, P1>(hmprconfig: P0, hroutertransport: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigTransportDelete(hmprconfig : super::super::Foundation:: HANDLE, hroutertransport : super::super::Foundation:: HANDLE) -> u32);
     MprConfigTransportDelete(hmprconfig.into_param().abi(), hroutertransport.into_param().abi())
@@ -1056,7 +1056,7 @@ where
 #[inline]
 pub unsafe fn MprConfigTransportEnum<P0>(hmprconfig: P0, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigTransportEnum(hmprconfig : super::super::Foundation:: HANDLE, dwlevel : u32, lplpbuffer : *mut *mut u8, dwprefmaxlen : u32, lpdwentriesread : *mut u32, lpdwtotalentries : *mut u32, lpdwresumehandle : *mut u32) -> u32);
     MprConfigTransportEnum(hmprconfig.into_param().abi(), dwlevel, lplpbuffer, dwprefmaxlen, lpdwentriesread, lpdwtotalentries, ::core::mem::transmute(lpdwresumehandle.unwrap_or(::std::ptr::null_mut())))
@@ -1066,7 +1066,7 @@ where
 #[inline]
 pub unsafe fn MprConfigTransportGetHandle<P0>(hmprconfig: P0, dwtransportid: u32, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigTransportGetHandle(hmprconfig : super::super::Foundation:: HANDLE, dwtransportid : u32, phroutertransport : *mut super::super::Foundation:: HANDLE) -> u32);
     MprConfigTransportGetHandle(hmprconfig.into_param().abi(), dwtransportid, phroutertransport)
@@ -1074,12 +1074,12 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigTransportGetInfo<P0, P1>(hmprconfig: P0, hroutertransport: P1, ppglobalinfo: ::core::option::Option<*mut *mut u8>, lpdwglobalinfosize: ::core::option::Option<*mut u32>, ppclientinterfaceinfo: ::core::option::Option<*mut *mut u8>, lpdwclientinterfaceinfosize: ::core::option::Option<*mut u32>, lplpwsdllpath: ::core::option::Option<*mut ::windows::core::PWSTR>) -> u32
+pub unsafe fn MprConfigTransportGetInfo<P0, P1>(hmprconfig: P0, hroutertransport: P1, ppglobalinfo: ::core::option::Option<*mut *mut u8>, lpdwglobalinfosize: ::core::option::Option<*mut u32>, ppclientinterfaceinfo: ::core::option::Option<*mut *mut u8>, lpdwclientinterfaceinfosize: ::core::option::Option<*mut u32>, lplpwsdllpath: ::core::option::Option<*mut ::windows_core::PWSTR>) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprConfigTransportGetInfo(hmprconfig : super::super::Foundation:: HANDLE, hroutertransport : super::super::Foundation:: HANDLE, ppglobalinfo : *mut *mut u8, lpdwglobalinfosize : *mut u32, ppclientinterfaceinfo : *mut *mut u8, lpdwclientinterfaceinfosize : *mut u32, lplpwsdllpath : *mut ::windows::core::PWSTR) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprConfigTransportGetInfo(hmprconfig : super::super::Foundation:: HANDLE, hroutertransport : super::super::Foundation:: HANDLE, ppglobalinfo : *mut *mut u8, lpdwglobalinfosize : *mut u32, ppclientinterfaceinfo : *mut *mut u8, lpdwclientinterfaceinfosize : *mut u32, lplpwsdllpath : *mut ::windows_core::PWSTR) -> u32);
     MprConfigTransportGetInfo(hmprconfig.into_param().abi(), hroutertransport.into_param().abi(), ::core::mem::transmute(ppglobalinfo.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdwglobalinfosize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppclientinterfaceinfo.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdwclientinterfaceinfosize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lplpwsdllpath.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1087,11 +1087,11 @@ where
 #[inline]
 pub unsafe fn MprConfigTransportSetInfo<P0, P1, P2>(hmprconfig: P0, hroutertransport: P1, pglobalinfo: ::core::option::Option<&[u8]>, pclientinterfaceinfo: ::core::option::Option<&[u8]>, lpwsdllpath: P2) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mprapi.dll" "system" fn MprConfigTransportSetInfo(hmprconfig : super::super::Foundation:: HANDLE, hroutertransport : super::super::Foundation:: HANDLE, pglobalinfo : *const u8, dwglobalinfosize : u32, pclientinterfaceinfo : *const u8, dwclientinterfaceinfosize : u32, lpwsdllpath : ::windows::core::PCWSTR) -> u32);
+    ::windows_targets::link!("mprapi.dll" "system" fn MprConfigTransportSetInfo(hmprconfig : super::super::Foundation:: HANDLE, hroutertransport : super::super::Foundation:: HANDLE, pglobalinfo : *const u8, dwglobalinfosize : u32, pclientinterfaceinfo : *const u8, dwclientinterfaceinfosize : u32, lpwsdllpath : ::windows_core::PCWSTR) -> u32);
     MprConfigTransportSetInfo(hmprconfig.into_param().abi(), hroutertransport.into_param().abi(), ::core::mem::transmute(pglobalinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pglobalinfo.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pclientinterfaceinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pclientinterfaceinfo.as_deref().map_or(0, |slice| slice.len() as _), lpwsdllpath.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
@@ -1152,7 +1152,7 @@ pub unsafe fn MprInfoRemoveAll(lpheader: *const ::core::ffi::c_void, lplpnewhead
 #[inline]
 pub unsafe fn RasClearConnectionStatistics<P0>(hrasconn: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<HRASCONN>,
+    P0: ::windows_core::IntoParam<HRASCONN>,
 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasClearConnectionStatistics(hrasconn : HRASCONN) -> u32);
     RasClearConnectionStatistics(hrasconn.into_param().abi())
@@ -1161,7 +1161,7 @@ where
 #[inline]
 pub unsafe fn RasClearLinkStatistics<P0>(hrasconn: P0, dwsubentry: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<HRASCONN>,
+    P0: ::windows_core::IntoParam<HRASCONN>,
 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasClearLinkStatistics(hrasconn : HRASCONN, dwsubentry : u32) -> u32);
     RasClearLinkStatistics(hrasconn.into_param().abi(), dwsubentry)
@@ -1171,8 +1171,8 @@ where
 #[inline]
 pub unsafe fn RasConnectionNotificationA<P0, P1>(param0: P0, param1: P1, param2: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<HRASCONN>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<HRASCONN>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasConnectionNotificationA(param0 : HRASCONN, param1 : super::super::Foundation:: HANDLE, param2 : u32) -> u32);
     RasConnectionNotificationA(param0.into_param().abi(), param1.into_param().abi(), param2)
@@ -1182,8 +1182,8 @@ where
 #[inline]
 pub unsafe fn RasConnectionNotificationW<P0, P1>(param0: P0, param1: P1, param2: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<HRASCONN>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<HRASCONN>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasConnectionNotificationW(param0 : HRASCONN, param1 : super::super::Foundation:: HANDLE, param2 : u32) -> u32);
     RasConnectionNotificationW(param0.into_param().abi(), param1.into_param().abi(), param2)
@@ -1193,10 +1193,10 @@ where
 #[inline]
 pub unsafe fn RasCreatePhonebookEntryA<P0, P1>(param0: P0, param1: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasCreatePhonebookEntryA(param0 : super::super::Foundation:: HWND, param1 : ::windows::core::PCSTR) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasCreatePhonebookEntryA(param0 : super::super::Foundation:: HWND, param1 : ::windows_core::PCSTR) -> u32);
     RasCreatePhonebookEntryA(param0.into_param().abi(), param1.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1204,50 +1204,50 @@ where
 #[inline]
 pub unsafe fn RasCreatePhonebookEntryW<P0, P1>(param0: P0, param1: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasCreatePhonebookEntryW(param0 : super::super::Foundation:: HWND, param1 : ::windows::core::PCWSTR) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasCreatePhonebookEntryW(param0 : super::super::Foundation:: HWND, param1 : ::windows_core::PCWSTR) -> u32);
     RasCreatePhonebookEntryW(param0.into_param().abi(), param1.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasDeleteEntryA<P0, P1>(param0: P0, param1: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasDeleteEntryA(param0 : ::windows::core::PCSTR, param1 : ::windows::core::PCSTR) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasDeleteEntryA(param0 : ::windows_core::PCSTR, param1 : ::windows_core::PCSTR) -> u32);
     RasDeleteEntryA(param0.into_param().abi(), param1.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasDeleteEntryW<P0, P1>(param0: P0, param1: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasDeleteEntryW(param0 : ::windows::core::PCWSTR, param1 : ::windows::core::PCWSTR) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasDeleteEntryW(param0 : ::windows_core::PCWSTR, param1 : ::windows_core::PCWSTR) -> u32);
     RasDeleteEntryW(param0.into_param().abi(), param1.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasDeleteSubEntryA<P0, P1>(pszphonebook: P0, pszentry: P1, dwsubentryid: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasDeleteSubEntryA(pszphonebook : ::windows::core::PCSTR, pszentry : ::windows::core::PCSTR, dwsubentryid : u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasDeleteSubEntryA(pszphonebook : ::windows_core::PCSTR, pszentry : ::windows_core::PCSTR, dwsubentryid : u32) -> u32);
     RasDeleteSubEntryA(pszphonebook.into_param().abi(), pszentry.into_param().abi(), dwsubentryid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasDeleteSubEntryW<P0, P1>(pszphonebook: P0, pszentry: P1, dwsubentryid: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasDeleteSubEntryW(pszphonebook : ::windows::core::PCWSTR, pszentry : ::windows::core::PCWSTR, dwsubentryid : u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasDeleteSubEntryW(pszphonebook : ::windows_core::PCWSTR, pszentry : ::windows_core::PCWSTR, dwsubentryid : u32) -> u32);
     RasDeleteSubEntryW(pszphonebook.into_param().abi(), pszentry.into_param().abi(), dwsubentryid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1255,9 +1255,9 @@ where
 #[inline]
 pub unsafe fn RasDialA<P0>(param0: ::core::option::Option<*const RASDIALEXTENSIONS>, param1: P0, param2: *const RASDIALPARAMSA, param3: u32, param4: ::core::option::Option<*const ::core::ffi::c_void>, param5: *mut HRASCONN) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasDialA(param0 : *const RASDIALEXTENSIONS, param1 : ::windows::core::PCSTR, param2 : *const RASDIALPARAMSA, param3 : u32, param4 : *const ::core::ffi::c_void, param5 : *mut HRASCONN) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasDialA(param0 : *const RASDIALEXTENSIONS, param1 : ::windows_core::PCSTR, param2 : *const RASDIALPARAMSA, param3 : u32, param4 : *const ::core::ffi::c_void, param5 : *mut HRASCONN) -> u32);
     RasDialA(::core::mem::transmute(param0.unwrap_or(::std::ptr::null())), param1.into_param().abi(), param2, param3, ::core::mem::transmute(param4.unwrap_or(::std::ptr::null())), param5)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1265,11 +1265,11 @@ where
 #[inline]
 pub unsafe fn RasDialDlgA<P0, P1, P2>(lpszphonebook: P0, lpszentry: P1, lpszphonenumber: P2, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasdlg.dll" "system" fn RasDialDlgA(lpszphonebook : ::windows::core::PCSTR, lpszentry : ::windows::core::PCSTR, lpszphonenumber : ::windows::core::PCSTR, lpinfo : *mut RASDIALDLG) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("rasdlg.dll" "system" fn RasDialDlgA(lpszphonebook : ::windows_core::PCSTR, lpszentry : ::windows_core::PCSTR, lpszphonenumber : ::windows_core::PCSTR, lpinfo : *mut RASDIALDLG) -> super::super::Foundation:: BOOL);
     RasDialDlgA(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), lpszphonenumber.into_param().abi(), lpinfo)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1277,11 +1277,11 @@ where
 #[inline]
 pub unsafe fn RasDialDlgW<P0, P1, P2>(lpszphonebook: P0, lpszentry: P1, lpszphonenumber: P2, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasdlg.dll" "system" fn RasDialDlgW(lpszphonebook : ::windows::core::PCWSTR, lpszentry : ::windows::core::PCWSTR, lpszphonenumber : ::windows::core::PCWSTR, lpinfo : *mut RASDIALDLG) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("rasdlg.dll" "system" fn RasDialDlgW(lpszphonebook : ::windows_core::PCWSTR, lpszentry : ::windows_core::PCWSTR, lpszphonenumber : ::windows_core::PCWSTR, lpinfo : *mut RASDIALDLG) -> super::super::Foundation:: BOOL);
     RasDialDlgW(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), lpszphonenumber.into_param().abi(), lpinfo)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1289,9 +1289,9 @@ where
 #[inline]
 pub unsafe fn RasDialW<P0>(param0: ::core::option::Option<*const RASDIALEXTENSIONS>, param1: P0, param2: *const RASDIALPARAMSW, param3: u32, param4: ::core::option::Option<*const ::core::ffi::c_void>, param5: *mut HRASCONN) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasDialW(param0 : *const RASDIALEXTENSIONS, param1 : ::windows::core::PCWSTR, param2 : *const RASDIALPARAMSW, param3 : u32, param4 : *const ::core::ffi::c_void, param5 : *mut HRASCONN) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasDialW(param0 : *const RASDIALEXTENSIONS, param1 : ::windows_core::PCWSTR, param2 : *const RASDIALPARAMSW, param3 : u32, param4 : *const ::core::ffi::c_void, param5 : *mut HRASCONN) -> u32);
     RasDialW(::core::mem::transmute(param0.unwrap_or(::std::ptr::null())), param1.into_param().abi(), param2, param3, ::core::mem::transmute(param4.unwrap_or(::std::ptr::null())), param5)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1299,11 +1299,11 @@ where
 #[inline]
 pub unsafe fn RasEditPhonebookEntryA<P0, P1, P2>(param0: P0, param1: P1, param2: P2) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasEditPhonebookEntryA(param0 : super::super::Foundation:: HWND, param1 : ::windows::core::PCSTR, param2 : ::windows::core::PCSTR) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasEditPhonebookEntryA(param0 : super::super::Foundation:: HWND, param1 : ::windows_core::PCSTR, param2 : ::windows_core::PCSTR) -> u32);
     RasEditPhonebookEntryA(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1311,11 +1311,11 @@ where
 #[inline]
 pub unsafe fn RasEditPhonebookEntryW<P0, P1, P2>(param0: P0, param1: P1, param2: P2) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasEditPhonebookEntryW(param0 : super::super::Foundation:: HWND, param1 : ::windows::core::PCWSTR, param2 : ::windows::core::PCWSTR) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasEditPhonebookEntryW(param0 : super::super::Foundation:: HWND, param1 : ::windows_core::PCWSTR, param2 : ::windows_core::PCWSTR) -> u32);
     RasEditPhonebookEntryW(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1323,10 +1323,10 @@ where
 #[inline]
 pub unsafe fn RasEntryDlgA<P0, P1>(lpszphonebook: P0, lpszentry: P1, lpinfo: *mut RASENTRYDLGA) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasdlg.dll" "system" fn RasEntryDlgA(lpszphonebook : ::windows::core::PCSTR, lpszentry : ::windows::core::PCSTR, lpinfo : *mut RASENTRYDLGA) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("rasdlg.dll" "system" fn RasEntryDlgA(lpszphonebook : ::windows_core::PCSTR, lpszentry : ::windows_core::PCSTR, lpinfo : *mut RASENTRYDLGA) -> super::super::Foundation:: BOOL);
     RasEntryDlgA(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), lpinfo)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1334,22 +1334,22 @@ where
 #[inline]
 pub unsafe fn RasEntryDlgW<P0, P1>(lpszphonebook: P0, lpszentry: P1, lpinfo: *mut RASENTRYDLGW) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasdlg.dll" "system" fn RasEntryDlgW(lpszphonebook : ::windows::core::PCWSTR, lpszentry : ::windows::core::PCWSTR, lpinfo : *mut RASENTRYDLGW) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("rasdlg.dll" "system" fn RasEntryDlgW(lpszphonebook : ::windows_core::PCWSTR, lpszentry : ::windows_core::PCWSTR, lpinfo : *mut RASENTRYDLGW) -> super::super::Foundation:: BOOL);
     RasEntryDlgW(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), lpinfo)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasEnumAutodialAddressesA(lpprasautodialaddresses: ::core::option::Option<*mut ::windows::core::PSTR>, lpdwcbrasautodialaddresses: *mut u32, lpdwcrasautodialaddresses: *mut u32) -> u32 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasEnumAutodialAddressesA(lpprasautodialaddresses : *mut ::windows::core::PSTR, lpdwcbrasautodialaddresses : *mut u32, lpdwcrasautodialaddresses : *mut u32) -> u32);
+pub unsafe fn RasEnumAutodialAddressesA(lpprasautodialaddresses: ::core::option::Option<*mut ::windows_core::PSTR>, lpdwcbrasautodialaddresses: *mut u32, lpdwcrasautodialaddresses: *mut u32) -> u32 {
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasEnumAutodialAddressesA(lpprasautodialaddresses : *mut ::windows_core::PSTR, lpdwcbrasautodialaddresses : *mut u32, lpdwcrasautodialaddresses : *mut u32) -> u32);
     RasEnumAutodialAddressesA(::core::mem::transmute(lpprasautodialaddresses.unwrap_or(::std::ptr::null_mut())), lpdwcbrasautodialaddresses, lpdwcrasautodialaddresses)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasEnumAutodialAddressesW(lpprasautodialaddresses: ::core::option::Option<*mut ::windows::core::PWSTR>, lpdwcbrasautodialaddresses: *mut u32, lpdwcrasautodialaddresses: *mut u32) -> u32 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasEnumAutodialAddressesW(lpprasautodialaddresses : *mut ::windows::core::PWSTR, lpdwcbrasautodialaddresses : *mut u32, lpdwcrasautodialaddresses : *mut u32) -> u32);
+pub unsafe fn RasEnumAutodialAddressesW(lpprasautodialaddresses: ::core::option::Option<*mut ::windows_core::PWSTR>, lpdwcbrasautodialaddresses: *mut u32, lpdwcrasautodialaddresses: *mut u32) -> u32 {
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasEnumAutodialAddressesW(lpprasautodialaddresses : *mut ::windows_core::PWSTR, lpdwcbrasautodialaddresses : *mut u32, lpdwcrasautodialaddresses : *mut u32) -> u32);
     RasEnumAutodialAddressesW(::core::mem::transmute(lpprasautodialaddresses.unwrap_or(::std::ptr::null_mut())), lpdwcbrasautodialaddresses, lpdwcrasautodialaddresses)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1382,20 +1382,20 @@ pub unsafe fn RasEnumDevicesW(param0: ::core::option::Option<*mut RASDEVINFOW>, 
 #[inline]
 pub unsafe fn RasEnumEntriesA<P0, P1>(param0: P0, param1: P1, param2: ::core::option::Option<*mut RASENTRYNAMEA>, param3: *mut u32, param4: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasEnumEntriesA(param0 : ::windows::core::PCSTR, param1 : ::windows::core::PCSTR, param2 : *mut RASENTRYNAMEA, param3 : *mut u32, param4 : *mut u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasEnumEntriesA(param0 : ::windows_core::PCSTR, param1 : ::windows_core::PCSTR, param2 : *mut RASENTRYNAMEA, param3 : *mut u32, param4 : *mut u32) -> u32);
     RasEnumEntriesA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2.unwrap_or(::std::ptr::null_mut())), param3, param4)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasEnumEntriesW<P0, P1>(param0: P0, param1: P1, param2: ::core::option::Option<*mut RASENTRYNAMEW>, param3: *mut u32, param4: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasEnumEntriesW(param0 : ::windows::core::PCWSTR, param1 : ::windows::core::PCWSTR, param2 : *mut RASENTRYNAMEW, param3 : *mut u32, param4 : *mut u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasEnumEntriesW(param0 : ::windows_core::PCWSTR, param1 : ::windows_core::PCWSTR, param2 : *mut RASENTRYNAMEW, param3 : *mut u32, param4 : *mut u32) -> u32);
     RasEnumEntriesW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2.unwrap_or(::std::ptr::null_mut())), param3, param4)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
@@ -1414,18 +1414,18 @@ pub unsafe fn RasFreeEapUserIdentityW(praseapuseridentity: *const RASEAPUSERIDEN
 #[inline]
 pub unsafe fn RasGetAutodialAddressA<P0>(param0: P0, param1: ::core::option::Option<*const u32>, param2: ::core::option::Option<*mut RASAUTODIALENTRYA>, param3: *mut u32, param4: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetAutodialAddressA(param0 : ::windows::core::PCSTR, param1 : *const u32, param2 : *mut RASAUTODIALENTRYA, param3 : *mut u32, param4 : *mut u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetAutodialAddressA(param0 : ::windows_core::PCSTR, param1 : *const u32, param2 : *mut RASAUTODIALENTRYA, param3 : *mut u32, param4 : *mut u32) -> u32);
     RasGetAutodialAddressA(param0.into_param().abi(), ::core::mem::transmute(param1.unwrap_or(::std::ptr::null())), ::core::mem::transmute(param2.unwrap_or(::std::ptr::null_mut())), param3, param4)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetAutodialAddressW<P0>(param0: P0, param1: ::core::option::Option<*const u32>, param2: ::core::option::Option<*mut RASAUTODIALENTRYW>, param3: *mut u32, param4: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetAutodialAddressW(param0 : ::windows::core::PCWSTR, param1 : *const u32, param2 : *mut RASAUTODIALENTRYW, param3 : *mut u32, param4 : *mut u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetAutodialAddressW(param0 : ::windows_core::PCWSTR, param1 : *const u32, param2 : *mut RASAUTODIALENTRYW, param3 : *mut u32, param4 : *mut u32) -> u32);
     RasGetAutodialAddressW(param0.into_param().abi(), ::core::mem::transmute(param1.unwrap_or(::std::ptr::null())), ::core::mem::transmute(param2.unwrap_or(::std::ptr::null_mut())), param3, param4)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
@@ -1457,7 +1457,7 @@ pub unsafe fn RasGetAutodialParamW(param0: u32, param1: *mut ::core::ffi::c_void
 #[inline]
 pub unsafe fn RasGetConnectStatusA<P0>(param0: P0, param1: *mut RASCONNSTATUSA) -> u32
 where
-    P0: ::windows::core::IntoParam<HRASCONN>,
+    P0: ::windows_core::IntoParam<HRASCONN>,
 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasGetConnectStatusA(param0 : HRASCONN, param1 : *mut RASCONNSTATUSA) -> u32);
     RasGetConnectStatusA(param0.into_param().abi(), param1)
@@ -1467,7 +1467,7 @@ where
 #[inline]
 pub unsafe fn RasGetConnectStatusW<P0>(param0: P0, param1: *mut RASCONNSTATUSW) -> u32
 where
-    P0: ::windows::core::IntoParam<HRASCONN>,
+    P0: ::windows_core::IntoParam<HRASCONN>,
 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasGetConnectStatusW(param0 : HRASCONN, param1 : *mut RASCONNSTATUSW) -> u32);
     RasGetConnectStatusW(param0.into_param().abi(), param1)
@@ -1476,7 +1476,7 @@ where
 #[inline]
 pub unsafe fn RasGetConnectionStatistics<P0>(hrasconn: P0, lpstatistics: *mut RAS_STATS) -> u32
 where
-    P0: ::windows::core::IntoParam<HRASCONN>,
+    P0: ::windows_core::IntoParam<HRASCONN>,
 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasGetConnectionStatistics(hrasconn : HRASCONN, lpstatistics : *mut RAS_STATS) -> u32);
     RasGetConnectionStatistics(hrasconn.into_param().abi(), lpstatistics)
@@ -1497,40 +1497,40 @@ pub unsafe fn RasGetCountryInfoW(param0: ::core::option::Option<*mut RASCTRYINFO
 #[inline]
 pub unsafe fn RasGetCredentialsA<P0, P1>(param0: P0, param1: P1, param2: *mut RASCREDENTIALSA) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetCredentialsA(param0 : ::windows::core::PCSTR, param1 : ::windows::core::PCSTR, param2 : *mut RASCREDENTIALSA) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetCredentialsA(param0 : ::windows_core::PCSTR, param1 : ::windows_core::PCSTR, param2 : *mut RASCREDENTIALSA) -> u32);
     RasGetCredentialsA(param0.into_param().abi(), param1.into_param().abi(), param2)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetCredentialsW<P0, P1>(param0: P0, param1: P1, param2: *mut RASCREDENTIALSW) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetCredentialsW(param0 : ::windows::core::PCWSTR, param1 : ::windows::core::PCWSTR, param2 : *mut RASCREDENTIALSW) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetCredentialsW(param0 : ::windows_core::PCWSTR, param1 : ::windows_core::PCWSTR, param2 : *mut RASCREDENTIALSW) -> u32);
     RasGetCredentialsW(param0.into_param().abi(), param1.into_param().abi(), param2)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetCustomAuthDataA<P0, P1>(pszphonebook: P0, pszentry: P1, pbcustomauthdata: ::core::option::Option<*mut u8>, pdwsizeofcustomauthdata: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetCustomAuthDataA(pszphonebook : ::windows::core::PCSTR, pszentry : ::windows::core::PCSTR, pbcustomauthdata : *mut u8, pdwsizeofcustomauthdata : *mut u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetCustomAuthDataA(pszphonebook : ::windows_core::PCSTR, pszentry : ::windows_core::PCSTR, pbcustomauthdata : *mut u8, pdwsizeofcustomauthdata : *mut u32) -> u32);
     RasGetCustomAuthDataA(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbcustomauthdata.unwrap_or(::std::ptr::null_mut())), pdwsizeofcustomauthdata)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetCustomAuthDataW<P0, P1>(pszphonebook: P0, pszentry: P1, pbcustomauthdata: ::core::option::Option<*mut u8>, pdwsizeofcustomauthdata: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetCustomAuthDataW(pszphonebook : ::windows::core::PCWSTR, pszentry : ::windows::core::PCWSTR, pbcustomauthdata : *mut u8, pdwsizeofcustomauthdata : *mut u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetCustomAuthDataW(pszphonebook : ::windows_core::PCWSTR, pszentry : ::windows_core::PCWSTR, pbcustomauthdata : *mut u8, pdwsizeofcustomauthdata : *mut u32) -> u32);
     RasGetCustomAuthDataW(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbcustomauthdata.unwrap_or(::std::ptr::null_mut())), pdwsizeofcustomauthdata)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1538,11 +1538,11 @@ where
 #[inline]
 pub unsafe fn RasGetEapUserDataA<P0, P1, P2>(htoken: P0, pszphonebook: P1, pszentry: P2, pbeapdata: ::core::option::Option<*mut u8>, pdwsizeofeapdata: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEapUserDataA(htoken : super::super::Foundation:: HANDLE, pszphonebook : ::windows::core::PCSTR, pszentry : ::windows::core::PCSTR, pbeapdata : *mut u8, pdwsizeofeapdata : *mut u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEapUserDataA(htoken : super::super::Foundation:: HANDLE, pszphonebook : ::windows_core::PCSTR, pszentry : ::windows_core::PCSTR, pbeapdata : *mut u8, pdwsizeofeapdata : *mut u32) -> u32);
     RasGetEapUserDataA(htoken.into_param().abi(), pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbeapdata.unwrap_or(::std::ptr::null_mut())), pdwsizeofeapdata)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1550,11 +1550,11 @@ where
 #[inline]
 pub unsafe fn RasGetEapUserDataW<P0, P1, P2>(htoken: P0, pszphonebook: P1, pszentry: P2, pbeapdata: ::core::option::Option<*mut u8>, pdwsizeofeapdata: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEapUserDataW(htoken : super::super::Foundation:: HANDLE, pszphonebook : ::windows::core::PCWSTR, pszentry : ::windows::core::PCWSTR, pbeapdata : *mut u8, pdwsizeofeapdata : *mut u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEapUserDataW(htoken : super::super::Foundation:: HANDLE, pszphonebook : ::windows_core::PCWSTR, pszentry : ::windows_core::PCWSTR, pbeapdata : *mut u8, pdwsizeofeapdata : *mut u32) -> u32);
     RasGetEapUserDataW(htoken.into_param().abi(), pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbeapdata.unwrap_or(::std::ptr::null_mut())), pdwsizeofeapdata)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1562,11 +1562,11 @@ where
 #[inline]
 pub unsafe fn RasGetEapUserIdentityA<P0, P1, P2>(pszphonebook: P0, pszentry: P1, dwflags: u32, hwnd: P2, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYA) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEapUserIdentityA(pszphonebook : ::windows::core::PCSTR, pszentry : ::windows::core::PCSTR, dwflags : u32, hwnd : super::super::Foundation:: HWND, ppraseapuseridentity : *mut *mut RASEAPUSERIDENTITYA) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEapUserIdentityA(pszphonebook : ::windows_core::PCSTR, pszentry : ::windows_core::PCSTR, dwflags : u32, hwnd : super::super::Foundation:: HWND, ppraseapuseridentity : *mut *mut RASEAPUSERIDENTITYA) -> u32);
     RasGetEapUserIdentityA(pszphonebook.into_param().abi(), pszentry.into_param().abi(), dwflags, hwnd.into_param().abi(), ppraseapuseridentity)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1574,29 +1574,29 @@ where
 #[inline]
 pub unsafe fn RasGetEapUserIdentityW<P0, P1, P2>(pszphonebook: P0, pszentry: P1, dwflags: u32, hwnd: P2, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYW) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEapUserIdentityW(pszphonebook : ::windows::core::PCWSTR, pszentry : ::windows::core::PCWSTR, dwflags : u32, hwnd : super::super::Foundation:: HWND, ppraseapuseridentity : *mut *mut RASEAPUSERIDENTITYW) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEapUserIdentityW(pszphonebook : ::windows_core::PCWSTR, pszentry : ::windows_core::PCWSTR, dwflags : u32, hwnd : super::super::Foundation:: HWND, ppraseapuseridentity : *mut *mut RASEAPUSERIDENTITYW) -> u32);
     RasGetEapUserIdentityW(pszphonebook.into_param().abi(), pszentry.into_param().abi(), dwflags, hwnd.into_param().abi(), ppraseapuseridentity)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetEntryDialParamsA<P0>(param0: P0, param1: *mut RASDIALPARAMSA, param2: *mut i32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEntryDialParamsA(param0 : ::windows::core::PCSTR, param1 : *mut RASDIALPARAMSA, param2 : *mut i32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEntryDialParamsA(param0 : ::windows_core::PCSTR, param1 : *mut RASDIALPARAMSA, param2 : *mut i32) -> u32);
     RasGetEntryDialParamsA(param0.into_param().abi(), param1, param2)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetEntryDialParamsW<P0>(param0: P0, param1: *mut RASDIALPARAMSW, param2: *mut i32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEntryDialParamsW(param0 : ::windows::core::PCWSTR, param1 : *mut RASDIALPARAMSW, param2 : *mut i32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEntryDialParamsW(param0 : ::windows_core::PCWSTR, param1 : *mut RASDIALPARAMSW, param2 : *mut i32) -> u32);
     RasGetEntryDialParamsW(param0.into_param().abi(), param1, param2)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -1604,10 +1604,10 @@ where
 #[inline]
 pub unsafe fn RasGetEntryPropertiesA<P0, P1>(param0: P0, param1: P1, param2: ::core::option::Option<*mut RASENTRYA>, param3: *mut u32, param4: ::core::option::Option<*mut u8>, param5: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEntryPropertiesA(param0 : ::windows::core::PCSTR, param1 : ::windows::core::PCSTR, param2 : *mut RASENTRYA, param3 : *mut u32, param4 : *mut u8, param5 : *mut u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEntryPropertiesA(param0 : ::windows_core::PCSTR, param1 : ::windows_core::PCSTR, param2 : *mut RASENTRYA, param3 : *mut u32, param4 : *mut u8, param5 : *mut u32) -> u32);
     RasGetEntryPropertiesA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2.unwrap_or(::std::ptr::null_mut())), param3, ::core::mem::transmute(param4.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(param5.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -1615,44 +1615,44 @@ where
 #[inline]
 pub unsafe fn RasGetEntryPropertiesW<P0, P1>(param0: P0, param1: P1, param2: ::core::option::Option<*mut RASENTRYW>, param3: *mut u32, param4: ::core::option::Option<*mut u8>, param5: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEntryPropertiesW(param0 : ::windows::core::PCWSTR, param1 : ::windows::core::PCWSTR, param2 : *mut RASENTRYW, param3 : *mut u32, param4 : *mut u8, param5 : *mut u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEntryPropertiesW(param0 : ::windows_core::PCWSTR, param1 : ::windows_core::PCWSTR, param2 : *mut RASENTRYW, param3 : *mut u32, param4 : *mut u8, param5 : *mut u32) -> u32);
     RasGetEntryPropertiesW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2.unwrap_or(::std::ptr::null_mut())), param3, ::core::mem::transmute(param4.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(param5.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetErrorStringA(resourceid: u32, lpszstring: &mut [u8]) -> u32 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetErrorStringA(resourceid : u32, lpszstring : ::windows::core::PSTR, inbufsize : u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetErrorStringA(resourceid : u32, lpszstring : ::windows_core::PSTR, inbufsize : u32) -> u32);
     RasGetErrorStringA(resourceid, ::core::mem::transmute(lpszstring.as_ptr()), lpszstring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetErrorStringW(resourceid: u32, lpszstring: &mut [u16]) -> u32 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetErrorStringW(resourceid : u32, lpszstring : ::windows::core::PWSTR, inbufsize : u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetErrorStringW(resourceid : u32, lpszstring : ::windows_core::PWSTR, inbufsize : u32) -> u32);
     RasGetErrorStringW(resourceid, ::core::mem::transmute(lpszstring.as_ptr()), lpszstring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetLinkStatistics<P0>(hrasconn: P0, dwsubentry: u32, lpstatistics: *mut RAS_STATS) -> u32
 where
-    P0: ::windows::core::IntoParam<HRASCONN>,
+    P0: ::windows_core::IntoParam<HRASCONN>,
 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasGetLinkStatistics(hrasconn : HRASCONN, dwsubentry : u32, lpstatistics : *mut RAS_STATS) -> u32);
     RasGetLinkStatistics(hrasconn.into_param().abi(), dwsubentry, lpstatistics)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasGetPCscf(lpszpcscf: ::windows::core::PWSTR) -> u32 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetPCscf(lpszpcscf : ::windows::core::PWSTR) -> u32);
+pub unsafe fn RasGetPCscf(lpszpcscf: ::windows_core::PWSTR) -> u32 {
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetPCscf(lpszpcscf : ::windows_core::PWSTR) -> u32);
     RasGetPCscf(::core::mem::transmute(lpszpcscf))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetProjectionInfoA<P0>(param0: P0, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<HRASCONN>,
+    P0: ::windows_core::IntoParam<HRASCONN>,
 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasGetProjectionInfoA(param0 : HRASCONN, param1 : RASPROJECTION, param2 : *mut ::core::ffi::c_void, param3 : *mut u32) -> u32);
     RasGetProjectionInfoA(param0.into_param().abi(), param1, param2, param3)
@@ -1662,7 +1662,7 @@ where
 #[inline]
 pub unsafe fn RasGetProjectionInfoEx<P0>(hrasconn: P0, prasprojection: ::core::option::Option<*mut RAS_PROJECTION_INFO>, lpdwsize: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<HRASCONN>,
+    P0: ::windows_core::IntoParam<HRASCONN>,
 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasGetProjectionInfoEx(hrasconn : HRASCONN, prasprojection : *mut RAS_PROJECTION_INFO, lpdwsize : *mut u32) -> u32);
     RasGetProjectionInfoEx(hrasconn.into_param().abi(), ::core::mem::transmute(prasprojection.unwrap_or(::std::ptr::null_mut())), lpdwsize)
@@ -1671,7 +1671,7 @@ where
 #[inline]
 pub unsafe fn RasGetProjectionInfoW<P0>(param0: P0, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<HRASCONN>,
+    P0: ::windows_core::IntoParam<HRASCONN>,
 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasGetProjectionInfoW(param0 : HRASCONN, param1 : RASPROJECTION, param2 : *mut ::core::ffi::c_void, param3 : *mut u32) -> u32);
     RasGetProjectionInfoW(param0.into_param().abi(), param1, param2, param3)
@@ -1680,7 +1680,7 @@ where
 #[inline]
 pub unsafe fn RasGetSubEntryHandleA<P0>(param0: P0, param1: u32, param2: *mut HRASCONN) -> u32
 where
-    P0: ::windows::core::IntoParam<HRASCONN>,
+    P0: ::windows_core::IntoParam<HRASCONN>,
 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasGetSubEntryHandleA(param0 : HRASCONN, param1 : u32, param2 : *mut HRASCONN) -> u32);
     RasGetSubEntryHandleA(param0.into_param().abi(), param1, param2)
@@ -1689,7 +1689,7 @@ where
 #[inline]
 pub unsafe fn RasGetSubEntryHandleW<P0>(param0: P0, param1: u32, param2: *mut HRASCONN) -> u32
 where
-    P0: ::windows::core::IntoParam<HRASCONN>,
+    P0: ::windows_core::IntoParam<HRASCONN>,
 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasGetSubEntryHandleW(param0 : HRASCONN, param1 : u32, param2 : *mut HRASCONN) -> u32);
     RasGetSubEntryHandleW(param0.into_param().abi(), param1, param2)
@@ -1698,27 +1698,27 @@ where
 #[inline]
 pub unsafe fn RasGetSubEntryPropertiesA<P0, P1>(param0: P0, param1: P1, param2: u32, param3: ::core::option::Option<*mut RASSUBENTRYA>, param4: ::core::option::Option<*mut u32>, param5: ::core::option::Option<*mut u8>, param6: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetSubEntryPropertiesA(param0 : ::windows::core::PCSTR, param1 : ::windows::core::PCSTR, param2 : u32, param3 : *mut RASSUBENTRYA, param4 : *mut u32, param5 : *mut u8, param6 : *mut u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetSubEntryPropertiesA(param0 : ::windows_core::PCSTR, param1 : ::windows_core::PCSTR, param2 : u32, param3 : *mut RASSUBENTRYA, param4 : *mut u32, param5 : *mut u8, param6 : *mut u32) -> u32);
     RasGetSubEntryPropertiesA(param0.into_param().abi(), param1.into_param().abi(), param2, ::core::mem::transmute(param3.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(param4.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(param5.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(param6.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetSubEntryPropertiesW<P0, P1>(param0: P0, param1: P1, param2: u32, param3: ::core::option::Option<*mut RASSUBENTRYW>, param4: ::core::option::Option<*mut u32>, param5: ::core::option::Option<*mut u8>, param6: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetSubEntryPropertiesW(param0 : ::windows::core::PCWSTR, param1 : ::windows::core::PCWSTR, param2 : u32, param3 : *mut RASSUBENTRYW, param4 : *mut u32, param5 : *mut u8, param6 : *mut u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasGetSubEntryPropertiesW(param0 : ::windows_core::PCWSTR, param1 : ::windows_core::PCWSTR, param2 : u32, param3 : *mut RASSUBENTRYW, param4 : *mut u32, param5 : *mut u8, param6 : *mut u32) -> u32);
     RasGetSubEntryPropertiesW(param0.into_param().abi(), param1.into_param().abi(), param2, ::core::mem::transmute(param3.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(param4.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(param5.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(param6.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasHangUpA<P0>(param0: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<HRASCONN>,
+    P0: ::windows_core::IntoParam<HRASCONN>,
 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasHangUpA(param0 : HRASCONN) -> u32);
     RasHangUpA(param0.into_param().abi())
@@ -1727,7 +1727,7 @@ where
 #[inline]
 pub unsafe fn RasHangUpW<P0>(param0: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<HRASCONN>,
+    P0: ::windows_core::IntoParam<HRASCONN>,
 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasHangUpW(param0 : HRASCONN) -> u32);
     RasHangUpW(param0.into_param().abi())
@@ -1737,8 +1737,8 @@ where
 #[inline]
 pub unsafe fn RasInvokeEapUI<P0, P1>(param0: P0, param1: u32, param2: *const RASDIALEXTENSIONS, param3: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<HRASCONN>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<HRASCONN>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasInvokeEapUI(param0 : HRASCONN, param1 : u32, param2 : *const RASDIALEXTENSIONS, param3 : super::super::Foundation:: HWND) -> u32);
     RasInvokeEapUI(param0.into_param().abi(), param1, param2, param3.into_param().abi())
@@ -1748,10 +1748,10 @@ where
 #[inline]
 pub unsafe fn RasPhonebookDlgA<P0, P1>(lpszphonebook: P0, lpszentry: P1, lpinfo: *mut RASPBDLGA) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasdlg.dll" "system" fn RasPhonebookDlgA(lpszphonebook : ::windows::core::PCSTR, lpszentry : ::windows::core::PCSTR, lpinfo : *mut RASPBDLGA) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("rasdlg.dll" "system" fn RasPhonebookDlgA(lpszphonebook : ::windows_core::PCSTR, lpszentry : ::windows_core::PCSTR, lpinfo : *mut RASPBDLGA) -> super::super::Foundation:: BOOL);
     RasPhonebookDlgA(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), lpinfo)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1759,50 +1759,50 @@ where
 #[inline]
 pub unsafe fn RasPhonebookDlgW<P0, P1>(lpszphonebook: P0, lpszentry: P1, lpinfo: *mut RASPBDLGW) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasdlg.dll" "system" fn RasPhonebookDlgW(lpszphonebook : ::windows::core::PCWSTR, lpszentry : ::windows::core::PCWSTR, lpinfo : *mut RASPBDLGW) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("rasdlg.dll" "system" fn RasPhonebookDlgW(lpszphonebook : ::windows_core::PCWSTR, lpszentry : ::windows_core::PCWSTR, lpinfo : *mut RASPBDLGW) -> super::super::Foundation:: BOOL);
     RasPhonebookDlgW(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), lpinfo)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasRenameEntryA<P0, P1, P2>(param0: P0, param1: P1, param2: P2) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasRenameEntryA(param0 : ::windows::core::PCSTR, param1 : ::windows::core::PCSTR, param2 : ::windows::core::PCSTR) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasRenameEntryA(param0 : ::windows_core::PCSTR, param1 : ::windows_core::PCSTR, param2 : ::windows_core::PCSTR) -> u32);
     RasRenameEntryA(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasRenameEntryW<P0, P1, P2>(param0: P0, param1: P1, param2: P2) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasRenameEntryW(param0 : ::windows::core::PCWSTR, param1 : ::windows::core::PCWSTR, param2 : ::windows::core::PCWSTR) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasRenameEntryW(param0 : ::windows_core::PCWSTR, param1 : ::windows_core::PCWSTR, param2 : ::windows_core::PCWSTR) -> u32);
     RasRenameEntryW(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasSetAutodialAddressA<P0>(param0: P0, param1: u32, param2: ::core::option::Option<*const RASAUTODIALENTRYA>, param3: u32, param4: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetAutodialAddressA(param0 : ::windows::core::PCSTR, param1 : u32, param2 : *const RASAUTODIALENTRYA, param3 : u32, param4 : u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetAutodialAddressA(param0 : ::windows_core::PCSTR, param1 : u32, param2 : *const RASAUTODIALENTRYA, param3 : u32, param4 : u32) -> u32);
     RasSetAutodialAddressA(param0.into_param().abi(), param1, ::core::mem::transmute(param2.unwrap_or(::std::ptr::null())), param3, param4)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasSetAutodialAddressW<P0>(param0: P0, param1: u32, param2: ::core::option::Option<*const RASAUTODIALENTRYW>, param3: u32, param4: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetAutodialAddressW(param0 : ::windows::core::PCWSTR, param1 : u32, param2 : *const RASAUTODIALENTRYW, param3 : u32, param4 : u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetAutodialAddressW(param0 : ::windows_core::PCWSTR, param1 : u32, param2 : *const RASAUTODIALENTRYW, param3 : u32, param4 : u32) -> u32);
     RasSetAutodialAddressW(param0.into_param().abi(), param1, ::core::mem::transmute(param2.unwrap_or(::std::ptr::null())), param3, param4)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1810,7 +1810,7 @@ where
 #[inline]
 pub unsafe fn RasSetAutodialEnableA<P0>(param0: u32, param1: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasSetAutodialEnableA(param0 : u32, param1 : super::super::Foundation:: BOOL) -> u32);
     RasSetAutodialEnableA(param0, param1.into_param().abi())
@@ -1820,7 +1820,7 @@ where
 #[inline]
 pub unsafe fn RasSetAutodialEnableW<P0>(param0: u32, param1: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasSetAutodialEnableW(param0 : u32, param1 : super::super::Foundation:: BOOL) -> u32);
     RasSetAutodialEnableW(param0, param1.into_param().abi())
@@ -1842,11 +1842,11 @@ pub unsafe fn RasSetAutodialParamW(param0: u32, param1: *const ::core::ffi::c_vo
 #[inline]
 pub unsafe fn RasSetCredentialsA<P0, P1, P2>(param0: P0, param1: P1, param2: *const RASCREDENTIALSA, param3: P2) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetCredentialsA(param0 : ::windows::core::PCSTR, param1 : ::windows::core::PCSTR, param2 : *const RASCREDENTIALSA, param3 : super::super::Foundation:: BOOL) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetCredentialsA(param0 : ::windows_core::PCSTR, param1 : ::windows_core::PCSTR, param2 : *const RASCREDENTIALSA, param3 : super::super::Foundation:: BOOL) -> u32);
     RasSetCredentialsA(param0.into_param().abi(), param1.into_param().abi(), param2, param3.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1854,31 +1854,31 @@ where
 #[inline]
 pub unsafe fn RasSetCredentialsW<P0, P1, P2>(param0: P0, param1: P1, param2: *const RASCREDENTIALSW, param3: P2) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetCredentialsW(param0 : ::windows::core::PCWSTR, param1 : ::windows::core::PCWSTR, param2 : *const RASCREDENTIALSW, param3 : super::super::Foundation:: BOOL) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetCredentialsW(param0 : ::windows_core::PCWSTR, param1 : ::windows_core::PCWSTR, param2 : *const RASCREDENTIALSW, param3 : super::super::Foundation:: BOOL) -> u32);
     RasSetCredentialsW(param0.into_param().abi(), param1.into_param().abi(), param2, param3.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasSetCustomAuthDataA<P0, P1>(pszphonebook: P0, pszentry: P1, pbcustomauthdata: &[u8]) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetCustomAuthDataA(pszphonebook : ::windows::core::PCSTR, pszentry : ::windows::core::PCSTR, pbcustomauthdata : *const u8, dwsizeofcustomauthdata : u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetCustomAuthDataA(pszphonebook : ::windows_core::PCSTR, pszentry : ::windows_core::PCSTR, pbcustomauthdata : *const u8, dwsizeofcustomauthdata : u32) -> u32);
     RasSetCustomAuthDataA(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbcustomauthdata.as_ptr()), pbcustomauthdata.len() as _)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasSetCustomAuthDataW<P0, P1>(pszphonebook: P0, pszentry: P1, pbcustomauthdata: &[u8]) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetCustomAuthDataW(pszphonebook : ::windows::core::PCWSTR, pszentry : ::windows::core::PCWSTR, pbcustomauthdata : *const u8, dwsizeofcustomauthdata : u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetCustomAuthDataW(pszphonebook : ::windows_core::PCWSTR, pszentry : ::windows_core::PCWSTR, pbcustomauthdata : *const u8, dwsizeofcustomauthdata : u32) -> u32);
     RasSetCustomAuthDataW(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbcustomauthdata.as_ptr()), pbcustomauthdata.len() as _)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1886,11 +1886,11 @@ where
 #[inline]
 pub unsafe fn RasSetEapUserDataA<P0, P1, P2>(htoken: P0, pszphonebook: P1, pszentry: P2, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetEapUserDataA(htoken : super::super::Foundation:: HANDLE, pszphonebook : ::windows::core::PCSTR, pszentry : ::windows::core::PCSTR, pbeapdata : *const u8, dwsizeofeapdata : u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetEapUserDataA(htoken : super::super::Foundation:: HANDLE, pszphonebook : ::windows_core::PCSTR, pszentry : ::windows_core::PCSTR, pbeapdata : *const u8, dwsizeofeapdata : u32) -> u32);
     RasSetEapUserDataA(htoken.into_param().abi(), pszphonebook.into_param().abi(), pszentry.into_param().abi(), pbeapdata, dwsizeofeapdata)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1898,11 +1898,11 @@ where
 #[inline]
 pub unsafe fn RasSetEapUserDataW<P0, P1, P2>(htoken: P0, pszphonebook: P1, pszentry: P2, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetEapUserDataW(htoken : super::super::Foundation:: HANDLE, pszphonebook : ::windows::core::PCWSTR, pszentry : ::windows::core::PCWSTR, pbeapdata : *const u8, dwsizeofeapdata : u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetEapUserDataW(htoken : super::super::Foundation:: HANDLE, pszphonebook : ::windows_core::PCWSTR, pszentry : ::windows_core::PCWSTR, pbeapdata : *const u8, dwsizeofeapdata : u32) -> u32);
     RasSetEapUserDataW(htoken.into_param().abi(), pszphonebook.into_param().abi(), pszentry.into_param().abi(), pbeapdata, dwsizeofeapdata)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1910,10 +1910,10 @@ where
 #[inline]
 pub unsafe fn RasSetEntryDialParamsA<P0, P1>(param0: P0, param1: *const RASDIALPARAMSA, param2: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetEntryDialParamsA(param0 : ::windows::core::PCSTR, param1 : *const RASDIALPARAMSA, param2 : super::super::Foundation:: BOOL) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetEntryDialParamsA(param0 : ::windows_core::PCSTR, param1 : *const RASDIALPARAMSA, param2 : super::super::Foundation:: BOOL) -> u32);
     RasSetEntryDialParamsA(param0.into_param().abi(), param1, param2.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1921,10 +1921,10 @@ where
 #[inline]
 pub unsafe fn RasSetEntryDialParamsW<P0, P1>(param0: P0, param1: *const RASDIALPARAMSW, param2: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetEntryDialParamsW(param0 : ::windows::core::PCWSTR, param1 : *const RASDIALPARAMSW, param2 : super::super::Foundation:: BOOL) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetEntryDialParamsW(param0 : ::windows_core::PCWSTR, param1 : *const RASDIALPARAMSW, param2 : super::super::Foundation:: BOOL) -> u32);
     RasSetEntryDialParamsW(param0.into_param().abi(), param1, param2.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -1932,10 +1932,10 @@ where
 #[inline]
 pub unsafe fn RasSetEntryPropertiesA<P0, P1>(param0: P0, param1: P1, param2: *const RASENTRYA, param3: u32, param4: ::core::option::Option<*const u8>, param5: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetEntryPropertiesA(param0 : ::windows::core::PCSTR, param1 : ::windows::core::PCSTR, param2 : *const RASENTRYA, param3 : u32, param4 : *const u8, param5 : u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetEntryPropertiesA(param0 : ::windows_core::PCSTR, param1 : ::windows_core::PCSTR, param2 : *const RASENTRYA, param3 : u32, param4 : *const u8, param5 : u32) -> u32);
     RasSetEntryPropertiesA(param0.into_param().abi(), param1.into_param().abi(), param2, param3, ::core::mem::transmute(param4.unwrap_or(::std::ptr::null())), param5)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -1943,30 +1943,30 @@ where
 #[inline]
 pub unsafe fn RasSetEntryPropertiesW<P0, P1>(param0: P0, param1: P1, param2: *const RASENTRYW, param3: u32, param4: ::core::option::Option<*const u8>, param5: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetEntryPropertiesW(param0 : ::windows::core::PCWSTR, param1 : ::windows::core::PCWSTR, param2 : *const RASENTRYW, param3 : u32, param4 : *const u8, param5 : u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetEntryPropertiesW(param0 : ::windows_core::PCWSTR, param1 : ::windows_core::PCWSTR, param2 : *const RASENTRYW, param3 : u32, param4 : *const u8, param5 : u32) -> u32);
     RasSetEntryPropertiesW(param0.into_param().abi(), param1.into_param().abi(), param2, param3, ::core::mem::transmute(param4.unwrap_or(::std::ptr::null())), param5)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasSetSubEntryPropertiesA<P0, P1>(param0: P0, param1: P1, param2: u32, param3: *const RASSUBENTRYA, param4: u32, param5: ::core::option::Option<*const u8>, param6: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetSubEntryPropertiesA(param0 : ::windows::core::PCSTR, param1 : ::windows::core::PCSTR, param2 : u32, param3 : *const RASSUBENTRYA, param4 : u32, param5 : *const u8, param6 : u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetSubEntryPropertiesA(param0 : ::windows_core::PCSTR, param1 : ::windows_core::PCSTR, param2 : u32, param3 : *const RASSUBENTRYA, param4 : u32, param5 : *const u8, param6 : u32) -> u32);
     RasSetSubEntryPropertiesA(param0.into_param().abi(), param1.into_param().abi(), param2, param3, param4, ::core::mem::transmute(param5.unwrap_or(::std::ptr::null())), param6)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasSetSubEntryPropertiesW<P0, P1>(param0: P0, param1: P1, param2: u32, param3: *const RASSUBENTRYW, param4: u32, param5: ::core::option::Option<*const u8>, param6: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetSubEntryPropertiesW(param0 : ::windows::core::PCWSTR, param1 : ::windows::core::PCWSTR, param2 : u32, param3 : *const RASSUBENTRYW, param4 : u32, param5 : *const u8, param6 : u32) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasSetSubEntryPropertiesW(param0 : ::windows_core::PCWSTR, param1 : ::windows_core::PCWSTR, param2 : u32, param3 : *const RASSUBENTRYW, param4 : u32, param5 : *const u8, param6 : u32) -> u32);
     RasSetSubEntryPropertiesW(param0.into_param().abi(), param1.into_param().abi(), param2, param3, param4, ::core::mem::transmute(param5.unwrap_or(::std::ptr::null())), param6)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -1974,7 +1974,7 @@ where
 #[inline]
 pub unsafe fn RasUpdateConnection<P0>(hrasconn: P0, lprasupdateconn: *const RASUPDATECONN) -> u32
 where
-    P0: ::windows::core::IntoParam<HRASCONN>,
+    P0: ::windows_core::IntoParam<HRASCONN>,
 {
     ::windows_targets::link!("rasapi32.dll" "system" fn RasUpdateConnection(hrasconn : HRASCONN, lprasupdateconn : *const RASUPDATECONN) -> u32);
     RasUpdateConnection(hrasconn.into_param().abi(), lprasupdateconn)
@@ -1983,20 +1983,20 @@ where
 #[inline]
 pub unsafe fn RasValidateEntryNameA<P0, P1>(param0: P0, param1: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasValidateEntryNameA(param0 : ::windows::core::PCSTR, param1 : ::windows::core::PCSTR) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasValidateEntryNameA(param0 : ::windows_core::PCSTR, param1 : ::windows_core::PCSTR) -> u32);
     RasValidateEntryNameA(param0.into_param().abi(), param1.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasValidateEntryNameW<P0, P1>(param0: P0, param1: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rasapi32.dll" "system" fn RasValidateEntryNameW(param0 : ::windows::core::PCWSTR, param1 : ::windows::core::PCWSTR) -> u32);
+    ::windows_targets::link!("rasapi32.dll" "system" fn RasValidateEntryNameW(param0 : ::windows_core::PCWSTR, param1 : ::windows_core::PCWSTR) -> u32);
     RasValidateEntryNameW(param0.into_param().abi(), param1.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
@@ -2016,7 +2016,7 @@ pub unsafe fn RtmAddRouteToDest(rtmreghandle: isize, routehandle: *mut isize, de
 #[inline]
 pub unsafe fn RtmBlockMethods<P0>(rtmreghandle: isize, targethandle: P0, targettype: u8, blockingflag: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("rtm.dll" "system" fn RtmBlockMethods(rtmreghandle : isize, targethandle : super::super::Foundation:: HANDLE, targettype : u8, blockingflag : u32) -> u32);
     RtmBlockMethods(rtmreghandle, targethandle.into_param().abi(), targettype, blockingflag)
@@ -2270,8 +2270,8 @@ pub unsafe fn RtmIsMarkedForChangeNotification(rtmreghandle: isize, notifyhandle
 #[inline]
 pub unsafe fn RtmLockDestination<P0, P1>(rtmreghandle: isize, desthandle: isize, exclusive: P0, lockdest: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("rtm.dll" "system" fn RtmLockDestination(rtmreghandle : isize, desthandle : isize, exclusive : super::super::Foundation:: BOOL, lockdest : super::super::Foundation:: BOOL) -> u32);
     RtmLockDestination(rtmreghandle, desthandle, exclusive.into_param().abi(), lockdest.into_param().abi())
@@ -2281,8 +2281,8 @@ where
 #[inline]
 pub unsafe fn RtmLockNextHop<P0, P1>(rtmreghandle: isize, nexthophandle: isize, exclusive: P0, locknexthop: P1, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("rtm.dll" "system" fn RtmLockNextHop(rtmreghandle : isize, nexthophandle : isize, exclusive : super::super::Foundation:: BOOL, locknexthop : super::super::Foundation:: BOOL, nexthoppointer : *mut *mut RTM_NEXTHOP_INFO) -> u32);
     RtmLockNextHop(rtmreghandle, nexthophandle, exclusive.into_param().abi(), locknexthop.into_param().abi(), nexthoppointer)
@@ -2292,8 +2292,8 @@ where
 #[inline]
 pub unsafe fn RtmLockRoute<P0, P1>(rtmreghandle: isize, routehandle: isize, exclusive: P0, lockroute: P1, routepointer: *mut *mut RTM_ROUTE_INFO) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("rtm.dll" "system" fn RtmLockRoute(rtmreghandle : isize, routehandle : isize, exclusive : super::super::Foundation:: BOOL, lockroute : super::super::Foundation:: BOOL, routepointer : *mut *mut RTM_ROUTE_INFO) -> u32);
     RtmLockRoute(rtmreghandle, routehandle, exclusive.into_param().abi(), lockroute.into_param().abi(), routepointer)
@@ -2303,7 +2303,7 @@ where
 #[inline]
 pub unsafe fn RtmMarkDestForChangeNotification<P0>(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, markdest: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("rtm.dll" "system" fn RtmMarkDestForChangeNotification(rtmreghandle : isize, notifyhandle : isize, desthandle : isize, markdest : super::super::Foundation:: BOOL) -> u32);
     RtmMarkDestForChangeNotification(rtmreghandle, notifyhandle, desthandle, markdest.into_param().abi())
@@ -2320,7 +2320,7 @@ pub unsafe fn RtmReferenceHandles(rtmreghandle: isize, numhandles: u32, rtmhandl
 #[inline]
 pub unsafe fn RtmRegisterEntity<P0>(rtmentityinfo: *mut RTM_ENTITY_INFO, exportmethods: *mut RTM_ENTITY_EXPORT_METHODS, eventcallback: RTM_EVENT_CALLBACK, reserveopaquepointer: P0, rtmregprofile: *mut RTM_REGN_PROFILE, rtmreghandle: *mut isize) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("rtm.dll" "system" fn RtmRegisterEntity(rtmentityinfo : *mut RTM_ENTITY_INFO, exportmethods : *mut RTM_ENTITY_EXPORT_METHODS, eventcallback : RTM_EVENT_CALLBACK, reserveopaquepointer : super::super::Foundation:: BOOL, rtmregprofile : *mut RTM_REGN_PROFILE, rtmreghandle : *mut isize) -> u32);
     RtmRegisterEntity(rtmentityinfo, exportmethods, eventcallback, reserveopaquepointer.into_param().abi(), rtmregprofile, rtmreghandle)
@@ -3055,31 +3055,31 @@ pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_PPTP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_SSTP: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Atm: ::windows::core::PCWSTR = ::windows::core::w!("ATM");
+pub const MPRDT_Atm: ::windows_core::PCWSTR = ::windows_core::w!("ATM");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_FrameRelay: ::windows::core::PCWSTR = ::windows::core::w!("FRAMERELAY");
+pub const MPRDT_FrameRelay: ::windows_core::PCWSTR = ::windows_core::w!("FRAMERELAY");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Generic: ::windows::core::PCWSTR = ::windows::core::w!("GENERIC");
+pub const MPRDT_Generic: ::windows_core::PCWSTR = ::windows_core::w!("GENERIC");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Irda: ::windows::core::PCWSTR = ::windows::core::w!("IRDA");
+pub const MPRDT_Irda: ::windows_core::PCWSTR = ::windows_core::w!("IRDA");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Isdn: ::windows::core::PCWSTR = ::windows::core::w!("isdn");
+pub const MPRDT_Isdn: ::windows_core::PCWSTR = ::windows_core::w!("isdn");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Modem: ::windows::core::PCWSTR = ::windows::core::w!("modem");
+pub const MPRDT_Modem: ::windows_core::PCWSTR = ::windows_core::w!("modem");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Pad: ::windows::core::PCWSTR = ::windows::core::w!("pad");
+pub const MPRDT_Pad: ::windows_core::PCWSTR = ::windows_core::w!("pad");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Parallel: ::windows::core::PCWSTR = ::windows::core::w!("PARALLEL");
+pub const MPRDT_Parallel: ::windows_core::PCWSTR = ::windows_core::w!("PARALLEL");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_SW56: ::windows::core::PCWSTR = ::windows::core::w!("SW56");
+pub const MPRDT_SW56: ::windows_core::PCWSTR = ::windows_core::w!("SW56");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Serial: ::windows::core::PCWSTR = ::windows::core::w!("SERIAL");
+pub const MPRDT_Serial: ::windows_core::PCWSTR = ::windows_core::w!("SERIAL");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Sonet: ::windows::core::PCWSTR = ::windows::core::w!("SONET");
+pub const MPRDT_Sonet: ::windows_core::PCWSTR = ::windows_core::w!("SONET");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Vpn: ::windows::core::PCWSTR = ::windows::core::w!("vpn");
+pub const MPRDT_Vpn: ::windows_core::PCWSTR = ::windows_core::w!("vpn");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_X25: ::windows::core::PCWSTR = ::windows::core::w!("x25");
+pub const MPRDT_X25: ::windows_core::PCWSTR = ::windows_core::w!("x25");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const MPRET_Direct: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
@@ -3319,35 +3319,35 @@ pub const RASDDFLAG_NoPrompt: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const RASDDFLAG_PositionDlg: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDIALEVENT: ::windows::core::PCSTR = ::windows::core::s!("RasDialEvent");
+pub const RASDIALEVENT: ::windows_core::PCSTR = ::windows_core::s!("RasDialEvent");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Atm: ::windows::core::PCWSTR = ::windows::core::w!("ATM");
+pub const RASDT_Atm: ::windows_core::PCWSTR = ::windows_core::w!("ATM");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_FrameRelay: ::windows::core::PCWSTR = ::windows::core::w!("FRAMERELAY");
+pub const RASDT_FrameRelay: ::windows_core::PCWSTR = ::windows_core::w!("FRAMERELAY");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Generic: ::windows::core::PCWSTR = ::windows::core::w!("GENERIC");
+pub const RASDT_Generic: ::windows_core::PCWSTR = ::windows_core::w!("GENERIC");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Irda: ::windows::core::PCWSTR = ::windows::core::w!("IRDA");
+pub const RASDT_Irda: ::windows_core::PCWSTR = ::windows_core::w!("IRDA");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Isdn: ::windows::core::PCWSTR = ::windows::core::w!("isdn");
+pub const RASDT_Isdn: ::windows_core::PCWSTR = ::windows_core::w!("isdn");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Modem: ::windows::core::PCWSTR = ::windows::core::w!("modem");
+pub const RASDT_Modem: ::windows_core::PCWSTR = ::windows_core::w!("modem");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_PPPoE: ::windows::core::PCWSTR = ::windows::core::w!("PPPoE");
+pub const RASDT_PPPoE: ::windows_core::PCWSTR = ::windows_core::w!("PPPoE");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Pad: ::windows::core::PCWSTR = ::windows::core::w!("pad");
+pub const RASDT_Pad: ::windows_core::PCWSTR = ::windows_core::w!("pad");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Parallel: ::windows::core::PCWSTR = ::windows::core::w!("PARALLEL");
+pub const RASDT_Parallel: ::windows_core::PCWSTR = ::windows_core::w!("PARALLEL");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_SW56: ::windows::core::PCWSTR = ::windows::core::w!("SW56");
+pub const RASDT_SW56: ::windows_core::PCWSTR = ::windows_core::w!("SW56");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Serial: ::windows::core::PCWSTR = ::windows::core::w!("SERIAL");
+pub const RASDT_Serial: ::windows_core::PCWSTR = ::windows_core::w!("SERIAL");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Sonet: ::windows::core::PCWSTR = ::windows::core::w!("SONET");
+pub const RASDT_Sonet: ::windows_core::PCWSTR = ::windows_core::w!("SONET");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Vpn: ::windows::core::PCWSTR = ::windows::core::w!("vpn");
+pub const RASDT_Vpn: ::windows_core::PCWSTR = ::windows_core::w!("vpn");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_X25: ::windows::core::PCWSTR = ::windows::core::w!("x25");
+pub const RASDT_X25: ::windows_core::PCWSTR = ::windows_core::w!("x25");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const RASEAPF_Logon: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
@@ -3681,7 +3681,7 @@ pub const REN_AllUsers: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const REN_User: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RRAS_SERVICE_NAME: ::windows::core::PCWSTR = ::windows::core::w!("RemoteAccess");
+pub const RRAS_SERVICE_NAME: ::windows_core::PCWSTR = ::windows_core::w!("RemoteAccess");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const RTM_BLOCK_METHODS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
@@ -3875,8 +3875,8 @@ impl ::core::default::Default for IKEV2_ID_PAYLOAD_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for IKEV2_ID_PAYLOAD_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IKEV2_ID_PAYLOAD_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for IKEV2_ID_PAYLOAD_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3902,8 +3902,8 @@ impl ::core::default::Default for MGM_ENUM_TYPES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MGM_ENUM_TYPES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MGM_ENUM_TYPES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MGM_ENUM_TYPES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3937,8 +3937,8 @@ impl ::core::default::Default for MPRAPI_OBJECT_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MPRAPI_OBJECT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPRAPI_OBJECT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MPRAPI_OBJECT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3968,8 +3968,8 @@ impl ::core::default::Default for MPR_ET {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MPR_ET {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_ET {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MPR_ET {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3997,8 +3997,8 @@ impl ::core::default::Default for MPR_INTERFACE_DIAL_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MPR_INTERFACE_DIAL_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_INTERFACE_DIAL_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MPR_INTERFACE_DIAL_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4024,8 +4024,8 @@ impl ::core::default::Default for MPR_VPN_TS_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MPR_VPN_TS_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_VPN_TS_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MPR_VPN_TS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4057,8 +4057,8 @@ impl ::core::default::Default for MPR_VS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MPR_VS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_VS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MPR_VS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4088,8 +4088,8 @@ impl ::core::default::Default for PPP_LCP {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for PPP_LCP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PPP_LCP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for PPP_LCP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4117,8 +4117,8 @@ impl ::core::default::Default for PPP_LCP_INFO_AUTH_DATA {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for PPP_LCP_INFO_AUTH_DATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PPP_LCP_INFO_AUTH_DATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for PPP_LCP_INFO_AUTH_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4148,8 +4148,8 @@ impl ::core::default::Default for RASAPIVERSION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for RASAPIVERSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASAPIVERSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for RASAPIVERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4235,8 +4235,8 @@ impl ::core::default::Default for RASCONNSTATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for RASCONNSTATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASCONNSTATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for RASCONNSTATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4266,8 +4266,8 @@ impl ::core::default::Default for RASCONNSUBSTATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for RASCONNSUBSTATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASCONNSUBSTATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for RASCONNSUBSTATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4293,8 +4293,8 @@ impl ::core::default::Default for RASENTRY_DIAL_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for RASENTRY_DIAL_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASENTRY_DIAL_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for RASENTRY_DIAL_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4322,8 +4322,8 @@ impl ::core::default::Default for RASIKEV_PROJECTION_INFO_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for RASIKEV_PROJECTION_INFO_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASIKEV_PROJECTION_INFO_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for RASIKEV_PROJECTION_INFO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4384,8 +4384,8 @@ impl ::core::default::Default for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4415,8 +4415,8 @@ impl ::core::default::Default for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4452,8 +4452,8 @@ impl ::core::default::Default for RASPROJECTION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for RASPROJECTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASPROJECTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for RASPROJECTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4479,8 +4479,8 @@ impl ::core::default::Default for RASPROJECTION_INFO_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for RASPROJECTION_INFO_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASPROJECTION_INFO_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for RASPROJECTION_INFO_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4514,8 +4514,8 @@ impl ::core::default::Default for RAS_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for RAS_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAS_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for RAS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4541,8 +4541,8 @@ impl ::core::default::Default for RAS_HARDWARE_CONDITION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for RAS_HARDWARE_CONDITION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAS_HARDWARE_CONDITION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for RAS_HARDWARE_CONDITION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4578,8 +4578,8 @@ impl ::core::default::Default for RAS_PORT_CONDITION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for RAS_PORT_CONDITION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAS_PORT_CONDITION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for RAS_PORT_CONDITION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4609,8 +4609,8 @@ impl ::core::default::Default for RAS_QUARANTINE_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for RAS_QUARANTINE_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAS_QUARANTINE_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for RAS_QUARANTINE_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4640,8 +4640,8 @@ impl ::core::default::Default for ROUTER_CONNECTION_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for ROUTER_CONNECTION_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ROUTER_CONNECTION_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for ROUTER_CONNECTION_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4681,8 +4681,8 @@ impl ::core::default::Default for ROUTER_INTERFACE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for ROUTER_INTERFACE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ROUTER_INTERFACE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for ROUTER_INTERFACE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4712,8 +4712,8 @@ impl ::core::default::Default for RTM_EVENT_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for RTM_EVENT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RTM_EVENT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for RTM_EVENT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4741,8 +4741,8 @@ impl ::core::default::Default for SECURITY_MESSAGE_MSG_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SECURITY_MESSAGE_MSG_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SECURITY_MESSAGE_MSG_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SECURITY_MESSAGE_MSG_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4775,8 +4775,8 @@ impl ::core::fmt::Debug for AUTH_VALIDATION_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for AUTH_VALIDATION_EX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for AUTH_VALIDATION_EX {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AUTH_VALIDATION_EX {
@@ -4809,8 +4809,8 @@ impl ::core::fmt::Debug for GRE_CONFIG_PARAMS0 {
         f.debug_struct("GRE_CONFIG_PARAMS0").field("dwNumPorts", &self.dwNumPorts).field("dwPortFlags", &self.dwPortFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for GRE_CONFIG_PARAMS0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GRE_CONFIG_PARAMS0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for GRE_CONFIG_PARAMS0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4847,8 +4847,8 @@ impl ::core::fmt::Debug for HRASCONN {
         f.debug_tuple("HRASCONN").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for HRASCONN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HRASCONN {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
@@ -4874,8 +4874,8 @@ impl ::core::fmt::Debug for IKEV2_CONFIG_PARAMS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::windows::core::TypeKind for IKEV2_CONFIG_PARAMS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IKEV2_CONFIG_PARAMS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for IKEV2_CONFIG_PARAMS {
@@ -4937,8 +4937,8 @@ impl ::core::fmt::Debug for IKEV2_PROJECTION_INFO {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for IKEV2_PROJECTION_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IKEV2_PROJECTION_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEV2_PROJECTION_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5013,8 +5013,8 @@ impl ::core::fmt::Debug for IKEV2_PROJECTION_INFO2 {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for IKEV2_PROJECTION_INFO2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IKEV2_PROJECTION_INFO2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEV2_PROJECTION_INFO2 {
     fn eq(&self, other: &Self) -> bool {
@@ -5083,8 +5083,8 @@ impl ::core::fmt::Debug for IKEV2_TUNNEL_CONFIG_PARAMS2 {
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl ::windows::core::TypeKind for IKEV2_TUNNEL_CONFIG_PARAMS2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IKEV2_TUNNEL_CONFIG_PARAMS2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for IKEV2_TUNNEL_CONFIG_PARAMS2 {
@@ -5147,8 +5147,8 @@ impl ::core::fmt::Debug for IKEV2_TUNNEL_CONFIG_PARAMS3 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::windows::core::TypeKind for IKEV2_TUNNEL_CONFIG_PARAMS3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IKEV2_TUNNEL_CONFIG_PARAMS3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for IKEV2_TUNNEL_CONFIG_PARAMS3 {
@@ -5213,8 +5213,8 @@ impl ::core::fmt::Debug for IKEV2_TUNNEL_CONFIG_PARAMS4 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::windows::core::TypeKind for IKEV2_TUNNEL_CONFIG_PARAMS4 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IKEV2_TUNNEL_CONFIG_PARAMS4 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for IKEV2_TUNNEL_CONFIG_PARAMS4 {
@@ -5247,8 +5247,8 @@ impl ::core::fmt::Debug for L2TP_CONFIG_PARAMS0 {
         f.debug_struct("L2TP_CONFIG_PARAMS0").field("dwNumPorts", &self.dwNumPorts).field("dwPortFlags", &self.dwPortFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for L2TP_CONFIG_PARAMS0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for L2TP_CONFIG_PARAMS0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for L2TP_CONFIG_PARAMS0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5280,8 +5280,8 @@ impl ::core::fmt::Debug for L2TP_CONFIG_PARAMS1 {
         f.debug_struct("L2TP_CONFIG_PARAMS1").field("dwNumPorts", &self.dwNumPorts).field("dwPortFlags", &self.dwPortFlags).field("dwTunnelConfigParamFlags", &self.dwTunnelConfigParamFlags).field("TunnelConfigParams", &self.TunnelConfigParams).finish()
     }
 }
-impl ::windows::core::TypeKind for L2TP_CONFIG_PARAMS1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for L2TP_CONFIG_PARAMS1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for L2TP_CONFIG_PARAMS1 {
     fn eq(&self, other: &Self) -> bool {
@@ -5314,8 +5314,8 @@ impl ::core::fmt::Debug for L2TP_TUNNEL_CONFIG_PARAMS1 {
         f.debug_struct("L2TP_TUNNEL_CONFIG_PARAMS1").field("dwIdleTimeout", &self.dwIdleTimeout).field("dwEncryptionType", &self.dwEncryptionType).field("dwSaLifeTime", &self.dwSaLifeTime).field("dwSaDataSizeForRenegotiation", &self.dwSaDataSizeForRenegotiation).field("customPolicy", &self.customPolicy).finish()
     }
 }
-impl ::windows::core::TypeKind for L2TP_TUNNEL_CONFIG_PARAMS1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for L2TP_TUNNEL_CONFIG_PARAMS1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for L2TP_TUNNEL_CONFIG_PARAMS1 {
     fn eq(&self, other: &Self) -> bool {
@@ -5349,8 +5349,8 @@ impl ::core::fmt::Debug for L2TP_TUNNEL_CONFIG_PARAMS2 {
         f.debug_struct("L2TP_TUNNEL_CONFIG_PARAMS2").field("dwIdleTimeout", &self.dwIdleTimeout).field("dwEncryptionType", &self.dwEncryptionType).field("dwSaLifeTime", &self.dwSaLifeTime).field("dwSaDataSizeForRenegotiation", &self.dwSaDataSizeForRenegotiation).field("customPolicy", &self.customPolicy).field("dwMmSaLifeTime", &self.dwMmSaLifeTime).finish()
     }
 }
-impl ::windows::core::TypeKind for L2TP_TUNNEL_CONFIG_PARAMS2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for L2TP_TUNNEL_CONFIG_PARAMS2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for L2TP_TUNNEL_CONFIG_PARAMS2 {
     fn eq(&self, other: &Self) -> bool {
@@ -5387,8 +5387,8 @@ impl ::core::fmt::Debug for MGM_IF_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for MGM_IF_ENTRY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MGM_IF_ENTRY {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MGM_IF_ENTRY {
@@ -5437,8 +5437,8 @@ impl ::core::fmt::Debug for MPRAPI_ADMIN_DLL_CALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::windows::core::TypeKind for MPRAPI_ADMIN_DLL_CALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPRAPI_ADMIN_DLL_CALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for MPRAPI_ADMIN_DLL_CALLBACKS {
@@ -5464,8 +5464,8 @@ impl ::core::fmt::Debug for MPRAPI_OBJECT_HEADER {
         f.debug_struct("MPRAPI_OBJECT_HEADER").field("revision", &self.revision).field("type", &self.r#type).field("size", &self.size).finish()
     }
 }
-impl ::windows::core::TypeKind for MPRAPI_OBJECT_HEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPRAPI_OBJECT_HEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MPRAPI_OBJECT_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -5502,8 +5502,8 @@ impl ::core::fmt::Debug for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::windows::core::TypeKind for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
@@ -5544,8 +5544,8 @@ impl ::core::fmt::Debug for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::windows::core::TypeKind for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
@@ -5567,7 +5567,7 @@ impl ::core::default::Default for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
 pub struct MPR_CERT_EKU {
     pub dwSize: u32,
     pub IsEKUOID: super::super::Foundation::BOOL,
-    pub pwszEKU: ::windows::core::PWSTR,
+    pub pwszEKU: ::windows_core::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MPR_CERT_EKU {}
@@ -5584,8 +5584,8 @@ impl ::core::fmt::Debug for MPR_CERT_EKU {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for MPR_CERT_EKU {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_CERT_EKU {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MPR_CERT_EKU {
@@ -5618,8 +5618,8 @@ impl ::core::fmt::Debug for MPR_CREDENTIALSEX_0 {
         f.debug_struct("MPR_CREDENTIALSEX_0").field("dwSize", &self.dwSize).field("lpbCredentialsInfo", &self.lpbCredentialsInfo).finish()
     }
 }
-impl ::windows::core::TypeKind for MPR_CREDENTIALSEX_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_CREDENTIALSEX_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MPR_CREDENTIALSEX_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5649,8 +5649,8 @@ impl ::core::fmt::Debug for MPR_CREDENTIALSEX_1 {
         f.debug_struct("MPR_CREDENTIALSEX_1").field("dwSize", &self.dwSize).field("lpbCredentialsInfo", &self.lpbCredentialsInfo).finish()
     }
 }
-impl ::windows::core::TypeKind for MPR_CREDENTIALSEX_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_CREDENTIALSEX_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MPR_CREDENTIALSEX_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -5680,8 +5680,8 @@ impl ::core::fmt::Debug for MPR_DEVICE_0 {
         f.debug_struct("MPR_DEVICE_0").field("szDeviceType", &self.szDeviceType).field("szDeviceName", &self.szDeviceName).finish()
     }
 }
-impl ::windows::core::TypeKind for MPR_DEVICE_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_DEVICE_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MPR_DEVICE_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5700,7 +5700,7 @@ pub struct MPR_DEVICE_1 {
     pub szDeviceType: [u16; 17],
     pub szDeviceName: [u16; 129],
     pub szLocalPhoneNumber: [u16; 129],
-    pub szAlternates: ::windows::core::PWSTR,
+    pub szAlternates: ::windows_core::PWSTR,
 }
 impl ::core::marker::Copy for MPR_DEVICE_1 {}
 impl ::core::clone::Clone for MPR_DEVICE_1 {
@@ -5713,8 +5713,8 @@ impl ::core::fmt::Debug for MPR_DEVICE_1 {
         f.debug_struct("MPR_DEVICE_1").field("szDeviceType", &self.szDeviceType).field("szDeviceName", &self.szDeviceName).field("szLocalPhoneNumber", &self.szLocalPhoneNumber).field("szAlternates", &self.szAlternates).finish()
     }
 }
-impl ::windows::core::TypeKind for MPR_DEVICE_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_DEVICE_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MPR_DEVICE_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -5748,8 +5748,8 @@ impl ::core::fmt::Debug for MPR_FILTER_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for MPR_FILTER_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_FILTER_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MPR_FILTER_0 {
@@ -5788,8 +5788,8 @@ impl ::core::fmt::Debug for MPR_IFTRANSPORT_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for MPR_IFTRANSPORT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_IFTRANSPORT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MPR_IFTRANSPORT_0 {
@@ -5828,8 +5828,8 @@ impl ::core::fmt::Debug for MPR_IF_CUSTOMINFOEX0 {
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl ::windows::core::TypeKind for MPR_IF_CUSTOMINFOEX0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_IF_CUSTOMINFOEX0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for MPR_IF_CUSTOMINFOEX0 {
@@ -5868,8 +5868,8 @@ impl ::core::fmt::Debug for MPR_IF_CUSTOMINFOEX1 {
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl ::windows::core::TypeKind for MPR_IF_CUSTOMINFOEX1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_IF_CUSTOMINFOEX1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for MPR_IF_CUSTOMINFOEX1 {
@@ -5908,8 +5908,8 @@ impl ::core::fmt::Debug for MPR_IF_CUSTOMINFOEX2 {
     }
 }
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl ::windows::core::TypeKind for MPR_IF_CUSTOMINFOEX2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_IF_CUSTOMINFOEX2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for MPR_IF_CUSTOMINFOEX2 {
@@ -5952,8 +5952,8 @@ impl ::core::fmt::Debug for MPR_INTERFACE_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for MPR_INTERFACE_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_INTERFACE_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MPR_INTERFACE_0 {
@@ -5980,7 +5980,7 @@ pub struct MPR_INTERFACE_1 {
     pub dwConnectionState: ROUTER_CONNECTION_STATE,
     pub fUnReachabilityReasons: u32,
     pub dwLastError: u32,
-    pub lpwsDialoutHoursRestriction: ::windows::core::PWSTR,
+    pub lpwsDialoutHoursRestriction: ::windows_core::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MPR_INTERFACE_1 {}
@@ -5997,8 +5997,8 @@ impl ::core::fmt::Debug for MPR_INTERFACE_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for MPR_INTERFACE_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_INTERFACE_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MPR_INTERFACE_1 {
@@ -6027,7 +6027,7 @@ pub struct MPR_INTERFACE_2 {
     pub dwLastError: u32,
     pub dwfOptions: u32,
     pub szLocalPhoneNumber: [u16; 129],
-    pub szAlternates: ::windows::core::PWSTR,
+    pub szAlternates: ::windows_core::PWSTR,
     pub ipaddr: u32,
     pub ipaddrDns: u32,
     pub ipaddrDnsAlt: u32,
@@ -6053,7 +6053,7 @@ pub struct MPR_INTERFACE_2 {
     pub dwCustomAuthKey: u32,
     pub dwCustomAuthDataSize: u32,
     pub lpbCustomAuthData: *mut u8,
-    pub guidId: ::windows::core::GUID,
+    pub guidId: ::windows_core::GUID,
     pub dwVpnStrategy: MPR_VS,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6109,8 +6109,8 @@ impl ::core::fmt::Debug for MPR_INTERFACE_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for MPR_INTERFACE_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_INTERFACE_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MPR_INTERFACE_2 {
@@ -6175,7 +6175,7 @@ pub struct MPR_INTERFACE_3 {
     pub dwLastError: u32,
     pub dwfOptions: u32,
     pub szLocalPhoneNumber: [u16; 129],
-    pub szAlternates: ::windows::core::PWSTR,
+    pub szAlternates: ::windows_core::PWSTR,
     pub ipaddr: u32,
     pub ipaddrDns: u32,
     pub ipaddrDnsAlt: u32,
@@ -6201,7 +6201,7 @@ pub struct MPR_INTERFACE_3 {
     pub dwCustomAuthKey: u32,
     pub dwCustomAuthDataSize: u32,
     pub lpbCustomAuthData: *mut u8,
-    pub guidId: ::windows::core::GUID,
+    pub guidId: ::windows_core::GUID,
     pub dwVpnStrategy: MPR_VS,
     pub AddressCount: u32,
     pub ipv6addrDns: super::super::Networking::WinSock::IN6_ADDR,
@@ -6217,8 +6217,8 @@ impl ::core::clone::Clone for MPR_INTERFACE_3 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::windows::core::TypeKind for MPR_INTERFACE_3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_INTERFACE_3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for MPR_INTERFACE_3 {
@@ -6230,7 +6230,7 @@ impl ::core::default::Default for MPR_INTERFACE_3 {
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub struct MPR_IPINIP_INTERFACE_0 {
     pub wszFriendlyName: [u16; 257],
-    pub Guid: ::windows::core::GUID,
+    pub Guid: ::windows_core::GUID,
 }
 impl ::core::marker::Copy for MPR_IPINIP_INTERFACE_0 {}
 impl ::core::clone::Clone for MPR_IPINIP_INTERFACE_0 {
@@ -6243,8 +6243,8 @@ impl ::core::fmt::Debug for MPR_IPINIP_INTERFACE_0 {
         f.debug_struct("MPR_IPINIP_INTERFACE_0").field("wszFriendlyName", &self.wszFriendlyName).field("Guid", &self.Guid).finish()
     }
 }
-impl ::windows::core::TypeKind for MPR_IPINIP_INTERFACE_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_IPINIP_INTERFACE_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MPR_IPINIP_INTERFACE_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -6281,8 +6281,8 @@ impl ::core::fmt::Debug for MPR_SERVER_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for MPR_SERVER_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_SERVER_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MPR_SERVER_0 {
@@ -6317,8 +6317,8 @@ impl ::core::fmt::Debug for MPR_SERVER_1 {
         f.debug_struct("MPR_SERVER_1").field("dwNumPptpPorts", &self.dwNumPptpPorts).field("dwPptpPortFlags", &self.dwPptpPortFlags).field("dwNumL2tpPorts", &self.dwNumL2tpPorts).field("dwL2tpPortFlags", &self.dwL2tpPortFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for MPR_SERVER_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_SERVER_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MPR_SERVER_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -6352,8 +6352,8 @@ impl ::core::fmt::Debug for MPR_SERVER_2 {
         f.debug_struct("MPR_SERVER_2").field("dwNumPptpPorts", &self.dwNumPptpPorts).field("dwPptpPortFlags", &self.dwPptpPortFlags).field("dwNumL2tpPorts", &self.dwNumL2tpPorts).field("dwL2tpPortFlags", &self.dwL2tpPortFlags).field("dwNumSstpPorts", &self.dwNumSstpPorts).field("dwSstpPortFlags", &self.dwSstpPortFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for MPR_SERVER_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_SERVER_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MPR_SERVER_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -6393,8 +6393,8 @@ impl ::core::fmt::Debug for MPR_SERVER_EX0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::windows::core::TypeKind for MPR_SERVER_EX0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_SERVER_EX0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for MPR_SERVER_EX0 {
@@ -6437,8 +6437,8 @@ impl ::core::fmt::Debug for MPR_SERVER_EX1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::windows::core::TypeKind for MPR_SERVER_EX1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_SERVER_EX1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for MPR_SERVER_EX1 {
@@ -6477,8 +6477,8 @@ impl ::core::fmt::Debug for MPR_SERVER_SET_CONFIG_EX0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::windows::core::TypeKind for MPR_SERVER_SET_CONFIG_EX0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_SERVER_SET_CONFIG_EX0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for MPR_SERVER_SET_CONFIG_EX0 {
@@ -6517,8 +6517,8 @@ impl ::core::fmt::Debug for MPR_SERVER_SET_CONFIG_EX1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::windows::core::TypeKind for MPR_SERVER_SET_CONFIG_EX1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_SERVER_SET_CONFIG_EX1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for MPR_SERVER_SET_CONFIG_EX1 {
@@ -6557,8 +6557,8 @@ impl ::core::fmt::Debug for MPR_TRANSPORT_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for MPR_TRANSPORT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_TRANSPORT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MPR_TRANSPORT_0 {
@@ -6595,8 +6595,8 @@ impl ::core::clone::Clone for MPR_VPN_TRAFFIC_SELECTOR {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for MPR_VPN_TRAFFIC_SELECTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_VPN_TRAFFIC_SELECTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for MPR_VPN_TRAFFIC_SELECTOR {
@@ -6628,8 +6628,8 @@ impl ::core::fmt::Debug for MPR_VPN_TRAFFIC_SELECTORS {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for MPR_VPN_TRAFFIC_SELECTORS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MPR_VPN_TRAFFIC_SELECTORS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for MPR_VPN_TRAFFIC_SELECTORS {
@@ -6662,8 +6662,8 @@ impl ::core::fmt::Debug for PPP_ATCP_INFO {
         f.debug_struct("PPP_ATCP_INFO").field("dwError", &self.dwError).field("wszAddress", &self.wszAddress).finish()
     }
 }
-impl ::windows::core::TypeKind for PPP_ATCP_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PPP_ATCP_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PPP_ATCP_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6696,8 +6696,8 @@ impl ::core::fmt::Debug for PPP_CCP_INFO {
         f.debug_struct("PPP_CCP_INFO").field("dwError", &self.dwError).field("dwCompressionAlgorithm", &self.dwCompressionAlgorithm).field("dwOptions", &self.dwOptions).field("dwRemoteCompressionAlgorithm", &self.dwRemoteCompressionAlgorithm).field("dwRemoteOptions", &self.dwRemoteOptions).finish()
     }
 }
-impl ::windows::core::TypeKind for PPP_CCP_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PPP_CCP_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PPP_CCP_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6729,8 +6729,8 @@ impl ::core::fmt::Debug for PPP_INFO {
         f.debug_struct("PPP_INFO").field("nbf", &self.nbf).field("ip", &self.ip).field("ipx", &self.ipx).field("at", &self.at).finish()
     }
 }
-impl ::windows::core::TypeKind for PPP_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PPP_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PPP_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6764,8 +6764,8 @@ impl ::core::fmt::Debug for PPP_INFO_2 {
         f.debug_struct("PPP_INFO_2").field("nbf", &self.nbf).field("ip", &self.ip).field("ipx", &self.ipx).field("at", &self.at).field("ccp", &self.ccp).field("lcp", &self.lcp).finish()
     }
 }
-impl ::windows::core::TypeKind for PPP_INFO_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PPP_INFO_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PPP_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -6798,8 +6798,8 @@ impl ::core::fmt::Debug for PPP_INFO_3 {
         f.debug_struct("PPP_INFO_3").field("nbf", &self.nbf).field("ip", &self.ip).field("ipv6", &self.ipv6).field("ccp", &self.ccp).field("lcp", &self.lcp).finish()
     }
 }
-impl ::windows::core::TypeKind for PPP_INFO_3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PPP_INFO_3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PPP_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
@@ -6830,8 +6830,8 @@ impl ::core::fmt::Debug for PPP_IPCP_INFO {
         f.debug_struct("PPP_IPCP_INFO").field("dwError", &self.dwError).field("wszAddress", &self.wszAddress).field("wszRemoteAddress", &self.wszRemoteAddress).finish()
     }
 }
-impl ::windows::core::TypeKind for PPP_IPCP_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PPP_IPCP_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PPP_IPCP_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6864,8 +6864,8 @@ impl ::core::fmt::Debug for PPP_IPCP_INFO2 {
         f.debug_struct("PPP_IPCP_INFO2").field("dwError", &self.dwError).field("wszAddress", &self.wszAddress).field("wszRemoteAddress", &self.wszRemoteAddress).field("dwOptions", &self.dwOptions).field("dwRemoteOptions", &self.dwRemoteOptions).finish()
     }
 }
-impl ::windows::core::TypeKind for PPP_IPCP_INFO2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PPP_IPCP_INFO2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PPP_IPCP_INFO2 {
     fn eq(&self, other: &Self) -> bool {
@@ -6902,8 +6902,8 @@ impl ::core::fmt::Debug for PPP_IPV6_CP_INFO {
         f.debug_struct("PPP_IPV6_CP_INFO").field("dwVersion", &self.dwVersion).field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("bInterfaceIdentifier", &self.bInterfaceIdentifier).field("bRemoteInterfaceIdentifier", &self.bRemoteInterfaceIdentifier).field("dwOptions", &self.dwOptions).field("dwRemoteOptions", &self.dwRemoteOptions).field("bPrefix", &self.bPrefix).field("dwPrefixLength", &self.dwPrefixLength).finish()
     }
 }
-impl ::windows::core::TypeKind for PPP_IPV6_CP_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PPP_IPV6_CP_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PPP_IPV6_CP_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6933,8 +6933,8 @@ impl ::core::fmt::Debug for PPP_IPXCP_INFO {
         f.debug_struct("PPP_IPXCP_INFO").field("dwError", &self.dwError).field("wszAddress", &self.wszAddress).finish()
     }
 }
-impl ::windows::core::TypeKind for PPP_IPXCP_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PPP_IPXCP_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PPP_IPXCP_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6985,8 +6985,8 @@ impl ::core::fmt::Debug for PPP_LCP_INFO {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for PPP_LCP_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PPP_LCP_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PPP_LCP_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -7016,8 +7016,8 @@ impl ::core::fmt::Debug for PPP_NBFCP_INFO {
         f.debug_struct("PPP_NBFCP_INFO").field("dwError", &self.dwError).field("wszWksta", &self.wszWksta).finish()
     }
 }
-impl ::windows::core::TypeKind for PPP_NBFCP_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PPP_NBFCP_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PPP_NBFCP_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -7102,8 +7102,8 @@ impl ::core::fmt::Debug for PPP_PROJECTION_INFO {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for PPP_PROJECTION_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PPP_PROJECTION_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PPP_PROJECTION_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -7217,8 +7217,8 @@ impl ::core::fmt::Debug for PPP_PROJECTION_INFO2 {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for PPP_PROJECTION_INFO2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PPP_PROJECTION_INFO2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PPP_PROJECTION_INFO2 {
     fn eq(&self, other: &Self) -> bool {
@@ -7276,8 +7276,8 @@ impl ::core::fmt::Debug for PPTP_CONFIG_PARAMS {
         f.debug_struct("PPTP_CONFIG_PARAMS").field("dwNumPorts", &self.dwNumPorts).field("dwPortFlags", &self.dwPortFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for PPTP_CONFIG_PARAMS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PPTP_CONFIG_PARAMS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PPTP_CONFIG_PARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -7302,8 +7302,8 @@ impl ::core::clone::Clone for PROJECTION_INFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for PROJECTION_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROJECTION_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for PROJECTION_INFO {
     fn default() -> Self {
@@ -7322,8 +7322,8 @@ impl ::core::clone::Clone for PROJECTION_INFO_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for PROJECTION_INFO_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROJECTION_INFO_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for PROJECTION_INFO_0 {
     fn default() -> Self {
@@ -7342,8 +7342,8 @@ impl ::core::clone::Clone for PROJECTION_INFO2 {
         *self
     }
 }
-impl ::windows::core::TypeKind for PROJECTION_INFO2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROJECTION_INFO2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for PROJECTION_INFO2 {
     fn default() -> Self {
@@ -7362,8 +7362,8 @@ impl ::core::clone::Clone for PROJECTION_INFO2_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for PROJECTION_INFO2_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROJECTION_INFO2_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for PROJECTION_INFO2_0 {
     fn default() -> Self {
@@ -7389,8 +7389,8 @@ impl ::core::clone::Clone for RASADPARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RASADPARAMS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASADPARAMS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASADPARAMS {
@@ -7417,8 +7417,8 @@ impl ::core::fmt::Debug for RASAMBA {
         f.debug_struct("RASAMBA").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("szNetBiosError", &self.szNetBiosError).field("bLana", &self.bLana).finish()
     }
 }
-impl ::windows::core::TypeKind for RASAMBA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASAMBA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASAMBA {
     fn eq(&self, other: &Self) -> bool {
@@ -7450,8 +7450,8 @@ impl ::core::fmt::Debug for RASAMBW {
         f.debug_struct("RASAMBW").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("szNetBiosError", &self.szNetBiosError).field("bLana", &self.bLana).finish()
     }
 }
-impl ::windows::core::TypeKind for RASAMBW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASAMBW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASAMBW {
     fn eq(&self, other: &Self) -> bool {
@@ -7483,8 +7483,8 @@ impl ::core::fmt::Debug for RASAUTODIALENTRYA {
         f.debug_struct("RASAUTODIALENTRYA").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwDialingLocation", &self.dwDialingLocation).field("szEntry", &self.szEntry).finish()
     }
 }
-impl ::windows::core::TypeKind for RASAUTODIALENTRYA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASAUTODIALENTRYA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASAUTODIALENTRYA {
     fn eq(&self, other: &Self) -> bool {
@@ -7516,8 +7516,8 @@ impl ::core::fmt::Debug for RASAUTODIALENTRYW {
         f.debug_struct("RASAUTODIALENTRYW").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwDialingLocation", &self.dwDialingLocation).field("szEntry", &self.szEntry).finish()
     }
 }
-impl ::windows::core::TypeKind for RASAUTODIALENTRYW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASAUTODIALENTRYW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASAUTODIALENTRYW {
     fn eq(&self, other: &Self) -> bool {
@@ -7550,8 +7550,8 @@ impl ::core::fmt::Debug for RASCOMMSETTINGS {
         f.debug_struct("RASCOMMSETTINGS").field("dwSize", &self.dwSize).field("bParity", &self.bParity).field("bStop", &self.bStop).field("bByteSize", &self.bByteSize).field("bAlign", &self.bAlign).finish()
     }
 }
-impl ::windows::core::TypeKind for RASCOMMSETTINGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASCOMMSETTINGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASCOMMSETTINGS {
     fn eq(&self, other: &Self) -> bool {
@@ -7575,10 +7575,10 @@ pub struct RASCONNA {
     pub szDeviceName: [u8; 129],
     pub szPhonebook: [u8; 260],
     pub dwSubEntry: u32,
-    pub guidEntry: ::windows::core::GUID,
+    pub guidEntry: ::windows_core::GUID,
     pub dwFlags: u32,
     pub luid: super::super::Foundation::LUID,
-    pub guidCorrelationId: ::windows::core::GUID,
+    pub guidCorrelationId: ::windows_core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RASCONNA {}
@@ -7589,8 +7589,8 @@ impl ::core::clone::Clone for RASCONNA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RASCONNA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASCONNA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASCONNA {
@@ -7621,8 +7621,8 @@ impl ::core::clone::Clone for RASCONNSTATUSA {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for RASCONNSTATUSA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASCONNSTATUSA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RASCONNSTATUSA {
@@ -7653,8 +7653,8 @@ impl ::core::clone::Clone for RASCONNSTATUSW {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for RASCONNSTATUSW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASCONNSTATUSW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RASCONNSTATUSW {
@@ -7673,10 +7673,10 @@ pub struct RASCONNW {
     pub szDeviceName: [u16; 129],
     pub szPhonebook: [u16; 260],
     pub dwSubEntry: u32,
-    pub guidEntry: ::windows::core::GUID,
+    pub guidEntry: ::windows_core::GUID,
     pub dwFlags: u32,
     pub luid: super::super::Foundation::LUID,
-    pub guidCorrelationId: ::windows::core::GUID,
+    pub guidCorrelationId: ::windows_core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RASCONNW {}
@@ -7687,8 +7687,8 @@ impl ::core::clone::Clone for RASCONNW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RASCONNW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASCONNW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASCONNW {
@@ -7716,8 +7716,8 @@ impl ::core::fmt::Debug for RASCREDENTIALSA {
         f.debug_struct("RASCREDENTIALSA").field("dwSize", &self.dwSize).field("dwMask", &self.dwMask).field("szUserName", &self.szUserName).field("szPassword", &self.szPassword).field("szDomain", &self.szDomain).finish()
     }
 }
-impl ::windows::core::TypeKind for RASCREDENTIALSA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASCREDENTIALSA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASCREDENTIALSA {
     fn eq(&self, other: &Self) -> bool {
@@ -7750,8 +7750,8 @@ impl ::core::fmt::Debug for RASCREDENTIALSW {
         f.debug_struct("RASCREDENTIALSW").field("dwSize", &self.dwSize).field("dwMask", &self.dwMask).field("szUserName", &self.szUserName).field("szPassword", &self.szPassword).field("szDomain", &self.szDomain).finish()
     }
 }
-impl ::windows::core::TypeKind for RASCREDENTIALSW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASCREDENTIALSW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASCREDENTIALSW {
     fn eq(&self, other: &Self) -> bool {
@@ -7784,8 +7784,8 @@ impl ::core::fmt::Debug for RASCTRYINFO {
         f.debug_struct("RASCTRYINFO").field("dwSize", &self.dwSize).field("dwCountryID", &self.dwCountryID).field("dwNextCountryID", &self.dwNextCountryID).field("dwCountryCode", &self.dwCountryCode).field("dwCountryNameOffset", &self.dwCountryNameOffset).finish()
     }
 }
-impl ::windows::core::TypeKind for RASCTRYINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASCTRYINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASCTRYINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -7814,8 +7814,8 @@ impl ::core::clone::Clone for RASCUSTOMSCRIPTEXTENSIONS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RASCUSTOMSCRIPTEXTENSIONS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASCUSTOMSCRIPTEXTENSIONS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASCUSTOMSCRIPTEXTENSIONS {
@@ -7841,8 +7841,8 @@ impl ::core::fmt::Debug for RASDEVINFOA {
         f.debug_struct("RASDEVINFOA").field("dwSize", &self.dwSize).field("szDeviceType", &self.szDeviceType).field("szDeviceName", &self.szDeviceName).finish()
     }
 }
-impl ::windows::core::TypeKind for RASDEVINFOA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASDEVINFOA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASDEVINFOA {
     fn eq(&self, other: &Self) -> bool {
@@ -7873,8 +7873,8 @@ impl ::core::fmt::Debug for RASDEVINFOW {
         f.debug_struct("RASDEVINFOW").field("dwSize", &self.dwSize).field("szDeviceType", &self.szDeviceType).field("szDeviceName", &self.szDeviceName).finish()
     }
 }
-impl ::windows::core::TypeKind for RASDEVINFOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASDEVINFOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASDEVINFOW {
     fn eq(&self, other: &Self) -> bool {
@@ -7899,8 +7899,8 @@ impl ::core::clone::Clone for RASDEVSPECIFICINFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for RASDEVSPECIFICINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASDEVSPECIFICINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for RASDEVSPECIFICINFO {
     fn default() -> Self {
@@ -7930,8 +7930,8 @@ impl ::core::clone::Clone for RASDIALDLG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RASDIALDLG {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASDIALDLG {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASDIALDLG {
@@ -7961,8 +7961,8 @@ impl ::core::clone::Clone for RASDIALEXTENSIONS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RASDIALEXTENSIONS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASDIALEXTENSIONS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASDIALEXTENSIONS {
@@ -7983,7 +7983,7 @@ pub struct RASDIALPARAMSA {
     pub dwSubEntry: u32,
     pub dwCallbackId: usize,
     pub dwIfIndex: u32,
-    pub szEncPassword: ::windows::core::PSTR,
+    pub szEncPassword: ::windows_core::PSTR,
 }
 impl ::core::marker::Copy for RASDIALPARAMSA {}
 impl ::core::clone::Clone for RASDIALPARAMSA {
@@ -7991,8 +7991,8 @@ impl ::core::clone::Clone for RASDIALPARAMSA {
         *self
     }
 }
-impl ::windows::core::TypeKind for RASDIALPARAMSA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASDIALPARAMSA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for RASDIALPARAMSA {
     fn default() -> Self {
@@ -8012,7 +8012,7 @@ pub struct RASDIALPARAMSW {
     pub dwSubEntry: u32,
     pub dwCallbackId: usize,
     pub dwIfIndex: u32,
-    pub szEncPassword: ::windows::core::PWSTR,
+    pub szEncPassword: ::windows_core::PWSTR,
 }
 impl ::core::marker::Copy for RASDIALPARAMSW {}
 impl ::core::clone::Clone for RASDIALPARAMSW {
@@ -8020,8 +8020,8 @@ impl ::core::clone::Clone for RASDIALPARAMSW {
         *self
     }
 }
-impl ::windows::core::TypeKind for RASDIALPARAMSW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASDIALPARAMSW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for RASDIALPARAMSW {
     fn default() -> Self {
@@ -8040,8 +8040,8 @@ impl ::core::clone::Clone for RASEAPINFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for RASEAPINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASEAPINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for RASEAPINFO {
     fn default() -> Self {
@@ -8066,8 +8066,8 @@ impl ::core::fmt::Debug for RASEAPUSERIDENTITYA {
         f.debug_struct("RASEAPUSERIDENTITYA").field("szUserName", &self.szUserName).field("dwSizeofEapInfo", &self.dwSizeofEapInfo).field("pbEapInfo", &self.pbEapInfo).finish()
     }
 }
-impl ::windows::core::TypeKind for RASEAPUSERIDENTITYA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASEAPUSERIDENTITYA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASEAPUSERIDENTITYA {
     fn eq(&self, other: &Self) -> bool {
@@ -8098,8 +8098,8 @@ impl ::core::fmt::Debug for RASEAPUSERIDENTITYW {
         f.debug_struct("RASEAPUSERIDENTITYW").field("szUserName", &self.szUserName).field("dwSizeofEapInfo", &self.dwSizeofEapInfo).field("pbEapInfo", &self.pbEapInfo).finish()
     }
 }
-impl ::windows::core::TypeKind for RASEAPUSERIDENTITYW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASEAPUSERIDENTITYW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASEAPUSERIDENTITYW {
     fn eq(&self, other: &Self) -> bool {
@@ -8153,7 +8153,7 @@ pub struct RASENTRYA {
     pub dwType: u32,
     pub dwEncryptionType: u32,
     pub dwCustomAuthKey: u32,
-    pub guidId: ::windows::core::GUID,
+    pub guidId: ::windows_core::GUID,
     pub szCustomDialDll: [u8; 260],
     pub dwVpnStrategy: u32,
     pub dwfOptions2: u32,
@@ -8187,8 +8187,8 @@ impl ::core::clone::Clone for RASENTRYA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::windows::core::TypeKind for RASENTRYA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASENTRYA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for RASENTRYA {
@@ -8219,8 +8219,8 @@ impl ::core::clone::Clone for RASENTRYDLGA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RASENTRYDLGA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASENTRYDLGA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASENTRYDLGA {
@@ -8251,8 +8251,8 @@ impl ::core::clone::Clone for RASENTRYDLGW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RASENTRYDLGW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASENTRYDLGW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASENTRYDLGW {
@@ -8279,8 +8279,8 @@ impl ::core::fmt::Debug for RASENTRYNAMEA {
         f.debug_struct("RASENTRYNAMEA").field("dwSize", &self.dwSize).field("szEntryName", &self.szEntryName).field("dwFlags", &self.dwFlags).field("szPhonebookPath", &self.szPhonebookPath).finish()
     }
 }
-impl ::windows::core::TypeKind for RASENTRYNAMEA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASENTRYNAMEA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASENTRYNAMEA {
     fn eq(&self, other: &Self) -> bool {
@@ -8312,8 +8312,8 @@ impl ::core::fmt::Debug for RASENTRYNAMEW {
         f.debug_struct("RASENTRYNAMEW").field("dwSize", &self.dwSize).field("szEntryName", &self.szEntryName).field("dwFlags", &self.dwFlags).field("szPhonebookPath", &self.szPhonebookPath).finish()
     }
 }
-impl ::windows::core::TypeKind for RASENTRYNAMEW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASENTRYNAMEW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASENTRYNAMEW {
     fn eq(&self, other: &Self) -> bool {
@@ -8367,7 +8367,7 @@ pub struct RASENTRYW {
     pub dwType: u32,
     pub dwEncryptionType: u32,
     pub dwCustomAuthKey: u32,
-    pub guidId: ::windows::core::GUID,
+    pub guidId: ::windows_core::GUID,
     pub szCustomDialDll: [u16; 260],
     pub dwVpnStrategy: u32,
     pub dwfOptions2: u32,
@@ -8401,8 +8401,8 @@ impl ::core::clone::Clone for RASENTRYW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::windows::core::TypeKind for RASENTRYW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASENTRYW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for RASENTRYW {
@@ -8439,8 +8439,8 @@ impl ::core::clone::Clone for RASIKEV2_PROJECTION_INFO {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for RASIKEV2_PROJECTION_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASIKEV2_PROJECTION_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RASIKEV2_PROJECTION_INFO {
@@ -8467,8 +8467,8 @@ impl ::core::fmt::Debug for RASIPADDR {
         f.debug_struct("RASIPADDR").field("a", &self.a).field("b", &self.b).field("c", &self.c).field("d", &self.d).finish()
     }
 }
-impl ::windows::core::TypeKind for RASIPADDR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASIPADDR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASIPADDR {
     fn eq(&self, other: &Self) -> bool {
@@ -8499,8 +8499,8 @@ impl ::core::fmt::Debug for RASIPXW {
         f.debug_struct("RASIPXW").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("szIpxAddress", &self.szIpxAddress).finish()
     }
 }
-impl ::windows::core::TypeKind for RASIPXW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASIPXW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASIPXW {
     fn eq(&self, other: &Self) -> bool {
@@ -8534,8 +8534,8 @@ impl ::core::fmt::Debug for RASNOUSERA {
         f.debug_struct("RASNOUSERA").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwTimeoutMs", &self.dwTimeoutMs).field("szUserName", &self.szUserName).field("szPassword", &self.szPassword).field("szDomain", &self.szDomain).finish()
     }
 }
-impl ::windows::core::TypeKind for RASNOUSERA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASNOUSERA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASNOUSERA {
     fn eq(&self, other: &Self) -> bool {
@@ -8569,8 +8569,8 @@ impl ::core::fmt::Debug for RASNOUSERW {
         f.debug_struct("RASNOUSERW").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwTimeoutMs", &self.dwTimeoutMs).field("szUserName", &self.szUserName).field("szPassword", &self.szPassword).field("szDomain", &self.szDomain).finish()
     }
 }
-impl ::windows::core::TypeKind for RASNOUSERW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASNOUSERW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASNOUSERW {
     fn eq(&self, other: &Self) -> bool {
@@ -8607,8 +8607,8 @@ impl ::core::clone::Clone for RASPBDLGA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RASPBDLGA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASPBDLGA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASPBDLGA {
@@ -8640,8 +8640,8 @@ impl ::core::clone::Clone for RASPBDLGW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RASPBDLGW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASPBDLGW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASPBDLGW {
@@ -8670,8 +8670,8 @@ impl ::core::fmt::Debug for RASPPPCCP {
         f.debug_struct("RASPPPCCP").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("dwCompressionAlgorithm", &self.dwCompressionAlgorithm).field("dwOptions", &self.dwOptions).field("dwServerCompressionAlgorithm", &self.dwServerCompressionAlgorithm).field("dwServerOptions", &self.dwServerOptions).finish()
     }
 }
-impl ::windows::core::TypeKind for RASPPPCCP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASPPPCCP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASPPPCCP {
     fn eq(&self, other: &Self) -> bool {
@@ -8705,8 +8705,8 @@ impl ::core::fmt::Debug for RASPPPIPA {
         f.debug_struct("RASPPPIPA").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("szIpAddress", &self.szIpAddress).field("szServerIpAddress", &self.szServerIpAddress).field("dwOptions", &self.dwOptions).field("dwServerOptions", &self.dwServerOptions).finish()
     }
 }
-impl ::windows::core::TypeKind for RASPPPIPA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASPPPIPA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASPPPIPA {
     fn eq(&self, other: &Self) -> bool {
@@ -8740,8 +8740,8 @@ impl ::core::fmt::Debug for RASPPPIPV6 {
         f.debug_struct("RASPPPIPV6").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("bLocalInterfaceIdentifier", &self.bLocalInterfaceIdentifier).field("bPeerInterfaceIdentifier", &self.bPeerInterfaceIdentifier).field("bLocalCompressionProtocol", &self.bLocalCompressionProtocol).field("bPeerCompressionProtocol", &self.bPeerCompressionProtocol).finish()
     }
 }
-impl ::windows::core::TypeKind for RASPPPIPV6 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASPPPIPV6 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASPPPIPV6 {
     fn eq(&self, other: &Self) -> bool {
@@ -8775,8 +8775,8 @@ impl ::core::fmt::Debug for RASPPPIPW {
         f.debug_struct("RASPPPIPW").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("szIpAddress", &self.szIpAddress).field("szServerIpAddress", &self.szServerIpAddress).field("dwOptions", &self.dwOptions).field("dwServerOptions", &self.dwServerOptions).finish()
     }
 }
-impl ::windows::core::TypeKind for RASPPPIPW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASPPPIPW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASPPPIPW {
     fn eq(&self, other: &Self) -> bool {
@@ -8807,8 +8807,8 @@ impl ::core::fmt::Debug for RASPPPIPXA {
         f.debug_struct("RASPPPIPXA").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("szIpxAddress", &self.szIpxAddress).finish()
     }
 }
-impl ::windows::core::TypeKind for RASPPPIPXA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASPPPIPXA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASPPPIPXA {
     fn eq(&self, other: &Self) -> bool {
@@ -8872,8 +8872,8 @@ impl ::core::fmt::Debug for RASPPPLCPA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RASPPPLCPA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASPPPLCPA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RASPPPLCPA {
@@ -8940,8 +8940,8 @@ impl ::core::fmt::Debug for RASPPPLCPW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RASPPPLCPW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASPPPLCPW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RASPPPLCPW {
@@ -8978,8 +8978,8 @@ impl ::core::fmt::Debug for RASPPPNBFA {
         f.debug_struct("RASPPPNBFA").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("dwNetBiosError", &self.dwNetBiosError).field("szNetBiosError", &self.szNetBiosError).field("szWorkstationName", &self.szWorkstationName).field("bLana", &self.bLana).finish()
     }
 }
-impl ::windows::core::TypeKind for RASPPPNBFA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASPPPNBFA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASPPPNBFA {
     fn eq(&self, other: &Self) -> bool {
@@ -9013,8 +9013,8 @@ impl ::core::fmt::Debug for RASPPPNBFW {
         f.debug_struct("RASPPPNBFW").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("dwNetBiosError", &self.dwNetBiosError).field("szNetBiosError", &self.szNetBiosError).field("szWorkstationName", &self.szWorkstationName).field("bLana", &self.bLana).finish()
     }
 }
-impl ::windows::core::TypeKind for RASPPPNBFW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASPPPNBFW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASPPPNBFW {
     fn eq(&self, other: &Self) -> bool {
@@ -9064,8 +9064,8 @@ impl ::core::clone::Clone for RASPPP_PROJECTION_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::windows::core::TypeKind for RASPPP_PROJECTION_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASPPP_PROJECTION_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for RASPPP_PROJECTION_INFO {
@@ -9094,8 +9094,8 @@ impl ::core::fmt::Debug for RASSUBENTRYA {
         f.debug_struct("RASSUBENTRYA").field("dwSize", &self.dwSize).field("dwfFlags", &self.dwfFlags).field("szDeviceType", &self.szDeviceType).field("szDeviceName", &self.szDeviceName).field("szLocalPhoneNumber", &self.szLocalPhoneNumber).field("dwAlternateOffset", &self.dwAlternateOffset).finish()
     }
 }
-impl ::windows::core::TypeKind for RASSUBENTRYA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASSUBENTRYA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASSUBENTRYA {
     fn eq(&self, other: &Self) -> bool {
@@ -9129,8 +9129,8 @@ impl ::core::fmt::Debug for RASSUBENTRYW {
         f.debug_struct("RASSUBENTRYW").field("dwSize", &self.dwSize).field("dwfFlags", &self.dwfFlags).field("szDeviceType", &self.szDeviceType).field("szDeviceName", &self.szDeviceName).field("szLocalPhoneNumber", &self.szLocalPhoneNumber).field("dwAlternateOffset", &self.dwAlternateOffset).finish()
     }
 }
-impl ::windows::core::TypeKind for RASSUBENTRYW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASSUBENTRYW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASSUBENTRYW {
     fn eq(&self, other: &Self) -> bool {
@@ -9159,8 +9159,8 @@ impl ::core::clone::Clone for RASTUNNELENDPOINT {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for RASTUNNELENDPOINT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASTUNNELENDPOINT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RASTUNNELENDPOINT {
@@ -9184,8 +9184,8 @@ impl ::core::clone::Clone for RASTUNNELENDPOINT_0 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for RASTUNNELENDPOINT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASTUNNELENDPOINT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RASTUNNELENDPOINT_0 {
@@ -9213,8 +9213,8 @@ impl ::core::clone::Clone for RASUPDATECONN {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for RASUPDATECONN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RASUPDATECONN {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RASUPDATECONN {
@@ -9251,8 +9251,8 @@ impl ::core::fmt::Debug for RAS_CONNECTION_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RAS_CONNECTION_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAS_CONNECTION_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RAS_CONNECTION_0 {
@@ -9319,8 +9319,8 @@ impl ::core::fmt::Debug for RAS_CONNECTION_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RAS_CONNECTION_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAS_CONNECTION_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RAS_CONNECTION_1 {
@@ -9343,7 +9343,7 @@ pub struct RAS_CONNECTION_2 {
     pub hConnection: super::super::Foundation::HANDLE,
     pub wszUserName: [u16; 257],
     pub dwInterfaceType: ROUTER_INTERFACE_TYPE,
-    pub guid: ::windows::core::GUID,
+    pub guid: ::windows_core::GUID,
     pub PppInfo2: PPP_INFO_2,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9361,8 +9361,8 @@ impl ::core::fmt::Debug for RAS_CONNECTION_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RAS_CONNECTION_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAS_CONNECTION_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RAS_CONNECTION_2 {
@@ -9387,7 +9387,7 @@ pub struct RAS_CONNECTION_3 {
     pub hConnection: super::super::Foundation::HANDLE,
     pub wszUserName: [u16; 257],
     pub dwInterfaceType: ROUTER_INTERFACE_TYPE,
-    pub guid: ::windows::core::GUID,
+    pub guid: ::windows_core::GUID,
     pub PppInfo3: PPP_INFO_3,
     pub rasQuarState: RAS_QUARANTINE_STATE,
     pub timer: super::super::Foundation::FILETIME,
@@ -9407,8 +9407,8 @@ impl ::core::fmt::Debug for RAS_CONNECTION_3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RAS_CONNECTION_3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAS_CONNECTION_3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RAS_CONNECTION_3 {
@@ -9435,7 +9435,7 @@ pub struct RAS_CONNECTION_4 {
     pub wszUserName: [u16; 257],
     pub wszLogonDomain: [u16; 16],
     pub wszRemoteComputer: [u16; 17],
-    pub guid: ::windows::core::GUID,
+    pub guid: ::windows_core::GUID,
     pub rasQuarState: RAS_QUARANTINE_STATE,
     pub probationTime: super::super::Foundation::FILETIME,
     pub connectionStartTime: super::super::Foundation::FILETIME,
@@ -9468,8 +9468,8 @@ impl ::core::clone::Clone for RAS_CONNECTION_4 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RAS_CONNECTION_4 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAS_CONNECTION_4 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RAS_CONNECTION_4 {
@@ -9489,7 +9489,7 @@ pub struct RAS_CONNECTION_EX {
     pub wszUserName: [u16; 257],
     pub wszLogonDomain: [u16; 16],
     pub wszRemoteComputer: [u16; 17],
-    pub guid: ::windows::core::GUID,
+    pub guid: ::windows_core::GUID,
     pub rasQuarState: RAS_QUARANTINE_STATE,
     pub probationTime: super::super::Foundation::FILETIME,
     pub dwBytesXmited: u32,
@@ -9520,8 +9520,8 @@ impl ::core::clone::Clone for RAS_CONNECTION_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RAS_CONNECTION_EX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAS_CONNECTION_EX {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RAS_CONNECTION_EX {
@@ -9558,8 +9558,8 @@ impl ::core::fmt::Debug for RAS_PORT_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RAS_PORT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAS_PORT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RAS_PORT_0 {
@@ -9628,8 +9628,8 @@ impl ::core::fmt::Debug for RAS_PORT_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RAS_PORT_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAS_PORT_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RAS_PORT_1 {
@@ -9720,8 +9720,8 @@ impl ::core::fmt::Debug for RAS_PORT_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RAS_PORT_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAS_PORT_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RAS_PORT_2 {
@@ -9780,8 +9780,8 @@ impl ::core::clone::Clone for RAS_PROJECTION_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::windows::core::TypeKind for RAS_PROJECTION_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAS_PROJECTION_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for RAS_PROJECTION_INFO {
@@ -9805,8 +9805,8 @@ impl ::core::clone::Clone for RAS_PROJECTION_INFO_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::windows::core::TypeKind for RAS_PROJECTION_INFO_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAS_PROJECTION_INFO_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for RAS_PROJECTION_INFO_0 {
@@ -9832,8 +9832,8 @@ impl ::core::fmt::Debug for RAS_SECURITY_INFO {
         f.debug_struct("RAS_SECURITY_INFO").field("LastError", &self.LastError).field("BytesReceived", &self.BytesReceived).field("DeviceName", &self.DeviceName).finish()
     }
 }
-impl ::windows::core::TypeKind for RAS_SECURITY_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAS_SECURITY_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RAS_SECURITY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -9892,8 +9892,8 @@ impl ::core::fmt::Debug for RAS_STATS {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for RAS_STATS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAS_STATS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RAS_STATS {
     fn eq(&self, other: &Self) -> bool {
@@ -9925,8 +9925,8 @@ impl ::core::fmt::Debug for RAS_UPDATE_CONNECTION {
         f.debug_struct("RAS_UPDATE_CONNECTION").field("Header", &self.Header).field("dwIfIndex", &self.dwIfIndex).field("wszLocalEndpointAddress", &self.wszLocalEndpointAddress).field("wszRemoteEndpointAddress", &self.wszRemoteEndpointAddress).finish()
     }
 }
-impl ::windows::core::TypeKind for RAS_UPDATE_CONNECTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAS_UPDATE_CONNECTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RAS_UPDATE_CONNECTION {
     fn eq(&self, other: &Self) -> bool {
@@ -9956,8 +9956,8 @@ impl ::core::fmt::Debug for RAS_USER_0 {
         f.debug_struct("RAS_USER_0").field("bfPrivilege", &self.bfPrivilege).field("wszPhoneNumber", &self.wszPhoneNumber).finish()
     }
 }
-impl ::windows::core::TypeKind for RAS_USER_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAS_USER_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RAS_USER_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9988,8 +9988,8 @@ impl ::core::fmt::Debug for RAS_USER_1 {
         f.debug_struct("RAS_USER_1").field("bfPrivilege", &self.bfPrivilege).field("wszPhoneNumber", &self.wszPhoneNumber).field("bfPrivilege2", &self.bfPrivilege2).finish()
     }
 }
-impl ::windows::core::TypeKind for RAS_USER_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAS_USER_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RAS_USER_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -10023,8 +10023,8 @@ impl ::core::fmt::Debug for ROUTER_CUSTOM_IKEv2_POLICY0 {
         f.debug_struct("ROUTER_CUSTOM_IKEv2_POLICY0").field("dwIntegrityMethod", &self.dwIntegrityMethod).field("dwEncryptionMethod", &self.dwEncryptionMethod).field("dwCipherTransformConstant", &self.dwCipherTransformConstant).field("dwAuthTransformConstant", &self.dwAuthTransformConstant).field("dwPfsGroup", &self.dwPfsGroup).field("dwDhGroup", &self.dwDhGroup).finish()
     }
 }
-impl ::windows::core::TypeKind for ROUTER_CUSTOM_IKEv2_POLICY0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ROUTER_CUSTOM_IKEv2_POLICY0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for ROUTER_CUSTOM_IKEv2_POLICY0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10061,8 +10061,8 @@ impl ::core::fmt::Debug for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl ::windows::core::TypeKind for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
@@ -10103,8 +10103,8 @@ impl ::core::fmt::Debug for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl ::windows::core::TypeKind for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
@@ -10147,8 +10147,8 @@ impl ::core::fmt::Debug for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     }
 }
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl ::windows::core::TypeKind for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
@@ -10194,8 +10194,8 @@ impl ::core::fmt::Debug for ROUTING_PROTOCOL_CONFIG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for ROUTING_PROTOCOL_CONFIG {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ROUTING_PROTOCOL_CONFIG {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ROUTING_PROTOCOL_CONFIG {
@@ -10229,8 +10229,8 @@ impl ::core::fmt::Debug for RTM_DEST_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RTM_DEST_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RTM_DEST_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RTM_DEST_INFO {
@@ -10272,8 +10272,8 @@ impl ::core::fmt::Debug for RTM_DEST_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RTM_DEST_INFO_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RTM_DEST_INFO_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RTM_DEST_INFO_0 {
@@ -10306,8 +10306,8 @@ impl ::core::fmt::Debug for RTM_ENTITY_EXPORT_METHODS {
         f.debug_struct("RTM_ENTITY_EXPORT_METHODS").field("NumMethods", &self.NumMethods).finish()
     }
 }
-impl ::windows::core::TypeKind for RTM_ENTITY_EXPORT_METHODS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RTM_ENTITY_EXPORT_METHODS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for RTM_ENTITY_EXPORT_METHODS {
     fn default() -> Self {
@@ -10325,8 +10325,8 @@ impl ::core::clone::Clone for RTM_ENTITY_ID {
         *self
     }
 }
-impl ::windows::core::TypeKind for RTM_ENTITY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RTM_ENTITY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for RTM_ENTITY_ID {
     fn default() -> Self {
@@ -10345,8 +10345,8 @@ impl ::core::clone::Clone for RTM_ENTITY_ID_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for RTM_ENTITY_ID_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RTM_ENTITY_ID_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for RTM_ENTITY_ID_0 {
     fn default() -> Self {
@@ -10370,8 +10370,8 @@ impl ::core::fmt::Debug for RTM_ENTITY_ID_0_0 {
         f.debug_struct("RTM_ENTITY_ID_0_0").field("EntityProtocolId", &self.EntityProtocolId).field("EntityInstanceId", &self.EntityInstanceId).finish()
     }
 }
-impl ::windows::core::TypeKind for RTM_ENTITY_ID_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RTM_ENTITY_ID_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RTM_ENTITY_ID_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10397,8 +10397,8 @@ impl ::core::clone::Clone for RTM_ENTITY_INFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for RTM_ENTITY_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RTM_ENTITY_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for RTM_ENTITY_INFO {
     fn default() -> Self {
@@ -10423,8 +10423,8 @@ impl ::core::fmt::Debug for RTM_ENTITY_METHOD_INPUT {
         f.debug_struct("RTM_ENTITY_METHOD_INPUT").field("MethodType", &self.MethodType).field("InputSize", &self.InputSize).field("InputData", &self.InputData).finish()
     }
 }
-impl ::windows::core::TypeKind for RTM_ENTITY_METHOD_INPUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RTM_ENTITY_METHOD_INPUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RTM_ENTITY_METHOD_INPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -10456,8 +10456,8 @@ impl ::core::fmt::Debug for RTM_ENTITY_METHOD_OUTPUT {
         f.debug_struct("RTM_ENTITY_METHOD_OUTPUT").field("MethodType", &self.MethodType).field("MethodStatus", &self.MethodStatus).field("OutputSize", &self.OutputSize).field("OutputData", &self.OutputData).finish()
     }
 }
-impl ::windows::core::TypeKind for RTM_ENTITY_METHOD_OUTPUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RTM_ENTITY_METHOD_OUTPUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RTM_ENTITY_METHOD_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -10488,8 +10488,8 @@ impl ::core::fmt::Debug for RTM_NET_ADDRESS {
         f.debug_struct("RTM_NET_ADDRESS").field("AddressFamily", &self.AddressFamily).field("NumBits", &self.NumBits).field("AddrBits", &self.AddrBits).finish()
     }
 }
-impl ::windows::core::TypeKind for RTM_NET_ADDRESS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RTM_NET_ADDRESS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RTM_NET_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
@@ -10524,8 +10524,8 @@ impl ::core::fmt::Debug for RTM_NEXTHOP_INFO {
         f.debug_struct("RTM_NEXTHOP_INFO").field("NextHopAddress", &self.NextHopAddress).field("NextHopOwner", &self.NextHopOwner).field("InterfaceIndex", &self.InterfaceIndex).field("State", &self.State).field("Flags", &self.Flags).field("EntitySpecificInfo", &self.EntitySpecificInfo).field("RemoteNextHop", &self.RemoteNextHop).finish()
     }
 }
-impl ::windows::core::TypeKind for RTM_NEXTHOP_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RTM_NEXTHOP_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RTM_NEXTHOP_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -10555,8 +10555,8 @@ impl ::core::fmt::Debug for RTM_NEXTHOP_LIST {
         f.debug_struct("RTM_NEXTHOP_LIST").field("NumNextHops", &self.NumNextHops).field("NextHops", &self.NextHops).finish()
     }
 }
-impl ::windows::core::TypeKind for RTM_NEXTHOP_LIST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RTM_NEXTHOP_LIST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RTM_NEXTHOP_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -10586,8 +10586,8 @@ impl ::core::fmt::Debug for RTM_PREF_INFO {
         f.debug_struct("RTM_PREF_INFO").field("Metric", &self.Metric).field("Preference", &self.Preference).finish()
     }
 }
-impl ::windows::core::TypeKind for RTM_PREF_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RTM_PREF_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RTM_PREF_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -10619,8 +10619,8 @@ impl ::core::fmt::Debug for RTM_REGN_PROFILE {
         f.debug_struct("RTM_REGN_PROFILE").field("MaxNextHopsInRoute", &self.MaxNextHopsInRoute).field("MaxHandlesInEnum", &self.MaxHandlesInEnum).field("ViewsSupported", &self.ViewsSupported).field("NumberOfViews", &self.NumberOfViews).finish()
     }
 }
-impl ::windows::core::TypeKind for RTM_REGN_PROFILE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RTM_REGN_PROFILE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RTM_REGN_PROFILE {
     fn eq(&self, other: &Self) -> bool {
@@ -10658,8 +10658,8 @@ impl ::core::fmt::Debug for RTM_ROUTE_INFO {
         f.debug_struct("RTM_ROUTE_INFO").field("DestHandle", &self.DestHandle).field("RouteOwner", &self.RouteOwner).field("Neighbour", &self.Neighbour).field("State", &self.State).field("Flags1", &self.Flags1).field("Flags", &self.Flags).field("PrefInfo", &self.PrefInfo).field("BelongsToViews", &self.BelongsToViews).field("EntitySpecificInfo", &self.EntitySpecificInfo).field("NextHopsList", &self.NextHopsList).finish()
     }
 }
-impl ::windows::core::TypeKind for RTM_ROUTE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RTM_ROUTE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RTM_ROUTE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -10692,8 +10692,8 @@ impl ::core::fmt::Debug for SECURITY_MESSAGE {
         f.debug_struct("SECURITY_MESSAGE").field("dwMsgId", &self.dwMsgId).field("hPort", &self.hPort).field("dwError", &self.dwError).field("UserName", &self.UserName).field("Domain", &self.Domain).finish()
     }
 }
-impl ::windows::core::TypeKind for SECURITY_MESSAGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SECURITY_MESSAGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for SECURITY_MESSAGE {
     fn eq(&self, other: &Self) -> bool {
@@ -10725,8 +10725,8 @@ impl ::core::fmt::Debug for SOURCE_GROUP_ENTRY {
         f.debug_struct("SOURCE_GROUP_ENTRY").field("dwSourceAddr", &self.dwSourceAddr).field("dwSourceMask", &self.dwSourceMask).field("dwGroupAddr", &self.dwGroupAddr).field("dwGroupMask", &self.dwGroupMask).finish()
     }
 }
-impl ::windows::core::TypeKind for SOURCE_GROUP_ENTRY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SOURCE_GROUP_ENTRY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for SOURCE_GROUP_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -10761,8 +10761,8 @@ impl ::core::fmt::Debug for SSTP_CERT_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::windows::core::TypeKind for SSTP_CERT_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SSTP_CERT_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for SSTP_CERT_INFO {
@@ -10803,8 +10803,8 @@ impl ::core::fmt::Debug for SSTP_CONFIG_PARAMS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::windows::core::TypeKind for SSTP_CONFIG_PARAMS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SSTP_CONFIG_PARAMS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for SSTP_CONFIG_PARAMS {
@@ -10836,8 +10836,8 @@ impl ::core::clone::Clone for VPN_TS_IP_ADDRESS {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for VPN_TS_IP_ADDRESS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VPN_TS_IP_ADDRESS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for VPN_TS_IP_ADDRESS {
@@ -10861,8 +10861,8 @@ impl ::core::clone::Clone for VPN_TS_IP_ADDRESS_0 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for VPN_TS_IP_ADDRESS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VPN_TS_IP_ADDRESS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for VPN_TS_IP_ADDRESS_0 {
@@ -10872,7 +10872,7 @@ impl ::core::default::Default for VPN_TS_IP_ADDRESS_0 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type ORASADFUNC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: ::windows::core::PCSTR, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL>;
+pub type ORASADFUNC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: ::windows_core::PCSTR, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub type PFNRASFREEBUFFER = ::core::option::Option<unsafe extern "system" fn(pbufer: *mut u8) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
@@ -10948,10 +10948,10 @@ pub type PMPRADMINCONNECTIONHANGUPNOTIFICATION3 = ::core::option::Option<unsafe 
 pub type PMPRADMINCONNECTIONHANGUPNOTIFICATIONEX = ::core::option::Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_EX) -> ()>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PMPRADMINGETIPADDRESSFORUSER = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *mut u32, param3: *mut super::super::Foundation::BOOL) -> u32>;
+pub type PMPRADMINGETIPADDRESSFORUSER = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR, param1: ::windows_core::PCWSTR, param2: *mut u32, param3: *mut super::super::Foundation::BOOL) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-pub type PMPRADMINGETIPV6ADDRESSFORUSER = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *mut super::super::Networking::WinSock::IN6_ADDR, param3: *mut super::super::Foundation::BOOL) -> u32>;
+pub type PMPRADMINGETIPV6ADDRESSFORUSER = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR, param1: ::windows_core::PCWSTR, param2: *mut super::super::Networking::WinSock::IN6_ADDR, param3: *mut super::super::Foundation::BOOL) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMPRADMINLINKHANGUPNOTIFICATION = ::core::option::Option<unsafe extern "system" fn(param0: *mut RAS_PORT_0, param1: *mut RAS_PORT_1) -> ()>;
@@ -10959,18 +10959,18 @@ pub type PMPRADMINLINKHANGUPNOTIFICATION = ::core::option::Option<unsafe extern 
 #[cfg(feature = "Win32_Foundation")]
 pub type PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX = ::core::option::Option<unsafe extern "system" fn(param0: *mut AUTH_VALIDATION_EX) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub type PMPRADMINRELEASEIPADRESS = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *mut u32) -> ()>;
+pub type PMPRADMINRELEASEIPADRESS = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR, param1: ::windows_core::PCWSTR, param2: *mut u32) -> ()>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
-pub type PMPRADMINRELEASEIPV6ADDRESSFORUSER = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *mut super::super::Networking::WinSock::IN6_ADDR) -> ()>;
+pub type PMPRADMINRELEASEIPV6ADDRESSFORUSER = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR, param1: ::windows_core::PCWSTR, param2: *mut super::super::Networking::WinSock::IN6_ADDR) -> ()>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub type PMPRADMINTERMINATEDLL = ::core::option::Option<unsafe extern "system" fn() -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type RASADFUNCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *mut RASADPARAMS, param3: *mut u32) -> super::super::Foundation::BOOL>;
+pub type RASADFUNCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR, param1: ::windows_core::PCSTR, param2: *mut RASADPARAMS, param3: *mut u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type RASADFUNCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *mut RASADPARAMS, param3: *mut u32) -> super::super::Foundation::BOOL>;
+pub type RASADFUNCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR, param1: ::windows_core::PCWSTR, param2: *mut RASADPARAMS, param3: *mut u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub type RASDIALFUNC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: RASCONNSTATE, param2: u32) -> ()>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
@@ -10978,9 +10978,9 @@ pub type RASDIALFUNC1 = ::core::option::Option<unsafe extern "system" fn(param0:
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub type RASDIALFUNC2 = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: HRASCONN, param3: u32, param4: RASCONNSTATE, param5: u32, param6: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub type RASPBDLGFUNCA = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: ::windows::core::PCSTR, param3: *mut ::core::ffi::c_void) -> ()>;
+pub type RASPBDLGFUNCA = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: ::windows_core::PCSTR, param3: *mut ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub type RASPBDLGFUNCW = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: ::windows::core::PCWSTR, param3: *mut ::core::ffi::c_void) -> ()>;
+pub type RASPBDLGFUNCW = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: ::windows_core::PCWSTR, param3: *mut ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub type RASSECURITYPROC = ::core::option::Option<unsafe extern "system" fn() -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
@@ -10988,20 +10988,20 @@ pub type RTM_ENTITY_EXPORT_METHOD = ::core::option::Option<unsafe extern "system
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub type RTM_EVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(rtmreghandle: isize, eventtype: RTM_EVENT_TYPE, context1: *mut ::core::ffi::c_void, context2: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub type RasCustomDeleteEntryNotifyFn = ::core::option::Option<unsafe extern "system" fn(lpszphonebook: ::windows::core::PCWSTR, lpszentry: ::windows::core::PCWSTR, dwflags: u32) -> u32>;
+pub type RasCustomDeleteEntryNotifyFn = ::core::option::Option<unsafe extern "system" fn(lpszphonebook: ::windows_core::PCWSTR, lpszentry: ::windows_core::PCWSTR, dwflags: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type RasCustomDialDlgFn = ::core::option::Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HMODULE, dwflags: u32, lpszphonebook: ::windows::core::PCWSTR, lpszentry: ::windows::core::PCWSTR, lpszphonenumber: ::windows::core::PCWSTR, lpinfo: *mut RASDIALDLG, pvinfo: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type RasCustomDialDlgFn = ::core::option::Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HMODULE, dwflags: u32, lpszphonebook: ::windows_core::PCWSTR, lpszentry: ::windows_core::PCWSTR, lpszphonenumber: ::windows_core::PCWSTR, lpinfo: *mut RASDIALDLG, pvinfo: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type RasCustomDialFn = ::core::option::Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HMODULE, lprasdialextensions: *mut RASDIALEXTENSIONS, lpszphonebook: ::windows::core::PCWSTR, lprasdialparams: *mut RASDIALPARAMSA, dwnotifiertype: u32, lpvnotifier: *mut ::core::ffi::c_void, lphrasconn: *mut HRASCONN, dwflags: u32) -> u32>;
+pub type RasCustomDialFn = ::core::option::Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HMODULE, lprasdialextensions: *mut RASDIALEXTENSIONS, lpszphonebook: ::windows_core::PCWSTR, lprasdialparams: *mut RASDIALPARAMSA, dwnotifiertype: u32, lpvnotifier: *mut ::core::ffi::c_void, lphrasconn: *mut HRASCONN, dwflags: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type RasCustomEntryDlgFn = ::core::option::Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HMODULE, lpszphonebook: ::windows::core::PCWSTR, lpszentry: ::windows::core::PCWSTR, lpinfo: *mut RASENTRYDLGA, dwflags: u32) -> super::super::Foundation::BOOL>;
+pub type RasCustomEntryDlgFn = ::core::option::Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HMODULE, lpszphonebook: ::windows_core::PCWSTR, lpszentry: ::windows_core::PCWSTR, lpinfo: *mut RASENTRYDLGA, dwflags: u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub type RasCustomHangUpFn = ::core::option::Option<unsafe extern "system" fn(hrasconn: HRASCONN) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type RasCustomScriptExecuteFn = ::core::option::Option<unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, lpszphonebook: ::windows::core::PCWSTR, lpszentryname: ::windows::core::PCWSTR, pfnrasgetbuffer: PFNRASGETBUFFER, pfnrasfreebuffer: PFNRASFREEBUFFER, pfnrassendbuffer: PFNRASSENDBUFFER, pfnrasreceivebuffer: PFNRASRECEIVEBUFFER, pfnrasretrievebuffer: PFNRASRETRIEVEBUFFER, hwnd: super::super::Foundation::HWND, prasdialparams: *mut RASDIALPARAMSA, pvreserved: *mut ::core::ffi::c_void) -> u32>;
+pub type RasCustomScriptExecuteFn = ::core::option::Option<unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, lpszphonebook: ::windows_core::PCWSTR, lpszentryname: ::windows_core::PCWSTR, pfnrasgetbuffer: PFNRASGETBUFFER, pfnrasfreebuffer: PFNRASFREEBUFFER, pfnrassendbuffer: PFNRASSENDBUFFER, pfnrasreceivebuffer: PFNRASRECEIVEBUFFER, pfnrasretrievebuffer: PFNRASRETRIEVEBUFFER, hwnd: super::super::Foundation::HWND, prasdialparams: *mut RASDIALPARAMSA, pvreserved: *mut ::core::ffi::c_void) -> u32>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -3,7 +3,7 @@ pub const CLOCK_NETWORK_DERIVED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const CLOCK_PRECISION: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const DD_NDIS_DEVICE_NAME: ::windows::core::PCWSTR = ::windows::core::w!("\\Device\\NDIS");
+pub const DD_NDIS_DEVICE_NAME: ::windows_core::PCWSTR = ::windows_core::w!("\\Device\\NDIS");
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const DOT11_RSN_KCK_LENGTH: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -15,385 +15,385 @@ pub const EAPOL_REQUEST_ID_WOL_FLAG_MUST_ENCRYPT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const ETHERNET_LENGTH_OF_ADDRESS: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_DEVINTERFACE_NET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcac88484_7515_4c03_82e6_71a87abac361);
+pub const GUID_DEVINTERFACE_NET: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcac88484_7515_4c03_82e6_71a87abac361);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_DEVINTERFACE_NETUIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08336f60_0679_4c6c_85d2_ae7ced65fff7);
+pub const GUID_DEVINTERFACE_NETUIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x08336f60_0679_4c6c_85d2_ae7ced65fff7);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_ADD_KEY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab8b5a62_1d51_49d8_ba5c_fa980be03a1d);
+pub const GUID_NDIS_802_11_ADD_KEY: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab8b5a62_1d51_49d8_ba5c_fa980be03a1d);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_ADD_WEP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4307bff0_2129_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_ADD_WEP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4307bff0_2129_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_ASSOCIATION_INFORMATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa08d4dd0_960e_40bd_8cf6_c538af98f2e3);
+pub const GUID_NDIS_802_11_ASSOCIATION_INFORMATION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa08d4dd0_960e_40bd_8cf6_c538af98f2e3);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_AUTHENTICATION_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43920a24_2129_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_AUTHENTICATION_MODE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43920a24_2129_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_BSSID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2504b6c2_1fa5_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_BSSID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2504b6c2_1fa5_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_BSSID_LIST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69526f9a_2062_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_BSSID_LIST: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69526f9a_2062_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_BSSID_LIST_SCAN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d9e01e1_ba70_11d4_b675_002048570337);
+pub const GUID_NDIS_802_11_BSSID_LIST_SCAN: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d9e01e1_ba70_11d4_b675_002048570337);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_CONFIGURATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a4df982_2068_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_CONFIGURATION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4a4df982_2068_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_DESIRED_RATES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x452ee08e_2536_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_DESIRED_RATES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x452ee08e_2536_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_DISASSOCIATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43671f40_2129_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_DISASSOCIATE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43671f40_2129_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_FRAGMENTATION_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69aaa7c4_2062_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_FRAGMENTATION_THRESHOLD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69aaa7c4_2062_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_INFRASTRUCTURE_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x697d5a7e_2062_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_INFRASTRUCTURE_MODE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x697d5a7e_2062_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_MEDIA_STREAM_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a56af66_d84b_49eb_a28d_5282cbb6d0cd);
+pub const GUID_NDIS_802_11_MEDIA_STREAM_MODE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a56af66_d84b_49eb_a28d_5282cbb6d0cd);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_NETWORK_TYPES_SUPPORTED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8531d6e6_2041_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_NETWORK_TYPES_SUPPORTED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8531d6e6_2041_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_NETWORK_TYPE_IN_USE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x857e2326_2041_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_NETWORK_TYPE_IN_USE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x857e2326_2041_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_NUMBER_OF_ANTENNAS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01779336_2064_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_NUMBER_OF_ANTENNAS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x01779336_2064_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_POWER_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85be837c_2041_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_POWER_MODE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x85be837c_2041_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_PRIVACY_FILTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6733c4e9_4792_11d4_97f1_00c04f79c403);
+pub const GUID_NDIS_802_11_PRIVACY_FILTER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6733c4e9_4792_11d4_97f1_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_RELOAD_DEFAULTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x748b14e8_32ee_4425_b91b_c9848c58b55a);
+pub const GUID_NDIS_802_11_RELOAD_DEFAULTS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x748b14e8_32ee_4425_b91b_c9848c58b55a);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_REMOVE_KEY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73cb28e9_3188_42d5_b553_b21237e6088c);
+pub const GUID_NDIS_802_11_REMOVE_KEY: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73cb28e9_3188_42d5_b553_b21237e6088c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_REMOVE_WEP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x433c345c_2129_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_REMOVE_WEP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x433c345c_2129_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_RSSI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1507db16_2053_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_RSSI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1507db16_2053_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_RSSI_TRIGGER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x155689b8_2053_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_RSSI_TRIGGER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x155689b8_2053_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_RTS_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0134d07e_2064_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_RTS_THRESHOLD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0134d07e_2064_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_RX_ANTENNA_SELECTED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01ac07a2_2064_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_RX_ANTENNA_SELECTED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x01ac07a2_2064_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_SSID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d2a90ea_2041_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_SSID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d2a90ea_2041_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_STATISTICS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42bb73b0_2129_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_STATISTICS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x42bb73b0_2129_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_SUPPORTED_RATES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49db8722_2068_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_SUPPORTED_RATES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49db8722_2068_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_TEST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b9ca16a_6a60_4e9d_920c_6335953fa0b5);
+pub const GUID_NDIS_802_11_TEST: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4b9ca16a_6a60_4e9d_920c_6335953fa0b5);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_TX_ANTENNA_SELECTED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01dbb74a_2064_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_TX_ANTENNA_SELECTED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x01dbb74a_2064_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_TX_POWER_LEVEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11e6ba76_2053_11d4_97eb_00c04f79c403);
+pub const GUID_NDIS_802_11_TX_POWER_LEVEL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x11e6ba76_2053_11d4_97eb_00c04f79c403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_11_WEP_STATUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb027a21f_3cfa_4125_800b_3f7a18fddcdc);
+pub const GUID_NDIS_802_11_WEP_STATUS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb027a21f_3cfa_4125_800b_3f7a18fddcdc);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_3_CURRENT_ADDRESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44795700_a61b_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_802_3_CURRENT_ADDRESS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x44795700_a61b_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_3_MAC_OPTIONS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44795703_a61b_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_802_3_MAC_OPTIONS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x44795703_a61b_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_3_MAXIMUM_LIST_SIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44795702_a61b_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_802_3_MAXIMUM_LIST_SIZE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x44795702_a61b_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_3_MULTICAST_LIST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44795701_a61b_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_802_3_MULTICAST_LIST: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x44795701_a61b_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_3_PERMANENT_ADDRESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x447956ff_a61b_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_802_3_PERMANENT_ADDRESS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x447956ff_a61b_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_3_RCV_ERROR_ALIGNMENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44795704_a61b_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_802_3_RCV_ERROR_ALIGNMENT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x44795704_a61b_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_3_XMIT_MORE_COLLISIONS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44795706_a61b_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_802_3_XMIT_MORE_COLLISIONS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x44795706_a61b_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_3_XMIT_ONE_COLLISION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44795705_a61b_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_802_3_XMIT_ONE_COLLISION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x44795705_a61b_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_5_CURRENT_ADDRESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44795708_a61b_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_802_5_CURRENT_ADDRESS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x44795708_a61b_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_5_CURRENT_FUNCTIONAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44795709_a61b_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_802_5_CURRENT_FUNCTIONAL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x44795709_a61b_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_5_CURRENT_GROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4479570a_a61b_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_802_5_CURRENT_GROUP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4479570a_a61b_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_5_CURRENT_RING_STATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacf14032_a61c_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_802_5_CURRENT_RING_STATE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xacf14032_a61c_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_5_CURRENT_RING_STATUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x890a36ec_a61c_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_802_5_CURRENT_RING_STATUS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x890a36ec_a61c_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_5_LAST_OPEN_STATUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4479570b_a61b_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_802_5_LAST_OPEN_STATUS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4479570b_a61b_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_5_LINE_ERRORS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacf14033_a61c_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_802_5_LINE_ERRORS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xacf14033_a61c_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_5_LOST_FRAMES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacf14034_a61c_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_802_5_LOST_FRAMES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xacf14034_a61c_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_802_5_PERMANENT_ADDRESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44795707_a61b_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_802_5_PERMANENT_ADDRESS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x44795707_a61b_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_ENUMERATE_ADAPTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x981f2d7f_b1f3_11d0_8dd7_00c04fc3358c);
+pub const GUID_NDIS_ENUMERATE_ADAPTER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x981f2d7f_b1f3_11d0_8dd7_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_ENUMERATE_ADAPTERS_EX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16716917_4306_4be4_9b5a_3809ae44b125);
+pub const GUID_NDIS_ENUMERATE_ADAPTERS_EX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x16716917_4306_4be4_9b5a_3809ae44b125);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_ENUMERATE_VC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x981f2d82_b1f3_11d0_8dd7_00c04fc3358c);
+pub const GUID_NDIS_ENUMERATE_VC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x981f2d82_b1f3_11d0_8dd7_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_CO_DRIVER_VERSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x791ad198_e35c_11d0_9692_00c04fc3358c);
+pub const GUID_NDIS_GEN_CO_DRIVER_VERSION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x791ad198_e35c_11d0_9692_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_CO_HARDWARE_STATUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x791ad192_e35c_11d0_9692_00c04fc3358c);
+pub const GUID_NDIS_GEN_CO_HARDWARE_STATUS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x791ad192_e35c_11d0_9692_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_CO_LINK_SPEED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x791ad195_e35c_11d0_9692_00c04fc3358c);
+pub const GUID_NDIS_GEN_CO_LINK_SPEED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x791ad195_e35c_11d0_9692_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_CO_MAC_OPTIONS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x791ad19a_e35c_11d0_9692_00c04fc3358c);
+pub const GUID_NDIS_GEN_CO_MAC_OPTIONS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x791ad19a_e35c_11d0_9692_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_CO_MEDIA_CONNECT_STATUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x791ad19b_e35c_11d0_9692_00c04fc3358c);
+pub const GUID_NDIS_GEN_CO_MEDIA_CONNECT_STATUS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x791ad19b_e35c_11d0_9692_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_CO_MEDIA_IN_USE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x791ad194_e35c_11d0_9692_00c04fc3358c);
+pub const GUID_NDIS_GEN_CO_MEDIA_IN_USE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x791ad194_e35c_11d0_9692_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_CO_MEDIA_SUPPORTED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x791ad193_e35c_11d0_9692_00c04fc3358c);
+pub const GUID_NDIS_GEN_CO_MEDIA_SUPPORTED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x791ad193_e35c_11d0_9692_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_CO_MINIMUM_LINK_SPEED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x791ad19d_e35c_11d0_9692_00c04fc3358c);
+pub const GUID_NDIS_GEN_CO_MINIMUM_LINK_SPEED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x791ad19d_e35c_11d0_9692_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_CO_RCV_PDUS_ERROR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a214808_e35f_11d0_9692_00c04fc3358c);
+pub const GUID_NDIS_GEN_CO_RCV_PDUS_ERROR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a214808_e35f_11d0_9692_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_CO_RCV_PDUS_NO_BUFFER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a214809_e35f_11d0_9692_00c04fc3358c);
+pub const GUID_NDIS_GEN_CO_RCV_PDUS_NO_BUFFER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a214809_e35f_11d0_9692_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_CO_RCV_PDUS_OK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a214806_e35f_11d0_9692_00c04fc3358c);
+pub const GUID_NDIS_GEN_CO_RCV_PDUS_OK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a214806_e35f_11d0_9692_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_CO_VENDOR_DESCRIPTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x791ad197_e35c_11d0_9692_00c04fc3358c);
+pub const GUID_NDIS_GEN_CO_VENDOR_DESCRIPTION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x791ad197_e35c_11d0_9692_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_CO_VENDOR_DRIVER_VERSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x791ad19c_e35c_11d0_9692_00c04fc3358c);
+pub const GUID_NDIS_GEN_CO_VENDOR_DRIVER_VERSION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x791ad19c_e35c_11d0_9692_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_CO_VENDOR_ID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x791ad196_e35c_11d0_9692_00c04fc3358c);
+pub const GUID_NDIS_GEN_CO_VENDOR_ID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x791ad196_e35c_11d0_9692_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_CO_XMIT_PDUS_ERROR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a214807_e35f_11d0_9692_00c04fc3358c);
+pub const GUID_NDIS_GEN_CO_XMIT_PDUS_ERROR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a214807_e35f_11d0_9692_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_CO_XMIT_PDUS_OK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a214805_e35f_11d0_9692_00c04fc3358c);
+pub const GUID_NDIS_GEN_CO_XMIT_PDUS_OK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a214805_e35f_11d0_9692_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_CURRENT_LOOKAHEAD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec10361_a61a_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_CURRENT_LOOKAHEAD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ec10361_a61a_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_CURRENT_PACKET_FILTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec10360_a61a_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_CURRENT_PACKET_FILTER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ec10360_a61a_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_DRIVER_VERSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec10362_a61a_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_DRIVER_VERSION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ec10362_a61a_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_ENUMERATE_PORTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1d6abe8_15e4_4407_81b7_6b830c777cd9);
+pub const GUID_NDIS_GEN_ENUMERATE_PORTS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf1d6abe8_15e4_4407_81b7_6b830c777cd9);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_HARDWARE_STATUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec10354_a61a_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_HARDWARE_STATUS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ec10354_a61a_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_INTERRUPT_MODERATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9c8eea5_f16e_467c_84d5_6345a22ce213);
+pub const GUID_NDIS_GEN_INTERRUPT_MODERATION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd9c8eea5_f16e_467c_84d5_6345a22ce213);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_INTERRUPT_MODERATION_PARAMETERS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd789adfa_9c56_433b_ad01_7574f3cedbe9);
+pub const GUID_NDIS_GEN_INTERRUPT_MODERATION_PARAMETERS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd789adfa_9c56_433b_ad01_7574f3cedbe9);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_LINK_PARAMETERS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c7d3579_252b_4614_82c5_a650daa15049);
+pub const GUID_NDIS_GEN_LINK_PARAMETERS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c7d3579_252b_4614_82c5_a650daa15049);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_LINK_SPEED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec10359_a61a_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_LINK_SPEED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ec10359_a61a_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_LINK_STATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba1f4c14_a945_4762_b916_0b5515b6f43a);
+pub const GUID_NDIS_GEN_LINK_STATE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xba1f4c14_a945_4762_b916_0b5515b6f43a);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_MAC_OPTIONS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec10365_a61a_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_MAC_OPTIONS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ec10365_a61a_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_MAXIMUM_FRAME_SIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec10358_a61a_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_MAXIMUM_FRAME_SIZE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ec10358_a61a_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_MAXIMUM_LOOKAHEAD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec10357_a61a_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_MAXIMUM_LOOKAHEAD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ec10357_a61a_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_MAXIMUM_SEND_PACKETS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec10367_a61a_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_MAXIMUM_SEND_PACKETS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ec10367_a61a_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_MAXIMUM_TOTAL_SIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec10363_a61a_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_MAXIMUM_TOTAL_SIZE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ec10363_a61a_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_MEDIA_CONNECT_STATUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec10366_a61a_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_MEDIA_CONNECT_STATUS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ec10366_a61a_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_MEDIA_IN_USE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec10356_a61a_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_MEDIA_IN_USE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ec10356_a61a_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_MEDIA_SUPPORTED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec10355_a61a_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_MEDIA_SUPPORTED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ec10355_a61a_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_PCI_DEVICE_CUSTOM_PROPERTIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa39f5ab_e260_4d01_82b0_b737c880ea05);
+pub const GUID_NDIS_GEN_PCI_DEVICE_CUSTOM_PROPERTIES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa39f5ab_e260_4d01_82b0_b737c880ea05);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_PHYSICAL_MEDIUM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x418ca16d_3937_4208_940a_ec6196278085);
+pub const GUID_NDIS_GEN_PHYSICAL_MEDIUM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x418ca16d_3937_4208_940a_ec6196278085);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_PHYSICAL_MEDIUM_EX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x899e7782_035b_43f9_8bb6_2b58971612e5);
+pub const GUID_NDIS_GEN_PHYSICAL_MEDIUM_EX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x899e7782_035b_43f9_8bb6_2b58971612e5);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_PORT_AUTHENTICATION_PARAMETERS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaab6ac31_86fb_48fb_8b48_63db235ace16);
+pub const GUID_NDIS_GEN_PORT_AUTHENTICATION_PARAMETERS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaab6ac31_86fb_48fb_8b48_63db235ace16);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_PORT_STATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fbf2a5f_8b8f_4920_8143_e6c460f52524);
+pub const GUID_NDIS_GEN_PORT_STATE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6fbf2a5f_8b8f_4920_8143_e6c460f52524);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_RCV_ERROR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x447956fd_a61b_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_RCV_ERROR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x447956fd_a61b_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_RCV_NO_BUFFER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x447956fe_a61b_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_RCV_NO_BUFFER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x447956fe_a61b_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_RCV_OK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x447956fb_a61b_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_RCV_OK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x447956fb_a61b_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_RECEIVE_BLOCK_SIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec1035d_a61a_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_RECEIVE_BLOCK_SIZE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ec1035d_a61a_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_RECEIVE_BUFFER_SPACE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec1035b_a61a_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_RECEIVE_BUFFER_SPACE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ec1035b_a61a_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_STATISTICS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x368c45b5_c129_43c1_939e_7edc2d7fe621);
+pub const GUID_NDIS_GEN_STATISTICS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x368c45b5_c129_43c1_939e_7edc2d7fe621);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_TRANSMIT_BLOCK_SIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec1035c_a61a_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_TRANSMIT_BLOCK_SIZE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ec1035c_a61a_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_TRANSMIT_BUFFER_SPACE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec1035a_a61a_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_TRANSMIT_BUFFER_SPACE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ec1035a_a61a_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_VENDOR_DESCRIPTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec1035f_a61a_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_VENDOR_DESCRIPTION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ec1035f_a61a_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_VENDOR_DRIVER_VERSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x447956f9_a61b_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_VENDOR_DRIVER_VERSION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x447956f9_a61b_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_VENDOR_ID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec1035e_a61a_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_VENDOR_ID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ec1035e_a61a_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_VLAN_ID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x765dc702_c5e8_4b67_843b_3f5a4ff2648b);
+pub const GUID_NDIS_GEN_VLAN_ID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x765dc702_c5e8_4b67_843b_3f5a4ff2648b);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_XMIT_ERROR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x447956fc_a61b_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_XMIT_ERROR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x447956fc_a61b_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_GEN_XMIT_OK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x447956fa_a61b_11d0_8dd4_00c04fc3358c);
+pub const GUID_NDIS_GEN_XMIT_OK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x447956fa_a61b_11d0_8dd4_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_HD_SPLIT_CURRENT_CONFIG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81d1303c_ab00_4e49_80b1_5e6e0bf9be53);
+pub const GUID_NDIS_HD_SPLIT_CURRENT_CONFIG: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x81d1303c_ab00_4e49_80b1_5e6e0bf9be53);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_HD_SPLIT_PARAMETERS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c048bea_2913_4458_b68e_17f6c1e5c60e);
+pub const GUID_NDIS_HD_SPLIT_PARAMETERS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c048bea_2913_4458_b68e_17f6c1e5c60e);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_LAN_CLASS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad498944_762f_11d0_8dcb_00c04fc3358c);
+pub const GUID_NDIS_LAN_CLASS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad498944_762f_11d0_8dcb_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_NDK_CAPABILITIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7969ba4d_dd80_4bc7_b3e6_68043997e519);
+pub const GUID_NDIS_NDK_CAPABILITIES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7969ba4d_dd80_4bc7_b3e6_68043997e519);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_NDK_STATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x530c69c9_2f51_49de_a1af_088d54ffa474);
+pub const GUID_NDIS_NDK_STATE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x530c69c9_2f51_49de_a1af_088d54ffa474);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_NOTIFY_ADAPTER_ARRIVAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x981f2d81_b1f3_11d0_8dd7_00c04fc3358c);
+pub const GUID_NDIS_NOTIFY_ADAPTER_ARRIVAL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x981f2d81_b1f3_11d0_8dd7_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_NOTIFY_ADAPTER_REMOVAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x981f2d80_b1f3_11d0_8dd7_00c04fc3358c);
+pub const GUID_NDIS_NOTIFY_ADAPTER_REMOVAL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x981f2d80_b1f3_11d0_8dd7_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_NOTIFY_BIND: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5413531c_b1f3_11d0_8dd7_00c04fc3358c);
+pub const GUID_NDIS_NOTIFY_BIND: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5413531c_b1f3_11d0_8dd7_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_NOTIFY_DEVICE_POWER_OFF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81bc8189_b026_46ab_b964_f182e342934e);
+pub const GUID_NDIS_NOTIFY_DEVICE_POWER_OFF: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x81bc8189_b026_46ab_b964_f182e342934e);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_NOTIFY_DEVICE_POWER_OFF_EX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4159353c_5cd7_42ce_8fe4_a45a2380cc4f);
+pub const GUID_NDIS_NOTIFY_DEVICE_POWER_OFF_EX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4159353c_5cd7_42ce_8fe4_a45a2380cc4f);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_NOTIFY_DEVICE_POWER_ON: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f81cfd0_f046_4342_af61_895acedaefd9);
+pub const GUID_NDIS_NOTIFY_DEVICE_POWER_ON: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5f81cfd0_f046_4342_af61_895acedaefd9);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_NOTIFY_DEVICE_POWER_ON_EX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b440188_92ac_4f60_9b2d_20a30cbb6bbe);
+pub const GUID_NDIS_NOTIFY_DEVICE_POWER_ON_EX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2b440188_92ac_4f60_9b2d_20a30cbb6bbe);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_NOTIFY_FILTER_ARRIVAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b6d3c89_5917_43ca_b578_d01a7967c41c);
+pub const GUID_NDIS_NOTIFY_FILTER_ARRIVAL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b6d3c89_5917_43ca_b578_d01a7967c41c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_NOTIFY_FILTER_REMOVAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f177cd9_5955_4721_9f6a_78ebdfaef889);
+pub const GUID_NDIS_NOTIFY_FILTER_REMOVAL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1f177cd9_5955_4721_9f6a_78ebdfaef889);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_NOTIFY_UNBIND: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e3ce1ec_b1f3_11d0_8dd7_00c04fc3358c);
+pub const GUID_NDIS_NOTIFY_UNBIND: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e3ce1ec_b1f3_11d0_8dd7_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_NOTIFY_VC_ARRIVAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x182f9e0c_b1f3_11d0_8dd7_00c04fc3358c);
+pub const GUID_NDIS_NOTIFY_VC_ARRIVAL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x182f9e0c_b1f3_11d0_8dd7_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_NOTIFY_VC_REMOVAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x981f2d79_b1f3_11d0_8dd7_00c04fc3358c);
+pub const GUID_NDIS_NOTIFY_VC_REMOVAL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x981f2d79_b1f3_11d0_8dd7_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_PM_ACTIVE_CAPABILITIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2cf76e3_b3ae_4394_a01f_338c9870e939);
+pub const GUID_NDIS_PM_ACTIVE_CAPABILITIES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2cf76e3_b3ae_4394_a01f_338c9870e939);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_PM_ADMIN_CONFIG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1528d111_708a_4ca4_9215_c05771161cda);
+pub const GUID_NDIS_PM_ADMIN_CONFIG: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1528d111_708a_4ca4_9215_c05771161cda);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_RECEIVE_FILTER_ENUM_FILTERS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f2c141d_83bc_11dd_94b8_001d09162bc3);
+pub const GUID_NDIS_RECEIVE_FILTER_ENUM_FILTERS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3f2c141d_83bc_11dd_94b8_001d09162bc3);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_RECEIVE_FILTER_ENUM_QUEUES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f2c141b_83bc_11dd_94b8_001d09162bc3);
+pub const GUID_NDIS_RECEIVE_FILTER_ENUM_QUEUES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3f2c141b_83bc_11dd_94b8_001d09162bc3);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_RECEIVE_FILTER_GLOBAL_PARAMETERS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f2c141a_83bc_11dd_94b8_001d09162bc3);
+pub const GUID_NDIS_RECEIVE_FILTER_GLOBAL_PARAMETERS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3f2c141a_83bc_11dd_94b8_001d09162bc3);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_RECEIVE_FILTER_HARDWARE_CAPABILITIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f2c1419_83bc_11dd_94b8_001d09162bc3);
+pub const GUID_NDIS_RECEIVE_FILTER_HARDWARE_CAPABILITIES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3f2c1419_83bc_11dd_94b8_001d09162bc3);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_RECEIVE_FILTER_PARAMETERS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f2c141e_83bc_11dd_94b8_001d09162bc3);
+pub const GUID_NDIS_RECEIVE_FILTER_PARAMETERS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3f2c141e_83bc_11dd_94b8_001d09162bc3);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_RECEIVE_FILTER_QUEUE_PARAMETERS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f2c141c_83bc_11dd_94b8_001d09162bc3);
+pub const GUID_NDIS_RECEIVE_FILTER_QUEUE_PARAMETERS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3f2c141c_83bc_11dd_94b8_001d09162bc3);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_RECEIVE_SCALE_CAPABILITIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26c28774_4252_48fe_a610_a58a398c0eb1);
+pub const GUID_NDIS_RECEIVE_SCALE_CAPABILITIES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x26c28774_4252_48fe_a610_a58a398c0eb1);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_RSS_ENABLED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9565cd55_3402_4e32_a5b6_2f143f2f2c30);
+pub const GUID_NDIS_RSS_ENABLED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9565cd55_3402_4e32_a5b6_2f143f2f2c30);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_DOT11_ASSOCIATION_COMPLETION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x458bbea7_45a4_4ae2_b176_e51f96fc0568);
+pub const GUID_NDIS_STATUS_DOT11_ASSOCIATION_COMPLETION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x458bbea7_45a4_4ae2_b176_e51f96fc0568);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_DOT11_ASSOCIATION_START: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3927843b_6980_4b48_b15b_4de50977ac40);
+pub const GUID_NDIS_STATUS_DOT11_ASSOCIATION_START: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3927843b_6980_4b48_b15b_4de50977ac40);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_DOT11_CONNECTION_COMPLETION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96efd9c9_7f1b_4a89_bc04_3e9e271765f1);
+pub const GUID_NDIS_STATUS_DOT11_CONNECTION_COMPLETION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96efd9c9_7f1b_4a89_bc04_3e9e271765f1);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_DOT11_CONNECTION_START: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b74299d_998f_4454_ad08_c5af28576d1b);
+pub const GUID_NDIS_STATUS_DOT11_CONNECTION_START: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b74299d_998f_4454_ad08_c5af28576d1b);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_DOT11_DISASSOCIATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fbeb6fc_0fe2_43fd_b2ad_bd99b5f93e13);
+pub const GUID_NDIS_STATUS_DOT11_DISASSOCIATION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3fbeb6fc_0fe2_43fd_b2ad_bd99b5f93e13);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_DOT11_LINK_QUALITY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3285184_ea99_48ed_825e_a426b11c2754);
+pub const GUID_NDIS_STATUS_DOT11_LINK_QUALITY: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa3285184_ea99_48ed_825e_a426b11c2754);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_DOT11_MPDU_MAX_LENGTH_CHANGED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d6560ec_8e48_4a3e_9fd5_a01b698db6c5);
+pub const GUID_NDIS_STATUS_DOT11_MPDU_MAX_LENGTH_CHANGED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1d6560ec_8e48_4a3e_9fd5_a01b698db6c5);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_DOT11_PHY_STATE_CHANGED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdeb45316_71b5_4736_bdef_0a9e9f4e62dc);
+pub const GUID_NDIS_STATUS_DOT11_PHY_STATE_CHANGED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdeb45316_71b5_4736_bdef_0a9e9f4e62dc);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_DOT11_PMKID_CANDIDATE_LIST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26d8b8f6_db82_49eb_8bf3_4c130ef06950);
+pub const GUID_NDIS_STATUS_DOT11_PMKID_CANDIDATE_LIST: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x26d8b8f6_db82_49eb_8bf3_4c130ef06950);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_DOT11_ROAMING_COMPLETION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd9d47d1_282b_41e4_b924_66368817fcd3);
+pub const GUID_NDIS_STATUS_DOT11_ROAMING_COMPLETION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdd9d47d1_282b_41e4_b924_66368817fcd3);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_DOT11_ROAMING_START: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2412d0d_26c8_4f4e_93df_f7b705a0b433);
+pub const GUID_NDIS_STATUS_DOT11_ROAMING_START: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2412d0d_26c8_4f4e_93df_f7b705a0b433);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_DOT11_SCAN_CONFIRM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8500591e_a0c7_4efb_9342_b674b002cbe6);
+pub const GUID_NDIS_STATUS_DOT11_SCAN_CONFIRM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8500591e_a0c7_4efb_9342_b674b002cbe6);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_DOT11_TKIPMIC_FAILURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x442c2ae4_9bc5_4b90_a889_455ef220f4ee);
+pub const GUID_NDIS_STATUS_DOT11_TKIPMIC_FAILURE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x442c2ae4_9bc5_4b90_a889_455ef220f4ee);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_EXTERNAL_CONNECTIVITY_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd306974_c420_4433_b0fe_4cf6a613f59f);
+pub const GUID_NDIS_STATUS_EXTERNAL_CONNECTIVITY_CHANGE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd306974_c420_4433_b0fe_4cf6a613f59f);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_HD_SPLIT_CURRENT_CONFIG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c744b0e_ee9c_4205_90a2_015f6d65f403);
+pub const GUID_NDIS_STATUS_HD_SPLIT_CURRENT_CONFIG: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c744b0e_ee9c_4205_90a2_015f6d65f403);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_LINK_SPEED_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x981f2d85_b1f3_11d0_8dd7_00c04fc3358c);
+pub const GUID_NDIS_STATUS_LINK_SPEED_CHANGE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x981f2d85_b1f3_11d0_8dd7_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_LINK_STATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64c6f797_878c_4311_9246_65dba89c3a61);
+pub const GUID_NDIS_STATUS_LINK_STATE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64c6f797_878c_4311_9246_65dba89c3a61);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_MEDIA_CONNECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x981f2d7d_b1f3_11d0_8dd7_00c04fc3358c);
+pub const GUID_NDIS_STATUS_MEDIA_CONNECT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x981f2d7d_b1f3_11d0_8dd7_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_MEDIA_DISCONNECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x981f2d7e_b1f3_11d0_8dd7_00c04fc3358c);
+pub const GUID_NDIS_STATUS_MEDIA_DISCONNECT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x981f2d7e_b1f3_11d0_8dd7_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_MEDIA_SPECIFIC_INDICATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x981f2d84_b1f3_11d0_8dd7_00c04fc3358c);
+pub const GUID_NDIS_STATUS_MEDIA_SPECIFIC_INDICATION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x981f2d84_b1f3_11d0_8dd7_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_NETWORK_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca8a56f9_ce81_40e6_a70f_a067a476e9e9);
+pub const GUID_NDIS_STATUS_NETWORK_CHANGE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xca8a56f9_ce81_40e6_a70f_a067a476e9e9);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_OPER_STATUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf917b663_845e_4d3d_b6d4_15eb27af81c5);
+pub const GUID_NDIS_STATUS_OPER_STATUS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf917b663_845e_4d3d_b6d4_15eb27af81c5);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_PACKET_FILTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd47c5407_2e75_46dd_8146_1d7ed2d6ab1d);
+pub const GUID_NDIS_STATUS_PACKET_FILTER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd47c5407_2e75_46dd_8146_1d7ed2d6ab1d);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_PM_OFFLOAD_REJECTED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadd1d481_711e_4d1a_92ca_a62db9329712);
+pub const GUID_NDIS_STATUS_PM_OFFLOAD_REJECTED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xadd1d481_711e_4d1a_92ca_a62db9329712);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_PM_WAKE_REASON: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0933fd58_ca62_438f_83da_dfc1cccb8145);
+pub const GUID_NDIS_STATUS_PM_WAKE_REASON: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0933fd58_ca62_438f_83da_dfc1cccb8145);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_PM_WOL_PATTERN_REJECTED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72cf68e_18d4_4d63_9a19_e69b13916b1a);
+pub const GUID_NDIS_STATUS_PM_WOL_PATTERN_REJECTED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf72cf68e_18d4_4d63_9a19_e69b13916b1a);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_PORT_STATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dac0dfe_43e5_44b7_b759_7bf46de32e81);
+pub const GUID_NDIS_STATUS_PORT_STATE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1dac0dfe_43e5_44b7_b759_7bf46de32e81);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_RESET_END: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x981f2d77_b1f3_11d0_8dd7_00c04fc3358c);
+pub const GUID_NDIS_STATUS_RESET_END: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x981f2d77_b1f3_11d0_8dd7_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_RESET_START: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x981f2d76_b1f3_11d0_8dd7_00c04fc3358c);
+pub const GUID_NDIS_STATUS_RESET_START: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x981f2d76_b1f3_11d0_8dd7_00c04fc3358c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_TASK_OFFLOAD_CURRENT_CONFIG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45049fc6_54d8_40c8_9c3d_b011c4e715bc);
+pub const GUID_NDIS_STATUS_TASK_OFFLOAD_CURRENT_CONFIG: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x45049fc6_54d8_40c8_9c3d_b011c4e715bc);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_TASK_OFFLOAD_HARDWARE_CAPABILITIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6b8158b_217c_4b2a_be86_6a04beea65b8);
+pub const GUID_NDIS_STATUS_TASK_OFFLOAD_HARDWARE_CAPABILITIES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb6b8158b_217c_4b2a_be86_6a04beea65b8);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_TCP_CONNECTION_OFFLOAD_CURRENT_CONFIG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8edaeff_24e4_4ae6_a413_0b27f76b243d);
+pub const GUID_NDIS_STATUS_TCP_CONNECTION_OFFLOAD_CURRENT_CONFIG: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf8edaeff_24e4_4ae6_a413_0b27f76b243d);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_STATUS_TCP_CONNECTION_OFFLOAD_HARDWARE_CAPABILITIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x391969b6_402c_43bf_8922_39eae0da1bb5);
+pub const GUID_NDIS_STATUS_TCP_CONNECTION_OFFLOAD_HARDWARE_CAPABILITIES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x391969b6_402c_43bf_8922_39eae0da1bb5);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_SWITCH_MICROSOFT_VENDOR_ID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x202547fe_1c9c_40b9_bba1_08ada1f98b3c);
+pub const GUID_NDIS_SWITCH_MICROSOFT_VENDOR_ID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x202547fe_1c9c_40b9_bba1_08ada1f98b3c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_SWITCH_PORT_PROPERTY_PROFILE_ID_DEFAULT_EXTERNAL_NIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b347846_0a0c_470a_9b7a_0d965850698f);
+pub const GUID_NDIS_SWITCH_PORT_PROPERTY_PROFILE_ID_DEFAULT_EXTERNAL_NIC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b347846_0a0c_470a_9b7a_0d965850698f);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_TCP_CONNECTION_OFFLOAD_CURRENT_CONFIG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ee6aef1_0851_458b_bf0d_792343d1cde1);
+pub const GUID_NDIS_TCP_CONNECTION_OFFLOAD_CURRENT_CONFIG: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2ee6aef1_0851_458b_bf0d_792343d1cde1);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_TCP_CONNECTION_OFFLOAD_HARDWARE_CAPABILITIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ce71f2c_d63a_4390_a487_18fa47262ceb);
+pub const GUID_NDIS_TCP_CONNECTION_OFFLOAD_HARDWARE_CAPABILITIES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8ce71f2c_d63a_4390_a487_18fa47262ceb);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_TCP_OFFLOAD_CURRENT_CONFIG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68542fed_5c74_461e_8934_91c6f9c60960);
+pub const GUID_NDIS_TCP_OFFLOAD_CURRENT_CONFIG: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x68542fed_5c74_461e_8934_91c6f9c60960);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_TCP_OFFLOAD_HARDWARE_CAPABILITIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd5f1102_590f_4ada_ab65_5b31b1dc0172);
+pub const GUID_NDIS_TCP_OFFLOAD_HARDWARE_CAPABILITIES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcd5f1102_590f_4ada_ab65_5b31b1dc0172);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_TCP_OFFLOAD_PARAMETERS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ead9a22_7f69_4bc6_949a_c8187b074e61);
+pub const GUID_NDIS_TCP_OFFLOAD_PARAMETERS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8ead9a22_7f69_4bc6_949a_c8187b074e61);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_TCP_RSC_STATISTICS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83104445_9b5d_4ee6_a2a5_2bd3fb3c36af);
+pub const GUID_NDIS_TCP_RSC_STATISTICS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x83104445_9b5d_4ee6_a2a5_2bd3fb3c36af);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NDIS_WAKE_ON_MAGIC_PACKET_ONLY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa14f1c97_8839_4f8a_9996_a28996ebbf1d);
+pub const GUID_NDIS_WAKE_ON_MAGIC_PACKET_ONLY: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa14f1c97_8839_4f8a_9996_a28996ebbf1d);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NIC_SWITCH_CURRENT_CAPABILITIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe76fdaf3_0be7_4d95_87e9_5aead4b590e9);
+pub const GUID_NIC_SWITCH_CURRENT_CAPABILITIES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe76fdaf3_0be7_4d95_87e9_5aead4b590e9);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_NIC_SWITCH_HARDWARE_CAPABILITIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37cab40c_d1e8_4301_8c1d_58465e0c4c0f);
+pub const GUID_NIC_SWITCH_HARDWARE_CAPABILITIES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x37cab40c_d1e8_4301_8c1d_58465e0c4c0f);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_PM_ADD_PROTOCOL_OFFLOAD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c06c112_0d93_439b_9e6d_26be130c9784);
+pub const GUID_PM_ADD_PROTOCOL_OFFLOAD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c06c112_0d93_439b_9e6d_26be130c9784);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_PM_ADD_WOL_PATTERN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fc83ba7_52bc_4faa_ac51_7d2ffe63ba90);
+pub const GUID_PM_ADD_WOL_PATTERN: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6fc83ba7_52bc_4faa_ac51_7d2ffe63ba90);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_PM_CURRENT_CAPABILITIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3abdbd14_d44a_4a3f_9a63_a0a42a51b131);
+pub const GUID_PM_CURRENT_CAPABILITIES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3abdbd14_d44a_4a3f_9a63_a0a42a51b131);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_PM_GET_PROTOCOL_OFFLOAD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6435cd9_149f_498e_951b_2d94bea3e3a3);
+pub const GUID_PM_GET_PROTOCOL_OFFLOAD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa6435cd9_149f_498e_951b_2d94bea3e3a3);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_PM_HARDWARE_CAPABILITIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xece5360d_3291_4a6e_8044_00511fed27ee);
+pub const GUID_PM_HARDWARE_CAPABILITIES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xece5360d_3291_4a6e_8044_00511fed27ee);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_PM_PARAMETERS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x560245d2_e251_409c_a280_311935be3b28);
+pub const GUID_PM_PARAMETERS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x560245d2_e251_409c_a280_311935be3b28);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_PM_PROTOCOL_OFFLOAD_LIST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x736ec5ab_ca8f_4043_bb58_da402a48d9cc);
+pub const GUID_PM_PROTOCOL_OFFLOAD_LIST: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x736ec5ab_ca8f_4043_bb58_da402a48d9cc);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_PM_REMOVE_PROTOCOL_OFFLOAD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdecd7be2_a6b0_43ca_ae45_d000d20e5265);
+pub const GUID_PM_REMOVE_PROTOCOL_OFFLOAD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdecd7be2_a6b0_43ca_ae45_d000d20e5265);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_PM_REMOVE_WOL_PATTERN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa037a915_c6ca_4322_b3e3_ef754ec498dc);
+pub const GUID_PM_REMOVE_WOL_PATTERN: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa037a915_c6ca_4322_b3e3_ef754ec498dc);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_PM_WOL_PATTERN_LIST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4022be37_7ee2_47be_a5a5_050fc79afc75);
+pub const GUID_PM_WOL_PATTERN_LIST: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4022be37_7ee2_47be_a5a5_050fc79afc75);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_RECEIVE_FILTER_CURRENT_CAPABILITIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4054e80f_2bc1_4ccc_b033_4abc0c4a1e8c);
+pub const GUID_RECEIVE_FILTER_CURRENT_CAPABILITIES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4054e80f_2bc1_4ccc_b033_4abc0c4a1e8c);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const GUID_STATUS_MEDIA_SPECIFIC_INDICATION_EX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaaacfca7_954a_4632_a16e_a8a63793a9e5);
+pub const GUID_STATUS_MEDIA_SPECIFIC_INDICATION_EX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaaacfca7_954a_4632_a16e_a8a63793a9e5);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const IF_MAX_PHYS_ADDRESS_LENGTH: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -3695,7 +3695,7 @@ pub const TIMED_SEND_CAPABLE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const TIME_STAMP_CAPABLE: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const UNSPECIFIED_NETWORK_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12ba5bde_143e_4c0d_b66d_2379bb141913);
+pub const UNSPECIFIED_NETWORK_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x12ba5bde_143e_4c0d_b66d_2379bb141913);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const WAN_PROTOCOL_KEEPS_STATS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -3739,8 +3739,8 @@ impl ::core::default::Default for IF_ADMINISTRATIVE_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for IF_ADMINISTRATIVE_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IF_ADMINISTRATIVE_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for IF_ADMINISTRATIVE_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3776,8 +3776,8 @@ impl ::core::default::Default for IF_OPER_STATUS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for IF_OPER_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IF_OPER_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for IF_OPER_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3825,8 +3825,8 @@ impl ::core::default::Default for NDIS_802_11_AUTHENTICATION_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_AUTHENTICATION_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_AUTHENTICATION_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_802_11_AUTHENTICATION_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3852,8 +3852,8 @@ impl ::core::default::Default for NDIS_802_11_MEDIA_STREAM_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_MEDIA_STREAM_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_MEDIA_STREAM_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_802_11_MEDIA_STREAM_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3883,8 +3883,8 @@ impl ::core::default::Default for NDIS_802_11_NETWORK_INFRASTRUCTURE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_NETWORK_INFRASTRUCTURE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_NETWORK_INFRASTRUCTURE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_802_11_NETWORK_INFRASTRUCTURE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3918,8 +3918,8 @@ impl ::core::default::Default for NDIS_802_11_NETWORK_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_NETWORK_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_NETWORK_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_802_11_NETWORK_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3949,8 +3949,8 @@ impl ::core::default::Default for NDIS_802_11_POWER_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_POWER_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_POWER_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_802_11_POWER_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3976,8 +3976,8 @@ impl ::core::default::Default for NDIS_802_11_PRIVACY_FILTER {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_PRIVACY_FILTER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_PRIVACY_FILTER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_802_11_PRIVACY_FILTER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4009,8 +4009,8 @@ impl ::core::default::Default for NDIS_802_11_RADIO_STATUS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_RADIO_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_RADIO_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_802_11_RADIO_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4034,8 +4034,8 @@ impl ::core::default::Default for NDIS_802_11_RELOAD_DEFAULTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_RELOAD_DEFAULTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_RELOAD_DEFAULTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_802_11_RELOAD_DEFAULTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4065,8 +4065,8 @@ impl ::core::default::Default for NDIS_802_11_STATUS_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_STATUS_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_STATUS_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_802_11_STATUS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4112,8 +4112,8 @@ impl ::core::default::Default for NDIS_802_11_WEP_STATUS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_WEP_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_WEP_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_802_11_WEP_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4147,8 +4147,8 @@ impl ::core::default::Default for NDIS_802_5_RING_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_5_RING_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_5_RING_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_802_5_RING_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4182,8 +4182,8 @@ impl ::core::default::Default for NDIS_DEVICE_POWER_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_DEVICE_POWER_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_DEVICE_POWER_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_DEVICE_POWER_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4231,8 +4231,8 @@ impl ::core::default::Default for NDIS_FDDI_ATTACHMENT_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_FDDI_ATTACHMENT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_FDDI_ATTACHMENT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_FDDI_ATTACHMENT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4274,8 +4274,8 @@ impl ::core::default::Default for NDIS_FDDI_LCONNECTION_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_FDDI_LCONNECTION_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_FDDI_LCONNECTION_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_FDDI_LCONNECTION_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4313,8 +4313,8 @@ impl ::core::default::Default for NDIS_FDDI_RING_MGT_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_FDDI_RING_MGT_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_FDDI_RING_MGT_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_FDDI_RING_MGT_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4346,8 +4346,8 @@ impl ::core::default::Default for NDIS_HARDWARE_STATUS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_HARDWARE_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_HARDWARE_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_HARDWARE_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4377,8 +4377,8 @@ impl ::core::default::Default for NDIS_INTERRUPT_MODERATION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_INTERRUPT_MODERATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_INTERRUPT_MODERATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_INTERRUPT_MODERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4404,8 +4404,8 @@ impl ::core::default::Default for NDIS_MEDIA_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_MEDIA_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_MEDIA_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_MEDIA_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4469,8 +4469,8 @@ impl ::core::default::Default for NDIS_MEDIUM {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_MEDIUM {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_MEDIUM {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_MEDIUM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4500,8 +4500,8 @@ impl ::core::default::Default for NDIS_NETWORK_CHANGE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_NETWORK_CHANGE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_NETWORK_CHANGE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_NETWORK_CHANGE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4567,8 +4567,8 @@ impl ::core::default::Default for NDIS_PHYSICAL_MEDIUM {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_PHYSICAL_MEDIUM {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_PHYSICAL_MEDIUM {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_PHYSICAL_MEDIUM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4598,8 +4598,8 @@ impl ::core::default::Default for NDIS_PORT_AUTHORIZATION_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_PORT_AUTHORIZATION_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_PORT_AUTHORIZATION_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_PORT_AUTHORIZATION_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4627,8 +4627,8 @@ impl ::core::default::Default for NDIS_PORT_CONTROL_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_PORT_CONTROL_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_PORT_CONTROL_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_PORT_CONTROL_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4660,8 +4660,8 @@ impl ::core::default::Default for NDIS_PORT_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_PORT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_PORT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_PORT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4691,8 +4691,8 @@ impl ::core::default::Default for NDIS_PROCESSOR_VENDOR {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_PROCESSOR_VENDOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_PROCESSOR_VENDOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_PROCESSOR_VENDOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4738,8 +4738,8 @@ impl ::core::default::Default for NDIS_REQUEST_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_REQUEST_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_REQUEST_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_REQUEST_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4771,8 +4771,8 @@ impl ::core::default::Default for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4798,8 +4798,8 @@ impl ::core::default::Default for NDIS_WAN_HEADER_FORMAT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_WAN_HEADER_FORMAT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WAN_HEADER_FORMAT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_WAN_HEADER_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4855,8 +4855,8 @@ impl ::core::default::Default for NDIS_WAN_MEDIUM_SUBTYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_WAN_MEDIUM_SUBTYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WAN_MEDIUM_SUBTYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_WAN_MEDIUM_SUBTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4884,8 +4884,8 @@ impl ::core::default::Default for NDIS_WAN_QUALITY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDIS_WAN_QUALITY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WAN_QUALITY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_WAN_QUALITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4919,8 +4919,8 @@ impl ::core::default::Default for NDK_RDMA_TECHNOLOGY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NDK_RDMA_TECHNOLOGY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDK_RDMA_TECHNOLOGY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NDK_RDMA_TECHNOLOGY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4952,8 +4952,8 @@ impl ::core::default::Default for NET_IF_ACCESS_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NET_IF_ACCESS_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NET_IF_ACCESS_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NET_IF_ACCESS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4981,8 +4981,8 @@ impl ::core::default::Default for NET_IF_ADMIN_STATUS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NET_IF_ADMIN_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NET_IF_ADMIN_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NET_IF_ADMIN_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5012,8 +5012,8 @@ impl ::core::default::Default for NET_IF_CONNECTION_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NET_IF_CONNECTION_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NET_IF_CONNECTION_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NET_IF_CONNECTION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5043,8 +5043,8 @@ impl ::core::default::Default for NET_IF_DIRECTION_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NET_IF_DIRECTION_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NET_IF_DIRECTION_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NET_IF_DIRECTION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5072,8 +5072,8 @@ impl ::core::default::Default for NET_IF_MEDIA_CONNECT_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NET_IF_MEDIA_CONNECT_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NET_IF_MEDIA_CONNECT_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NET_IF_MEDIA_CONNECT_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5101,8 +5101,8 @@ impl ::core::default::Default for NET_IF_MEDIA_DUPLEX_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NET_IF_MEDIA_DUPLEX_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NET_IF_MEDIA_DUPLEX_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NET_IF_MEDIA_DUPLEX_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5138,8 +5138,8 @@ impl ::core::default::Default for NET_IF_OPER_STATUS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NET_IF_OPER_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NET_IF_OPER_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NET_IF_OPER_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5167,8 +5167,8 @@ impl ::core::default::Default for NET_IF_RCV_ADDRESS_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NET_IF_RCV_ADDRESS_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NET_IF_RCV_ADDRESS_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NET_IF_RCV_ADDRESS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5200,8 +5200,8 @@ impl ::core::default::Default for OFFLOAD_CONF_ALGO {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for OFFLOAD_CONF_ALGO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OFFLOAD_CONF_ALGO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for OFFLOAD_CONF_ALGO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5231,8 +5231,8 @@ impl ::core::default::Default for OFFLOAD_INTEGRITY_ALGO {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for OFFLOAD_INTEGRITY_ALGO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OFFLOAD_INTEGRITY_ALGO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for OFFLOAD_INTEGRITY_ALGO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5258,8 +5258,8 @@ impl ::core::default::Default for OFFLOAD_OPERATION_E {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for OFFLOAD_OPERATION_E {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OFFLOAD_OPERATION_E {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for OFFLOAD_OPERATION_E {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5295,8 +5295,8 @@ impl ::core::default::Default for TUNNEL_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TUNNEL_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TUNNEL_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TUNNEL_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5322,8 +5322,8 @@ impl ::core::default::Default for UDP_ENCAP_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for UDP_ENCAP_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UDP_ENCAP_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for UDP_ENCAP_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5347,8 +5347,8 @@ impl ::core::fmt::Debug for BSSID_INFO {
         f.debug_struct("BSSID_INFO").field("BSSID", &self.BSSID).field("PMKID", &self.PMKID).finish()
     }
 }
-impl ::windows::core::TypeKind for BSSID_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BSSID_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for BSSID_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5377,8 +5377,8 @@ impl ::core::fmt::Debug for GEN_GET_NETCARD_TIME {
         f.debug_struct("GEN_GET_NETCARD_TIME").field("ReadTime", &self.ReadTime).finish()
     }
 }
-impl ::windows::core::TypeKind for GEN_GET_NETCARD_TIME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GEN_GET_NETCARD_TIME {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for GEN_GET_NETCARD_TIME {
     fn eq(&self, other: &Self) -> bool {
@@ -5408,8 +5408,8 @@ impl ::core::fmt::Debug for GEN_GET_TIME_CAPS {
         f.debug_struct("GEN_GET_TIME_CAPS").field("Flags", &self.Flags).field("ClockPrecision", &self.ClockPrecision).finish()
     }
 }
-impl ::windows::core::TypeKind for GEN_GET_TIME_CAPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GEN_GET_TIME_CAPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for GEN_GET_TIME_CAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -5439,8 +5439,8 @@ impl ::core::fmt::Debug for IF_COUNTED_STRING_LH {
         f.debug_struct("IF_COUNTED_STRING_LH").field("Length", &self.Length).field("String", &self.String).finish()
     }
 }
-impl ::windows::core::TypeKind for IF_COUNTED_STRING_LH {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IF_COUNTED_STRING_LH {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for IF_COUNTED_STRING_LH {
     fn eq(&self, other: &Self) -> bool {
@@ -5470,8 +5470,8 @@ impl ::core::fmt::Debug for IF_PHYSICAL_ADDRESS_LH {
         f.debug_struct("IF_PHYSICAL_ADDRESS_LH").field("Length", &self.Length).field("Address", &self.Address).finish()
     }
 }
-impl ::windows::core::TypeKind for IF_PHYSICAL_ADDRESS_LH {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IF_PHYSICAL_ADDRESS_LH {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for IF_PHYSICAL_ADDRESS_LH {
     fn eq(&self, other: &Self) -> bool {
@@ -5502,8 +5502,8 @@ impl ::core::fmt::Debug for NDIS_802_11_AI_REQFI {
         f.debug_struct("NDIS_802_11_AI_REQFI").field("Capabilities", &self.Capabilities).field("ListenInterval", &self.ListenInterval).field("CurrentAPAddress", &self.CurrentAPAddress).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_AI_REQFI {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_AI_REQFI {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_AI_REQFI {
     fn eq(&self, other: &Self) -> bool {
@@ -5534,8 +5534,8 @@ impl ::core::fmt::Debug for NDIS_802_11_AI_RESFI {
         f.debug_struct("NDIS_802_11_AI_RESFI").field("Capabilities", &self.Capabilities).field("StatusCode", &self.StatusCode).field("AssociationId", &self.AssociationId).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_AI_RESFI {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_AI_RESFI {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_AI_RESFI {
     fn eq(&self, other: &Self) -> bool {
@@ -5582,8 +5582,8 @@ impl ::core::fmt::Debug for NDIS_802_11_ASSOCIATION_INFORMATION {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_ASSOCIATION_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_ASSOCIATION_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_ASSOCIATION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -5613,8 +5613,8 @@ impl ::core::fmt::Debug for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
         f.debug_struct("NDIS_802_11_AUTHENTICATION_ENCRYPTION").field("AuthModeSupported", &self.AuthModeSupported).field("EncryptStatusSupported", &self.EncryptStatusSupported).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -5644,8 +5644,8 @@ impl ::core::fmt::Debug for NDIS_802_11_AUTHENTICATION_EVENT {
         f.debug_struct("NDIS_802_11_AUTHENTICATION_EVENT").field("Status", &self.Status).field("Request", &self.Request).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_AUTHENTICATION_EVENT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_AUTHENTICATION_EVENT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_AUTHENTICATION_EVENT {
     fn eq(&self, other: &Self) -> bool {
@@ -5676,8 +5676,8 @@ impl ::core::fmt::Debug for NDIS_802_11_AUTHENTICATION_REQUEST {
         f.debug_struct("NDIS_802_11_AUTHENTICATION_REQUEST").field("Length", &self.Length).field("Bssid", &self.Bssid).field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_AUTHENTICATION_REQUEST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_AUTHENTICATION_REQUEST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_AUTHENTICATION_REQUEST {
     fn eq(&self, other: &Self) -> bool {
@@ -5707,8 +5707,8 @@ impl ::core::fmt::Debug for NDIS_802_11_BSSID_LIST {
         f.debug_struct("NDIS_802_11_BSSID_LIST").field("NumberOfItems", &self.NumberOfItems).field("Bssid", &self.Bssid).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_BSSID_LIST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_BSSID_LIST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_BSSID_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -5738,8 +5738,8 @@ impl ::core::fmt::Debug for NDIS_802_11_BSSID_LIST_EX {
         f.debug_struct("NDIS_802_11_BSSID_LIST_EX").field("NumberOfItems", &self.NumberOfItems).field("Bssid", &self.Bssid).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_BSSID_LIST_EX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_BSSID_LIST_EX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_BSSID_LIST_EX {
     fn eq(&self, other: &Self) -> bool {
@@ -5772,8 +5772,8 @@ impl ::core::fmt::Debug for NDIS_802_11_CAPABILITY {
         f.debug_struct("NDIS_802_11_CAPABILITY").field("Length", &self.Length).field("Version", &self.Version).field("NoOfPMKIDs", &self.NoOfPMKIDs).field("NoOfAuthEncryptPairsSupported", &self.NoOfAuthEncryptPairsSupported).field("AuthenticationEncryptionSupported", &self.AuthenticationEncryptionSupported).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_CAPABILITY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_CAPABILITY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_CAPABILITY {
     fn eq(&self, other: &Self) -> bool {
@@ -5806,8 +5806,8 @@ impl ::core::fmt::Debug for NDIS_802_11_CONFIGURATION {
         f.debug_struct("NDIS_802_11_CONFIGURATION").field("Length", &self.Length).field("BeaconPeriod", &self.BeaconPeriod).field("ATIMWindow", &self.ATIMWindow).field("DSConfig", &self.DSConfig).field("FHConfig", &self.FHConfig).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_CONFIGURATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_CONFIGURATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_CONFIGURATION {
     fn eq(&self, other: &Self) -> bool {
@@ -5839,8 +5839,8 @@ impl ::core::fmt::Debug for NDIS_802_11_CONFIGURATION_FH {
         f.debug_struct("NDIS_802_11_CONFIGURATION_FH").field("Length", &self.Length).field("HopPattern", &self.HopPattern).field("HopSet", &self.HopSet).field("DwellTime", &self.DwellTime).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_CONFIGURATION_FH {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_CONFIGURATION_FH {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_CONFIGURATION_FH {
     fn eq(&self, other: &Self) -> bool {
@@ -5871,8 +5871,8 @@ impl ::core::fmt::Debug for NDIS_802_11_FIXED_IEs {
         f.debug_struct("NDIS_802_11_FIXED_IEs").field("Timestamp", &self.Timestamp).field("BeaconInterval", &self.BeaconInterval).field("Capabilities", &self.Capabilities).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_FIXED_IEs {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_FIXED_IEs {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_FIXED_IEs {
     fn eq(&self, other: &Self) -> bool {
@@ -5906,8 +5906,8 @@ impl ::core::fmt::Debug for NDIS_802_11_KEY {
         f.debug_struct("NDIS_802_11_KEY").field("Length", &self.Length).field("KeyIndex", &self.KeyIndex).field("KeyLength", &self.KeyLength).field("BSSID", &self.BSSID).field("KeyRSC", &self.KeyRSC).field("KeyMaterial", &self.KeyMaterial).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_KEY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_KEY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_KEY {
     fn eq(&self, other: &Self) -> bool {
@@ -5937,8 +5937,8 @@ impl ::core::fmt::Debug for NDIS_802_11_NETWORK_TYPE_LIST {
         f.debug_struct("NDIS_802_11_NETWORK_TYPE_LIST").field("NumberOfItems", &self.NumberOfItems).field("NetworkType", &self.NetworkType).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_NETWORK_TYPE_LIST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_NETWORK_TYPE_LIST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_NETWORK_TYPE_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -5968,8 +5968,8 @@ impl ::core::fmt::Debug for NDIS_802_11_NON_BCAST_SSID_LIST {
         f.debug_struct("NDIS_802_11_NON_BCAST_SSID_LIST").field("NumberOfItems", &self.NumberOfItems).field("Non_Bcast_Ssid", &self.Non_Bcast_Ssid).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_NON_BCAST_SSID_LIST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_NON_BCAST_SSID_LIST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_NON_BCAST_SSID_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -6000,8 +6000,8 @@ impl ::core::fmt::Debug for NDIS_802_11_PMKID {
         f.debug_struct("NDIS_802_11_PMKID").field("Length", &self.Length).field("BSSIDInfoCount", &self.BSSIDInfoCount).field("BSSIDInfo", &self.BSSIDInfo).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_PMKID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_PMKID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_PMKID {
     fn eq(&self, other: &Self) -> bool {
@@ -6032,8 +6032,8 @@ impl ::core::fmt::Debug for NDIS_802_11_PMKID_CANDIDATE_LIST {
         f.debug_struct("NDIS_802_11_PMKID_CANDIDATE_LIST").field("Version", &self.Version).field("NumCandidates", &self.NumCandidates).field("CandidateList", &self.CandidateList).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_PMKID_CANDIDATE_LIST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_PMKID_CANDIDATE_LIST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_PMKID_CANDIDATE_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -6064,8 +6064,8 @@ impl ::core::fmt::Debug for NDIS_802_11_REMOVE_KEY {
         f.debug_struct("NDIS_802_11_REMOVE_KEY").field("Length", &self.Length).field("KeyIndex", &self.KeyIndex).field("BSSID", &self.BSSID).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_REMOVE_KEY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_REMOVE_KEY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_REMOVE_KEY {
     fn eq(&self, other: &Self) -> bool {
@@ -6095,8 +6095,8 @@ impl ::core::fmt::Debug for NDIS_802_11_SSID {
         f.debug_struct("NDIS_802_11_SSID").field("SsidLength", &self.SsidLength).field("Ssid", &self.Ssid).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_SSID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_SSID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_SSID {
     fn eq(&self, other: &Self) -> bool {
@@ -6175,8 +6175,8 @@ impl ::core::fmt::Debug for NDIS_802_11_STATISTICS {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_STATISTICS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_STATISTICS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
@@ -6229,8 +6229,8 @@ impl ::core::fmt::Debug for NDIS_802_11_STATUS_INDICATION {
         f.debug_struct("NDIS_802_11_STATUS_INDICATION").field("StatusType", &self.StatusType).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_STATUS_INDICATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_STATUS_INDICATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_STATUS_INDICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6256,8 +6256,8 @@ impl ::core::clone::Clone for NDIS_802_11_TEST {
         *self
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_TEST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_TEST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for NDIS_802_11_TEST {
     fn default() -> Self {
@@ -6276,8 +6276,8 @@ impl ::core::clone::Clone for NDIS_802_11_TEST_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_TEST_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_TEST_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for NDIS_802_11_TEST_0 {
     fn default() -> Self {
@@ -6302,8 +6302,8 @@ impl ::core::fmt::Debug for NDIS_802_11_VARIABLE_IEs {
         f.debug_struct("NDIS_802_11_VARIABLE_IEs").field("ElementID", &self.ElementID).field("Length", &self.Length).field("data", &self.data).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_VARIABLE_IEs {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_VARIABLE_IEs {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_VARIABLE_IEs {
     fn eq(&self, other: &Self) -> bool {
@@ -6335,8 +6335,8 @@ impl ::core::fmt::Debug for NDIS_802_11_WEP {
         f.debug_struct("NDIS_802_11_WEP").field("Length", &self.Length).field("KeyIndex", &self.KeyIndex).field("KeyLength", &self.KeyLength).field("KeyMaterial", &self.KeyMaterial).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_802_11_WEP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_802_11_WEP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_WEP {
     fn eq(&self, other: &Self) -> bool {
@@ -6421,8 +6421,8 @@ impl ::core::fmt::Debug for NDIS_CO_DEVICE_PROFILE {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_CO_DEVICE_PROFILE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_CO_DEVICE_PROFILE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_CO_DEVICE_PROFILE {
     fn eq(&self, other: &Self) -> bool {
@@ -6479,8 +6479,8 @@ impl ::core::fmt::Debug for NDIS_CO_LINK_SPEED {
         f.debug_struct("NDIS_CO_LINK_SPEED").field("Outbound", &self.Outbound).field("Inbound", &self.Inbound).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_CO_LINK_SPEED {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_CO_LINK_SPEED {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_CO_LINK_SPEED {
     fn eq(&self, other: &Self) -> bool {
@@ -6496,7 +6496,7 @@ impl ::core::default::Default for NDIS_CO_LINK_SPEED {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub struct NDIS_GUID {
-    pub Guid: ::windows::core::GUID,
+    pub Guid: ::windows_core::GUID,
     pub Anonymous: NDIS_GUID_0,
     pub Size: u32,
     pub Flags: u32,
@@ -6507,8 +6507,8 @@ impl ::core::clone::Clone for NDIS_GUID {
         *self
     }
 }
-impl ::windows::core::TypeKind for NDIS_GUID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_GUID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for NDIS_GUID {
     fn default() -> Self {
@@ -6527,8 +6527,8 @@ impl ::core::clone::Clone for NDIS_GUID_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for NDIS_GUID_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_GUID_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for NDIS_GUID_0 {
     fn default() -> Self {
@@ -6555,8 +6555,8 @@ impl ::core::fmt::Debug for NDIS_HARDWARE_CROSSTIMESTAMP {
         f.debug_struct("NDIS_HARDWARE_CROSSTIMESTAMP").field("Header", &self.Header).field("Flags", &self.Flags).field("SystemTimestamp1", &self.SystemTimestamp1).field("HardwareClockTimestamp", &self.HardwareClockTimestamp).field("SystemTimestamp2", &self.SystemTimestamp2).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_HARDWARE_CROSSTIMESTAMP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_HARDWARE_CROSSTIMESTAMP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_HARDWARE_CROSSTIMESTAMP {
     fn eq(&self, other: &Self) -> bool {
@@ -6654,8 +6654,8 @@ impl ::core::fmt::Debug for NDIS_INTERFACE_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NDIS_INTERFACE_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_INTERFACE_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NDIS_INTERFACE_INFORMATION {
@@ -6720,8 +6720,8 @@ impl ::core::fmt::Debug for NDIS_INTERRUPT_MODERATION_PARAMETERS {
         f.debug_struct("NDIS_INTERRUPT_MODERATION_PARAMETERS").field("Header", &self.Header).field("Flags", &self.Flags).field("InterruptModeration", &self.InterruptModeration).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_INTERRUPT_MODERATION_PARAMETERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_INTERRUPT_MODERATION_PARAMETERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_INTERRUPT_MODERATION_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -6752,8 +6752,8 @@ impl ::core::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1 {
         f.debug_struct("NDIS_IPSEC_OFFLOAD_V1").field("Supported", &self.Supported).field("IPv4AH", &self.IPv4AH).field("IPv4ESP", &self.IPv4ESP).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_IPSEC_OFFLOAD_V1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1 {
     fn eq(&self, other: &Self) -> bool {
@@ -6782,8 +6782,8 @@ impl ::core::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1_0 {
         f.debug_struct("NDIS_IPSEC_OFFLOAD_V1_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -6812,8 +6812,8 @@ impl ::core::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1_1 {
         f.debug_struct("NDIS_IPSEC_OFFLOAD_V1_1").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -6846,8 +6846,8 @@ impl ::core::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1_2 {
         f.debug_struct("NDIS_IPSEC_OFFLOAD_V1_2").field("Encapsulation", &self.Encapsulation).field("AhEspCombined", &self.AhEspCombined).field("TransportTunnelCombined", &self.TransportTunnelCombined).field("IPv4Options", &self.IPv4Options).field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -6878,8 +6878,8 @@ impl ::core::fmt::Debug for NDIS_IP_OPER_STATE {
         f.debug_struct("NDIS_IP_OPER_STATE").field("Header", &self.Header).field("Flags", &self.Flags).field("IpOperationalStatus", &self.IpOperationalStatus).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_IP_OPER_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_IP_OPER_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_IP_OPER_STATE {
     fn eq(&self, other: &Self) -> bool {
@@ -6910,8 +6910,8 @@ impl ::core::fmt::Debug for NDIS_IP_OPER_STATUS {
         f.debug_struct("NDIS_IP_OPER_STATUS").field("AddressFamily", &self.AddressFamily).field("OperationalStatus", &self.OperationalStatus).field("OperationalStatusFlags", &self.OperationalStatusFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_IP_OPER_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_IP_OPER_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_IP_OPER_STATUS {
     fn eq(&self, other: &Self) -> bool {
@@ -6943,8 +6943,8 @@ impl ::core::fmt::Debug for NDIS_IP_OPER_STATUS_INFO {
         f.debug_struct("NDIS_IP_OPER_STATUS_INFO").field("Header", &self.Header).field("Flags", &self.Flags).field("NumberofAddressFamiliesReturned", &self.NumberofAddressFamiliesReturned).field("IpOperationalStatus", &self.IpOperationalStatus).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_IP_OPER_STATUS_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_IP_OPER_STATUS_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_IP_OPER_STATUS_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6974,8 +6974,8 @@ impl ::core::fmt::Debug for NDIS_IRDA_PACKET_INFO {
         f.debug_struct("NDIS_IRDA_PACKET_INFO").field("ExtraBOFs", &self.ExtraBOFs).field("MinTurnAroundTime", &self.MinTurnAroundTime).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_IRDA_PACKET_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_IRDA_PACKET_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_IRDA_PACKET_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -7009,8 +7009,8 @@ impl ::core::fmt::Debug for NDIS_LINK_PARAMETERS {
         f.debug_struct("NDIS_LINK_PARAMETERS").field("Header", &self.Header).field("MediaDuplexState", &self.MediaDuplexState).field("XmitLinkSpeed", &self.XmitLinkSpeed).field("RcvLinkSpeed", &self.RcvLinkSpeed).field("PauseFunctions", &self.PauseFunctions).field("AutoNegotiationFlags", &self.AutoNegotiationFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_LINK_PARAMETERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_LINK_PARAMETERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_LINK_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -7040,8 +7040,8 @@ impl ::core::fmt::Debug for NDIS_LINK_SPEED {
         f.debug_struct("NDIS_LINK_SPEED").field("XmitLinkSpeed", &self.XmitLinkSpeed).field("RcvLinkSpeed", &self.RcvLinkSpeed).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_LINK_SPEED {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_LINK_SPEED {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_LINK_SPEED {
     fn eq(&self, other: &Self) -> bool {
@@ -7076,8 +7076,8 @@ impl ::core::fmt::Debug for NDIS_LINK_STATE {
         f.debug_struct("NDIS_LINK_STATE").field("Header", &self.Header).field("MediaConnectState", &self.MediaConnectState).field("MediaDuplexState", &self.MediaDuplexState).field("XmitLinkSpeed", &self.XmitLinkSpeed).field("RcvLinkSpeed", &self.RcvLinkSpeed).field("PauseFunctions", &self.PauseFunctions).field("AutoNegotiationFlags", &self.AutoNegotiationFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_LINK_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_LINK_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_LINK_STATE {
     fn eq(&self, other: &Self) -> bool {
@@ -7108,8 +7108,8 @@ impl ::core::fmt::Debug for NDIS_OBJECT_HEADER {
         f.debug_struct("NDIS_OBJECT_HEADER").field("Type", &self.Type).field("Revision", &self.Revision).field("Size", &self.Size).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_OBJECT_HEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_OBJECT_HEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_OBJECT_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -7143,8 +7143,8 @@ impl ::core::fmt::Debug for NDIS_OFFLOAD {
         f.debug_struct("NDIS_OFFLOAD").field("Header", &self.Header).field("Checksum", &self.Checksum).field("LsoV1", &self.LsoV1).field("IPsecV1", &self.IPsecV1).field("LsoV2", &self.LsoV2).field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_OFFLOAD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_OFFLOAD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
@@ -7199,8 +7199,8 @@ impl ::core::fmt::Debug for NDIS_OFFLOAD_PARAMETERS {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_OFFLOAD_PARAMETERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_OFFLOAD_PARAMETERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_OFFLOAD_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -7231,8 +7231,8 @@ impl ::core::fmt::Debug for NDIS_OPER_STATE {
         f.debug_struct("NDIS_OPER_STATE").field("Header", &self.Header).field("OperationalStatus", &self.OperationalStatus).field("OperationalStatusFlags", &self.OperationalStatusFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_OPER_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_OPER_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_OPER_STATE {
     fn eq(&self, other: &Self) -> bool {
@@ -7287,8 +7287,8 @@ impl ::core::fmt::Debug for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
@@ -7322,8 +7322,8 @@ impl ::core::fmt::Debug for NDIS_PM_PACKET_PATTERN {
         f.debug_struct("NDIS_PM_PACKET_PATTERN").field("Priority", &self.Priority).field("Reserved", &self.Reserved).field("MaskSize", &self.MaskSize).field("PatternOffset", &self.PatternOffset).field("PatternSize", &self.PatternSize).field("PatternFlags", &self.PatternFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_PM_PACKET_PATTERN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_PM_PACKET_PATTERN {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_PM_PACKET_PATTERN {
     fn eq(&self, other: &Self) -> bool {
@@ -7354,8 +7354,8 @@ impl ::core::fmt::Debug for NDIS_PM_WAKE_UP_CAPABILITIES {
         f.debug_struct("NDIS_PM_WAKE_UP_CAPABILITIES").field("MinMagicPacketWakeUp", &self.MinMagicPacketWakeUp).field("MinPatternWakeUp", &self.MinPatternWakeUp).field("MinLinkChangeWakeUp", &self.MinLinkChangeWakeUp).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_PM_WAKE_UP_CAPABILITIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_PM_WAKE_UP_CAPABILITIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_PM_WAKE_UP_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
@@ -7385,8 +7385,8 @@ impl ::core::fmt::Debug for NDIS_PNP_CAPABILITIES {
         f.debug_struct("NDIS_PNP_CAPABILITIES").field("Flags", &self.Flags).field("WakeUpCapabilities", &self.WakeUpCapabilities).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_PNP_CAPABILITIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_PNP_CAPABILITIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_PNP_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
@@ -7419,8 +7419,8 @@ impl ::core::fmt::Debug for NDIS_PORT {
         f.debug_struct("NDIS_PORT").field("Next", &self.Next).field("NdisReserved", &self.NdisReserved).field("MiniportReserved", &self.MiniportReserved).field("ProtocolReserved", &self.ProtocolReserved).field("PortCharacteristics", &self.PortCharacteristics).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_PORT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_PORT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_PORT {
     fn eq(&self, other: &Self) -> bool {
@@ -7453,8 +7453,8 @@ impl ::core::fmt::Debug for NDIS_PORT_ARRAY {
         f.debug_struct("NDIS_PORT_ARRAY").field("Header", &self.Header).field("NumberOfPorts", &self.NumberOfPorts).field("OffsetFirstPort", &self.OffsetFirstPort).field("ElementSize", &self.ElementSize).field("Ports", &self.Ports).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_PORT_ARRAY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_PORT_ARRAY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_PORT_ARRAY {
     fn eq(&self, other: &Self) -> bool {
@@ -7487,8 +7487,8 @@ impl ::core::fmt::Debug for NDIS_PORT_AUTHENTICATION_PARAMETERS {
         f.debug_struct("NDIS_PORT_AUTHENTICATION_PARAMETERS").field("Header", &self.Header).field("SendControlState", &self.SendControlState).field("RcvControlState", &self.RcvControlState).field("SendAuthorizationState", &self.SendAuthorizationState).field("RcvAuthorizationState", &self.RcvAuthorizationState).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_PORT_AUTHENTICATION_PARAMETERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_PORT_AUTHENTICATION_PARAMETERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_PORT_AUTHENTICATION_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -7541,8 +7541,8 @@ impl ::core::fmt::Debug for NDIS_PORT_CHARACTERISTICS {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_PORT_CHARACTERISTICS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_PORT_CHARACTERISTICS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_PORT_CHARACTERISTICS {
     fn eq(&self, other: &Self) -> bool {
@@ -7591,8 +7591,8 @@ impl ::core::fmt::Debug for NDIS_PORT_STATE {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_PORT_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_PORT_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_PORT_STATE {
     fn eq(&self, other: &Self) -> bool {
@@ -7625,8 +7625,8 @@ impl ::core::fmt::Debug for NDIS_RECEIVE_HASH_PARAMETERS {
         f.debug_struct("NDIS_RECEIVE_HASH_PARAMETERS").field("Header", &self.Header).field("Flags", &self.Flags).field("HashInformation", &self.HashInformation).field("HashSecretKeySize", &self.HashSecretKeySize).field("HashSecretKeyOffset", &self.HashSecretKeyOffset).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_RECEIVE_HASH_PARAMETERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_RECEIVE_HASH_PARAMETERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_RECEIVE_HASH_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -7658,8 +7658,8 @@ impl ::core::fmt::Debug for NDIS_RECEIVE_SCALE_CAPABILITIES {
         f.debug_struct("NDIS_RECEIVE_SCALE_CAPABILITIES").field("Header", &self.Header).field("CapabilitiesFlags", &self.CapabilitiesFlags).field("NumberOfInterruptMessages", &self.NumberOfInterruptMessages).field("NumberOfReceiveQueues", &self.NumberOfReceiveQueues).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_RECEIVE_SCALE_CAPABILITIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_RECEIVE_SCALE_CAPABILITIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_RECEIVE_SCALE_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
@@ -7695,8 +7695,8 @@ impl ::core::fmt::Debug for NDIS_RECEIVE_SCALE_PARAMETERS {
         f.debug_struct("NDIS_RECEIVE_SCALE_PARAMETERS").field("Header", &self.Header).field("Flags", &self.Flags).field("BaseCpuNumber", &self.BaseCpuNumber).field("HashInformation", &self.HashInformation).field("IndirectionTableSize", &self.IndirectionTableSize).field("IndirectionTableOffset", &self.IndirectionTableOffset).field("HashSecretKeySize", &self.HashSecretKeySize).field("HashSecretKeyOffset", &self.HashSecretKeyOffset).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_RECEIVE_SCALE_PARAMETERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_RECEIVE_SCALE_PARAMETERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_RECEIVE_SCALE_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -7765,8 +7765,8 @@ impl ::core::fmt::Debug for NDIS_STATISTICS_INFO {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_STATISTICS_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_STATISTICS_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_STATISTICS_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -7816,8 +7816,8 @@ impl ::core::fmt::Debug for NDIS_STATISTICS_VALUE {
         f.debug_struct("NDIS_STATISTICS_VALUE").field("Oid", &self.Oid).field("DataLength", &self.DataLength).field("Data", &self.Data).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_STATISTICS_VALUE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_STATISTICS_VALUE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_STATISTICS_VALUE {
     fn eq(&self, other: &Self) -> bool {
@@ -7849,8 +7849,8 @@ impl ::core::fmt::Debug for NDIS_STATISTICS_VALUE_EX {
         f.debug_struct("NDIS_STATISTICS_VALUE_EX").field("Oid", &self.Oid).field("DataLength", &self.DataLength).field("Length", &self.Length).field("Data", &self.Data).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_STATISTICS_VALUE_EX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_STATISTICS_VALUE_EX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_STATISTICS_VALUE_EX {
     fn eq(&self, other: &Self) -> bool {
@@ -7883,8 +7883,8 @@ impl ::core::fmt::Debug for NDIS_TCP_CONNECTION_OFFLOAD {
         f.debug_struct("NDIS_TCP_CONNECTION_OFFLOAD").field("Header", &self.Header).field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).field("TcpConnectionOffloadCapacity", &self.TcpConnectionOffloadCapacity).field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_TCP_CONNECTION_OFFLOAD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_TCP_CONNECTION_OFFLOAD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_CONNECTION_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
@@ -7916,8 +7916,8 @@ impl ::core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
         f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD").field("IPv4Transmit", &self.IPv4Transmit).field("IPv4Receive", &self.IPv4Receive).field("IPv6Transmit", &self.IPv6Transmit).field("IPv6Receive", &self.IPv6Receive).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
@@ -7947,8 +7947,8 @@ impl ::core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
         f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD_0").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7978,8 +7978,8 @@ impl ::core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
         f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD_1").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -8009,8 +8009,8 @@ impl ::core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
         f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD_2").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -8040,8 +8040,8 @@ impl ::core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
         f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD_3").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
     fn eq(&self, other: &Self) -> bool {
@@ -8070,8 +8070,8 @@ impl ::core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
         f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V1").field("IPv4", &self.IPv4).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
     fn eq(&self, other: &Self) -> bool {
@@ -8103,8 +8103,8 @@ impl ::core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
         f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8134,8 +8134,8 @@ impl ::core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
         f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V2").field("IPv4", &self.IPv4).field("IPv6", &self.IPv6).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
     fn eq(&self, other: &Self) -> bool {
@@ -8166,8 +8166,8 @@ impl ::core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
         f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8199,8 +8199,8 @@ impl ::core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
         f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -8232,8 +8232,8 @@ impl ::core::fmt::Debug for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
         f.debug_struct("NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES").field("Header", &self.Header).field("Flags", &self.Flags).field("TimeoutArrayLength", &self.TimeoutArrayLength).field("TimeoutArray", &self.TimeoutArray).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
@@ -8272,8 +8272,8 @@ impl ::core::fmt::Debug for NDIS_TIMESTAMP_CAPABILITIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NDIS_TIMESTAMP_CAPABILITIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_TIMESTAMP_CAPABILITIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NDIS_TIMESTAMP_CAPABILITIES {
@@ -8338,8 +8338,8 @@ impl ::core::fmt::Debug for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
@@ -8386,8 +8386,8 @@ impl ::core::fmt::Debug for NDIS_VAR_DATA_DESC {
         f.debug_struct("NDIS_VAR_DATA_DESC").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Offset", &self.Offset).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_VAR_DATA_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_VAR_DATA_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_VAR_DATA_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -8417,8 +8417,8 @@ impl ::core::fmt::Debug for NDIS_WAN_PROTOCOL_CAPS {
         f.debug_struct("NDIS_WAN_PROTOCOL_CAPS").field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_WAN_PROTOCOL_CAPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WAN_PROTOCOL_CAPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WAN_PROTOCOL_CAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -8456,8 +8456,8 @@ impl ::core::fmt::Debug for NDIS_WLAN_BSSID {
         f.debug_struct("NDIS_WLAN_BSSID").field("Length", &self.Length).field("MacAddress", &self.MacAddress).field("Reserved", &self.Reserved).field("Ssid", &self.Ssid).field("Privacy", &self.Privacy).field("Rssi", &self.Rssi).field("NetworkTypeInUse", &self.NetworkTypeInUse).field("Configuration", &self.Configuration).field("InfrastructureMode", &self.InfrastructureMode).field("SupportedRates", &self.SupportedRates).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_WLAN_BSSID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WLAN_BSSID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WLAN_BSSID {
     fn eq(&self, other: &Self) -> bool {
@@ -8510,8 +8510,8 @@ impl ::core::fmt::Debug for NDIS_WLAN_BSSID_EX {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_WLAN_BSSID_EX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WLAN_BSSID_EX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WLAN_BSSID_EX {
     fn eq(&self, other: &Self) -> bool {
@@ -8539,8 +8539,8 @@ impl ::core::clone::Clone for NDIS_WMI_ENUM_ADAPTER {
         *self
     }
 }
-impl ::windows::core::TypeKind for NDIS_WMI_ENUM_ADAPTER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WMI_ENUM_ADAPTER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for NDIS_WMI_ENUM_ADAPTER {
     fn default() -> Self {
@@ -8565,8 +8565,8 @@ impl ::core::clone::Clone for NDIS_WMI_EVENT_HEADER {
         *self
     }
 }
-impl ::windows::core::TypeKind for NDIS_WMI_EVENT_HEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WMI_EVENT_HEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for NDIS_WMI_EVENT_HEADER {
     fn default() -> Self {
@@ -8591,8 +8591,8 @@ impl ::core::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1 {
         f.debug_struct("NDIS_WMI_IPSEC_OFFLOAD_V1").field("Supported", &self.Supported).field("IPv4AH", &self.IPv4AH).field("IPv4ESP", &self.IPv4ESP).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1 {
     fn eq(&self, other: &Self) -> bool {
@@ -8626,8 +8626,8 @@ impl ::core::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
         f.debug_struct("NDIS_WMI_IPSEC_OFFLOAD_V1_0").field("Md5", &self.Md5).field("Sha_1", &self.Sha_1).field("Transport", &self.Transport).field("Tunnel", &self.Tunnel).field("Send", &self.Send).field("Receive", &self.Receive).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8663,8 +8663,8 @@ impl ::core::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
         f.debug_struct("NDIS_WMI_IPSEC_OFFLOAD_V1_1").field("Des", &self.Des).field("Reserved", &self.Reserved).field("TripleDes", &self.TripleDes).field("NullEsp", &self.NullEsp).field("Transport", &self.Transport).field("Tunnel", &self.Tunnel).field("Send", &self.Send).field("Receive", &self.Receive).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -8697,8 +8697,8 @@ impl ::core::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
         f.debug_struct("NDIS_WMI_IPSEC_OFFLOAD_V1_2").field("Encapsulation", &self.Encapsulation).field("AhEspCombined", &self.AhEspCombined).field("TransportTunnelCombined", &self.TransportTunnelCombined).field("IPv4Options", &self.IPv4Options).field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -8727,8 +8727,8 @@ impl ::core::clone::Clone for NDIS_WMI_METHOD_HEADER {
         *self
     }
 }
-impl ::windows::core::TypeKind for NDIS_WMI_METHOD_HEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WMI_METHOD_HEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for NDIS_WMI_METHOD_HEADER {
     fn default() -> Self {
@@ -8756,8 +8756,8 @@ impl ::core::fmt::Debug for NDIS_WMI_OFFLOAD {
         f.debug_struct("NDIS_WMI_OFFLOAD").field("Header", &self.Header).field("Checksum", &self.Checksum).field("LsoV1", &self.LsoV1).field("IPsecV1", &self.IPsecV1).field("LsoV2", &self.LsoV2).field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_WMI_OFFLOAD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WMI_OFFLOAD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
@@ -8789,8 +8789,8 @@ impl ::core::fmt::Debug for NDIS_WMI_OUTPUT_INFO {
         f.debug_struct("NDIS_WMI_OUTPUT_INFO").field("Header", &self.Header).field("Flags", &self.Flags).field("SupportedRevision", &self.SupportedRevision).field("DataOffset", &self.DataOffset).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_WMI_OUTPUT_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WMI_OUTPUT_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_OUTPUT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -8819,8 +8819,8 @@ impl ::core::clone::Clone for NDIS_WMI_SET_HEADER {
         *self
     }
 }
-impl ::windows::core::TypeKind for NDIS_WMI_SET_HEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WMI_SET_HEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for NDIS_WMI_SET_HEADER {
     fn default() -> Self {
@@ -8850,8 +8850,8 @@ impl ::core::fmt::Debug for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
         f.debug_struct("NDIS_WMI_TCP_CONNECTION_OFFLOAD").field("Header", &self.Header).field("Encapsulation", &self.Encapsulation).field("SupportIPv4", &self.SupportIPv4).field("SupportIPv6", &self.SupportIPv6).field("SupportIPv6ExtensionHeaders", &self.SupportIPv6ExtensionHeaders).field("SupportSack", &self.SupportSack).field("TcpConnectionOffloadCapacity", &self.TcpConnectionOffloadCapacity).field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
@@ -8883,8 +8883,8 @@ impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
         f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD").field("IPv4Transmit", &self.IPv4Transmit).field("IPv4Receive", &self.IPv4Receive).field("IPv6Transmit", &self.IPv6Transmit).field("IPv6Receive", &self.IPv6Receive).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
@@ -8918,8 +8918,8 @@ impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
         f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0").field("Encapsulation", &self.Encapsulation).field("IpOptionsSupported", &self.IpOptionsSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).field("IpChecksum", &self.IpChecksum).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8953,8 +8953,8 @@ impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
         f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1").field("Encapsulation", &self.Encapsulation).field("IpOptionsSupported", &self.IpOptionsSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).field("IpChecksum", &self.IpChecksum).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -8987,8 +8987,8 @@ impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
         f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2").field("Encapsulation", &self.Encapsulation).field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -9021,8 +9021,8 @@ impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
         f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3").field("Encapsulation", &self.Encapsulation).field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     fn eq(&self, other: &Self) -> bool {
@@ -9051,8 +9051,8 @@ impl ::core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
         f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1").field("IPv4", &self.IPv4).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
     fn eq(&self, other: &Self) -> bool {
@@ -9085,8 +9085,8 @@ impl ::core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
         f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("TcpOptions", &self.TcpOptions).field("IpOptions", &self.IpOptions).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9116,8 +9116,8 @@ impl ::core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
         f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2").field("IPv4", &self.IPv4).field("IPv6", &self.IPv6).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
     fn eq(&self, other: &Self) -> bool {
@@ -9148,8 +9148,8 @@ impl ::core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
         f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9182,8 +9182,8 @@ impl ::core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
         f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).finish()
     }
 }
-impl ::windows::core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -9256,8 +9256,8 @@ impl ::core::fmt::Debug for NDK_ADAPTER_INFO {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for NDK_ADAPTER_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDK_ADAPTER_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDK_ADAPTER_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -9308,8 +9308,8 @@ impl ::core::fmt::Debug for NDK_VERSION {
         f.debug_struct("NDK_VERSION").field("Major", &self.Major).field("Minor", &self.Minor).finish()
     }
 }
-impl ::windows::core::TypeKind for NDK_VERSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NDK_VERSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDK_VERSION {
     fn eq(&self, other: &Self) -> bool {
@@ -9340,8 +9340,8 @@ impl ::core::fmt::Debug for NETWORK_ADDRESS {
         f.debug_struct("NETWORK_ADDRESS").field("AddressLength", &self.AddressLength).field("AddressType", &self.AddressType).field("Address", &self.Address).finish()
     }
 }
-impl ::windows::core::TypeKind for NETWORK_ADDRESS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NETWORK_ADDRESS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NETWORK_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
@@ -9372,8 +9372,8 @@ impl ::core::fmt::Debug for NETWORK_ADDRESS_IP {
         f.debug_struct("NETWORK_ADDRESS_IP").field("sin_port", &self.sin_port).field("IN_ADDR", &self.IN_ADDR).field("sin_zero", &self.sin_zero).finish()
     }
 }
-impl ::windows::core::TypeKind for NETWORK_ADDRESS_IP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NETWORK_ADDRESS_IP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NETWORK_ADDRESS_IP {
     fn eq(&self, other: &Self) -> bool {
@@ -9405,8 +9405,8 @@ impl ::core::fmt::Debug for NETWORK_ADDRESS_IP6 {
         f.debug_struct("NETWORK_ADDRESS_IP6").field("sin6_port", &self.sin6_port).field("sin6_flowinfo", &self.sin6_flowinfo).field("sin6_addr", &self.sin6_addr).field("sin6_scope_id", &self.sin6_scope_id).finish()
     }
 }
-impl ::windows::core::TypeKind for NETWORK_ADDRESS_IP6 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NETWORK_ADDRESS_IP6 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NETWORK_ADDRESS_IP6 {
     fn eq(&self, other: &Self) -> bool {
@@ -9437,8 +9437,8 @@ impl ::core::fmt::Debug for NETWORK_ADDRESS_IPX {
         f.debug_struct("NETWORK_ADDRESS_IPX").field("NetworkAddress", &self.NetworkAddress).field("NodeAddress", &self.NodeAddress).field("Socket", &self.Socket).finish()
     }
 }
-impl ::windows::core::TypeKind for NETWORK_ADDRESS_IPX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NETWORK_ADDRESS_IPX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NETWORK_ADDRESS_IPX {
     fn eq(&self, other: &Self) -> bool {
@@ -9469,8 +9469,8 @@ impl ::core::fmt::Debug for NETWORK_ADDRESS_LIST {
         f.debug_struct("NETWORK_ADDRESS_LIST").field("AddressCount", &self.AddressCount).field("AddressType", &self.AddressType).field("Address", &self.Address).finish()
     }
 }
-impl ::windows::core::TypeKind for NETWORK_ADDRESS_LIST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NETWORK_ADDRESS_LIST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NETWORK_ADDRESS_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -9500,8 +9500,8 @@ impl ::core::fmt::Debug for NET_IF_ALIAS_LH {
         f.debug_struct("NET_IF_ALIAS_LH").field("ifAliasLength", &self.ifAliasLength).field("ifAliasOffset", &self.ifAliasOffset).finish()
     }
 }
-impl ::windows::core::TypeKind for NET_IF_ALIAS_LH {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NET_IF_ALIAS_LH {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NET_IF_ALIAS_LH {
     fn eq(&self, other: &Self) -> bool {
@@ -9532,8 +9532,8 @@ impl ::core::fmt::Debug for NET_IF_RCV_ADDRESS_LH {
         f.debug_struct("NET_IF_RCV_ADDRESS_LH").field("ifRcvAddressType", &self.ifRcvAddressType).field("ifRcvAddressLength", &self.ifRcvAddressLength).field("ifRcvAddressOffset", &self.ifRcvAddressOffset).finish()
     }
 }
-impl ::windows::core::TypeKind for NET_IF_RCV_ADDRESS_LH {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NET_IF_RCV_ADDRESS_LH {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NET_IF_RCV_ADDRESS_LH {
     fn eq(&self, other: &Self) -> bool {
@@ -9558,8 +9558,8 @@ impl ::core::clone::Clone for NET_LUID_LH {
         *self
     }
 }
-impl ::windows::core::TypeKind for NET_LUID_LH {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NET_LUID_LH {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for NET_LUID_LH {
     fn default() -> Self {
@@ -9582,8 +9582,8 @@ impl ::core::fmt::Debug for NET_LUID_LH_0 {
         f.debug_struct("NET_LUID_LH_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for NET_LUID_LH_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NET_LUID_LH_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NET_LUID_LH_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9614,8 +9614,8 @@ impl ::core::fmt::Debug for NET_PHYSICAL_LOCATION_LH {
         f.debug_struct("NET_PHYSICAL_LOCATION_LH").field("BusNumber", &self.BusNumber).field("SlotNumber", &self.SlotNumber).field("FunctionNumber", &self.FunctionNumber).finish()
     }
 }
-impl ::windows::core::TypeKind for NET_PHYSICAL_LOCATION_LH {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NET_PHYSICAL_LOCATION_LH {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NET_PHYSICAL_LOCATION_LH {
     fn eq(&self, other: &Self) -> bool {
@@ -9646,8 +9646,8 @@ impl ::core::fmt::Debug for OFFLOAD_ALGO_INFO {
         f.debug_struct("OFFLOAD_ALGO_INFO").field("algoIdentifier", &self.algoIdentifier).field("algoKeylen", &self.algoKeylen).field("algoRounds", &self.algoRounds).finish()
     }
 }
-impl ::windows::core::TypeKind for OFFLOAD_ALGO_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OFFLOAD_ALGO_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for OFFLOAD_ALGO_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -9711,8 +9711,8 @@ impl ::core::fmt::Debug for OFFLOAD_IPSEC_ADD_SA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for OFFLOAD_IPSEC_ADD_SA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OFFLOAD_IPSEC_ADD_SA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_ADD_SA {
@@ -9783,8 +9783,8 @@ impl ::core::fmt::Debug for OFFLOAD_IPSEC_ADD_UDPESP_SA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for OFFLOAD_IPSEC_ADD_UDPESP_SA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OFFLOAD_IPSEC_ADD_UDPESP_SA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_ADD_UDPESP_SA {
@@ -9821,8 +9821,8 @@ impl ::core::fmt::Debug for OFFLOAD_IPSEC_DELETE_SA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for OFFLOAD_IPSEC_DELETE_SA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OFFLOAD_IPSEC_DELETE_SA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_DELETE_SA {
@@ -9860,8 +9860,8 @@ impl ::core::fmt::Debug for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
@@ -9894,8 +9894,8 @@ impl ::core::fmt::Debug for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
         f.debug_struct("OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY").field("UdpEncapType", &self.UdpEncapType).field("DstEncapPort", &self.DstEncapPort).finish()
     }
 }
-impl ::windows::core::TypeKind for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -9928,8 +9928,8 @@ impl ::core::fmt::Debug for OFFLOAD_SECURITY_ASSOCIATION {
         f.debug_struct("OFFLOAD_SECURITY_ASSOCIATION").field("Operation", &self.Operation).field("SPI", &self.SPI).field("IntegrityAlgo", &self.IntegrityAlgo).field("ConfAlgo", &self.ConfAlgo).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for OFFLOAD_SECURITY_ASSOCIATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OFFLOAD_SECURITY_ASSOCIATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for OFFLOAD_SECURITY_ASSOCIATION {
     fn eq(&self, other: &Self) -> bool {
@@ -9959,8 +9959,8 @@ impl ::core::fmt::Debug for PMKID_CANDIDATE {
         f.debug_struct("PMKID_CANDIDATE").field("BSSID", &self.BSSID).field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows::core::TypeKind for PMKID_CANDIDATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PMKID_CANDIDATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PMKID_CANDIDATE {
     fn eq(&self, other: &Self) -> bool {
@@ -9990,8 +9990,8 @@ impl ::core::fmt::Debug for TRANSPORT_HEADER_OFFSET {
         f.debug_struct("TRANSPORT_HEADER_OFFSET").field("ProtocolType", &self.ProtocolType).field("HeaderOffset", &self.HeaderOffset).finish()
     }
 }
-impl ::windows::core::TypeKind for TRANSPORT_HEADER_OFFSET {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TRANSPORT_HEADER_OFFSET {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRANSPORT_HEADER_OFFSET {
     fn eq(&self, other: &Self) -> bool {

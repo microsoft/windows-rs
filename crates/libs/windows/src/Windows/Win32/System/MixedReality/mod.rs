@@ -1,9 +1,9 @@
 #[doc = "*Required features: `\"Win32_System_MixedReality\"`*"]
-pub const PERCEPTIONFIELD_StateStream_TimeStamps: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa886119_f32f_49bf_92ca_f9ddf784d297);
+pub const PERCEPTIONFIELD_StateStream_TimeStamps: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa886119_f32f_49bf_92ca_f9ddf784d297);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_MixedReality\"`*"]
 pub struct PERCEPTION_PAYLOAD_FIELD {
-    pub FieldId: ::windows::core::GUID,
+    pub FieldId: ::windows_core::GUID,
     pub OffsetInBytes: u32,
     pub SizeInBytes: u32,
 }
@@ -18,8 +18,8 @@ impl ::core::fmt::Debug for PERCEPTION_PAYLOAD_FIELD {
         f.debug_struct("PERCEPTION_PAYLOAD_FIELD").field("FieldId", &self.FieldId).field("OffsetInBytes", &self.OffsetInBytes).field("SizeInBytes", &self.SizeInBytes).finish()
     }
 }
-impl ::windows::core::TypeKind for PERCEPTION_PAYLOAD_FIELD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PERCEPTION_PAYLOAD_FIELD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PERCEPTION_PAYLOAD_FIELD {
     fn eq(&self, other: &Self) -> bool {
@@ -49,8 +49,8 @@ impl ::core::fmt::Debug for PERCEPTION_STATE_STREAM_TIMESTAMPS {
         f.debug_struct("PERCEPTION_STATE_STREAM_TIMESTAMPS").field("InputTimestampInQpcCounts", &self.InputTimestampInQpcCounts).field("AvailableTimestampInQpcCounts", &self.AvailableTimestampInQpcCounts).finish()
     }
 }
-impl ::windows::core::TypeKind for PERCEPTION_STATE_STREAM_TIMESTAMPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PERCEPTION_STATE_STREAM_TIMESTAMPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PERCEPTION_STATE_STREAM_TIMESTAMPS {
     fn eq(&self, other: &Self) -> bool {

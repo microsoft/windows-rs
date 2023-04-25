@@ -83,13 +83,13 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
         #doc
         #features
         #[repr(transparent)]
-        pub struct #ident(pub ::windows::core::IUnknown, #phantoms) where #constraints;
+        pub struct #ident(pub ::windows_core::IUnknown, #phantoms) where #constraints;
         #features
         impl<#constraints> #ident {
             pub fn new<#fn_constraint>(invoke: F) -> Self {
                 let com = #boxed::<#generic_names F> {
                     vtable: &#boxed::<#generic_names F>::VTABLE,
-                    count: ::windows::imp::RefCount::new(1),
+                    count: ::windows_core::imp::RefCount::new(1),
                     invoke,
                 };
                 unsafe {
@@ -103,21 +103,21 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
         struct #boxed<#generic_names #fn_constraint> where #constraints {
             vtable: *const #vtbl<#generic_names>,
             invoke: F,
-            count: ::windows::imp::RefCount,
+            count: ::windows_core::imp::RefCount,
         }
         #features
         impl<#constraints #fn_constraint> #boxed<#generic_names F> {
             const VTABLE: #vtbl<#generic_names> = #vtbl::<#generic_names>{
-                base__: ::windows::core::IUnknown_Vtbl{QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release},
+                base__: ::windows_core::IUnknown_Vtbl{QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release},
                 Invoke: Self::Invoke,
                 #(#named_phantoms)*
             };
-            unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows_core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows_core::HRESULT {
                 let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
 
-                *interface = if iid == &<#ident as ::windows::core::ComInterface>::IID ||
-                    iid == &<::windows::core::IUnknown as ::windows::core::ComInterface>::IID ||
-                    iid == &<::windows::imp::IAgileObject as ::windows::core::ComInterface>::IID {
+                *interface = if iid == &<#ident as ::windows_core::ComInterface>::IID ||
+                    iid == &<::windows_core::IUnknown as ::windows_core::ComInterface>::IID ||
+                    iid == &<::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID {
                         &mut (*this).vtable as *mut _ as _
                     } else {
                         ::core::ptr::null_mut()
@@ -126,10 +126,10 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
                 // TODO: implement IMarshal
 
                 if (*interface).is_null() {
-                    ::windows::core::HRESULT(-2147467262) // E_NOINTERFACE
+                    ::windows_core::HRESULT(-2147467262) // E_NOINTERFACE
                 } else {
                     (*this).count.add_ref();
-                    ::windows::core::HRESULT(0)
+                    ::windows_core::HRESULT(0)
                 }
             }
             unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {

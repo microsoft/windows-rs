@@ -3,7 +3,7 @@
 #[inline]
 pub unsafe fn SaferCloseLevel<P0>(hlevelhandle: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::SAFER_LEVEL_HANDLE>,
+    P0: ::windows_core::IntoParam<super::SAFER_LEVEL_HANDLE>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn SaferCloseLevel(hlevelhandle : super:: SAFER_LEVEL_HANDLE) -> super::super::Foundation:: BOOL);
     SaferCloseLevel(hlevelhandle.into_param().abi())
@@ -13,8 +13,8 @@ where
 #[inline]
 pub unsafe fn SaferComputeTokenFromLevel<P0, P1>(levelhandle: P0, inaccesstoken: P1, outaccesstoken: *mut super::super::Foundation::HANDLE, dwflags: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS, lpreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::SAFER_LEVEL_HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::SAFER_LEVEL_HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn SaferComputeTokenFromLevel(levelhandle : super:: SAFER_LEVEL_HANDLE, inaccesstoken : super::super::Foundation:: HANDLE, outaccesstoken : *mut super::super::Foundation:: HANDLE, dwflags : SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS, lpreserved : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SaferComputeTokenFromLevel(levelhandle.into_param().abi(), inaccesstoken.into_param().abi(), outaccesstoken, dwflags, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())))
@@ -31,7 +31,7 @@ pub unsafe fn SaferCreateLevel(dwscopeid: u32, dwlevelid: u32, openflags: u32, p
 #[inline]
 pub unsafe fn SaferGetLevelInformation<P0>(levelhandle: P0, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: ::core::option::Option<*mut ::core::ffi::c_void>, dwinbuffersize: u32, lpdwoutbuffersize: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::SAFER_LEVEL_HANDLE>,
+    P0: ::windows_core::IntoParam<super::SAFER_LEVEL_HANDLE>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn SaferGetLevelInformation(levelhandle : super:: SAFER_LEVEL_HANDLE, dwinfotype : SAFER_OBJECT_INFO_CLASS, lpquerybuffer : *mut ::core::ffi::c_void, dwinbuffersize : u32, lpdwoutbuffersize : *mut u32) -> super::super::Foundation:: BOOL);
     SaferGetLevelInformation(levelhandle.into_param().abi(), dwinfotype, ::core::mem::transmute(lpquerybuffer.unwrap_or(::std::ptr::null_mut())), dwinbuffersize, lpdwoutbuffersize)
@@ -55,10 +55,10 @@ pub unsafe fn SaferIdentifyLevel(pcodeproperties: ::core::option::Option<&[SAFER
 #[inline]
 pub unsafe fn SaferRecordEventLogEntry<P0, P1>(hlevel: P0, sztargetpath: P1, lpreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::SAFER_LEVEL_HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::SAFER_LEVEL_HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn SaferRecordEventLogEntry(hlevel : super:: SAFER_LEVEL_HANDLE, sztargetpath : ::windows::core::PCWSTR, lpreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("advapi32.dll" "system" fn SaferRecordEventLogEntry(hlevel : super:: SAFER_LEVEL_HANDLE, sztargetpath : ::windows_core::PCWSTR, lpreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SaferRecordEventLogEntry(hlevel.into_param().abi(), sztargetpath.into_param().abi(), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
@@ -66,7 +66,7 @@ where
 #[inline]
 pub unsafe fn SaferSetLevelInformation<P0>(levelhandle: P0, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *const ::core::ffi::c_void, dwinbuffersize: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::SAFER_LEVEL_HANDLE>,
+    P0: ::windows_core::IntoParam<super::SAFER_LEVEL_HANDLE>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn SaferSetLevelInformation(levelhandle : super:: SAFER_LEVEL_HANDLE, dwinfotype : SAFER_OBJECT_INFO_CLASS, lpquerybuffer : *const ::core::ffi::c_void, dwinbuffersize : u32) -> super::super::Foundation:: BOOL);
     SaferSetLevelInformation(levelhandle.into_param().abi(), dwinfotype, lpquerybuffer, dwinbuffersize)
@@ -83,10 +83,10 @@ pub unsafe fn SaferSetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SA
 #[inline]
 pub unsafe fn SaferiIsExecutableFileType<P0, P1>(szfullpathname: P0, bfromshellexecute: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn SaferiIsExecutableFileType(szfullpathname : ::windows::core::PCWSTR, bfromshellexecute : super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("advapi32.dll" "system" fn SaferiIsExecutableFileType(szfullpathname : ::windows_core::PCWSTR, bfromshellexecute : super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: BOOL);
     SaferiIsExecutableFileType(szfullpathname.into_param().abi(), bfromshellexecute.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
@@ -150,27 +150,27 @@ pub const SAFER_SCOPEID_MACHINE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_SCOPEID_USER: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_APPX: ::windows::core::PCWSTR = ::windows::core::w!("APPX");
+pub const SRP_POLICY_APPX: ::windows_core::PCWSTR = ::windows_core::w!("APPX");
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_DLL: ::windows::core::PCWSTR = ::windows::core::w!("DLL");
+pub const SRP_POLICY_DLL: ::windows_core::PCWSTR = ::windows_core::w!("DLL");
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_EXE: ::windows::core::PCWSTR = ::windows::core::w!("EXE");
+pub const SRP_POLICY_EXE: ::windows_core::PCWSTR = ::windows_core::w!("EXE");
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_MANAGEDINSTALLER: ::windows::core::PCWSTR = ::windows::core::w!("MANAGEDINSTALLER");
+pub const SRP_POLICY_MANAGEDINSTALLER: ::windows_core::PCWSTR = ::windows_core::w!("MANAGEDINSTALLER");
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_MSI: ::windows::core::PCWSTR = ::windows::core::w!("MSI");
+pub const SRP_POLICY_MSI: ::windows_core::PCWSTR = ::windows_core::w!("MSI");
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_NOV2: ::windows::core::PCWSTR = ::windows::core::w!("IGNORESRPV2");
+pub const SRP_POLICY_NOV2: ::windows_core::PCWSTR = ::windows_core::w!("IGNORESRPV2");
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_SCRIPT: ::windows::core::PCWSTR = ::windows::core::w!("SCRIPT");
+pub const SRP_POLICY_SCRIPT: ::windows_core::PCWSTR = ::windows_core::w!("SCRIPT");
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_SHELL: ::windows::core::PCWSTR = ::windows::core::w!("SHELL");
+pub const SRP_POLICY_SHELL: ::windows_core::PCWSTR = ::windows_core::w!("SHELL");
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_WLDPCONFIGCI: ::windows::core::PCWSTR = ::windows::core::w!("WLDPCONFIGCI");
+pub const SRP_POLICY_WLDPCONFIGCI: ::windows_core::PCWSTR = ::windows_core::w!("WLDPCONFIGCI");
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_WLDPMSI: ::windows::core::PCWSTR = ::windows::core::w!("WLDPMSI");
+pub const SRP_POLICY_WLDPMSI: ::windows_core::PCWSTR = ::windows_core::w!("WLDPMSI");
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_WLDPSCRIPT: ::windows::core::PCWSTR = ::windows::core::w!("WLDPSCRIPT");
+pub const SRP_POLICY_WLDPSCRIPT: ::windows_core::PCWSTR = ::windows_core::w!("WLDPSCRIPT");
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -194,8 +194,8 @@ impl ::core::default::Default for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -260,8 +260,8 @@ impl ::core::default::Default for SAFER_IDENTIFICATION_TYPES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SAFER_IDENTIFICATION_TYPES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SAFER_IDENTIFICATION_TYPES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SAFER_IDENTIFICATION_TYPES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -315,8 +315,8 @@ impl ::core::default::Default for SAFER_OBJECT_INFO_CLASS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SAFER_OBJECT_INFO_CLASS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SAFER_OBJECT_INFO_CLASS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SAFER_OBJECT_INFO_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -352,8 +352,8 @@ impl ::core::default::Default for SAFER_POLICY_INFO_CLASS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SAFER_POLICY_INFO_CLASS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SAFER_POLICY_INFO_CLASS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SAFER_POLICY_INFO_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -366,7 +366,7 @@ impl ::core::fmt::Debug for SAFER_POLICY_INFO_CLASS {
 pub struct SAFER_CODE_PROPERTIES_V1 {
     pub cbSize: u32,
     pub dwCheckFlags: u32,
-    pub ImagePath: ::windows::core::PCWSTR,
+    pub ImagePath: ::windows_core::PCWSTR,
     pub hImageFileHandle: super::super::Foundation::HANDLE,
     pub UrlZoneId: u32,
     pub ImageHash: [u8; 64],
@@ -405,8 +405,8 @@ impl ::core::fmt::Debug for SAFER_CODE_PROPERTIES_V1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for SAFER_CODE_PROPERTIES_V1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SAFER_CODE_PROPERTIES_V1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SAFER_CODE_PROPERTIES_V1 {
@@ -428,7 +428,7 @@ impl ::core::default::Default for SAFER_CODE_PROPERTIES_V1 {
 pub struct SAFER_CODE_PROPERTIES_V2 {
     pub cbSize: u32,
     pub dwCheckFlags: u32,
-    pub ImagePath: ::windows::core::PCWSTR,
+    pub ImagePath: ::windows_core::PCWSTR,
     pub hImageFileHandle: super::super::Foundation::HANDLE,
     pub UrlZoneId: u32,
     pub ImageHash: [u8; 64],
@@ -438,9 +438,9 @@ pub struct SAFER_CODE_PROPERTIES_V2 {
     pub pByteBlock: *mut u8,
     pub hWndParent: super::super::Foundation::HWND,
     pub dwWVTUIChoice: u32,
-    pub PackageMoniker: ::windows::core::PCWSTR,
-    pub PackagePublisher: ::windows::core::PCWSTR,
-    pub PackageName: ::windows::core::PCWSTR,
+    pub PackageMoniker: ::windows_core::PCWSTR,
+    pub PackagePublisher: ::windows_core::PCWSTR,
+    pub PackageName: ::windows_core::PCWSTR,
     pub PackageVersion: u64,
     pub PackageIsFramework: super::super::Foundation::BOOL,
 }
@@ -477,8 +477,8 @@ impl ::core::fmt::Debug for SAFER_CODE_PROPERTIES_V2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for SAFER_CODE_PROPERTIES_V2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SAFER_CODE_PROPERTIES_V2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SAFER_CODE_PROPERTIES_V2 {
@@ -522,8 +522,8 @@ impl ::core::fmt::Debug for SAFER_HASH_IDENTIFICATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for SAFER_HASH_IDENTIFICATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SAFER_HASH_IDENTIFICATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SAFER_HASH_IDENTIFICATION {
@@ -563,8 +563,8 @@ impl ::core::fmt::Debug for SAFER_HASH_IDENTIFICATION2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for SAFER_HASH_IDENTIFICATION2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SAFER_HASH_IDENTIFICATION2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SAFER_HASH_IDENTIFICATION2 {
@@ -586,7 +586,7 @@ impl ::core::default::Default for SAFER_HASH_IDENTIFICATION2 {
 pub struct SAFER_IDENTIFICATION_HEADER {
     pub dwIdentificationType: SAFER_IDENTIFICATION_TYPES,
     pub cbStructSize: u32,
-    pub IdentificationGuid: ::windows::core::GUID,
+    pub IdentificationGuid: ::windows_core::GUID,
     pub lastModified: super::super::Foundation::FILETIME,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -604,8 +604,8 @@ impl ::core::fmt::Debug for SAFER_IDENTIFICATION_HEADER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for SAFER_IDENTIFICATION_HEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SAFER_IDENTIFICATION_HEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SAFER_IDENTIFICATION_HEADER {
@@ -627,7 +627,7 @@ impl ::core::default::Default for SAFER_IDENTIFICATION_HEADER {
 pub struct SAFER_PATHNAME_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub Description: [u16; 256],
-    pub ImageName: ::windows::core::PWSTR,
+    pub ImageName: ::windows_core::PWSTR,
     pub dwSaferFlags: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -645,8 +645,8 @@ impl ::core::fmt::Debug for SAFER_PATHNAME_IDENTIFICATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for SAFER_PATHNAME_IDENTIFICATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SAFER_PATHNAME_IDENTIFICATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SAFER_PATHNAME_IDENTIFICATION {
@@ -685,8 +685,8 @@ impl ::core::fmt::Debug for SAFER_URLZONE_IDENTIFICATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for SAFER_URLZONE_IDENTIFICATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SAFER_URLZONE_IDENTIFICATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SAFER_URLZONE_IDENTIFICATION {

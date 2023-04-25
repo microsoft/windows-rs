@@ -28,8 +28,8 @@ fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -
         };
         if !gen.sys {
             tokens.combine(&quote! {
-                impl ::windows::core::TypeKind for #name {
-                    type TypeKind = ::windows::core::CopyType;
+                impl ::windows_core::TypeKind for #name {
+                    type TypeKind = ::windows_core::CopyType;
                 }
             });
         }
@@ -56,7 +56,6 @@ fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -
             && flags.contains(TypeAttributes::EXPLICIT_LAYOUT)
             && !gen.reader.field_is_copyable(f, def)
         {
-            // Rust can't tell that the type is copyable and won't accept windows::core::ManuallyDrop
             let ty = gen.type_default_name(&ty);
             quote! { pub #name: ::std::mem::ManuallyDrop<#ty>, }
         } else if !gen.sys
@@ -132,8 +131,8 @@ fn gen_windows_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) ->
 
         let mut tokens = quote! {
             #features
-            impl ::windows::core::TypeKind for #name {
-                type TypeKind = ::windows::core::#type_kind;
+            impl ::windows_core::TypeKind for #name {
+                type TypeKind = ::windows_core::#type_kind;
             }
         };
 
@@ -147,8 +146,8 @@ fn gen_windows_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) ->
 
             tokens.combine(&quote! {
                 #features
-                impl ::windows::core::RuntimeType for #name {
-                    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(#signature);
+                impl ::windows_core::RuntimeType for #name {
+                    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(#signature);
                 }
             });
         }

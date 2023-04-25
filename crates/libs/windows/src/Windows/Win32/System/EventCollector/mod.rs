@@ -10,16 +10,16 @@ pub unsafe fn EcClose(object: isize) -> super::super::Foundation::BOOL {
 #[inline]
 pub unsafe fn EcDeleteSubscription<P0>(subscriptionname: P0, flags: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("wecapi.dll" "system" fn EcDeleteSubscription(subscriptionname : ::windows::core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("wecapi.dll" "system" fn EcDeleteSubscription(subscriptionname : ::windows_core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
     EcDeleteSubscription(subscriptionname.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EcEnumNextSubscription(subscriptionenum: isize, subscriptionnamebuffer: ::core::option::Option<&mut [u16]>, subscriptionnamebufferused: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("wecapi.dll" "system" fn EcEnumNextSubscription(subscriptionenum : isize, subscriptionnamebuffersize : u32, subscriptionnamebuffer : ::windows::core::PWSTR, subscriptionnamebufferused : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("wecapi.dll" "system" fn EcEnumNextSubscription(subscriptionenum : isize, subscriptionnamebuffersize : u32, subscriptionnamebuffer : ::windows_core::PWSTR, subscriptionnamebufferused : *mut u32) -> super::super::Foundation:: BOOL);
     EcEnumNextSubscription(subscriptionenum, subscriptionnamebuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(subscriptionnamebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), subscriptionnamebufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
@@ -48,10 +48,10 @@ pub unsafe fn EcGetSubscriptionProperty(subscription: isize, propertyid: EC_SUBS
 #[inline]
 pub unsafe fn EcGetSubscriptionRunTimeStatus<P0, P1>(subscriptionname: P0, statusinfoid: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, eventsourcename: P1, flags: u32, statusvaluebuffersize: u32, statusvaluebuffer: *mut EC_VARIANT, statusvaluebufferused: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("wecapi.dll" "system" fn EcGetSubscriptionRunTimeStatus(subscriptionname : ::windows::core::PCWSTR, statusinfoid : EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, eventsourcename : ::windows::core::PCWSTR, flags : u32, statusvaluebuffersize : u32, statusvaluebuffer : *mut EC_VARIANT, statusvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("wecapi.dll" "system" fn EcGetSubscriptionRunTimeStatus(subscriptionname : ::windows_core::PCWSTR, statusinfoid : EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, eventsourcename : ::windows_core::PCWSTR, flags : u32, statusvaluebuffersize : u32, statusvaluebuffer : *mut EC_VARIANT, statusvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
     EcGetSubscriptionRunTimeStatus(subscriptionname.into_param().abi(), statusinfoid, eventsourcename.into_param().abi(), flags, statusvaluebuffersize, statusvaluebuffer, statusvaluebufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
@@ -65,9 +65,9 @@ pub unsafe fn EcInsertObjectArrayElement(objectarray: isize, arrayindex: u32) ->
 #[inline]
 pub unsafe fn EcOpenSubscription<P0>(subscriptionname: P0, accessmask: u32, flags: u32) -> isize
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("wecapi.dll" "system" fn EcOpenSubscription(subscriptionname : ::windows::core::PCWSTR, accessmask : u32, flags : u32) -> isize);
+    ::windows_targets::link!("wecapi.dll" "system" fn EcOpenSubscription(subscriptionname : ::windows_core::PCWSTR, accessmask : u32, flags : u32) -> isize);
     EcOpenSubscription(subscriptionname.into_param().abi(), accessmask, flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
@@ -88,10 +88,10 @@ pub unsafe fn EcRemoveObjectArrayElement(objectarray: isize, arrayindex: u32) ->
 #[inline]
 pub unsafe fn EcRetrySubscription<P0, P1>(subscriptionname: P0, eventsourcename: P1, flags: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("wecapi.dll" "system" fn EcRetrySubscription(subscriptionname : ::windows::core::PCWSTR, eventsourcename : ::windows::core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("wecapi.dll" "system" fn EcRetrySubscription(subscriptionname : ::windows_core::PCWSTR, eventsourcename : ::windows_core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
     EcRetrySubscription(subscriptionname.into_param().abi(), eventsourcename.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
@@ -152,8 +152,8 @@ impl ::core::default::Default for EC_SUBSCRIPTION_CONFIGURATION_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EC_SUBSCRIPTION_CONFIGURATION_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EC_SUBSCRIPTION_CONFIGURATION_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EC_SUBSCRIPTION_CONFIGURATION_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -179,8 +179,8 @@ impl ::core::default::Default for EC_SUBSCRIPTION_CONTENT_FORMAT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EC_SUBSCRIPTION_CONTENT_FORMAT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EC_SUBSCRIPTION_CONTENT_FORMAT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EC_SUBSCRIPTION_CONTENT_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -212,8 +212,8 @@ impl ::core::default::Default for EC_SUBSCRIPTION_CREDENTIALS_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EC_SUBSCRIPTION_CREDENTIALS_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EC_SUBSCRIPTION_CREDENTIALS_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EC_SUBSCRIPTION_CREDENTIALS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -239,8 +239,8 @@ impl ::core::default::Default for EC_SUBSCRIPTION_DELIVERY_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EC_SUBSCRIPTION_DELIVERY_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EC_SUBSCRIPTION_DELIVERY_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EC_SUBSCRIPTION_DELIVERY_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -328,8 +328,8 @@ impl ::core::default::Default for EC_SUBSCRIPTION_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EC_SUBSCRIPTION_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EC_SUBSCRIPTION_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EC_SUBSCRIPTION_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -359,8 +359,8 @@ impl ::core::default::Default for EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -398,8 +398,8 @@ impl ::core::default::Default for EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -425,8 +425,8 @@ impl ::core::default::Default for EC_SUBSCRIPTION_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EC_SUBSCRIPTION_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EC_SUBSCRIPTION_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EC_SUBSCRIPTION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -460,8 +460,8 @@ impl ::core::default::Default for EC_VARIANT_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EC_VARIANT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EC_VARIANT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EC_VARIANT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -485,8 +485,8 @@ impl ::core::clone::Clone for EC_VARIANT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for EC_VARIANT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EC_VARIANT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EC_VARIANT {
@@ -501,11 +501,11 @@ pub union EC_VARIANT_0 {
     pub BooleanVal: super::super::Foundation::BOOL,
     pub UInt32Val: u32,
     pub DateTimeVal: u64,
-    pub StringVal: ::windows::core::PCWSTR,
+    pub StringVal: ::windows_core::PCWSTR,
     pub BinaryVal: *mut u8,
     pub BooleanArr: *mut super::super::Foundation::BOOL,
     pub Int32Arr: *mut i32,
-    pub StringArr: *mut ::windows::core::PWSTR,
+    pub StringArr: *mut ::windows_core::PWSTR,
     pub PropertyHandleVal: isize,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -517,8 +517,8 @@ impl ::core::clone::Clone for EC_VARIANT_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for EC_VARIANT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EC_VARIANT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EC_VARIANT_0 {

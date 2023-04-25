@@ -8,7 +8,7 @@ pub unsafe fn RtlFirstEntrySList(listhead: *const SLIST_HEADER) -> *mut SLIST_EN
 #[inline]
 pub unsafe fn RtlInitializeSListHead() -> SLIST_HEADER {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlInitializeSListHead(listhead : *mut SLIST_HEADER) -> ());
-    let mut result__ = ::windows::core::zeroed::<SLIST_HEADER>();
+    let mut result__ = ::windows_core::zeroed::<SLIST_HEADER>();
     RtlInitializeSListHead(&mut result__);
     ::std::mem::transmute(result__)
 }
@@ -95,8 +95,8 @@ impl ::core::default::Default for COMPARTMENT_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for COMPARTMENT_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for COMPARTMENT_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for COMPARTMENT_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -122,8 +122,8 @@ impl ::core::default::Default for EVENT_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVENT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVENT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVENT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -153,8 +153,8 @@ impl ::core::default::Default for EXCEPTION_DISPOSITION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EXCEPTION_DISPOSITION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EXCEPTION_DISPOSITION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EXCEPTION_DISPOSITION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -182,8 +182,8 @@ impl ::core::default::Default for NT_PRODUCT_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NT_PRODUCT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NT_PRODUCT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NT_PRODUCT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -243,8 +243,8 @@ impl ::core::default::Default for SUITE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SUITE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SUITE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SUITE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -270,8 +270,8 @@ impl ::core::default::Default for TIMER_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TIMER_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TIMER_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TIMER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -303,8 +303,8 @@ impl ::core::default::Default for WAIT_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WAIT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WAIT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WAIT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -316,7 +316,7 @@ impl ::core::fmt::Debug for WAIT_TYPE {
 pub struct CSTRING {
     pub Length: u16,
     pub MaximumLength: u16,
-    pub Buffer: ::windows::core::PCSTR,
+    pub Buffer: ::windows_core::PCSTR,
 }
 impl ::core::marker::Copy for CSTRING {}
 impl ::core::clone::Clone for CSTRING {
@@ -329,8 +329,8 @@ impl ::core::fmt::Debug for CSTRING {
         f.debug_struct("CSTRING").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
     }
 }
-impl ::windows::core::TypeKind for CSTRING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CSTRING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for CSTRING {
     fn eq(&self, other: &Self) -> bool {
@@ -365,8 +365,8 @@ impl ::core::fmt::Debug for EXCEPTION_REGISTRATION_RECORD {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-impl ::windows::core::TypeKind for EXCEPTION_REGISTRATION_RECORD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EXCEPTION_REGISTRATION_RECORD {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 impl ::core::default::Default for EXCEPTION_REGISTRATION_RECORD {
@@ -403,8 +403,8 @@ impl ::core::fmt::Debug for FLOATING_SAVE_AREA {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::windows::core::TypeKind for FLOATING_SAVE_AREA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FLOATING_SAVE_AREA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for FLOATING_SAVE_AREA {
@@ -449,8 +449,8 @@ impl ::core::fmt::Debug for FLOATING_SAVE_AREA {
     }
 }
 #[cfg(target_arch = "x86")]
-impl ::windows::core::TypeKind for FLOATING_SAVE_AREA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FLOATING_SAVE_AREA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for FLOATING_SAVE_AREA {
@@ -483,8 +483,8 @@ impl ::core::fmt::Debug for LIST_ENTRY {
         f.debug_struct("LIST_ENTRY").field("Flink", &self.Flink).field("Blink", &self.Blink).finish()
     }
 }
-impl ::windows::core::TypeKind for LIST_ENTRY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LIST_ENTRY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for LIST_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -514,8 +514,8 @@ impl ::core::fmt::Debug for LIST_ENTRY32 {
         f.debug_struct("LIST_ENTRY32").field("Flink", &self.Flink).field("Blink", &self.Blink).finish()
     }
 }
-impl ::windows::core::TypeKind for LIST_ENTRY32 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LIST_ENTRY32 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for LIST_ENTRY32 {
     fn eq(&self, other: &Self) -> bool {
@@ -545,8 +545,8 @@ impl ::core::fmt::Debug for LIST_ENTRY64 {
         f.debug_struct("LIST_ENTRY64").field("Flink", &self.Flink).field("Blink", &self.Blink).finish()
     }
 }
-impl ::windows::core::TypeKind for LIST_ENTRY64 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LIST_ENTRY64 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for LIST_ENTRY64 {
     fn eq(&self, other: &Self) -> bool {
@@ -580,8 +580,8 @@ impl ::core::clone::Clone for NT_TIB {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-impl ::windows::core::TypeKind for NT_TIB {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NT_TIB {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 impl ::core::default::Default for NT_TIB {
@@ -605,8 +605,8 @@ impl ::core::clone::Clone for NT_TIB_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-impl ::windows::core::TypeKind for NT_TIB_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NT_TIB_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 impl ::core::default::Default for NT_TIB_0 {
@@ -617,7 +617,7 @@ impl ::core::default::Default for NT_TIB_0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 pub struct OBJECTID {
-    pub Lineage: ::windows::core::GUID,
+    pub Lineage: ::windows_core::GUID,
     pub Uniquifier: u32,
 }
 impl ::core::marker::Copy for OBJECTID {}
@@ -631,8 +631,8 @@ impl ::core::fmt::Debug for OBJECTID {
         f.debug_struct("OBJECTID").field("Lineage", &self.Lineage).field("Uniquifier", &self.Uniquifier).finish()
     }
 }
-impl ::windows::core::TypeKind for OBJECTID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OBJECTID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for OBJECTID {
     fn eq(&self, other: &Self) -> bool {
@@ -666,8 +666,8 @@ impl ::core::fmt::Debug for OBJECT_ATTRIBUTES32 {
         f.debug_struct("OBJECT_ATTRIBUTES32").field("Length", &self.Length).field("RootDirectory", &self.RootDirectory).field("ObjectName", &self.ObjectName).field("Attributes", &self.Attributes).field("SecurityDescriptor", &self.SecurityDescriptor).field("SecurityQualityOfService", &self.SecurityQualityOfService).finish()
     }
 }
-impl ::windows::core::TypeKind for OBJECT_ATTRIBUTES32 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OBJECT_ATTRIBUTES32 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for OBJECT_ATTRIBUTES32 {
     fn eq(&self, other: &Self) -> bool {
@@ -701,8 +701,8 @@ impl ::core::fmt::Debug for OBJECT_ATTRIBUTES64 {
         f.debug_struct("OBJECT_ATTRIBUTES64").field("Length", &self.Length).field("RootDirectory", &self.RootDirectory).field("ObjectName", &self.ObjectName).field("Attributes", &self.Attributes).field("SecurityDescriptor", &self.SecurityDescriptor).field("SecurityQualityOfService", &self.SecurityQualityOfService).finish()
     }
 }
-impl ::windows::core::TypeKind for OBJECT_ATTRIBUTES64 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OBJECT_ATTRIBUTES64 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for OBJECT_ATTRIBUTES64 {
     fn eq(&self, other: &Self) -> bool {
@@ -733,8 +733,8 @@ impl ::core::fmt::Debug for PROCESSOR_NUMBER {
         f.debug_struct("PROCESSOR_NUMBER").field("Group", &self.Group).field("Number", &self.Number).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for PROCESSOR_NUMBER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROCESSOR_NUMBER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROCESSOR_NUMBER {
     fn eq(&self, other: &Self) -> bool {
@@ -758,8 +758,8 @@ impl ::core::clone::Clone for QUAD {
         *self
     }
 }
-impl ::windows::core::TypeKind for QUAD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QUAD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for QUAD {
     fn default() -> Self {
@@ -778,8 +778,8 @@ impl ::core::clone::Clone for QUAD_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for QUAD_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QUAD_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for QUAD_0 {
     fn default() -> Self {
@@ -798,8 +798,8 @@ impl ::core::clone::Clone for RTL_BALANCED_NODE {
         *self
     }
 }
-impl ::windows::core::TypeKind for RTL_BALANCED_NODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RTL_BALANCED_NODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for RTL_BALANCED_NODE {
     fn default() -> Self {
@@ -818,8 +818,8 @@ impl ::core::clone::Clone for RTL_BALANCED_NODE_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for RTL_BALANCED_NODE_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RTL_BALANCED_NODE_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for RTL_BALANCED_NODE_0 {
     fn default() -> Self {
@@ -843,8 +843,8 @@ impl ::core::fmt::Debug for RTL_BALANCED_NODE_0_0 {
         f.debug_struct("RTL_BALANCED_NODE_0_0").field("Left", &self.Left).field("Right", &self.Right).finish()
     }
 }
-impl ::windows::core::TypeKind for RTL_BALANCED_NODE_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RTL_BALANCED_NODE_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RTL_BALANCED_NODE_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -869,8 +869,8 @@ impl ::core::clone::Clone for RTL_BALANCED_NODE_1 {
         *self
     }
 }
-impl ::windows::core::TypeKind for RTL_BALANCED_NODE_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RTL_BALANCED_NODE_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for RTL_BALANCED_NODE_1 {
     fn default() -> Self {
@@ -893,8 +893,8 @@ impl ::core::fmt::Debug for SINGLE_LIST_ENTRY {
         f.debug_struct("SINGLE_LIST_ENTRY").field("Next", &self.Next).finish()
     }
 }
-impl ::windows::core::TypeKind for SINGLE_LIST_ENTRY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SINGLE_LIST_ENTRY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for SINGLE_LIST_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -923,8 +923,8 @@ impl ::core::fmt::Debug for SINGLE_LIST_ENTRY32 {
         f.debug_struct("SINGLE_LIST_ENTRY32").field("Next", &self.Next).finish()
     }
 }
-impl ::windows::core::TypeKind for SINGLE_LIST_ENTRY32 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SINGLE_LIST_ENTRY32 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for SINGLE_LIST_ENTRY32 {
     fn eq(&self, other: &Self) -> bool {
@@ -953,8 +953,8 @@ impl ::core::fmt::Debug for SLIST_ENTRY {
         f.debug_struct("SLIST_ENTRY").field("Next", &self.Next).finish()
     }
 }
-impl ::windows::core::TypeKind for SLIST_ENTRY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SLIST_ENTRY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for SLIST_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -983,8 +983,8 @@ impl ::core::clone::Clone for SLIST_HEADER {
     }
 }
 #[cfg(target_arch = "aarch64")]
-impl ::windows::core::TypeKind for SLIST_HEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SLIST_HEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "aarch64")]
 impl ::core::default::Default for SLIST_HEADER {
@@ -1014,8 +1014,8 @@ impl ::core::fmt::Debug for SLIST_HEADER_0 {
     }
 }
 #[cfg(target_arch = "aarch64")]
-impl ::windows::core::TypeKind for SLIST_HEADER_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SLIST_HEADER_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "aarch64")]
 impl ::core::cmp::PartialEq for SLIST_HEADER_0 {
@@ -1053,8 +1053,8 @@ impl ::core::fmt::Debug for SLIST_HEADER_1 {
     }
 }
 #[cfg(target_arch = "aarch64")]
-impl ::windows::core::TypeKind for SLIST_HEADER_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SLIST_HEADER_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "aarch64")]
 impl ::core::cmp::PartialEq for SLIST_HEADER_1 {
@@ -1086,8 +1086,8 @@ impl ::core::clone::Clone for SLIST_HEADER {
     }
 }
 #[cfg(target_arch = "x86_64")]
-impl ::windows::core::TypeKind for SLIST_HEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SLIST_HEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "x86_64")]
 impl ::core::default::Default for SLIST_HEADER {
@@ -1117,8 +1117,8 @@ impl ::core::fmt::Debug for SLIST_HEADER_0 {
     }
 }
 #[cfg(target_arch = "x86_64")]
-impl ::windows::core::TypeKind for SLIST_HEADER_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SLIST_HEADER_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "x86_64")]
 impl ::core::cmp::PartialEq for SLIST_HEADER_0 {
@@ -1156,8 +1156,8 @@ impl ::core::fmt::Debug for SLIST_HEADER_1 {
     }
 }
 #[cfg(target_arch = "x86_64")]
-impl ::windows::core::TypeKind for SLIST_HEADER_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SLIST_HEADER_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "x86_64")]
 impl ::core::cmp::PartialEq for SLIST_HEADER_1 {
@@ -1189,8 +1189,8 @@ impl ::core::clone::Clone for SLIST_HEADER {
     }
 }
 #[cfg(target_arch = "x86")]
-impl ::windows::core::TypeKind for SLIST_HEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SLIST_HEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SLIST_HEADER {
@@ -1221,8 +1221,8 @@ impl ::core::fmt::Debug for SLIST_HEADER_0 {
     }
 }
 #[cfg(target_arch = "x86")]
-impl ::windows::core::TypeKind for SLIST_HEADER_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SLIST_HEADER_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for SLIST_HEADER_0 {
@@ -1243,7 +1243,7 @@ impl ::core::default::Default for SLIST_HEADER_0 {
 pub struct STRING {
     pub Length: u16,
     pub MaximumLength: u16,
-    pub Buffer: ::windows::core::PSTR,
+    pub Buffer: ::windows_core::PSTR,
 }
 impl ::core::marker::Copy for STRING {}
 impl ::core::clone::Clone for STRING {
@@ -1256,8 +1256,8 @@ impl ::core::fmt::Debug for STRING {
         f.debug_struct("STRING").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
     }
 }
-impl ::windows::core::TypeKind for STRING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for STRING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for STRING {
     fn eq(&self, other: &Self) -> bool {
@@ -1288,8 +1288,8 @@ impl ::core::fmt::Debug for STRING32 {
         f.debug_struct("STRING32").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
     }
 }
-impl ::windows::core::TypeKind for STRING32 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for STRING32 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for STRING32 {
     fn eq(&self, other: &Self) -> bool {
@@ -1320,8 +1320,8 @@ impl ::core::fmt::Debug for STRING64 {
         f.debug_struct("STRING64").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
     }
 }
-impl ::windows::core::TypeKind for STRING64 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for STRING64 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for STRING64 {
     fn eq(&self, other: &Self) -> bool {
@@ -1350,8 +1350,8 @@ impl ::core::fmt::Debug for WNF_STATE_NAME {
         f.debug_struct("WNF_STATE_NAME").field("Data", &self.Data).finish()
     }
 }
-impl ::windows::core::TypeKind for WNF_STATE_NAME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WNF_STATE_NAME {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WNF_STATE_NAME {
     fn eq(&self, other: &Self) -> bool {

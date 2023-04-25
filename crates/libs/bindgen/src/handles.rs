@@ -90,8 +90,8 @@ pub fn gen_win_handle(gen: &Gen, def: TypeDef) -> TokenStream {
                 f.debug_tuple(#name).field(&self.0).finish()
             }
         }
-        impl ::windows::core::TypeKind for #ident {
-            type TypeKind = ::windows::core::CopyType;
+        impl ::windows_core::TypeKind for #ident {
+            type TypeKind = ::windows_core::CopyType;
         }
     };
 
@@ -101,7 +101,7 @@ pub fn gen_win_handle(gen: &Gen, def: TypeDef) -> TokenStream {
         dependency.push_str(type_name.name);
 
         tokens.combine(&quote! {
-            impl windows::core::CanInto<#dependency> for #ident {}
+            impl ::windows_core::CanInto<#dependency> for #ident {}
         });
     }
 

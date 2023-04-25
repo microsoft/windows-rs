@@ -1,61 +1,61 @@
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn AddDelBackupEntryA<P0, P1, P2>(lpcszfilelist: P0, lpcszbackupdir: P1, lpcszbasename: P2, dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn AddDelBackupEntryA<P0, P1, P2>(lpcszfilelist: P0, lpcszbackupdir: P1, lpcszbasename: P2, dwflags: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn AddDelBackupEntryA(lpcszfilelist : ::windows::core::PCSTR, lpcszbackupdir : ::windows::core::PCSTR, lpcszbasename : ::windows::core::PCSTR, dwflags : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn AddDelBackupEntryA(lpcszfilelist : ::windows_core::PCSTR, lpcszbackupdir : ::windows_core::PCSTR, lpcszbasename : ::windows_core::PCSTR, dwflags : u32) -> ::windows_core::HRESULT);
     AddDelBackupEntryA(lpcszfilelist.into_param().abi(), lpcszbackupdir.into_param().abi(), lpcszbasename.into_param().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn AddDelBackupEntryW<P0, P1, P2>(lpcszfilelist: P0, lpcszbackupdir: P1, lpcszbasename: P2, dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn AddDelBackupEntryW<P0, P1, P2>(lpcszfilelist: P0, lpcszbackupdir: P1, lpcszbasename: P2, dwflags: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn AddDelBackupEntryW(lpcszfilelist : ::windows::core::PCWSTR, lpcszbackupdir : ::windows::core::PCWSTR, lpcszbasename : ::windows::core::PCWSTR, dwflags : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn AddDelBackupEntryW(lpcszfilelist : ::windows_core::PCWSTR, lpcszbackupdir : ::windows_core::PCWSTR, lpcszbasename : ::windows_core::PCWSTR, dwflags : u32) -> ::windows_core::HRESULT);
     AddDelBackupEntryW(lpcszfilelist.into_param().abi(), lpcszbackupdir.into_param().abi(), lpcszbasename.into_param().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AdvInstallFileA<P0, P1, P2, P3, P4>(hwnd: P0, lpszsourcedir: P1, lpszsourcefile: P2, lpszdestdir: P3, lpszdestfile: P4, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn AdvInstallFileA<P0, P1, P2, P3, P4>(hwnd: P0, lpszsourcedir: P1, lpszsourcefile: P2, lpszdestdir: P3, lpszdestfile: P4, dwflags: u32, dwreserved: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P4: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P3: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P4: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn AdvInstallFileA(hwnd : super::super::Foundation:: HWND, lpszsourcedir : ::windows::core::PCSTR, lpszsourcefile : ::windows::core::PCSTR, lpszdestdir : ::windows::core::PCSTR, lpszdestfile : ::windows::core::PCSTR, dwflags : u32, dwreserved : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn AdvInstallFileA(hwnd : super::super::Foundation:: HWND, lpszsourcedir : ::windows_core::PCSTR, lpszsourcefile : ::windows_core::PCSTR, lpszdestdir : ::windows_core::PCSTR, lpszdestfile : ::windows_core::PCSTR, dwflags : u32, dwreserved : u32) -> ::windows_core::HRESULT);
     AdvInstallFileA(hwnd.into_param().abi(), lpszsourcedir.into_param().abi(), lpszsourcefile.into_param().abi(), lpszdestdir.into_param().abi(), lpszdestfile.into_param().abi(), dwflags, dwreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AdvInstallFileW<P0, P1, P2, P3, P4>(hwnd: P0, lpszsourcedir: P1, lpszsourcefile: P2, lpszdestdir: P3, lpszdestfile: P4, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn AdvInstallFileW<P0, P1, P2, P3, P4>(hwnd: P0, lpszsourcedir: P1, lpszsourcefile: P2, lpszdestdir: P3, lpszdestfile: P4, dwflags: u32, dwreserved: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P4: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P4: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn AdvInstallFileW(hwnd : super::super::Foundation:: HWND, lpszsourcedir : ::windows::core::PCWSTR, lpszsourcefile : ::windows::core::PCWSTR, lpszdestdir : ::windows::core::PCWSTR, lpszdestfile : ::windows::core::PCWSTR, dwflags : u32, dwreserved : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn AdvInstallFileW(hwnd : super::super::Foundation:: HWND, lpszsourcedir : ::windows_core::PCWSTR, lpszsourcefile : ::windows_core::PCWSTR, lpszdestdir : ::windows_core::PCWSTR, lpszdestfile : ::windows_core::PCWSTR, dwflags : u32, dwreserved : u32) -> ::windows_core::HRESULT);
     AdvInstallFileW(hwnd.into_param().abi(), lpszsourcedir.into_param().abi(), lpszsourcefile.into_param().abi(), lpszdestdir.into_param().abi(), lpszdestfile.into_param().abi(), dwflags, dwreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ApphelpCheckShellObject<P0>(objectclsid: *const ::windows::core::GUID, bshimifnecessary: P0, pullflags: *mut u64) -> super::super::Foundation::BOOL
+pub unsafe fn ApphelpCheckShellObject<P0>(objectclsid: *const ::windows_core::GUID, bshimifnecessary: P0, pullflags: *mut u64) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("apphelp.dll" "system" fn ApphelpCheckShellObject(objectclsid : *const ::windows::core::GUID, bshimifnecessary : super::super::Foundation:: BOOL, pullflags : *mut u64) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("apphelp.dll" "system" fn ApphelpCheckShellObject(objectclsid : *const ::windows_core::GUID, bshimifnecessary : super::super::Foundation:: BOOL, pullflags : *mut u64) -> super::super::Foundation:: BOOL);
     ApphelpCheckShellObject(objectclsid, bshimifnecessary.into_param().abi(), pullflags)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -63,7 +63,7 @@ where
 #[inline]
 pub unsafe fn CancelDeviceWakeupRequest<P0>(hdevice: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn CancelDeviceWakeupRequest(hdevice : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     CancelDeviceWakeupRequest(hdevice.into_param().abi())
@@ -73,28 +73,28 @@ where
 #[inline]
 pub unsafe fn CancelTimerQueueTimer<P0, P1>(timerqueue: P0, timer: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn CancelTimerQueueTimer(timerqueue : super::super::Foundation:: HANDLE, timer : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     CancelTimerQueueTimer(timerqueue.into_param().abi(), timer.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn CloseINFEngine(hinf: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("advpack.dll" "system" fn CloseINFEngine(hinf : *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+pub unsafe fn CloseINFEngine(hinf: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("advpack.dll" "system" fn CloseINFEngine(hinf : *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     CloseINFEngine(hinf).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn ConvertAuxiliaryCounterToPerformanceCounter(ullauxiliarycountervalue: u64, lpperformancecountervalue: *mut u64, lpconversionerror: ::core::option::Option<*mut u64>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("api-ms-win-core-realtime-l1-1-2.dll" "system" fn ConvertAuxiliaryCounterToPerformanceCounter(ullauxiliarycountervalue : u64, lpperformancecountervalue : *mut u64, lpconversionerror : *mut u64) -> ::windows::core::HRESULT);
+pub unsafe fn ConvertAuxiliaryCounterToPerformanceCounter(ullauxiliarycountervalue: u64, lpperformancecountervalue: *mut u64, lpconversionerror: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("api-ms-win-core-realtime-l1-1-2.dll" "system" fn ConvertAuxiliaryCounterToPerformanceCounter(ullauxiliarycountervalue : u64, lpperformancecountervalue : *mut u64, lpconversionerror : *mut u64) -> ::windows_core::HRESULT);
     ConvertAuxiliaryCounterToPerformanceCounter(ullauxiliarycountervalue, lpperformancecountervalue, ::core::mem::transmute(lpconversionerror.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn ConvertPerformanceCounterToAuxiliaryCounter(ullperformancecountervalue: u64, lpauxiliarycountervalue: *mut u64, lpconversionerror: ::core::option::Option<*mut u64>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("api-ms-win-core-realtime-l1-1-2.dll" "system" fn ConvertPerformanceCounterToAuxiliaryCounter(ullperformancecountervalue : u64, lpauxiliarycountervalue : *mut u64, lpconversionerror : *mut u64) -> ::windows::core::HRESULT);
+pub unsafe fn ConvertPerformanceCounterToAuxiliaryCounter(ullperformancecountervalue: u64, lpauxiliarycountervalue: *mut u64, lpconversionerror: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("api-ms-win-core-realtime-l1-1-2.dll" "system" fn ConvertPerformanceCounterToAuxiliaryCounter(ullperformancecountervalue : u64, lpauxiliarycountervalue : *mut u64, lpconversionerror : *mut u64) -> ::windows_core::HRESULT);
     ConvertPerformanceCounterToAuxiliaryCounter(ullperformancecountervalue, lpauxiliarycountervalue, ::core::mem::transmute(lpconversionerror.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -102,10 +102,10 @@ pub unsafe fn ConvertPerformanceCounterToAuxiliaryCounter(ullperformancecounterv
 #[inline]
 pub unsafe fn CreateWaitableTimerA<P0, P1>(lptimerattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, bmanualreset: P0, lptimername: P1) -> super::super::Foundation::HANDLE
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateWaitableTimerA(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, bmanualreset : super::super::Foundation:: BOOL, lptimername : ::windows::core::PCSTR) -> super::super::Foundation:: HANDLE);
+    ::windows_targets::link!("kernel32.dll" "system" fn CreateWaitableTimerA(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, bmanualreset : super::super::Foundation:: BOOL, lptimername : ::windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
     CreateWaitableTimerA(::core::mem::transmute(lptimerattributes.unwrap_or(::std::ptr::null())), bmanualreset.into_param().abi(), lptimername.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -113,9 +113,9 @@ where
 #[inline]
 pub unsafe fn CreateWaitableTimerExA<P0>(lptimerattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lptimername: P0, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateWaitableTimerExA(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lptimername : ::windows::core::PCSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
+    ::windows_targets::link!("kernel32.dll" "system" fn CreateWaitableTimerExA(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lptimername : ::windows_core::PCSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
     CreateWaitableTimerExA(::core::mem::transmute(lptimerattributes.unwrap_or(::std::ptr::null())), lptimername.into_param().abi(), dwflags, dwdesiredaccess)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -129,7 +129,7 @@ pub unsafe fn DCIBeginAccess(pdci: *mut DCISURFACEINFO, x: i32, y: i32, dx: i32,
 #[inline]
 pub unsafe fn DCICloseProvider<P0>(hdc: P0)
 where
-    P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
     ::windows_targets::link!("dciman32.dll" "system" fn DCICloseProvider(hdc : super::super::Graphics::Gdi:: HDC) -> ());
     DCICloseProvider(hdc.into_param().abi())
@@ -139,7 +139,7 @@ where
 #[inline]
 pub unsafe fn DCICreateOffscreen<P0>(hdc: P0, dwcompression: u32, dwredmask: u32, dwgreenmask: u32, dwbluemask: u32, dwwidth: u32, dwheight: u32, dwdcicaps: u32, dwbitcount: u32, lplpsurface: *mut *mut DCIOFFSCREEN) -> i32
 where
-    P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
     ::windows_targets::link!("dciman32.dll" "system" fn DCICreateOffscreen(hdc : super::super::Graphics::Gdi:: HDC, dwcompression : u32, dwredmask : u32, dwgreenmask : u32, dwbluemask : u32, dwwidth : u32, dwheight : u32, dwdcicaps : u32, dwbitcount : u32, lplpsurface : *mut *mut DCIOFFSCREEN) -> i32);
     DCICreateOffscreen(hdc.into_param().abi(), dwcompression, dwredmask, dwgreenmask, dwbluemask, dwwidth, dwheight, dwdcicaps, dwbitcount, lplpsurface)
@@ -149,7 +149,7 @@ where
 #[inline]
 pub unsafe fn DCICreateOverlay<P0>(hdc: P0, lpoffscreensurf: *mut ::core::ffi::c_void, lplpsurface: *mut *mut DCIOVERLAY) -> i32
 where
-    P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
     ::windows_targets::link!("dciman32.dll" "system" fn DCICreateOverlay(hdc : super::super::Graphics::Gdi:: HDC, lpoffscreensurf : *mut ::core::ffi::c_void, lplpsurface : *mut *mut DCIOVERLAY) -> i32);
     DCICreateOverlay(hdc.into_param().abi(), lpoffscreensurf, lplpsurface)
@@ -159,7 +159,7 @@ where
 #[inline]
 pub unsafe fn DCICreatePrimary<P0>(hdc: P0, lplpsurface: *mut *mut DCISURFACEINFO) -> i32
 where
-    P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
     ::windows_targets::link!("dciman32.dll" "system" fn DCICreatePrimary(hdc : super::super::Graphics::Gdi:: HDC, lplpsurface : *mut *mut DCISURFACEINFO) -> i32);
     DCICreatePrimary(hdc.into_param().abi(), lplpsurface)
@@ -187,7 +187,7 @@ pub unsafe fn DCIEndAccess(pdci: *mut DCISURFACEINFO) {
 #[inline]
 pub unsafe fn DCIEnum<P0>(hdc: P0, lprdst: *mut super::super::Foundation::RECT, lprsrc: *mut super::super::Foundation::RECT, lpfncallback: *mut ::core::ffi::c_void, lpcontext: *mut ::core::ffi::c_void) -> i32
 where
-    P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
     ::windows_targets::link!("dciman32.dll" "system" fn DCIEnum(hdc : super::super::Graphics::Gdi:: HDC, lprdst : *mut super::super::Foundation:: RECT, lprsrc : *mut super::super::Foundation:: RECT, lpfncallback : *mut ::core::ffi::c_void, lpcontext : *mut ::core::ffi::c_void) -> i32);
     DCIEnum(hdc.into_param().abi(), lprdst, lprsrc, lpfncallback, lpcontext)
@@ -222,51 +222,51 @@ pub unsafe fn DCISetSrcDestClip(pdci: *mut DCIOFFSCREEN, srcrc: *mut super::supe
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn DelNodeA<P0>(pszfileordirname: P0, dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn DelNodeA<P0>(pszfileordirname: P0, dwflags: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn DelNodeA(pszfileordirname : ::windows::core::PCSTR, dwflags : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn DelNodeA(pszfileordirname : ::windows_core::PCSTR, dwflags : u32) -> ::windows_core::HRESULT);
     DelNodeA(pszfileordirname.into_param().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DelNodeRunDLL32W<P0, P1>(hwnd: P0, hinstance: P1, pszparms: ::windows::core::PWSTR, nshow: i32) -> ::windows::core::Result<()>
+pub unsafe fn DelNodeRunDLL32W<P0, P1>(hwnd: P0, hinstance: P1, pszparms: ::windows_core::PWSTR, nshow: i32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn DelNodeRunDLL32W(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszparms : ::windows::core::PWSTR, nshow : i32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn DelNodeRunDLL32W(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszparms : ::windows_core::PWSTR, nshow : i32) -> ::windows_core::HRESULT);
     DelNodeRunDLL32W(hwnd.into_param().abi(), hinstance.into_param().abi(), ::core::mem::transmute(pszparms), nshow).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn DelNodeW<P0>(pszfileordirname: P0, dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn DelNodeW<P0>(pszfileordirname: P0, dwflags: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn DelNodeW(pszfileordirname : ::windows::core::PCWSTR, dwflags : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn DelNodeW(pszfileordirname : ::windows_core::PCWSTR, dwflags : u32) -> ::windows_core::HRESULT);
     DelNodeW(pszfileordirname.into_param().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsHostnameToComputerNameA<P0>(hostname: P0, computername: ::windows::core::PSTR, nsize: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn DnsHostnameToComputerNameA<P0>(hostname: P0, computername: ::windows_core::PSTR, nsize: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn DnsHostnameToComputerNameA(hostname : ::windows::core::PCSTR, computername : ::windows::core::PSTR, nsize : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn DnsHostnameToComputerNameA(hostname : ::windows_core::PCSTR, computername : ::windows_core::PSTR, nsize : *mut u32) -> super::super::Foundation:: BOOL);
     DnsHostnameToComputerNameA(hostname.into_param().abi(), ::core::mem::transmute(computername), nsize)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsHostnameToComputerNameW<P0>(hostname: P0, computername: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn DnsHostnameToComputerNameW<P0>(hostname: P0, computername: ::windows_core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn DnsHostnameToComputerNameW(hostname : ::windows::core::PCWSTR, computername : ::windows::core::PWSTR, nsize : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn DnsHostnameToComputerNameW(hostname : ::windows_core::PCWSTR, computername : ::windows_core::PWSTR, nsize : *mut u32) -> super::super::Foundation:: BOOL);
     DnsHostnameToComputerNameW(hostname.into_param().abi(), ::core::mem::transmute(computername), nsize)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -287,108 +287,108 @@ pub unsafe fn EnableProcessOptionalXStateFeatures(features: u64) -> super::super
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ExecuteCabA<P0>(hwnd: P0, pcab: *mut CABINFOA, preserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn ExecuteCabA<P0>(hwnd: P0, pcab: *mut CABINFOA, preserved: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn ExecuteCabA(hwnd : super::super::Foundation:: HWND, pcab : *mut CABINFOA, preserved : *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn ExecuteCabA(hwnd : super::super::Foundation:: HWND, pcab : *mut CABINFOA, preserved : *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ExecuteCabA(hwnd.into_param().abi(), pcab, preserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ExecuteCabW<P0>(hwnd: P0, pcab: *mut CABINFOW, preserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn ExecuteCabW<P0>(hwnd: P0, pcab: *mut CABINFOW, preserved: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn ExecuteCabW(hwnd : super::super::Foundation:: HWND, pcab : *mut CABINFOW, preserved : *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn ExecuteCabW(hwnd : super::super::Foundation:: HWND, pcab : *mut CABINFOW, preserved : *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ExecuteCabW(hwnd.into_param().abi(), pcab, preserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn ExtractFilesA<P0, P1, P2>(pszcabname: P0, pszexpanddir: P1, dwflags: u32, pszfilelist: P2, lpreserved: *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn ExtractFilesA<P0, P1, P2>(pszcabname: P0, pszexpanddir: P1, dwflags: u32, pszfilelist: P2, lpreserved: *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn ExtractFilesA(pszcabname : ::windows::core::PCSTR, pszexpanddir : ::windows::core::PCSTR, dwflags : u32, pszfilelist : ::windows::core::PCSTR, lpreserved : *mut ::core::ffi::c_void, dwreserved : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn ExtractFilesA(pszcabname : ::windows_core::PCSTR, pszexpanddir : ::windows_core::PCSTR, dwflags : u32, pszfilelist : ::windows_core::PCSTR, lpreserved : *mut ::core::ffi::c_void, dwreserved : u32) -> ::windows_core::HRESULT);
     ExtractFilesA(pszcabname.into_param().abi(), pszexpanddir.into_param().abi(), dwflags, pszfilelist.into_param().abi(), lpreserved, dwreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn ExtractFilesW<P0, P1, P2>(pszcabname: P0, pszexpanddir: P1, dwflags: u32, pszfilelist: P2, lpreserved: *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn ExtractFilesW<P0, P1, P2>(pszcabname: P0, pszexpanddir: P1, dwflags: u32, pszfilelist: P2, lpreserved: *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn ExtractFilesW(pszcabname : ::windows::core::PCWSTR, pszexpanddir : ::windows::core::PCWSTR, dwflags : u32, pszfilelist : ::windows::core::PCWSTR, lpreserved : *mut ::core::ffi::c_void, dwreserved : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn ExtractFilesW(pszcabname : ::windows_core::PCWSTR, pszexpanddir : ::windows_core::PCWSTR, dwflags : u32, pszfilelist : ::windows_core::PCWSTR, lpreserved : *mut ::core::ffi::c_void, dwreserved : u32) -> ::windows_core::HRESULT);
     ExtractFilesW(pszcabname.into_param().abi(), pszexpanddir.into_param().abi(), dwflags, pszfilelist.into_param().abi(), lpreserved, dwreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn FileSaveMarkNotExistA<P0, P1, P2>(lpfilelist: P0, lpdir: P1, lpbasename: P2) -> ::windows::core::Result<()>
+pub unsafe fn FileSaveMarkNotExistA<P0, P1, P2>(lpfilelist: P0, lpdir: P1, lpbasename: P2) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn FileSaveMarkNotExistA(lpfilelist : ::windows::core::PCSTR, lpdir : ::windows::core::PCSTR, lpbasename : ::windows::core::PCSTR) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn FileSaveMarkNotExistA(lpfilelist : ::windows_core::PCSTR, lpdir : ::windows_core::PCSTR, lpbasename : ::windows_core::PCSTR) -> ::windows_core::HRESULT);
     FileSaveMarkNotExistA(lpfilelist.into_param().abi(), lpdir.into_param().abi(), lpbasename.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn FileSaveMarkNotExistW<P0, P1, P2>(lpfilelist: P0, lpdir: P1, lpbasename: P2) -> ::windows::core::Result<()>
+pub unsafe fn FileSaveMarkNotExistW<P0, P1, P2>(lpfilelist: P0, lpdir: P1, lpbasename: P2) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn FileSaveMarkNotExistW(lpfilelist : ::windows::core::PCWSTR, lpdir : ::windows::core::PCWSTR, lpbasename : ::windows::core::PCWSTR) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn FileSaveMarkNotExistW(lpfilelist : ::windows_core::PCWSTR, lpdir : ::windows_core::PCWSTR, lpbasename : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     FileSaveMarkNotExistW(lpfilelist.into_param().abi(), lpdir.into_param().abi(), lpbasename.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FileSaveRestoreOnINFA<P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitle: P1, pszinf: P2, pszsection: P3, pszbackupdir: P4, pszbasebackupfile: P5, dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn FileSaveRestoreOnINFA<P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitle: P1, pszinf: P2, pszsection: P3, pszbackupdir: P4, pszbasebackupfile: P5, dwflags: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P4: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P5: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P3: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P4: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P5: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn FileSaveRestoreOnINFA(hwnd : super::super::Foundation:: HWND, psztitle : ::windows::core::PCSTR, pszinf : ::windows::core::PCSTR, pszsection : ::windows::core::PCSTR, pszbackupdir : ::windows::core::PCSTR, pszbasebackupfile : ::windows::core::PCSTR, dwflags : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn FileSaveRestoreOnINFA(hwnd : super::super::Foundation:: HWND, psztitle : ::windows_core::PCSTR, pszinf : ::windows_core::PCSTR, pszsection : ::windows_core::PCSTR, pszbackupdir : ::windows_core::PCSTR, pszbasebackupfile : ::windows_core::PCSTR, dwflags : u32) -> ::windows_core::HRESULT);
     FileSaveRestoreOnINFA(hwnd.into_param().abi(), psztitle.into_param().abi(), pszinf.into_param().abi(), pszsection.into_param().abi(), pszbackupdir.into_param().abi(), pszbasebackupfile.into_param().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FileSaveRestoreOnINFW<P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitle: P1, pszinf: P2, pszsection: P3, pszbackupdir: P4, pszbasebackupfile: P5, dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn FileSaveRestoreOnINFW<P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitle: P1, pszinf: P2, pszsection: P3, pszbackupdir: P4, pszbasebackupfile: P5, dwflags: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P4: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P5: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P4: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P5: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn FileSaveRestoreOnINFW(hwnd : super::super::Foundation:: HWND, psztitle : ::windows::core::PCWSTR, pszinf : ::windows::core::PCWSTR, pszsection : ::windows::core::PCWSTR, pszbackupdir : ::windows::core::PCWSTR, pszbasebackupfile : ::windows::core::PCWSTR, dwflags : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn FileSaveRestoreOnINFW(hwnd : super::super::Foundation:: HWND, psztitle : ::windows_core::PCWSTR, pszinf : ::windows_core::PCWSTR, pszsection : ::windows_core::PCWSTR, pszbackupdir : ::windows_core::PCWSTR, pszbasebackupfile : ::windows_core::PCWSTR, dwflags : u32) -> ::windows_core::HRESULT);
     FileSaveRestoreOnINFW(hwnd.into_param().abi(), psztitle.into_param().abi(), pszinf.into_param().abi(), pszsection.into_param().abi(), pszbackupdir.into_param().abi(), pszbasebackupfile.into_param().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FileSaveRestoreW<P0, P1, P2, P3>(hdlg: P0, lpfilelist: P1, lpdir: P2, lpbasename: P3, dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn FileSaveRestoreW<P0, P1, P2, P3>(hdlg: P0, lpfilelist: P1, lpdir: P2, lpbasename: P3, dwflags: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn FileSaveRestoreW(hdlg : super::super::Foundation:: HWND, lpfilelist : ::windows::core::PCWSTR, lpdir : ::windows::core::PCWSTR, lpbasename : ::windows::core::PCWSTR, dwflags : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn FileSaveRestoreW(hdlg : super::super::Foundation:: HWND, lpfilelist : ::windows_core::PCWSTR, lpdir : ::windows_core::PCWSTR, lpbasename : ::windows_core::PCWSTR, dwflags : u32) -> ::windows_core::HRESULT);
     FileSaveRestoreW(hdlg.into_param().abi(), lpfilelist.into_param().abi(), lpdir.into_param().abi(), lpbasename.into_param().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -407,15 +407,15 @@ pub unsafe fn GdiEntry13() -> u32 {
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetComputerNameA(lpbuffer: ::windows::core::PSTR, nsize: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetComputerNameA(lpbuffer : ::windows::core::PSTR, nsize : *mut u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn GetComputerNameA(lpbuffer: ::windows_core::PSTR, nsize: *mut u32) -> super::super::Foundation::BOOL {
+    ::windows_targets::link!("kernel32.dll" "system" fn GetComputerNameA(lpbuffer : ::windows_core::PSTR, nsize : *mut u32) -> super::super::Foundation:: BOOL);
     GetComputerNameA(::core::mem::transmute(lpbuffer), nsize)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetComputerNameW(lpbuffer: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetComputerNameW(lpbuffer : ::windows::core::PWSTR, nsize : *mut u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn GetComputerNameW(lpbuffer: ::windows_core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL {
+    ::windows_targets::link!("kernel32.dll" "system" fn GetComputerNameW(lpbuffer : ::windows_core::PWSTR, nsize : *mut u32) -> super::super::Foundation:: BOOL);
     GetComputerNameW(::core::mem::transmute(lpbuffer), nsize)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -437,7 +437,7 @@ pub unsafe fn GetCurrentHwProfileW(lphwprofileinfo: *mut HW_PROFILE_INFOW) -> su
 #[inline]
 pub unsafe fn GetDCRegionData<P0>(hdc: P0, size: u32, prd: *mut super::super::Graphics::Gdi::RGNDATA) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
     ::windows_targets::link!("dciman32.dll" "system" fn GetDCRegionData(hdc : super::super::Graphics::Gdi:: HDC, size : u32, prd : *mut super::super::Graphics::Gdi:: RGNDATA) -> u32);
     GetDCRegionData(hdc.into_param().abi(), size, prd)
@@ -459,124 +459,124 @@ pub unsafe fn GetFeatureVariant(featureid: u32, changetime: FEATURE_CHANGE_TIME,
 #[inline]
 pub unsafe fn GetFirmwareEnvironmentVariableA<P0, P1>(lpname: P0, lpguid: P1, pbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, nsize: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetFirmwareEnvironmentVariableA(lpname : ::windows::core::PCSTR, lpguid : ::windows::core::PCSTR, pbuffer : *mut ::core::ffi::c_void, nsize : u32) -> u32);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetFirmwareEnvironmentVariableA(lpname : ::windows_core::PCSTR, lpguid : ::windows_core::PCSTR, pbuffer : *mut ::core::ffi::c_void, nsize : u32) -> u32);
     GetFirmwareEnvironmentVariableA(lpname.into_param().abi(), lpguid.into_param().abi(), ::core::mem::transmute(pbuffer.unwrap_or(::std::ptr::null_mut())), nsize)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn GetFirmwareEnvironmentVariableExA<P0, P1>(lpname: P0, lpguid: P1, pbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, nsize: u32, pdwattribubutes: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetFirmwareEnvironmentVariableExA(lpname : ::windows::core::PCSTR, lpguid : ::windows::core::PCSTR, pbuffer : *mut ::core::ffi::c_void, nsize : u32, pdwattribubutes : *mut u32) -> u32);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetFirmwareEnvironmentVariableExA(lpname : ::windows_core::PCSTR, lpguid : ::windows_core::PCSTR, pbuffer : *mut ::core::ffi::c_void, nsize : u32, pdwattribubutes : *mut u32) -> u32);
     GetFirmwareEnvironmentVariableExA(lpname.into_param().abi(), lpguid.into_param().abi(), ::core::mem::transmute(pbuffer.unwrap_or(::std::ptr::null_mut())), nsize, ::core::mem::transmute(pdwattribubutes.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn GetFirmwareEnvironmentVariableExW<P0, P1>(lpname: P0, lpguid: P1, pbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, nsize: u32, pdwattribubutes: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetFirmwareEnvironmentVariableExW(lpname : ::windows::core::PCWSTR, lpguid : ::windows::core::PCWSTR, pbuffer : *mut ::core::ffi::c_void, nsize : u32, pdwattribubutes : *mut u32) -> u32);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetFirmwareEnvironmentVariableExW(lpname : ::windows_core::PCWSTR, lpguid : ::windows_core::PCWSTR, pbuffer : *mut ::core::ffi::c_void, nsize : u32, pdwattribubutes : *mut u32) -> u32);
     GetFirmwareEnvironmentVariableExW(lpname.into_param().abi(), lpguid.into_param().abi(), ::core::mem::transmute(pbuffer.unwrap_or(::std::ptr::null_mut())), nsize, ::core::mem::transmute(pdwattribubutes.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn GetFirmwareEnvironmentVariableW<P0, P1>(lpname: P0, lpguid: P1, pbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, nsize: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetFirmwareEnvironmentVariableW(lpname : ::windows::core::PCWSTR, lpguid : ::windows::core::PCWSTR, pbuffer : *mut ::core::ffi::c_void, nsize : u32) -> u32);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetFirmwareEnvironmentVariableW(lpname : ::windows_core::PCWSTR, lpguid : ::windows_core::PCWSTR, pbuffer : *mut ::core::ffi::c_void, nsize : u32) -> u32);
     GetFirmwareEnvironmentVariableW(lpname.into_param().abi(), lpguid.into_param().abi(), ::core::mem::transmute(pbuffer.unwrap_or(::std::ptr::null_mut())), nsize)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn GetPrivateProfileIntA<P0, P1, P2>(lpappname: P0, lpkeyname: P1, ndefault: i32, lpfilename: P2) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetPrivateProfileIntA(lpappname : ::windows::core::PCSTR, lpkeyname : ::windows::core::PCSTR, ndefault : i32, lpfilename : ::windows::core::PCSTR) -> u32);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetPrivateProfileIntA(lpappname : ::windows_core::PCSTR, lpkeyname : ::windows_core::PCSTR, ndefault : i32, lpfilename : ::windows_core::PCSTR) -> u32);
     GetPrivateProfileIntA(lpappname.into_param().abi(), lpkeyname.into_param().abi(), ndefault, lpfilename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn GetPrivateProfileIntW<P0, P1, P2>(lpappname: P0, lpkeyname: P1, ndefault: i32, lpfilename: P2) -> i32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetPrivateProfileIntW(lpappname : ::windows::core::PCWSTR, lpkeyname : ::windows::core::PCWSTR, ndefault : i32, lpfilename : ::windows::core::PCWSTR) -> i32);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetPrivateProfileIntW(lpappname : ::windows_core::PCWSTR, lpkeyname : ::windows_core::PCWSTR, ndefault : i32, lpfilename : ::windows_core::PCWSTR) -> i32);
     GetPrivateProfileIntW(lpappname.into_param().abi(), lpkeyname.into_param().abi(), ndefault, lpfilename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn GetPrivateProfileSectionA<P0, P1>(lpappname: P0, lpreturnedstring: ::core::option::Option<&mut [u8]>, lpfilename: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetPrivateProfileSectionA(lpappname : ::windows::core::PCSTR, lpreturnedstring : ::windows::core::PSTR, nsize : u32, lpfilename : ::windows::core::PCSTR) -> u32);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetPrivateProfileSectionA(lpappname : ::windows_core::PCSTR, lpreturnedstring : ::windows_core::PSTR, nsize : u32, lpfilename : ::windows_core::PCSTR) -> u32);
     GetPrivateProfileSectionA(lpappname.into_param().abi(), ::core::mem::transmute(lpreturnedstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpreturnedstring.as_deref().map_or(0, |slice| slice.len() as _), lpfilename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn GetPrivateProfileSectionNamesA<P0>(lpszreturnbuffer: ::core::option::Option<&mut [u8]>, lpfilename: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetPrivateProfileSectionNamesA(lpszreturnbuffer : ::windows::core::PSTR, nsize : u32, lpfilename : ::windows::core::PCSTR) -> u32);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetPrivateProfileSectionNamesA(lpszreturnbuffer : ::windows_core::PSTR, nsize : u32, lpfilename : ::windows_core::PCSTR) -> u32);
     GetPrivateProfileSectionNamesA(::core::mem::transmute(lpszreturnbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszreturnbuffer.as_deref().map_or(0, |slice| slice.len() as _), lpfilename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn GetPrivateProfileSectionNamesW<P0>(lpszreturnbuffer: ::core::option::Option<&mut [u16]>, lpfilename: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetPrivateProfileSectionNamesW(lpszreturnbuffer : ::windows::core::PWSTR, nsize : u32, lpfilename : ::windows::core::PCWSTR) -> u32);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetPrivateProfileSectionNamesW(lpszreturnbuffer : ::windows_core::PWSTR, nsize : u32, lpfilename : ::windows_core::PCWSTR) -> u32);
     GetPrivateProfileSectionNamesW(::core::mem::transmute(lpszreturnbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszreturnbuffer.as_deref().map_or(0, |slice| slice.len() as _), lpfilename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn GetPrivateProfileSectionW<P0, P1>(lpappname: P0, lpreturnedstring: ::core::option::Option<&mut [u16]>, lpfilename: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetPrivateProfileSectionW(lpappname : ::windows::core::PCWSTR, lpreturnedstring : ::windows::core::PWSTR, nsize : u32, lpfilename : ::windows::core::PCWSTR) -> u32);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetPrivateProfileSectionW(lpappname : ::windows_core::PCWSTR, lpreturnedstring : ::windows_core::PWSTR, nsize : u32, lpfilename : ::windows_core::PCWSTR) -> u32);
     GetPrivateProfileSectionW(lpappname.into_param().abi(), ::core::mem::transmute(lpreturnedstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpreturnedstring.as_deref().map_or(0, |slice| slice.len() as _), lpfilename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn GetPrivateProfileStringA<P0, P1, P2, P3>(lpappname: P0, lpkeyname: P1, lpdefault: P2, lpreturnedstring: ::core::option::Option<&mut [u8]>, lpfilename: P3) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P3: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetPrivateProfileStringA(lpappname : ::windows::core::PCSTR, lpkeyname : ::windows::core::PCSTR, lpdefault : ::windows::core::PCSTR, lpreturnedstring : ::windows::core::PSTR, nsize : u32, lpfilename : ::windows::core::PCSTR) -> u32);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetPrivateProfileStringA(lpappname : ::windows_core::PCSTR, lpkeyname : ::windows_core::PCSTR, lpdefault : ::windows_core::PCSTR, lpreturnedstring : ::windows_core::PSTR, nsize : u32, lpfilename : ::windows_core::PCSTR) -> u32);
     GetPrivateProfileStringA(lpappname.into_param().abi(), lpkeyname.into_param().abi(), lpdefault.into_param().abi(), ::core::mem::transmute(lpreturnedstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpreturnedstring.as_deref().map_or(0, |slice| slice.len() as _), lpfilename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn GetPrivateProfileStringW<P0, P1, P2, P3>(lpappname: P0, lpkeyname: P1, lpdefault: P2, lpreturnedstring: ::core::option::Option<&mut [u16]>, lpfilename: P3) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetPrivateProfileStringW(lpappname : ::windows::core::PCWSTR, lpkeyname : ::windows::core::PCWSTR, lpdefault : ::windows::core::PCWSTR, lpreturnedstring : ::windows::core::PWSTR, nsize : u32, lpfilename : ::windows::core::PCWSTR) -> u32);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetPrivateProfileStringW(lpappname : ::windows_core::PCWSTR, lpkeyname : ::windows_core::PCWSTR, lpdefault : ::windows_core::PCWSTR, lpreturnedstring : ::windows_core::PWSTR, nsize : u32, lpfilename : ::windows_core::PCWSTR) -> u32);
     GetPrivateProfileStringW(lpappname.into_param().abi(), lpkeyname.into_param().abi(), lpdefault.into_param().abi(), ::core::mem::transmute(lpreturnedstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpreturnedstring.as_deref().map_or(0, |slice| slice.len() as _), lpfilename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -584,11 +584,11 @@ where
 #[inline]
 pub unsafe fn GetPrivateProfileStructA<P0, P1, P2>(lpszsection: P0, lpszkey: P1, lpstruct: ::core::option::Option<*mut ::core::ffi::c_void>, usizestruct: u32, szfile: P2) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetPrivateProfileStructA(lpszsection : ::windows::core::PCSTR, lpszkey : ::windows::core::PCSTR, lpstruct : *mut ::core::ffi::c_void, usizestruct : u32, szfile : ::windows::core::PCSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetPrivateProfileStructA(lpszsection : ::windows_core::PCSTR, lpszkey : ::windows_core::PCSTR, lpstruct : *mut ::core::ffi::c_void, usizestruct : u32, szfile : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     GetPrivateProfileStructA(lpszsection.into_param().abi(), lpszkey.into_param().abi(), ::core::mem::transmute(lpstruct.unwrap_or(::std::ptr::null_mut())), usizestruct, szfile.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -596,71 +596,71 @@ where
 #[inline]
 pub unsafe fn GetPrivateProfileStructW<P0, P1, P2>(lpszsection: P0, lpszkey: P1, lpstruct: ::core::option::Option<*mut ::core::ffi::c_void>, usizestruct: u32, szfile: P2) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetPrivateProfileStructW(lpszsection : ::windows::core::PCWSTR, lpszkey : ::windows::core::PCWSTR, lpstruct : *mut ::core::ffi::c_void, usizestruct : u32, szfile : ::windows::core::PCWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetPrivateProfileStructW(lpszsection : ::windows_core::PCWSTR, lpszkey : ::windows_core::PCWSTR, lpstruct : *mut ::core::ffi::c_void, usizestruct : u32, szfile : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     GetPrivateProfileStructW(lpszsection.into_param().abi(), lpszkey.into_param().abi(), ::core::mem::transmute(lpstruct.unwrap_or(::std::ptr::null_mut())), usizestruct, szfile.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn GetProfileIntA<P0, P1>(lpappname: P0, lpkeyname: P1, ndefault: i32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetProfileIntA(lpappname : ::windows::core::PCSTR, lpkeyname : ::windows::core::PCSTR, ndefault : i32) -> u32);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetProfileIntA(lpappname : ::windows_core::PCSTR, lpkeyname : ::windows_core::PCSTR, ndefault : i32) -> u32);
     GetProfileIntA(lpappname.into_param().abi(), lpkeyname.into_param().abi(), ndefault)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn GetProfileIntW<P0, P1>(lpappname: P0, lpkeyname: P1, ndefault: i32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetProfileIntW(lpappname : ::windows::core::PCWSTR, lpkeyname : ::windows::core::PCWSTR, ndefault : i32) -> u32);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetProfileIntW(lpappname : ::windows_core::PCWSTR, lpkeyname : ::windows_core::PCWSTR, ndefault : i32) -> u32);
     GetProfileIntW(lpappname.into_param().abi(), lpkeyname.into_param().abi(), ndefault)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn GetProfileSectionA<P0>(lpappname: P0, lpreturnedstring: ::core::option::Option<&mut [u8]>) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetProfileSectionA(lpappname : ::windows::core::PCSTR, lpreturnedstring : ::windows::core::PSTR, nsize : u32) -> u32);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetProfileSectionA(lpappname : ::windows_core::PCSTR, lpreturnedstring : ::windows_core::PSTR, nsize : u32) -> u32);
     GetProfileSectionA(lpappname.into_param().abi(), ::core::mem::transmute(lpreturnedstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpreturnedstring.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn GetProfileSectionW<P0>(lpappname: P0, lpreturnedstring: ::core::option::Option<&mut [u16]>) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetProfileSectionW(lpappname : ::windows::core::PCWSTR, lpreturnedstring : ::windows::core::PWSTR, nsize : u32) -> u32);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetProfileSectionW(lpappname : ::windows_core::PCWSTR, lpreturnedstring : ::windows_core::PWSTR, nsize : u32) -> u32);
     GetProfileSectionW(lpappname.into_param().abi(), ::core::mem::transmute(lpreturnedstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpreturnedstring.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn GetProfileStringA<P0, P1, P2>(lpappname: P0, lpkeyname: P1, lpdefault: P2, lpreturnedstring: ::core::option::Option<&mut [u8]>) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetProfileStringA(lpappname : ::windows::core::PCSTR, lpkeyname : ::windows::core::PCSTR, lpdefault : ::windows::core::PCSTR, lpreturnedstring : ::windows::core::PSTR, nsize : u32) -> u32);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetProfileStringA(lpappname : ::windows_core::PCSTR, lpkeyname : ::windows_core::PCSTR, lpdefault : ::windows_core::PCSTR, lpreturnedstring : ::windows_core::PSTR, nsize : u32) -> u32);
     GetProfileStringA(lpappname.into_param().abi(), lpkeyname.into_param().abi(), lpdefault.into_param().abi(), ::core::mem::transmute(lpreturnedstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpreturnedstring.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn GetProfileStringW<P0, P1, P2>(lpappname: P0, lpkeyname: P1, lpdefault: P2, lpreturnedstring: ::core::option::Option<&mut [u16]>) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetProfileStringW(lpappname : ::windows::core::PCWSTR, lpkeyname : ::windows::core::PCWSTR, lpdefault : ::windows::core::PCWSTR, lpreturnedstring : ::windows::core::PWSTR, nsize : u32) -> u32);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetProfileStringW(lpappname : ::windows_core::PCWSTR, lpkeyname : ::windows_core::PCWSTR, lpdefault : ::windows_core::PCWSTR, lpreturnedstring : ::windows_core::PWSTR, nsize : u32) -> u32);
     GetProfileStringW(lpappname.into_param().abi(), lpkeyname.into_param().abi(), lpdefault.into_param().abi(), ::core::mem::transmute(lpreturnedstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpreturnedstring.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -680,59 +680,59 @@ pub unsafe fn GetThreadEnabledXStateFeatures() -> u64 {
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUserNameA(lpbuffer: ::windows::core::PSTR, pcbbuffer: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("advapi32.dll" "system" fn GetUserNameA(lpbuffer : ::windows::core::PSTR, pcbbuffer : *mut u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn GetUserNameA(lpbuffer: ::windows_core::PSTR, pcbbuffer: *mut u32) -> super::super::Foundation::BOOL {
+    ::windows_targets::link!("advapi32.dll" "system" fn GetUserNameA(lpbuffer : ::windows_core::PSTR, pcbbuffer : *mut u32) -> super::super::Foundation:: BOOL);
     GetUserNameA(::core::mem::transmute(lpbuffer), pcbbuffer)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUserNameW(lpbuffer: ::windows::core::PWSTR, pcbbuffer: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("advapi32.dll" "system" fn GetUserNameW(lpbuffer : ::windows::core::PWSTR, pcbbuffer : *mut u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn GetUserNameW(lpbuffer: ::windows_core::PWSTR, pcbbuffer: *mut u32) -> super::super::Foundation::BOOL {
+    ::windows_targets::link!("advapi32.dll" "system" fn GetUserNameW(lpbuffer : ::windows_core::PWSTR, pcbbuffer : *mut u32) -> super::super::Foundation:: BOOL);
     GetUserNameW(::core::mem::transmute(lpbuffer), pcbbuffer)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVersionFromFileA<P0, P1>(lpszfilename: P0, pdwmsver: *mut u32, pdwlsver: *mut u32, bversion: P1) -> ::windows::core::Result<()>
+pub unsafe fn GetVersionFromFileA<P0, P1>(lpszfilename: P0, pdwmsver: *mut u32, pdwlsver: *mut u32, bversion: P1) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn GetVersionFromFileA(lpszfilename : ::windows::core::PCSTR, pdwmsver : *mut u32, pdwlsver : *mut u32, bversion : super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn GetVersionFromFileA(lpszfilename : ::windows_core::PCSTR, pdwmsver : *mut u32, pdwlsver : *mut u32, bversion : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     GetVersionFromFileA(lpszfilename.into_param().abi(), pdwmsver, pdwlsver, bversion.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVersionFromFileExA<P0, P1>(lpszfilename: P0, pdwmsver: *mut u32, pdwlsver: *mut u32, bversion: P1) -> ::windows::core::Result<()>
+pub unsafe fn GetVersionFromFileExA<P0, P1>(lpszfilename: P0, pdwmsver: *mut u32, pdwlsver: *mut u32, bversion: P1) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn GetVersionFromFileExA(lpszfilename : ::windows::core::PCSTR, pdwmsver : *mut u32, pdwlsver : *mut u32, bversion : super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn GetVersionFromFileExA(lpszfilename : ::windows_core::PCSTR, pdwmsver : *mut u32, pdwlsver : *mut u32, bversion : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     GetVersionFromFileExA(lpszfilename.into_param().abi(), pdwmsver, pdwlsver, bversion.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVersionFromFileExW<P0, P1>(lpszfilename: P0, pdwmsver: *mut u32, pdwlsver: *mut u32, bversion: P1) -> ::windows::core::Result<()>
+pub unsafe fn GetVersionFromFileExW<P0, P1>(lpszfilename: P0, pdwmsver: *mut u32, pdwlsver: *mut u32, bversion: P1) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn GetVersionFromFileExW(lpszfilename : ::windows::core::PCWSTR, pdwmsver : *mut u32, pdwlsver : *mut u32, bversion : super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn GetVersionFromFileExW(lpszfilename : ::windows_core::PCWSTR, pdwmsver : *mut u32, pdwlsver : *mut u32, bversion : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     GetVersionFromFileExW(lpszfilename.into_param().abi(), pdwmsver, pdwlsver, bversion.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVersionFromFileW<P0, P1>(lpszfilename: P0, pdwmsver: *mut u32, pdwlsver: *mut u32, bversion: P1) -> ::windows::core::Result<()>
+pub unsafe fn GetVersionFromFileW<P0, P1>(lpszfilename: P0, pdwmsver: *mut u32, pdwlsver: *mut u32, bversion: P1) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn GetVersionFromFileW(lpszfilename : ::windows::core::PCWSTR, pdwmsver : *mut u32, pdwlsver : *mut u32, bversion : super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn GetVersionFromFileW(lpszfilename : ::windows_core::PCWSTR, pdwmsver : *mut u32, pdwlsver : *mut u32, bversion : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     GetVersionFromFileW(lpszfilename.into_param().abi(), pdwmsver, pdwlsver, bversion.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -740,7 +740,7 @@ where
 #[inline]
 pub unsafe fn GetWindowRegionData<P0>(hwnd: P0, size: u32, prd: *mut super::super::Graphics::Gdi::RGNDATA) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("dciman32.dll" "system" fn GetWindowRegionData(hwnd : super::super::Foundation:: HWND, size : u32, prd : *mut super::super::Graphics::Gdi:: RGNDATA) -> u32);
     GetWindowRegionData(hwnd.into_param().abi(), size, prd)
@@ -756,7 +756,7 @@ pub unsafe fn GlobalCompact(dwminfree: u32) -> usize {
 #[inline]
 pub unsafe fn GlobalFix<P0>(hmem: P0)
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HGLOBAL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HGLOBAL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GlobalFix(hmem : super::super::Foundation:: HGLOBAL) -> ());
     GlobalFix(hmem.into_param().abi())
@@ -766,7 +766,7 @@ where
 #[inline]
 pub unsafe fn GlobalUnWire<P0>(hmem: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HGLOBAL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HGLOBAL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GlobalUnWire(hmem : super::super::Foundation:: HGLOBAL) -> super::super::Foundation:: BOOL);
     GlobalUnWire(hmem.into_param().abi())
@@ -776,7 +776,7 @@ where
 #[inline]
 pub unsafe fn GlobalUnfix<P0>(hmem: P0)
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HGLOBAL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HGLOBAL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GlobalUnfix(hmem : super::super::Foundation:: HGLOBAL) -> ());
     GlobalUnfix(hmem.into_param().abi())
@@ -786,7 +786,7 @@ where
 #[inline]
 pub unsafe fn GlobalWire<P0>(hmem: P0) -> *mut ::core::ffi::c_void
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HGLOBAL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HGLOBAL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GlobalWire(hmem : super::super::Foundation:: HGLOBAL) -> *mut ::core::ffi::c_void);
     GlobalWire(hmem.into_param().abi())
@@ -796,7 +796,7 @@ where
 #[inline]
 pub unsafe fn IMPGetIMEA<P0>(param0: P0, param1: *mut IMEPROA) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn IMPGetIMEA(param0 : super::super::Foundation:: HWND, param1 : *mut IMEPROA) -> super::super::Foundation:: BOOL);
     IMPGetIMEA(param0.into_param().abi(), param1)
@@ -806,7 +806,7 @@ where
 #[inline]
 pub unsafe fn IMPGetIMEW<P0>(param0: P0, param1: *mut IMEPROW) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn IMPGetIMEW(param0 : super::super::Foundation:: HWND, param1 : *mut IMEPROW) -> super::super::Foundation:: BOOL);
     IMPGetIMEW(param0.into_param().abi(), param1)
@@ -830,7 +830,7 @@ pub unsafe fn IMPQueryIMEW(param0: *mut IMEPROW) -> super::super::Foundation::BO
 #[inline]
 pub unsafe fn IMPSetIMEA<P0>(param0: P0, param1: *mut IMEPROA) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn IMPSetIMEA(param0 : super::super::Foundation:: HWND, param1 : *mut IMEPROA) -> super::super::Foundation:: BOOL);
     IMPSetIMEA(param0.into_param().abi(), param1)
@@ -840,7 +840,7 @@ where
 #[inline]
 pub unsafe fn IMPSetIMEW<P0>(param0: P0, param1: *mut IMEPROW) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn IMPSetIMEW(param0 : super::super::Foundation:: HWND, param1 : *mut IMEPROW) -> super::super::Foundation:: BOOL);
     IMPSetIMEW(param0.into_param().abi(), param1)
@@ -850,9 +850,9 @@ where
 #[inline]
 pub unsafe fn IsApiSetImplemented<P0>(contract: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("api-ms-win-core-apiquery-l2-1-0.dll" "system" fn IsApiSetImplemented(contract : ::windows::core::PCSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("api-ms-win-core-apiquery-l2-1-0.dll" "system" fn IsApiSetImplemented(contract : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     IsApiSetImplemented(contract.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -888,7 +888,7 @@ pub unsafe fn IsNativeVhdBoot(nativevhdboot: *mut super::super::Foundation::BOOL
 #[inline]
 pub unsafe fn IsTokenUntrusted<P0>(tokenhandle: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn IsTokenUntrusted(tokenhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     IsTokenUntrusted(tokenhandle.into_param().abi())
@@ -896,24 +896,24 @@ where
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LaunchINFSectionExW<P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows::core::Result<()>
+pub unsafe fn LaunchINFSectionExW<P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn LaunchINFSectionExW(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszparms : ::windows::core::PCWSTR, nshow : i32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn LaunchINFSectionExW(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszparms : ::windows_core::PCWSTR, nshow : i32) -> ::windows_core::HRESULT);
     LaunchINFSectionExW(hwnd.into_param().abi(), hinstance.into_param().abi(), pszparms.into_param().abi(), nshow).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LaunchINFSectionW<P0, P1>(hwndowner: P0, hinstance: P1, pszparams: ::windows::core::PWSTR, nshow: i32) -> i32
+pub unsafe fn LaunchINFSectionW<P0, P1>(hwndowner: P0, hinstance: P1, pszparams: ::windows_core::PWSTR, nshow: i32) -> i32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn LaunchINFSectionW(hwndowner : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszparams : ::windows::core::PWSTR, nshow : i32) -> i32);
+    ::windows_targets::link!("advpack.dll" "system" fn LaunchINFSectionW(hwndowner : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszparams : ::windows_core::PWSTR, nshow : i32) -> i32);
     LaunchINFSectionW(hwndowner.into_param().abi(), hinstance.into_param().abi(), ::core::mem::transmute(pszparams), nshow)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -927,7 +927,7 @@ pub unsafe fn LocalCompact(uminfree: u32) -> usize {
 #[inline]
 pub unsafe fn LocalShrink<P0>(hmem: P0, cbnewsize: u32) -> usize
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HLOCAL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HLOCAL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn LocalShrink(hmem : super::super::Foundation:: HLOCAL, cbnewsize : u32) -> usize);
     LocalShrink(hmem.into_param().abi(), cbnewsize)
@@ -954,9 +954,9 @@ pub unsafe fn NeedRebootInit() -> u32 {
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NtClose<P0>(handle: P0) -> ::windows::core::Result<()>
+pub unsafe fn NtClose<P0>(handle: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("ntdll.dll" "system" fn NtClose(handle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: NTSTATUS);
     NtClose(handle.into_param().abi()).ok()
@@ -964,10 +964,10 @@ where
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NtDeviceIoControlFile<P0, P1>(filehandle: P0, event: P1, apcroutine: PIO_APC_ROUTINE, apccontext: *mut ::core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, iocontrolcode: u32, inputbuffer: *mut ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> ::windows::core::Result<()>
+pub unsafe fn NtDeviceIoControlFile<P0, P1>(filehandle: P0, event: P1, apcroutine: PIO_APC_ROUTINE, apccontext: *mut ::core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, iocontrolcode: u32, inputbuffer: *mut ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("ntdll.dll" "system" fn NtDeviceIoControlFile(filehandle : super::super::Foundation:: HANDLE, event : super::super::Foundation:: HANDLE, apcroutine : PIO_APC_ROUTINE, apccontext : *mut ::core::ffi::c_void, iostatusblock : *mut IO_STATUS_BLOCK, iocontrolcode : u32, inputbuffer : *mut ::core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut ::core::ffi::c_void, outputbufferlength : u32) -> super::super::Foundation:: NTSTATUS);
     NtDeviceIoControlFile(filehandle.into_param().abi(), event.into_param().abi(), apcroutine, apccontext, iostatusblock, iocontrolcode, inputbuffer, inputbufferlength, outputbuffer, outputbufferlength).ok()
@@ -975,12 +975,12 @@ where
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NtNotifyChangeMultipleKeys<P0, P1, P2, P3>(masterkeyhandle: P0, subordinateobjects: ::core::option::Option<&[OBJECT_ATTRIBUTES]>, event: P1, apcroutine: PIO_APC_ROUTINE, apccontext: ::core::option::Option<*const ::core::ffi::c_void>, iostatusblock: *mut IO_STATUS_BLOCK, completionfilter: u32, watchtree: P2, buffer: ::core::option::Option<*mut ::core::ffi::c_void>, buffersize: u32, asynchronous: P3) -> ::windows::core::Result<()>
+pub unsafe fn NtNotifyChangeMultipleKeys<P0, P1, P2, P3>(masterkeyhandle: P0, subordinateobjects: ::core::option::Option<&[OBJECT_ATTRIBUTES]>, event: P1, apcroutine: PIO_APC_ROUTINE, apccontext: ::core::option::Option<*const ::core::ffi::c_void>, iostatusblock: *mut IO_STATUS_BLOCK, completionfilter: u32, watchtree: P2, buffer: ::core::option::Option<*mut ::core::ffi::c_void>, buffersize: u32, asynchronous: P3) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P2: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
-    P3: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::BOOLEAN>,
+    P3: ::windows_core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
     ::windows_targets::link!("ntdll.dll" "system" fn NtNotifyChangeMultipleKeys(masterkeyhandle : super::super::Foundation:: HANDLE, count : u32, subordinateobjects : *const OBJECT_ATTRIBUTES, event : super::super::Foundation:: HANDLE, apcroutine : PIO_APC_ROUTINE, apccontext : *const ::core::ffi::c_void, iostatusblock : *mut IO_STATUS_BLOCK, completionfilter : u32, watchtree : super::super::Foundation:: BOOLEAN, buffer : *mut ::core::ffi::c_void, buffersize : u32, asynchronous : super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: NTSTATUS);
     NtNotifyChangeMultipleKeys(
@@ -1002,16 +1002,16 @@ where
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NtOpenFile(filehandle: *mut super::super::Foundation::HANDLE, desiredaccess: u32, objectattributes: *mut OBJECT_ATTRIBUTES, iostatusblock: *mut IO_STATUS_BLOCK, shareaccess: u32, openoptions: u32) -> ::windows::core::Result<()> {
+pub unsafe fn NtOpenFile(filehandle: *mut super::super::Foundation::HANDLE, desiredaccess: u32, objectattributes: *mut OBJECT_ATTRIBUTES, iostatusblock: *mut IO_STATUS_BLOCK, shareaccess: u32, openoptions: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("ntdll.dll" "system" fn NtOpenFile(filehandle : *mut super::super::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *mut OBJECT_ATTRIBUTES, iostatusblock : *mut IO_STATUS_BLOCK, shareaccess : u32, openoptions : u32) -> super::super::Foundation:: NTSTATUS);
     NtOpenFile(filehandle, desiredaccess, objectattributes, iostatusblock, shareaccess, openoptions).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NtQueryMultipleValueKey<P0>(keyhandle: P0, valueentries: &mut [KEY_VALUE_ENTRY], valuebuffer: *mut ::core::ffi::c_void, bufferlength: *mut u32, requiredbufferlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn NtQueryMultipleValueKey<P0>(keyhandle: P0, valueentries: &mut [KEY_VALUE_ENTRY], valuebuffer: *mut ::core::ffi::c_void, bufferlength: *mut u32, requiredbufferlength: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("ntdll.dll" "system" fn NtQueryMultipleValueKey(keyhandle : super::super::Foundation:: HANDLE, valueentries : *mut KEY_VALUE_ENTRY, entrycount : u32, valuebuffer : *mut ::core::ffi::c_void, bufferlength : *mut u32, requiredbufferlength : *mut u32) -> super::super::Foundation:: NTSTATUS);
     NtQueryMultipleValueKey(keyhandle.into_param().abi(), ::core::mem::transmute(valueentries.as_ptr()), valueentries.len() as _, valuebuffer, bufferlength, ::core::mem::transmute(requiredbufferlength.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -1019,9 +1019,9 @@ where
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NtQueryObject<P0>(handle: P0, objectinformationclass: OBJECT_INFORMATION_CLASS, objectinformation: ::core::option::Option<*mut ::core::ffi::c_void>, objectinformationlength: u32, returnlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn NtQueryObject<P0>(handle: P0, objectinformationclass: OBJECT_INFORMATION_CLASS, objectinformation: ::core::option::Option<*mut ::core::ffi::c_void>, objectinformationlength: u32, returnlength: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("ntdll.dll" "system" fn NtQueryObject(handle : super::super::Foundation:: HANDLE, objectinformationclass : OBJECT_INFORMATION_CLASS, objectinformation : *mut ::core::ffi::c_void, objectinformationlength : u32, returnlength : *mut u32) -> super::super::Foundation:: NTSTATUS);
     NtQueryObject(handle.into_param().abi(), objectinformationclass, ::core::mem::transmute(objectinformation.unwrap_or(::std::ptr::null_mut())), objectinformationlength, ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -1029,30 +1029,30 @@ where
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NtQuerySystemInformation(systeminformationclass: SYSTEM_INFORMATION_CLASS, systeminformation: *mut ::core::ffi::c_void, systeminformationlength: u32, returnlength: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn NtQuerySystemInformation(systeminformationclass: SYSTEM_INFORMATION_CLASS, systeminformation: *mut ::core::ffi::c_void, systeminformationlength: u32, returnlength: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("ntdll.dll" "system" fn NtQuerySystemInformation(systeminformationclass : SYSTEM_INFORMATION_CLASS, systeminformation : *mut ::core::ffi::c_void, systeminformationlength : u32, returnlength : *mut u32) -> super::super::Foundation:: NTSTATUS);
     NtQuerySystemInformation(systeminformationclass, systeminformation, systeminformationlength, returnlength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NtQuerySystemTime(systemtime: *mut i64) -> ::windows::core::Result<()> {
+pub unsafe fn NtQuerySystemTime(systemtime: *mut i64) -> ::windows_core::Result<()> {
     ::windows_targets::link!("ntdll.dll" "system" fn NtQuerySystemTime(systemtime : *mut i64) -> super::super::Foundation:: NTSTATUS);
     NtQuerySystemTime(systemtime).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NtQueryTimerResolution(maximumtime: *mut u32, minimumtime: *mut u32, currenttime: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn NtQueryTimerResolution(maximumtime: *mut u32, minimumtime: *mut u32, currenttime: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("ntdll.dll" "system" fn NtQueryTimerResolution(maximumtime : *mut u32, minimumtime : *mut u32, currenttime : *mut u32) -> super::super::Foundation:: NTSTATUS);
     NtQueryTimerResolution(maximumtime, minimumtime, currenttime).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NtRenameKey<P0>(keyhandle: P0, newname: *const super::super::Foundation::UNICODE_STRING) -> ::windows::core::Result<()>
+pub unsafe fn NtRenameKey<P0>(keyhandle: P0, newname: *const super::super::Foundation::UNICODE_STRING) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("ntdll.dll" "system" fn NtRenameKey(keyhandle : super::super::Foundation:: HANDLE, newname : *const super::super::Foundation:: UNICODE_STRING) -> super::super::Foundation:: NTSTATUS);
     NtRenameKey(keyhandle.into_param().abi(), newname).ok()
@@ -1060,9 +1060,9 @@ where
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NtSetInformationKey<P0>(keyhandle: P0, keysetinformationclass: KEY_SET_INFORMATION_CLASS, keysetinformation: *const ::core::ffi::c_void, keysetinformationlength: u32) -> ::windows::core::Result<()>
+pub unsafe fn NtSetInformationKey<P0>(keyhandle: P0, keysetinformationclass: KEY_SET_INFORMATION_CLASS, keysetinformation: *const ::core::ffi::c_void, keysetinformationlength: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("ntdll.dll" "system" fn NtSetInformationKey(keyhandle : super::super::Foundation:: HANDLE, keysetinformationclass : KEY_SET_INFORMATION_CLASS, keysetinformation : *const ::core::ffi::c_void, keysetinformationlength : u32) -> super::super::Foundation:: NTSTATUS);
     NtSetInformationKey(keyhandle.into_param().abi(), keysetinformationclass, keysetinformation, keysetinformationlength).ok()
@@ -1070,32 +1070,32 @@ where
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NtWaitForSingleObject<P0, P1>(handle: P0, alertable: P1, timeout: *mut i64) -> ::windows::core::Result<()>
+pub unsafe fn NtWaitForSingleObject<P0, P1>(handle: P0, alertable: P1, timeout: *mut i64) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
     ::windows_targets::link!("ntdll.dll" "system" fn NtWaitForSingleObject(handle : super::super::Foundation:: HANDLE, alertable : super::super::Foundation:: BOOLEAN, timeout : *mut i64) -> super::super::Foundation:: NTSTATUS);
     NtWaitForSingleObject(handle.into_param().abi(), alertable.into_param().abi(), timeout).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn OpenINFEngineA<P0, P1>(pszinffilename: P0, pszinstallsection: P1, dwflags: u32, phinf: *mut *mut ::core::ffi::c_void, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn OpenINFEngineA<P0, P1>(pszinffilename: P0, pszinstallsection: P1, dwflags: u32, phinf: *mut *mut ::core::ffi::c_void, pvreserved: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn OpenINFEngineA(pszinffilename : ::windows::core::PCSTR, pszinstallsection : ::windows::core::PCSTR, dwflags : u32, phinf : *mut *mut ::core::ffi::c_void, pvreserved : *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn OpenINFEngineA(pszinffilename : ::windows_core::PCSTR, pszinstallsection : ::windows_core::PCSTR, dwflags : u32, phinf : *mut *mut ::core::ffi::c_void, pvreserved : *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     OpenINFEngineA(pszinffilename.into_param().abi(), pszinstallsection.into_param().abi(), dwflags, phinf, pvreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn OpenINFEngineW<P0, P1>(pszinffilename: P0, pszinstallsection: P1, dwflags: u32, phinf: *mut *mut ::core::ffi::c_void, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn OpenINFEngineW<P0, P1>(pszinffilename: P0, pszinstallsection: P1, dwflags: u32, phinf: *mut *mut ::core::ffi::c_void, pvreserved: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn OpenINFEngineW(pszinffilename : ::windows::core::PCWSTR, pszinstallsection : ::windows::core::PCWSTR, dwflags : u32, phinf : *mut *mut ::core::ffi::c_void, pvreserved : *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn OpenINFEngineW(pszinffilename : ::windows_core::PCWSTR, pszinstallsection : ::windows_core::PCWSTR, dwflags : u32, phinf : *mut *mut ::core::ffi::c_void, pvreserved : *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     OpenINFEngineW(pszinffilename.into_param().abi(), pszinstallsection.into_param().abi(), dwflags, phinf, pvreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1103,10 +1103,10 @@ where
 #[inline]
 pub unsafe fn OpenMutexA<P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> super::super::Foundation::HANDLE
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn OpenMutexA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : ::windows::core::PCSTR) -> super::super::Foundation:: HANDLE);
+    ::windows_targets::link!("kernel32.dll" "system" fn OpenMutexA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : ::windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
     OpenMutexA(dwdesiredaccess, binherithandle.into_param().abi(), lpname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1114,10 +1114,10 @@ where
 #[inline]
 pub unsafe fn OpenSemaphoreA<P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> super::super::Foundation::HANDLE
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn OpenSemaphoreA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : ::windows::core::PCSTR) -> super::super::Foundation:: HANDLE);
+    ::windows_targets::link!("kernel32.dll" "system" fn OpenSemaphoreA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : ::windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
     OpenSemaphoreA(dwdesiredaccess, binherithandle.into_param().abi(), lpname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1125,17 +1125,17 @@ where
 #[inline]
 pub unsafe fn OpenWaitableTimerA<P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lptimername: P1) -> super::super::Foundation::HANDLE
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn OpenWaitableTimerA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lptimername : ::windows::core::PCSTR) -> super::super::Foundation:: HANDLE);
+    ::windows_targets::link!("kernel32.dll" "system" fn OpenWaitableTimerA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lptimername : ::windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
     OpenWaitableTimerA(dwdesiredaccess, binherithandle.into_param().abi(), lptimername.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn QueryAuxiliaryCounterFrequency() -> ::windows::core::Result<u64> {
-    ::windows_targets::link!("api-ms-win-core-realtime-l1-1-2.dll" "system" fn QueryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency : *mut u64) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<u64>();
+pub unsafe fn QueryAuxiliaryCounterFrequency() -> ::windows_core::Result<u64> {
+    ::windows_targets::link!("api-ms-win-core-realtime-l1-1-2.dll" "system" fn QueryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency : *mut u64) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<u64>();
     QueryAuxiliaryCounterFrequency(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1156,7 +1156,7 @@ pub unsafe fn QueryIdleProcessorCycleTimeEx(group: u16, bufferlength: *mut u32, 
 #[inline]
 pub unsafe fn QueryInterruptTime() -> u64 {
     ::windows_targets::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryInterruptTime(lpinterrupttime : *mut u64) -> ());
-    let mut result__ = ::windows::core::zeroed::<u64>();
+    let mut result__ = ::windows_core::zeroed::<u64>();
     QueryInterruptTime(&mut result__);
     ::std::mem::transmute(result__)
 }
@@ -1164,7 +1164,7 @@ pub unsafe fn QueryInterruptTime() -> u64 {
 #[inline]
 pub unsafe fn QueryInterruptTimePrecise() -> u64 {
     ::windows_targets::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryInterruptTimePrecise(lpinterrupttimeprecise : *mut u64) -> ());
-    let mut result__ = ::windows::core::zeroed::<u64>();
+    let mut result__ = ::windows_core::zeroed::<u64>();
     QueryInterruptTimePrecise(&mut result__);
     ::std::mem::transmute(result__)
 }
@@ -1173,7 +1173,7 @@ pub unsafe fn QueryInterruptTimePrecise() -> u64 {
 #[inline]
 pub unsafe fn QueryProcessCycleTime<P0>(processhandle: P0, cycletime: *mut u64) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn QueryProcessCycleTime(processhandle : super::super::Foundation:: HANDLE, cycletime : *mut u64) -> super::super::Foundation:: BOOL);
     QueryProcessCycleTime(processhandle.into_param().abi(), cycletime)
@@ -1183,7 +1183,7 @@ where
 #[inline]
 pub unsafe fn QueryThreadCycleTime<P0>(threadhandle: P0, cycletime: *mut u64) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn QueryThreadCycleTime(threadhandle : super::super::Foundation:: HANDLE, cycletime : *mut u64) -> super::super::Foundation:: BOOL);
     QueryThreadCycleTime(threadhandle.into_param().abi(), cycletime)
@@ -1199,7 +1199,7 @@ pub unsafe fn QueryUnbiasedInterruptTime(unbiasedtime: *mut u64) -> super::super
 #[inline]
 pub unsafe fn QueryUnbiasedInterruptTimePrecise() -> u64 {
     ::windows_targets::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise : *mut u64) -> ());
-    let mut result__ = ::windows::core::zeroed::<u64>();
+    let mut result__ = ::windows_core::zeroed::<u64>();
     QueryUnbiasedInterruptTimePrecise(&mut result__);
     ::std::mem::transmute(result__)
 }
@@ -1212,25 +1212,25 @@ pub unsafe fn RaiseCustomSystemEventTrigger(customsystemeventtriggerconfig: *con
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RebootCheckOnInstallA<P0, P1, P2>(hwnd: P0, pszinf: P1, pszsec: P2, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn RebootCheckOnInstallA<P0, P1, P2>(hwnd: P0, pszinf: P1, pszsec: P2, dwreserved: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn RebootCheckOnInstallA(hwnd : super::super::Foundation:: HWND, pszinf : ::windows::core::PCSTR, pszsec : ::windows::core::PCSTR, dwreserved : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn RebootCheckOnInstallA(hwnd : super::super::Foundation:: HWND, pszinf : ::windows_core::PCSTR, pszsec : ::windows_core::PCSTR, dwreserved : u32) -> ::windows_core::HRESULT);
     RebootCheckOnInstallA(hwnd.into_param().abi(), pszinf.into_param().abi(), pszsec.into_param().abi(), dwreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RebootCheckOnInstallW<P0, P1, P2>(hwnd: P0, pszinf: P1, pszsec: P2, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn RebootCheckOnInstallW<P0, P1, P2>(hwnd: P0, pszinf: P1, pszsec: P2, dwreserved: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn RebootCheckOnInstallW(hwnd : super::super::Foundation:: HWND, pszinf : ::windows::core::PCWSTR, pszsec : ::windows::core::PCWSTR, dwreserved : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn RebootCheckOnInstallW(hwnd : super::super::Foundation:: HWND, pszinf : ::windows_core::PCWSTR, pszsec : ::windows_core::PCWSTR, dwreserved : u32) -> ::windows_core::HRESULT);
     RebootCheckOnInstallW(hwnd.into_param().abi(), pszinf.into_param().abi(), pszsec.into_param().abi(), dwreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -1243,115 +1243,115 @@ pub unsafe fn RecordFeatureError(featureid: u32, error: *const FEATURE_ERROR) {
 #[inline]
 pub unsafe fn RecordFeatureUsage<P0>(featureid: u32, kind: u32, addend: u32, originname: P0)
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn RecordFeatureUsage(featureid : u32, kind : u32, addend : u32, originname : ::windows::core::PCSTR) -> ());
+    ::windows_targets::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn RecordFeatureUsage(featureid : u32, kind : u32, addend : u32, originname : ::windows_core::PCSTR) -> ());
     RecordFeatureUsage(featureid, kind, addend, originname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegInstallA<P0, P1>(hmod: P0, pszsection: P1, psttable: *const STRTABLEA) -> ::windows::core::Result<()>
+pub unsafe fn RegInstallA<P0, P1>(hmod: P0, pszsection: P1, psttable: *const STRTABLEA) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn RegInstallA(hmod : super::super::Foundation:: HMODULE, pszsection : ::windows::core::PCSTR, psttable : *const STRTABLEA) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn RegInstallA(hmod : super::super::Foundation:: HMODULE, pszsection : ::windows_core::PCSTR, psttable : *const STRTABLEA) -> ::windows_core::HRESULT);
     RegInstallA(hmod.into_param().abi(), pszsection.into_param().abi(), psttable).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegInstallW<P0, P1>(hmod: P0, pszsection: P1, psttable: *const STRTABLEW) -> ::windows::core::Result<()>
+pub unsafe fn RegInstallW<P0, P1>(hmod: P0, pszsection: P1, psttable: *const STRTABLEW) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn RegInstallW(hmod : super::super::Foundation:: HMODULE, pszsection : ::windows::core::PCWSTR, psttable : *const STRTABLEW) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn RegInstallW(hmod : super::super::Foundation:: HMODULE, pszsection : ::windows_core::PCWSTR, psttable : *const STRTABLEW) -> ::windows_core::HRESULT);
     RegInstallW(hmod.into_param().abi(), pszsection.into_param().abi(), psttable).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn RegRestoreAllA<P0, P1, P2>(hwnd: P0, psztitlestring: P1, hkbckupkey: P2) -> ::windows::core::Result<()>
+pub unsafe fn RegRestoreAllA<P0, P1, P2>(hwnd: P0, psztitlestring: P1, hkbckupkey: P2) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<super::Registry::HKEY>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<super::Registry::HKEY>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn RegRestoreAllA(hwnd : super::super::Foundation:: HWND, psztitlestring : ::windows::core::PCSTR, hkbckupkey : super::Registry:: HKEY) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn RegRestoreAllA(hwnd : super::super::Foundation:: HWND, psztitlestring : ::windows_core::PCSTR, hkbckupkey : super::Registry:: HKEY) -> ::windows_core::HRESULT);
     RegRestoreAllA(hwnd.into_param().abi(), psztitlestring.into_param().abi(), hkbckupkey.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn RegRestoreAllW<P0, P1, P2>(hwnd: P0, psztitlestring: P1, hkbckupkey: P2) -> ::windows::core::Result<()>
+pub unsafe fn RegRestoreAllW<P0, P1, P2>(hwnd: P0, psztitlestring: P1, hkbckupkey: P2) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<super::Registry::HKEY>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<super::Registry::HKEY>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn RegRestoreAllW(hwnd : super::super::Foundation:: HWND, psztitlestring : ::windows::core::PCWSTR, hkbckupkey : super::Registry:: HKEY) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn RegRestoreAllW(hwnd : super::super::Foundation:: HWND, psztitlestring : ::windows_core::PCWSTR, hkbckupkey : super::Registry:: HKEY) -> ::windows_core::HRESULT);
     RegRestoreAllW(hwnd.into_param().abi(), psztitlestring.into_param().abi(), hkbckupkey.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn RegSaveRestoreA<P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitlestring: P1, hkbckupkey: P2, pcszrootkey: P3, pcszsubkey: P4, pcszvaluename: P5, dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn RegSaveRestoreA<P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitlestring: P1, hkbckupkey: P2, pcszrootkey: P3, pcszsubkey: P4, pcszvaluename: P5, dwflags: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<super::Registry::HKEY>,
-    P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P4: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P5: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<super::Registry::HKEY>,
+    P3: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P4: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P5: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn RegSaveRestoreA(hwnd : super::super::Foundation:: HWND, psztitlestring : ::windows::core::PCSTR, hkbckupkey : super::Registry:: HKEY, pcszrootkey : ::windows::core::PCSTR, pcszsubkey : ::windows::core::PCSTR, pcszvaluename : ::windows::core::PCSTR, dwflags : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn RegSaveRestoreA(hwnd : super::super::Foundation:: HWND, psztitlestring : ::windows_core::PCSTR, hkbckupkey : super::Registry:: HKEY, pcszrootkey : ::windows_core::PCSTR, pcszsubkey : ::windows_core::PCSTR, pcszvaluename : ::windows_core::PCSTR, dwflags : u32) -> ::windows_core::HRESULT);
     RegSaveRestoreA(hwnd.into_param().abi(), psztitlestring.into_param().abi(), hkbckupkey.into_param().abi(), pcszrootkey.into_param().abi(), pcszsubkey.into_param().abi(), pcszvaluename.into_param().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn RegSaveRestoreOnINFA<P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitle: P1, pszinf: P2, pszsection: P3, hhklmbackkey: P4, hhkcubackkey: P5, dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn RegSaveRestoreOnINFA<P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitle: P1, pszinf: P2, pszsection: P3, hhklmbackkey: P4, hhkcubackkey: P5, dwflags: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P4: ::windows::core::IntoParam<super::Registry::HKEY>,
-    P5: ::windows::core::IntoParam<super::Registry::HKEY>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P3: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P4: ::windows_core::IntoParam<super::Registry::HKEY>,
+    P5: ::windows_core::IntoParam<super::Registry::HKEY>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn RegSaveRestoreOnINFA(hwnd : super::super::Foundation:: HWND, psztitle : ::windows::core::PCSTR, pszinf : ::windows::core::PCSTR, pszsection : ::windows::core::PCSTR, hhklmbackkey : super::Registry:: HKEY, hhkcubackkey : super::Registry:: HKEY, dwflags : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn RegSaveRestoreOnINFA(hwnd : super::super::Foundation:: HWND, psztitle : ::windows_core::PCSTR, pszinf : ::windows_core::PCSTR, pszsection : ::windows_core::PCSTR, hhklmbackkey : super::Registry:: HKEY, hhkcubackkey : super::Registry:: HKEY, dwflags : u32) -> ::windows_core::HRESULT);
     RegSaveRestoreOnINFA(hwnd.into_param().abi(), psztitle.into_param().abi(), pszinf.into_param().abi(), pszsection.into_param().abi(), hhklmbackkey.into_param().abi(), hhkcubackkey.into_param().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn RegSaveRestoreOnINFW<P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitle: P1, pszinf: P2, pszsection: P3, hhklmbackkey: P4, hhkcubackkey: P5, dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn RegSaveRestoreOnINFW<P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitle: P1, pszinf: P2, pszsection: P3, hhklmbackkey: P4, hhkcubackkey: P5, dwflags: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P4: ::windows::core::IntoParam<super::Registry::HKEY>,
-    P5: ::windows::core::IntoParam<super::Registry::HKEY>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P4: ::windows_core::IntoParam<super::Registry::HKEY>,
+    P5: ::windows_core::IntoParam<super::Registry::HKEY>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn RegSaveRestoreOnINFW(hwnd : super::super::Foundation:: HWND, psztitle : ::windows::core::PCWSTR, pszinf : ::windows::core::PCWSTR, pszsection : ::windows::core::PCWSTR, hhklmbackkey : super::Registry:: HKEY, hhkcubackkey : super::Registry:: HKEY, dwflags : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn RegSaveRestoreOnINFW(hwnd : super::super::Foundation:: HWND, psztitle : ::windows_core::PCWSTR, pszinf : ::windows_core::PCWSTR, pszsection : ::windows_core::PCWSTR, hhklmbackkey : super::Registry:: HKEY, hhkcubackkey : super::Registry:: HKEY, dwflags : u32) -> ::windows_core::HRESULT);
     RegSaveRestoreOnINFW(hwnd.into_param().abi(), psztitle.into_param().abi(), pszinf.into_param().abi(), pszsection.into_param().abi(), hhklmbackkey.into_param().abi(), hhkcubackkey.into_param().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn RegSaveRestoreW<P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitlestring: P1, hkbckupkey: P2, pcszrootkey: P3, pcszsubkey: P4, pcszvaluename: P5, dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn RegSaveRestoreW<P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitlestring: P1, hkbckupkey: P2, pcszrootkey: P3, pcszsubkey: P4, pcszvaluename: P5, dwflags: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<super::Registry::HKEY>,
-    P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P4: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P5: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<super::Registry::HKEY>,
+    P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P4: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P5: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn RegSaveRestoreW(hwnd : super::super::Foundation:: HWND, psztitlestring : ::windows::core::PCWSTR, hkbckupkey : super::Registry:: HKEY, pcszrootkey : ::windows::core::PCWSTR, pcszsubkey : ::windows::core::PCWSTR, pcszvaluename : ::windows::core::PCWSTR, dwflags : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn RegSaveRestoreW(hwnd : super::super::Foundation:: HWND, psztitlestring : ::windows_core::PCWSTR, hkbckupkey : super::Registry:: HKEY, pcszrootkey : ::windows_core::PCWSTR, pcszsubkey : ::windows_core::PCWSTR, pcszvaluename : ::windows_core::PCWSTR, dwflags : u32) -> ::windows_core::HRESULT);
     RegSaveRestoreW(hwnd.into_param().abi(), psztitlestring.into_param().abi(), hkbckupkey.into_param().abi(), pcszrootkey.into_param().abi(), pcszsubkey.into_param().abi(), pcszvaluename.into_param().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1359,10 +1359,10 @@ where
 #[inline]
 pub unsafe fn ReplacePartitionUnit<P0, P1>(targetpartition: P0, sparepartition: P1, flags: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn ReplacePartitionUnit(targetpartition : ::windows::core::PCWSTR, sparepartition : ::windows::core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn ReplacePartitionUnit(targetpartition : ::windows_core::PCWSTR, sparepartition : ::windows_core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
     ReplacePartitionUnit(targetpartition.into_param().abi(), sparepartition.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1370,7 +1370,7 @@ where
 #[inline]
 pub unsafe fn RequestDeviceWakeup<P0>(hdevice: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn RequestDeviceWakeup(hdevice : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     RequestDeviceWakeup(hdevice.into_param().abi())
@@ -1378,9 +1378,9 @@ where
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn RtlAnsiStringToUnicodeString<P0>(destinationstring: *mut super::super::Foundation::UNICODE_STRING, sourcestring: *mut super::Kernel::STRING, allocatedestinationstring: P0) -> ::windows::core::Result<()>
+pub unsafe fn RtlAnsiStringToUnicodeString<P0>(destinationstring: *mut super::super::Foundation::UNICODE_STRING, sourcestring: *mut super::Kernel::STRING, allocatedestinationstring: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlAnsiStringToUnicodeString(destinationstring : *mut super::super::Foundation:: UNICODE_STRING, sourcestring : *mut super::Kernel:: STRING, allocatedestinationstring : super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: NTSTATUS);
     RtlAnsiStringToUnicodeString(destinationstring, sourcestring, allocatedestinationstring.into_param().abi()).ok()
@@ -1388,7 +1388,7 @@ where
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlCharToInteger(string: *mut i8, base: u32, value: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn RtlCharToInteger(string: *mut i8, base: u32, value: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlCharToInteger(string : *mut i8, base : u32, value : *mut u32) -> super::super::Foundation:: NTSTATUS);
     RtlCharToInteger(string, base, value).ok()
 }
@@ -1429,7 +1429,7 @@ pub unsafe fn RtlInitAnsiString(destinationstring: *mut super::Kernel::STRING, s
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn RtlInitAnsiStringEx(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut i8) -> ::windows::core::Result<()> {
+pub unsafe fn RtlInitAnsiStringEx(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut i8) -> ::windows_core::Result<()> {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlInitAnsiStringEx(destinationstring : *mut super::Kernel:: STRING, sourcestring : *mut i8) -> super::super::Foundation:: NTSTATUS);
     RtlInitAnsiStringEx(destinationstring, sourcestring).ok()
 }
@@ -1443,7 +1443,7 @@ pub unsafe fn RtlInitString(destinationstring: *mut super::Kernel::STRING, sourc
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn RtlInitStringEx(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut i8) -> ::windows::core::Result<()> {
+pub unsafe fn RtlInitStringEx(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut i8) -> ::windows_core::Result<()> {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlInitStringEx(destinationstring : *mut super::Kernel:: STRING, sourcestring : *mut i8) -> super::super::Foundation:: NTSTATUS);
     RtlInitStringEx(destinationstring, sourcestring).ok()
 }
@@ -1452,9 +1452,9 @@ pub unsafe fn RtlInitStringEx(destinationstring: *mut super::Kernel::STRING, sou
 #[inline]
 pub unsafe fn RtlInitUnicodeString<P0>(destinationstring: *mut super::super::Foundation::UNICODE_STRING, sourcestring: P0)
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlInitUnicodeString(destinationstring : *mut super::super::Foundation:: UNICODE_STRING, sourcestring : ::windows::core::PCWSTR) -> ());
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlInitUnicodeString(destinationstring : *mut super::super::Foundation:: UNICODE_STRING, sourcestring : ::windows_core::PCWSTR) -> ());
     RtlInitUnicodeString(destinationstring, sourcestring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
@@ -1467,7 +1467,7 @@ pub unsafe fn RtlIsNameLegalDOS8Dot3(name: *mut super::super::Foundation::UNICOD
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlLocalTimeToSystemTime(localtime: *mut i64, systemtime: *mut i64) -> ::windows::core::Result<()> {
+pub unsafe fn RtlLocalTimeToSystemTime(localtime: *mut i64, systemtime: *mut i64) -> ::windows_core::Result<()> {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlLocalTimeToSystemTime(localtime : *mut i64, systemtime : *mut i64) -> super::super::Foundation:: NTSTATUS);
     RtlLocalTimeToSystemTime(localtime, systemtime).ok()
 }
@@ -1487,9 +1487,9 @@ pub unsafe fn RtlTimeToSecondsSince1970(time: *mut i64, elapsedseconds: *mut u32
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn RtlUnicodeStringToAnsiString<P0>(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring: P0) -> ::windows::core::Result<()>
+pub unsafe fn RtlUnicodeStringToAnsiString<P0>(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlUnicodeStringToAnsiString(destinationstring : *mut super::Kernel:: STRING, sourcestring : *mut super::super::Foundation:: UNICODE_STRING, allocatedestinationstring : super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: NTSTATUS);
     RtlUnicodeStringToAnsiString(destinationstring, sourcestring, allocatedestinationstring.into_param().abi()).ok()
@@ -1497,9 +1497,9 @@ where
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn RtlUnicodeStringToOemString<P0>(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring: P0) -> ::windows::core::Result<()>
+pub unsafe fn RtlUnicodeStringToOemString<P0>(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlUnicodeStringToOemString(destinationstring : *mut super::Kernel:: STRING, sourcestring : *mut super::super::Foundation:: UNICODE_STRING, allocatedestinationstring : super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: NTSTATUS);
     RtlUnicodeStringToOemString(destinationstring, sourcestring, allocatedestinationstring.into_param().abi()).ok()
@@ -1507,11 +1507,11 @@ where
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlUnicodeToMultiByteSize<P0>(bytesinmultibytestring: *mut u32, unicodestring: P0, bytesinunicodestring: u32) -> ::windows::core::Result<()>
+pub unsafe fn RtlUnicodeToMultiByteSize<P0>(bytesinmultibytestring: *mut u32, unicodestring: P0, bytesinunicodestring: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlUnicodeToMultiByteSize(bytesinmultibytestring : *mut u32, unicodestring : ::windows::core::PCWSTR, bytesinunicodestring : u32) -> super::super::Foundation:: NTSTATUS);
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlUnicodeToMultiByteSize(bytesinmultibytestring : *mut u32, unicodestring : ::windows_core::PCWSTR, bytesinunicodestring : u32) -> super::super::Foundation:: NTSTATUS);
     RtlUnicodeToMultiByteSize(bytesinmultibytestring, unicodestring.into_param().abi(), bytesinunicodestring).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -1523,29 +1523,29 @@ pub unsafe fn RtlUniform(seed: *mut u32) -> u32 {
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RunSetupCommandA<P0, P1, P2, P3, P4>(hwnd: P0, szcmdname: P1, szinfsection: P2, szdir: P3, lpsztitle: P4, phexe: *mut super::super::Foundation::HANDLE, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn RunSetupCommandA<P0, P1, P2, P3, P4>(hwnd: P0, szcmdname: P1, szinfsection: P2, szdir: P3, lpsztitle: P4, phexe: *mut super::super::Foundation::HANDLE, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P4: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P3: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P4: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn RunSetupCommandA(hwnd : super::super::Foundation:: HWND, szcmdname : ::windows::core::PCSTR, szinfsection : ::windows::core::PCSTR, szdir : ::windows::core::PCSTR, lpsztitle : ::windows::core::PCSTR, phexe : *mut super::super::Foundation:: HANDLE, dwflags : u32, pvreserved : *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn RunSetupCommandA(hwnd : super::super::Foundation:: HWND, szcmdname : ::windows_core::PCSTR, szinfsection : ::windows_core::PCSTR, szdir : ::windows_core::PCSTR, lpsztitle : ::windows_core::PCSTR, phexe : *mut super::super::Foundation:: HANDLE, dwflags : u32, pvreserved : *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     RunSetupCommandA(hwnd.into_param().abi(), szcmdname.into_param().abi(), szinfsection.into_param().abi(), szdir.into_param().abi(), lpsztitle.into_param().abi(), phexe, dwflags, pvreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RunSetupCommandW<P0, P1, P2, P3, P4>(hwnd: P0, szcmdname: P1, szinfsection: P2, szdir: P3, lpsztitle: P4, phexe: *mut super::super::Foundation::HANDLE, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn RunSetupCommandW<P0, P1, P2, P3, P4>(hwnd: P0, szcmdname: P1, szinfsection: P2, szdir: P3, lpsztitle: P4, phexe: *mut super::super::Foundation::HANDLE, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P4: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P4: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn RunSetupCommandW(hwnd : super::super::Foundation:: HWND, szcmdname : ::windows::core::PCWSTR, szinfsection : ::windows::core::PCWSTR, szdir : ::windows::core::PCWSTR, lpsztitle : ::windows::core::PCWSTR, phexe : *mut super::super::Foundation:: HANDLE, dwflags : u32, pvreserved : *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn RunSetupCommandW(hwnd : super::super::Foundation:: HWND, szcmdname : ::windows_core::PCWSTR, szinfsection : ::windows_core::PCWSTR, szdir : ::windows_core::PCWSTR, lpsztitle : ::windows_core::PCWSTR, phexe : *mut super::super::Foundation:: HANDLE, dwflags : u32, pvreserved : *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     RunSetupCommandW(hwnd.into_param().abi(), szcmdname.into_param().abi(), szinfsection.into_param().abi(), szdir.into_param().abi(), lpsztitle.into_param().abi(), phexe, dwflags, pvreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1553,8 +1553,8 @@ where
 #[inline]
 pub unsafe fn SendIMEMessageExA<P0, P1>(param0: P0, param1: P1) -> super::super::Foundation::LRESULT
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::LPARAM>,
 {
     ::windows_targets::link!("user32.dll" "system" fn SendIMEMessageExA(param0 : super::super::Foundation:: HWND, param1 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
     SendIMEMessageExA(param0.into_param().abi(), param1.into_param().abi())
@@ -1564,8 +1564,8 @@ where
 #[inline]
 pub unsafe fn SendIMEMessageExW<P0, P1>(param0: P0, param1: P1) -> super::super::Foundation::LRESULT
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::LPARAM>,
 {
     ::windows_targets::link!("user32.dll" "system" fn SendIMEMessageExW(param0 : super::super::Foundation:: HWND, param1 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
     SendIMEMessageExW(param0.into_param().abi(), param1.into_param().abi())
@@ -1575,9 +1575,9 @@ where
 #[inline]
 pub unsafe fn SetEnvironmentStringsA<P0>(newenvironment: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetEnvironmentStringsA(newenvironment : ::windows::core::PCSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn SetEnvironmentStringsA(newenvironment : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     SetEnvironmentStringsA(newenvironment.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1585,10 +1585,10 @@ where
 #[inline]
 pub unsafe fn SetFirmwareEnvironmentVariableA<P0, P1>(lpname: P0, lpguid: P1, pvalue: ::core::option::Option<*const ::core::ffi::c_void>, nsize: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetFirmwareEnvironmentVariableA(lpname : ::windows::core::PCSTR, lpguid : ::windows::core::PCSTR, pvalue : *const ::core::ffi::c_void, nsize : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn SetFirmwareEnvironmentVariableA(lpname : ::windows_core::PCSTR, lpguid : ::windows_core::PCSTR, pvalue : *const ::core::ffi::c_void, nsize : u32) -> super::super::Foundation:: BOOL);
     SetFirmwareEnvironmentVariableA(lpname.into_param().abi(), lpguid.into_param().abi(), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null())), nsize)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1596,10 +1596,10 @@ where
 #[inline]
 pub unsafe fn SetFirmwareEnvironmentVariableExA<P0, P1>(lpname: P0, lpguid: P1, pvalue: ::core::option::Option<*const ::core::ffi::c_void>, nsize: u32, dwattributes: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetFirmwareEnvironmentVariableExA(lpname : ::windows::core::PCSTR, lpguid : ::windows::core::PCSTR, pvalue : *const ::core::ffi::c_void, nsize : u32, dwattributes : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn SetFirmwareEnvironmentVariableExA(lpname : ::windows_core::PCSTR, lpguid : ::windows_core::PCSTR, pvalue : *const ::core::ffi::c_void, nsize : u32, dwattributes : u32) -> super::super::Foundation:: BOOL);
     SetFirmwareEnvironmentVariableExA(lpname.into_param().abi(), lpguid.into_param().abi(), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null())), nsize, dwattributes)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1607,10 +1607,10 @@ where
 #[inline]
 pub unsafe fn SetFirmwareEnvironmentVariableExW<P0, P1>(lpname: P0, lpguid: P1, pvalue: ::core::option::Option<*const ::core::ffi::c_void>, nsize: u32, dwattributes: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetFirmwareEnvironmentVariableExW(lpname : ::windows::core::PCWSTR, lpguid : ::windows::core::PCWSTR, pvalue : *const ::core::ffi::c_void, nsize : u32, dwattributes : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn SetFirmwareEnvironmentVariableExW(lpname : ::windows_core::PCWSTR, lpguid : ::windows_core::PCWSTR, pvalue : *const ::core::ffi::c_void, nsize : u32, dwattributes : u32) -> super::super::Foundation:: BOOL);
     SetFirmwareEnvironmentVariableExW(lpname.into_param().abi(), lpguid.into_param().abi(), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null())), nsize, dwattributes)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1618,10 +1618,10 @@ where
 #[inline]
 pub unsafe fn SetFirmwareEnvironmentVariableW<P0, P1>(lpname: P0, lpguid: P1, pvalue: ::core::option::Option<*const ::core::ffi::c_void>, nsize: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetFirmwareEnvironmentVariableW(lpname : ::windows::core::PCWSTR, lpguid : ::windows::core::PCWSTR, pvalue : *const ::core::ffi::c_void, nsize : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn SetFirmwareEnvironmentVariableW(lpname : ::windows_core::PCWSTR, lpguid : ::windows_core::PCWSTR, pvalue : *const ::core::ffi::c_void, nsize : u32) -> super::super::Foundation:: BOOL);
     SetFirmwareEnvironmentVariableW(lpname.into_param().abi(), lpguid.into_param().abi(), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null())), nsize)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -1635,7 +1635,7 @@ pub unsafe fn SetHandleCount(unumber: u32) -> u32 {
 #[inline]
 pub unsafe fn SetMessageWaitingIndicator<P0>(hmsgindicator: P0, ulmsgcount: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn SetMessageWaitingIndicator(hmsgindicator : super::super::Foundation:: HANDLE, ulmsgcount : u32) -> super::super::Foundation:: BOOL);
     SetMessageWaitingIndicator(hmsgindicator.into_param().abi(), ulmsgcount)
@@ -1643,15 +1643,15 @@ where
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetPerUserSecValuesA(pperuser: *mut PERUSERSECTIONA) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("advpack.dll" "system" fn SetPerUserSecValuesA(pperuser : *mut PERUSERSECTIONA) -> ::windows::core::HRESULT);
+pub unsafe fn SetPerUserSecValuesA(pperuser: *mut PERUSERSECTIONA) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("advpack.dll" "system" fn SetPerUserSecValuesA(pperuser : *mut PERUSERSECTIONA) -> ::windows_core::HRESULT);
     SetPerUserSecValuesA(pperuser).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetPerUserSecValuesW(pperuser: *mut PERUSERSECTIONW) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("advpack.dll" "system" fn SetPerUserSecValuesW(pperuser : *mut PERUSERSECTIONW) -> ::windows::core::HRESULT);
+pub unsafe fn SetPerUserSecValuesW(pperuser: *mut PERUSERSECTIONW) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("advpack.dll" "system" fn SetPerUserSecValuesW(pperuser : *mut PERUSERSECTIONW) -> ::windows_core::HRESULT);
     SetPerUserSecValuesW(pperuser).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1659,9 +1659,9 @@ pub unsafe fn SetPerUserSecValuesW(pperuser: *mut PERUSERSECTIONW) -> ::windows:
 #[inline]
 pub unsafe fn SignalObjectAndWait<P0, P1, P2>(hobjecttosignal: P0, hobjecttowaiton: P1, dwmilliseconds: u32, balertable: P2) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn SignalObjectAndWait(hobjecttosignal : super::super::Foundation:: HANDLE, hobjecttowaiton : super::super::Foundation:: HANDLE, dwmilliseconds : u32, balertable : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
     SignalObjectAndWait(hobjecttosignal.into_param().abi(), hobjecttowaiton.into_param().abi(), dwmilliseconds, balertable.into_param().abi())
@@ -1674,55 +1674,55 @@ pub unsafe fn SubscribeFeatureStateChangeNotification(subscription: *mut FEATURE
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn TranslateInfStringA<P0, P1, P2, P3>(pszinffilename: P0, pszinstallsection: P1, psztranslatesection: P2, psztranslatekey: P3, pszbuffer: ::core::option::Option<&mut [u8]>, pdwrequiredsize: *mut u32, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
+pub unsafe fn TranslateInfStringA<P0, P1, P2, P3>(pszinffilename: P0, pszinstallsection: P1, psztranslatesection: P2, psztranslatekey: P3, pszbuffer: ::core::option::Option<&mut [u8]>, pdwrequiredsize: *mut u32, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P3: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn TranslateInfStringA(pszinffilename : ::windows::core::PCSTR, pszinstallsection : ::windows::core::PCSTR, psztranslatesection : ::windows::core::PCSTR, psztranslatekey : ::windows::core::PCSTR, pszbuffer : ::windows::core::PSTR, cchbuffer : u32, pdwrequiredsize : *mut u32, pvreserved : *const ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn TranslateInfStringA(pszinffilename : ::windows_core::PCSTR, pszinstallsection : ::windows_core::PCSTR, psztranslatesection : ::windows_core::PCSTR, psztranslatekey : ::windows_core::PCSTR, pszbuffer : ::windows_core::PSTR, cchbuffer : u32, pdwrequiredsize : *mut u32, pvreserved : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     TranslateInfStringA(pszinffilename.into_param().abi(), pszinstallsection.into_param().abi(), psztranslatesection.into_param().abi(), psztranslatekey.into_param().abi(), ::core::mem::transmute(pszbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszbuffer.as_deref().map_or(0, |slice| slice.len() as _), pdwrequiredsize, ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn TranslateInfStringExA<P0, P1, P2>(hinf: *mut ::core::ffi::c_void, pszinffilename: P0, psztranslatesection: P1, psztranslatekey: P2, pszbuffer: &mut [u8], pdwrequiredsize: *mut u32, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
+pub unsafe fn TranslateInfStringExA<P0, P1, P2>(hinf: *mut ::core::ffi::c_void, pszinffilename: P0, psztranslatesection: P1, psztranslatekey: P2, pszbuffer: &mut [u8], pdwrequiredsize: *mut u32, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn TranslateInfStringExA(hinf : *mut ::core::ffi::c_void, pszinffilename : ::windows::core::PCSTR, psztranslatesection : ::windows::core::PCSTR, psztranslatekey : ::windows::core::PCSTR, pszbuffer : ::windows::core::PSTR, dwbuffersize : u32, pdwrequiredsize : *mut u32, pvreserved : *const ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn TranslateInfStringExA(hinf : *mut ::core::ffi::c_void, pszinffilename : ::windows_core::PCSTR, psztranslatesection : ::windows_core::PCSTR, psztranslatekey : ::windows_core::PCSTR, pszbuffer : ::windows_core::PSTR, dwbuffersize : u32, pdwrequiredsize : *mut u32, pvreserved : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     TranslateInfStringExA(hinf, pszinffilename.into_param().abi(), psztranslatesection.into_param().abi(), psztranslatekey.into_param().abi(), ::core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len() as _, pdwrequiredsize, ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn TranslateInfStringExW<P0, P1, P2>(hinf: *mut ::core::ffi::c_void, pszinffilename: P0, psztranslatesection: P1, psztranslatekey: P2, pszbuffer: &mut [u16], pdwrequiredsize: *mut u32, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
+pub unsafe fn TranslateInfStringExW<P0, P1, P2>(hinf: *mut ::core::ffi::c_void, pszinffilename: P0, psztranslatesection: P1, psztranslatekey: P2, pszbuffer: &mut [u16], pdwrequiredsize: *mut u32, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn TranslateInfStringExW(hinf : *mut ::core::ffi::c_void, pszinffilename : ::windows::core::PCWSTR, psztranslatesection : ::windows::core::PCWSTR, psztranslatekey : ::windows::core::PCWSTR, pszbuffer : ::windows::core::PWSTR, dwbuffersize : u32, pdwrequiredsize : *mut u32, pvreserved : *const ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn TranslateInfStringExW(hinf : *mut ::core::ffi::c_void, pszinffilename : ::windows_core::PCWSTR, psztranslatesection : ::windows_core::PCWSTR, psztranslatekey : ::windows_core::PCWSTR, pszbuffer : ::windows_core::PWSTR, dwbuffersize : u32, pdwrequiredsize : *mut u32, pvreserved : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     TranslateInfStringExW(hinf, pszinffilename.into_param().abi(), psztranslatesection.into_param().abi(), psztranslatekey.into_param().abi(), ::core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len() as _, pdwrequiredsize, ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn TranslateInfStringW<P0, P1, P2, P3>(pszinffilename: P0, pszinstallsection: P1, psztranslatesection: P2, psztranslatekey: P3, pszbuffer: ::core::option::Option<&mut [u16]>, pdwrequiredsize: *mut u32, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
+pub unsafe fn TranslateInfStringW<P0, P1, P2, P3>(pszinffilename: P0, pszinstallsection: P1, psztranslatesection: P2, psztranslatekey: P3, pszbuffer: ::core::option::Option<&mut [u16]>, pdwrequiredsize: *mut u32, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn TranslateInfStringW(pszinffilename : ::windows::core::PCWSTR, pszinstallsection : ::windows::core::PCWSTR, psztranslatesection : ::windows::core::PCWSTR, psztranslatekey : ::windows::core::PCWSTR, pszbuffer : ::windows::core::PWSTR, cchbuffer : u32, pdwrequiredsize : *mut u32, pvreserved : *const ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn TranslateInfStringW(pszinffilename : ::windows_core::PCWSTR, pszinstallsection : ::windows_core::PCWSTR, psztranslatesection : ::windows_core::PCWSTR, psztranslatekey : ::windows_core::PCWSTR, pszbuffer : ::windows_core::PWSTR, cchbuffer : u32, pdwrequiredsize : *mut u32, pvreserved : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     TranslateInfStringW(pszinffilename.into_param().abi(), pszinstallsection.into_param().abi(), psztranslatesection.into_param().abi(), psztranslatekey.into_param().abi(), ::core::mem::transmute(pszbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszbuffer.as_deref().map_or(0, |slice| slice.len() as _), pdwrequiredsize, ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn UnsubscribeFeatureStateChangeNotification<P0>(subscription: P0)
 where
-    P0: ::windows::core::IntoParam<FEATURE_STATE_CHANGE_SUBSCRIPTION>,
+    P0: ::windows_core::IntoParam<FEATURE_STATE_CHANGE_SUBSCRIPTION>,
 {
     ::windows_targets::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn UnsubscribeFeatureStateChangeNotification(subscription : FEATURE_STATE_CHANGE_SUBSCRIPTION) -> ());
     UnsubscribeFeatureStateChangeNotification(subscription.into_param().abi())
@@ -1730,49 +1730,49 @@ where
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UserInstStubWrapperA<P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows::core::Result<()>
+pub unsafe fn UserInstStubWrapperA<P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn UserInstStubWrapperA(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszparms : ::windows::core::PCSTR, nshow : i32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn UserInstStubWrapperA(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszparms : ::windows_core::PCSTR, nshow : i32) -> ::windows_core::HRESULT);
     UserInstStubWrapperA(hwnd.into_param().abi(), hinstance.into_param().abi(), pszparms.into_param().abi(), nshow).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UserInstStubWrapperW<P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows::core::Result<()>
+pub unsafe fn UserInstStubWrapperW<P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn UserInstStubWrapperW(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszparms : ::windows::core::PCWSTR, nshow : i32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn UserInstStubWrapperW(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszparms : ::windows_core::PCWSTR, nshow : i32) -> ::windows_core::HRESULT);
     UserInstStubWrapperW(hwnd.into_param().abi(), hinstance.into_param().abi(), pszparms.into_param().abi(), nshow).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UserUnInstStubWrapperA<P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows::core::Result<()>
+pub unsafe fn UserUnInstStubWrapperA<P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn UserUnInstStubWrapperA(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszparms : ::windows::core::PCSTR, nshow : i32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn UserUnInstStubWrapperA(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszparms : ::windows_core::PCSTR, nshow : i32) -> ::windows_core::HRESULT);
     UserUnInstStubWrapperA(hwnd.into_param().abi(), hinstance.into_param().abi(), pszparms.into_param().abi(), nshow).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UserUnInstStubWrapperW<P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows::core::Result<()>
+pub unsafe fn UserUnInstStubWrapperW<P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn UserUnInstStubWrapperW(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszparms : ::windows::core::PCWSTR, nshow : i32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn UserUnInstStubWrapperW(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszparms : ::windows_core::PCWSTR, nshow : i32) -> ::windows_core::HRESULT);
     UserUnInstStubWrapperW(hwnd.into_param().abi(), hinstance.into_param().abi(), pszparms.into_param().abi(), nshow).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1780,8 +1780,8 @@ where
 #[inline]
 pub unsafe fn WINNLSEnableIME<P0, P1>(param0: P0, param1: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn WINNLSEnableIME(param0 : super::super::Foundation:: HWND, param1 : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     WINNLSEnableIME(param0.into_param().abi(), param1.into_param().abi())
@@ -1791,7 +1791,7 @@ where
 #[inline]
 pub unsafe fn WINNLSGetEnableStatus<P0>(param0: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn WINNLSGetEnableStatus(param0 : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
     WINNLSGetEnableStatus(param0.into_param().abi())
@@ -1801,7 +1801,7 @@ where
 #[inline]
 pub unsafe fn WINNLSGetIMEHotkey<P0>(param0: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn WINNLSGetIMEHotkey(param0 : super::super::Foundation:: HWND) -> u32);
     WINNLSGetIMEHotkey(param0.into_param().abi())
@@ -1810,7 +1810,7 @@ where
 #[inline]
 pub unsafe fn WinWatchClose<P0>(hww: P0)
 where
-    P0: ::windows::core::IntoParam<HWINWATCH>,
+    P0: ::windows_core::IntoParam<HWINWATCH>,
 {
     ::windows_targets::link!("dciman32.dll" "system" fn WinWatchClose(hww : HWINWATCH) -> ());
     WinWatchClose(hww.into_param().abi())
@@ -1820,7 +1820,7 @@ where
 #[inline]
 pub unsafe fn WinWatchDidStatusChange<P0>(hww: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HWINWATCH>,
+    P0: ::windows_core::IntoParam<HWINWATCH>,
 {
     ::windows_targets::link!("dciman32.dll" "system" fn WinWatchDidStatusChange(hww : HWINWATCH) -> super::super::Foundation:: BOOL);
     WinWatchDidStatusChange(hww.into_param().abi())
@@ -1830,7 +1830,7 @@ where
 #[inline]
 pub unsafe fn WinWatchGetClipList<P0>(hww: P0, prc: *mut super::super::Foundation::RECT, size: u32, prd: *mut super::super::Graphics::Gdi::RGNDATA) -> u32
 where
-    P0: ::windows::core::IntoParam<HWINWATCH>,
+    P0: ::windows_core::IntoParam<HWINWATCH>,
 {
     ::windows_targets::link!("dciman32.dll" "system" fn WinWatchGetClipList(hww : HWINWATCH, prc : *mut super::super::Foundation:: RECT, size : u32, prd : *mut super::super::Graphics::Gdi:: RGNDATA) -> u32);
     WinWatchGetClipList(hww.into_param().abi(), prc, size, prd)
@@ -1840,8 +1840,8 @@ where
 #[inline]
 pub unsafe fn WinWatchNotify<P0, P1>(hww: P0, notifycallback: WINWATCHNOTIFYPROC, notifyparam: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HWINWATCH>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
+    P0: ::windows_core::IntoParam<HWINWATCH>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::LPARAM>,
 {
     ::windows_targets::link!("dciman32.dll" "system" fn WinWatchNotify(hww : HWINWATCH, notifycallback : WINWATCHNOTIFYPROC, notifyparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
     WinWatchNotify(hww.into_param().abi(), notifycallback, notifyparam.into_param().abi())
@@ -1851,7 +1851,7 @@ where
 #[inline]
 pub unsafe fn WinWatchOpen<P0>(hwnd: P0) -> HWINWATCH
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("dciman32.dll" "system" fn WinWatchOpen(hwnd : super::super::Foundation:: HWND) -> HWINWATCH);
     WinWatchOpen(hwnd.into_param().abi())
@@ -1859,49 +1859,49 @@ where
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WldpGetLockdownPolicy(hostinformation: ::core::option::Option<*const WLDP_HOST_INFORMATION>, lockdownstate: *mut u32, lockdownflags: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("wldp.dll" "system" fn WldpGetLockdownPolicy(hostinformation : *const WLDP_HOST_INFORMATION, lockdownstate : *mut u32, lockdownflags : u32) -> ::windows::core::HRESULT);
+pub unsafe fn WldpGetLockdownPolicy(hostinformation: ::core::option::Option<*const WLDP_HOST_INFORMATION>, lockdownstate: *mut u32, lockdownflags: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("wldp.dll" "system" fn WldpGetLockdownPolicy(hostinformation : *const WLDP_HOST_INFORMATION, lockdownstate : *mut u32, lockdownflags : u32) -> ::windows_core::HRESULT);
     WldpGetLockdownPolicy(::core::mem::transmute(hostinformation.unwrap_or(::std::ptr::null())), lockdownstate, lockdownflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WldpIsClassInApprovedList(classid: *const ::windows::core::GUID, hostinformation: *const WLDP_HOST_INFORMATION, isapproved: *mut super::super::Foundation::BOOL, optionalflags: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("wldp.dll" "system" fn WldpIsClassInApprovedList(classid : *const ::windows::core::GUID, hostinformation : *const WLDP_HOST_INFORMATION, isapproved : *mut super::super::Foundation:: BOOL, optionalflags : u32) -> ::windows::core::HRESULT);
+pub unsafe fn WldpIsClassInApprovedList(classid: *const ::windows_core::GUID, hostinformation: *const WLDP_HOST_INFORMATION, isapproved: *mut super::super::Foundation::BOOL, optionalflags: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("wldp.dll" "system" fn WldpIsClassInApprovedList(classid : *const ::windows_core::GUID, hostinformation : *const WLDP_HOST_INFORMATION, isapproved : *mut super::super::Foundation:: BOOL, optionalflags : u32) -> ::windows_core::HRESULT);
     WldpIsClassInApprovedList(classid, hostinformation, isapproved, optionalflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WldpIsDynamicCodePolicyEnabled() -> ::windows::core::Result<super::super::Foundation::BOOL> {
-    ::windows_targets::link!("wldp.dll" "system" fn WldpIsDynamicCodePolicyEnabled(isenabled : *mut super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+pub unsafe fn WldpIsDynamicCodePolicyEnabled() -> ::windows_core::Result<super::super::Foundation::BOOL> {
+    ::windows_targets::link!("wldp.dll" "system" fn WldpIsDynamicCodePolicyEnabled(isenabled : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
     WldpIsDynamicCodePolicyEnabled(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn WldpQueryDeviceSecurityInformation(information: ::core::option::Option<&mut [WLDP_DEVICE_SECURITY_INFORMATION]>, returnlength: *mut u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("wldp.dll" "system" fn WldpQueryDeviceSecurityInformation(information : *mut WLDP_DEVICE_SECURITY_INFORMATION, informationlength : u32, returnlength : *mut u32) -> ::windows::core::HRESULT);
+pub unsafe fn WldpQueryDeviceSecurityInformation(information: ::core::option::Option<&mut [WLDP_DEVICE_SECURITY_INFORMATION]>, returnlength: *mut u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("wldp.dll" "system" fn WldpQueryDeviceSecurityInformation(information : *mut WLDP_DEVICE_SECURITY_INFORMATION, informationlength : u32, returnlength : *mut u32) -> ::windows_core::HRESULT);
     WldpQueryDeviceSecurityInformation(::core::mem::transmute(information.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), information.as_deref().map_or(0, |slice| slice.len() as _), returnlength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WldpQueryDynamicCodeTrust<P0>(filehandle: P0, baseimage: ::core::option::Option<*const ::core::ffi::c_void>, imagesize: u32) -> ::windows::core::Result<()>
+pub unsafe fn WldpQueryDynamicCodeTrust<P0>(filehandle: P0, baseimage: ::core::option::Option<*const ::core::ffi::c_void>, imagesize: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("wldp.dll" "system" fn WldpQueryDynamicCodeTrust(filehandle : super::super::Foundation:: HANDLE, baseimage : *const ::core::ffi::c_void, imagesize : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("wldp.dll" "system" fn WldpQueryDynamicCodeTrust(filehandle : super::super::Foundation:: HANDLE, baseimage : *const ::core::ffi::c_void, imagesize : u32) -> ::windows_core::HRESULT);
     WldpQueryDynamicCodeTrust(filehandle.into_param().abi(), ::core::mem::transmute(baseimage.unwrap_or(::std::ptr::null())), imagesize).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WldpSetDynamicCodeTrust<P0>(filehandle: P0) -> ::windows::core::Result<()>
+pub unsafe fn WldpSetDynamicCodeTrust<P0>(filehandle: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("wldp.dll" "system" fn WldpSetDynamicCodeTrust(filehandle : super::super::Foundation:: HANDLE) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("wldp.dll" "system" fn WldpSetDynamicCodeTrust(filehandle : super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     WldpSetDynamicCodeTrust(filehandle.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1909,11 +1909,11 @@ where
 #[inline]
 pub unsafe fn WritePrivateProfileSectionA<P0, P1, P2>(lpappname: P0, lpstring: P1, lpfilename: P2) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WritePrivateProfileSectionA(lpappname : ::windows::core::PCSTR, lpstring : ::windows::core::PCSTR, lpfilename : ::windows::core::PCSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn WritePrivateProfileSectionA(lpappname : ::windows_core::PCSTR, lpstring : ::windows_core::PCSTR, lpfilename : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     WritePrivateProfileSectionA(lpappname.into_param().abi(), lpstring.into_param().abi(), lpfilename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1921,11 +1921,11 @@ where
 #[inline]
 pub unsafe fn WritePrivateProfileSectionW<P0, P1, P2>(lpappname: P0, lpstring: P1, lpfilename: P2) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WritePrivateProfileSectionW(lpappname : ::windows::core::PCWSTR, lpstring : ::windows::core::PCWSTR, lpfilename : ::windows::core::PCWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn WritePrivateProfileSectionW(lpappname : ::windows_core::PCWSTR, lpstring : ::windows_core::PCWSTR, lpfilename : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     WritePrivateProfileSectionW(lpappname.into_param().abi(), lpstring.into_param().abi(), lpfilename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1933,12 +1933,12 @@ where
 #[inline]
 pub unsafe fn WritePrivateProfileStringA<P0, P1, P2, P3>(lpappname: P0, lpkeyname: P1, lpstring: P2, lpfilename: P3) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P3: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WritePrivateProfileStringA(lpappname : ::windows::core::PCSTR, lpkeyname : ::windows::core::PCSTR, lpstring : ::windows::core::PCSTR, lpfilename : ::windows::core::PCSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn WritePrivateProfileStringA(lpappname : ::windows_core::PCSTR, lpkeyname : ::windows_core::PCSTR, lpstring : ::windows_core::PCSTR, lpfilename : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     WritePrivateProfileStringA(lpappname.into_param().abi(), lpkeyname.into_param().abi(), lpstring.into_param().abi(), lpfilename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1946,12 +1946,12 @@ where
 #[inline]
 pub unsafe fn WritePrivateProfileStringW<P0, P1, P2, P3>(lpappname: P0, lpkeyname: P1, lpstring: P2, lpfilename: P3) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WritePrivateProfileStringW(lpappname : ::windows::core::PCWSTR, lpkeyname : ::windows::core::PCWSTR, lpstring : ::windows::core::PCWSTR, lpfilename : ::windows::core::PCWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn WritePrivateProfileStringW(lpappname : ::windows_core::PCWSTR, lpkeyname : ::windows_core::PCWSTR, lpstring : ::windows_core::PCWSTR, lpfilename : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     WritePrivateProfileStringW(lpappname.into_param().abi(), lpkeyname.into_param().abi(), lpstring.into_param().abi(), lpfilename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1959,11 +1959,11 @@ where
 #[inline]
 pub unsafe fn WritePrivateProfileStructA<P0, P1, P2>(lpszsection: P0, lpszkey: P1, lpstruct: ::core::option::Option<*const ::core::ffi::c_void>, usizestruct: u32, szfile: P2) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WritePrivateProfileStructA(lpszsection : ::windows::core::PCSTR, lpszkey : ::windows::core::PCSTR, lpstruct : *const ::core::ffi::c_void, usizestruct : u32, szfile : ::windows::core::PCSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn WritePrivateProfileStructA(lpszsection : ::windows_core::PCSTR, lpszkey : ::windows_core::PCSTR, lpstruct : *const ::core::ffi::c_void, usizestruct : u32, szfile : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     WritePrivateProfileStructA(lpszsection.into_param().abi(), lpszkey.into_param().abi(), ::core::mem::transmute(lpstruct.unwrap_or(::std::ptr::null())), usizestruct, szfile.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1971,11 +1971,11 @@ where
 #[inline]
 pub unsafe fn WritePrivateProfileStructW<P0, P1, P2>(lpszsection: P0, lpszkey: P1, lpstruct: ::core::option::Option<*const ::core::ffi::c_void>, usizestruct: u32, szfile: P2) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WritePrivateProfileStructW(lpszsection : ::windows::core::PCWSTR, lpszkey : ::windows::core::PCWSTR, lpstruct : *const ::core::ffi::c_void, usizestruct : u32, szfile : ::windows::core::PCWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn WritePrivateProfileStructW(lpszsection : ::windows_core::PCWSTR, lpszkey : ::windows_core::PCWSTR, lpstruct : *const ::core::ffi::c_void, usizestruct : u32, szfile : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     WritePrivateProfileStructW(lpszsection.into_param().abi(), lpszkey.into_param().abi(), ::core::mem::transmute(lpstruct.unwrap_or(::std::ptr::null())), usizestruct, szfile.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1983,10 +1983,10 @@ where
 #[inline]
 pub unsafe fn WriteProfileSectionA<P0, P1>(lpappname: P0, lpstring: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WriteProfileSectionA(lpappname : ::windows::core::PCSTR, lpstring : ::windows::core::PCSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn WriteProfileSectionA(lpappname : ::windows_core::PCSTR, lpstring : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     WriteProfileSectionA(lpappname.into_param().abi(), lpstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1994,10 +1994,10 @@ where
 #[inline]
 pub unsafe fn WriteProfileSectionW<P0, P1>(lpappname: P0, lpstring: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WriteProfileSectionW(lpappname : ::windows::core::PCWSTR, lpstring : ::windows::core::PCWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn WriteProfileSectionW(lpappname : ::windows_core::PCWSTR, lpstring : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     WriteProfileSectionW(lpappname.into_param().abi(), lpstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -2005,11 +2005,11 @@ where
 #[inline]
 pub unsafe fn WriteProfileStringA<P0, P1, P2>(lpappname: P0, lpkeyname: P1, lpstring: P2) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WriteProfileStringA(lpappname : ::windows::core::PCSTR, lpkeyname : ::windows::core::PCSTR, lpstring : ::windows::core::PCSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn WriteProfileStringA(lpappname : ::windows_core::PCSTR, lpkeyname : ::windows_core::PCSTR, lpstring : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     WriteProfileStringA(lpappname.into_param().abi(), lpkeyname.into_param().abi(), lpstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -2017,11 +2017,11 @@ where
 #[inline]
 pub unsafe fn WriteProfileStringW<P0, P1, P2>(lpappname: P0, lpkeyname: P1, lpstring: P2) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WriteProfileStringW(lpappname : ::windows::core::PCWSTR, lpkeyname : ::windows::core::PCWSTR, lpstring : ::windows::core::PCWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn WriteProfileStringW(lpappname : ::windows_core::PCWSTR, lpkeyname : ::windows_core::PCWSTR, lpstring : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     WriteProfileStringW(lpappname.into_param().abi(), lpkeyname.into_param().abi(), lpstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -2033,7 +2033,7 @@ pub unsafe fn _hread(hfile: i32, lpbuffer: *mut ::core::ffi::c_void, lbytes: i32
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn _hwrite(hfile: i32, lpbuffer: &[u8]) -> i32 {
-    ::windows_targets::link!("kernel32.dll" "system" fn _hwrite(hfile : i32, lpbuffer : ::windows::core::PCSTR, lbytes : i32) -> i32);
+    ::windows_targets::link!("kernel32.dll" "system" fn _hwrite(hfile : i32, lpbuffer : ::windows_core::PCSTR, lbytes : i32) -> i32);
     _hwrite(hfile, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -2046,9 +2046,9 @@ pub unsafe fn _lclose(hfile: i32) -> i32 {
 #[inline]
 pub unsafe fn _lcreat<P0>(lppathname: P0, iattribute: i32) -> i32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn _lcreat(lppathname : ::windows::core::PCSTR, iattribute : i32) -> i32);
+    ::windows_targets::link!("kernel32.dll" "system" fn _lcreat(lppathname : ::windows_core::PCSTR, iattribute : i32) -> i32);
     _lcreat(lppathname.into_param().abi(), iattribute)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -2061,9 +2061,9 @@ pub unsafe fn _llseek(hfile: i32, loffset: i32, iorigin: i32) -> i32 {
 #[inline]
 pub unsafe fn _lopen<P0>(lppathname: P0, ireadwrite: i32) -> i32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn _lopen(lppathname : ::windows::core::PCSTR, ireadwrite : i32) -> i32);
+    ::windows_targets::link!("kernel32.dll" "system" fn _lopen(lppathname : ::windows_core::PCSTR, ireadwrite : i32) -> i32);
     _lopen(lppathname.into_param().abi(), ireadwrite)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -2075,7 +2075,7 @@ pub unsafe fn _lread(hfile: i32, lpbuffer: *mut ::core::ffi::c_void, ubytes: u32
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn _lwrite(hfile: i32, lpbuffer: &[u8]) -> u32 {
-    ::windows_targets::link!("kernel32.dll" "system" fn _lwrite(hfile : i32, lpbuffer : ::windows::core::PCSTR, ubytes : u32) -> u32);
+    ::windows_targets::link!("kernel32.dll" "system" fn _lwrite(hfile : i32, lpbuffer : ::windows_core::PCSTR, ubytes : u32) -> u32);
     _lwrite(hfile, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -2136,51 +2136,51 @@ pub unsafe fn uaw_wcsrchr(string: *const u16, character: u16) -> *mut u16 {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-pub struct ICameraUIControl(::windows::core::IUnknown);
+pub struct ICameraUIControl(::windows_core::IUnknown);
 impl ICameraUIControl {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Show<P0, P1, P2>(&self, pwindow: P0, mode: CameraUIControlMode, selectionmode: CameraUIControlLinearSelectionMode, capturemode: CameraUIControlCaptureMode, photoformat: CameraUIControlPhotoFormat, videoformat: CameraUIControlVideoFormat, bhasclosebutton: P1, peventcallback: P2) -> ::windows::core::Result<()>
+    pub unsafe fn Show<P0, P1, P2>(&self, pwindow: P0, mode: CameraUIControlMode, selectionmode: CameraUIControlLinearSelectionMode, capturemode: CameraUIControlCaptureMode, photoformat: CameraUIControlPhotoFormat, videoformat: CameraUIControlVideoFormat, bhasclosebutton: P1, peventcallback: P2) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
-        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
-        P2: ::windows::core::IntoParam<ICameraUIControlEventCallback>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
+        P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P2: ::windows_core::IntoParam<ICameraUIControlEventCallback>,
     {
-        (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self), pwindow.into_param().abi(), mode, selectionmode, capturemode, photoformat, videoformat, bhasclosebutton.into_param().abi(), peventcallback.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).Show)(::windows_core::Interface::as_raw(self), pwindow.into_param().abi(), mode, selectionmode, capturemode, photoformat, videoformat, bhasclosebutton.into_param().abi(), peventcallback.into_param().abi()).ok()
     }
-    pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Suspend(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
-        (::windows::core::Interface::vtable(self).Suspend)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Suspend(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows_core::Interface::vtable(self).Suspend)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Resume)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Resume(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Resume)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn GetCurrentViewType(&self) -> ::windows::core::Result<CameraUIControlViewType> {
-        let mut result__ = ::windows::core::zeroed::<CameraUIControlViewType>();
-        (::windows::core::Interface::vtable(self).GetCurrentViewType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetCurrentViewType(&self) -> ::windows_core::Result<CameraUIControlViewType> {
+        let mut result__ = ::windows_core::zeroed::<CameraUIControlViewType>();
+        (::windows_core::Interface::vtable(self).GetCurrentViewType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetActiveItem(&self, pbstractiveitempath: ::core::option::Option<*mut ::windows::core::BSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetActiveItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstractiveitempath.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetActiveItem(&self, pbstractiveitempath: ::core::option::Option<*mut ::windows_core::BSTR>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetActiveItem)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbstractiveitempath.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetSelectedItems(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
-        let mut result__ = ::windows::core::zeroed::<*mut super::Com::SAFEARRAY>();
-        (::windows::core::Interface::vtable(self).GetSelectedItems)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetSelectedItems(&self) -> ::windows_core::Result<*mut super::Com::SAFEARRAY> {
+        let mut result__ = ::windows_core::zeroed::<*mut super::Com::SAFEARRAY>();
+        (::windows_core::Interface::vtable(self).GetSelectedItems)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn RemoveCapturedItem<P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveCapturedItem<P0>(&self, pszpath: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).RemoveCapturedItem)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).RemoveCapturedItem)(::windows_core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
     }
 }
-::windows::imp::interface_hierarchy!(ICameraUIControl, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ICameraUIControl, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for ICameraUIControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2192,7 +2192,7 @@ impl ::core::fmt::Debug for ICameraUIControl {
         f.debug_tuple("ICameraUIControl").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ICameraUIControl {
+unsafe impl ::windows_core::Interface for ICameraUIControl {
     type Vtable = ICameraUIControl_Vtbl;
 }
 impl ::core::clone::Clone for ICameraUIControl {
@@ -2200,58 +2200,58 @@ impl ::core::clone::Clone for ICameraUIControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ICameraUIControl {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8733adf_3d68_4b8f_bb08_e28a0bed0376);
+unsafe impl ::windows_core::ComInterface for ICameraUIControl {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb8733adf_3d68_4b8f_bb08_e28a0bed0376);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraUIControl_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwindow: *mut ::core::ffi::c_void, mode: CameraUIControlMode, selectionmode: CameraUIControlLinearSelectionMode, capturemode: CameraUIControlCaptureMode, photoformat: CameraUIControlPhotoFormat, videoformat: CameraUIControlVideoFormat, bhasclosebutton: super::super::Foundation::BOOL, peventcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwindow: *mut ::core::ffi::c_void, mode: CameraUIControlMode, selectionmode: CameraUIControlLinearSelectionMode, capturemode: CameraUIControlCaptureMode, photoformat: CameraUIControlPhotoFormat, videoformat: CameraUIControlVideoFormat, bhasclosebutton: super::super::Foundation::BOOL, peventcallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Show: usize,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub Suspend: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbdeferralrequired: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub Suspend: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbdeferralrequired: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Suspend: usize,
-    pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetCurrentViewType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pviewtype: *mut CameraUIControlViewType) -> ::windows::core::HRESULT,
-    pub GetActiveItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstractiveitempath: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCurrentViewType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pviewtype: *mut CameraUIControlViewType) -> ::windows_core::HRESULT,
+    pub GetActiveItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstractiveitempath: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetSelectedItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppselecteditempaths: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT,
+    pub GetSelectedItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppselecteditempaths: *mut *mut super::Com::SAFEARRAY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetSelectedItems: usize,
-    pub RemoveCapturedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
+    pub RemoveCapturedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-pub struct ICameraUIControlEventCallback(::windows::core::IUnknown);
+pub struct ICameraUIControlEventCallback(::windows_core::IUnknown);
 impl ICameraUIControlEventCallback {
     pub unsafe fn OnStartupComplete(&self) {
-        (::windows::core::Interface::vtable(self).OnStartupComplete)(::windows::core::Interface::as_raw(self))
+        (::windows_core::Interface::vtable(self).OnStartupComplete)(::windows_core::Interface::as_raw(self))
     }
     pub unsafe fn OnSuspendComplete(&self) {
-        (::windows::core::Interface::vtable(self).OnSuspendComplete)(::windows::core::Interface::as_raw(self))
+        (::windows_core::Interface::vtable(self).OnSuspendComplete)(::windows_core::Interface::as_raw(self))
     }
     pub unsafe fn OnItemCaptured<P0>(&self, pszpath: P0)
     where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).OnItemCaptured)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi())
+        (::windows_core::Interface::vtable(self).OnItemCaptured)(::windows_core::Interface::as_raw(self), pszpath.into_param().abi())
     }
     pub unsafe fn OnItemDeleted<P0>(&self, pszpath: P0)
     where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).OnItemDeleted)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi())
+        (::windows_core::Interface::vtable(self).OnItemDeleted)(::windows_core::Interface::as_raw(self), pszpath.into_param().abi())
     }
     pub unsafe fn OnClosed(&self) {
-        (::windows::core::Interface::vtable(self).OnClosed)(::windows::core::Interface::as_raw(self))
+        (::windows_core::Interface::vtable(self).OnClosed)(::windows_core::Interface::as_raw(self))
     }
 }
-::windows::imp::interface_hierarchy!(ICameraUIControlEventCallback, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ICameraUIControlEventCallback, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for ICameraUIControlEventCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2263,7 +2263,7 @@ impl ::core::fmt::Debug for ICameraUIControlEventCallback {
         f.debug_tuple("ICameraUIControlEventCallback").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ICameraUIControlEventCallback {
+unsafe impl ::windows_core::Interface for ICameraUIControlEventCallback {
     type Vtable = ICameraUIControlEventCallback_Vtbl;
 }
 impl ::core::clone::Clone for ICameraUIControlEventCallback {
@@ -2271,35 +2271,35 @@ impl ::core::clone::Clone for ICameraUIControlEventCallback {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ICameraUIControlEventCallback {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bfa0c2c_fbcd_4776_bda4_88bf974e74f4);
+unsafe impl ::windows_core::ComInterface for ICameraUIControlEventCallback {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1bfa0c2c_fbcd_4776_bda4_88bf974e74f4);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraUIControlEventCallback_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnStartupComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub OnSuspendComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub OnItemCaptured: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR),
-    pub OnItemDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR),
+    pub OnItemCaptured: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows_core::PCWSTR),
+    pub OnItemDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows_core::PCWSTR),
     pub OnClosed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-pub struct IClipServiceNotificationHelper(::windows::core::IUnknown);
+pub struct IClipServiceNotificationHelper(::windows_core::IUnknown);
 impl IClipServiceNotificationHelper {
-    pub unsafe fn ShowToast<P0, P1, P2, P3, P4>(&self, titletext: P0, bodytext: P1, packagename: P2, appid: P3, launchcommand: P4) -> ::windows::core::Result<()>
+    pub unsafe fn ShowToast<P0, P1, P2, P3, P4>(&self, titletext: P0, bodytext: P1, packagename: P2, appid: P3, launchcommand: P4) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
-        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
-        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
-        P3: ::windows::core::IntoParam<::windows::core::BSTR>,
-        P4: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P2: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P3: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P4: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).ShowToast)(::windows::core::Interface::as_raw(self), titletext.into_param().abi(), bodytext.into_param().abi(), packagename.into_param().abi(), appid.into_param().abi(), launchcommand.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).ShowToast)(::windows_core::Interface::as_raw(self), titletext.into_param().abi(), bodytext.into_param().abi(), packagename.into_param().abi(), appid.into_param().abi(), launchcommand.into_param().abi()).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IClipServiceNotificationHelper, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IClipServiceNotificationHelper, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IClipServiceNotificationHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2311,7 +2311,7 @@ impl ::core::fmt::Debug for IClipServiceNotificationHelper {
         f.debug_tuple("IClipServiceNotificationHelper").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IClipServiceNotificationHelper {
+unsafe impl ::windows_core::Interface for IClipServiceNotificationHelper {
     type Vtable = IClipServiceNotificationHelper_Vtbl;
 }
 impl ::core::clone::Clone for IClipServiceNotificationHelper {
@@ -2319,27 +2319,27 @@ impl ::core::clone::Clone for IClipServiceNotificationHelper {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IClipServiceNotificationHelper {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc39948f0_6142_44fd_98ca_e1681a8d68b5);
+unsafe impl ::windows_core::ComInterface for IClipServiceNotificationHelper {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc39948f0_6142_44fd_98ca_e1681a8d68b5);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClipServiceNotificationHelper_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub ShowToast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, titletext: ::std::mem::MaybeUninit<::windows::core::BSTR>, bodytext: ::std::mem::MaybeUninit<::windows::core::BSTR>, packagename: ::std::mem::MaybeUninit<::windows::core::BSTR>, appid: ::std::mem::MaybeUninit<::windows::core::BSTR>, launchcommand: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub ShowToast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, titletext: ::std::mem::MaybeUninit<::windows_core::BSTR>, bodytext: ::std::mem::MaybeUninit<::windows_core::BSTR>, packagename: ::std::mem::MaybeUninit<::windows_core::BSTR>, appid: ::std::mem::MaybeUninit<::windows_core::BSTR>, launchcommand: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-pub struct IContainerActivationHelper(::windows::core::IUnknown);
+pub struct IContainerActivationHelper(::windows_core::IUnknown);
 impl IContainerActivationHelper {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CanActivateClientVM(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).CanActivateClientVM)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn CanActivateClientVM(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows_core::Interface::vtable(self).CanActivateClientVM)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::imp::interface_hierarchy!(IContainerActivationHelper, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IContainerActivationHelper, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IContainerActivationHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2351,7 +2351,7 @@ impl ::core::fmt::Debug for IContainerActivationHelper {
         f.debug_tuple("IContainerActivationHelper").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IContainerActivationHelper {
+unsafe impl ::windows_core::Interface for IContainerActivationHelper {
     type Vtable = IContainerActivationHelper_Vtbl;
 }
 impl ::core::clone::Clone for IContainerActivationHelper {
@@ -2359,29 +2359,29 @@ impl ::core::clone::Clone for IContainerActivationHelper {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IContainerActivationHelper {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb524f93f_80d5_4ec7_ae9e_d66e93ade1fa);
+unsafe impl ::windows_core::ComInterface for IContainerActivationHelper {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb524f93f_80d5_4ec7_ae9e_d66e93ade1fa);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContainerActivationHelper_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub CanActivateClientVM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isallowed: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub CanActivateClientVM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isallowed: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     CanActivateClientVM: usize,
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-pub struct IDefaultBrowserSyncSettings(::windows::core::IUnknown);
+pub struct IDefaultBrowserSyncSettings(::windows_core::IUnknown);
 impl IDefaultBrowserSyncSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEnabled(&self) -> super::super::Foundation::BOOL {
-        (::windows::core::Interface::vtable(self).IsEnabled)(::windows::core::Interface::as_raw(self))
+        (::windows_core::Interface::vtable(self).IsEnabled)(::windows_core::Interface::as_raw(self))
     }
 }
-::windows::imp::interface_hierarchy!(IDefaultBrowserSyncSettings, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IDefaultBrowserSyncSettings, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IDefaultBrowserSyncSettings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2393,7 +2393,7 @@ impl ::core::fmt::Debug for IDefaultBrowserSyncSettings {
         f.debug_tuple("IDefaultBrowserSyncSettings").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDefaultBrowserSyncSettings {
+unsafe impl ::windows_core::Interface for IDefaultBrowserSyncSettings {
     type Vtable = IDefaultBrowserSyncSettings_Vtbl;
 }
 impl ::core::clone::Clone for IDefaultBrowserSyncSettings {
@@ -2401,13 +2401,13 @@ impl ::core::clone::Clone for IDefaultBrowserSyncSettings {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDefaultBrowserSyncSettings {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a27faad_5ae6_4255_9030_c530936292e3);
+unsafe impl ::windows_core::ComInterface for IDefaultBrowserSyncSettings {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7a27faad_5ae6_4255_9030_c530936292e3);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDefaultBrowserSyncSettings_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2415,13 +2415,13 @@ pub struct IDefaultBrowserSyncSettings_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-pub struct IDeleteBrowsingHistory(::windows::core::IUnknown);
+pub struct IDeleteBrowsingHistory(::windows_core::IUnknown);
 impl IDeleteBrowsingHistory {
-    pub unsafe fn DeleteBrowsingHistory(&self, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteBrowsingHistory)(::windows::core::Interface::as_raw(self), dwflags).ok()
+    pub unsafe fn DeleteBrowsingHistory(&self, dwflags: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).DeleteBrowsingHistory)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDeleteBrowsingHistory, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IDeleteBrowsingHistory, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IDeleteBrowsingHistory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2433,7 +2433,7 @@ impl ::core::fmt::Debug for IDeleteBrowsingHistory {
         f.debug_tuple("IDeleteBrowsingHistory").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDeleteBrowsingHistory {
+unsafe impl ::windows_core::Interface for IDeleteBrowsingHistory {
     type Vtable = IDeleteBrowsingHistory_Vtbl;
 }
 impl ::core::clone::Clone for IDeleteBrowsingHistory {
@@ -2441,41 +2441,41 @@ impl ::core::clone::Clone for IDeleteBrowsingHistory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDeleteBrowsingHistory {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf38ed4b_2be7_4461_8b5e_9a466dc82ae3);
+unsafe impl ::windows_core::ComInterface for IDeleteBrowsingHistory {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf38ed4b_2be7_4461_8b5e_9a466dc82ae3);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeleteBrowsingHistory_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub DeleteBrowsingHistory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub DeleteBrowsingHistory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-pub struct IEditionUpgradeBroker(::windows::core::IUnknown);
+pub struct IEditionUpgradeBroker(::windows_core::IUnknown);
 impl IEditionUpgradeBroker {
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn InitializeParentWindow<P0>(&self, parenthandle: P0) -> ::windows::core::Result<()>
+    pub unsafe fn InitializeParentWindow<P0>(&self, parenthandle: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::Ole::OLE_HANDLE>,
+        P0: ::windows_core::IntoParam<super::Ole::OLE_HANDLE>,
     {
-        (::windows::core::Interface::vtable(self).InitializeParentWindow)(::windows::core::Interface::as_raw(self), parenthandle.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).InitializeParentWindow)(::windows_core::Interface::as_raw(self), parenthandle.into_param().abi()).ok()
     }
-    pub unsafe fn UpdateOperatingSystem<P0>(&self, parameter: P0) -> ::windows::core::Result<()>
+    pub unsafe fn UpdateOperatingSystem<P0>(&self, parameter: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).UpdateOperatingSystem)(::windows::core::Interface::as_raw(self), parameter.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).UpdateOperatingSystem)(::windows_core::Interface::as_raw(self), parameter.into_param().abi()).ok()
     }
-    pub unsafe fn ShowProductKeyUI(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ShowProductKeyUI)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn ShowProductKeyUI(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).ShowProductKeyUI)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn CanUpgrade(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CanUpgrade)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn CanUpgrade(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).CanUpgrade)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IEditionUpgradeBroker, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IEditionUpgradeBroker, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IEditionUpgradeBroker {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2487,7 +2487,7 @@ impl ::core::fmt::Debug for IEditionUpgradeBroker {
         f.debug_tuple("IEditionUpgradeBroker").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IEditionUpgradeBroker {
+unsafe impl ::windows_core::Interface for IEditionUpgradeBroker {
     type Vtable = IEditionUpgradeBroker_Vtbl;
 }
 impl ::core::clone::Clone for IEditionUpgradeBroker {
@@ -2495,52 +2495,52 @@ impl ::core::clone::Clone for IEditionUpgradeBroker {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IEditionUpgradeBroker {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff19cbcf_9455_4937_b872_6b7929a460af);
+unsafe impl ::windows_core::ComInterface for IEditionUpgradeBroker {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff19cbcf_9455_4937_b872_6b7929a460af);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEditionUpgradeBroker_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Ole")]
-    pub InitializeParentWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parenthandle: super::Ole::OLE_HANDLE) -> ::windows::core::HRESULT,
+    pub InitializeParentWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parenthandle: super::Ole::OLE_HANDLE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
     InitializeParentWindow: usize,
-    pub UpdateOperatingSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parameter: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ShowProductKeyUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub CanUpgrade: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub UpdateOperatingSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parameter: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ShowProductKeyUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CanUpgrade: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-pub struct IEditionUpgradeHelper(::windows::core::IUnknown);
+pub struct IEditionUpgradeHelper(::windows_core::IUnknown);
 impl IEditionUpgradeHelper {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CanUpgrade(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
-        (::windows::core::Interface::vtable(self).CanUpgrade)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn CanUpgrade(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows_core::Interface::vtable(self).CanUpgrade)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn UpdateOperatingSystem<P0>(&self, contentid: P0) -> ::windows::core::Result<()>
+    pub unsafe fn UpdateOperatingSystem<P0>(&self, contentid: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).UpdateOperatingSystem)(::windows::core::Interface::as_raw(self), contentid.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).UpdateOperatingSystem)(::windows_core::Interface::as_raw(self), contentid.into_param().abi()).ok()
     }
-    pub unsafe fn ShowProductKeyUI(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ShowProductKeyUI)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn ShowProductKeyUI(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).ShowProductKeyUI)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn GetOsProductContentId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Interface::vtable(self).GetOsProductContentId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetOsProductContentId(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        (::windows_core::Interface::vtable(self).GetOsProductContentId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetGenuineLocalStatus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
-        (::windows::core::Interface::vtable(self).GetGenuineLocalStatus)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetGenuineLocalStatus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows_core::Interface::vtable(self).GetGenuineLocalStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::imp::interface_hierarchy!(IEditionUpgradeHelper, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IEditionUpgradeHelper, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IEditionUpgradeHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2552,7 +2552,7 @@ impl ::core::fmt::Debug for IEditionUpgradeHelper {
         f.debug_tuple("IEditionUpgradeHelper").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IEditionUpgradeHelper {
+unsafe impl ::windows_core::Interface for IEditionUpgradeHelper {
     type Vtable = IEditionUpgradeHelper_Vtbl;
 }
 impl ::core::clone::Clone for IEditionUpgradeHelper {
@@ -2560,38 +2560,38 @@ impl ::core::clone::Clone for IEditionUpgradeHelper {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IEditionUpgradeHelper {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3e9e342_5deb_43b6_849e_6913b85d503a);
+unsafe impl ::windows_core::ComInterface for IEditionUpgradeHelper {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd3e9e342_5deb_43b6_849e_6913b85d503a);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEditionUpgradeHelper_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub CanUpgrade: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isallowed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub CanUpgrade: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isallowed: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     CanUpgrade: usize,
-    pub UpdateOperatingSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    pub ShowProductKeyUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetOsProductContentId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub UpdateOperatingSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub ShowProductKeyUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetOsProductContentId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetGenuineLocalStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isgenuine: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub GetGenuineLocalStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isgenuine: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetGenuineLocalStatus: usize,
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-pub struct IFClipNotificationHelper(::windows::core::IUnknown);
+pub struct IFClipNotificationHelper(::windows_core::IUnknown);
 impl IFClipNotificationHelper {
-    pub unsafe fn ShowSystemDialog<P0, P1>(&self, titletext: P0, bodytext: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ShowSystemDialog<P0, P1>(&self, titletext: P0, bodytext: P1) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
-        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).ShowSystemDialog)(::windows::core::Interface::as_raw(self), titletext.into_param().abi(), bodytext.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).ShowSystemDialog)(::windows_core::Interface::as_raw(self), titletext.into_param().abi(), bodytext.into_param().abi()).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IFClipNotificationHelper, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IFClipNotificationHelper, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IFClipNotificationHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2603,7 +2603,7 @@ impl ::core::fmt::Debug for IFClipNotificationHelper {
         f.debug_tuple("IFClipNotificationHelper").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IFClipNotificationHelper {
+unsafe impl ::windows_core::Interface for IFClipNotificationHelper {
     type Vtable = IFClipNotificationHelper_Vtbl;
 }
 impl ::core::clone::Clone for IFClipNotificationHelper {
@@ -2611,27 +2611,27 @@ impl ::core::clone::Clone for IFClipNotificationHelper {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IFClipNotificationHelper {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d5e3d21_bd41_4c2a_a669_b17ce87fb50b);
+unsafe impl ::windows_core::ComInterface for IFClipNotificationHelper {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d5e3d21_bd41_4c2a_a669_b17ce87fb50b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFClipNotificationHelper_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub ShowSystemDialog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, titletext: ::std::mem::MaybeUninit<::windows::core::BSTR>, bodytext: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub ShowSystemDialog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, titletext: ::std::mem::MaybeUninit<::windows_core::BSTR>, bodytext: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-pub struct IWindowsLockModeHelper(::windows::core::IUnknown);
+pub struct IWindowsLockModeHelper(::windows_core::IUnknown);
 impl IWindowsLockModeHelper {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSMode(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
-        (::windows::core::Interface::vtable(self).GetSMode)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetSMode(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows_core::Interface::vtable(self).GetSMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::imp::interface_hierarchy!(IWindowsLockModeHelper, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IWindowsLockModeHelper, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IWindowsLockModeHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2643,7 +2643,7 @@ impl ::core::fmt::Debug for IWindowsLockModeHelper {
         f.debug_tuple("IWindowsLockModeHelper").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsLockModeHelper {
+unsafe impl ::windows_core::Interface for IWindowsLockModeHelper {
     type Vtable = IWindowsLockModeHelper_Vtbl;
 }
 impl ::core::clone::Clone for IWindowsLockModeHelper {
@@ -2651,15 +2651,15 @@ impl ::core::clone::Clone for IWindowsLockModeHelper {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IWindowsLockModeHelper {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf342d19e_cc22_4648_bb5d_03ccf75b47c5);
+unsafe impl ::windows_core::ComInterface for IWindowsLockModeHelper {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf342d19e_cc22_4648_bb5d_03ccf75b47c5);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsLockModeHelper_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetSMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, issmode: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub GetSMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, issmode: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetSMode: usize,
 }
@@ -2832,7 +2832,7 @@ pub const BAUD_9600: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const BAUD_USER: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CATID_DeleteBrowsingHistory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31caf6e4_d6aa_4090_a050_a5ac8972e9ef);
+pub const CATID_DeleteBrowsingHistory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x31caf6e4_d6aa_4090_a050_a5ac8972e9ef);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const CBR_110: u32 = 110u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -2988,7 +2988,7 @@ pub const CREATE_FOR_IMPORT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const CRITICAL_SECTION_NO_DEBUG_INFO: u32 = 16777216u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CameraUIControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16d5a2be_b1c5_47b3_8eae_ccbcf452c7e8);
+pub const CameraUIControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x16d5a2be_b1c5_47b3_8eae_ccbcf452c7e8);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const DCICREATEOFFSCREENSURFACE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -3134,7 +3134,7 @@ pub const DTR_CONTROL_ENABLE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const DTR_CONTROL_HANDSHAKE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DefaultBrowserSyncSettings: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ac83423_3112_4aa6_9b5b_1feb23d0c5f9);
+pub const DefaultBrowserSyncSettings: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ac83423_3112_4aa6_9b5b_1feb23d0c5f9);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const EFSRPC_SECURE_ONLY: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -3150,9 +3150,9 @@ pub const ER_ICMP: u32 = 896u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const EVENTLOG_FULL_INFO: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const EditionUpgradeBroker: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4270827_4f39_45df_9288_12ff6b85a921);
+pub const EditionUpgradeBroker: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4270827_4f39_45df_9288_12ff6b85a921);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const EditionUpgradeHelper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01776df3_b9af_4e50_9b1c_56e93116d704);
+pub const EditionUpgradeHelper: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x01776df3_b9af_4e50_9b1c_56e93116d704);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FAIL_FAST_GENERATE_EXCEPTION_ADDRESS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -3242,23 +3242,23 @@ pub const FS_UNICODE_STORED_ON_DISK: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FS_VOL_IS_COMPRESSED: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_A: ::windows::core::PCSTR = ::windows::core::s!("GetSystemWow64DirectoryA");
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_A: ::windows_core::PCSTR = ::windows_core::s!("GetSystemWow64DirectoryA");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_T: ::windows::core::PCWSTR = ::windows::core::w!("GetSystemWow64DirectoryA");
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_T: ::windows_core::PCWSTR = ::windows_core::w!("GetSystemWow64DirectoryA");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_W: ::windows::core::PCWSTR = ::windows::core::w!("GetSystemWow64DirectoryA");
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_W: ::windows_core::PCWSTR = ::windows_core::w!("GetSystemWow64DirectoryA");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_T_A: ::windows::core::PCWSTR = ::windows::core::w!("GetSystemWow64DirectoryW");
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_T_A: ::windows_core::PCWSTR = ::windows_core::w!("GetSystemWow64DirectoryW");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_T_T: ::windows::core::PCWSTR = ::windows::core::w!("GetSystemWow64DirectoryW");
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_T_T: ::windows_core::PCWSTR = ::windows_core::w!("GetSystemWow64DirectoryW");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_T_W: ::windows::core::PCWSTR = ::windows::core::w!("GetSystemWow64DirectoryW");
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_T_W: ::windows_core::PCWSTR = ::windows_core::w!("GetSystemWow64DirectoryW");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_A: ::windows::core::PCSTR = ::windows::core::s!("GetSystemWow64DirectoryW");
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_A: ::windows_core::PCSTR = ::windows_core::s!("GetSystemWow64DirectoryW");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_T: ::windows::core::PCWSTR = ::windows::core::w!("GetSystemWow64DirectoryW");
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_T: ::windows_core::PCWSTR = ::windows_core::w!("GetSystemWow64DirectoryW");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_W: ::windows::core::PCWSTR = ::windows::core::w!("GetSystemWow64DirectoryW");
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_W: ::windows_core::PCWSTR = ::windows_core::w!("GetSystemWow64DirectoryW");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const GMEM_DDESHARE: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -3602,9 +3602,9 @@ pub const QUERY_ACTCTX_FLAG_USE_ACTIVE_ACTCTX: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const RECOVERY_DEFAULT_PING_INTERVAL: u32 = 5000u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const REG_RESTORE_LOG_KEY: ::windows::core::PCWSTR = ::windows::core::w!("RegRestoreLogFile");
+pub const REG_RESTORE_LOG_KEY: ::windows_core::PCWSTR = ::windows_core::w!("RegRestoreLogFile");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const REG_SAVE_LOG_KEY: ::windows::core::PCWSTR = ::windows::core::w!("RegSaveLogFile");
+pub const REG_SAVE_LOG_KEY: ::windows_core::PCWSTR = ::windows_core::w!("RegSaveLogFile");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const REMOTE_PROTOCOL_INFO_FLAG_LOOPBACK: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -3808,45 +3808,45 @@ pub const WINWATCHNOTIFY_START: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WINWATCHNOTIFY_STOP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_CANEXECUTEBUFFER_FN: ::windows::core::PCSTR = ::windows::core::s!("WldpCanExecuteBuffer");
+pub const WLDP_CANEXECUTEBUFFER_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpCanExecuteBuffer");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_CANEXECUTEFILE_FN: ::windows::core::PCSTR = ::windows::core::s!("WldpCanExecuteFile");
+pub const WLDP_CANEXECUTEFILE_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpCanExecuteFile");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_DLL: ::windows::core::PCWSTR = ::windows::core::w!("WLDP.DLL");
+pub const WLDP_DLL: ::windows_core::PCWSTR = ::windows_core::w!("WLDP.DLL");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_FLAGS_SKIPSIGNATUREVALIDATION: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_GETLOCKDOWNPOLICY_FN: ::windows::core::PCSTR = ::windows::core::s!("WldpGetLockdownPolicy");
+pub const WLDP_GETLOCKDOWNPOLICY_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpGetLockdownPolicy");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_CMD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5baea1d6_6f1c_488e_8490_347fa5c5067f);
+pub const WLDP_HOST_CMD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5baea1d6_6f1c_488e_8490_347fa5c5067f);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_HTML: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb35a71b6_fe56_48d6_9543_2dff0ecded66);
+pub const WLDP_HOST_HTML: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb35a71b6_fe56_48d6_9543_2dff0ecded66);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_HOST_INFORMATION_REVISION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_JAVASCRIPT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5629f0d5_1cca_4fed_a1a3_36a8c18d74c0);
+pub const WLDP_HOST_JAVASCRIPT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5629f0d5_1cca_4fed_a1a3_36a8c18d74c0);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_MSI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x624eb611_6e7e_4eec_9bfe_f0ecdbfcf390);
+pub const WLDP_HOST_MSI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x624eb611_6e7e_4eec_9bfe_f0ecdbfcf390);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_OTHER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x626cbec3_e1fa_4227_9800_ed210274cf7c);
+pub const WLDP_HOST_OTHER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x626cbec3_e1fa_4227_9800_ed210274cf7c);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_POWERSHELL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e9aaa7c_198b_4879_ae41_a50d47ad6458);
+pub const WLDP_HOST_POWERSHELL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8e9aaa7c_198b_4879_ae41_a50d47ad6458);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_PYTHON: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfd557ef_2448_42ec_810b_0d9f09352d4a);
+pub const WLDP_HOST_PYTHON: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbfd557ef_2448_42ec_810b_0d9f09352d4a);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_WINDOWS_SCRIPT_HOST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd30b84c5_29ce_4ff3_86ec_a30007a82e49);
+pub const WLDP_HOST_WINDOWS_SCRIPT_HOST: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd30b84c5_29ce_4ff3_86ec_a30007a82e49);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_XML: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5594be58_c6bf_4295_82f4_d494d20e3a36);
+pub const WLDP_HOST_XML: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5594be58_c6bf_4295_82f4_d494d20e3a36);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_ISAPPAPPROVEDBYPOLICY_FN: ::windows::core::PCSTR = ::windows::core::s!("WldpIsAppApprovedByPolicy");
+pub const WLDP_ISAPPAPPROVEDBYPOLICY_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpIsAppApprovedByPolicy");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_ISCLASSINAPPROVEDLIST_FN: ::windows::core::PCSTR = ::windows::core::s!("WldpIsClassInApprovedList");
+pub const WLDP_ISCLASSINAPPROVEDLIST_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpIsClassInApprovedList");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_ISDYNAMICCODEPOLICYENABLED_FN: ::windows::core::PCSTR = ::windows::core::s!("WldpIsDynamicCodePolicyEnabled");
+pub const WLDP_ISDYNAMICCODEPOLICYENABLED_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpIsDynamicCodePolicyEnabled");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_ISPRODUCTIONCONFIGURATION_FN: ::windows::core::PCSTR = ::windows::core::s!("WldpIsProductionConfiguration");
+pub const WLDP_ISPRODUCTIONCONFIGURATION_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpIsProductionConfiguration");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_ISWCOSPRODUCTIONCONFIGURATION_FN: ::windows::core::PCSTR = ::windows::core::s!("WldpIsWcosProductionConfiguration");
+pub const WLDP_ISWCOSPRODUCTIONCONFIGURATION_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpIsWcosProductionConfiguration");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_LOCKDOWN_AUDIT_FLAG: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -3864,27 +3864,27 @@ pub const WLDP_LOCKDOWN_UMCIENFORCE_FLAG: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_LOCKDOWN_UNDEFINED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_QUERYDANAMICCODETRUST_FN: ::windows::core::PCSTR = ::windows::core::s!("WldpQueryDynamicCodeTrust");
+pub const WLDP_QUERYDANAMICCODETRUST_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpQueryDynamicCodeTrust");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_QUERYDEVICESECURITYINFORMATION_FN: ::windows::core::PCSTR = ::windows::core::s!("WldpQueryDeviceSecurityInformation");
+pub const WLDP_QUERYDEVICESECURITYINFORMATION_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpQueryDeviceSecurityInformation");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_QUERYDYNAMICCODETRUST_FN: ::windows::core::PCSTR = ::windows::core::s!("WldpQueryDynamicCodeTrust");
+pub const WLDP_QUERYDYNAMICCODETRUST_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpQueryDynamicCodeTrust");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_QUERYPOLICYSETTINGENABLED2_FN: ::windows::core::PCSTR = ::windows::core::s!("WldpQueryPolicySettingEnabled2");
+pub const WLDP_QUERYPOLICYSETTINGENABLED2_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpQueryPolicySettingEnabled2");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_QUERYPOLICYSETTINGENABLED_FN: ::windows::core::PCSTR = ::windows::core::s!("WldpQueryPolicySettingEnabled");
+pub const WLDP_QUERYPOLICYSETTINGENABLED_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpQueryPolicySettingEnabled");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_QUERYWINDOWSLOCKDOWNMODE_FN: ::windows::core::PCSTR = ::windows::core::s!("WldpQueryWindowsLockdownMode");
+pub const WLDP_QUERYWINDOWSLOCKDOWNMODE_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpQueryWindowsLockdownMode");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_FN: ::windows::core::PCSTR = ::windows::core::s!("WldpQueryWindowsLockdownRestriction");
+pub const WLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpQueryWindowsLockdownRestriction");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_RESETPRODUCTIONCONFIGURATION_FN: ::windows::core::PCSTR = ::windows::core::s!("WldpResetProductionConfiguration");
+pub const WLDP_RESETPRODUCTIONCONFIGURATION_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpResetProductionConfiguration");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_RESETWCOSPRODUCTIONCONFIGURATION_FN: ::windows::core::PCSTR = ::windows::core::s!("WldpResetWcosProductionConfiguration");
+pub const WLDP_RESETWCOSPRODUCTIONCONFIGURATION_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpResetWcosProductionConfiguration");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_SETDYNAMICCODETRUST_FN: ::windows::core::PCSTR = ::windows::core::s!("WldpSetDynamicCodeTrust");
+pub const WLDP_SETDYNAMICCODETRUST_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpSetDynamicCodeTrust");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_SETWINDOWSLOCKDOWNRESTRICTION_FN: ::windows::core::PCSTR = ::windows::core::s!("WldpSetWindowsLockdownRestriction");
+pub const WLDP_SETWINDOWSLOCKDOWNRESTRICTION_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpSetWindowsLockdownRestriction");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WM_CONVERTREQUEST: u32 = 266u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -3919,8 +3919,8 @@ impl ::core::default::Default for CameraUIControlCaptureMode {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CameraUIControlCaptureMode {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CameraUIControlCaptureMode {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CameraUIControlCaptureMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3946,8 +3946,8 @@ impl ::core::default::Default for CameraUIControlLinearSelectionMode {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CameraUIControlLinearSelectionMode {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CameraUIControlLinearSelectionMode {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CameraUIControlLinearSelectionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3973,8 +3973,8 @@ impl ::core::default::Default for CameraUIControlMode {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CameraUIControlMode {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CameraUIControlMode {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CameraUIControlMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4001,8 +4001,8 @@ impl ::core::default::Default for CameraUIControlPhotoFormat {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CameraUIControlPhotoFormat {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CameraUIControlPhotoFormat {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CameraUIControlPhotoFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4028,8 +4028,8 @@ impl ::core::default::Default for CameraUIControlVideoFormat {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CameraUIControlVideoFormat {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CameraUIControlVideoFormat {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CameraUIControlVideoFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4055,8 +4055,8 @@ impl ::core::default::Default for CameraUIControlViewType {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CameraUIControlViewType {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CameraUIControlViewType {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CameraUIControlViewType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4098,8 +4098,8 @@ impl ::core::default::Default for DECISION_LOCATION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DECISION_LOCATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DECISION_LOCATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DECISION_LOCATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4129,8 +4129,8 @@ impl ::core::default::Default for FEATURE_CHANGE_TIME {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for FEATURE_CHANGE_TIME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FEATURE_CHANGE_TIME {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for FEATURE_CHANGE_TIME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4158,8 +4158,8 @@ impl ::core::default::Default for FEATURE_ENABLED_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for FEATURE_ENABLED_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FEATURE_ENABLED_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for FEATURE_ENABLED_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4189,8 +4189,8 @@ impl ::core::default::Default for FILE_FLUSH_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for FILE_FLUSH_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FILE_FLUSH_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for FILE_FLUSH_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4214,8 +4214,8 @@ impl ::core::default::Default for FILE_INFORMATION_CLASS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for FILE_INFORMATION_CLASS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FILE_INFORMATION_CLASS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for FILE_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4241,8 +4241,8 @@ impl ::core::default::Default for FILE_WRITE_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for FILE_WRITE_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FILE_WRITE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for FILE_WRITE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4311,8 +4311,8 @@ impl ::core::default::Default for KEY_SET_INFORMATION_CLASS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KEY_SET_INFORMATION_CLASS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KEY_SET_INFORMATION_CLASS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KEY_SET_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4338,8 +4338,8 @@ impl ::core::default::Default for OBJECT_INFORMATION_CLASS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for OBJECT_INFORMATION_CLASS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OBJECT_INFORMATION_CLASS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for OBJECT_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4383,8 +4383,8 @@ impl ::core::default::Default for SYSTEM_INFORMATION_CLASS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SYSTEM_INFORMATION_CLASS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SYSTEM_INFORMATION_CLASS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SYSTEM_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4422,8 +4422,8 @@ impl ::core::default::Default for TDIENTITY_ENTITY_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TDIENTITY_ENTITY_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TDIENTITY_ENTITY_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TDIENTITY_ENTITY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4453,8 +4453,8 @@ impl ::core::default::Default for TDI_TL_IO_CONTROL_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TDI_TL_IO_CONTROL_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TDI_TL_IO_CONTROL_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TDI_TL_IO_CONTROL_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4482,8 +4482,8 @@ impl ::core::default::Default for VALUENAME {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for VALUENAME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VALUENAME {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for VALUENAME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4507,8 +4507,8 @@ impl ::core::default::Default for WINSTATIONINFOCLASS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WINSTATIONINFOCLASS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WINSTATIONINFOCLASS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WINSTATIONINFOCLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4534,8 +4534,8 @@ impl ::core::default::Default for WLDP_EXECUTION_EVALUATION_OPTIONS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WLDP_EXECUTION_EVALUATION_OPTIONS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WLDP_EXECUTION_EVALUATION_OPTIONS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WLDP_EXECUTION_EVALUATION_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4596,8 +4596,8 @@ impl ::core::default::Default for WLDP_EXECUTION_POLICY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WLDP_EXECUTION_POLICY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WLDP_EXECUTION_POLICY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WLDP_EXECUTION_POLICY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4625,8 +4625,8 @@ impl ::core::default::Default for WLDP_HOST {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WLDP_HOST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WLDP_HOST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WLDP_HOST {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4666,8 +4666,8 @@ impl ::core::default::Default for WLDP_HOST_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WLDP_HOST_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WLDP_HOST_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WLDP_HOST_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4695,8 +4695,8 @@ impl ::core::default::Default for WLDP_KEY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WLDP_KEY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WLDP_KEY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WLDP_KEY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4720,8 +4720,8 @@ impl ::core::default::Default for WLDP_POLICY_SETTING {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WLDP_POLICY_SETTING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WLDP_POLICY_SETTING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WLDP_POLICY_SETTING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4751,8 +4751,8 @@ impl ::core::default::Default for WLDP_WINDOWS_LOCKDOWN_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WLDP_WINDOWS_LOCKDOWN_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WLDP_WINDOWS_LOCKDOWN_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WLDP_WINDOWS_LOCKDOWN_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4782,8 +4782,8 @@ impl ::core::default::Default for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4831,8 +4831,8 @@ impl ::core::fmt::Debug for ACTCTX_SECTION_KEYED_DATA_2600 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for ACTCTX_SECTION_KEYED_DATA_2600 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ACTCTX_SECTION_KEYED_DATA_2600 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ACTCTX_SECTION_KEYED_DATA_2600 {
@@ -4868,8 +4868,8 @@ impl ::core::fmt::Debug for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
         f.debug_struct("ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA").field("lpInformation", &self.lpInformation).field("lpSectionBase", &self.lpSectionBase).field("ulSectionLength", &self.ulSectionLength).field("lpSectionGlobalDataBase", &self.lpSectionGlobalDataBase).field("ulSectionGlobalDataLength", &self.ulSectionGlobalDataLength).finish()
     }
 }
-impl ::windows::core::TypeKind for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
     fn eq(&self, other: &Self) -> bool {
@@ -4904,8 +4904,8 @@ impl ::core::fmt::Debug for ACTIVATION_CONTEXT_BASIC_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for ACTIVATION_CONTEXT_BASIC_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ACTIVATION_CONTEXT_BASIC_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ACTIVATION_CONTEXT_BASIC_INFORMATION {
@@ -4924,9 +4924,9 @@ impl ::core::default::Default for ACTIVATION_CONTEXT_BASIC_INFORMATION {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub struct CABINFOA {
-    pub pszCab: ::windows::core::PSTR,
-    pub pszInf: ::windows::core::PSTR,
-    pub pszSection: ::windows::core::PSTR,
+    pub pszCab: ::windows_core::PSTR,
+    pub pszInf: ::windows_core::PSTR,
+    pub pszSection: ::windows_core::PSTR,
     pub szSrcPath: [u8; 260],
     pub dwFlags: u32,
 }
@@ -4941,8 +4941,8 @@ impl ::core::fmt::Debug for CABINFOA {
         f.debug_struct("CABINFOA").field("pszCab", &self.pszCab).field("pszInf", &self.pszInf).field("pszSection", &self.pszSection).field("szSrcPath", &self.szSrcPath).field("dwFlags", &self.dwFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for CABINFOA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CABINFOA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for CABINFOA {
     fn eq(&self, other: &Self) -> bool {
@@ -4958,9 +4958,9 @@ impl ::core::default::Default for CABINFOA {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub struct CABINFOW {
-    pub pszCab: ::windows::core::PWSTR,
-    pub pszInf: ::windows::core::PWSTR,
-    pub pszSection: ::windows::core::PWSTR,
+    pub pszCab: ::windows_core::PWSTR,
+    pub pszInf: ::windows_core::PWSTR,
+    pub pszSection: ::windows_core::PWSTR,
     pub szSrcPath: [u16; 260],
     pub dwFlags: u32,
 }
@@ -4975,8 +4975,8 @@ impl ::core::fmt::Debug for CABINFOW {
         f.debug_struct("CABINFOW").field("pszCab", &self.pszCab).field("pszInf", &self.pszInf).field("pszSection", &self.pszSection).field("szSrcPath", &self.szSrcPath).field("dwFlags", &self.dwFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for CABINFOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CABINFOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for CABINFOW {
     fn eq(&self, other: &Self) -> bool {
@@ -5011,8 +5011,8 @@ impl ::core::fmt::Debug for CLIENT_ID {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for CLIENT_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CLIENT_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CLIENT_ID {
@@ -5032,7 +5032,7 @@ impl ::core::default::Default for CLIENT_ID {
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub struct CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
     pub Size: u32,
-    pub TriggerId: ::windows::core::PCWSTR,
+    pub TriggerId: ::windows_core::PCWSTR,
 }
 impl ::core::marker::Copy for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {}
 impl ::core::clone::Clone for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
@@ -5045,8 +5045,8 @@ impl ::core::fmt::Debug for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
         f.debug_struct("CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG").field("Size", &self.Size).field("TriggerId", &self.TriggerId).finish()
     }
 }
-impl ::windows::core::TypeKind for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
     fn eq(&self, other: &Self) -> bool {
@@ -5080,8 +5080,8 @@ impl ::core::fmt::Debug for DATETIME {
         f.debug_struct("DATETIME").field("year", &self.year).field("month", &self.month).field("day", &self.day).field("hour", &self.hour).field("min", &self.min).field("sec", &self.sec).finish()
     }
 }
-impl ::windows::core::TypeKind for DATETIME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DATETIME {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DATETIME {
     fn eq(&self, other: &Self) -> bool {
@@ -5114,8 +5114,8 @@ impl ::core::fmt::Debug for DCICMD {
         f.debug_struct("DCICMD").field("dwCommand", &self.dwCommand).field("dwParam1", &self.dwParam1).field("dwParam2", &self.dwParam2).field("dwVersion", &self.dwVersion).field("dwReserved", &self.dwReserved).finish()
     }
 }
-impl ::windows::core::TypeKind for DCICMD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DCICMD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DCICMD {
     fn eq(&self, other: &Self) -> bool {
@@ -5151,8 +5151,8 @@ impl ::core::fmt::Debug for DCICREATEINPUT {
         f.debug_struct("DCICREATEINPUT").field("cmd", &self.cmd).field("dwCompression", &self.dwCompression).field("dwMask", &self.dwMask).field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("dwDCICaps", &self.dwDCICaps).field("dwBitCount", &self.dwBitCount).field("lpSurface", &self.lpSurface).finish()
     }
 }
-impl ::windows::core::TypeKind for DCICREATEINPUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DCICREATEINPUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DCICREATEINPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -5190,8 +5190,8 @@ impl ::core::fmt::Debug for DCIENUMINPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DCIENUMINPUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DCIENUMINPUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DCIENUMINPUT {
@@ -5226,8 +5226,8 @@ impl ::core::fmt::Debug for DCIOFFSCREEN {
         f.debug_struct("DCIOFFSCREEN").field("dciInfo", &self.dciInfo).field("Draw", &self.Draw).field("SetClipList", &self.SetClipList).field("SetDestination", &self.SetDestination).finish()
     }
 }
-impl ::windows::core::TypeKind for DCIOFFSCREEN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DCIOFFSCREEN {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DCIOFFSCREEN {
     fn eq(&self, other: &Self) -> bool {
@@ -5258,8 +5258,8 @@ impl ::core::fmt::Debug for DCIOVERLAY {
         f.debug_struct("DCIOVERLAY").field("dciInfo", &self.dciInfo).field("dwChromakeyValue", &self.dwChromakeyValue).field("dwChromakeyMask", &self.dwChromakeyMask).finish()
     }
 }
-impl ::windows::core::TypeKind for DCIOVERLAY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DCIOVERLAY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DCIOVERLAY {
     fn eq(&self, other: &Self) -> bool {
@@ -5322,8 +5322,8 @@ impl ::core::fmt::Debug for DCISURFACEINFO {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for DCISURFACEINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DCISURFACEINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DCISURFACEINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5343,7 +5343,7 @@ pub struct DELAYLOAD_INFO {
     pub Size: u32,
     pub DelayloadDescriptor: *mut IMAGE_DELAYLOAD_DESCRIPTOR,
     pub ThunkAddress: *mut IMAGE_THUNK_DATA64,
-    pub TargetDllName: ::windows::core::PCSTR,
+    pub TargetDllName: ::windows_core::PCSTR,
     pub TargetApiDescriptor: DELAYLOAD_PROC_DESCRIPTOR,
     pub TargetModuleBase: *mut ::core::ffi::c_void,
     pub Unused: *mut ::core::ffi::c_void,
@@ -5358,8 +5358,8 @@ impl ::core::clone::Clone for DELAYLOAD_INFO {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::windows::core::TypeKind for DELAYLOAD_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DELAYLOAD_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for DELAYLOAD_INFO {
@@ -5374,7 +5374,7 @@ pub struct DELAYLOAD_INFO {
     pub Size: u32,
     pub DelayloadDescriptor: *mut IMAGE_DELAYLOAD_DESCRIPTOR,
     pub ThunkAddress: *mut IMAGE_THUNK_DATA32,
-    pub TargetDllName: ::windows::core::PCSTR,
+    pub TargetDllName: ::windows_core::PCSTR,
     pub TargetApiDescriptor: DELAYLOAD_PROC_DESCRIPTOR,
     pub TargetModuleBase: *mut ::core::ffi::c_void,
     pub Unused: *mut ::core::ffi::c_void,
@@ -5389,8 +5389,8 @@ impl ::core::clone::Clone for DELAYLOAD_INFO {
     }
 }
 #[cfg(target_arch = "x86")]
-impl ::windows::core::TypeKind for DELAYLOAD_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DELAYLOAD_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for DELAYLOAD_INFO {
@@ -5410,8 +5410,8 @@ impl ::core::clone::Clone for DELAYLOAD_PROC_DESCRIPTOR {
         *self
     }
 }
-impl ::windows::core::TypeKind for DELAYLOAD_PROC_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DELAYLOAD_PROC_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DELAYLOAD_PROC_DESCRIPTOR {
     fn default() -> Self {
@@ -5421,7 +5421,7 @@ impl ::core::default::Default for DELAYLOAD_PROC_DESCRIPTOR {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub union DELAYLOAD_PROC_DESCRIPTOR_0 {
-    pub Name: ::windows::core::PCSTR,
+    pub Name: ::windows_core::PCSTR,
     pub Ordinal: u32,
 }
 impl ::core::marker::Copy for DELAYLOAD_PROC_DESCRIPTOR_0 {}
@@ -5430,8 +5430,8 @@ impl ::core::clone::Clone for DELAYLOAD_PROC_DESCRIPTOR_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DELAYLOAD_PROC_DESCRIPTOR_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DELAYLOAD_PROC_DESCRIPTOR_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DELAYLOAD_PROC_DESCRIPTOR_0 {
     fn default() -> Self {
@@ -5441,20 +5441,20 @@ impl ::core::default::Default for DELAYLOAD_PROC_DESCRIPTOR_0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub struct FEATURE_ERROR {
-    pub hr: ::windows::core::HRESULT,
+    pub hr: ::windows_core::HRESULT,
     pub lineNumber: u16,
-    pub file: ::windows::core::PCSTR,
-    pub process: ::windows::core::PCSTR,
-    pub module: ::windows::core::PCSTR,
+    pub file: ::windows_core::PCSTR,
+    pub process: ::windows_core::PCSTR,
+    pub module: ::windows_core::PCSTR,
     pub callerReturnAddressOffset: u32,
-    pub callerModule: ::windows::core::PCSTR,
-    pub message: ::windows::core::PCSTR,
+    pub callerModule: ::windows_core::PCSTR,
+    pub message: ::windows_core::PCSTR,
     pub originLineNumber: u16,
-    pub originFile: ::windows::core::PCSTR,
-    pub originModule: ::windows::core::PCSTR,
+    pub originFile: ::windows_core::PCSTR,
+    pub originModule: ::windows_core::PCSTR,
     pub originCallerReturnAddressOffset: u32,
-    pub originCallerModule: ::windows::core::PCSTR,
-    pub originName: ::windows::core::PCSTR,
+    pub originCallerModule: ::windows_core::PCSTR,
+    pub originName: ::windows_core::PCSTR,
 }
 impl ::core::marker::Copy for FEATURE_ERROR {}
 impl ::core::clone::Clone for FEATURE_ERROR {
@@ -5482,8 +5482,8 @@ impl ::core::fmt::Debug for FEATURE_ERROR {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for FEATURE_ERROR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FEATURE_ERROR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for FEATURE_ERROR {
     fn eq(&self, other: &Self) -> bool {
@@ -5520,8 +5520,8 @@ impl ::core::fmt::Debug for FEATURE_STATE_CHANGE_SUBSCRIPTION {
         f.debug_tuple("FEATURE_STATE_CHANGE_SUBSCRIPTION").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for FEATURE_STATE_CHANGE_SUBSCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FEATURE_STATE_CHANGE_SUBSCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -5547,8 +5547,8 @@ impl ::core::fmt::Debug for FH_SERVICE_PIPE_HANDLE {
         f.debug_tuple("FH_SERVICE_PIPE_HANDLE").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for FH_SERVICE_PIPE_HANDLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FH_SERVICE_PIPE_HANDLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -5566,8 +5566,8 @@ impl ::core::fmt::Debug for FILE_CASE_SENSITIVE_INFO {
         f.debug_struct("FILE_CASE_SENSITIVE_INFO").field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows::core::TypeKind for FILE_CASE_SENSITIVE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FILE_CASE_SENSITIVE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_CASE_SENSITIVE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5604,8 +5604,8 @@ impl ::core::fmt::Debug for HWINWATCH {
         f.debug_tuple("HWINWATCH").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for HWINWATCH {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HWINWATCH {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -5625,8 +5625,8 @@ impl ::core::fmt::Debug for HW_PROFILE_INFOA {
         f.debug_struct("HW_PROFILE_INFOA").field("dwDockInfo", &self.dwDockInfo).field("szHwProfileGuid", &self.szHwProfileGuid).field("szHwProfileName", &self.szHwProfileName).finish()
     }
 }
-impl ::windows::core::TypeKind for HW_PROFILE_INFOA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HW_PROFILE_INFOA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for HW_PROFILE_INFOA {
     fn eq(&self, other: &Self) -> bool {
@@ -5657,8 +5657,8 @@ impl ::core::fmt::Debug for HW_PROFILE_INFOW {
         f.debug_struct("HW_PROFILE_INFOW").field("dwDockInfo", &self.dwDockInfo).field("szHwProfileGuid", &self.szHwProfileGuid).field("szHwProfileName", &self.szHwProfileName).finish()
     }
 }
-impl ::windows::core::TypeKind for HW_PROFILE_INFOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HW_PROFILE_INFOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for HW_PROFILE_INFOW {
     fn eq(&self, other: &Self) -> bool {
@@ -5689,8 +5689,8 @@ impl ::core::clone::Clone for IMAGE_DELAYLOAD_DESCRIPTOR {
         *self
     }
 }
-impl ::windows::core::TypeKind for IMAGE_DELAYLOAD_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IMAGE_DELAYLOAD_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for IMAGE_DELAYLOAD_DESCRIPTOR {
     fn default() -> Self {
@@ -5709,8 +5709,8 @@ impl ::core::clone::Clone for IMAGE_DELAYLOAD_DESCRIPTOR_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for IMAGE_DELAYLOAD_DESCRIPTOR_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IMAGE_DELAYLOAD_DESCRIPTOR_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for IMAGE_DELAYLOAD_DESCRIPTOR_0 {
     fn default() -> Self {
@@ -5733,8 +5733,8 @@ impl ::core::fmt::Debug for IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
         f.debug_struct("IMAGE_DELAYLOAD_DESCRIPTOR_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5758,8 +5758,8 @@ impl ::core::clone::Clone for IMAGE_THUNK_DATA32 {
         *self
     }
 }
-impl ::windows::core::TypeKind for IMAGE_THUNK_DATA32 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IMAGE_THUNK_DATA32 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for IMAGE_THUNK_DATA32 {
     fn default() -> Self {
@@ -5780,8 +5780,8 @@ impl ::core::clone::Clone for IMAGE_THUNK_DATA32_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for IMAGE_THUNK_DATA32_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IMAGE_THUNK_DATA32_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for IMAGE_THUNK_DATA32_0 {
     fn default() -> Self {
@@ -5799,8 +5799,8 @@ impl ::core::clone::Clone for IMAGE_THUNK_DATA64 {
         *self
     }
 }
-impl ::windows::core::TypeKind for IMAGE_THUNK_DATA64 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IMAGE_THUNK_DATA64 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for IMAGE_THUNK_DATA64 {
     fn default() -> Self {
@@ -5821,8 +5821,8 @@ impl ::core::clone::Clone for IMAGE_THUNK_DATA64_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for IMAGE_THUNK_DATA64_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IMAGE_THUNK_DATA64_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for IMAGE_THUNK_DATA64_0 {
     fn default() -> Self {
@@ -5855,8 +5855,8 @@ impl ::core::fmt::Debug for IMEPROA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for IMEPROA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IMEPROA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMEPROA {
@@ -5898,8 +5898,8 @@ impl ::core::fmt::Debug for IMEPROW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for IMEPROW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IMEPROW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMEPROW {
@@ -5943,8 +5943,8 @@ impl ::core::fmt::Debug for IMESTRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for IMESTRUCT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IMESTRUCT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMESTRUCT {
@@ -5976,8 +5976,8 @@ impl ::core::clone::Clone for IO_STATUS_BLOCK {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for IO_STATUS_BLOCK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STATUS_BLOCK {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IO_STATUS_BLOCK {
@@ -6001,8 +6001,8 @@ impl ::core::clone::Clone for IO_STATUS_BLOCK_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for IO_STATUS_BLOCK_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STATUS_BLOCK_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IO_STATUS_BLOCK_0 {
@@ -6023,9 +6023,9 @@ pub struct JAVA_TRUST {
     pub cbJavaPermissions: u32,
     pub pbSigner: *mut u8,
     pub cbSigner: u32,
-    pub pwszZone: ::windows::core::PCWSTR,
-    pub guidZone: ::windows::core::GUID,
-    pub hVerify: ::windows::core::HRESULT,
+    pub pwszZone: ::windows_core::PCWSTR,
+    pub guidZone: ::windows_core::GUID,
+    pub hVerify: ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JAVA_TRUST {}
@@ -6055,8 +6055,8 @@ impl ::core::fmt::Debug for JAVA_TRUST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for JAVA_TRUST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for JAVA_TRUST {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JAVA_TRUST {
@@ -6094,8 +6094,8 @@ impl ::core::fmt::Debug for JIT_DEBUG_INFO {
         f.debug_struct("JIT_DEBUG_INFO").field("dwSize", &self.dwSize).field("dwProcessorArchitecture", &self.dwProcessorArchitecture).field("dwThreadID", &self.dwThreadID).field("dwReserved0", &self.dwReserved0).field("lpExceptionAddress", &self.lpExceptionAddress).field("lpExceptionRecord", &self.lpExceptionRecord).field("lpContextRecord", &self.lpContextRecord).finish()
     }
 }
-impl ::windows::core::TypeKind for JIT_DEBUG_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for JIT_DEBUG_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for JIT_DEBUG_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6132,8 +6132,8 @@ impl ::core::fmt::Debug for KEY_VALUE_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KEY_VALUE_ENTRY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KEY_VALUE_ENTRY {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KEY_VALUE_ENTRY {
@@ -6173,8 +6173,8 @@ impl ::core::clone::Clone for LDR_DATA_TABLE_ENTRY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for LDR_DATA_TABLE_ENTRY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LDR_DATA_TABLE_ENTRY {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for LDR_DATA_TABLE_ENTRY {
@@ -6198,8 +6198,8 @@ impl ::core::clone::Clone for LDR_DATA_TABLE_ENTRY_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for LDR_DATA_TABLE_ENTRY_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LDR_DATA_TABLE_ENTRY_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for LDR_DATA_TABLE_ENTRY_0 {
@@ -6233,8 +6233,8 @@ impl ::core::fmt::Debug for OBJECT_ATTRIBUTES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for OBJECT_ATTRIBUTES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OBJECT_ATTRIBUTES {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OBJECT_ATTRIBUTES {
@@ -6278,8 +6278,8 @@ impl ::core::fmt::Debug for PERUSERSECTIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for PERUSERSECTIONA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PERUSERSECTIONA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PERUSERSECTIONA {
@@ -6323,8 +6323,8 @@ impl ::core::fmt::Debug for PERUSERSECTIONW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for PERUSERSECTIONW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PERUSERSECTIONW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PERUSERSECTIONW {
@@ -6360,8 +6360,8 @@ impl ::core::fmt::Debug for PUBLIC_OBJECT_BASIC_INFORMATION {
         f.debug_struct("PUBLIC_OBJECT_BASIC_INFORMATION").field("Attributes", &self.Attributes).field("GrantedAccess", &self.GrantedAccess).field("HandleCount", &self.HandleCount).field("PointerCount", &self.PointerCount).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for PUBLIC_OBJECT_BASIC_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PUBLIC_OBJECT_BASIC_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PUBLIC_OBJECT_BASIC_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6396,8 +6396,8 @@ impl ::core::fmt::Debug for PUBLIC_OBJECT_TYPE_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for PUBLIC_OBJECT_TYPE_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PUBLIC_OBJECT_TYPE_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PUBLIC_OBJECT_TYPE_INFORMATION {
@@ -6416,8 +6416,8 @@ impl ::core::default::Default for PUBLIC_OBJECT_TYPE_INFORMATION {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub struct STRENTRYA {
-    pub pszName: ::windows::core::PSTR,
-    pub pszValue: ::windows::core::PSTR,
+    pub pszName: ::windows_core::PSTR,
+    pub pszValue: ::windows_core::PSTR,
 }
 impl ::core::marker::Copy for STRENTRYA {}
 impl ::core::clone::Clone for STRENTRYA {
@@ -6430,8 +6430,8 @@ impl ::core::fmt::Debug for STRENTRYA {
         f.debug_struct("STRENTRYA").field("pszName", &self.pszName).field("pszValue", &self.pszValue).finish()
     }
 }
-impl ::windows::core::TypeKind for STRENTRYA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for STRENTRYA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for STRENTRYA {
     fn eq(&self, other: &Self) -> bool {
@@ -6447,8 +6447,8 @@ impl ::core::default::Default for STRENTRYA {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub struct STRENTRYW {
-    pub pszName: ::windows::core::PWSTR,
-    pub pszValue: ::windows::core::PWSTR,
+    pub pszName: ::windows_core::PWSTR,
+    pub pszValue: ::windows_core::PWSTR,
 }
 impl ::core::marker::Copy for STRENTRYW {}
 impl ::core::clone::Clone for STRENTRYW {
@@ -6461,8 +6461,8 @@ impl ::core::fmt::Debug for STRENTRYW {
         f.debug_struct("STRENTRYW").field("pszName", &self.pszName).field("pszValue", &self.pszValue).finish()
     }
 }
-impl ::windows::core::TypeKind for STRENTRYW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for STRENTRYW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for STRENTRYW {
     fn eq(&self, other: &Self) -> bool {
@@ -6495,8 +6495,8 @@ impl ::core::fmt::Debug for STRINGEXSTRUCT {
         f.debug_struct("STRINGEXSTRUCT").field("dwSize", &self.dwSize).field("uDeterminePos", &self.uDeterminePos).field("uDetermineDelimPos", &self.uDetermineDelimPos).field("uYomiPos", &self.uYomiPos).field("uYomiDelimPos", &self.uYomiDelimPos).finish()
     }
 }
-impl ::windows::core::TypeKind for STRINGEXSTRUCT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for STRINGEXSTRUCT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for STRINGEXSTRUCT {
     fn eq(&self, other: &Self) -> bool {
@@ -6526,8 +6526,8 @@ impl ::core::fmt::Debug for STRTABLEA {
         f.debug_struct("STRTABLEA").field("cEntries", &self.cEntries).field("pse", &self.pse).finish()
     }
 }
-impl ::windows::core::TypeKind for STRTABLEA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for STRTABLEA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for STRTABLEA {
     fn eq(&self, other: &Self) -> bool {
@@ -6557,8 +6557,8 @@ impl ::core::fmt::Debug for STRTABLEW {
         f.debug_struct("STRTABLEW").field("cEntries", &self.cEntries).field("pse", &self.pse).finish()
     }
 }
-impl ::windows::core::TypeKind for STRTABLEW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for STRTABLEW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for STRTABLEW {
     fn eq(&self, other: &Self) -> bool {
@@ -6589,8 +6589,8 @@ impl ::core::fmt::Debug for SYSTEM_BASIC_INFORMATION {
         f.debug_struct("SYSTEM_BASIC_INFORMATION").field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("NumberOfProcessors", &self.NumberOfProcessors).finish()
     }
 }
-impl ::windows::core::TypeKind for SYSTEM_BASIC_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SYSTEM_BASIC_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEM_BASIC_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6620,8 +6620,8 @@ impl ::core::fmt::Debug for SYSTEM_CODEINTEGRITY_INFORMATION {
         f.debug_struct("SYSTEM_CODEINTEGRITY_INFORMATION").field("Length", &self.Length).field("CodeIntegrityOptions", &self.CodeIntegrityOptions).finish()
     }
 }
-impl ::windows::core::TypeKind for SYSTEM_CODEINTEGRITY_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SYSTEM_CODEINTEGRITY_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEM_CODEINTEGRITY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6650,8 +6650,8 @@ impl ::core::fmt::Debug for SYSTEM_EXCEPTION_INFORMATION {
         f.debug_struct("SYSTEM_EXCEPTION_INFORMATION").field("Reserved1", &self.Reserved1).finish()
     }
 }
-impl ::windows::core::TypeKind for SYSTEM_EXCEPTION_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SYSTEM_EXCEPTION_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEM_EXCEPTION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6680,8 +6680,8 @@ impl ::core::fmt::Debug for SYSTEM_INTERRUPT_INFORMATION {
         f.debug_struct("SYSTEM_INTERRUPT_INFORMATION").field("Reserved1", &self.Reserved1).finish()
     }
 }
-impl ::windows::core::TypeKind for SYSTEM_INTERRUPT_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SYSTEM_INTERRUPT_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEM_INTERRUPT_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6710,8 +6710,8 @@ impl ::core::fmt::Debug for SYSTEM_LOOKASIDE_INFORMATION {
         f.debug_struct("SYSTEM_LOOKASIDE_INFORMATION").field("Reserved1", &self.Reserved1).finish()
     }
 }
-impl ::windows::core::TypeKind for SYSTEM_LOOKASIDE_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SYSTEM_LOOKASIDE_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEM_LOOKASIDE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6740,8 +6740,8 @@ impl ::core::fmt::Debug for SYSTEM_PERFORMANCE_INFORMATION {
         f.debug_struct("SYSTEM_PERFORMANCE_INFORMATION").field("Reserved1", &self.Reserved1).finish()
     }
 }
-impl ::windows::core::TypeKind for SYSTEM_PERFORMANCE_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SYSTEM_PERFORMANCE_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEM_PERFORMANCE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6771,8 +6771,8 @@ impl ::core::fmt::Debug for SYSTEM_POLICY_INFORMATION {
         f.debug_struct("SYSTEM_POLICY_INFORMATION").field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).finish()
     }
 }
-impl ::windows::core::TypeKind for SYSTEM_POLICY_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SYSTEM_POLICY_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEM_POLICY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6805,8 +6805,8 @@ impl ::core::fmt::Debug for SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
         f.debug_struct("SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION").field("IdleTime", &self.IdleTime).field("KernelTime", &self.KernelTime).field("UserTime", &self.UserTime).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).finish()
     }
 }
-impl ::windows::core::TypeKind for SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6886,8 +6886,8 @@ impl ::core::fmt::Debug for SYSTEM_PROCESS_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for SYSTEM_PROCESS_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SYSTEM_PROCESS_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SYSTEM_PROCESS_INFORMATION {
@@ -6943,8 +6943,8 @@ impl ::core::fmt::Debug for SYSTEM_REGISTRY_QUOTA_INFORMATION {
         f.debug_struct("SYSTEM_REGISTRY_QUOTA_INFORMATION").field("RegistryQuotaAllowed", &self.RegistryQuotaAllowed).field("RegistryQuotaUsed", &self.RegistryQuotaUsed).field("Reserved1", &self.Reserved1).finish()
     }
 }
-impl ::windows::core::TypeKind for SYSTEM_REGISTRY_QUOTA_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SYSTEM_REGISTRY_QUOTA_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEM_REGISTRY_QUOTA_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6986,8 +6986,8 @@ impl ::core::fmt::Debug for SYSTEM_THREAD_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for SYSTEM_THREAD_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SYSTEM_THREAD_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SYSTEM_THREAD_INFORMATION {
@@ -7019,8 +7019,8 @@ impl ::core::fmt::Debug for SYSTEM_TIMEOFDAY_INFORMATION {
         f.debug_struct("SYSTEM_TIMEOFDAY_INFORMATION").field("Reserved1", &self.Reserved1).finish()
     }
 }
-impl ::windows::core::TypeKind for SYSTEM_TIMEOFDAY_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SYSTEM_TIMEOFDAY_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEM_TIMEOFDAY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -7055,8 +7055,8 @@ impl ::core::fmt::Debug for TCP_REQUEST_QUERY_INFORMATION_EX32_XP {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::windows::core::TypeKind for TCP_REQUEST_QUERY_INFORMATION_EX32_XP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TCP_REQUEST_QUERY_INFORMATION_EX32_XP {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for TCP_REQUEST_QUERY_INFORMATION_EX32_XP {
@@ -7089,8 +7089,8 @@ impl ::core::fmt::Debug for TCP_REQUEST_QUERY_INFORMATION_EX_W2K {
         f.debug_struct("TCP_REQUEST_QUERY_INFORMATION_EX_W2K").field("ID", &self.ID).field("Context", &self.Context).finish()
     }
 }
-impl ::windows::core::TypeKind for TCP_REQUEST_QUERY_INFORMATION_EX_W2K {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TCP_REQUEST_QUERY_INFORMATION_EX_W2K {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TCP_REQUEST_QUERY_INFORMATION_EX_W2K {
     fn eq(&self, other: &Self) -> bool {
@@ -7120,8 +7120,8 @@ impl ::core::fmt::Debug for TCP_REQUEST_QUERY_INFORMATION_EX_XP {
         f.debug_struct("TCP_REQUEST_QUERY_INFORMATION_EX_XP").field("ID", &self.ID).field("Context", &self.Context).finish()
     }
 }
-impl ::windows::core::TypeKind for TCP_REQUEST_QUERY_INFORMATION_EX_XP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TCP_REQUEST_QUERY_INFORMATION_EX_XP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TCP_REQUEST_QUERY_INFORMATION_EX_XP {
     fn eq(&self, other: &Self) -> bool {
@@ -7152,8 +7152,8 @@ impl ::core::fmt::Debug for TCP_REQUEST_SET_INFORMATION_EX {
         f.debug_struct("TCP_REQUEST_SET_INFORMATION_EX").field("ID", &self.ID).field("BufferSize", &self.BufferSize).field("Buffer", &self.Buffer).finish()
     }
 }
-impl ::windows::core::TypeKind for TCP_REQUEST_SET_INFORMATION_EX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TCP_REQUEST_SET_INFORMATION_EX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TCP_REQUEST_SET_INFORMATION_EX {
     fn eq(&self, other: &Self) -> bool {
@@ -7183,8 +7183,8 @@ impl ::core::fmt::Debug for TDIEntityID {
         f.debug_struct("TDIEntityID").field("tei_entity", &self.tei_entity).field("tei_instance", &self.tei_instance).finish()
     }
 }
-impl ::windows::core::TypeKind for TDIEntityID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TDIEntityID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TDIEntityID {
     fn eq(&self, other: &Self) -> bool {
@@ -7216,8 +7216,8 @@ impl ::core::fmt::Debug for TDIObjectID {
         f.debug_struct("TDIObjectID").field("toi_entity", &self.toi_entity).field("toi_class", &self.toi_class).field("toi_type", &self.toi_type).field("toi_id", &self.toi_id).finish()
     }
 }
-impl ::windows::core::TypeKind for TDIObjectID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TDIObjectID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TDIObjectID {
     fn eq(&self, other: &Self) -> bool {
@@ -7247,8 +7247,8 @@ impl ::core::clone::Clone for TDI_TL_IO_CONTROL_ENDPOINT {
         *self
     }
 }
-impl ::windows::core::TypeKind for TDI_TL_IO_CONTROL_ENDPOINT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TDI_TL_IO_CONTROL_ENDPOINT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for TDI_TL_IO_CONTROL_ENDPOINT {
     fn default() -> Self {
@@ -7267,8 +7267,8 @@ impl ::core::clone::Clone for TDI_TL_IO_CONTROL_ENDPOINT_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for TDI_TL_IO_CONTROL_ENDPOINT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TDI_TL_IO_CONTROL_ENDPOINT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for TDI_TL_IO_CONTROL_ENDPOINT_0 {
     fn default() -> Self {
@@ -7296,8 +7296,8 @@ impl ::core::fmt::Debug for THREAD_NAME_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for THREAD_NAME_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for THREAD_NAME_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for THREAD_NAME_INFORMATION {
@@ -7357,8 +7357,8 @@ impl ::core::fmt::Debug for UNDETERMINESTRUCT {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for UNDETERMINESTRUCT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UNDETERMINESTRUCT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for UNDETERMINESTRUCT {
     fn eq(&self, other: &Self) -> bool {
@@ -7389,8 +7389,8 @@ impl ::core::fmt::Debug for WINSTATIONINFORMATIONW {
         f.debug_struct("WINSTATIONINFORMATIONW").field("Reserved2", &self.Reserved2).field("LogonId", &self.LogonId).field("Reserved3", &self.Reserved3).finish()
     }
 }
-impl ::windows::core::TypeKind for WINSTATIONINFORMATIONW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WINSTATIONINFORMATIONW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WINSTATIONINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
@@ -7409,7 +7409,7 @@ pub struct WLDP_DEVICE_SECURITY_INFORMATION {
     pub UnlockIdSize: u32,
     pub UnlockId: *mut u8,
     pub ManufacturerIDLength: u32,
-    pub ManufacturerID: ::windows::core::PWSTR,
+    pub ManufacturerID: ::windows_core::PWSTR,
 }
 impl ::core::marker::Copy for WLDP_DEVICE_SECURITY_INFORMATION {}
 impl ::core::clone::Clone for WLDP_DEVICE_SECURITY_INFORMATION {
@@ -7422,8 +7422,8 @@ impl ::core::fmt::Debug for WLDP_DEVICE_SECURITY_INFORMATION {
         f.debug_struct("WLDP_DEVICE_SECURITY_INFORMATION").field("UnlockIdSize", &self.UnlockIdSize).field("UnlockId", &self.UnlockId).field("ManufacturerIDLength", &self.ManufacturerIDLength).field("ManufacturerID", &self.ManufacturerID).finish()
     }
 }
-impl ::windows::core::TypeKind for WLDP_DEVICE_SECURITY_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WLDP_DEVICE_SECURITY_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WLDP_DEVICE_SECURITY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -7442,7 +7442,7 @@ impl ::core::default::Default for WLDP_DEVICE_SECURITY_INFORMATION {
 pub struct WLDP_HOST_INFORMATION {
     pub dwRevision: u32,
     pub dwHostId: WLDP_HOST_ID,
-    pub szSource: ::windows::core::PCWSTR,
+    pub szSource: ::windows_core::PCWSTR,
     pub hSource: super::super::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7460,8 +7460,8 @@ impl ::core::fmt::Debug for WLDP_HOST_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WLDP_HOST_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WLDP_HOST_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WLDP_HOST_INFORMATION {
@@ -7485,8 +7485,8 @@ impl ::core::clone::Clone for _D3DHAL_CALLBACKS {
         *self
     }
 }
-impl ::windows::core::TypeKind for _D3DHAL_CALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _D3DHAL_CALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 pub struct _D3DHAL_GLOBALDRIVERDATA(pub u8);
@@ -7496,8 +7496,8 @@ impl ::core::clone::Clone for _D3DHAL_GLOBALDRIVERDATA {
         *self
     }
 }
-impl ::windows::core::TypeKind for _D3DHAL_GLOBALDRIVERDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _D3DHAL_GLOBALDRIVERDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub type APPLICATION_RECOVERY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pvparameter: *mut ::core::ffi::c_void) -> u32>;
@@ -7519,51 +7519,51 @@ pub type PQUERYACTCTXW_FUNC = ::core::option::Option<unsafe extern "system" fn(d
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINSTATIONQUERYINFORMATIONW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut ::core::ffi::c_void, param4: u32, param5: *mut u32) -> super::super::Foundation::BOOLEAN>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type PWLDP_CANEXECUTEBUFFER_API = ::core::option::Option<unsafe extern "system" fn(host: *const ::windows::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, buffer: *const u8, buffersize: u32, auditinfo: ::windows::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> ::windows::core::HRESULT>;
+pub type PWLDP_CANEXECUTEBUFFER_API = ::core::option::Option<unsafe extern "system" fn(host: *const ::windows_core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, buffer: *const u8, buffersize: u32, auditinfo: ::windows_core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PWLDP_CANEXECUTEFILE_API = ::core::option::Option<unsafe extern "system" fn(host: *const ::windows::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle: super::super::Foundation::HANDLE, auditinfo: ::windows::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> ::windows::core::HRESULT>;
+pub type PWLDP_CANEXECUTEFILE_API = ::core::option::Option<unsafe extern "system" fn(host: *const ::windows_core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle: super::super::Foundation::HANDLE, auditinfo: ::windows_core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
-pub type PWLDP_CANEXECUTESTREAM_API = ::core::option::Option<unsafe extern "system" fn(host: *const ::windows::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, stream: ::core::option::Option<super::Com::IStream>, auditinfo: ::windows::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> ::windows::core::HRESULT>;
+pub type PWLDP_CANEXECUTESTREAM_API = ::core::option::Option<unsafe extern "system" fn(host: *const ::windows_core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, stream: ::core::option::Option<super::Com::IStream>, auditinfo: ::windows_core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type PWLDP_ISAPPAPPROVEDBYPOLICY_API = ::core::option::Option<unsafe extern "system" fn(packagefamilyname: ::windows::core::PCWSTR, packageversion: u64) -> ::windows::core::HRESULT>;
+pub type PWLDP_ISAPPAPPROVEDBYPOLICY_API = ::core::option::Option<unsafe extern "system" fn(packagefamilyname: ::windows_core::PCWSTR, packageversion: u64) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PWLDP_ISDYNAMICCODEPOLICYENABLED_API = ::core::option::Option<unsafe extern "system" fn(pbenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT>;
+pub type PWLDP_ISDYNAMICCODEPOLICYENABLED_API = ::core::option::Option<unsafe extern "system" fn(pbenabled: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PWLDP_ISPRODUCTIONCONFIGURATION_API = ::core::option::Option<unsafe extern "system" fn(isproductionconfiguration: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT>;
+pub type PWLDP_ISPRODUCTIONCONFIGURATION_API = ::core::option::Option<unsafe extern "system" fn(isproductionconfiguration: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PWLDP_ISWCOSPRODUCTIONCONFIGURATION_API = ::core::option::Option<unsafe extern "system" fn(isproductionconfiguration: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT>;
+pub type PWLDP_ISWCOSPRODUCTIONCONFIGURATION_API = ::core::option::Option<unsafe extern "system" fn(isproductionconfiguration: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type PWLDP_QUERYDEVICESECURITYINFORMATION_API = ::core::option::Option<unsafe extern "system" fn(information: *mut WLDP_DEVICE_SECURITY_INFORMATION, informationlength: u32, returnlength: *mut u32) -> ::windows::core::HRESULT>;
+pub type PWLDP_QUERYDEVICESECURITYINFORMATION_API = ::core::option::Option<unsafe extern "system" fn(information: *mut WLDP_DEVICE_SECURITY_INFORMATION, informationlength: u32, returnlength: *mut u32) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PWLDP_QUERYDYNAMICODETRUST_API = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::Foundation::HANDLE, baseimage: *const ::core::ffi::c_void, imagesize: u32) -> ::windows::core::HRESULT>;
+pub type PWLDP_QUERYDYNAMICODETRUST_API = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::Foundation::HANDLE, baseimage: *const ::core::ffi::c_void, imagesize: u32) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PWLDP_QUERYPOLICYSETTINGENABLED2_API = ::core::option::Option<unsafe extern "system" fn(setting: ::windows::core::PCWSTR, enabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT>;
+pub type PWLDP_QUERYPOLICYSETTINGENABLED2_API = ::core::option::Option<unsafe extern "system" fn(setting: ::windows_core::PCWSTR, enabled: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PWLDP_QUERYPOLICYSETTINGENABLED_API = ::core::option::Option<unsafe extern "system" fn(setting: WLDP_POLICY_SETTING, enabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT>;
+pub type PWLDP_QUERYPOLICYSETTINGENABLED_API = ::core::option::Option<unsafe extern "system" fn(setting: WLDP_POLICY_SETTING, enabled: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type PWLDP_QUERYWINDOWSLOCKDOWNMODE_API = ::core::option::Option<unsafe extern "system" fn(lockdownmode: *mut WLDP_WINDOWS_LOCKDOWN_MODE) -> ::windows::core::HRESULT>;
+pub type PWLDP_QUERYWINDOWSLOCKDOWNMODE_API = ::core::option::Option<unsafe extern "system" fn(lockdownmode: *mut WLDP_WINDOWS_LOCKDOWN_MODE) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type PWLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_API = ::core::option::Option<unsafe extern "system" fn(lockdownrestriction: *mut WLDP_WINDOWS_LOCKDOWN_RESTRICTION) -> ::windows::core::HRESULT>;
+pub type PWLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_API = ::core::option::Option<unsafe extern "system" fn(lockdownrestriction: *mut WLDP_WINDOWS_LOCKDOWN_RESTRICTION) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type PWLDP_RESETPRODUCTIONCONFIGURATION_API = ::core::option::Option<unsafe extern "system" fn() -> ::windows::core::HRESULT>;
+pub type PWLDP_RESETPRODUCTIONCONFIGURATION_API = ::core::option::Option<unsafe extern "system" fn() -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type PWLDP_RESETWCOSPRODUCTIONCONFIGURATION_API = ::core::option::Option<unsafe extern "system" fn() -> ::windows::core::HRESULT>;
+pub type PWLDP_RESETWCOSPRODUCTIONCONFIGURATION_API = ::core::option::Option<unsafe extern "system" fn() -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PWLDP_SETDYNAMICCODETRUST_API = ::core::option::Option<unsafe extern "system" fn(hfilehandle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT>;
+pub type PWLDP_SETDYNAMICCODETRUST_API = ::core::option::Option<unsafe extern "system" fn(hfilehandle: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type PWLDP_SETWINDOWSLOCKDOWNRESTRICTION_API = ::core::option::Option<unsafe extern "system" fn(lockdownrestriction: WLDP_WINDOWS_LOCKDOWN_RESTRICTION) -> ::windows::core::HRESULT>;
+pub type PWLDP_SETWINDOWSLOCKDOWNRESTRICTION_API = ::core::option::Option<unsafe extern "system" fn(lockdownrestriction: WLDP_WINDOWS_LOCKDOWN_RESTRICTION) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type REGINSTALLA = ::core::option::Option<unsafe extern "system" fn(hm: super::super::Foundation::HMODULE, pszsection: ::windows::core::PCSTR, psttable: *const STRTABLEA) -> ::windows::core::HRESULT>;
+pub type REGINSTALLA = ::core::option::Option<unsafe extern "system" fn(hm: super::super::Foundation::HMODULE, pszsection: ::windows_core::PCSTR, psttable: *const STRTABLEA) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WINWATCHNOTIFYPROC = ::core::option::Option<unsafe extern "system" fn(hww: HWINWATCH, hwnd: super::super::Foundation::HWND, code: u32, lparam: super::super::Foundation::LPARAM) -> ()>;

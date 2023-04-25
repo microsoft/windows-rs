@@ -75,6 +75,18 @@ impl Type {
         }
     }
 
+    pub fn to_underlying_type(&self) -> Self {
+        match self {
+            Type::MutPtr((ty, _)) => *ty.clone(),
+            Type::ConstPtr((ty, _)) => *ty.clone(),
+            Type::Win32Array((ty, _)) => *ty.clone(),
+            Type::WinrtArray(ty) => *ty.clone(),
+            Type::WinrtArrayRef(ty) => *ty.clone(),
+            Type::WinrtConstRef(ty) => *ty.clone(),
+            _ => self.clone(),
+        }
+    }
+
     /// Converts a mutable pointer type, if appropriate, to a const pointer type.
     pub fn to_const_ptr(self) -> Self {
         match self {

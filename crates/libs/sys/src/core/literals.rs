@@ -35,7 +35,6 @@ macro_rules! w {
     }};
 }
 
-// Ensures that the macros are exported from the `windows::core` module.
 pub use s;
 pub use w;
 

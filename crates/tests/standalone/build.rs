@@ -1,45 +1,45 @@
 fn main() {
-    write(
+    write_sys(
         "src/b_none.rs",
         &["Windows.Win32.System.SystemInformation.GetTickCount"],
     );
 
-    write(
+    write_sys(
         "src/b_hresult.rs",
         &["Windows.Win32.System.Com.CoInitialize"],
     );
 
-    write(
+    write_sys(
         "src/b_hstring.rs",
         &["Windows.Win32.System.WinRT.WindowsGetStringLen"],
     );
 
-    write(
+    write_sys(
         "src/b_unknown.rs",
         &["Windows.Win32.System.Com.CoIsHandlerConnected"],
     );
 
-    write(
+    write_sys(
         "src/b_inspectable.rs",
         &["Windows.Win32.System.WinRT.RoActivateInstance"],
     );
 
-    write("src/b_pstr.rs", &["Windows.Win32.System.Ole.VarI1FromDate"]);
+    write_sys("src/b_pstr.rs", &["Windows.Win32.System.Ole.VarI1FromDate"]);
 
-    write("src/b_pwstr.rs", &["Windows.Win32.System.Ole.CALPOLESTR"]);
+    write_sys("src/b_pwstr.rs", &["Windows.Win32.System.Ole.CALPOLESTR"]);
 
-    write("src/b_pcstr.rs", &["Windows.Win32.Globalization.lstrlenA"]);
+    write_sys("src/b_pcstr.rs", &["Windows.Win32.Globalization.lstrlenA"]);
 
-    write("src/b_pcwstr.rs", &["Windows.Win32.Globalization.lstrlenW"]);
+    write_sys("src/b_pcwstr.rs", &["Windows.Win32.Globalization.lstrlenW"]);
 
-    write(
+    write_sys(
         "src/b_bstr.rs",
         &["Windows.Win32.Foundation.SysAllocString"],
     );
 
-    write("src/b_guid.rs", &["Windows.Win32.System.Com.CoCreateGuid"]);
+    write_sys("src/b_guid.rs", &["Windows.Win32.System.Com.CoCreateGuid"]);
 
-    write(
+    write_sys(
         "src/b_arch.rs",
         &[
             "Windows.Win32.Networking.WinSock.WSADATA",
@@ -47,17 +47,17 @@ fn main() {
         ],
     );
 
-    write(
+    write_sys(
         "src/b_depends.rs",
         &["Windows.Win32.Networking.WinSock.WSASENDMSG"],
     );
 
-    write(
+    write_sys(
         "src/b_enumeration.rs",
         &["Windows.Win32.Foundation.WIN32_ERROR"],
     );
 
-    write(
+    write_sys(
         "src/b_enumerator.rs",
         &[
             "Windows.Win32.Foundation.WAIT_IO_COMPLETION",
@@ -79,7 +79,11 @@ fn main() {
         ],
     );
 
-    write(
+    write_win("src/b_uri.rs", &["Windows.Foundation.Uri"]);
+    write_win("src/b_stringable.rs", &["Windows.Foundation.IStringable"]);
+    write_win("src/b_calendar.rs", &["Windows.Globalization.Calendar"]);
+
+    write_sys(
         "src/b_test.rs",
         &[
             "Windows.Win32.Foundation.CloseHandle",
@@ -95,8 +99,13 @@ fn main() {
     );
 }
 
-fn write(filename: &str, apis: &[&str]) {
-    let bindings = windows_bindgen::standalone(apis);
+fn write_sys(filename: &str, apis: &[&str]) {
+    let bindings = windows_bindgen::standalone_sys(apis);
+    std::fs::write(filename, bindings).unwrap();
+}
+
+fn write_win(filename: &str, apis: &[&str]) {
+    let bindings = windows_bindgen::standalone_win(apis);
     std::fs::write(filename, bindings).unwrap();
 }
 

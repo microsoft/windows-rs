@@ -44,7 +44,7 @@ pub unsafe fn GetRawInputBuffer(pdata: ::core::option::Option<*mut RAWINPUT>, pc
 #[inline]
 pub unsafe fn GetRawInputData<P0>(hrawinput: P0, uicommand: RAW_INPUT_DATA_COMMAND_FLAGS, pdata: ::core::option::Option<*mut ::core::ffi::c_void>, pcbsize: *mut u32, cbsizeheader: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<HRAWINPUT>,
+    P0: ::windows_core::IntoParam<HRAWINPUT>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetRawInputData(hrawinput : HRAWINPUT, uicommand : RAW_INPUT_DATA_COMMAND_FLAGS, pdata : *mut ::core::ffi::c_void, pcbsize : *mut u32, cbsizeheader : u32) -> u32);
     GetRawInputData(hrawinput.into_param().abi(), uicommand, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut())), pcbsize, cbsizeheader)
@@ -54,7 +54,7 @@ where
 #[inline]
 pub unsafe fn GetRawInputDeviceInfoA<P0>(hdevice: P0, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: ::core::option::Option<*mut ::core::ffi::c_void>, pcbsize: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetRawInputDeviceInfoA(hdevice : super::super::Foundation:: HANDLE, uicommand : RAW_INPUT_DEVICE_INFO_COMMAND, pdata : *mut ::core::ffi::c_void, pcbsize : *mut u32) -> u32);
     GetRawInputDeviceInfoA(hdevice.into_param().abi(), uicommand, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut())), pcbsize)
@@ -64,7 +64,7 @@ where
 #[inline]
 pub unsafe fn GetRawInputDeviceInfoW<P0>(hdevice: P0, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: ::core::option::Option<*mut ::core::ffi::c_void>, pcbsize: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetRawInputDeviceInfoW(hdevice : super::super::Foundation:: HANDLE, uicommand : RAW_INPUT_DEVICE_INFO_COMMAND, pdata : *mut ::core::ffi::c_void, pcbsize : *mut u32) -> u32);
     GetRawInputDeviceInfoW(hdevice.into_param().abi(), uicommand, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut())), pcbsize)
@@ -117,8 +117,8 @@ impl ::core::default::Default for INPUT_MESSAGE_DEVICE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for INPUT_MESSAGE_DEVICE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for INPUT_MESSAGE_DEVICE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for INPUT_MESSAGE_DEVICE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -148,8 +148,8 @@ impl ::core::default::Default for INPUT_MESSAGE_ORIGIN_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for INPUT_MESSAGE_ORIGIN_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for INPUT_MESSAGE_ORIGIN_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for INPUT_MESSAGE_ORIGIN_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -191,8 +191,8 @@ impl ::core::default::Default for RAWINPUTDEVICE_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for RAWINPUTDEVICE_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAWINPUTDEVICE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for RAWINPUTDEVICE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -251,8 +251,8 @@ impl ::core::default::Default for RAW_INPUT_DATA_COMMAND_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for RAW_INPUT_DATA_COMMAND_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAW_INPUT_DATA_COMMAND_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for RAW_INPUT_DATA_COMMAND_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -280,8 +280,8 @@ impl ::core::default::Default for RAW_INPUT_DEVICE_INFO_COMMAND {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for RAW_INPUT_DEVICE_INFO_COMMAND {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAW_INPUT_DEVICE_INFO_COMMAND {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for RAW_INPUT_DEVICE_INFO_COMMAND {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -309,8 +309,8 @@ impl ::core::default::Default for RID_DEVICE_INFO_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for RID_DEVICE_INFO_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RID_DEVICE_INFO_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for RID_DEVICE_INFO_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -341,8 +341,8 @@ impl ::core::fmt::Debug for HRAWINPUT {
         f.debug_tuple("HRAWINPUT").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for HRAWINPUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HRAWINPUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input\"`*"]
@@ -361,8 +361,8 @@ impl ::core::fmt::Debug for INPUT_MESSAGE_SOURCE {
         f.debug_struct("INPUT_MESSAGE_SOURCE").field("deviceType", &self.deviceType).field("originId", &self.originId).finish()
     }
 }
-impl ::windows::core::TypeKind for INPUT_MESSAGE_SOURCE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for INPUT_MESSAGE_SOURCE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for INPUT_MESSAGE_SOURCE {
     fn eq(&self, other: &Self) -> bool {
@@ -393,8 +393,8 @@ impl ::core::fmt::Debug for RAWHID {
         f.debug_struct("RAWHID").field("dwSizeHid", &self.dwSizeHid).field("dwCount", &self.dwCount).field("bRawData", &self.bRawData).finish()
     }
 }
-impl ::windows::core::TypeKind for RAWHID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAWHID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RAWHID {
     fn eq(&self, other: &Self) -> bool {
@@ -423,8 +423,8 @@ impl ::core::clone::Clone for RAWINPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RAWINPUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAWINPUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RAWINPUT {
@@ -449,8 +449,8 @@ impl ::core::clone::Clone for RAWINPUT_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RAWINPUT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAWINPUT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RAWINPUT_0 {
@@ -482,8 +482,8 @@ impl ::core::fmt::Debug for RAWINPUTDEVICE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RAWINPUTDEVICE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAWINPUTDEVICE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RAWINPUTDEVICE {
@@ -521,8 +521,8 @@ impl ::core::fmt::Debug for RAWINPUTDEVICELIST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RAWINPUTDEVICELIST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAWINPUTDEVICELIST {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RAWINPUTDEVICELIST {
@@ -562,8 +562,8 @@ impl ::core::fmt::Debug for RAWINPUTHEADER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RAWINPUTHEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAWINPUTHEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RAWINPUTHEADER {
@@ -600,8 +600,8 @@ impl ::core::fmt::Debug for RAWKEYBOARD {
         f.debug_struct("RAWKEYBOARD").field("MakeCode", &self.MakeCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("VKey", &self.VKey).field("Message", &self.Message).field("ExtraInformation", &self.ExtraInformation).finish()
     }
 }
-impl ::windows::core::TypeKind for RAWKEYBOARD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAWKEYBOARD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RAWKEYBOARD {
     fn eq(&self, other: &Self) -> bool {
@@ -630,8 +630,8 @@ impl ::core::clone::Clone for RAWMOUSE {
         *self
     }
 }
-impl ::windows::core::TypeKind for RAWMOUSE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAWMOUSE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for RAWMOUSE {
     fn default() -> Self {
@@ -650,8 +650,8 @@ impl ::core::clone::Clone for RAWMOUSE_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for RAWMOUSE_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAWMOUSE_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for RAWMOUSE_0 {
     fn default() -> Self {
@@ -675,8 +675,8 @@ impl ::core::fmt::Debug for RAWMOUSE_0_0 {
         f.debug_struct("RAWMOUSE_0_0").field("usButtonFlags", &self.usButtonFlags).field("usButtonData", &self.usButtonData).finish()
     }
 }
-impl ::windows::core::TypeKind for RAWMOUSE_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAWMOUSE_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RAWMOUSE_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -706,8 +706,8 @@ impl ::core::clone::Clone for RID_DEVICE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RID_DEVICE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RID_DEVICE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RID_DEVICE_INFO {
@@ -732,8 +732,8 @@ impl ::core::clone::Clone for RID_DEVICE_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RID_DEVICE_INFO_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RID_DEVICE_INFO_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RID_DEVICE_INFO_0 {
@@ -761,8 +761,8 @@ impl ::core::fmt::Debug for RID_DEVICE_INFO_HID {
         f.debug_struct("RID_DEVICE_INFO_HID").field("dwVendorId", &self.dwVendorId).field("dwProductId", &self.dwProductId).field("dwVersionNumber", &self.dwVersionNumber).field("usUsagePage", &self.usUsagePage).field("usUsage", &self.usUsage).finish()
     }
 }
-impl ::windows::core::TypeKind for RID_DEVICE_INFO_HID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RID_DEVICE_INFO_HID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RID_DEVICE_INFO_HID {
     fn eq(&self, other: &Self) -> bool {
@@ -796,8 +796,8 @@ impl ::core::fmt::Debug for RID_DEVICE_INFO_KEYBOARD {
         f.debug_struct("RID_DEVICE_INFO_KEYBOARD").field("dwType", &self.dwType).field("dwSubType", &self.dwSubType).field("dwKeyboardMode", &self.dwKeyboardMode).field("dwNumberOfFunctionKeys", &self.dwNumberOfFunctionKeys).field("dwNumberOfIndicators", &self.dwNumberOfIndicators).field("dwNumberOfKeysTotal", &self.dwNumberOfKeysTotal).finish()
     }
 }
-impl ::windows::core::TypeKind for RID_DEVICE_INFO_KEYBOARD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RID_DEVICE_INFO_KEYBOARD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RID_DEVICE_INFO_KEYBOARD {
     fn eq(&self, other: &Self) -> bool {
@@ -834,8 +834,8 @@ impl ::core::fmt::Debug for RID_DEVICE_INFO_MOUSE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RID_DEVICE_INFO_MOUSE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RID_DEVICE_INFO_MOUSE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RID_DEVICE_INFO_MOUSE {

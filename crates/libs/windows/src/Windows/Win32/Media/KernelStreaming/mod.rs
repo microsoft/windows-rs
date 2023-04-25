@@ -3,7 +3,7 @@
 #[inline]
 pub unsafe fn KsCreateAllocator<P0>(connectionhandle: P0, allocatorframing: *const KSALLOCATOR_FRAMING, allocatorhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("ksuser.dll" "system" fn KsCreateAllocator(connectionhandle : super::super::Foundation:: HANDLE, allocatorframing : *const KSALLOCATOR_FRAMING, allocatorhandle : *mut super::super::Foundation:: HANDLE) -> u32);
     KsCreateAllocator(connectionhandle.into_param().abi(), allocatorframing, allocatorhandle)
@@ -11,12 +11,12 @@ where
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn KsCreateAllocator2<P0>(connectionhandle: P0, allocatorframing: *const KSALLOCATOR_FRAMING) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn KsCreateAllocator2<P0>(connectionhandle: P0, allocatorframing: *const KSALLOCATOR_FRAMING) -> ::windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("ksuser.dll" "system" fn KsCreateAllocator2(connectionhandle : super::super::Foundation:: HANDLE, allocatorframing : *const KSALLOCATOR_FRAMING, allocatorhandle : *mut super::super::Foundation:: HANDLE) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+    ::windows_targets::link!("ksuser.dll" "system" fn KsCreateAllocator2(connectionhandle : super::super::Foundation:: HANDLE, allocatorframing : *const KSALLOCATOR_FRAMING, allocatorhandle : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
     KsCreateAllocator2(connectionhandle.into_param().abi(), allocatorframing, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
@@ -24,7 +24,7 @@ where
 #[inline]
 pub unsafe fn KsCreateClock<P0>(connectionhandle: P0, clockcreate: *const KSCLOCK_CREATE, clockhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("ksuser.dll" "system" fn KsCreateClock(connectionhandle : super::super::Foundation:: HANDLE, clockcreate : *const KSCLOCK_CREATE, clockhandle : *mut super::super::Foundation:: HANDLE) -> u32);
     KsCreateClock(connectionhandle.into_param().abi(), clockcreate, clockhandle)
@@ -32,12 +32,12 @@ where
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn KsCreateClock2<P0>(connectionhandle: P0, clockcreate: *const KSCLOCK_CREATE) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn KsCreateClock2<P0>(connectionhandle: P0, clockcreate: *const KSCLOCK_CREATE) -> ::windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("ksuser.dll" "system" fn KsCreateClock2(connectionhandle : super::super::Foundation:: HANDLE, clockcreate : *const KSCLOCK_CREATE, clockhandle : *mut super::super::Foundation:: HANDLE) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+    ::windows_targets::link!("ksuser.dll" "system" fn KsCreateClock2(connectionhandle : super::super::Foundation:: HANDLE, clockcreate : *const KSCLOCK_CREATE, clockhandle : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
     KsCreateClock2(connectionhandle.into_param().abi(), clockcreate, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
@@ -45,7 +45,7 @@ where
 #[inline]
 pub unsafe fn KsCreatePin<P0>(filterhandle: P0, connect: *const KSPIN_CONNECT, desiredaccess: u32, connectionhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("ksuser.dll" "system" fn KsCreatePin(filterhandle : super::super::Foundation:: HANDLE, connect : *const KSPIN_CONNECT, desiredaccess : u32, connectionhandle : *mut super::super::Foundation:: HANDLE) -> u32);
     KsCreatePin(filterhandle.into_param().abi(), connect, desiredaccess, connectionhandle)
@@ -53,12 +53,12 @@ where
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn KsCreatePin2<P0>(filterhandle: P0, connect: *const KSPIN_CONNECT, desiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn KsCreatePin2<P0>(filterhandle: P0, connect: *const KSPIN_CONNECT, desiredaccess: u32) -> ::windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("ksuser.dll" "system" fn KsCreatePin2(filterhandle : super::super::Foundation:: HANDLE, connect : *const KSPIN_CONNECT, desiredaccess : u32, connectionhandle : *mut super::super::Foundation:: HANDLE) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+    ::windows_targets::link!("ksuser.dll" "system" fn KsCreatePin2(filterhandle : super::super::Foundation:: HANDLE, connect : *const KSPIN_CONNECT, desiredaccess : u32, connectionhandle : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
     KsCreatePin2(filterhandle.into_param().abi(), connect, desiredaccess, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
@@ -66,7 +66,7 @@ where
 #[inline]
 pub unsafe fn KsCreateTopologyNode<P0>(parenthandle: P0, nodecreate: *const KSNODE_CREATE, desiredaccess: u32, nodehandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("ksuser.dll" "system" fn KsCreateTopologyNode(parenthandle : super::super::Foundation:: HANDLE, nodecreate : *const KSNODE_CREATE, desiredaccess : u32, nodehandle : *mut super::super::Foundation:: HANDLE) -> u32);
     KsCreateTopologyNode(parenthandle.into_param().abi(), nodecreate, desiredaccess, nodehandle)
@@ -74,26 +74,26 @@ where
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn KsCreateTopologyNode2<P0>(parenthandle: P0, nodecreate: *const KSNODE_CREATE, desiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn KsCreateTopologyNode2<P0>(parenthandle: P0, nodecreate: *const KSNODE_CREATE, desiredaccess: u32) -> ::windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("ksuser.dll" "system" fn KsCreateTopologyNode2(parenthandle : super::super::Foundation:: HANDLE, nodecreate : *const KSNODE_CREATE, desiredaccess : u32, nodehandle : *mut super::super::Foundation:: HANDLE) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+    ::windows_targets::link!("ksuser.dll" "system" fn KsCreateTopologyNode2(parenthandle : super::super::Foundation:: HANDLE, nodecreate : *const KSNODE_CREATE, desiredaccess : u32, nodehandle : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
     KsCreateTopologyNode2(parenthandle.into_param().abi(), nodecreate, desiredaccess, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
-pub struct IKsAggregateControl(::windows::core::IUnknown);
+pub struct IKsAggregateControl(::windows_core::IUnknown);
 impl IKsAggregateControl {
-    pub unsafe fn KsAddAggregate(&self, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).KsAddAggregate)(::windows::core::Interface::as_raw(self), aggregateclass).ok()
+    pub unsafe fn KsAddAggregate(&self, aggregateclass: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsAddAggregate)(::windows_core::Interface::as_raw(self), aggregateclass).ok()
     }
-    pub unsafe fn KsRemoveAggregate(&self, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).KsRemoveAggregate)(::windows::core::Interface::as_raw(self), aggregateclass).ok()
+    pub unsafe fn KsRemoveAggregate(&self, aggregateclass: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsRemoveAggregate)(::windows_core::Interface::as_raw(self), aggregateclass).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IKsAggregateControl, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IKsAggregateControl, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IKsAggregateControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -105,7 +105,7 @@ impl ::core::fmt::Debug for IKsAggregateControl {
         f.debug_tuple("IKsAggregateControl").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IKsAggregateControl {
+unsafe impl ::windows_core::Interface for IKsAggregateControl {
     type Vtable = IKsAggregateControl_Vtbl;
 }
 impl ::core::clone::Clone for IKsAggregateControl {
@@ -113,31 +113,31 @@ impl ::core::clone::Clone for IKsAggregateControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IKsAggregateControl {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f40eac0_3947_11d2_874e_00a0c9223196);
+unsafe impl ::windows_core::ComInterface for IKsAggregateControl {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f40eac0_3947_11d2_874e_00a0c9223196);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsAggregateControl_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub KsAddAggregate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub KsRemoveAggregate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub KsAddAggregate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aggregateclass: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub KsRemoveAggregate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aggregateclass: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
-pub struct IKsControl(::windows::core::IUnknown);
+pub struct IKsControl(::windows_core::IUnknown);
 impl IKsControl {
-    pub unsafe fn KsProperty(&self, property: *const KSIDENTIFIER, propertylength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).KsProperty)(::windows::core::Interface::as_raw(self), property, propertylength, propertydata, datalength, bytesreturned).ok()
+    pub unsafe fn KsProperty(&self, property: *const KSIDENTIFIER, propertylength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsProperty)(::windows_core::Interface::as_raw(self), property, propertylength, propertydata, datalength, bytesreturned).ok()
     }
-    pub unsafe fn KsMethod(&self, method: *const KSIDENTIFIER, methodlength: u32, methoddata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).KsMethod)(::windows::core::Interface::as_raw(self), method, methodlength, methoddata, datalength, bytesreturned).ok()
+    pub unsafe fn KsMethod(&self, method: *const KSIDENTIFIER, methodlength: u32, methoddata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsMethod)(::windows_core::Interface::as_raw(self), method, methodlength, methoddata, datalength, bytesreturned).ok()
     }
-    pub unsafe fn KsEvent(&self, event: *const KSIDENTIFIER, eventlength: u32, eventdata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).KsEvent)(::windows::core::Interface::as_raw(self), event, eventlength, eventdata, datalength, bytesreturned).ok()
+    pub unsafe fn KsEvent(&self, event: *const KSIDENTIFIER, eventlength: u32, eventdata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsEvent)(::windows_core::Interface::as_raw(self), event, eventlength, eventdata, datalength, bytesreturned).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IKsControl, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IKsControl, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IKsControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -149,7 +149,7 @@ impl ::core::fmt::Debug for IKsControl {
         f.debug_tuple("IKsControl").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IKsControl {
+unsafe impl ::windows_core::Interface for IKsControl {
     type Vtable = IKsControl_Vtbl;
 }
 impl ::core::clone::Clone for IKsControl {
@@ -157,32 +157,32 @@ impl ::core::clone::Clone for IKsControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IKsControl {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28f54685_06fd_11d2_b27a_00a0c9223196);
+unsafe impl ::windows_core::ComInterface for IKsControl {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28f54685_06fd_11d2_b27a_00a0c9223196);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsControl_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub KsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: *const KSIDENTIFIER, propertylength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::HRESULT,
-    pub KsMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: *const KSIDENTIFIER, methodlength: u32, methoddata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::HRESULT,
-    pub KsEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *const KSIDENTIFIER, eventlength: u32, eventdata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub KsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: *const KSIDENTIFIER, propertylength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows_core::HRESULT,
+    pub KsMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: *const KSIDENTIFIER, methodlength: u32, methoddata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows_core::HRESULT,
+    pub KsEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *const KSIDENTIFIER, eventlength: u32, eventdata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
-pub struct IKsFormatSupport(::windows::core::IUnknown);
+pub struct IKsFormatSupport(::windows_core::IUnknown);
 impl IKsFormatSupport {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsFormatSupported(&self, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsFormatSupported)(::windows::core::Interface::as_raw(self), pksformat, cbformat, pbsupported).ok()
+    pub unsafe fn IsFormatSupported(&self, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).IsFormatSupported)(::windows_core::Interface::as_raw(self), pksformat, cbformat, pbsupported).ok()
     }
-    pub unsafe fn GetDevicePreferredFormat(&self) -> ::windows::core::Result<*mut KSDATAFORMAT> {
-        let mut result__ = ::windows::core::zeroed::<*mut KSDATAFORMAT>();
-        (::windows::core::Interface::vtable(self).GetDevicePreferredFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetDevicePreferredFormat(&self) -> ::windows_core::Result<*mut KSDATAFORMAT> {
+        let mut result__ = ::windows_core::zeroed::<*mut KSDATAFORMAT>();
+        (::windows_core::Interface::vtable(self).GetDevicePreferredFormat)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::imp::interface_hierarchy!(IKsFormatSupport, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IKsFormatSupport, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IKsFormatSupport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -194,7 +194,7 @@ impl ::core::fmt::Debug for IKsFormatSupport {
         f.debug_tuple("IKsFormatSupport").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IKsFormatSupport {
+unsafe impl ::windows_core::Interface for IKsFormatSupport {
     type Vtable = IKsFormatSupport_Vtbl;
 }
 impl ::core::clone::Clone for IKsFormatSupport {
@@ -202,29 +202,29 @@ impl ::core::clone::Clone for IKsFormatSupport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IKsFormatSupport {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb4a69d_bb6f_4d2b_95b7_452d2c155db5);
+unsafe impl ::windows_core::ComInterface for IKsFormatSupport {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3cb4a69d_bb6f_4d2b_95b7_452d2c155db5);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsFormatSupport_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub IsFormatSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub IsFormatSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsFormatSupported: usize,
-    pub GetDevicePreferredFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppksformat: *mut *mut KSDATAFORMAT) -> ::windows::core::HRESULT,
+    pub GetDevicePreferredFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppksformat: *mut *mut KSDATAFORMAT) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
-pub struct IKsJackContainerId(::windows::core::IUnknown);
+pub struct IKsJackContainerId(::windows_core::IUnknown);
 impl IKsJackContainerId {
-    pub unsafe fn GetJackContainerId(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
-        (::windows::core::Interface::vtable(self).GetJackContainerId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetJackContainerId(&self) -> ::windows_core::Result<::windows_core::GUID> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+        (::windows_core::Interface::vtable(self).GetJackContainerId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::imp::interface_hierarchy!(IKsJackContainerId, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IKsJackContainerId, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IKsJackContainerId {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -236,7 +236,7 @@ impl ::core::fmt::Debug for IKsJackContainerId {
         f.debug_tuple("IKsJackContainerId").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IKsJackContainerId {
+unsafe impl ::windows_core::Interface for IKsJackContainerId {
     type Vtable = IKsJackContainerId_Vtbl;
 }
 impl ::core::clone::Clone for IKsJackContainerId {
@@ -244,30 +244,30 @@ impl ::core::clone::Clone for IKsJackContainerId {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IKsJackContainerId {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc99af463_d629_4ec4_8c00_e54d68154248);
+unsafe impl ::windows_core::ComInterface for IKsJackContainerId {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc99af463_d629_4ec4_8c00_e54d68154248);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsJackContainerId_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetJackContainerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjackcontainerid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub GetJackContainerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjackcontainerid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
-pub struct IKsJackDescription(::windows::core::IUnknown);
+pub struct IKsJackDescription(::windows_core::IUnknown);
 impl IKsJackDescription {
-    pub unsafe fn GetJackCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Interface::vtable(self).GetJackCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetJackCount(&self) -> ::windows_core::Result<u32> {
+        let mut result__ = ::windows_core::zeroed::<u32>();
+        (::windows_core::Interface::vtable(self).GetJackCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetJackDescription(&self, njack: u32, pdescription: *mut KSJACK_DESCRIPTION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetJackDescription)(::windows::core::Interface::as_raw(self), njack, pdescription).ok()
+    pub unsafe fn GetJackDescription(&self, njack: u32, pdescription: *mut KSJACK_DESCRIPTION) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetJackDescription)(::windows_core::Interface::as_raw(self), njack, pdescription).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IKsJackDescription, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IKsJackDescription, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IKsJackDescription {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -279,7 +279,7 @@ impl ::core::fmt::Debug for IKsJackDescription {
         f.debug_tuple("IKsJackDescription").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IKsJackDescription {
+unsafe impl ::windows_core::Interface for IKsJackDescription {
     type Vtable = IKsJackDescription_Vtbl;
 }
 impl ::core::clone::Clone for IKsJackDescription {
@@ -287,33 +287,33 @@ impl ::core::clone::Clone for IKsJackDescription {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IKsJackDescription {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4509f757_2d46_4637_8e62_ce7db944f57b);
+unsafe impl ::windows_core::ComInterface for IKsJackDescription {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4509f757_2d46_4637_8e62_ce7db944f57b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsJackDescription_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetJackCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcjacks: *mut u32) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub GetJackCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcjacks: *mut u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetJackDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, njack: u32, pdescription: *mut KSJACK_DESCRIPTION) -> ::windows::core::HRESULT,
+    pub GetJackDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, njack: u32, pdescription: *mut KSJACK_DESCRIPTION) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetJackDescription: usize,
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
-pub struct IKsJackDescription2(::windows::core::IUnknown);
+pub struct IKsJackDescription2(::windows_core::IUnknown);
 impl IKsJackDescription2 {
-    pub unsafe fn GetJackCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Interface::vtable(self).GetJackCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetJackCount(&self) -> ::windows_core::Result<u32> {
+        let mut result__ = ::windows_core::zeroed::<u32>();
+        (::windows_core::Interface::vtable(self).GetJackCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetJackDescription2(&self, njack: u32) -> ::windows::core::Result<KSJACK_DESCRIPTION2> {
-        let mut result__ = ::windows::core::zeroed::<KSJACK_DESCRIPTION2>();
-        (::windows::core::Interface::vtable(self).GetJackDescription2)(::windows::core::Interface::as_raw(self), njack, &mut result__).from_abi(result__)
+    pub unsafe fn GetJackDescription2(&self, njack: u32) -> ::windows_core::Result<KSJACK_DESCRIPTION2> {
+        let mut result__ = ::windows_core::zeroed::<KSJACK_DESCRIPTION2>();
+        (::windows_core::Interface::vtable(self).GetJackDescription2)(::windows_core::Interface::as_raw(self), njack, &mut result__).from_abi(result__)
     }
 }
-::windows::imp::interface_hierarchy!(IKsJackDescription2, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IKsJackDescription2, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IKsJackDescription2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -325,7 +325,7 @@ impl ::core::fmt::Debug for IKsJackDescription2 {
         f.debug_tuple("IKsJackDescription2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IKsJackDescription2 {
+unsafe impl ::windows_core::Interface for IKsJackDescription2 {
     type Vtable = IKsJackDescription2_Vtbl;
 }
 impl ::core::clone::Clone for IKsJackDescription2 {
@@ -333,27 +333,27 @@ impl ::core::clone::Clone for IKsJackDescription2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IKsJackDescription2 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x478f3a9b_e0c9_4827_9228_6f5505ffe76a);
+unsafe impl ::windows_core::ComInterface for IKsJackDescription2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x478f3a9b_e0c9_4827_9228_6f5505ffe76a);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsJackDescription2_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetJackCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcjacks: *mut u32) -> ::windows::core::HRESULT,
-    pub GetJackDescription2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, njack: u32, pdescription2: *mut KSJACK_DESCRIPTION2) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub GetJackCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcjacks: *mut u32) -> ::windows_core::HRESULT,
+    pub GetJackDescription2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, njack: u32, pdescription2: *mut KSJACK_DESCRIPTION2) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
-pub struct IKsJackSinkInformation(::windows::core::IUnknown);
+pub struct IKsJackSinkInformation(::windows_core::IUnknown);
 impl IKsJackSinkInformation {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetJackSinkInformation(&self, pjacksinkinformation: *mut KSJACK_SINK_INFORMATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetJackSinkInformation)(::windows::core::Interface::as_raw(self), pjacksinkinformation).ok()
+    pub unsafe fn GetJackSinkInformation(&self, pjacksinkinformation: *mut KSJACK_SINK_INFORMATION) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetJackSinkInformation)(::windows_core::Interface::as_raw(self), pjacksinkinformation).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IKsJackSinkInformation, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IKsJackSinkInformation, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IKsJackSinkInformation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -365,7 +365,7 @@ impl ::core::fmt::Debug for IKsJackSinkInformation {
         f.debug_tuple("IKsJackSinkInformation").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IKsJackSinkInformation {
+unsafe impl ::windows_core::Interface for IKsJackSinkInformation {
     type Vtable = IKsJackSinkInformation_Vtbl;
 }
 impl ::core::clone::Clone for IKsJackSinkInformation {
@@ -373,34 +373,34 @@ impl ::core::clone::Clone for IKsJackSinkInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IKsJackSinkInformation {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9bd72ed_290f_4581_9ff3_61027a8fe532);
+unsafe impl ::windows_core::ComInterface for IKsJackSinkInformation {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd9bd72ed_290f_4581_9ff3_61027a8fe532);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsJackSinkInformation_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetJackSinkInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjacksinkinformation: *mut KSJACK_SINK_INFORMATION) -> ::windows::core::HRESULT,
+    pub GetJackSinkInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjacksinkinformation: *mut KSJACK_SINK_INFORMATION) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetJackSinkInformation: usize,
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
-pub struct IKsPropertySet(::windows::core::IUnknown);
+pub struct IKsPropertySet(::windows_core::IUnknown);
 impl IKsPropertySet {
-    pub unsafe fn Set(&self, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *const ::core::ffi::c_void, datalength: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Set)(::windows::core::Interface::as_raw(self), propset, id, instancedata, instancelength, propertydata, datalength).ok()
+    pub unsafe fn Set(&self, propset: *const ::windows_core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *const ::core::ffi::c_void, datalength: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Set)(::windows_core::Interface::as_raw(self), propset, id, instancedata, instancelength, propertydata, datalength).ok()
     }
-    pub unsafe fn Get(&self, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), propset, id, instancedata, instancelength, propertydata, datalength, bytesreturned).ok()
+    pub unsafe fn Get(&self, propset: *const ::windows_core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Get)(::windows_core::Interface::as_raw(self), propset, id, instancedata, instancelength, propertydata, datalength, bytesreturned).ok()
     }
-    pub unsafe fn QuerySupported(&self, propset: *const ::windows::core::GUID, id: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Interface::vtable(self).QuerySupported)(::windows::core::Interface::as_raw(self), propset, id, &mut result__).from_abi(result__)
+    pub unsafe fn QuerySupported(&self, propset: *const ::windows_core::GUID, id: u32) -> ::windows_core::Result<u32> {
+        let mut result__ = ::windows_core::zeroed::<u32>();
+        (::windows_core::Interface::vtable(self).QuerySupported)(::windows_core::Interface::as_raw(self), propset, id, &mut result__).from_abi(result__)
     }
 }
-::windows::imp::interface_hierarchy!(IKsPropertySet, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IKsPropertySet, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IKsPropertySet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -412,7 +412,7 @@ impl ::core::fmt::Debug for IKsPropertySet {
         f.debug_tuple("IKsPropertySet").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IKsPropertySet {
+unsafe impl ::windows_core::Interface for IKsPropertySet {
     type Vtable = IKsPropertySet_Vtbl;
 }
 impl ::core::clone::Clone for IKsPropertySet {
@@ -420,29 +420,29 @@ impl ::core::clone::Clone for IKsPropertySet {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IKsPropertySet {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31efac30_515c_11d0_a9aa_00aa0061be93);
+unsafe impl ::windows_core::ComInterface for IKsPropertySet {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x31efac30_515c_11d0_a9aa_00aa0061be93);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsPropertySet_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Set: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *const ::core::ffi::c_void, datalength: u32) -> ::windows::core::HRESULT,
-    pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::HRESULT,
-    pub QuerySupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propset: *const ::windows::core::GUID, id: u32, typesupport: *mut u32) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub Set: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propset: *const ::windows_core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *const ::core::ffi::c_void, datalength: u32) -> ::windows_core::HRESULT,
+    pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propset: *const ::windows_core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows_core::HRESULT,
+    pub QuerySupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propset: *const ::windows_core::GUID, id: u32, typesupport: *mut u32) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
-pub struct IKsTopology(::windows::core::IUnknown);
+pub struct IKsTopology(::windows_core::IUnknown);
 impl IKsTopology {
-    pub unsafe fn CreateNodeInstance<P0>(&self, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: P0, interfaceid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn CreateNodeInstance<P0>(&self, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: P0, interfaceid: *const ::windows_core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).CreateNodeInstance)(::windows::core::Interface::as_raw(self), nodeid, flags, desiredaccess, unkouter.into_param().abi(), interfaceid, interface).ok()
+        (::windows_core::Interface::vtable(self).CreateNodeInstance)(::windows_core::Interface::as_raw(self), nodeid, flags, desiredaccess, unkouter.into_param().abi(), interfaceid, interface).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IKsTopology, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IKsTopology, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IKsTopology {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -454,7 +454,7 @@ impl ::core::fmt::Debug for IKsTopology {
         f.debug_tuple("IKsTopology").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IKsTopology {
+unsafe impl ::windows_core::Interface for IKsTopology {
     type Vtable = IKsTopology_Vtbl;
 }
 impl ::core::clone::Clone for IKsTopology {
@@ -462,14 +462,14 @@ impl ::core::clone::Clone for IKsTopology {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IKsTopology {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28f54683_06fd_11d2_b27a_00a0c9223196);
+unsafe impl ::windows_core::ComInterface for IKsTopology {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28f54683_06fd_11d2_b27a_00a0c9223196);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsTopology_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub CreateNodeInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: *mut ::core::ffi::c_void, interfaceid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub CreateNodeInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: *mut ::core::ffi::c_void, interfaceid: *const ::windows_core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const AEC_MODE_FULL_DUPLEX: u32 = 2u32;
@@ -486,67 +486,67 @@ pub const AEC_STATUS_FD_HISTORY_PREVIOUSLY_DIVERGED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const AEC_STATUS_FD_HISTORY_UNINITIALIZED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const APO_CLASS_UUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5989fce8_9cd0_467d_8a6a_5419e31529d4);
+pub const APO_CLASS_UUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5989fce8_9cd0_467d_8a6a_5419e31529d4);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIOENDPOINT_CLASS_UUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc166523c_fe0c_4a94_a586_f1a80cfbbf3e);
+pub const AUDIOENDPOINT_CLASS_UUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc166523c_fe0c_4a94_a586_f1a80cfbbf3e);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const AUDIOMODULE_MAX_DATA_SIZE: u32 = 64000u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const AUDIOMODULE_MAX_NAME_CCH_SIZE: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_EFFECT_TYPE_ACOUSTIC_ECHO_CANCELLATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adbe_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_ACOUSTIC_ECHO_CANCELLATION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f64adbe_8211_11e2_8c70_2c27d7f001fa);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_EFFECT_TYPE_AUTOMATIC_GAIN_CONTROL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc0_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_AUTOMATIC_GAIN_CONTROL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f64adc0_8211_11e2_8c70_2c27d7f001fa);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_EFFECT_TYPE_BASS_BOOST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc5_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_BASS_BOOST: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f64adc5_8211_11e2_8c70_2c27d7f001fa);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_EFFECT_TYPE_BASS_MANAGEMENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adca_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_BASS_MANAGEMENT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f64adca_8211_11e2_8c70_2c27d7f001fa);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_EFFECT_TYPE_BEAMFORMING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc1_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_BEAMFORMING: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f64adc1_8211_11e2_8c70_2c27d7f001fa);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_EFFECT_TYPE_CONSTANT_TONE_REMOVAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc2_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_CONSTANT_TONE_REMOVAL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f64adc2_8211_11e2_8c70_2c27d7f001fa);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_EFFECT_TYPE_DEEP_NOISE_SUPPRESSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64add0_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_DEEP_NOISE_SUPPRESSION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f64add0_8211_11e2_8c70_2c27d7f001fa);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_EFFECT_TYPE_DYNAMIC_RANGE_COMPRESSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adce_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_DYNAMIC_RANGE_COMPRESSION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f64adce_8211_11e2_8c70_2c27d7f001fa);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_EFFECT_TYPE_ENVIRONMENTAL_EFFECTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adcb_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_ENVIRONMENTAL_EFFECTS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f64adcb_8211_11e2_8c70_2c27d7f001fa);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_EFFECT_TYPE_EQUALIZER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc3_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_EQUALIZER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f64adc3_8211_11e2_8c70_2c27d7f001fa);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_EFFECT_TYPE_FAR_FIELD_BEAMFORMING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adcf_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_FAR_FIELD_BEAMFORMING: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f64adcf_8211_11e2_8c70_2c27d7f001fa);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_EFFECT_TYPE_LOUDNESS_EQUALIZER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc4_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_LOUDNESS_EQUALIZER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f64adc4_8211_11e2_8c70_2c27d7f001fa);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_EFFECT_TYPE_NOISE_SUPPRESSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adbf_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_NOISE_SUPPRESSION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f64adbf_8211_11e2_8c70_2c27d7f001fa);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_EFFECT_TYPE_ROOM_CORRECTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc9_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_ROOM_CORRECTION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f64adc9_8211_11e2_8c70_2c27d7f001fa);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_EFFECT_TYPE_SPEAKER_COMPENSATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adcd_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_SPEAKER_COMPENSATION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f64adcd_8211_11e2_8c70_2c27d7f001fa);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_EFFECT_TYPE_SPEAKER_FILL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc8_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_SPEAKER_FILL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f64adc8_8211_11e2_8c70_2c27d7f001fa);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_EFFECT_TYPE_SPEAKER_PROTECTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adcc_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_SPEAKER_PROTECTION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f64adcc_8211_11e2_8c70_2c27d7f001fa);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_EFFECT_TYPE_VIRTUAL_HEADPHONES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc7_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_VIRTUAL_HEADPHONES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f64adc7_8211_11e2_8c70_2c27d7f001fa);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_EFFECT_TYPE_VIRTUAL_SURROUND: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc6_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_VIRTUAL_SURROUND: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f64adc6_8211_11e2_8c70_2c27d7f001fa);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_SIGNALPROCESSINGMODE_COMMUNICATIONS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98951333_b9cd_48b1_a0a3_ff40682d73f7);
+pub const AUDIO_SIGNALPROCESSINGMODE_COMMUNICATIONS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98951333_b9cd_48b1_a0a3_ff40682d73f7);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_SIGNALPROCESSINGMODE_DEFAULT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc18e2f7e_933d_4965_b7d1_1eef228d2af3);
+pub const AUDIO_SIGNALPROCESSINGMODE_DEFAULT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc18e2f7e_933d_4965_b7d1_1eef228d2af3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_SIGNALPROCESSINGMODE_FAR_FIELD_SPEECH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28941cba_3be6_4a78_9a76_30fd91559b64);
+pub const AUDIO_SIGNALPROCESSINGMODE_FAR_FIELD_SPEECH: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28941cba_3be6_4a78_9a76_30fd91559b64);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_SIGNALPROCESSINGMODE_MEDIA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4780004e_7133_41d8_8c74_660dadd2c0ee);
+pub const AUDIO_SIGNALPROCESSINGMODE_MEDIA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4780004e_7133_41d8_8c74_660dadd2c0ee);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_SIGNALPROCESSINGMODE_MOVIE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb26feb0d_ec94_477c_9494_d1ab8e753f6e);
+pub const AUDIO_SIGNALPROCESSINGMODE_MOVIE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb26feb0d_ec94_477c_9494_d1ab8e753f6e);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_SIGNALPROCESSINGMODE_NOTIFICATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cf2a70b_f377_403b_bd6b_360863e0355c);
+pub const AUDIO_SIGNALPROCESSINGMODE_NOTIFICATION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9cf2a70b_f377_403b_bd6b_360863e0355c);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_SIGNALPROCESSINGMODE_RAW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e90ea20_b493_4fd1_a1a8_7e1361a956cf);
+pub const AUDIO_SIGNALPROCESSINGMODE_RAW: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e90ea20_b493_4fd1_a1a8_7e1361a956cf);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_SIGNALPROCESSINGMODE_SPEECH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc1cfc9b_b9d6_4cfa_b5e0_4bb2166878b2);
+pub const AUDIO_SIGNALPROCESSINGMODE_SPEECH: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfc1cfc9b_b9d6_4cfa_b5e0_4bb2166878b2);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const AllocatorStrategy_DontCare: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -558,36 +558,36 @@ pub const AllocatorStrategy_MinimizeNumberOfAllocators: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const AllocatorStrategy_MinimizeNumberOfFrames: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const BLUETOOTHLE_MIDI_SERVICE_UUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03b80e5a_ede8_4b33_a751_6ce34ec4c700);
+pub const BLUETOOTHLE_MIDI_SERVICE_UUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03b80e5a_ede8_4b33_a751_6ce34ec4c700);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const BLUETOOTH_MIDI_DATAIO_CHARACTERISTIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7772e5db_3868_4112_a1a9_f2669d106bf3);
+pub const BLUETOOTH_MIDI_DATAIO_CHARACTERISTIC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7772e5db_3868_4112_a1a9_f2669d106bf3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const BUS_INTERFACE_REFERENCE_VERSION: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const CC_MAX_HW_DECODE_LINES: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const CLSID_KsIBasicAudioInterfaceHandler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9f8ac3e_0f71_11d2_b72c_00c04fb6bd3d);
+pub const CLSID_KsIBasicAudioInterfaceHandler: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb9f8ac3e_0f71_11d2_b72c_00c04fb6bd3d);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const CLSID_Proxy: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17cca71b_ecd7_11d0_b908_00a0c9223196);
+pub const CLSID_Proxy: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x17cca71b_ecd7_11d0_b908_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_KsAudio_Controller_DeviceInterface_Path: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 3 };
+pub const DEVPKEY_KsAudio_Controller_DeviceInterface_Path: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 3 };
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_KsAudio_PacketSize_Constraints: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 2 };
+pub const DEVPKEY_KsAudio_PacketSize_Constraints: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 2 };
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_KsAudio_PacketSize_Constraints2: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0x9404f781_7191_409b_8b0b_80bf6ec229ae), pid: 2 };
+pub const DEVPKEY_KsAudio_PacketSize_Constraints2: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x9404f781_7191_409b_8b0b_80bf6ec229ae), pid: 2 };
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const EVENTSETID_CROSSBAR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0641_28e4_11d0_a18c_00a0c9118956);
+pub const EVENTSETID_CROSSBAR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a2e0641_28e4_11d0_a18c_00a0c9118956);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const EVENTSETID_TUNER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0606_28e4_11d0_a18c_00a0c9118956);
+pub const EVENTSETID_TUNER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a2e0606_28e4_11d0_a18c_00a0c9118956);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const EVENTSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fdffc5d_c732_4ba6_b5df_6b4d7fc88b8b);
+pub const EVENTSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2fdffc5d_c732_4ba6_b5df_6b4d7fc88b8b);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const EVENTSETID_VIDEODECODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0621_28e4_11d0_a18c_00a0c9118956);
+pub const EVENTSETID_VIDEODECODER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a2e0621_28e4_11d0_a18c_00a0c9118956);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const GUID_NULL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub const GUID_NULL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const IOCTL_KS_DISABLE_EVENT: u32 = 3080203u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -631,13 +631,13 @@ pub const KSAC3_SERVICE_VISUALLY_IMPAIRED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSAC3_SERVICE_VOICE_OVER: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALGORITHMINSTANCE_SYSTEM_ACOUSTIC_ECHO_CANCEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c22c56d_9879_4f5b_a389_27996ddc2810);
+pub const KSALGORITHMINSTANCE_SYSTEM_ACOUSTIC_ECHO_CANCEL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1c22c56d_9879_4f5b_a389_27996ddc2810);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALGORITHMINSTANCE_SYSTEM_AGC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x950e55b9_877c_4c67_be08_e47b5611130a);
+pub const KSALGORITHMINSTANCE_SYSTEM_AGC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x950e55b9_877c_4c67_be08_e47b5611130a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALGORITHMINSTANCE_SYSTEM_MICROPHONE_ARRAY_PROCESSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6f5a0a0_9e61_4f8c_91e3_76cf0f3c471f);
+pub const KSALGORITHMINSTANCE_SYSTEM_MICROPHONE_ARRAY_PROCESSOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb6f5a0a0_9e61_4f8c_91e3_76cf0f3c471f);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALGORITHMINSTANCE_SYSTEM_NOISE_SUPPRESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ab0882e_7274_4516_877d_4eee99ba4fd0);
+pub const KSALGORITHMINSTANCE_SYSTEM_NOISE_SUPPRESS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ab0882e_7274_4516_877d_4eee99ba4fd0);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSALLOCATOR_FLAG_2D_BUFFER_REQUIRED: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -681,7 +681,7 @@ pub const KSALLOCATOR_REQUIREMENTF_SYSTEM_MEMORY: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSALLOCATOR_REQUIREMENTF_SYSTEM_MEMORY_CUSTOM_ALLOCATION: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSATTRIBUTEID_AUDIOSIGNALPROCESSING_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1f89eb5_5f46_419b_967b_ff6770b98401);
+pub const KSATTRIBUTEID_AUDIOSIGNALPROCESSING_MODE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe1f89eb5_5f46_419b_967b_ff6770b98401);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSATTRIBUTE_REQUIRED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -691,107 +691,107 @@ pub const KSAUDDECOUTMODE_SPDIFF: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSAUDDECOUTMODE_STEREO_ANALOG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_3D_CENTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f0670b4_991f_11d2_ac4d_00c04f8efb68);
+pub const KSAUDFNAME_3D_CENTER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f0670b4_991f_11d2_ac4d_00c04f8efb68);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_3D_DEPTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63ff5747_991f_11d2_ac4d_00c04f8efb68);
+pub const KSAUDFNAME_3D_DEPTH: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x63ff5747_991f_11d2_ac4d_00c04f8efb68);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_3D_STEREO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede2_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_3D_STEREO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fede2_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_ALTERNATE_MICROPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bc31d6b_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_ALTERNATE_MICROPHONE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2bc31d6b_96e3_11d2_ac4c_00c04f8efb68);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_AUX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedfe_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_AUX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fedfe_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_AUX_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedfd_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_AUX_MUTE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fedfd_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_AUX_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedfc_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_AUX_VOLUME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fedfc_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_BASS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede0_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_BASS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fede0_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_CD_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedfb_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_CD_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fedfb_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_CD_IN_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf3_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_CD_IN_VOLUME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fedf3_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_CD_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedea_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_CD_MUTE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fedea_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_CD_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede9_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_CD_VOLUME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fede9_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_LINE_IN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf9_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_LINE_IN: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fedf9_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_LINE_IN_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf4_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_LINE_IN_VOLUME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fedf4_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_LINE_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedec_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_LINE_MUTE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fedec_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_LINE_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedeb_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_LINE_VOLUME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fedeb_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_MASTER_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede4_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MASTER_MUTE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fede4_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_MASTER_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede3_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MASTER_VOLUME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fede3_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_MICROPHONE_BOOST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bc31d6a_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MICROPHONE_BOOST: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2bc31d6a_96e3_11d2_ac4c_00c04f8efb68);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_MIC_IN_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf5_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIC_IN_VOLUME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fedf5_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_MIC_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedee_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIC_MUTE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fedee_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_MIC_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185feded_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIC_VOLUME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185feded_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_MIDI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf8_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIDI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fedf8_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_MIDI_IN_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf2_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIDI_IN_VOLUME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fedf2_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_MIDI_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede8_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIDI_MUTE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fede8_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_MIDI_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede7_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIDI_VOLUME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fede7_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_MIDRANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2cbe478_ae84_49a1_8b72_4ad09b78ed34);
+pub const KSAUDFNAME_MIDRANGE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa2cbe478_ae84_49a1_8b72_4ad09b78ed34);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_MONO_MIX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00dff078_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MONO_MIX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00dff078_96e3_11d2_ac4c_00c04f8efb68);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_MONO_MIX_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bc31d69_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MONO_MIX_MUTE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2bc31d69_96e3_11d2_ac4c_00c04f8efb68);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_MONO_MIX_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22b0eafe_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MONO_MIX_VOLUME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x22b0eafe_96e3_11d2_ac4c_00c04f8efb68);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_MONO_OUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9b41dc3_96e2_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MONO_OUT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf9b41dc3_96e2_11d2_ac4c_00c04f8efb68);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_MONO_OUT_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ad247ec_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MONO_OUT_MUTE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1ad247ec_96e3_11d2_ac4c_00c04f8efb68);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_MONO_OUT_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ad247eb_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MONO_OUT_VOLUME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1ad247eb_96e3_11d2_ac4c_00c04f8efb68);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_PC_SPEAKER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedff_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_PC_SPEAKER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fedff_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_PC_SPEAKER_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf1_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_PC_SPEAKER_MUTE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fedf1_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_PC_SPEAKER_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf0_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_PC_SPEAKER_VOLUME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fedf0_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_PEAKMETER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57e24340_fc5b_4612_a562_72b11a29dfae);
+pub const KSAUDFNAME_PEAKMETER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x57e24340_fc5b_4612_a562_72b11a29dfae);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_RECORDING_CONTROL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedfa_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_RECORDING_CONTROL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fedfa_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_RECORDING_SOURCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedef_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_RECORDING_SOURCE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fedef_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_STEREO_MIX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00dff077_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_STEREO_MIX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00dff077_96e3_11d2_ac4c_00c04f8efb68);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_STEREO_MIX_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22b0eafd_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_STEREO_MIX_MUTE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x22b0eafd_96e3_11d2_ac4c_00c04f8efb68);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_STEREO_MIX_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ad247ed_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_STEREO_MIX_VOLUME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1ad247ed_96e3_11d2_ac4c_00c04f8efb68);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_TREBLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede1_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_TREBLE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fede1_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x915daec4_a434_11d2_ac52_00c04f8efb68);
+pub const KSAUDFNAME_VIDEO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x915daec4_a434_11d2_ac52_00c04f8efb68);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_VIDEO_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b46e709_992a_11d2_ac4d_00c04f8efb68);
+pub const KSAUDFNAME_VIDEO_MUTE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b46e709_992a_11d2_ac4d_00c04f8efb68);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_VIDEO_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b46e708_992a_11d2_ac4d_00c04f8efb68);
+pub const KSAUDFNAME_VIDEO_VOLUME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b46e708_992a_11d2_ac4d_00c04f8efb68);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_VOLUME_CONTROL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf7_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_VOLUME_CONTROL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fedf7_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_WAVE_IN_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf6_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_WAVE_IN_VOLUME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fedf6_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_WAVE_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede6_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_WAVE_MUTE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fede6_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_WAVE_OUT_MIX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fee00_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_WAVE_OUT_MIX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fee00_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDFNAME_WAVE_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede5_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_WAVE_VOLUME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185fede5_9905_11d1_95a9_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSAUDIO_CPU_RESOURCES_HOST_CPU: u32 = 2147483647u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -833,9 +833,9 @@ pub const KSAUDIO_STEREO_SPEAKER_GEOMETRY_NARROW: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSAUDIO_STEREO_SPEAKER_GEOMETRY_WIDE: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERAPROFILE_BalancedVideoAndPhoto: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b52b017_42c7_4a21_bfe3_23f009149887);
+pub const KSCAMERAPROFILE_BalancedVideoAndPhoto: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b52b017_42c7_4a21_bfe3_23f009149887);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERAPROFILE_CompressedCamera: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e34cdc1_27ad_437f_abde_02b629f37b44);
+pub const KSCAMERAPROFILE_CompressedCamera: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0e34cdc1_27ad_437f_abde_02b629f37b44);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSCAMERAPROFILE_FLAGS_FACEDETECTION: u64 = 8u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -849,27 +849,27 @@ pub const KSCAMERAPROFILE_FLAGS_VIDEOHDR: u64 = 2u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSCAMERAPROFILE_FLAGS_VIDEOSTABLIZATION: u64 = 1u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERAPROFILE_FaceAuth_Mode: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81361b22_700b_4546_a2d4_c52e907bfc27);
+pub const KSCAMERAPROFILE_FaceAuth_Mode: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x81361b22_700b_4546_a2d4_c52e907bfc27);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERAPROFILE_HDRWithWCGPhoto: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bf6f1ff_b555_4625_b326_a46def318fb7);
+pub const KSCAMERAPROFILE_HDRWithWCGPhoto: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9bf6f1ff_b555_4625_b326_a46def318fb7);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERAPROFILE_HDRWithWCGVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b27c336_4924_4989_b994_fdaf1dc7cd85);
+pub const KSCAMERAPROFILE_HDRWithWCGVideo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4b27c336_4924_4989_b994_fdaf1dc7cd85);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERAPROFILE_HighFrameRate: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x566e6113_8c35_48e7_b89f_d23fdc1219dc);
+pub const KSCAMERAPROFILE_HighFrameRate: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x566e6113_8c35_48e7_b89f_d23fdc1219dc);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERAPROFILE_HighQualityPhoto: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32440725_961b_4ca3_b5b2_854e719d9e1b);
+pub const KSCAMERAPROFILE_HighQualityPhoto: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x32440725_961b_4ca3_b5b2_854e719d9e1b);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERAPROFILE_Legacy: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4894d81_62b7_4eec_8740_80658c4a9d3e);
+pub const KSCAMERAPROFILE_Legacy: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb4894d81_62b7_4eec_8740_80658c4a9d3e);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERAPROFILE_PhotoSequence: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02399d9d_4ee8_49ba_bc07_5ff156531413);
+pub const KSCAMERAPROFILE_PhotoSequence: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x02399d9d_4ee8_49ba_bc07_5ff156531413);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERAPROFILE_VariablePhotoSequence: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ff2cb56_e75a_49b1_a928_9985d5946f87);
+pub const KSCAMERAPROFILE_VariablePhotoSequence: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9ff2cb56_e75a_49b1_a928_9985d5946f87);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERAPROFILE_VideoConferencing: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5444a88_e1bf_4597_b2dd_9e1ead864bb8);
+pub const KSCAMERAPROFILE_VideoConferencing: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5444a88_e1bf_4597_b2dd_9e1ead864bb8);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERAPROFILE_VideoHDR8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4f3f4ec_bdff_4314_b1d4_008e281f74e7);
+pub const KSCAMERAPROFILE_VideoHDR8: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd4f3f4ec_bdff_4314_b1d4_008e281f74e7);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERAPROFILE_VideoRecording: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0e517e8_8f8c_4f6f_9a57_46fc2f647ec0);
+pub const KSCAMERAPROFILE_VideoRecording: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa0e517e8_8f8c_4f6f_9a57_46fc2f647ec0);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_AUTO: u64 = 1u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -1185,81 +1185,81 @@ pub const KSCAMERA_PERFRAMESETTING_AUTO: u64 = 4294967296u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSCAMERA_PERFRAMESETTING_MANUAL: u64 = 8589934592u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_ACOUSTIC_ECHO_CANCEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
+pub const KSCATEGORY_ACOUSTIC_ECHO_CANCEL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6994ad04_93ef_11d0_a3cc_00a0c9223196);
+pub const KSCATEGORY_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6994ad04_93ef_11d0_a3cc_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_BRIDGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x085aff00_62ce_11cf_a5d6_28db04c10000);
+pub const KSCATEGORY_BRIDGE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x085aff00_62ce_11cf_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_CAPTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65e8773d_8f56_11d0_a3b9_00a0c9223196);
+pub const KSCATEGORY_CAPTURE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x65e8773d_8f56_11d0_a3b9_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_CLOCK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53172480_4791_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_CLOCK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53172480_4791_11d0_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_COMMUNICATIONSTRANSFORM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf1dda2c_9743_11d0_a3ee_00a0c9223196);
+pub const KSCATEGORY_COMMUNICATIONSTRANSFORM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf1dda2c_9743_11d0_a3ee_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_CROSSBAR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa799a801_a46d_11d0_a18c_00a02401dcd4);
+pub const KSCATEGORY_CROSSBAR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa799a801_a46d_11d0_a18c_00a02401dcd4);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_DATACOMPRESSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e84c900_7e70_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_DATACOMPRESSOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1e84c900_7e70_11d0_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_DATADECOMPRESSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2721ae20_7e70_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_DATADECOMPRESSOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2721ae20_7e70_11d0_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_DATATRANSFORM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2eb07ea0_7e70_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_DATATRANSFORM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2eb07ea0_7e70_11d0_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19689bf6_c384_48fd_ad51_90e58c79f70b);
+pub const KSCATEGORY_ENCODER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x19689bf6_c384_48fd_ad51_90e58c79f70b);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_ESCALANTE_PLATFORM_DRIVER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74f3aea8_9768_11d1_8e07_00a0c95ec22e);
+pub const KSCATEGORY_ESCALANTE_PLATFORM_DRIVER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x74f3aea8_9768_11d1_8e07_00a0c95ec22e);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_FILESYSTEM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x760fed5e_9357_11d0_a3cc_00a0c9223196);
+pub const KSCATEGORY_FILESYSTEM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x760fed5e_9357_11d0_a3cc_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_INTERFACETRANSFORM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf1dda2d_9743_11d0_a3ee_00a0c9223196);
+pub const KSCATEGORY_INTERFACETRANSFORM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf1dda2d_9743_11d0_a3ee_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_MEDIUMTRANSFORM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf1dda2e_9743_11d0_a3ee_00a0c9223196);
+pub const KSCATEGORY_MEDIUMTRANSFORM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf1dda2e_9743_11d0_a3ee_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_MICROPHONE_ARRAY_PROCESSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x830a44f2_a32d_476b_be97_42845673b35a);
+pub const KSCATEGORY_MICROPHONE_ARRAY_PROCESSOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x830a44f2_a32d_476b_be97_42845673b35a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_MIXER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad809c00_7b88_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_MIXER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad809c00_7b88_11d0_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_MULTIPLEXER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a5de1d3_01a1_452c_b481_4fa2b96271e8);
+pub const KSCATEGORY_MULTIPLEXER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7a5de1d3_01a1_452c_b481_4fa2b96271e8);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_NETWORK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67c9cc3c_69c4_11d2_8759_00a0c9223196);
+pub const KSCATEGORY_NETWORK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x67c9cc3c_69c4_11d2_8759_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_NETWORK_CAMERA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8238652_b500_41eb_b4f3_4234f7f5ae99);
+pub const KSCATEGORY_NETWORK_CAMERA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb8238652_b500_41eb_b4f3_4234f7f5ae99);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_PROXY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97ebaaca_95bd_11d0_a3ea_00a0c9223196);
+pub const KSCATEGORY_PROXY: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97ebaaca_95bd_11d0_a3ea_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_QUALITY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97ebaacb_95bd_11d0_a3ea_00a0c9223196);
+pub const KSCATEGORY_QUALITY: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97ebaacb_95bd_11d0_a3ea_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_REALTIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb115ffc_10c8_4964_831d_6dcb02e6f23f);
+pub const KSCATEGORY_REALTIME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb115ffc_10c8_4964_831d_6dcb02e6f23f);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_RENDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65e8773e_8f56_11d0_a3b9_00a0c9223196);
+pub const KSCATEGORY_RENDER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x65e8773e_8f56_11d0_a3b9_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_SENSOR_CAMERA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24e552d7_6523_47f7_a647_d3465bf1f5ca);
+pub const KSCATEGORY_SENSOR_CAMERA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24e552d7_6523_47f7_a647_d3465bf1f5ca);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_SENSOR_GROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x669c7214_0a88_4311_a7f3_4e79820e33bd);
+pub const KSCATEGORY_SENSOR_GROUP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x669c7214_0a88_4311_a7f3_4e79820e33bd);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_SPLITTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a4252a0_7e70_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_SPLITTER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a4252a0_7e70_11d0_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_TEXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6994ad06_93ef_11d0_a3cc_00a0c9223196);
+pub const KSCATEGORY_TEXT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6994ad06_93ef_11d0_a3cc_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_TOPOLOGY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdda54a40_1e4c_11d1_a050_405705c10000);
+pub const KSCATEGORY_TOPOLOGY: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdda54a40_1e4c_11d1_a050_405705c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_TVAUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa799a802_a46d_11d0_a18c_00a02401dcd4);
+pub const KSCATEGORY_TVAUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa799a802_a46d_11d0_a18c_00a02401dcd4);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_TVTUNER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa799a800_a46d_11d0_a18c_00a02401dcd4);
+pub const KSCATEGORY_TVTUNER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa799a800_a46d_11d0_a18c_00a02401dcd4);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_VBICODEC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07dad660_22f1_11d1_a9f4_00c04fbbde8f);
+pub const KSCATEGORY_VBICODEC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x07dad660_22f1_11d1_a9f4_00c04fbbde8f);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6994ad05_93ef_11d0_a3cc_00a0c9223196);
+pub const KSCATEGORY_VIDEO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6994ad05_93ef_11d0_a3cc_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_VIDEO_CAMERA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5323777_f976_4f5b_9b55_b94699c46e44);
+pub const KSCATEGORY_VIDEO_CAMERA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe5323777_f976_4f5b_9b55_b94699c46e44);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_VIRTUAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3503eac4_1f26_11d1_8ab0_00a0c9223196);
+pub const KSCATEGORY_VIRTUAL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3503eac4_1f26_11d1_8ab0_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_VPMUX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa799a803_a46d_11d0_a18c_00a02401dcd4);
+pub const KSCATEGORY_VPMUX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa799a803_a46d_11d0_a18c_00a02401dcd4);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCATEGORY_WDMAUD_USE_PIN_NAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47a4fa20_a251_11d1_a050_0000f8004788);
+pub const KSCATEGORY_WDMAUD_USE_PIN_NAME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x47a4fa20_a251_11d1_a050_0000f8004788);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCOMPONENTID_USBAUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f1275f0_26e9_4264_ba4d_39fff01d94aa);
+pub const KSCOMPONENTID_USBAUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f1275f0_26e9_4264_ba4d_39fff01d94aa);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSCREATE_ITEM_FREEONSTOP: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -1285,237 +1285,237 @@ pub const KSDATAFORMAT_BIT_ATTRIBUTES: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSDATAFORMAT_BIT_TEMPORAL_COMPRESSION: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_AC3_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d80e4_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SPECIFIER_AC3_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d80e4_db46_11cf_b4d1_00805f6cbbea);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_ANALOGVIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482dde0_7817_11cf_8a03_00aa006ecb65);
+pub const KSDATAFORMAT_SPECIFIER_ANALOGVIDEO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0482dde0_7817_11cf_8a03_00aa006ecb65);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_DIALECT_AC3_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b35_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SPECIFIER_DIALECT_AC3_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36523b35_8ee5_11d1_8ca3_0060b057664a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG1_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b32_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG1_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36523b32_8ee5_11d1_8ca3_0060b057664a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG1_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b31_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG1_VIDEO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36523b31_8ee5_11d1_8ca3_0060b057664a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG2_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b34_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG2_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36523b34_8ee5_11d1_8ca3_0060b057664a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG2_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b33_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG2_VIDEO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36523b33_8ee5_11d1_8ca3_0060b057664a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_DSOUND: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x518590a2_a184_11d0_8522_00c04fd9baf3);
+pub const KSDATAFORMAT_SPECIFIER_DSOUND: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x518590a2_a184_11d0_8522_00c04fd9baf3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_FILEHANDLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65e8773c_8f56_11d0_a3b9_00a0c9223196);
+pub const KSDATAFORMAT_SPECIFIER_FILEHANDLE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x65e8773c_8f56_11d0_a3b9_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_FILENAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa797b40_e974_11cf_a5d6_28db04c10000);
+pub const KSDATAFORMAT_SPECIFIER_FILENAME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa797b40_e974_11cf_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_H264_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2017be05_6629_4248_aaed_7e1a47bc9b9c);
+pub const KSDATAFORMAT_SPECIFIER_H264_VIDEO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2017be05_6629_4248_aaed_7e1a47bc9b9c);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_IMAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x692fa379_d3e8_4651_b5b4_0b94b013eeaf);
+pub const KSDATAFORMAT_SPECIFIER_IMAGE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x692fa379_d3e8_4651_b5b4_0b94b013eeaf);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_JPEG_IMAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x692fa379_d3e8_4651_b5b4_0b94b013eeaf);
+pub const KSDATAFORMAT_SPECIFIER_JPEG_IMAGE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x692fa379_d3e8_4651_b5b4_0b94b013eeaf);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_LPCM_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d80e6_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SPECIFIER_LPCM_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d80e6_db46_11cf_b4d1_00805f6cbbea);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_MPEG1_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05589f82_c356_11ce_bf01_00aa0055595a);
+pub const KSDATAFORMAT_SPECIFIER_MPEG1_VIDEO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05589f82_c356_11ce_bf01_00aa0055595a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_MPEG2_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d80e5_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SPECIFIER_MPEG2_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d80e5_db46_11cf_b4d1_00805f6cbbea);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_MPEG2_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d80e3_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SPECIFIER_MPEG2_VIDEO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d80e3_db46_11cf_b4d1_00805f6cbbea);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_NONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f6417d6_c318_11d0_a43f_00a0c9223196);
+pub const KSDATAFORMAT_SPECIFIER_NONE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f6417d6_c318_11d0_a43f_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_VBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72a76e0_eb0a_11d0_ace4_0000c0cc16ba);
+pub const KSDATAFORMAT_SPECIFIER_VBI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf72a76e0_eb0a_11d0_ace4_0000c0cc16ba);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_VC_ID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad98d184_aac3_11d0_a41c_00a0c9223196);
+pub const KSDATAFORMAT_SPECIFIER_VC_ID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad98d184_aac3_11d0_a41c_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_VIDEOINFO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05589f80_c356_11ce_bf01_00aa0055595a);
+pub const KSDATAFORMAT_SPECIFIER_VIDEOINFO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05589f80_c356_11ce_bf01_00aa0055595a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_VIDEOINFO2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72a76a0_eb0a_11d0_ace4_0000c0cc16ba);
+pub const KSDATAFORMAT_SPECIFIER_VIDEOINFO2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf72a76a0_eb0a_11d0_ace4_0000c0cc16ba);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SPECIFIER_WAVEFORMATEX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05589f81_c356_11ce_bf01_00aa0055595a);
+pub const KSDATAFORMAT_SPECIFIER_WAVEFORMATEX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05589f81_c356_11ce_bf01_00aa0055595a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_AC3_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d802c_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_AC3_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d802c_db46_11cf_b4d1_00805f6cbbea);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_ANALOG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dba3190_67bd_11cf_a0f7_0020afd156e4);
+pub const KSDATAFORMAT_SUBTYPE_ANALOG: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6dba3190_67bd_11cf_a0f7_0020afd156e4);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_CC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33214cc1_011f_11d2_b4b1_00a0d102cfbe);
+pub const KSDATAFORMAT_SUBTYPE_CC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33214cc1_011f_11d2_b4b1_00a0d102cfbe);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_D16: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000050_0004_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_D16: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000050_0004_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_DSS_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0af4f82_e163_11d0_bad9_00609744111a);
+pub const KSDATAFORMAT_SUBTYPE_DSS_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa0af4f82_e163_11d0_bad9_00609744111a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_DSS_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0af4f81_e163_11d0_bad9_00609744111a);
+pub const KSDATAFORMAT_SUBTYPE_DSS_VIDEO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa0af4f81_e163_11d0_bad9_00609744111a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_DTS_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d8033_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_DTS_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d8033_db46_11cf_b4d1_00805f6cbbea);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_AAC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000006_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_AAC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000006_0cea_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_ATRAC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000008_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_ATRAC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000008_0cea_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000092_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000092_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL_PLUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000a_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL_PLUS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0000000a_0cea_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL_PLUS_ATMOS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000010a_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL_PLUS_ATMOS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0000010a_0cea_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT20: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000010c_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT20: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0000010c_0cea_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT21: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000030c_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT21: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0000030c_0cea_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MLP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000c_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MLP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0000000c_0cea_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000d_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DST: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0000000d_0cea_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000008_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000008_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTSX_E1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000010b_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTSX_E1: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0000010b_0cea_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTSX_E2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000030b_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTSX_E2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0000030b_0cea_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTS_HD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000b_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTS_HD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0000000b_0cea_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000003_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG1: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000003_0cea_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000004_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000004_0cea_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000005_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG3: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000005_0cea_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_ONE_BIT_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000009_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_ONE_BIT_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000009_0cea_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_WMA_PRO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000164_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_WMA_PRO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000164_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_IMAGE_RGB32: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000016_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IMAGE_RGB32: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000016_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_JPEG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19e4a5aa_5662_4fc5_a0c0_1758028e1057);
+pub const KSDATAFORMAT_SUBTYPE_JPEG: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x19e4a5aa_5662_4fc5_a0c0_1758028e1057);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_L16: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000051_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_L16: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000051_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_L16_CUSTOM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000051_8000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_L16_CUSTOM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000051_8000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_L16_IR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000051_0002_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_L16_IR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000051_0002_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_L8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000032_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_L8: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000032_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_L8_CUSTOM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000032_8000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_L8_CUSTOM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000032_8000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_L8_IR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000032_0002_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_L8_IR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000032_0002_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_LPCM_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d8032_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_LPCM_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d8032_db46_11cf_b4d1_00805f6cbbea);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_Line21_BytePair: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e8d4a22_310c_11d0_b79a_00aa003767a7);
+pub const KSDATAFORMAT_SUBTYPE_Line21_BytePair: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e8d4a22_310c_11d0_b79a_00aa003767a7);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_Line21_GOPPacket: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e8d4a23_310c_11d0_b79a_00aa003767a7);
+pub const KSDATAFORMAT_SUBTYPE_Line21_GOPPacket: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e8d4a23_310c_11d0_b79a_00aa003767a7);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_MIDI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d262760_e957_11cf_a5d6_28db04c10000);
+pub const KSDATAFORMAT_SUBTYPE_MIDI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1d262760_e957_11cf_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_MIDI_BUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ca15fa0_6cfe_11cf_a5d6_28db04c10000);
+pub const KSDATAFORMAT_SUBTYPE_MIDI_BUS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2ca15fa0_6cfe_11cf_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_MJPG_CUSTOM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47504a4d_8000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_MJPG_CUSTOM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x47504a4d_8000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_MJPG_DEPTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47504a4d_0004_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_MJPG_DEPTH: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x47504a4d_0004_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_MJPG_IR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47504a4d_0002_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_MJPG_IR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x47504a4d_0002_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_MPEG1Packet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb80_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_MPEG1Packet: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe436eb80_524f_11ce_9f53_0020af0ba770);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_MPEG1Payload: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb81_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_MPEG1Payload: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe436eb81_524f_11ce_9f53_0020af0ba770);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_MPEG1Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb86_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_MPEG1Video: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe436eb86_524f_11ce_9f53_0020af0ba770);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_MPEG2_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d802b_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_MPEG2_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d802b_db46_11cf_b4d1_00805f6cbbea);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_MPEG2_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d8026_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_MPEG2_VIDEO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d8026_db46_11cf_b4d1_00805f6cbbea);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_MPEGLAYER3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000055_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_MPEGLAYER3: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000055_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_MPEG_HEAAC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00001610_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_MPEG_HEAAC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00001610_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_NABTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72a76e2_eb0a_11d0_ace4_0000c0cc16ba);
+pub const KSDATAFORMAT_SUBTYPE_NABTS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf72a76e2_eb0a_11d0_ace4_0000c0cc16ba);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_NABTS_FEC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe757bca1_39ac_11d1_a9f5_00c04fbbde8f);
+pub const KSDATAFORMAT_SUBTYPE_NABTS_FEC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe757bca1_39ac_11d1_a9f5_00c04fbbde8f);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_NONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb8e_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_NONE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe436eb8e_524f_11ce_9f53_0020af0ba770);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_OVERLAY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb7f_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_OVERLAY: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe436eb7f_524f_11ce_9f53_0020af0ba770);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_PCM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000001_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_PCM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000001_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_RAW8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca20d9a0_3e3e_11d1_9bf9_00c04fbbdebf);
+pub const KSDATAFORMAT_SUBTYPE_RAW8: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xca20d9a0_3e3e_11d1_9bf9_00c04fbbdebf);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_RIFF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4995daee_9ee6_11d0_a40e_00a0c9223196);
+pub const KSDATAFORMAT_SUBTYPE_RIFF: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4995daee_9ee6_11d0_a40e_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_RIFFMIDI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4995daf0_9ee6_11d0_a40e_00a0c9223196);
+pub const KSDATAFORMAT_SUBTYPE_RIFFMIDI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4995daf0_9ee6_11d0_a40e_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_RIFFWAVE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb8b_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_RIFFWAVE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe436eb8b_524f_11ce_9f53_0020af0ba770);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_SDDS_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d8034_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_SDDS_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d8034_db46_11cf_b4d1_00805f6cbbea);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_STANDARD_AC3_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b25_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SUBTYPE_STANDARD_AC3_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36523b25_8ee5_11d1_8ca3_0060b057664a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG1_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b22_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG1_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36523b22_8ee5_11d1_8ca3_0060b057664a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG1_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b21_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG1_VIDEO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36523b21_8ee5_11d1_8ca3_0060b057664a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG2_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b24_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG2_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36523b24_8ee5_11d1_8ca3_0060b057664a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG2_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b23_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG2_VIDEO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36523b23_8ee5_11d1_8ca3_0060b057664a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_SUBPICTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d802d_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_SUBPICTURE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d802d_db46_11cf_b4d1_00805f6cbbea);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_TELETEXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72a76e3_eb0a_11d0_ace4_0000c0cc16ba);
+pub const KSDATAFORMAT_SUBTYPE_TELETEXT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf72a76e3_eb0a_11d0_ace4_0000c0cc16ba);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_VPVBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a9b6a41_1a22_11d1_bad9_00609744111a);
+pub const KSDATAFORMAT_SUBTYPE_VPVBI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5a9b6a41_1a22_11d1_bad9_00609744111a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_VPVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a9b6a40_1a22_11d1_bad9_00609744111a);
+pub const KSDATAFORMAT_SUBTYPE_VPVideo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5a9b6a40_1a22_11d1_bad9_00609744111a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_WAVEFORMATEX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_WAVEFORMATEX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000000_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_WMAUDIO2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000161_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_WMAUDIO2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000161_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_WMAUDIO3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000162_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_WMAUDIO3: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000162_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_SUBTYPE_WMAUDIO_LOSSLESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000163_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_WMAUDIO_LOSSLESS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000163_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_TYPE_ANALOGAUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482dee1_7817_11cf_8a03_00aa006ecb65);
+pub const KSDATAFORMAT_TYPE_ANALOGAUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0482dee1_7817_11cf_8a03_00aa006ecb65);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_TYPE_ANALOGVIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482dde1_7817_11cf_8a03_00aa006ecb65);
+pub const KSDATAFORMAT_TYPE_ANALOGVIDEO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0482dde1_7817_11cf_8a03_00aa006ecb65);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_TYPE_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73647561_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_TYPE_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73647561_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_TYPE_AUXLine21Data: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x670aea80_3a82_11d0_b79b_00aa003767a7);
+pub const KSDATAFORMAT_TYPE_AUXLine21Data: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x670aea80_3a82_11d0_b79b_00aa003767a7);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_TYPE_DVD_ENCRYPTED_PACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed0b916a_044d_11d1_aa78_00c04fc31d60);
+pub const KSDATAFORMAT_TYPE_DVD_ENCRYPTED_PACK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed0b916a_044d_11d1_aa78_00c04fc31d60);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_TYPE_IMAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72178c23_e45b_11d5_bc2a_00b0d0f3f4ab);
+pub const KSDATAFORMAT_TYPE_IMAGE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x72178c23_e45b_11d5_bc2a_00b0d0f3f4ab);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_TYPE_MIDI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7364696d_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_TYPE_MIDI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7364696d_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_TYPE_MPEG2_PES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d8020_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_TYPE_MPEG2_PES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d8020_db46_11cf_b4d1_00805f6cbbea);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_TYPE_MPEG2_PROGRAM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d8022_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_TYPE_MPEG2_PROGRAM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d8022_db46_11cf_b4d1_00805f6cbbea);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_TYPE_MPEG2_TRANSPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d8023_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_TYPE_MPEG2_TRANSPORT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d8023_db46_11cf_b4d1_00805f6cbbea);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_TYPE_MUSIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe725d360_62cc_11cf_a5d6_28db04c10000);
+pub const KSDATAFORMAT_TYPE_MUSIC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe725d360_62cc_11cf_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_TYPE_NABTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe757bca0_39ac_11d1_a9f5_00c04fbbde8f);
+pub const KSDATAFORMAT_TYPE_NABTS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe757bca0_39ac_11d1_a9f5_00c04fbbde8f);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_TYPE_STANDARD_ELEMENTARY_STREAM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b11_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_TYPE_STANDARD_ELEMENTARY_STREAM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36523b11_8ee5_11d1_8ca3_0060b057664a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_TYPE_STANDARD_PACK_HEADER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b13_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_TYPE_STANDARD_PACK_HEADER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36523b13_8ee5_11d1_8ca3_0060b057664a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_TYPE_STANDARD_PES_PACKET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b12_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_TYPE_STANDARD_PES_PACKET: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36523b12_8ee5_11d1_8ca3_0060b057664a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_TYPE_STREAM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb83_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_TYPE_STREAM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe436eb83_524f_11ce_9f53_0020af0ba770);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_TYPE_TEXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73747874_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_TYPE_TEXT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73747874_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_TYPE_VBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72a76e1_eb0a_11d0_ace4_0000c0cc16ba);
+pub const KSDATAFORMAT_TYPE_VBI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf72a76e1_eb0a_11d0_ace4_0000c0cc16ba);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_TYPE_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73646976_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_TYPE_VIDEO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73646976_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSDATARANGE_BIT_ATTRIBUTES: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSDATARANGE_BIT_REQUIRED_ATTRIBUTES: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDEGRADESETID_Standard: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f564180_704c_11d0_a5d6_28db04c10000);
+pub const KSDEGRADESETID_Standard: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f564180_704c_11d0_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSDEVICE_DESCRIPTOR_VERSION: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -1573,43 +1573,43 @@ pub const KSEVENTF_SEMAPHORE_OBJECT: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSEVENTF_WORKITEM: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTSETID_AudioControlChange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe85e9698_fa2f_11d1_95bd_00c04fb925d3);
+pub const KSEVENTSETID_AudioControlChange: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe85e9698_fa2f_11d1_95bd_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTSETID_CameraAsyncControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22a11754_9701_4088_b33f_6b9cbc52df5e);
+pub const KSEVENTSETID_CameraAsyncControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x22a11754_9701_4088_b33f_6b9cbc52df5e);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTSETID_CameraEvent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7899b2e0_6b43_4964_9d2a_a21f4061f576);
+pub const KSEVENTSETID_CameraEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7899b2e0_6b43_4964_9d2a_a21f4061f576);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTSETID_Clock: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x364d8e20_62c7_11cf_a5d6_28db04c10000);
+pub const KSEVENTSETID_Clock: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x364d8e20_62c7_11cf_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTSETID_Connection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f4bcbe0_9ea5_11cf_a5d6_28db04c10000);
+pub const KSEVENTSETID_Connection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f4bcbe0_9ea5_11cf_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTSETID_Device: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x288296ec_9f94_41b4_a153_aa31aeecb33f);
+pub const KSEVENTSETID_Device: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x288296ec_9f94_41b4_a153_aa31aeecb33f);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTSETID_DynamicFormatChange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x162ac456_83d7_4239_96df_c75ffa138bc6);
+pub const KSEVENTSETID_DynamicFormatChange: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x162ac456_83d7_4239_96df_c75ffa138bc6);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTSETID_EXTDEV_Command: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x109c7988_b3cb_11d2_b48e_006097b3391b);
+pub const KSEVENTSETID_EXTDEV_Command: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x109c7988_b3cb_11d2_b48e_006097b3391b);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTSETID_ExtendedCameraControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x571c92c9_13a2_47e3_a649_d2a778166384);
+pub const KSEVENTSETID_ExtendedCameraControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x571c92c9_13a2_47e3_a649_d2a778166384);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTSETID_LoopedStreaming: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4682b940_c6ef_11d0_96d8_00aa0051e51d);
+pub const KSEVENTSETID_LoopedStreaming: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4682b940_c6ef_11d0_96d8_00aa0051e51d);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTSETID_PinCapsChange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd4f192e_3b78_49ad_a534_2c315b822000);
+pub const KSEVENTSETID_PinCapsChange: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdd4f192e_3b78_49ad_a534_2c315b822000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTSETID_SoundDetector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69785c9b_fc2d_49d6_ac32_4799f87de9f6);
+pub const KSEVENTSETID_SoundDetector: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69785c9b_fc2d_49d6_ac32_4799f87de9f6);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTSETID_StreamAllocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75d95571_073c_11d0_a161_0020afd156e4);
+pub const KSEVENTSETID_StreamAllocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75d95571_073c_11d0_a161_0020afd156e4);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTSETID_Telephony: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb77f12b4_ceb4_4484_8d5e_52c1e7d8762d);
+pub const KSEVENTSETID_Telephony: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb77f12b4_ceb4_4484_8d5e_52c1e7d8762d);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTSETID_VIDCAPTOSTI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb47de20_f628_11d1_ba41_00a0c90d2b05);
+pub const KSEVENTSETID_VIDCAPTOSTI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdb47de20_f628_11d1_ba41_00a0c90d2b05);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTSETID_VIDCAP_TVAUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0651_28e4_11d0_a18c_00a0c9118956);
+pub const KSEVENTSETID_VIDCAP_TVAUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a2e0651_28e4_11d0_a18c_00a0c9118956);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTSETID_VPNotify: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20c5598e_d3c8_11d0_8dfc_00c04fd7c08b);
+pub const KSEVENTSETID_VPNotify: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20c5598e_d3c8_11d0_8dfc_00c04fd7c08b);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTSETID_VPVBINotify: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec529b01_1a1f_11d1_bad9_00609744111a);
+pub const KSEVENTSETID_VPVBINotify: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xec529b01_1a1f_11d1_bad9_00609744111a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTSETID_VolumeLimit: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda168465_3a7c_4858_9d4a_3e8e24701aef);
+pub const KSEVENTSETID_VolumeLimit: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda168465_3a7c_4858_9d4a_3e8e24701aef);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSEVENT_ENTRY_BUFFERED: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -1645,37 +1645,37 @@ pub const KSFILTER_FLAG_RECEIVE_ZERO_LENGTH_SAMPLES: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSFRAMETIME_VARIABLESIZE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSINTERFACESETID_FileIo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c6f932c_e771_11d0_b8ff_00a0c9223196);
+pub const KSINTERFACESETID_FileIo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c6f932c_e771_11d0_b8ff_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSINTERFACESETID_Media: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a13eb40_30a7_11d0_a5d6_28db04c10000);
+pub const KSINTERFACESETID_Media: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a13eb40_30a7_11d0_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSINTERFACESETID_Standard: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a8766a0_62ce_11cf_a5d6_28db04c10000);
+pub const KSINTERFACESETID_Standard: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1a8766a0_62ce_11cf_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMEDIUMSETID_MidiBus: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05908040_3246_11d0_a5d6_28db04c10000);
+pub const KSMEDIUMSETID_MidiBus: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05908040_3246_11d0_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMEDIUMSETID_Standard: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4747b320_62ce_11cf_a5d6_28db04c10000);
+pub const KSMEDIUMSETID_Standard: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4747b320_62ce_11cf_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMEDIUMSETID_VPBus: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa18c15ec_ce43_11d0_abe7_00a0c9223196);
+pub const KSMEDIUMSETID_VPBus: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa18c15ec_ce43_11d0_abe7_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSMEDIUM_STANDARD_DEVIO: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSMEDIUM_TYPE_ANYINSTANCE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMEMORY_TYPE_DEVICE_UNKNOWN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x091bb639_603f_11d1_b067_00a0c9062802);
+pub const KSMEMORY_TYPE_DEVICE_UNKNOWN: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x091bb639_603f_11d1_b067_00a0c9062802);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMEMORY_TYPE_KERNEL_NONPAGED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a6d5fc4_7895_11d1_b069_00a0c9062802);
+pub const KSMEMORY_TYPE_KERNEL_NONPAGED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4a6d5fc4_7895_11d1_b069_00a0c9062802);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMEMORY_TYPE_KERNEL_PAGED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd833f8f8_7894_11d1_b069_00a0c9062802);
+pub const KSMEMORY_TYPE_KERNEL_PAGED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd833f8f8_7894_11d1_b069_00a0c9062802);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMEMORY_TYPE_SYSTEM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x091bb638_603f_11d1_b067_00a0c9062802);
+pub const KSMEMORY_TYPE_SYSTEM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x091bb638_603f_11d1_b067_00a0c9062802);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMEMORY_TYPE_USER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cb0fc28_7893_11d1_b069_00a0c9062802);
+pub const KSMEMORY_TYPE_USER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8cb0fc28_7893_11d1_b069_00a0c9062802);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMETHODSETID_StreamAllocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf6e4341_ec87_11cf_a130_0020afd156e4);
+pub const KSMETHODSETID_StreamAllocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf6e4341_ec87_11cf_a130_0020afd156e4);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMETHODSETID_StreamIo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65d003ca_1523_11d2_b27a_00a0c9223196);
+pub const KSMETHODSETID_StreamIo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x65d003ca_1523_11d2_b27a_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMETHODSETID_Wavetable: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcef31eb_d907_11d0_9583_00c04fb925d3);
+pub const KSMETHODSETID_Wavetable: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcef31eb_d907_11d0_9583_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSMETHOD_TYPE_BASICSUPPORT: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -1697,25 +1697,25 @@ pub const KSMETHOD_TYPE_WRITE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSMETHOD_WAVE_QUEUED_BREAKLOOP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMFT_CATEGORY_AUDIO_DECODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ea73fb4_ef7a_4559_8d5d_719d8f0426c7);
+pub const KSMFT_CATEGORY_AUDIO_DECODER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9ea73fb4_ef7a_4559_8d5d_719d8f0426c7);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMFT_CATEGORY_AUDIO_EFFECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11064c48_3648_4ed0_932e_05ce8ac811b7);
+pub const KSMFT_CATEGORY_AUDIO_EFFECT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x11064c48_3648_4ed0_932e_05ce8ac811b7);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMFT_CATEGORY_AUDIO_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91c64bd0_f91e_4d8c_9276_db248279d975);
+pub const KSMFT_CATEGORY_AUDIO_ENCODER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x91c64bd0_f91e_4d8c_9276_db248279d975);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMFT_CATEGORY_DEMULTIPLEXER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8700a7a_939b_44c5_99d7_76226b23b3f1);
+pub const KSMFT_CATEGORY_DEMULTIPLEXER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8700a7a_939b_44c5_99d7_76226b23b3f1);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMFT_CATEGORY_MULTIPLEXER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x059c561e_05ae_4b61_b69d_55b61ee54a7b);
+pub const KSMFT_CATEGORY_MULTIPLEXER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x059c561e_05ae_4b61_b69d_55b61ee54a7b);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMFT_CATEGORY_OTHER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90175d57_b7ea_4901_aeb3_933a8747756f);
+pub const KSMFT_CATEGORY_OTHER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x90175d57_b7ea_4901_aeb3_933a8747756f);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMFT_CATEGORY_VIDEO_DECODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6c02d4b_6833_45b4_971a_05a4b04bab91);
+pub const KSMFT_CATEGORY_VIDEO_DECODER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd6c02d4b_6833_45b4_971a_05a4b04bab91);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMFT_CATEGORY_VIDEO_EFFECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12e17c21_532c_4a6e_8a1c_40825a736397);
+pub const KSMFT_CATEGORY_VIDEO_EFFECT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x12e17c21_532c_4a6e_8a1c_40825a736397);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMFT_CATEGORY_VIDEO_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf79eac7d_e545_4387_bdee_d647d7bde42a);
+pub const KSMFT_CATEGORY_VIDEO_ENCODER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf79eac7d_e545_4387_bdee_d647d7bde42a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMFT_CATEGORY_VIDEO_PROCESSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x302ea3fc_aa5f_47f9_9f7a_c2188bb16302);
+pub const KSMFT_CATEGORY_VIDEO_PROCESSOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x302ea3fc_aa5f_47f9_9f7a_c2188bb16302);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSMPEGVIDMODE_LTRBOX: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -1723,25 +1723,25 @@ pub const KSMPEGVIDMODE_PANSCAN: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSMPEGVIDMODE_SCALE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMUSIC_TECHNOLOGY_FMSYNTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x252c5c80_62e9_11cf_a5d6_28db04c10000);
+pub const KSMUSIC_TECHNOLOGY_FMSYNTH: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x252c5c80_62e9_11cf_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMUSIC_TECHNOLOGY_PORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86c92e60_62e8_11cf_a5d6_28db04c10000);
+pub const KSMUSIC_TECHNOLOGY_PORT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x86c92e60_62e8_11cf_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMUSIC_TECHNOLOGY_SQSYNTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ecf4380_62e9_11cf_a5d6_28db04c10000);
+pub const KSMUSIC_TECHNOLOGY_SQSYNTH: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ecf4380_62e9_11cf_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMUSIC_TECHNOLOGY_SWSYNTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37407736_3620_11d1_85d3_0000f8754380);
+pub const KSMUSIC_TECHNOLOGY_SWSYNTH: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x37407736_3620_11d1_85d3_0000f8754380);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMUSIC_TECHNOLOGY_WAVETABLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x394ec7c0_62e9_11cf_a5d6_28db04c10000);
+pub const KSMUSIC_TECHNOLOGY_WAVETABLE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x394ec7c0_62e9_11cf_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNAME_Allocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x642f5d00_4791_11d0_a5d6_28db04c10000);
+pub const KSNAME_Allocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x642f5d00_4791_11d0_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNAME_Clock: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53172480_4791_11d0_a5d6_28db04c10000);
+pub const KSNAME_Clock: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53172480_4791_11d0_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNAME_Filter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b365890_165f_11d0_a195_0020afd156e4);
+pub const KSNAME_Filter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b365890_165f_11d0_a195_0020afd156e4);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNAME_Pin: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x146f1a80_4791_11d0_a5d6_28db04c10000);
+pub const KSNAME_Pin: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x146f1a80_4791_11d0_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNAME_TopologyNode: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0621061a_ee75_11d0_b915_00a0c9223196);
+pub const KSNAME_TopologyNode: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0621061a_ee75_11d0_b915_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSNODEPIN_AEC_CAPTURE_IN: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -1763,207 +1763,207 @@ pub const KSNODEPIN_SUM_MUX_IN: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSNODEPIN_SUM_MUX_OUT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_1394_DA_STREAM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe6_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_1394_DA_STREAM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21fe6_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_1394_DV_STREAM_SOUNDTRACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe7_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_1394_DV_STREAM_SOUNDTRACK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21fe7_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_3D_EFFECTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55515860_c559_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_3D_EFFECTS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x55515860_c559_11d0_8a2b_00a0c9255ac1);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_ADC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d837fe0_c555_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_ADC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4d837fe0_c555_11d0_8a2b_00a0c9255ac1);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_AGC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe88c9ba0_c557_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_AGC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe88c9ba0_c557_11d0_8a2b_00a0c9255ac1);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_ANALOG_CONNECTOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_ANALOG_CONNECTOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21fe1_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_ANALOG_TAPE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e7_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_ANALOG_TAPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff220e7_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_AUDIO_ENGINE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35caf6e4_f3b3_4168_bb4b_55e77a461c7e);
+pub const KSNODETYPE_AUDIO_ENGINE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x35caf6e4_f3b3_4168_bb4b_55e77a461c7e);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_AUDIO_KEYWORDDETECTOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3817e0b8_df58_4375_b669_c49634331f9d);
+pub const KSNODETYPE_AUDIO_KEYWORDDETECTOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3817e0b8_df58_4375_b669_c49634331f9d);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_AUDIO_LOOPBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f42c0b2_91ce_4bcf_9ccd_0e599037ab35);
+pub const KSNODETYPE_AUDIO_LOOPBACK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f42c0b2_91ce_4bcf_9ccd_0e599037ab35);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_AUDIO_MODULE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45aab42e_caeb_4052_8aa9_b38cb5109619);
+pub const KSNODETYPE_AUDIO_MODULE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x45aab42e_caeb_4052_8aa9_b38cb5109619);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_BIDIRECTIONAL_UNDEFINED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21de0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_BIDIRECTIONAL_UNDEFINED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21de0_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_CABLE_TUNER_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220ee_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_CABLE_TUNER_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff220ee_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_CD_PLAYER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_CD_PLAYER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff220e3_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_CHORUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20173f20_c559_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_CHORUS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20173f20_c559_11d0_8a2b_00a0c9255ac1);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_COMMUNICATION_SPEAKER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce6_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_COMMUNICATION_SPEAKER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21ce6_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_DAC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x507ae360_c554_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_DAC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x507ae360_c554_11d0_8a2b_00a0c9255ac1);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_DAT_IO_DIGITAL_AUDIO_TAPE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DAT_IO_DIGITAL_AUDIO_TAPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff220e4_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_DCC_IO_DIGITAL_COMPACT_CASSETTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DCC_IO_DIGITAL_COMPACT_CASSETTE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff220e5_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_DELAY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x144981e0_c558_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_DELAY: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x144981e0_c558_11d0_8a2b_00a0c9255ac1);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_DEMUX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0eb67d4_e807_11d0_958a_00c04fb925d3);
+pub const KSNODETYPE_DEMUX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0eb67d4_e807_11d0_958a_00c04fb925d3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_DESKTOP_MICROPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21be2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DESKTOP_MICROPHONE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21be2_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_DESKTOP_SPEAKER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DESKTOP_SPEAKER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21ce4_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_DEV_SPECIFIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x941c7ac0_c559_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_DEV_SPECIFIC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x941c7ac0_c559_11d0_8a2b_00a0c9255ac1);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_DIGITAL_AUDIO_INTERFACE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DIGITAL_AUDIO_INTERFACE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21fe2_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_DISPLAYPORT_INTERFACE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe47e4031_3ea6_418d_8f9b_b73843ccba97);
+pub const KSNODETYPE_DISPLAYPORT_INTERFACE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe47e4031_3ea6_418d_8f9b_b73843ccba97);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_DOWN_LINE_PHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ee3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DOWN_LINE_PHONE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21ee3_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_DRM_DESCRAMBLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffbb6e3f_ccfe_4d84_90d9_421418b03a8e);
+pub const KSNODETYPE_DRM_DESCRAMBLE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xffbb6e3f_ccfe_4d84_90d9_421418b03a8e);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_DSS_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220ef_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DSS_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff220ef_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_DVD_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220eb_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DVD_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff220eb_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_DYN_RANGE_COMPRESSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c8a6a8_601f_4af8_8793_d905ff4ca97d);
+pub const KSNODETYPE_DYN_RANGE_COMPRESSOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x08c8a6a8_601f_4af8_8793_d905ff4ca97d);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_ECHO_CANCELING_SPEAKERPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21de5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_ECHO_CANCELING_SPEAKERPHONE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21de5_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_ECHO_SUPPRESSING_SPEAKERPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21de4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_ECHO_SUPPRESSING_SPEAKERPHONE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21de4_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_EMBEDDED_UNDEFINED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_EMBEDDED_UNDEFINED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff220e0_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_EQUALIZATION_NOISE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_EQUALIZATION_NOISE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff220e2_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_EQUALIZER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d41b4a0_c557_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_EQUALIZER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9d41b4a0_c557_11d0_8a2b_00a0c9255ac1);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_EXTERNAL_UNDEFINED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_EXTERNAL_UNDEFINED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21fe0_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_FM_RX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x834a733c_f485_41c0_a62b_513025014e40);
+pub const KSNODETYPE_FM_RX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x834a733c_f485_41c0_a62b_513025014e40);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_HANDSET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21de1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_HANDSET: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21de1_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_HDMI_INTERFACE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1b9cc2a_f519_417f_91c9_55fa65481001);
+pub const KSNODETYPE_HDMI_INTERFACE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd1b9cc2a_f519_417f_91c9_55fa65481001);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_HEADPHONES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_HEADPHONES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21ce2_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_HEADSET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21de2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_HEADSET: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21de2_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_HEAD_MOUNTED_DISPLAY_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_HEAD_MOUNTED_DISPLAY_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21ce3_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_INPUT_UNDEFINED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21be0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_INPUT_UNDEFINED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21be0_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_LEGACY_AUDIO_CONNECTOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_LEGACY_AUDIO_CONNECTOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21fe4_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_LEVEL_CALIBRATION_NOISE_SOURCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_LEVEL_CALIBRATION_NOISE_SOURCE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff220e1_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_LINE_CONNECTOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_LINE_CONNECTOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21fe3_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_LOUDNESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41887440_c558_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_LOUDNESS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x41887440_c558_11d0_8a2b_00a0c9255ac1);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_LOW_FREQUENCY_EFFECTS_SPEAKER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce7_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_LOW_FREQUENCY_EFFECTS_SPEAKER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21ce7_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_MICROPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21be1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_MICROPHONE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21be1_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_MICROPHONE_ARRAY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21be5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_MICROPHONE_ARRAY: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21be5_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_MIDI_ELEMENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01c6fe66_6e48_4c65_ac9b_52db5d656c7e);
+pub const KSNODETYPE_MIDI_ELEMENT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x01c6fe66_6e48_4c65_ac9b_52db5d656c7e);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_MIDI_JACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x265e0c3f_fa39_4df3_ab04_be01b91e299a);
+pub const KSNODETYPE_MIDI_JACK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x265e0c3f_fa39_4df3_ab04_be01b91e299a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_MINIDISK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e6_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_MINIDISK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff220e6_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_MULTITRACK_RECORDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220f2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_MULTITRACK_RECORDER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff220f2_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02b223c0_c557_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_MUTE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x02b223c0_c557_11d0_8a2b_00a0c9255ac1);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_MUX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ceaf780_c556_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_MUX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2ceaf780_c556_11d0_8a2b_00a0c9255ac1);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_NOISE_SUPPRESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe07f903f_62fd_4e60_8cdd_dea7236665b5);
+pub const KSNODETYPE_NOISE_SUPPRESS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe07f903f_62fd_4e60_8cdd_dea7236665b5);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_OMNI_DIRECTIONAL_MICROPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21be4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_OMNI_DIRECTIONAL_MICROPHONE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21be4_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_OUTPUT_UNDEFINED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_OUTPUT_UNDEFINED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21ce0_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_PARAMETRIC_EQUALIZER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19bb3a6a_ce2b_4442_87ec_6727c3cab477);
+pub const KSNODETYPE_PARAMETRIC_EQUALIZER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x19bb3a6a_ce2b_4442_87ec_6727c3cab477);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_PEAKMETER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa085651e_5f0d_4b36_a869_d195d6ab4b9e);
+pub const KSNODETYPE_PEAKMETER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa085651e_5f0d_4b36_a869_d195d6ab4b9e);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_PERSONAL_MICROPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21be3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_PERSONAL_MICROPHONE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21be3_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_PHONE_LINE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ee1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_PHONE_LINE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21ee1_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_PHONOGRAPH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e8_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_PHONOGRAPH: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff220e8_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_PROCESSING_MICROPHONE_ARRAY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21be6_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_PROCESSING_MICROPHONE_ARRAY: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21be6_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_PROLOGIC_DECODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x831c2c80_c558_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_PROLOGIC_DECODER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x831c2c80_c558_11d0_8a2b_00a0c9255ac1);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_PROLOGIC_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8074c5b2_3c66_11d2_b45a_3078302c2030);
+pub const KSNODETYPE_PROLOGIC_ENCODER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8074c5b2_3c66_11d2_b45a_3078302c2030);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_RADIO_RECEIVER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220f0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_RADIO_RECEIVER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff220f0_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_RADIO_TRANSMITTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220f1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_RADIO_TRANSMITTER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff220f1_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_REVERB: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef0328e0_c558_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_REVERB: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xef0328e0_c558_11d0_8a2b_00a0c9255ac1);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_ROOM_SPEAKER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_ROOM_SPEAKER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21ce5_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_SATELLITE_RECEIVER_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220ed_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_SATELLITE_RECEIVER_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff220ed_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_SPDIF_INTERFACE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_SPDIF_INTERFACE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21fe5_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_SPEAKER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_SPEAKER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21ce1_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_SPEAKERPHONE_NO_ECHO_REDUCTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21de3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_SPEAKERPHONE_NO_ECHO_REDUCTION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21de3_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_SPEAKERS_STATIC_JACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28e04f87_4dbe_4f8d_8589_025d209dfb4a);
+pub const KSNODETYPE_SPEAKERS_STATIC_JACK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28e04f87_4dbe_4f8d_8589_025d209dfb4a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_SRC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9db7b9e0_c555_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_SRC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9db7b9e0_c555_11d0_8a2b_00a0c9255ac1);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_STEREO_WIDE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9e69800_c558_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_STEREO_WIDE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa9e69800_c558_11d0_8a2b_00a0c9255ac1);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_SUM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda441a60_c556_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_SUM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda441a60_c556_11d0_8a2b_00a0c9255ac1);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_SUPERMIX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe573adc0_c555_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_SUPERMIX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe573adc0_c555_11d0_8a2b_00a0c9255ac1);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_SYNTHESIZER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220f3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_SYNTHESIZER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff220f3_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_TELEPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ee2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_TELEPHONE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21ee2_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_TELEPHONY_BIDI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x686d7cc0_d903_4258_b443_3a3d3580741c);
+pub const KSNODETYPE_TELEPHONY_BIDI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x686d7cc0_d903_4258_b443_3a3d3580741c);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_TELEPHONY_UNDEFINED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ee0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_TELEPHONY_UNDEFINED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff21ee0_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_TONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7607e580_c557_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_TONE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7607e580_c557_11d0_8a2b_00a0c9255ac1);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_TV_TUNER_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220ec_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_TV_TUNER_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff220ec_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_UPDOWN_MIX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7edc5cf_7b63_4ee2_a100_29ee2cb6b2de);
+pub const KSNODETYPE_UPDOWN_MIX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb7edc5cf_7b63_4ee2_a100_29ee2cb6b2de);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_VCR_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e9_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VCR_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff220e9_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_VIDEO_CAMERA_TERMINAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e6_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_CAMERA_TERMINAL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff229e6_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_VIDEO_DISC_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220ea_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_DISC_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff220ea_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_VIDEO_INPUT_MTT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e7_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_INPUT_MTT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff229e7_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_VIDEO_INPUT_TERMINAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_INPUT_TERMINAL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff229e2_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_VIDEO_OUTPUT_MTT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e8_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_OUTPUT_MTT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff229e8_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_VIDEO_OUTPUT_TERMINAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_OUTPUT_TERMINAL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff229e3_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_VIDEO_PROCESSING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_PROCESSING: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff229e5_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_VIDEO_SELECTOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_SELECTOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff229e4_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_VIDEO_STREAMING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_STREAMING: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdff229e1_f70f_11d0_b917_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODETYPE_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a5acc00_c557_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_VOLUME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a5acc00_c557_11d0_8a2b_00a0c9255ac1);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNOTIFICATIONID_AudioModule: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c2220f0_d9a6_4d5c_a036_573857fd50d2);
+pub const KSNOTIFICATIONID_AudioModule: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9c2220f0_d9a6_4d5c_a036_573857fd50d2);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNOTIFICATIONID_SoundDetector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6389d844_bb32_4c4c_a802_f4b4b77afead);
+pub const KSNOTIFICATIONID_SoundDetector: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6389d844_bb32_4c4c_a802_f4b4b77afead);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSPIN_FLAG_ASYNCHRONOUS_PROCESSING: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -2027,11 +2027,11 @@ pub const KSPROBE_STREAMWRITE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSPROBE_SYSTEMADDRESS: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTYSETID_ExtendedCameraControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cb79112_c0d2_4213_9ca6_cd4fdb927972);
+pub const KSPROPERTYSETID_ExtendedCameraControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1cb79112_c0d2_4213_9ca6_cd4fdb927972);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTYSETID_NetworkCameraControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e780f09_5745_4e3a_bc9f_f226ea43a6ec);
+pub const KSPROPERTYSETID_NetworkCameraControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0e780f09_5745_4e3a_bc9f_f226ea43a6ec);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTYSETID_PerFrameSettingControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1f3e261_dee6_4537_bff5_ee206db54aac);
+pub const KSPROPERTYSETID_PerFrameSettingControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf1f3e261_dee6_4537_bff5_ee206db54aac);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSPROPERTY_AUDIO_BUFFER_DURATION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -2143,109 +2143,109 @@ pub const KSPROPERTY_VIDEOPROCAMP_FLAGS_MANUAL: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSPROPERTY_WAVE_QUEUED_POSITION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_AC3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfabe720_6e1f_11d0_bcf2_444553540000);
+pub const KSPROPSETID_AC3: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbfabe720_6e1f_11d0_bcf2_444553540000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45ffaaa0_6e1b_11d0_bcf2_444553540000);
+pub const KSPROPSETID_Audio: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x45ffaaa0_6e1b_11d0_bcf2_444553540000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_AudioBufferDuration: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e73c07f_23cc_4955_a7ea_3da502496290);
+pub const KSPROPSETID_AudioBufferDuration: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4e73c07f_23cc_4955_a7ea_3da502496290);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_AudioDecoderOut: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ca6e020_43bd_11d0_bd6a_003505c103a9);
+pub const KSPROPSETID_AudioDecoderOut: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6ca6e020_43bd_11d0_bd6a_003505c103a9);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_AudioEngine: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a2f82dc_886f_4baa_9eb4_082b9025c536);
+pub const KSPROPSETID_AudioEngine: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a2f82dc_886f_4baa_9eb4_082b9025c536);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_AudioModule: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc034fdb0_ff75_47c8_aa3c_ee46716b50c6);
+pub const KSPROPSETID_AudioModule: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc034fdb0_ff75_47c8_aa3c_ee46716b50c6);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_AudioPosture: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3fb7b0d_474e_4f51_a379_51282dd4fa8f);
+pub const KSPROPSETID_AudioPosture: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa3fb7b0d_474e_4f51_a379_51282dd4fa8f);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_AudioResourceManagement: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0b305e1_b2cc_484c_8f23_e5d28ad9cf88);
+pub const KSPROPSETID_AudioResourceManagement: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd0b305e1_b2cc_484c_8f23_e5d28ad9cf88);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_AudioSignalProcessing: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f67b528_30c9_40de_b2fb_859ddd1f3470);
+pub const KSPROPSETID_AudioSignalProcessing: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f67b528_30c9_40de_b2fb_859ddd1f3470);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_Bibliographic: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07ba150e_e2b1_11d0_ac17_00a0c9223196);
+pub const KSPROPSETID_Bibliographic: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x07ba150e_e2b1_11d0_ac17_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_BtAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fa06c40_b8f6_4c7e_8556_e8c33a12e54d);
+pub const KSPROPSETID_BtAudio: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7fa06c40_b8f6_4c7e_8556_e8c33a12e54d);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_Clock: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf12a4c0_ac17_11cf_a5d6_28db04c10000);
+pub const KSPROPSETID_Clock: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdf12a4c0_ac17_11cf_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_Connection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d58c920_ac9b_11cf_a5d6_28db04c10000);
+pub const KSPROPSETID_Connection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1d58c920_ac9b_11cf_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_CopyProt: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e8a0a40_6aef_11d0_9ed0_00a024ca19b3);
+pub const KSPROPSETID_CopyProt: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0e8a0a40_6aef_11d0_9ed0_00a024ca19b3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_Cyclic: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ffeaea0_2bee_11cf_a5d6_28db04c10000);
+pub const KSPROPSETID_Cyclic: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ffeaea0_2bee_11cf_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_DirectSound3DBuffer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x437b3411_d060_11d0_8583_00c04fd9baf3);
+pub const KSPROPSETID_DirectSound3DBuffer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x437b3411_d060_11d0_8583_00c04fd9baf3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_DirectSound3DListener: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x437b3414_d060_11d0_8583_00c04fd9baf3);
+pub const KSPROPSETID_DirectSound3DListener: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x437b3414_d060_11d0_8583_00c04fd9baf3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_DrmAudioStream: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f2c8ddd_4198_4fac_ba29_61bb05b7de06);
+pub const KSPROPSETID_DrmAudioStream: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2f2c8ddd_4198_4fac_ba29_61bb05b7de06);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_DvdSubPic: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac390460_43af_11d0_bd6a_003505c103a9);
+pub const KSPROPSETID_DvdSubPic: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xac390460_43af_11d0_bd6a_003505c103a9);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_FMRXControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x947bba3a_e8ee_4786_90c4_8428185f05be);
+pub const KSPROPSETID_FMRXControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x947bba3a_e8ee_4786_90c4_8428185f05be);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_FMRXTopology: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c46ce8f_dc2d_4204_9dc9_f58963366563);
+pub const KSPROPSETID_FMRXTopology: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c46ce8f_dc2d_4204_9dc9_f58963366563);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_General: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1464eda5_6a8f_11d1_9aa7_00a0c9223196);
+pub const KSPROPSETID_General: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1464eda5_6a8f_11d1_9aa7_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_Hrtf3d: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb66decb0_a083_11d0_851e_00c04fd9baf3);
+pub const KSPROPSETID_Hrtf3d: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb66decb0_a083_11d0_851e_00c04fd9baf3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_InterleavedAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9ebe550_d619_4c0a_976b_7062322b3006);
+pub const KSPROPSETID_InterleavedAudio: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe9ebe550_d619_4c0a_976b_7062322b3006);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_Itd3d: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6429f090_9fd9_11d0_a75b_00a0c90365e3);
+pub const KSPROPSETID_Itd3d: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6429f090_9fd9_11d0_a75b_00a0c90365e3);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_Jack: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4509f757_2d46_4637_8e62_ce7db944f57b);
+pub const KSPROPSETID_Jack: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4509f757_2d46_4637_8e62_ce7db944f57b);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_MPEG4_MediaType_Attributes: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff6c4bfa_07a9_4c7b_a237_672f9d68065f);
+pub const KSPROPSETID_MPEG4_MediaType_Attributes: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff6c4bfa_07a9_4c7b_a237_672f9d68065f);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_MediaSeeking: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee904f0c_d09b_11d0_abe9_00a0c9223196);
+pub const KSPROPSETID_MediaSeeking: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xee904f0c_d09b_11d0_abe9_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_MemoryTransport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a3d1c5d_5243_4819_9ed0_aee8044cee2b);
+pub const KSPROPSETID_MemoryTransport: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a3d1c5d_5243_4819_9ed0_aee8044cee2b);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_Mpeg2Vid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8e11b60_0cc9_11d0_bd69_003505c103a9);
+pub const KSPROPSETID_Mpeg2Vid: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc8e11b60_0cc9_11d0_bd69_003505c103a9);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_OverlayUpdate: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x490ea5cf_7681_11d1_a21c_00a0c9223196);
+pub const KSPROPSETID_OverlayUpdate: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x490ea5cf_7681_11d1_a21c_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_Pin: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c134960_51ad_11cf_878a_94f801c10000);
+pub const KSPROPSETID_Pin: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c134960_51ad_11cf_878a_94f801c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_PinMDLCacheClearProp: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd718a7b_97fc_40c7_88ce_d3ff06f55b16);
+pub const KSPROPSETID_PinMDLCacheClearProp: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbd718a7b_97fc_40c7_88ce_d3ff06f55b16);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_Quality: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd16ad380_ac1a_11cf_a5d6_28db04c10000);
+pub const KSPROPSETID_Quality: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd16ad380_ac1a_11cf_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_RtAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa855a48c_2f78_4729_9051_1968746b9eef);
+pub const KSPROPSETID_RtAudio: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa855a48c_2f78_4729_9051_1968746b9eef);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_SoundDetector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x113c425e_fd17_4057_b422_ed4074f1afdf);
+pub const KSPROPSETID_SoundDetector: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x113c425e_fd17_4057_b422_ed4074f1afdf);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_SoundDetector2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe07e322_450c_4bd5_84ca_a948500ea6aa);
+pub const KSPROPSETID_SoundDetector2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfe07e322_450c_4bd5_84ca_a948500ea6aa);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_Stream: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65aaba60_98ae_11cf_a10d_0020afd156e4);
+pub const KSPROPSETID_Stream: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x65aaba60_98ae_11cf_a10d_0020afd156e4);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_StreamAllocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf6e4342_ec87_11cf_a130_0020afd156e4);
+pub const KSPROPSETID_StreamAllocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf6e4342_ec87_11cf_a130_0020afd156e4);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_StreamInterface: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fdd8ee1_9cd3_11d0_82aa_0000f822fe8a);
+pub const KSPROPSETID_StreamInterface: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1fdd8ee1_9cd3_11d0_82aa_0000f822fe8a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_TSRateChange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa503c5c0_1d1d_11d1_ad80_444553540000);
+pub const KSPROPSETID_TSRateChange: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa503c5c0_1d1d_11d1_ad80_444553540000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_TelephonyControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6df7eb1_d099_489f_a6a0_c0106f0887a7);
+pub const KSPROPSETID_TelephonyControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb6df7eb1_d099_489f_a6a0_c0106f0887a7);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_TelephonyTopology: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabf25c7e_0e64_4e32_b190_d0f6d7c53e97);
+pub const KSPROPSETID_TelephonyTopology: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xabf25c7e_0e64_4e32_b190_d0f6d7c53e97);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_Topology: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x720d4ac0_7533_11d0_a5d6_28db04c10000);
+pub const KSPROPSETID_Topology: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x720d4ac0_7533_11d0_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_TopologyNode: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45ffaaa1_6e1b_11d0_bcf2_444553540000);
+pub const KSPROPSETID_TopologyNode: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x45ffaaa1_6e1b_11d0_bcf2_444553540000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_VBICAP_PROPERTIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf162c607_7b35_496f_ad7f_2dca3b46b718);
+pub const KSPROPSETID_VBICAP_PROPERTIES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf162c607_7b35_496f_ad7f_2dca3b46b718);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_VBICodecFiltering: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcafeb0ca_8715_11d0_bd6a_0035c0edbabe);
+pub const KSPROPSETID_VBICodecFiltering: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcafeb0ca_8715_11d0_bd6a_0035c0edbabe);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_VPConfig: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc29a660_30e3_11d0_9e69_00c04fd7c15b);
+pub const KSPROPSETID_VPConfig: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbc29a660_30e3_11d0_9e69_00c04fd7c15b);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_VPVBIConfig: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec529b00_1a1f_11d1_bad9_00609744111a);
+pub const KSPROPSETID_VPVBIConfig: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xec529b00_1a1f_11d1_bad9_00609744111a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_VramCapture: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe73face3_2880_4902_b799_88d0cd634e0f);
+pub const KSPROPSETID_VramCapture: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe73face3_2880_4902_b799_88d0cd634e0f);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPSETID_Wave: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x924e54b0_630f_11cf_ada7_08003e30494a);
+pub const KSPROPSETID_Wave: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x924e54b0_630f_11cf_ada7_08003e30494a);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPTYPESETID_General: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97e99ba0_bdea_11cf_a5d6_28db04c10000);
+pub const KSPROPTYPESETID_General: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97e99ba0_bdea_11cf_a5d6_28db04c10000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSRATE_NOPRESENTATIONDURATION: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -2307,27 +2307,27 @@ pub const KSSTREAM_UVC_SECURE_ATTRIBUTE_SIZE: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSSTREAM_WRITE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_Allocator: ::windows::core::PCWSTR = ::windows::core::w!("{642F5D00-4791-11D0-A5D6-28DB04C10000}");
+pub const KSSTRING_Allocator: ::windows_core::PCWSTR = ::windows_core::w!("{642F5D00-4791-11D0-A5D6-28DB04C10000}");
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_AllocatorEx: ::windows::core::PCWSTR = ::windows::core::w!("{091BB63B-603F-11D1-B067-00A0C9062802}");
+pub const KSSTRING_AllocatorEx: ::windows_core::PCWSTR = ::windows_core::w!("{091BB63B-603F-11D1-B067-00A0C9062802}");
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_Clock: ::windows::core::PCWSTR = ::windows::core::w!("{53172480-4791-11D0-A5D6-28DB04C10000}");
+pub const KSSTRING_Clock: ::windows_core::PCWSTR = ::windows_core::w!("{53172480-4791-11D0-A5D6-28DB04C10000}");
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_Filter: ::windows::core::PCWSTR = ::windows::core::w!("{9B365890-165F-11D0-A195-0020AFD156E4}");
+pub const KSSTRING_Filter: ::windows_core::PCWSTR = ::windows_core::w!("{9B365890-165F-11D0-A195-0020AFD156E4}");
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_Pin: ::windows::core::PCWSTR = ::windows::core::w!("{146F1A80-4791-11D0-A5D6-28DB04C10000}");
+pub const KSSTRING_Pin: ::windows_core::PCWSTR = ::windows_core::w!("{146F1A80-4791-11D0-A5D6-28DB04C10000}");
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_TopologyNode: ::windows::core::PCWSTR = ::windows::core::w!("{0621061A-EE75-11D0-B915-00A0C9223196}");
+pub const KSSTRING_TopologyNode: ::windows_core::PCWSTR = ::windows_core::w!("{0621061A-EE75-11D0-B915-00A0C9223196}");
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSTIME_FORMAT_BYTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b785571_8c82_11cf_bc0c_00aa00ac74f6);
+pub const KSTIME_FORMAT_BYTE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b785571_8c82_11cf_bc0c_00aa00ac74f6);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSTIME_FORMAT_FIELD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b785573_8c82_11cf_bc0c_00aa00ac74f6);
+pub const KSTIME_FORMAT_FIELD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b785573_8c82_11cf_bc0c_00aa00ac74f6);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSTIME_FORMAT_FRAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b785570_8c82_11cf_bc0c_00aa00ac74f6);
+pub const KSTIME_FORMAT_FRAME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b785570_8c82_11cf_bc0c_00aa00ac74f6);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSTIME_FORMAT_MEDIA_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b785574_8c82_11cf_bc0c_00aa00ac74f6);
+pub const KSTIME_FORMAT_MEDIA_TIME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b785574_8c82_11cf_bc0c_00aa00ac74f6);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSTIME_FORMAT_SAMPLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b785572_8c82_11cf_bc0c_00aa00ac74f6);
+pub const KSTIME_FORMAT_SAMPLE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b785572_8c82_11cf_bc0c_00aa00ac74f6);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSWAVE_BUFFER_ATTRIBUTEF_LOOPING: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -2489,7 +2489,7 @@ pub const KS_NABTS_GROUPID_TELEVISION_STATION_ADVERTISER_BASE: u32 = 2192u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KS_NABTS_GROUPID_TELEVISION_STATION_CONTENT_BASE: u32 = 2176u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_SECURE_CAMERA_SCENARIO_ID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae53fc6e_8d89_4488_9d2e_4d008731c5fd);
+pub const KS_SECURE_CAMERA_SCENARIO_ID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae53fc6e_8d89_4488_9d2e_4d008731c5fd);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KS_TVAUDIO_MODE_LANG_A: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -2625,81 +2625,81 @@ pub const NABTS_PAYLOAD_PER_LINE: u32 = 28u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const NANOSECONDS: u32 = 10000000u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PINNAME_DISPLAYPORT_OUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21fbb329_1a4a_48da_a076_2318a3c59b26);
+pub const PINNAME_DISPLAYPORT_OUT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x21fbb329_1a4a_48da_a076_2318a3c59b26);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PINNAME_HDMI_OUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x387bfc03_e7ef_4901_86e0_35b7c32b00ef);
+pub const PINNAME_HDMI_OUT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x387bfc03_e7ef_4901_86e0_35b7c32b00ef);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PINNAME_IMAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38a0cd98_d49b_4ce8_b48a_344667a17830);
+pub const PINNAME_IMAGE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38a0cd98_d49b_4ce8_b48a_344667a17830);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PINNAME_SPDIF_IN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15dc9025_22ad_41b3_8875_f4ceb0299e20);
+pub const PINNAME_SPDIF_IN: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x15dc9025_22ad_41b3_8875_f4ceb0299e20);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PINNAME_SPDIF_OUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a264481_e52c_4b82_8e7a_c8e2f91dc380);
+pub const PINNAME_SPDIF_OUT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a264481_e52c_4b82_8e7a_c8e2f91dc380);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PINNAME_VIDEO_ANALOGVIDEOIN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4283_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_ANALOGVIDEOIN: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb6c4283_0353_11d1_905f_0000c0cc16ba);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PINNAME_VIDEO_CAPTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4281_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_CAPTURE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb6c4281_0353_11d1_905f_0000c0cc16ba);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PINNAME_VIDEO_CC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4289_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_CC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb6c4289_0353_11d1_905f_0000c0cc16ba);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PINNAME_VIDEO_CC_CAPTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1aad8061_012d_11d2_b4b1_00a0d102cfbe);
+pub const PINNAME_VIDEO_CC_CAPTURE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1aad8061_012d_11d2_b4b1_00a0d102cfbe);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PINNAME_VIDEO_EDS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4287_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_EDS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb6c4287_0353_11d1_905f_0000c0cc16ba);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PINNAME_VIDEO_NABTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4286_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_NABTS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb6c4286_0353_11d1_905f_0000c0cc16ba);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PINNAME_VIDEO_NABTS_CAPTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29703660_498a_11d2_b4b1_00a0d102cfbe);
+pub const PINNAME_VIDEO_NABTS_CAPTURE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x29703660_498a_11d2_b4b1_00a0d102cfbe);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PINNAME_VIDEO_PREVIEW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4282_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_PREVIEW: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb6c4282_0353_11d1_905f_0000c0cc16ba);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PINNAME_VIDEO_STILL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c428a_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_STILL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb6c428a_0353_11d1_905f_0000c0cc16ba);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PINNAME_VIDEO_TELETEXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4288_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_TELETEXT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb6c4288_0353_11d1_905f_0000c0cc16ba);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PINNAME_VIDEO_TIMECODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c428b_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_TIMECODE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb6c428b_0353_11d1_905f_0000c0cc16ba);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PINNAME_VIDEO_VBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4284_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_VBI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb6c4284_0353_11d1_905f_0000c0cc16ba);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PINNAME_VIDEO_VIDEOPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4285_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_VIDEOPORT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb6c4285_0353_11d1_905f_0000c0cc16ba);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PINNAME_VIDEO_VIDEOPORT_VBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c428c_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_VIDEOPORT_VBI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb6c428c_0353_11d1_905f_0000c0cc16ba);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PROPSETID_ALLOCATOR_CONTROL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53171960_148e_11d2_9979_0000c0cc16ba);
+pub const PROPSETID_ALLOCATOR_CONTROL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53171960_148e_11d2_9979_0000c0cc16ba);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PROPSETID_EXT_DEVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5730a90_1a2c_11cf_8c23_00aa006b6814);
+pub const PROPSETID_EXT_DEVICE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5730a90_1a2c_11cf_8c23_00aa006b6814);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PROPSETID_EXT_TRANSPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa03cd5f0_3045_11cf_8c44_00aa006b6814);
+pub const PROPSETID_EXT_TRANSPORT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa03cd5f0_3045_11cf_8c44_00aa006b6814);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PROPSETID_TIMECODE_READER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b496ce1_811b_11cf_8c77_00aa006b6814);
+pub const PROPSETID_TIMECODE_READER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b496ce1_811b_11cf_8c77_00aa006b6814);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PROPSETID_TUNER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0605_28e4_11d0_a18c_00a0c9118956);
+pub const PROPSETID_TUNER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a2e0605_28e4_11d0_a18c_00a0c9118956);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PROPSETID_VIDCAP_CAMERACONTROL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6e13370_30ac_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_CAMERACONTROL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6e13370_30ac_11d0_a18c_00a0c9118956);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PROPSETID_VIDCAP_CAMERACONTROL_FLASH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x785e8f49_63a2_4144_ab70_ffb278fa26ce);
+pub const PROPSETID_VIDCAP_CAMERACONTROL_FLASH: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x785e8f49_63a2_4144_ab70_ffb278fa26ce);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PROPSETID_VIDCAP_CAMERACONTROL_IMAGE_PIN_CAPABILITY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d3d7bbf_5c6d_4138_bb00_584edd20f7c5);
+pub const PROPSETID_VIDCAP_CAMERACONTROL_IMAGE_PIN_CAPABILITY: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9d3d7bbf_5c6d_4138_bb00_584edd20f7c5);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PROPSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d12d198_f86c_4fed_b023_5d87653da793);
+pub const PROPSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9d12d198_f86c_4fed_b023_5d87653da793);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PROPSETID_VIDCAP_CAMERACONTROL_VIDEO_STABILIZATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43964bd3_7716_404e_8be1_d299b20e50fd);
+pub const PROPSETID_VIDCAP_CAMERACONTROL_VIDEO_STABILIZATION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43964bd3_7716_404e_8be1_d299b20e50fd);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PROPSETID_VIDCAP_CROSSBAR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0640_28e4_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_CROSSBAR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a2e0640_28e4_11d0_a18c_00a0c9118956);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PROPSETID_VIDCAP_DROPPEDFRAMES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6e13344_30ac_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_DROPPEDFRAMES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6e13344_30ac_11d0_a18c_00a0c9118956);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PROPSETID_VIDCAP_SELECTOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1abdaeca_68b6_4f83_9371_b413907c7b9f);
+pub const PROPSETID_VIDCAP_SELECTOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1abdaeca_68b6_4f83_9371_b413907c7b9f);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PROPSETID_VIDCAP_TVAUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0650_28e4_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_TVAUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a2e0650_28e4_11d0_a18c_00a0c9118956);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PROPSETID_VIDCAP_VIDEOCOMPRESSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6e13343_30ac_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_VIDEOCOMPRESSION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6e13343_30ac_11d0_a18c_00a0c9118956);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PROPSETID_VIDCAP_VIDEOCONTROL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0670_28e4_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_VIDEOCONTROL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a2e0670_28e4_11d0_a18c_00a0c9118956);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PROPSETID_VIDCAP_VIDEODECODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6e13350_30ac_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_VIDEODECODER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6e13350_30ac_11d0_a18c_00a0c9118956);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PROPSETID_VIDCAP_VIDEOENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0610_28e4_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_VIDEOENCODER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a2e0610_28e4_11d0_a18c_00a0c9118956);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PROPSETID_VIDCAP_VIDEOPROCAMP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6e13360_30ac_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_VIDEOPROCAMP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6e13360_30ac_11d0_a18c_00a0c9118956);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const PipeFactor_Align: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -2727,9 +2727,9 @@ pub const PipeFactor_UserModeDownstream: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const PipeFactor_UserModeUpstream: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const RT_RCDATA: ::windows::core::PCWSTR = ::windows::core::PCWSTR(10u16 as _);
+pub const RT_RCDATA: ::windows_core::PCWSTR = ::windows_core::PCWSTR(10u16 as _);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const RT_STRING: ::windows::core::PCWSTR = ::windows::core::PCWSTR(6u16 as _);
+pub const RT_STRING: ::windows_core::PCWSTR = ::windows_core::PCWSTR(6u16 as _);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const SPEAKER_ALL: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -2805,8 +2805,8 @@ impl ::core::default::Default for AUDIOPOSTURE_ORIENTATION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for AUDIOPOSTURE_ORIENTATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for AUDIOPOSTURE_ORIENTATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for AUDIOPOSTURE_ORIENTATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2832,8 +2832,8 @@ impl ::core::default::Default for AUDIO_CURVE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for AUDIO_CURVE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for AUDIO_CURVE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for AUDIO_CURVE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2867,8 +2867,8 @@ impl ::core::default::Default for CAPTURE_MEMORY_ALLOCATION_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CAPTURE_MEMORY_ALLOCATION_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CAPTURE_MEMORY_ALLOCATION_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CAPTURE_MEMORY_ALLOCATION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2894,8 +2894,8 @@ impl ::core::default::Default for CONSTRICTOR_OPTION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CONSTRICTOR_OPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CONSTRICTOR_OPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CONSTRICTOR_OPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2923,8 +2923,8 @@ impl ::core::default::Default for EDeviceControlUseType {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EDeviceControlUseType {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EDeviceControlUseType {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EDeviceControlUseType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2970,8 +2970,8 @@ impl ::core::default::Default for EPcxConnectionType {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EPcxConnectionType {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EPcxConnectionType {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EPcxConnectionType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3003,8 +3003,8 @@ impl ::core::default::Default for EPcxGenLocation {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EPcxGenLocation {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EPcxGenLocation {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EPcxGenLocation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3058,8 +3058,8 @@ impl ::core::default::Default for EPcxGeoLocation {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EPcxGeoLocation {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EPcxGeoLocation {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EPcxGeoLocation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3089,8 +3089,8 @@ impl ::core::default::Default for EPxcPortConnection {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EPxcPortConnection {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EPxcPortConnection {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EPxcPortConnection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3120,8 +3120,8 @@ impl ::core::default::Default for FRAMING_CACHE_OPS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for FRAMING_CACHE_OPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FRAMING_CACHE_OPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for FRAMING_CACHE_OPS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3151,8 +3151,8 @@ impl ::core::default::Default for FRAMING_PROP {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for FRAMING_PROP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FRAMING_PROP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for FRAMING_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3178,8 +3178,8 @@ impl ::core::default::Default for KSALLOCATORMODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSALLOCATORMODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSALLOCATORMODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSALLOCATORMODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3211,8 +3211,8 @@ impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_FOCUSSTATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_FOCUSSTATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_FOCUSSTATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_FOCUSSTATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3254,8 +3254,8 @@ impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_MetadataAlignment {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_MetadataAlignment {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_MetadataAlignment {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_MetadataAlignment {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3281,8 +3281,8 @@ impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_ROITYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_ROITYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_ROITYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_ROITYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3316,8 +3316,8 @@ impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_WBPRESET {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_WBPRESET {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_WBPRESET {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_WBPRESET {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3343,8 +3343,8 @@ impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3388,8 +3388,8 @@ impl ::core::default::Default for KSCAMERA_MetadataId {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_MetadataId {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_MetadataId {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSCAMERA_MetadataId {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3425,8 +3425,8 @@ impl ::core::default::Default for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3456,8 +3456,8 @@ impl ::core::default::Default for KSDEGRADE_STANDARD {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSDEGRADE_STANDARD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDEGRADE_STANDARD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSDEGRADE_STANDARD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3483,8 +3483,8 @@ impl ::core::default::Default for KSDEVICE_THERMAL_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSDEVICE_THERMAL_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDEVICE_THERMAL_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSDEVICE_THERMAL_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3512,8 +3512,8 @@ impl ::core::default::Default for KSDS3D_HRTF_COEFF_FORMAT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSDS3D_HRTF_COEFF_FORMAT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDS3D_HRTF_COEFF_FORMAT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSDS3D_HRTF_COEFF_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3541,8 +3541,8 @@ impl ::core::default::Default for KSDS3D_HRTF_FILTER_METHOD {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSDS3D_HRTF_FILTER_METHOD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDS3D_HRTF_FILTER_METHOD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSDS3D_HRTF_FILTER_METHOD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3570,8 +3570,8 @@ impl ::core::default::Default for KSDS3D_HRTF_FILTER_QUALITY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSDS3D_HRTF_FILTER_QUALITY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDS3D_HRTF_FILTER_QUALITY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSDS3D_HRTF_FILTER_QUALITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3595,8 +3595,8 @@ impl ::core::default::Default for KSDS3D_HRTF_FILTER_VERSION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSDS3D_HRTF_FILTER_VERSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDS3D_HRTF_FILTER_VERSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSDS3D_HRTF_FILTER_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3620,8 +3620,8 @@ impl ::core::default::Default for KSEVENT_AUDIO_CONTROL_CHANGE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSEVENT_AUDIO_CONTROL_CHANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_AUDIO_CONTROL_CHANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSEVENT_AUDIO_CONTROL_CHANGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3647,8 +3647,8 @@ impl ::core::default::Default for KSEVENT_CAMERACONTROL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSEVENT_CAMERACONTROL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_CAMERACONTROL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSEVENT_CAMERACONTROL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3672,8 +3672,8 @@ impl ::core::default::Default for KSEVENT_CAMERAEVENT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSEVENT_CAMERAEVENT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_CAMERAEVENT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSEVENT_CAMERAEVENT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3699,8 +3699,8 @@ impl ::core::default::Default for KSEVENT_CLOCK_POSITION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSEVENT_CLOCK_POSITION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_CLOCK_POSITION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSEVENT_CLOCK_POSITION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3732,8 +3732,8 @@ impl ::core::default::Default for KSEVENT_CONNECTION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSEVENT_CONNECTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_CONNECTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSEVENT_CONNECTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3757,8 +3757,8 @@ impl ::core::default::Default for KSEVENT_CROSSBAR {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSEVENT_CROSSBAR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_CROSSBAR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSEVENT_CROSSBAR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3796,8 +3796,8 @@ impl ::core::default::Default for KSEVENT_DEVCMD {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSEVENT_DEVCMD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_DEVCMD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSEVENT_DEVCMD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3827,8 +3827,8 @@ impl ::core::default::Default for KSEVENT_DEVICE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSEVENT_DEVICE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_DEVICE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSEVENT_DEVICE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3852,8 +3852,8 @@ impl ::core::default::Default for KSEVENT_DYNAMICFORMATCHANGE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSEVENT_DYNAMICFORMATCHANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_DYNAMICFORMATCHANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSEVENT_DYNAMICFORMATCHANGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3877,8 +3877,8 @@ impl ::core::default::Default for KSEVENT_LOOPEDSTREAMING {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSEVENT_LOOPEDSTREAMING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_LOOPEDSTREAMING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSEVENT_LOOPEDSTREAMING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3904,8 +3904,8 @@ impl ::core::default::Default for KSEVENT_PINCAPS_CHANGENOTIFICATIONS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSEVENT_PINCAPS_CHANGENOTIFICATIONS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_PINCAPS_CHANGENOTIFICATIONS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSEVENT_PINCAPS_CHANGENOTIFICATIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3929,8 +3929,8 @@ impl ::core::default::Default for KSEVENT_SOUNDDETECTOR {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSEVENT_SOUNDDETECTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_SOUNDDETECTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSEVENT_SOUNDDETECTOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3956,8 +3956,8 @@ impl ::core::default::Default for KSEVENT_STREAMALLOCATOR {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSEVENT_STREAMALLOCATOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_STREAMALLOCATOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSEVENT_STREAMALLOCATOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3981,8 +3981,8 @@ impl ::core::default::Default for KSEVENT_TELEPHONY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSEVENT_TELEPHONY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_TELEPHONY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSEVENT_TELEPHONY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4008,8 +4008,8 @@ impl ::core::default::Default for KSEVENT_TUNER {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSEVENT_TUNER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_TUNER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSEVENT_TUNER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4033,8 +4033,8 @@ impl ::core::default::Default for KSEVENT_TVAUDIO {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSEVENT_TVAUDIO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_TVAUDIO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSEVENT_TVAUDIO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4062,8 +4062,8 @@ impl ::core::default::Default for KSEVENT_VIDCAPTOSTI {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSEVENT_VIDCAPTOSTI {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_VIDCAPTOSTI {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSEVENT_VIDCAPTOSTI {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4087,8 +4087,8 @@ impl ::core::default::Default for KSEVENT_VIDEODECODER {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSEVENT_VIDEODECODER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_VIDEODECODER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSEVENT_VIDEODECODER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4112,8 +4112,8 @@ impl ::core::default::Default for KSEVENT_VOLUMELIMIT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSEVENT_VOLUMELIMIT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_VOLUMELIMIT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSEVENT_VOLUMELIMIT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4137,8 +4137,8 @@ impl ::core::default::Default for KSEVENT_VPNOTIFY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSEVENT_VPNOTIFY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_VPNOTIFY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSEVENT_VPNOTIFY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4162,8 +4162,8 @@ impl ::core::default::Default for KSEVENT_VPVBINOTIFY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSEVENT_VPVBINOTIFY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_VPVBINOTIFY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSEVENT_VPVBINOTIFY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4187,8 +4187,8 @@ impl ::core::default::Default for KSINTERFACE_FILEIO {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSINTERFACE_FILEIO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSINTERFACE_FILEIO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSINTERFACE_FILEIO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4216,8 +4216,8 @@ impl ::core::default::Default for KSINTERFACE_MEDIA {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSINTERFACE_MEDIA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSINTERFACE_MEDIA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSINTERFACE_MEDIA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4245,8 +4245,8 @@ impl ::core::default::Default for KSINTERFACE_STANDARD {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSINTERFACE_STANDARD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSINTERFACE_STANDARD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSINTERFACE_STANDARD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4272,8 +4272,8 @@ impl ::core::default::Default for KSJACK_SINK_CONNECTIONTYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSJACK_SINK_CONNECTIONTYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSJACK_SINK_CONNECTIONTYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSJACK_SINK_CONNECTIONTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4299,8 +4299,8 @@ impl ::core::default::Default for KSMETHOD_STREAMALLOCATOR {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSMETHOD_STREAMALLOCATOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSMETHOD_STREAMALLOCATOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSMETHOD_STREAMALLOCATOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4326,8 +4326,8 @@ impl ::core::default::Default for KSMETHOD_STREAMIO {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSMETHOD_STREAMIO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSMETHOD_STREAMIO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSMETHOD_STREAMIO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4357,8 +4357,8 @@ impl ::core::default::Default for KSMETHOD_WAVETABLE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSMETHOD_WAVETABLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSMETHOD_WAVETABLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSMETHOD_WAVETABLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4386,8 +4386,8 @@ impl ::core::default::Default for KSMICARRAY_MICARRAYTYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSMICARRAY_MICARRAYTYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSMICARRAY_MICARRAYTYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSMICARRAY_MICARRAYTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4423,8 +4423,8 @@ impl ::core::default::Default for KSMICARRAY_MICTYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSMICARRAY_MICTYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSMICARRAY_MICTYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSMICARRAY_MICTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4456,8 +4456,8 @@ impl ::core::default::Default for KSPIN_COMMUNICATION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPIN_COMMUNICATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPIN_COMMUNICATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPIN_COMMUNICATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4483,8 +4483,8 @@ impl ::core::default::Default for KSPIN_DATAFLOW {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPIN_DATAFLOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPIN_DATAFLOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPIN_DATAFLOW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4514,8 +4514,8 @@ impl ::core::default::Default for KSPIN_MDL_CACHING_EVENT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPIN_MDL_CACHING_EVENT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPIN_MDL_CACHING_EVENT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPIN_MDL_CACHING_EVENT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4539,8 +4539,8 @@ impl ::core::default::Default for KSPPROPERTY_ALLOCATOR_MDLCACHING {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPPROPERTY_ALLOCATOR_MDLCACHING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPPROPERTY_ALLOCATOR_MDLCACHING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPPROPERTY_ALLOCATOR_MDLCACHING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4576,8 +4576,8 @@ impl ::core::default::Default for KSPROPERTY_AC3 {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_AC3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_AC3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_AC3 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4607,8 +4607,8 @@ impl ::core::default::Default for KSPROPERTY_ALLOCATOR_CONTROL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_ALLOCATOR_CONTROL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_ALLOCATOR_CONTROL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_ALLOCATOR_CONTROL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4634,8 +4634,8 @@ impl ::core::default::Default for KSPROPERTY_AUDDECOUT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_AUDDECOUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_AUDDECOUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_AUDDECOUT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4777,8 +4777,8 @@ impl ::core::default::Default for KSPROPERTY_AUDIO {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_AUDIO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_AUDIO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_AUDIO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4820,8 +4820,8 @@ impl ::core::default::Default for KSPROPERTY_AUDIOENGINE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_AUDIOENGINE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_AUDIOENGINE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_AUDIOENGINE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4849,8 +4849,8 @@ impl ::core::default::Default for KSPROPERTY_AUDIOMODULE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_AUDIOMODULE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_AUDIOMODULE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_AUDIOMODULE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4874,8 +4874,8 @@ impl ::core::default::Default for KSPROPERTY_AUDIOPOSTURE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_AUDIOPOSTURE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_AUDIOPOSTURE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_AUDIOPOSTURE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4899,8 +4899,8 @@ impl ::core::default::Default for KSPROPERTY_AUDIORESOURCEMANAGEMENT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_AUDIORESOURCEMANAGEMENT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_AUDIORESOURCEMANAGEMENT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_AUDIORESOURCEMANAGEMENT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4924,8 +4924,8 @@ impl ::core::default::Default for KSPROPERTY_AUDIOSIGNALPROCESSING {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_AUDIOSIGNALPROCESSING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_AUDIOSIGNALPROCESSING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_AUDIOSIGNALPROCESSING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5019,8 +5019,8 @@ impl ::core::default::Default for KSPROPERTY_BIBLIOGRAPHIC {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_BIBLIOGRAPHIC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_BIBLIOGRAPHIC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_BIBLIOGRAPHIC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5046,8 +5046,8 @@ impl ::core::default::Default for KSPROPERTY_BTAUDIO {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_BTAUDIO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_BTAUDIO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_BTAUDIO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5161,8 +5161,8 @@ impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5186,8 +5186,8 @@ impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_FLASH {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CAMERACONTROL_FLASH {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_FLASH {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_FLASH {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5211,8 +5211,8 @@ impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY 
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5240,8 +5240,8 @@ impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPE
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5265,8 +5265,8 @@ impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5290,8 +5290,8 @@ impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_M
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5317,8 +5317,8 @@ impl ::core::default::Default for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5352,8 +5352,8 @@ impl ::core::default::Default for KSPROPERTY_CLOCK {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CLOCK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CLOCK {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_CLOCK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5391,8 +5391,8 @@ impl ::core::default::Default for KSPROPERTY_CONNECTION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CONNECTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CONNECTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_CONNECTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5430,8 +5430,8 @@ impl ::core::default::Default for KSPROPERTY_COPYPROT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_COPYPROT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_COPYPROT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_COPYPROT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5455,8 +5455,8 @@ impl ::core::default::Default for KSPROPERTY_CYCLIC {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CYCLIC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CYCLIC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_CYCLIC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5496,8 +5496,8 @@ impl ::core::default::Default for KSPROPERTY_DIRECTSOUND3DBUFFER {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_DIRECTSOUND3DBUFFER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_DIRECTSOUND3DBUFFER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_DIRECTSOUND3DBUFFER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5537,8 +5537,8 @@ impl ::core::default::Default for KSPROPERTY_DIRECTSOUND3DLISTENER {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_DIRECTSOUND3DLISTENER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_DIRECTSOUND3DLISTENER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_DIRECTSOUND3DLISTENER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5562,8 +5562,8 @@ impl ::core::default::Default for KSPROPERTY_DRMAUDIOSTREAM {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_DRMAUDIOSTREAM {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_DRMAUDIOSTREAM {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_DRMAUDIOSTREAM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5591,8 +5591,8 @@ impl ::core::default::Default for KSPROPERTY_DVDSUBPIC {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_DVDSUBPIC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_DVDSUBPIC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_DVDSUBPIC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5624,8 +5624,8 @@ impl ::core::default::Default for KSPROPERTY_EXTDEVICE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_EXTDEVICE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_EXTDEVICE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_EXTDEVICE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5653,8 +5653,8 @@ impl ::core::default::Default for KSPROPERTY_EXTENSION_UNIT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_EXTENSION_UNIT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_EXTENSION_UNIT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_EXTENSION_UNIT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5698,8 +5698,8 @@ impl ::core::default::Default for KSPROPERTY_EXTXPORT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_EXTXPORT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_EXTXPORT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_EXTXPORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5723,8 +5723,8 @@ impl ::core::default::Default for KSPROPERTY_FMRX_CONTROL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_FMRX_CONTROL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_FMRX_CONTROL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_FMRX_CONTROL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5752,8 +5752,8 @@ impl ::core::default::Default for KSPROPERTY_FMRX_TOPOLOGY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_FMRX_TOPOLOGY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_FMRX_TOPOLOGY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_FMRX_TOPOLOGY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5777,8 +5777,8 @@ impl ::core::default::Default for KSPROPERTY_GENERAL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_GENERAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_GENERAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_GENERAL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5806,8 +5806,8 @@ impl ::core::default::Default for KSPROPERTY_HRTF3D {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_HRTF3D {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_HRTF3D {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_HRTF3D {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5831,8 +5831,8 @@ impl ::core::default::Default for KSPROPERTY_INTERLEAVEDAUDIO {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_INTERLEAVEDAUDIO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_INTERLEAVEDAUDIO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_INTERLEAVEDAUDIO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5856,8 +5856,8 @@ impl ::core::default::Default for KSPROPERTY_ITD3D {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_ITD3D {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_ITD3D {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_ITD3D {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5889,8 +5889,8 @@ impl ::core::default::Default for KSPROPERTY_JACK {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_JACK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_JACK {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_JACK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5932,8 +5932,8 @@ impl ::core::default::Default for KSPROPERTY_MEDIASEEKING {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_MEDIASEEKING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_MEDIASEEKING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_MEDIASEEKING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5965,8 +5965,8 @@ impl ::core::default::Default for KSPROPERTY_MPEG2VID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_MPEG2VID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_MPEG2VID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_MPEG2VID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5990,8 +5990,8 @@ impl ::core::default::Default for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6015,8 +6015,8 @@ impl ::core::default::Default for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE 
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6044,8 +6044,8 @@ impl ::core::default::Default for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6075,8 +6075,8 @@ impl ::core::default::Default for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6112,8 +6112,8 @@ impl ::core::default::Default for KSPROPERTY_OVERLAYUPDATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_OVERLAYUPDATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_OVERLAYUPDATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_OVERLAYUPDATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6169,8 +6169,8 @@ impl ::core::default::Default for KSPROPERTY_PIN {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_PIN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_PIN {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_PIN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6196,8 +6196,8 @@ impl ::core::default::Default for KSPROPERTY_QUALITY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_QUALITY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_QUALITY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_QUALITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6247,8 +6247,8 @@ impl ::core::default::Default for KSPROPERTY_RTAUDIO {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_RTAUDIO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_RTAUDIO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_RTAUDIO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6282,8 +6282,8 @@ impl ::core::default::Default for KSPROPERTY_SOUNDDETECTOR {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_SOUNDDETECTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_SOUNDDETECTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_SOUNDDETECTOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6327,8 +6327,8 @@ impl ::core::default::Default for KSPROPERTY_STREAM {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_STREAM {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_STREAM {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_STREAM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6352,8 +6352,8 @@ impl ::core::default::Default for KSPROPERTY_STREAMINTERFACE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_STREAMINTERFACE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_STREAMINTERFACE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_STREAMINTERFACE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6387,8 +6387,8 @@ impl ::core::default::Default for KSPROPERTY_TELEPHONY_CONTROL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_TELEPHONY_CONTROL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TELEPHONY_CONTROL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_TELEPHONY_CONTROL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6414,8 +6414,8 @@ impl ::core::default::Default for KSPROPERTY_TELEPHONY_TOPOLOGY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_TELEPHONY_TOPOLOGY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TELEPHONY_TOPOLOGY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_TELEPHONY_TOPOLOGY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6443,8 +6443,8 @@ impl ::core::default::Default for KSPROPERTY_TIMECODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_TIMECODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TIMECODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_TIMECODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6474,8 +6474,8 @@ impl ::core::default::Default for KSPROPERTY_TOPOLOGY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_TOPOLOGY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TOPOLOGY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_TOPOLOGY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6501,8 +6501,8 @@ impl ::core::default::Default for KSPROPERTY_TOPOLOGYNODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_TOPOLOGYNODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TOPOLOGYNODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_TOPOLOGYNODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6548,8 +6548,8 @@ impl ::core::default::Default for KSPROPERTY_TUNER {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_TUNER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TUNER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_TUNER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6581,8 +6581,8 @@ impl ::core::default::Default for KSPROPERTY_TUNER_MODES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_TUNER_MODES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TUNER_MODES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_TUNER_MODES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6606,8 +6606,8 @@ impl ::core::default::Default for KSPROPERTY_VBICAP {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VBICAP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VBICAP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_VBICAP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6639,8 +6639,8 @@ impl ::core::default::Default for KSPROPERTY_VBICODECFILTERING {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VBICODECFILTERING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VBICODECFILTERING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_VBICODECFILTERING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6702,8 +6702,8 @@ impl ::core::default::Default for KSPROPERTY_VIDCAP_CAMERACONTROL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDCAP_CAMERACONTROL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDCAP_CAMERACONTROL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_CAMERACONTROL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6735,8 +6735,8 @@ impl ::core::default::Default for KSPROPERTY_VIDCAP_CROSSBAR {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDCAP_CROSSBAR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDCAP_CROSSBAR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_CROSSBAR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6760,8 +6760,8 @@ impl ::core::default::Default for KSPROPERTY_VIDCAP_DROPPEDFRAMES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDCAP_DROPPEDFRAMES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDCAP_DROPPEDFRAMES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_DROPPEDFRAMES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6787,8 +6787,8 @@ impl ::core::default::Default for KSPROPERTY_VIDCAP_SELECTOR {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDCAP_SELECTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDCAP_SELECTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_SELECTOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6816,8 +6816,8 @@ impl ::core::default::Default for KSPROPERTY_VIDCAP_TVAUDIO {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDCAP_TVAUDIO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDCAP_TVAUDIO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_TVAUDIO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6853,8 +6853,8 @@ impl ::core::default::Default for KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6884,8 +6884,8 @@ impl ::core::default::Default for KSPROPERTY_VIDCAP_VIDEOCONTROL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDCAP_VIDEOCONTROL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDCAP_VIDEOCONTROL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_VIDEOCONTROL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6919,8 +6919,8 @@ impl ::core::default::Default for KSPROPERTY_VIDCAP_VIDEODECODER {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDCAP_VIDEODECODER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDCAP_VIDEODECODER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_VIDEODECODER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6950,8 +6950,8 @@ impl ::core::default::Default for KSPROPERTY_VIDCAP_VIDEOENCODER {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDCAP_VIDEOENCODER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDCAP_VIDEOENCODER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_VIDEOENCODER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7001,8 +7001,8 @@ impl ::core::default::Default for KSPROPERTY_VIDCAP_VIDEOPROCAMP {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDCAP_VIDEOPROCAMP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDCAP_VIDEOPROCAMP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_VIDEOPROCAMP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7032,8 +7032,8 @@ impl ::core::default::Default for KSPROPERTY_VIDMEM_TRANSPORT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDMEM_TRANSPORT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDMEM_TRANSPORT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_VIDMEM_TRANSPORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7087,8 +7087,8 @@ impl ::core::default::Default for KSPROPERTY_VPCONFIG {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VPCONFIG {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VPCONFIG {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_VPCONFIG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7124,8 +7124,8 @@ impl ::core::default::Default for KSPROPERTY_WAVE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_WAVE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_WAVE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPROPERTY_WAVE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7151,8 +7151,8 @@ impl ::core::default::Default for KSRESET {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSRESET {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRESET {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSRESET {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7182,8 +7182,8 @@ impl ::core::default::Default for KSSTATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSSTATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSSTATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSSTATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7213,8 +7213,8 @@ impl ::core::default::Default for KS_AMPixAspectRatio {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KS_AMPixAspectRatio {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_AMPixAspectRatio {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KS_AMPixAspectRatio {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7246,8 +7246,8 @@ impl ::core::default::Default for KS_AMVP_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KS_AMVP_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_AMVP_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KS_AMVP_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7275,8 +7275,8 @@ impl ::core::default::Default for KS_AMVP_SELECTFORMATBY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KS_AMVP_SELECTFORMATBY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_AMVP_SELECTFORMATBY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KS_AMVP_SELECTFORMATBY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7306,8 +7306,8 @@ impl ::core::default::Default for KS_AM_PROPERTY_TS_RATE_CHANGE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KS_AM_PROPERTY_TS_RATE_CHANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_AM_PROPERTY_TS_RATE_CHANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KS_AM_PROPERTY_TS_RATE_CHANGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7371,8 +7371,8 @@ impl ::core::default::Default for KS_AnalogVideoStandard {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KS_AnalogVideoStandard {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_AnalogVideoStandard {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KS_AnalogVideoStandard {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7402,8 +7402,8 @@ impl ::core::default::Default for KS_COPY_MACROVISION_LEVEL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KS_COPY_MACROVISION_LEVEL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_COPY_MACROVISION_LEVEL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KS_COPY_MACROVISION_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7431,8 +7431,8 @@ impl ::core::default::Default for KS_CameraControlAsyncOperation {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KS_CameraControlAsyncOperation {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_CameraControlAsyncOperation {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KS_CameraControlAsyncOperation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7464,8 +7464,8 @@ impl ::core::default::Default for KS_CompressionCaps {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KS_CompressionCaps {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_CompressionCaps {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KS_CompressionCaps {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7497,8 +7497,8 @@ impl ::core::default::Default for KS_DVDCOPYSTATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KS_DVDCOPYSTATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DVDCOPYSTATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KS_DVDCOPYSTATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7534,8 +7534,8 @@ impl ::core::default::Default for KS_LogicalMemoryType {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KS_LogicalMemoryType {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_LogicalMemoryType {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KS_LogicalMemoryType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7565,8 +7565,8 @@ impl ::core::default::Default for KS_MPEG2Level {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KS_MPEG2Level {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_MPEG2Level {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KS_MPEG2Level {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7598,8 +7598,8 @@ impl ::core::default::Default for KS_MPEG2Profile {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KS_MPEG2Profile {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_MPEG2Profile {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KS_MPEG2Profile {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7669,8 +7669,8 @@ impl ::core::default::Default for KS_PhysicalConnectorType {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KS_PhysicalConnectorType {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_PhysicalConnectorType {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KS_PhysicalConnectorType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7706,8 +7706,8 @@ impl ::core::default::Default for KS_SEEKING_CAPABILITIES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KS_SEEKING_CAPABILITIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_SEEKING_CAPABILITIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KS_SEEKING_CAPABILITIES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7743,8 +7743,8 @@ impl ::core::default::Default for KS_SEEKING_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KS_SEEKING_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_SEEKING_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KS_SEEKING_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7772,8 +7772,8 @@ impl ::core::default::Default for KS_TUNER_STRATEGY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KS_TUNER_STRATEGY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_TUNER_STRATEGY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KS_TUNER_STRATEGY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7801,8 +7801,8 @@ impl ::core::default::Default for KS_TUNER_TUNING_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KS_TUNER_TUNING_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_TUNER_TUNING_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KS_TUNER_TUNING_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7830,8 +7830,8 @@ impl ::core::default::Default for KS_VIDEODECODER_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KS_VIDEODECODER_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_VIDEODECODER_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KS_VIDEODECODER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7873,8 +7873,8 @@ impl ::core::default::Default for KS_VideoControlFlags {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KS_VideoControlFlags {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_VideoControlFlags {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KS_VideoControlFlags {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7906,8 +7906,8 @@ impl ::core::default::Default for KS_VideoStreamingHints {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KS_VideoStreamingHints {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_VideoStreamingHints {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KS_VideoStreamingHints {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7937,8 +7937,8 @@ impl ::core::default::Default for PIPE_ALLOCATOR_PLACE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for PIPE_ALLOCATOR_PLACE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PIPE_ALLOCATOR_PLACE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for PIPE_ALLOCATOR_PLACE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7970,8 +7970,8 @@ impl ::core::default::Default for PIPE_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for PIPE_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PIPE_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for PIPE_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7997,8 +7997,8 @@ impl ::core::default::Default for TELEPHONY_CALLCONTROLOP {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TELEPHONY_CALLCONTROLOP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TELEPHONY_CALLCONTROLOP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TELEPHONY_CALLCONTROLOP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8028,8 +8028,8 @@ impl ::core::default::Default for TELEPHONY_CALLSTATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TELEPHONY_CALLSTATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TELEPHONY_CALLSTATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TELEPHONY_CALLSTATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8057,8 +8057,8 @@ impl ::core::default::Default for TELEPHONY_CALLTYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TELEPHONY_CALLTYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TELEPHONY_CALLTYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TELEPHONY_CALLTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8086,8 +8086,8 @@ impl ::core::default::Default for TELEPHONY_PROVIDERCHANGEOP {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TELEPHONY_PROVIDERCHANGEOP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TELEPHONY_PROVIDERCHANGEOP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TELEPHONY_PROVIDERCHANGEOP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8115,8 +8115,8 @@ impl ::core::default::Default for TunerLockType {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TunerLockType {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TunerLockType {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TunerLockType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8130,8 +8130,8 @@ pub struct ALLOCATOR_PROPERTIES_EX {
     pub cbBuffer: i32,
     pub cbAlign: i32,
     pub cbPrefix: i32,
-    pub MemoryType: ::windows::core::GUID,
-    pub BusType: ::windows::core::GUID,
+    pub MemoryType: ::windows_core::GUID,
+    pub BusType: ::windows_core::GUID,
     pub State: PIPE_STATE,
     pub Input: PIPE_TERMINATION,
     pub Output: PIPE_TERMINATION,
@@ -8181,8 +8181,8 @@ impl ::core::fmt::Debug for ALLOCATOR_PROPERTIES_EX {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for ALLOCATOR_PROPERTIES_EX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ALLOCATOR_PROPERTIES_EX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for ALLOCATOR_PROPERTIES_EX {
     fn eq(&self, other: &Self) -> bool {
@@ -8237,8 +8237,8 @@ impl ::core::fmt::Debug for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
@@ -8271,8 +8271,8 @@ impl ::core::fmt::Debug for CC_BYTE_PAIR {
         f.debug_struct("CC_BYTE_PAIR").field("Decoded", &self.Decoded).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for CC_BYTE_PAIR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CC_BYTE_PAIR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for CC_BYTE_PAIR {
     fn eq(&self, other: &Self) -> bool {
@@ -8304,8 +8304,8 @@ impl ::core::fmt::Debug for CC_HW_FIELD {
         f.debug_struct("CC_HW_FIELD").field("ScanlinesRequested", &self.ScanlinesRequested).field("fieldFlags", &self.fieldFlags).field("PictureNumber", &self.PictureNumber).field("Lines", &self.Lines).finish()
     }
 }
-impl ::windows::core::TypeKind for CC_HW_FIELD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CC_HW_FIELD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for CC_HW_FIELD {
     fn eq(&self, other: &Self) -> bool {
@@ -8380,8 +8380,8 @@ impl ::core::fmt::Debug for DEVCAPS {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for DEVCAPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DEVCAPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DEVCAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -8429,8 +8429,8 @@ impl ::core::clone::Clone for DS3DVECTOR {
         *self
     }
 }
-impl ::windows::core::TypeKind for DS3DVECTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DS3DVECTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DS3DVECTOR {
     fn default() -> Self {
@@ -8449,8 +8449,8 @@ impl ::core::clone::Clone for DS3DVECTOR_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DS3DVECTOR_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DS3DVECTOR_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DS3DVECTOR_0 {
     fn default() -> Self {
@@ -8469,8 +8469,8 @@ impl ::core::clone::Clone for DS3DVECTOR_1 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DS3DVECTOR_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DS3DVECTOR_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DS3DVECTOR_1 {
     fn default() -> Self {
@@ -8489,8 +8489,8 @@ impl ::core::clone::Clone for DS3DVECTOR_2 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DS3DVECTOR_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DS3DVECTOR_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DS3DVECTOR_2 {
     fn default() -> Self {
@@ -8505,8 +8505,8 @@ impl ::core::clone::Clone for IKsAllocator {
         *self
     }
 }
-impl ::windows::core::TypeKind for IKsAllocator {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IKsAllocator {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 pub struct IKsAllocatorEx(pub u8);
@@ -8516,8 +8516,8 @@ impl ::core::clone::Clone for IKsAllocatorEx {
         *self
     }
 }
-impl ::windows::core::TypeKind for IKsAllocatorEx {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IKsAllocatorEx {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 pub struct IKsPin(pub u8);
@@ -8527,8 +8527,8 @@ impl ::core::clone::Clone for IKsPin {
         *self
     }
 }
-impl ::windows::core::TypeKind for IKsPin {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IKsPin {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -8552,8 +8552,8 @@ impl ::core::fmt::Debug for INTERLEAVED_AUDIO_FORMAT_INFORMATION {
         f.debug_struct("INTERLEAVED_AUDIO_FORMAT_INFORMATION").field("Size", &self.Size).field("PrimaryChannelCount", &self.PrimaryChannelCount).field("PrimaryChannelStartPosition", &self.PrimaryChannelStartPosition).field("PrimaryChannelMask", &self.PrimaryChannelMask).field("InterleavedChannelCount", &self.InterleavedChannelCount).field("InterleavedChannelStartPosition", &self.InterleavedChannelStartPosition).field("InterleavedChannelMask", &self.InterleavedChannelMask).finish()
     }
 }
-impl ::windows::core::TypeKind for INTERLEAVED_AUDIO_FORMAT_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for INTERLEAVED_AUDIO_FORMAT_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for INTERLEAVED_AUDIO_FORMAT_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -8588,8 +8588,8 @@ impl ::core::fmt::Debug for KSAC3_ALTERNATE_AUDIO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSAC3_ALTERNATE_AUDIO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAC3_ALTERNATE_AUDIO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSAC3_ALTERNATE_AUDIO {
@@ -8621,8 +8621,8 @@ impl ::core::fmt::Debug for KSAC3_BIT_STREAM_MODE {
         f.debug_struct("KSAC3_BIT_STREAM_MODE").field("BitStreamMode", &self.BitStreamMode).finish()
     }
 }
-impl ::windows::core::TypeKind for KSAC3_BIT_STREAM_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAC3_BIT_STREAM_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSAC3_BIT_STREAM_MODE {
     fn eq(&self, other: &Self) -> bool {
@@ -8651,8 +8651,8 @@ impl ::core::fmt::Debug for KSAC3_DIALOGUE_LEVEL {
         f.debug_struct("KSAC3_DIALOGUE_LEVEL").field("DialogueLevel", &self.DialogueLevel).finish()
     }
 }
-impl ::windows::core::TypeKind for KSAC3_DIALOGUE_LEVEL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAC3_DIALOGUE_LEVEL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSAC3_DIALOGUE_LEVEL {
     fn eq(&self, other: &Self) -> bool {
@@ -8687,8 +8687,8 @@ impl ::core::fmt::Debug for KSAC3_DOWNMIX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSAC3_DOWNMIX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAC3_DOWNMIX {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSAC3_DOWNMIX {
@@ -8726,8 +8726,8 @@ impl ::core::fmt::Debug for KSAC3_ERROR_CONCEALMENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSAC3_ERROR_CONCEALMENT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAC3_ERROR_CONCEALMENT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSAC3_ERROR_CONCEALMENT {
@@ -8764,8 +8764,8 @@ impl ::core::fmt::Debug for KSAC3_ROOM_TYPE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSAC3_ROOM_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAC3_ROOM_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSAC3_ROOM_TYPE {
@@ -8797,8 +8797,8 @@ impl ::core::clone::Clone for KSALLOCATOR_FRAMING {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSALLOCATOR_FRAMING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSALLOCATOR_FRAMING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSALLOCATOR_FRAMING {
     fn default() -> Self {
@@ -8817,8 +8817,8 @@ impl ::core::clone::Clone for KSALLOCATOR_FRAMING_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSALLOCATOR_FRAMING_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSALLOCATOR_FRAMING_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSALLOCATOR_FRAMING_0 {
     fn default() -> Self {
@@ -8837,8 +8837,8 @@ impl ::core::clone::Clone for KSALLOCATOR_FRAMING_1 {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSALLOCATOR_FRAMING_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSALLOCATOR_FRAMING_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSALLOCATOR_FRAMING_1 {
     fn default() -> Self {
@@ -8860,8 +8860,8 @@ impl ::core::clone::Clone for KSALLOCATOR_FRAMING_EX {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSALLOCATOR_FRAMING_EX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSALLOCATOR_FRAMING_EX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSALLOCATOR_FRAMING_EX {
     fn default() -> Self {
@@ -8873,7 +8873,7 @@ impl ::core::default::Default for KSALLOCATOR_FRAMING_EX {
 pub struct KSATTRIBUTE {
     pub Size: u32,
     pub Flags: u32,
-    pub Attribute: ::windows::core::GUID,
+    pub Attribute: ::windows_core::GUID,
 }
 impl ::core::marker::Copy for KSATTRIBUTE {}
 impl ::core::clone::Clone for KSATTRIBUTE {
@@ -8886,8 +8886,8 @@ impl ::core::fmt::Debug for KSATTRIBUTE {
         f.debug_struct("KSATTRIBUTE").field("Size", &self.Size).field("Flags", &self.Flags).field("Attribute", &self.Attribute).finish()
     }
 }
-impl ::windows::core::TypeKind for KSATTRIBUTE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSATTRIBUTE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSATTRIBUTE {
     fn eq(&self, other: &Self) -> bool {
@@ -8904,7 +8904,7 @@ impl ::core::default::Default for KSATTRIBUTE {
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
     pub AttributeHeader: KSATTRIBUTE,
-    pub SignalProcessingMode: ::windows::core::GUID,
+    pub SignalProcessingMode: ::windows_core::GUID,
 }
 impl ::core::marker::Copy for KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {}
 impl ::core::clone::Clone for KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
@@ -8917,8 +8917,8 @@ impl ::core::fmt::Debug for KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
         f.debug_struct("KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE").field("AttributeHeader", &self.AttributeHeader).field("SignalProcessingMode", &self.SignalProcessingMode).finish()
     }
 }
-impl ::windows::core::TypeKind for KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
     fn eq(&self, other: &Self) -> bool {
@@ -8948,8 +8948,8 @@ impl ::core::fmt::Debug for KSAUDIOENGINE_BUFFER_SIZE_RANGE {
         f.debug_struct("KSAUDIOENGINE_BUFFER_SIZE_RANGE").field("MinBufferBytes", &self.MinBufferBytes).field("MaxBufferBytes", &self.MaxBufferBytes).finish()
     }
 }
-impl ::windows::core::TypeKind for KSAUDIOENGINE_BUFFER_SIZE_RANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIOENGINE_BUFFER_SIZE_RANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSAUDIOENGINE_BUFFER_SIZE_RANGE {
     fn eq(&self, other: &Self) -> bool {
@@ -8980,8 +8980,8 @@ impl ::core::fmt::Debug for KSAUDIOENGINE_DESCRIPTOR {
         f.debug_struct("KSAUDIOENGINE_DESCRIPTOR").field("nHostPinId", &self.nHostPinId).field("nOffloadPinId", &self.nOffloadPinId).field("nLoopbackPinId", &self.nLoopbackPinId).finish()
     }
 }
-impl ::windows::core::TypeKind for KSAUDIOENGINE_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIOENGINE_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSAUDIOENGINE_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -9012,8 +9012,8 @@ impl ::core::fmt::Debug for KSAUDIOENGINE_DEVICECONTROLS {
         f.debug_struct("KSAUDIOENGINE_DEVICECONTROLS").field("Volume", &self.Volume).field("Mute", &self.Mute).field("PeakMeter", &self.PeakMeter).finish()
     }
 }
-impl ::windows::core::TypeKind for KSAUDIOENGINE_DEVICECONTROLS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIOENGINE_DEVICECONTROLS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSAUDIOENGINE_DEVICECONTROLS {
     fn eq(&self, other: &Self) -> bool {
@@ -9044,8 +9044,8 @@ impl ::core::fmt::Debug for KSAUDIOENGINE_VOLUMELEVEL {
         f.debug_struct("KSAUDIOENGINE_VOLUMELEVEL").field("TargetVolume", &self.TargetVolume).field("CurveType", &self.CurveType).field("CurveDuration", &self.CurveDuration).finish()
     }
 }
-impl ::windows::core::TypeKind for KSAUDIOENGINE_VOLUMELEVEL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIOENGINE_VOLUMELEVEL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSAUDIOENGINE_VOLUMELEVEL {
     fn eq(&self, other: &Self) -> bool {
@@ -9061,7 +9061,7 @@ impl ::core::default::Default for KSAUDIOENGINE_VOLUMELEVEL {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSAUDIOMODULE_DESCRIPTOR {
-    pub ClassId: ::windows::core::GUID,
+    pub ClassId: ::windows_core::GUID,
     pub InstanceId: u32,
     pub VersionMajor: u32,
     pub VersionMinor: u32,
@@ -9078,8 +9078,8 @@ impl ::core::fmt::Debug for KSAUDIOMODULE_DESCRIPTOR {
         f.debug_struct("KSAUDIOMODULE_DESCRIPTOR").field("ClassId", &self.ClassId).field("InstanceId", &self.InstanceId).field("VersionMajor", &self.VersionMajor).field("VersionMinor", &self.VersionMinor).field("Name", &self.Name).finish()
     }
 }
-impl ::windows::core::TypeKind for KSAUDIOMODULE_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIOMODULE_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSAUDIOMODULE_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -9103,8 +9103,8 @@ impl ::core::clone::Clone for KSAUDIOMODULE_NOTIFICATION {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSAUDIOMODULE_NOTIFICATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIOMODULE_NOTIFICATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSAUDIOMODULE_NOTIFICATION {
     fn default() -> Self {
@@ -9123,8 +9123,8 @@ impl ::core::clone::Clone for KSAUDIOMODULE_NOTIFICATION_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSAUDIOMODULE_NOTIFICATION_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIOMODULE_NOTIFICATION_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSAUDIOMODULE_NOTIFICATION_0 {
     fn default() -> Self {
@@ -9134,8 +9134,8 @@ impl ::core::default::Default for KSAUDIOMODULE_NOTIFICATION_0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSAUDIOMODULE_NOTIFICATION_0_0 {
-    pub DeviceId: ::windows::core::GUID,
-    pub ClassId: ::windows::core::GUID,
+    pub DeviceId: ::windows_core::GUID,
+    pub ClassId: ::windows_core::GUID,
     pub InstanceId: u32,
     pub Reserved: u32,
 }
@@ -9150,8 +9150,8 @@ impl ::core::fmt::Debug for KSAUDIOMODULE_NOTIFICATION_0_0 {
         f.debug_struct("KSAUDIOMODULE_NOTIFICATION_0_0").field("DeviceId", &self.DeviceId).field("ClassId", &self.ClassId).field("InstanceId", &self.InstanceId).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KSAUDIOMODULE_NOTIFICATION_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIOMODULE_NOTIFICATION_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSAUDIOMODULE_NOTIFICATION_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9168,7 +9168,7 @@ impl ::core::default::Default for KSAUDIOMODULE_NOTIFICATION_0_0 {
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSAUDIOMODULE_PROPERTY {
     pub Property: KSIDENTIFIER,
-    pub ClassId: ::windows::core::GUID,
+    pub ClassId: ::windows_core::GUID,
     pub InstanceId: u32,
 }
 impl ::core::marker::Copy for KSAUDIOMODULE_PROPERTY {}
@@ -9177,8 +9177,8 @@ impl ::core::clone::Clone for KSAUDIOMODULE_PROPERTY {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSAUDIOMODULE_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIOMODULE_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSAUDIOMODULE_PROPERTY {
     fn default() -> Self {
@@ -9201,8 +9201,8 @@ impl ::core::fmt::Debug for KSAUDIO_CHANNEL_CONFIG {
         f.debug_struct("KSAUDIO_CHANNEL_CONFIG").field("ActiveSpeakerPositions", &self.ActiveSpeakerPositions).finish()
     }
 }
-impl ::windows::core::TypeKind for KSAUDIO_CHANNEL_CONFIG {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIO_CHANNEL_CONFIG {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSAUDIO_CHANNEL_CONFIG {
     fn eq(&self, other: &Self) -> bool {
@@ -9237,8 +9237,8 @@ impl ::core::fmt::Debug for KSAUDIO_COPY_PROTECTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSAUDIO_COPY_PROTECTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIO_COPY_PROTECTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSAUDIO_COPY_PROTECTION {
@@ -9271,8 +9271,8 @@ impl ::core::fmt::Debug for KSAUDIO_DYNAMIC_RANGE {
         f.debug_struct("KSAUDIO_DYNAMIC_RANGE").field("QuietCompression", &self.QuietCompression).field("LoudCompression", &self.LoudCompression).finish()
     }
 }
-impl ::windows::core::TypeKind for KSAUDIO_DYNAMIC_RANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIO_DYNAMIC_RANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSAUDIO_DYNAMIC_RANGE {
     fn eq(&self, other: &Self) -> bool {
@@ -9306,8 +9306,8 @@ impl ::core::fmt::Debug for KSAUDIO_MICROPHONE_COORDINATES {
         f.debug_struct("KSAUDIO_MICROPHONE_COORDINATES").field("usType", &self.usType).field("wXCoord", &self.wXCoord).field("wYCoord", &self.wYCoord).field("wZCoord", &self.wZCoord).field("wVerticalAngle", &self.wVerticalAngle).field("wHorizontalAngle", &self.wHorizontalAngle).finish()
     }
 }
-impl ::windows::core::TypeKind for KSAUDIO_MICROPHONE_COORDINATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIO_MICROPHONE_COORDINATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSAUDIO_MICROPHONE_COORDINATES {
     fn eq(&self, other: &Self) -> bool {
@@ -9356,8 +9356,8 @@ impl ::core::fmt::Debug for KSAUDIO_MIC_ARRAY_GEOMETRY {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for KSAUDIO_MIC_ARRAY_GEOMETRY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIO_MIC_ARRAY_GEOMETRY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSAUDIO_MIC_ARRAY_GEOMETRY {
     fn eq(&self, other: &Self) -> bool {
@@ -9387,8 +9387,8 @@ impl ::core::clone::Clone for KSAUDIO_MIXCAP_TABLE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSAUDIO_MIXCAP_TABLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIO_MIXCAP_TABLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSAUDIO_MIXCAP_TABLE {
@@ -9418,8 +9418,8 @@ impl ::core::fmt::Debug for KSAUDIO_MIXLEVEL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSAUDIO_MIXLEVEL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIO_MIXLEVEL {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSAUDIO_MIXLEVEL {
@@ -9453,8 +9453,8 @@ impl ::core::clone::Clone for KSAUDIO_MIX_CAPS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSAUDIO_MIX_CAPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIO_MIX_CAPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSAUDIO_MIX_CAPS {
@@ -9478,8 +9478,8 @@ impl ::core::clone::Clone for KSAUDIO_MIX_CAPS_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSAUDIO_MIX_CAPS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIO_MIX_CAPS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSAUDIO_MIX_CAPS_0 {
@@ -9507,8 +9507,8 @@ impl ::core::fmt::Debug for KSAUDIO_PACKETSIZE_CONSTRAINTS {
         f.debug_struct("KSAUDIO_PACKETSIZE_CONSTRAINTS").field("MinPacketPeriodInHns", &self.MinPacketPeriodInHns).field("PacketSizeFileAlignment", &self.PacketSizeFileAlignment).field("Reserved", &self.Reserved).field("NumProcessingModeConstraints", &self.NumProcessingModeConstraints).field("ProcessingModeConstraints", &self.ProcessingModeConstraints).finish()
     }
 }
-impl ::windows::core::TypeKind for KSAUDIO_PACKETSIZE_CONSTRAINTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIO_PACKETSIZE_CONSTRAINTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSAUDIO_PACKETSIZE_CONSTRAINTS {
     fn eq(&self, other: &Self) -> bool {
@@ -9541,8 +9541,8 @@ impl ::core::fmt::Debug for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
         f.debug_struct("KSAUDIO_PACKETSIZE_CONSTRAINTS2").field("MinPacketPeriodInHns", &self.MinPacketPeriodInHns).field("PacketSizeFileAlignment", &self.PacketSizeFileAlignment).field("MaxPacketSizeInBytes", &self.MaxPacketSizeInBytes).field("NumProcessingModeConstraints", &self.NumProcessingModeConstraints).field("ProcessingModeConstraints", &self.ProcessingModeConstraints).finish()
     }
 }
-impl ::windows::core::TypeKind for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
     fn eq(&self, other: &Self) -> bool {
@@ -9558,7 +9558,7 @@ impl ::core::default::Default for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
-    pub ProcessingMode: ::windows::core::GUID,
+    pub ProcessingMode: ::windows_core::GUID,
     pub SamplesPerProcessingPacket: u32,
     pub ProcessingPacketDurationInHns: u32,
 }
@@ -9573,8 +9573,8 @@ impl ::core::fmt::Debug for KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
         f.debug_struct("KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT").field("ProcessingMode", &self.ProcessingMode).field("SamplesPerProcessingPacket", &self.SamplesPerProcessingPacket).field("ProcessingPacketDurationInHns", &self.ProcessingPacketDurationInHns).finish()
     }
 }
-impl ::windows::core::TypeKind for KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
@@ -9604,8 +9604,8 @@ impl ::core::fmt::Debug for KSAUDIO_POSITION {
         f.debug_struct("KSAUDIO_POSITION").field("PlayOffset", &self.PlayOffset).field("WriteOffset", &self.WriteOffset).finish()
     }
 }
-impl ::windows::core::TypeKind for KSAUDIO_POSITION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIO_POSITION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSAUDIO_POSITION {
     fn eq(&self, other: &Self) -> bool {
@@ -9637,8 +9637,8 @@ impl ::core::fmt::Debug for KSAUDIO_POSITIONEX {
         f.debug_struct("KSAUDIO_POSITIONEX").field("TimerFrequency", &self.TimerFrequency).field("TimeStamp1", &self.TimeStamp1).field("Position", &self.Position).field("TimeStamp2", &self.TimeStamp2).finish()
     }
 }
-impl ::windows::core::TypeKind for KSAUDIO_POSITIONEX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIO_POSITIONEX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSAUDIO_POSITIONEX {
     fn eq(&self, other: &Self) -> bool {
@@ -9668,8 +9668,8 @@ impl ::core::fmt::Debug for KSAUDIO_PRESENTATION_POSITION {
         f.debug_struct("KSAUDIO_PRESENTATION_POSITION").field("u64PositionInBlocks", &self.u64PositionInBlocks).field("u64QPCPosition", &self.u64QPCPosition).finish()
     }
 }
-impl ::windows::core::TypeKind for KSAUDIO_PRESENTATION_POSITION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSAUDIO_PRESENTATION_POSITION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSAUDIO_PRESENTATION_POSITION {
     fn eq(&self, other: &Self) -> bool {
@@ -9689,7 +9689,7 @@ pub struct KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {
     pub Resolution: super::super::Foundation::SIZE,
     pub MaxFrameRate: KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0,
     pub MaskResolution: super::super::Foundation::SIZE,
-    pub SubType: ::windows::core::GUID,
+    pub SubType: ::windows_core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {}
@@ -9706,8 +9706,8 @@ impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGC
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {
@@ -9745,8 +9745,8 @@ impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGC
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {
@@ -9781,8 +9781,8 @@ impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {
         f.debug_struct("KSCAMERA_EXTENDEDPROP_CAMERAOFFSET").field("PitchAngle", &self.PitchAngle).field("YawAngle", &self.YawAngle).field("Flag", &self.Flag).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {
     fn eq(&self, other: &Self) -> bool {
@@ -9831,8 +9831,8 @@ impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -9862,8 +9862,8 @@ impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER
         f.debug_struct("KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER").field("Size", &self.Size).field("Count", &self.Count).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -9895,8 +9895,8 @@ impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {
         f.debug_struct("KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING").field("OriginX", &self.OriginX).field("OriginY", &self.OriginY).field("WindowSize", &self.WindowSize).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {
     fn eq(&self, other: &Self) -> bool {
@@ -9929,8 +9929,8 @@ impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {
         f.debug_struct("KSCAMERA_EXTENDEDPROP_EVCOMPENSATION").field("Mode", &self.Mode).field("Min", &self.Min).field("Max", &self.Max).field("Value", &self.Value).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {
     fn eq(&self, other: &Self) -> bool {
@@ -9962,8 +9962,8 @@ impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
         f.debug_struct("KSCAMERA_EXTENDEDPROP_FIELDOFVIEW").field("NormalizedFocalLengthX", &self.NormalizedFocalLengthX).field("NormalizedFocalLengthY", &self.NormalizedFocalLengthY).field("Flag", &self.Flag).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
     fn eq(&self, other: &Self) -> bool {
@@ -9997,8 +9997,8 @@ impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_HEADER {
         f.debug_struct("KSCAMERA_EXTENDEDPROP_HEADER").field("Version", &self.Version).field("PinId", &self.PinId).field("Size", &self.Size).field("Result", &self.Result).field("Flags", &self.Flags).field("Capability", &self.Capability).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_HEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_HEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -10028,8 +10028,8 @@ impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_METADATAINFO {
         f.debug_struct("KSCAMERA_EXTENDEDPROP_METADATAINFO").field("BufferAlignment", &self.BufferAlignment).field("MaxMetadataBufferSize", &self.MaxMetadataBufferSize).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_METADATAINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_METADATAINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_METADATAINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -10061,8 +10061,8 @@ impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_PHOTOMODE {
         f.debug_struct("KSCAMERA_EXTENDEDPROP_PHOTOMODE").field("RequestedHistoryFrames", &self.RequestedHistoryFrames).field("MaxHistoryFrames", &self.MaxHistoryFrames).field("SubMode", &self.SubMode).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_PHOTOMODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_PHOTOMODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_PHOTOMODE {
     fn eq(&self, other: &Self) -> bool {
@@ -10078,7 +10078,7 @@ impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_PHOTOMODE {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSCAMERA_EXTENDEDPROP_PROFILE {
-    pub ProfileId: ::windows::core::GUID,
+    pub ProfileId: ::windows_core::GUID,
     pub Index: u32,
     pub Reserved: u32,
 }
@@ -10093,8 +10093,8 @@ impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_PROFILE {
         f.debug_struct("KSCAMERA_EXTENDEDPROP_PROFILE").field("ProfileId", &self.ProfileId).field("Index", &self.Index).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_PROFILE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_PROFILE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_PROFILE {
     fn eq(&self, other: &Self) -> bool {
@@ -10125,8 +10125,8 @@ impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {
         f.debug_struct("KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS").field("ControlId", &self.ControlId).field("MaxNumberOfROIs", &self.MaxNumberOfROIs).field("Capability", &self.Capability).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -10157,8 +10157,8 @@ impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {
         f.debug_struct("KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER").field("Size", &self.Size).field("ConfigCapCount", &self.ConfigCapCount).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -10193,8 +10193,8 @@ impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {
@@ -10232,8 +10232,8 @@ impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_ROI_FOCUS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_FOCUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_FOCUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_ROI_FOCUS {
@@ -10273,8 +10273,8 @@ impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_ROI_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_ROI_INFO {
@@ -10309,8 +10309,8 @@ impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {
         f.debug_struct("KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL").field("ControlId", &self.ControlId).field("ROICount", &self.ROICount).field("Result", &self.Result).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {
     fn eq(&self, other: &Self) -> bool {
@@ -10341,8 +10341,8 @@ impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {
         f.debug_struct("KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER").field("Size", &self.Size).field("ControlCount", &self.ControlCount).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -10377,8 +10377,8 @@ impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {
@@ -10405,8 +10405,8 @@ impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_VALUE {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_VALUE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_VALUE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_VALUE {
     fn default() -> Self {
@@ -10429,8 +10429,8 @@ impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_VALUE_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_VALUE_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_VALUE_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_VALUE_0 {
     fn default() -> Self {
@@ -10453,8 +10453,8 @@ impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
     fn default() -> Self {
@@ -10482,8 +10482,8 @@ impl ::core::fmt::Debug for KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
         f.debug_struct("KSCAMERA_MAXVIDEOFPS_FORPHOTORES").field("PhotoResWidth", &self.PhotoResWidth).field("PhotoResHeight", &self.PhotoResHeight).field("PreviewFPSNum", &self.PreviewFPSNum).field("PreviewFPSDenom", &self.PreviewFPSDenom).field("CaptureFPSNum", &self.CaptureFPSNum).field("CaptureFPSDenom", &self.CaptureFPSDenom).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
     fn eq(&self, other: &Self) -> bool {
@@ -10521,8 +10521,8 @@ impl ::core::fmt::Debug for KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
@@ -10584,8 +10584,8 @@ impl ::core::fmt::Debug for KSCAMERA_METADATA_CAPTURESTATS {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_METADATA_CAPTURESTATS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_METADATA_CAPTURESTATS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_METADATA_CAPTURESTATS {
     fn eq(&self, other: &Self) -> bool {
@@ -10615,8 +10615,8 @@ impl ::core::fmt::Debug for KSCAMERA_METADATA_DIGITALWINDOW {
         f.debug_struct("KSCAMERA_METADATA_DIGITALWINDOW").field("Header", &self.Header).field("Window", &self.Window).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_METADATA_DIGITALWINDOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_METADATA_DIGITALWINDOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_METADATA_DIGITALWINDOW {
     fn eq(&self, other: &Self) -> bool {
@@ -10647,8 +10647,8 @@ impl ::core::fmt::Debug for KSCAMERA_METADATA_FRAMEILLUMINATION {
         f.debug_struct("KSCAMERA_METADATA_FRAMEILLUMINATION").field("Header", &self.Header).field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_METADATA_FRAMEILLUMINATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_METADATA_FRAMEILLUMINATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_METADATA_FRAMEILLUMINATION {
     fn eq(&self, other: &Self) -> bool {
@@ -10678,8 +10678,8 @@ impl ::core::fmt::Debug for KSCAMERA_METADATA_ITEMHEADER {
         f.debug_struct("KSCAMERA_METADATA_ITEMHEADER").field("MetadataId", &self.MetadataId).field("Size", &self.Size).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_METADATA_ITEMHEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_METADATA_ITEMHEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_METADATA_ITEMHEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -10710,8 +10710,8 @@ impl ::core::fmt::Debug for KSCAMERA_METADATA_PHOTOCONFIRMATION {
         f.debug_struct("KSCAMERA_METADATA_PHOTOCONFIRMATION").field("Header", &self.Header).field("PhotoConfirmationIndex", &self.PhotoConfirmationIndex).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_METADATA_PHOTOCONFIRMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_METADATA_PHOTOCONFIRMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_METADATA_PHOTOCONFIRMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -10742,8 +10742,8 @@ impl ::core::fmt::Debug for KSCAMERA_PERFRAMESETTING_CAP_HEADER {
         f.debug_struct("KSCAMERA_PERFRAMESETTING_CAP_HEADER").field("Size", &self.Size).field("ItemCount", &self.ItemCount).field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_PERFRAMESETTING_CAP_HEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_PERFRAMESETTING_CAP_HEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_PERFRAMESETTING_CAP_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -10774,8 +10774,8 @@ impl ::core::fmt::Debug for KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {
         f.debug_struct("KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER").field("Size", &self.Size).field("Type", &self.Type).field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -10793,7 +10793,7 @@ impl ::core::default::Default for KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {
 pub struct KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {
     pub Size: u32,
     pub Reserved: u32,
-    pub Id: ::windows::core::GUID,
+    pub Id: ::windows_core::GUID,
 }
 impl ::core::marker::Copy for KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {}
 impl ::core::clone::Clone for KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {
@@ -10806,8 +10806,8 @@ impl ::core::fmt::Debug for KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {
         f.debug_struct("KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM").field("Size", &self.Size).field("Reserved", &self.Reserved).field("Id", &self.Id).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {
     fn eq(&self, other: &Self) -> bool {
@@ -10839,8 +10839,8 @@ impl ::core::fmt::Debug for KSCAMERA_PERFRAMESETTING_FRAME_HEADER {
         f.debug_struct("KSCAMERA_PERFRAMESETTING_FRAME_HEADER").field("Size", &self.Size).field("Id", &self.Id).field("ItemCount", &self.ItemCount).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_PERFRAMESETTING_FRAME_HEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_PERFRAMESETTING_FRAME_HEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_PERFRAMESETTING_FRAME_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -10858,7 +10858,7 @@ impl ::core::default::Default for KSCAMERA_PERFRAMESETTING_FRAME_HEADER {
 pub struct KSCAMERA_PERFRAMESETTING_HEADER {
     pub Size: u32,
     pub FrameCount: u32,
-    pub Id: ::windows::core::GUID,
+    pub Id: ::windows_core::GUID,
     pub Flags: u64,
     pub LoopCount: u32,
     pub Reserved: u32,
@@ -10874,8 +10874,8 @@ impl ::core::fmt::Debug for KSCAMERA_PERFRAMESETTING_HEADER {
         f.debug_struct("KSCAMERA_PERFRAMESETTING_HEADER").field("Size", &self.Size).field("FrameCount", &self.FrameCount).field("Id", &self.Id).field("Flags", &self.Flags).field("LoopCount", &self.LoopCount).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_PERFRAMESETTING_HEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_PERFRAMESETTING_HEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_PERFRAMESETTING_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -10906,8 +10906,8 @@ impl ::core::fmt::Debug for KSCAMERA_PERFRAMESETTING_ITEM_HEADER {
         f.debug_struct("KSCAMERA_PERFRAMESETTING_ITEM_HEADER").field("Size", &self.Size).field("Type", &self.Type).field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_PERFRAMESETTING_ITEM_HEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_PERFRAMESETTING_ITEM_HEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_PERFRAMESETTING_ITEM_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -10923,7 +10923,7 @@ impl ::core::default::Default for KSCAMERA_PERFRAMESETTING_ITEM_HEADER {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSCAMERA_PROFILE_CONCURRENCYINFO {
-    pub ReferenceGuid: ::windows::core::GUID,
+    pub ReferenceGuid: ::windows_core::GUID,
     pub Reserved: u32,
     pub ProfileCount: u32,
     pub Profiles: *mut KSCAMERA_PROFILE_INFO,
@@ -10939,8 +10939,8 @@ impl ::core::fmt::Debug for KSCAMERA_PROFILE_CONCURRENCYINFO {
         f.debug_struct("KSCAMERA_PROFILE_CONCURRENCYINFO").field("ReferenceGuid", &self.ReferenceGuid).field("Reserved", &self.Reserved).field("ProfileCount", &self.ProfileCount).field("Profiles", &self.Profiles).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_PROFILE_CONCURRENCYINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_PROFILE_CONCURRENCYINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_PROFILE_CONCURRENCYINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -10956,7 +10956,7 @@ impl ::core::default::Default for KSCAMERA_PROFILE_CONCURRENCYINFO {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSCAMERA_PROFILE_INFO {
-    pub ProfileId: ::windows::core::GUID,
+    pub ProfileId: ::windows_core::GUID,
     pub Index: u32,
     pub PinCount: u32,
     pub Pins: *mut KSCAMERA_PROFILE_PININFO,
@@ -10972,8 +10972,8 @@ impl ::core::fmt::Debug for KSCAMERA_PROFILE_INFO {
         f.debug_struct("KSCAMERA_PROFILE_INFO").field("ProfileId", &self.ProfileId).field("Index", &self.Index).field("PinCount", &self.PinCount).field("Pins", &self.Pins).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_PROFILE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_PROFILE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_PROFILE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -11008,8 +11008,8 @@ impl ::core::fmt::Debug for KSCAMERA_PROFILE_MEDIAINFO {
         f.debug_struct("KSCAMERA_PROFILE_MEDIAINFO").field("Resolution", &self.Resolution).field("MaxFrameRate", &self.MaxFrameRate).field("Flags", &self.Flags).field("Data0", &self.Data0).field("Data1", &self.Data1).field("Data2", &self.Data2).field("Data3", &self.Data3).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_PROFILE_MEDIAINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_PROFILE_MEDIAINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_PROFILE_MEDIAINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -11039,8 +11039,8 @@ impl ::core::fmt::Debug for KSCAMERA_PROFILE_MEDIAINFO_0 {
         f.debug_struct("KSCAMERA_PROFILE_MEDIAINFO_0").field("Numerator", &self.Numerator).field("Denominator", &self.Denominator).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_PROFILE_MEDIAINFO_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_PROFILE_MEDIAINFO_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_PROFILE_MEDIAINFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11070,8 +11070,8 @@ impl ::core::fmt::Debug for KSCAMERA_PROFILE_MEDIAINFO_1 {
         f.debug_struct("KSCAMERA_PROFILE_MEDIAINFO_1").field("X", &self.X).field("Y", &self.Y).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_PROFILE_MEDIAINFO_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_PROFILE_MEDIAINFO_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_PROFILE_MEDIAINFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -11087,7 +11087,7 @@ impl ::core::default::Default for KSCAMERA_PROFILE_MEDIAINFO_1 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSCAMERA_PROFILE_PININFO {
-    pub PinCategory: ::windows::core::GUID,
+    pub PinCategory: ::windows_core::GUID,
     pub Anonymous: KSCAMERA_PROFILE_PININFO_0,
     pub MediaInfoCount: u32,
     pub MediaInfos: *mut KSCAMERA_PROFILE_MEDIAINFO,
@@ -11098,8 +11098,8 @@ impl ::core::clone::Clone for KSCAMERA_PROFILE_PININFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_PROFILE_PININFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_PROFILE_PININFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSCAMERA_PROFILE_PININFO {
     fn default() -> Self {
@@ -11118,8 +11118,8 @@ impl ::core::clone::Clone for KSCAMERA_PROFILE_PININFO_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_PROFILE_PININFO_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_PROFILE_PININFO_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSCAMERA_PROFILE_PININFO_0 {
     fn default() -> Self {
@@ -11143,8 +11143,8 @@ impl ::core::fmt::Debug for KSCAMERA_PROFILE_PININFO_0_0 {
         f.debug_struct("KSCAMERA_PROFILE_PININFO_0_0").field("PinIndex", &self.PinIndex).field("ProfileSensorType", &self.ProfileSensorType).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCAMERA_PROFILE_PININFO_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCAMERA_PROFILE_PININFO_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCAMERA_PROFILE_PININFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11173,8 +11173,8 @@ impl ::core::fmt::Debug for KSCLOCK_CREATE {
         f.debug_struct("KSCLOCK_CREATE").field("CreateFlags", &self.CreateFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCLOCK_CREATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCLOCK_CREATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCLOCK_CREATE {
     fn eq(&self, other: &Self) -> bool {
@@ -11190,10 +11190,10 @@ impl ::core::default::Default for KSCLOCK_CREATE {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSCOMPONENTID {
-    pub Manufacturer: ::windows::core::GUID,
-    pub Product: ::windows::core::GUID,
-    pub Component: ::windows::core::GUID,
-    pub Name: ::windows::core::GUID,
+    pub Manufacturer: ::windows_core::GUID,
+    pub Product: ::windows_core::GUID,
+    pub Component: ::windows_core::GUID,
+    pub Name: ::windows_core::GUID,
     pub Version: u32,
     pub Revision: u32,
 }
@@ -11208,8 +11208,8 @@ impl ::core::fmt::Debug for KSCOMPONENTID {
         f.debug_struct("KSCOMPONENTID").field("Manufacturer", &self.Manufacturer).field("Product", &self.Product).field("Component", &self.Component).field("Name", &self.Name).field("Version", &self.Version).field("Revision", &self.Revision).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCOMPONENTID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCOMPONENTID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCOMPONENTID {
     fn eq(&self, other: &Self) -> bool {
@@ -11239,8 +11239,8 @@ impl ::core::fmt::Debug for KSCORRELATED_TIME {
         f.debug_struct("KSCORRELATED_TIME").field("Time", &self.Time).field("SystemTime", &self.SystemTime).finish()
     }
 }
-impl ::windows::core::TypeKind for KSCORRELATED_TIME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSCORRELATED_TIME {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSCORRELATED_TIME {
     fn eq(&self, other: &Self) -> bool {
@@ -11265,8 +11265,8 @@ impl ::core::clone::Clone for KSDATAFORMAT {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSDATAFORMAT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDATAFORMAT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSDATAFORMAT {
     fn default() -> Self {
@@ -11280,9 +11280,9 @@ pub struct KSDATAFORMAT_0 {
     pub Flags: u32,
     pub SampleSize: u32,
     pub Reserved: u32,
-    pub MajorFormat: ::windows::core::GUID,
-    pub SubFormat: ::windows::core::GUID,
-    pub Specifier: ::windows::core::GUID,
+    pub MajorFormat: ::windows_core::GUID,
+    pub SubFormat: ::windows_core::GUID,
+    pub Specifier: ::windows_core::GUID,
 }
 impl ::core::marker::Copy for KSDATAFORMAT_0 {}
 impl ::core::clone::Clone for KSDATAFORMAT_0 {
@@ -11295,8 +11295,8 @@ impl ::core::fmt::Debug for KSDATAFORMAT_0 {
         f.debug_struct("KSDATAFORMAT_0").field("FormatSize", &self.FormatSize).field("Flags", &self.Flags).field("SampleSize", &self.SampleSize).field("Reserved", &self.Reserved).field("MajorFormat", &self.MajorFormat).field("SubFormat", &self.SubFormat).field("Specifier", &self.Specifier).finish()
     }
 }
-impl ::windows::core::TypeKind for KSDATAFORMAT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDATAFORMAT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSDATAFORMAT_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11325,8 +11325,8 @@ impl ::core::clone::Clone for KSDATARANGE_AUDIO {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSDATARANGE_AUDIO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDATARANGE_AUDIO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSDATARANGE_AUDIO {
     fn default() -> Self {
@@ -11337,7 +11337,7 @@ impl ::core::default::Default for KSDATARANGE_AUDIO {
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSDATARANGE_MUSIC {
     pub DataRange: KSDATAFORMAT,
-    pub Technology: ::windows::core::GUID,
+    pub Technology: ::windows_core::GUID,
     pub Channels: u32,
     pub Notes: u32,
     pub ChannelMask: u32,
@@ -11348,8 +11348,8 @@ impl ::core::clone::Clone for KSDATARANGE_MUSIC {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSDATARANGE_MUSIC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDATARANGE_MUSIC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSDATARANGE_MUSIC {
     fn default() -> Self {
@@ -11369,8 +11369,8 @@ impl ::core::clone::Clone for KSDEVICE_PROFILE_INFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSDEVICE_PROFILE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDEVICE_PROFILE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSDEVICE_PROFILE_INFO {
     fn default() -> Self {
@@ -11388,8 +11388,8 @@ impl ::core::clone::Clone for KSDEVICE_PROFILE_INFO_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSDEVICE_PROFILE_INFO_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDEVICE_PROFILE_INFO_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSDEVICE_PROFILE_INFO_0 {
     fn default() -> Self {
@@ -11415,8 +11415,8 @@ impl ::core::fmt::Debug for KSDEVICE_PROFILE_INFO_0_0 {
         f.debug_struct("KSDEVICE_PROFILE_INFO_0_0").field("Info", &self.Info).field("Reserved", &self.Reserved).field("ConcurrencyCount", &self.ConcurrencyCount).field("Concurrency", &self.Concurrency).finish()
     }
 }
-impl ::windows::core::TypeKind for KSDEVICE_PROFILE_INFO_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDEVICE_PROFILE_INFO_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSDEVICE_PROFILE_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11448,8 +11448,8 @@ impl ::core::fmt::Debug for KSDISPLAYCHANGE {
         f.debug_struct("KSDISPLAYCHANGE").field("PelsWidth", &self.PelsWidth).field("PelsHeight", &self.PelsHeight).field("BitsPerPel", &self.BitsPerPel).field("DeviceID", &self.DeviceID).finish()
     }
 }
-impl ::windows::core::TypeKind for KSDISPLAYCHANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDISPLAYCHANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSDISPLAYCHANGE {
     fn eq(&self, other: &Self) -> bool {
@@ -11481,8 +11481,8 @@ impl ::core::clone::Clone for KSDS3D_BUFFER_ALL {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSDS3D_BUFFER_ALL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDS3D_BUFFER_ALL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSDS3D_BUFFER_ALL {
     fn default() -> Self {
@@ -11506,8 +11506,8 @@ impl ::core::fmt::Debug for KSDS3D_BUFFER_CONE_ANGLES {
         f.debug_struct("KSDS3D_BUFFER_CONE_ANGLES").field("InsideConeAngle", &self.InsideConeAngle).field("OutsideConeAngle", &self.OutsideConeAngle).finish()
     }
 }
-impl ::windows::core::TypeKind for KSDS3D_BUFFER_CONE_ANGLES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDS3D_BUFFER_CONE_ANGLES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSDS3D_BUFFER_CONE_ANGLES {
     fn eq(&self, other: &Self) -> bool {
@@ -11539,8 +11539,8 @@ impl ::core::fmt::Debug for KSDS3D_HRTF_FILTER_FORMAT_MSG {
         f.debug_struct("KSDS3D_HRTF_FILTER_FORMAT_MSG").field("FilterMethod", &self.FilterMethod).field("CoeffFormat", &self.CoeffFormat).field("Version", &self.Version).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KSDS3D_HRTF_FILTER_FORMAT_MSG {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDS3D_HRTF_FILTER_FORMAT_MSG {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSDS3D_HRTF_FILTER_FORMAT_MSG {
     fn eq(&self, other: &Self) -> bool {
@@ -11576,8 +11576,8 @@ impl ::core::fmt::Debug for KSDS3D_HRTF_INIT_MSG {
         f.debug_struct("KSDS3D_HRTF_INIT_MSG").field("Size", &self.Size).field("Quality", &self.Quality).field("SampleRate", &self.SampleRate).field("MaxFilterSize", &self.MaxFilterSize).field("FilterTransientMuteLength", &self.FilterTransientMuteLength).field("FilterOverlapBufferLength", &self.FilterOverlapBufferLength).field("OutputOverlapBufferLength", &self.OutputOverlapBufferLength).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KSDS3D_HRTF_INIT_MSG {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDS3D_HRTF_INIT_MSG {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSDS3D_HRTF_INIT_MSG {
     fn eq(&self, other: &Self) -> bool {
@@ -11616,8 +11616,8 @@ impl ::core::fmt::Debug for KSDS3D_HRTF_PARAMS_MSG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSDS3D_HRTF_PARAMS_MSG {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDS3D_HRTF_PARAMS_MSG {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSDS3D_HRTF_PARAMS_MSG {
@@ -11654,8 +11654,8 @@ impl ::core::fmt::Debug for KSDS3D_ITD_PARAMS {
         f.debug_struct("KSDS3D_ITD_PARAMS").field("Channel", &self.Channel).field("VolSmoothScale", &self.VolSmoothScale).field("TotalDryAttenuation", &self.TotalDryAttenuation).field("TotalWetAttenuation", &self.TotalWetAttenuation).field("SmoothFrequency", &self.SmoothFrequency).field("Delay", &self.Delay).finish()
     }
 }
-impl ::windows::core::TypeKind for KSDS3D_ITD_PARAMS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDS3D_ITD_PARAMS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSDS3D_ITD_PARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -11687,8 +11687,8 @@ impl ::core::fmt::Debug for KSDS3D_ITD_PARAMS_MSG {
         f.debug_struct("KSDS3D_ITD_PARAMS_MSG").field("Enabled", &self.Enabled).field("LeftParams", &self.LeftParams).field("RightParams", &self.RightParams).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KSDS3D_ITD_PARAMS_MSG {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDS3D_ITD_PARAMS_MSG {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSDS3D_ITD_PARAMS_MSG {
     fn eq(&self, other: &Self) -> bool {
@@ -11718,8 +11718,8 @@ impl ::core::clone::Clone for KSDS3D_LISTENER_ALL {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSDS3D_LISTENER_ALL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDS3D_LISTENER_ALL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSDS3D_LISTENER_ALL {
     fn default() -> Self {
@@ -11738,8 +11738,8 @@ impl ::core::clone::Clone for KSDS3D_LISTENER_ORIENTATION {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSDS3D_LISTENER_ORIENTATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSDS3D_LISTENER_ORIENTATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSDS3D_LISTENER_ORIENTATION {
     fn default() -> Self {
@@ -11763,8 +11763,8 @@ impl ::core::fmt::Debug for KSERROR {
         f.debug_struct("KSERROR").field("Context", &self.Context).field("Status", &self.Status).finish()
     }
 }
-impl ::windows::core::TypeKind for KSERROR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSERROR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSERROR {
     fn eq(&self, other: &Self) -> bool {
@@ -11793,8 +11793,8 @@ impl ::core::clone::Clone for KSEVENTDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSEVENTDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENTDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSEVENTDATA {
@@ -11819,8 +11819,8 @@ impl ::core::clone::Clone for KSEVENTDATA_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSEVENTDATA_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENTDATA_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSEVENTDATA_0 {
@@ -11850,8 +11850,8 @@ impl ::core::fmt::Debug for KSEVENTDATA_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSEVENTDATA_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENTDATA_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSEVENTDATA_0_0 {
@@ -11889,8 +11889,8 @@ impl ::core::fmt::Debug for KSEVENTDATA_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSEVENTDATA_0_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENTDATA_0_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSEVENTDATA_0_1 {
@@ -11929,8 +11929,8 @@ impl ::core::fmt::Debug for KSEVENTDATA_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSEVENTDATA_0_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENTDATA_0_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSEVENTDATA_0_2 {
@@ -11963,8 +11963,8 @@ impl ::core::clone::Clone for KSEVENT_TIME_INTERVAL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSEVENT_TIME_INTERVAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_TIME_INTERVAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSEVENT_TIME_INTERVAL {
@@ -11988,8 +11988,8 @@ impl ::core::clone::Clone for KSEVENT_TIME_MARK {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSEVENT_TIME_MARK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_TIME_MARK {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSEVENT_TIME_MARK {
@@ -12014,8 +12014,8 @@ impl ::core::clone::Clone for KSEVENT_TUNER_INITIATE_SCAN_S {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSEVENT_TUNER_INITIATE_SCAN_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSEVENT_TUNER_INITIATE_SCAN_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSEVENT_TUNER_INITIATE_SCAN_S {
@@ -12036,8 +12036,8 @@ impl ::core::clone::Clone for KSE_NODE {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSE_NODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSE_NODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSE_NODE {
     fn default() -> Self {
@@ -12057,8 +12057,8 @@ impl ::core::clone::Clone for KSE_PIN {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSE_PIN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSE_PIN {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSE_PIN {
     fn default() -> Self {
@@ -12083,8 +12083,8 @@ impl ::core::fmt::Debug for KSFRAMETIME {
         f.debug_struct("KSFRAMETIME").field("Duration", &self.Duration).field("FrameFlags", &self.FrameFlags).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KSFRAMETIME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSFRAMETIME {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSFRAMETIME {
     fn eq(&self, other: &Self) -> bool {
@@ -12116,8 +12116,8 @@ impl ::core::fmt::Debug for KSGOP_USERDATA {
         f.debug_struct("KSGOP_USERDATA").field("sc", &self.sc).field("reserved1", &self.reserved1).field("cFields", &self.cFields).field("l21Data", &self.l21Data).finish()
     }
 }
-impl ::windows::core::TypeKind for KSGOP_USERDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSGOP_USERDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSGOP_USERDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -12141,8 +12141,8 @@ impl ::core::clone::Clone for KSIDENTIFIER {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSIDENTIFIER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSIDENTIFIER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSIDENTIFIER {
     fn default() -> Self {
@@ -12161,8 +12161,8 @@ impl ::core::clone::Clone for KSIDENTIFIER_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSIDENTIFIER_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSIDENTIFIER_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSIDENTIFIER_0 {
     fn default() -> Self {
@@ -12172,7 +12172,7 @@ impl ::core::default::Default for KSIDENTIFIER_0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSIDENTIFIER_0_0 {
-    pub Set: ::windows::core::GUID,
+    pub Set: ::windows_core::GUID,
     pub Id: u32,
     pub Flags: u32,
 }
@@ -12187,8 +12187,8 @@ impl ::core::fmt::Debug for KSIDENTIFIER_0_0 {
         f.debug_struct("KSIDENTIFIER_0_0").field("Set", &self.Set).field("Id", &self.Id).field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows::core::TypeKind for KSIDENTIFIER_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSIDENTIFIER_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSIDENTIFIER_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -12218,8 +12218,8 @@ impl ::core::fmt::Debug for KSINTERVAL {
         f.debug_struct("KSINTERVAL").field("TimeBase", &self.TimeBase).field("Interval", &self.Interval).finish()
     }
 }
-impl ::windows::core::TypeKind for KSINTERVAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSINTERVAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSINTERVAL {
     fn eq(&self, other: &Self) -> bool {
@@ -12259,8 +12259,8 @@ impl ::core::fmt::Debug for KSJACK_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSJACK_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSJACK_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSJACK_DESCRIPTION {
@@ -12293,8 +12293,8 @@ impl ::core::fmt::Debug for KSJACK_DESCRIPTION2 {
         f.debug_struct("KSJACK_DESCRIPTION2").field("DeviceStateInfo", &self.DeviceStateInfo).field("JackCapabilities", &self.JackCapabilities).finish()
     }
 }
-impl ::windows::core::TypeKind for KSJACK_DESCRIPTION2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSJACK_DESCRIPTION2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSJACK_DESCRIPTION2 {
     fn eq(&self, other: &Self) -> bool {
@@ -12323,8 +12323,8 @@ impl ::core::fmt::Debug for KSJACK_DESCRIPTION3 {
         f.debug_struct("KSJACK_DESCRIPTION3").field("ConfigId", &self.ConfigId).finish()
     }
 }
-impl ::windows::core::TypeKind for KSJACK_DESCRIPTION3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSJACK_DESCRIPTION3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSJACK_DESCRIPTION3 {
     fn eq(&self, other: &Self) -> bool {
@@ -12366,8 +12366,8 @@ impl ::core::fmt::Debug for KSJACK_SINK_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSJACK_SINK_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSJACK_SINK_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSJACK_SINK_INFORMATION {
@@ -12402,8 +12402,8 @@ impl ::core::fmt::Debug for KSMPEGVID_RECT {
         f.debug_struct("KSMPEGVID_RECT").field("StartX", &self.StartX).field("StartY", &self.StartY).field("EndX", &self.EndX).field("EndY", &self.EndY).finish()
     }
 }
-impl ::windows::core::TypeKind for KSMPEGVID_RECT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSMPEGVID_RECT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSMPEGVID_RECT {
     fn eq(&self, other: &Self) -> bool {
@@ -12428,8 +12428,8 @@ impl ::core::clone::Clone for KSMULTIPLE_DATA_PROP {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSMULTIPLE_DATA_PROP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSMULTIPLE_DATA_PROP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSMULTIPLE_DATA_PROP {
     fn default() -> Self {
@@ -12453,8 +12453,8 @@ impl ::core::fmt::Debug for KSMULTIPLE_ITEM {
         f.debug_struct("KSMULTIPLE_ITEM").field("Size", &self.Size).field("Count", &self.Count).finish()
     }
 }
-impl ::windows::core::TypeKind for KSMULTIPLE_ITEM {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSMULTIPLE_ITEM {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSMULTIPLE_ITEM {
     fn eq(&self, other: &Self) -> bool {
@@ -12484,8 +12484,8 @@ impl ::core::fmt::Debug for KSMUSICFORMAT {
         f.debug_struct("KSMUSICFORMAT").field("TimeDeltaMs", &self.TimeDeltaMs).field("ByteCount", &self.ByteCount).finish()
     }
 }
-impl ::windows::core::TypeKind for KSMUSICFORMAT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSMUSICFORMAT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSMUSICFORMAT {
     fn eq(&self, other: &Self) -> bool {
@@ -12511,8 +12511,8 @@ impl ::core::clone::Clone for KSM_NODE {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSM_NODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSM_NODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSM_NODE {
     fn default() -> Self {
@@ -12532,8 +12532,8 @@ impl ::core::clone::Clone for KSNODEPROPERTY {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSNODEPROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSNODEPROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSNODEPROPERTY {
     fn default() -> Self {
@@ -12556,8 +12556,8 @@ impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_3D_LISTENER {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::windows::core::TypeKind for KSNODEPROPERTY_AUDIO_3D_LISTENER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSNODEPROPERTY_AUDIO_3D_LISTENER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for KSNODEPROPERTY_AUDIO_3D_LISTENER {
@@ -12582,8 +12582,8 @@ impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_3D_LISTENER {
     }
 }
 #[cfg(target_arch = "x86")]
-impl ::windows::core::TypeKind for KSNODEPROPERTY_AUDIO_3D_LISTENER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSNODEPROPERTY_AUDIO_3D_LISTENER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for KSNODEPROPERTY_AUDIO_3D_LISTENER {
@@ -12604,8 +12604,8 @@ impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_CHANNEL {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSNODEPROPERTY_AUDIO_CHANNEL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSNODEPROPERTY_AUDIO_CHANNEL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSNODEPROPERTY_AUDIO_CHANNEL {
     fn default() -> Self {
@@ -12626,8 +12626,8 @@ impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
     fn default() -> Self {
@@ -12651,8 +12651,8 @@ impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_PROPERTY {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::windows::core::TypeKind for KSNODEPROPERTY_AUDIO_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSNODEPROPERTY_AUDIO_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for KSNODEPROPERTY_AUDIO_PROPERTY {
@@ -12678,8 +12678,8 @@ impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_PROPERTY {
     }
 }
 #[cfg(target_arch = "x86")]
-impl ::windows::core::TypeKind for KSNODEPROPERTY_AUDIO_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSNODEPROPERTY_AUDIO_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for KSNODEPROPERTY_AUDIO_PROPERTY {
@@ -12704,8 +12704,8 @@ impl ::core::fmt::Debug for KSNODE_CREATE {
         f.debug_struct("KSNODE_CREATE").field("CreateFlags", &self.CreateFlags).field("Node", &self.Node).finish()
     }
 }
-impl ::windows::core::TypeKind for KSNODE_CREATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSNODE_CREATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSNODE_CREATE {
     fn eq(&self, other: &Self) -> bool {
@@ -12735,8 +12735,8 @@ impl ::core::fmt::Debug for KSPIN_CINSTANCES {
         f.debug_struct("KSPIN_CINSTANCES").field("PossibleCount", &self.PossibleCount).field("CurrentCount", &self.CurrentCount).finish()
     }
 }
-impl ::windows::core::TypeKind for KSPIN_CINSTANCES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPIN_CINSTANCES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSPIN_CINSTANCES {
     fn eq(&self, other: &Self) -> bool {
@@ -12768,8 +12768,8 @@ impl ::core::clone::Clone for KSPIN_CONNECT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSPIN_CONNECT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPIN_CONNECT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSPIN_CONNECT {
@@ -12794,8 +12794,8 @@ impl ::core::fmt::Debug for KSPIN_MDL_CACHING_NOTIFICATION {
         f.debug_struct("KSPIN_MDL_CACHING_NOTIFICATION").field("Event", &self.Event).field("Buffer", &self.Buffer).finish()
     }
 }
-impl ::windows::core::TypeKind for KSPIN_MDL_CACHING_NOTIFICATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPIN_MDL_CACHING_NOTIFICATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSPIN_MDL_CACHING_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -12825,8 +12825,8 @@ impl ::core::fmt::Debug for KSPIN_MDL_CACHING_NOTIFICATION32 {
         f.debug_struct("KSPIN_MDL_CACHING_NOTIFICATION32").field("Event", &self.Event).field("Buffer", &self.Buffer).finish()
     }
 }
-impl ::windows::core::TypeKind for KSPIN_MDL_CACHING_NOTIFICATION32 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPIN_MDL_CACHING_NOTIFICATION32 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSPIN_MDL_CACHING_NOTIFICATION32 {
     fn eq(&self, other: &Self) -> bool {
@@ -12857,8 +12857,8 @@ impl ::core::fmt::Debug for KSPIN_PHYSICALCONNECTION {
         f.debug_struct("KSPIN_PHYSICALCONNECTION").field("Size", &self.Size).field("Pin", &self.Pin).field("SymbolicLinkName", &self.SymbolicLinkName).finish()
     }
 }
-impl ::windows::core::TypeKind for KSPIN_PHYSICALCONNECTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPIN_PHYSICALCONNECTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSPIN_PHYSICALCONNECTION {
     fn eq(&self, other: &Self) -> bool {
@@ -12888,8 +12888,8 @@ impl ::core::fmt::Debug for KSPRIORITY {
         f.debug_struct("KSPRIORITY").field("PriorityClass", &self.PriorityClass).field("PrioritySubClass", &self.PrioritySubClass).finish()
     }
 }
-impl ::windows::core::TypeKind for KSPRIORITY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPRIORITY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSPRIORITY {
     fn eq(&self, other: &Self) -> bool {
@@ -12918,8 +12918,8 @@ impl ::core::fmt::Debug for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {
         f.debug_struct("KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S").field("InterleavedCapSupported", &self.InterleavedCapSupported).finish()
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {
     fn eq(&self, other: &Self) -> bool {
@@ -12948,8 +12948,8 @@ impl ::core::fmt::Debug for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S {
         f.debug_struct("KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S").field("InterleavedCapPossible", &self.InterleavedCapPossible).finish()
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S {
     fn eq(&self, other: &Self) -> bool {
@@ -12979,8 +12979,8 @@ impl ::core::fmt::Debug for KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {
         f.debug_struct("KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S").field("CX", &self.CX).field("CY", &self.CY).finish()
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {
     fn eq(&self, other: &Self) -> bool {
@@ -13005,8 +13005,8 @@ impl ::core::clone::Clone for KSPROPERTY_BOUNDS_LONG {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_BOUNDS_LONG {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_BOUNDS_LONG {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_BOUNDS_LONG {
     fn default() -> Self {
@@ -13030,8 +13030,8 @@ impl ::core::fmt::Debug for KSPROPERTY_BOUNDS_LONG_0 {
         f.debug_struct("KSPROPERTY_BOUNDS_LONG_0").field("SignedMinimum", &self.SignedMinimum).field("SignedMaximum", &self.SignedMaximum).finish()
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_BOUNDS_LONG_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_BOUNDS_LONG_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSPROPERTY_BOUNDS_LONG_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -13061,8 +13061,8 @@ impl ::core::fmt::Debug for KSPROPERTY_BOUNDS_LONG_1 {
         f.debug_struct("KSPROPERTY_BOUNDS_LONG_1").field("UnsignedMinimum", &self.UnsignedMinimum).field("UnsignedMaximum", &self.UnsignedMaximum).finish()
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_BOUNDS_LONG_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_BOUNDS_LONG_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSPROPERTY_BOUNDS_LONG_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -13087,8 +13087,8 @@ impl ::core::clone::Clone for KSPROPERTY_BOUNDS_LONGLONG {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_BOUNDS_LONGLONG {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_BOUNDS_LONGLONG {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_BOUNDS_LONGLONG {
     fn default() -> Self {
@@ -13112,8 +13112,8 @@ impl ::core::fmt::Debug for KSPROPERTY_BOUNDS_LONGLONG_0 {
         f.debug_struct("KSPROPERTY_BOUNDS_LONGLONG_0").field("SignedMinimum", &self.SignedMinimum).field("SignedMaximum", &self.SignedMaximum).finish()
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_BOUNDS_LONGLONG_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_BOUNDS_LONGLONG_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSPROPERTY_BOUNDS_LONGLONG_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -13143,8 +13143,8 @@ impl ::core::fmt::Debug for KSPROPERTY_BOUNDS_LONGLONG_1 {
         f.debug_struct("KSPROPERTY_BOUNDS_LONGLONG_1").field("UnsignedMinimum", &self.UnsignedMinimum).field("UnsignedMaximum", &self.UnsignedMaximum).finish()
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_BOUNDS_LONGLONG_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_BOUNDS_LONGLONG_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSPROPERTY_BOUNDS_LONGLONG_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -13174,8 +13174,8 @@ impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_FLASH_S {
         f.debug_struct("KSPROPERTY_CAMERACONTROL_FLASH_S").field("Flash", &self.Flash).field("Capabilities", &self.Capabilities).finish()
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CAMERACONTROL_FLASH_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_FLASH_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSPROPERTY_CAMERACONTROL_FLASH_S {
     fn eq(&self, other: &Self) -> bool {
@@ -13202,8 +13202,8 @@ impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
     fn default() -> Self {
@@ -13227,8 +13227,8 @@ impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {
         f.debug_struct("KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S").field("Capabilities", &self.Capabilities).field("Reserved0", &self.Reserved0).finish()
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {
     fn eq(&self, other: &Self) -> bool {
@@ -13255,8 +13255,8 @@ impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
     fn default() -> Self {
@@ -13277,8 +13277,8 @@ impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_NODE_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CAMERACONTROL_NODE_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_NODE_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_NODE_S {
     fn default() -> Self {
@@ -13300,8 +13300,8 @@ impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_NODE_S2 {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CAMERACONTROL_NODE_S2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_NODE_S2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_NODE_S2 {
     fn default() -> Self {
@@ -13327,8 +13327,8 @@ impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
@@ -13352,8 +13352,8 @@ impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
@@ -13375,8 +13375,8 @@ impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CAMERACONTROL_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_S {
     fn default() -> Self {
@@ -13398,8 +13398,8 @@ impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_S2 {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CAMERACONTROL_S2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_S2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_S2 {
     fn default() -> Self {
@@ -13425,8 +13425,8 @@ impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_S_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSPROPERTY_CAMERACONTROL_S_EX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_S_EX {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_S_EX {
@@ -13451,8 +13451,8 @@ impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {
         f.debug_struct("KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S").field("VideoStabilizationMode", &self.VideoStabilizationMode).field("Capabilities", &self.Capabilities).finish()
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {
     fn eq(&self, other: &Self) -> bool {
@@ -13478,8 +13478,8 @@ impl ::core::clone::Clone for KSPROPERTY_CROSSBAR_ACTIVE_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CROSSBAR_ACTIVE_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CROSSBAR_ACTIVE_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_CROSSBAR_ACTIVE_S {
     fn default() -> Self {
@@ -13499,8 +13499,8 @@ impl ::core::clone::Clone for KSPROPERTY_CROSSBAR_CAPS_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CROSSBAR_CAPS_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CROSSBAR_CAPS_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_CROSSBAR_CAPS_S {
     fn default() -> Self {
@@ -13523,8 +13523,8 @@ impl ::core::clone::Clone for KSPROPERTY_CROSSBAR_PININFO_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CROSSBAR_PININFO_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CROSSBAR_PININFO_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_CROSSBAR_PININFO_S {
     fn default() -> Self {
@@ -13545,8 +13545,8 @@ impl ::core::clone::Clone for KSPROPERTY_CROSSBAR_ROUTE_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_CROSSBAR_ROUTE_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_CROSSBAR_ROUTE_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_CROSSBAR_ROUTE_S {
     fn default() -> Self {
@@ -13568,8 +13568,8 @@ impl ::core::clone::Clone for KSPROPERTY_DESCRIPTION {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_DESCRIPTION {
     fn default() -> Self {
@@ -13590,8 +13590,8 @@ impl ::core::clone::Clone for KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
     fn default() -> Self {
@@ -13610,8 +13610,8 @@ impl ::core::clone::Clone for KSPROPERTY_EXTDEVICE_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_EXTDEVICE_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_EXTDEVICE_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_EXTDEVICE_S {
     fn default() -> Self {
@@ -13633,8 +13633,8 @@ impl ::core::clone::Clone for KSPROPERTY_EXTDEVICE_S_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_EXTDEVICE_S_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_EXTDEVICE_S_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_EXTDEVICE_S_0 {
     fn default() -> Self {
@@ -13657,8 +13657,8 @@ impl ::core::clone::Clone for KSPROPERTY_EXTXPORT_NODE_S {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSPROPERTY_EXTXPORT_NODE_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_EXTXPORT_NODE_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSPROPERTY_EXTXPORT_NODE_S {
@@ -13689,8 +13689,8 @@ impl ::core::clone::Clone for KSPROPERTY_EXTXPORT_NODE_S_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSPROPERTY_EXTXPORT_NODE_S_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_EXTXPORT_NODE_S_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSPROPERTY_EXTXPORT_NODE_S_0 {
@@ -13720,8 +13720,8 @@ impl ::core::fmt::Debug for KSPROPERTY_EXTXPORT_NODE_S_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSPROPERTY_EXTXPORT_NODE_S_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_EXTXPORT_NODE_S_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSPROPERTY_EXTXPORT_NODE_S_0_0 {
@@ -13761,8 +13761,8 @@ impl ::core::fmt::Debug for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
@@ -13794,8 +13794,8 @@ impl ::core::clone::Clone for KSPROPERTY_EXTXPORT_S {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSPROPERTY_EXTXPORT_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_EXTXPORT_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSPROPERTY_EXTXPORT_S {
@@ -13826,8 +13826,8 @@ impl ::core::clone::Clone for KSPROPERTY_EXTXPORT_S_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSPROPERTY_EXTXPORT_S_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_EXTXPORT_S_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSPROPERTY_EXTXPORT_S_0 {
@@ -13857,8 +13857,8 @@ impl ::core::fmt::Debug for KSPROPERTY_EXTXPORT_S_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSPROPERTY_EXTXPORT_S_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_EXTXPORT_S_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSPROPERTY_EXTXPORT_S_0_0 {
@@ -13898,8 +13898,8 @@ impl ::core::fmt::Debug for KSPROPERTY_EXTXPORT_S_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSPROPERTY_EXTXPORT_S_0_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_EXTXPORT_S_0_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSPROPERTY_EXTXPORT_S_0_1 {
@@ -13932,8 +13932,8 @@ impl ::core::fmt::Debug for KSPROPERTY_MEDIAAVAILABLE {
         f.debug_struct("KSPROPERTY_MEDIAAVAILABLE").field("Earliest", &self.Earliest).field("Latest", &self.Latest).finish()
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_MEDIAAVAILABLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_MEDIAAVAILABLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSPROPERTY_MEDIAAVAILABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -13965,8 +13965,8 @@ impl ::core::fmt::Debug for KSPROPERTY_MEMBERSHEADER {
         f.debug_struct("KSPROPERTY_MEMBERSHEADER").field("MembersFlags", &self.MembersFlags).field("MembersSize", &self.MembersSize).field("MembersCount", &self.MembersCount).field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_MEMBERSHEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_MEMBERSHEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSPROPERTY_MEMBERSHEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -13996,8 +13996,8 @@ impl ::core::fmt::Debug for KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
         f.debug_struct("KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO").field("Header", &self.Header).field("EventFilter", &self.EventFilter).finish()
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -14036,8 +14036,8 @@ impl ::core::fmt::Debug for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
@@ -14070,8 +14070,8 @@ impl ::core::fmt::Debug for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {
         f.debug_struct("KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER").field("Size", &self.Size).field("Type", &self.Type).finish()
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -14103,8 +14103,8 @@ impl ::core::fmt::Debug for KSPROPERTY_POSITIONS {
         f.debug_struct("KSPROPERTY_POSITIONS").field("Current", &self.Current).field("Stop", &self.Stop).field("CurrentFlags", &self.CurrentFlags).field("StopFlags", &self.StopFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_POSITIONS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_POSITIONS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSPROPERTY_POSITIONS {
     fn eq(&self, other: &Self) -> bool {
@@ -14131,8 +14131,8 @@ impl ::core::clone::Clone for KSPROPERTY_SELECTOR_NODE_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_SELECTOR_NODE_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_SELECTOR_NODE_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_SELECTOR_NODE_S {
     fn default() -> Self {
@@ -14153,8 +14153,8 @@ impl ::core::clone::Clone for KSPROPERTY_SELECTOR_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_SELECTOR_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_SELECTOR_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_SELECTOR_S {
     fn default() -> Self {
@@ -14174,8 +14174,8 @@ impl ::core::clone::Clone for KSPROPERTY_SERIAL {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_SERIAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_SERIAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_SERIAL {
     fn default() -> Self {
@@ -14185,7 +14185,7 @@ impl ::core::default::Default for KSPROPERTY_SERIAL {
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSPROPERTY_SERIALHDR {
-    pub PropertySet: ::windows::core::GUID,
+    pub PropertySet: ::windows_core::GUID,
     pub Count: u32,
 }
 impl ::core::marker::Copy for KSPROPERTY_SERIALHDR {}
@@ -14194,8 +14194,8 @@ impl ::core::clone::Clone for KSPROPERTY_SERIALHDR {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_SERIALHDR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_SERIALHDR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_SERIALHDR {
     fn default() -> Self {
@@ -14226,8 +14226,8 @@ impl ::core::fmt::Debug for KSPROPERTY_SPHLI {
         f.debug_struct("KSPROPERTY_SPHLI").field("HLISS", &self.HLISS).field("Reserved", &self.Reserved).field("StartPTM", &self.StartPTM).field("EndPTM", &self.EndPTM).field("StartX", &self.StartX).field("StartY", &self.StartY).field("StopX", &self.StopX).field("StopY", &self.StopY).field("ColCon", &self.ColCon).finish()
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_SPHLI {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_SPHLI {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSPROPERTY_SPHLI {
     fn eq(&self, other: &Self) -> bool {
@@ -14256,8 +14256,8 @@ impl ::core::fmt::Debug for KSPROPERTY_SPPAL {
         f.debug_struct("KSPROPERTY_SPPAL").field("sppal", &self.sppal).finish()
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_SPPAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_SPPAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSPROPERTY_SPPAL {
     fn eq(&self, other: &Self) -> bool {
@@ -14283,8 +14283,8 @@ impl ::core::clone::Clone for KSPROPERTY_STEPPING_LONG {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_STEPPING_LONG {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_STEPPING_LONG {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_STEPPING_LONG {
     fn default() -> Self {
@@ -14303,8 +14303,8 @@ impl ::core::clone::Clone for KSPROPERTY_STEPPING_LONGLONG {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_STEPPING_LONGLONG {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_STEPPING_LONGLONG {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_STEPPING_LONGLONG {
     fn default() -> Self {
@@ -14323,8 +14323,8 @@ impl ::core::clone::Clone for KSPROPERTY_TIMECODE_NODE_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_TIMECODE_NODE_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TIMECODE_NODE_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_TIMECODE_NODE_S {
     fn default() -> Self {
@@ -14343,8 +14343,8 @@ impl ::core::clone::Clone for KSPROPERTY_TIMECODE_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_TIMECODE_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TIMECODE_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_TIMECODE_S {
     fn default() -> Self {
@@ -14366,8 +14366,8 @@ impl ::core::clone::Clone for KSPROPERTY_TUNER_CAPS_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_TUNER_CAPS_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TUNER_CAPS_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_TUNER_CAPS_S {
     fn default() -> Self {
@@ -14392,8 +14392,8 @@ impl ::core::clone::Clone for KSPROPERTY_TUNER_FREQUENCY_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_TUNER_FREQUENCY_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TUNER_FREQUENCY_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_TUNER_FREQUENCY_S {
     fn default() -> Self {
@@ -14412,8 +14412,8 @@ impl ::core::clone::Clone for KSPROPERTY_TUNER_IF_MEDIUM_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_TUNER_IF_MEDIUM_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TUNER_IF_MEDIUM_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_TUNER_IF_MEDIUM_S {
     fn default() -> Self {
@@ -14432,8 +14432,8 @@ impl ::core::clone::Clone for KSPROPERTY_TUNER_INPUT_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_TUNER_INPUT_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TUNER_INPUT_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_TUNER_INPUT_S {
     fn default() -> Self {
@@ -14459,8 +14459,8 @@ impl ::core::clone::Clone for KSPROPERTY_TUNER_MODE_CAPS_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_TUNER_MODE_CAPS_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TUNER_MODE_CAPS_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_TUNER_MODE_CAPS_S {
     fn default() -> Self {
@@ -14479,8 +14479,8 @@ impl ::core::clone::Clone for KSPROPERTY_TUNER_MODE_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_TUNER_MODE_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TUNER_MODE_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_TUNER_MODE_S {
     fn default() -> Self {
@@ -14491,7 +14491,7 @@ impl ::core::default::Default for KSPROPERTY_TUNER_MODE_S {
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
     pub Property: KSIDENTIFIER,
-    pub NetworkType: ::windows::core::GUID,
+    pub NetworkType: ::windows_core::GUID,
     pub BufferSize: u32,
     pub NetworkTunerCapabilities: *mut ::core::ffi::c_void,
 }
@@ -14501,8 +14501,8 @@ impl ::core::clone::Clone for KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
     fn default() -> Self {
@@ -14528,8 +14528,8 @@ impl ::core::clone::Clone for KSPROPERTY_TUNER_SCAN_CAPS_S {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSPROPERTY_TUNER_SCAN_CAPS_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TUNER_SCAN_CAPS_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSPROPERTY_TUNER_SCAN_CAPS_S {
@@ -14550,8 +14550,8 @@ impl ::core::clone::Clone for KSPROPERTY_TUNER_SCAN_STATUS_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_TUNER_SCAN_STATUS_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TUNER_SCAN_STATUS_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_TUNER_SCAN_STATUS_S {
     fn default() -> Self {
@@ -14574,8 +14574,8 @@ impl ::core::clone::Clone for KSPROPERTY_TUNER_STANDARD_MODE_S {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSPROPERTY_TUNER_STANDARD_MODE_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TUNER_STANDARD_MODE_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSPROPERTY_TUNER_STANDARD_MODE_S {
@@ -14595,8 +14595,8 @@ impl ::core::clone::Clone for KSPROPERTY_TUNER_STANDARD_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_TUNER_STANDARD_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TUNER_STANDARD_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_TUNER_STANDARD_S {
     fn default() -> Self {
@@ -14618,8 +14618,8 @@ impl ::core::clone::Clone for KSPROPERTY_TUNER_STATUS_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_TUNER_STATUS_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TUNER_STATUS_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_TUNER_STATUS_S {
     fn default() -> Self {
@@ -14640,8 +14640,8 @@ impl ::core::clone::Clone for KSPROPERTY_TVAUDIO_CAPS_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_TVAUDIO_CAPS_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TVAUDIO_CAPS_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_TVAUDIO_CAPS_S {
     fn default() -> Self {
@@ -14660,8 +14660,8 @@ impl ::core::clone::Clone for KSPROPERTY_TVAUDIO_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_TVAUDIO_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_TVAUDIO_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_TVAUDIO_S {
     fn default() -> Self {
@@ -14680,8 +14680,8 @@ impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
     fn default() -> Self {
@@ -14700,8 +14700,8 @@ impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
     fn default() -> Self {
@@ -14720,8 +14720,8 @@ impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_SCANLINES_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VBICODECFILTERING_SCANLINES_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VBICODECFILTERING_SCANLINES_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VBICODECFILTERING_SCANLINES_S {
     fn default() -> Self {
@@ -14740,8 +14740,8 @@ impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {
     fn default() -> Self {
@@ -14760,8 +14760,8 @@ impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {
     fn default() -> Self {
@@ -14780,8 +14780,8 @@ impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {
     fn default() -> Self {
@@ -14800,8 +14800,8 @@ impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {
     fn default() -> Self {
@@ -14820,8 +14820,8 @@ impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S {
     fn default() -> Self {
@@ -14840,8 +14840,8 @@ impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
     fn default() -> Self {
@@ -14865,8 +14865,8 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
     fn default() -> Self {
@@ -14886,8 +14886,8 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEOCOMPRESSION_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDEOCOMPRESSION_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDEOCOMPRESSION_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VIDEOCOMPRESSION_S {
     fn default() -> Self {
@@ -14908,8 +14908,8 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEOCOMPRESSION_S1 {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDEOCOMPRESSION_S1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDEOCOMPRESSION_S1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VIDEOCOMPRESSION_S1 {
     fn default() -> Self {
@@ -14936,8 +14936,8 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
@@ -14958,8 +14958,8 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEOCONTROL_CAPS_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDEOCONTROL_CAPS_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDEOCONTROL_CAPS_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VIDEOCONTROL_CAPS_S {
     fn default() -> Self {
@@ -14984,8 +14984,8 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
@@ -15006,8 +15006,8 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEOCONTROL_MODE_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDEOCONTROL_MODE_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDEOCONTROL_MODE_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VIDEOCONTROL_MODE_S {
     fn default() -> Self {
@@ -15029,8 +15029,8 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEODECODER_CAPS_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDEODECODER_CAPS_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDEODECODER_CAPS_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VIDEODECODER_CAPS_S {
     fn default() -> Self {
@@ -15049,8 +15049,8 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEODECODER_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDEODECODER_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDEODECODER_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VIDEODECODER_S {
     fn default() -> Self {
@@ -15071,8 +15071,8 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEODECODER_STATUS2_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDEODECODER_STATUS2_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDEODECODER_STATUS2_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VIDEODECODER_STATUS2_S {
     fn default() -> Self {
@@ -15092,8 +15092,8 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEODECODER_STATUS_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDEODECODER_STATUS_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDEODECODER_STATUS_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VIDEODECODER_STATUS_S {
     fn default() -> Self {
@@ -15114,8 +15114,8 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEOENCODER_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDEOENCODER_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDEOENCODER_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VIDEOENCODER_S {
     fn default() -> Self {
@@ -15136,8 +15136,8 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEOPROCAMP_NODE_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDEOPROCAMP_NODE_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDEOPROCAMP_NODE_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VIDEOPROCAMP_NODE_S {
     fn default() -> Self {
@@ -15159,8 +15159,8 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
     fn default() -> Self {
@@ -15181,8 +15181,8 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEOPROCAMP_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDEOPROCAMP_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDEOPROCAMP_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VIDEOPROCAMP_S {
     fn default() -> Self {
@@ -15204,8 +15204,8 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEOPROCAMP_S2 {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSPROPERTY_VIDEOPROCAMP_S2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPROPERTY_VIDEOPROCAMP_S2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSPROPERTY_VIDEOPROCAMP_S2 {
     fn default() -> Self {
@@ -15225,8 +15225,8 @@ impl ::core::clone::Clone for KSP_NODE {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSP_NODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSP_NODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSP_NODE {
     fn default() -> Self {
@@ -15246,8 +15246,8 @@ impl ::core::clone::Clone for KSP_PIN {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSP_PIN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSP_PIN {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSP_PIN {
     fn default() -> Self {
@@ -15266,8 +15266,8 @@ impl ::core::clone::Clone for KSP_PIN_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSP_PIN_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSP_PIN_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSP_PIN_0 {
     fn default() -> Self {
@@ -15278,8 +15278,8 @@ impl ::core::default::Default for KSP_PIN_0 {
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSP_TIMEFORMAT {
     pub Property: KSIDENTIFIER,
-    pub SourceFormat: ::windows::core::GUID,
-    pub TargetFormat: ::windows::core::GUID,
+    pub SourceFormat: ::windows_core::GUID,
+    pub TargetFormat: ::windows_core::GUID,
     pub Time: i64,
 }
 impl ::core::marker::Copy for KSP_TIMEFORMAT {}
@@ -15288,8 +15288,8 @@ impl ::core::clone::Clone for KSP_TIMEFORMAT {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSP_TIMEFORMAT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSP_TIMEFORMAT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSP_TIMEFORMAT {
     fn default() -> Self {
@@ -15314,8 +15314,8 @@ impl ::core::fmt::Debug for KSQUALITY {
         f.debug_struct("KSQUALITY").field("Context", &self.Context).field("Proportion", &self.Proportion).field("DeltaTime", &self.DeltaTime).finish()
     }
 }
-impl ::windows::core::TypeKind for KSQUALITY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSQUALITY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSQUALITY {
     fn eq(&self, other: &Self) -> bool {
@@ -15350,8 +15350,8 @@ impl ::core::fmt::Debug for KSQUALITY_MANAGER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSQUALITY_MANAGER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSQUALITY_MANAGER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSQUALITY_MANAGER {
@@ -15384,8 +15384,8 @@ impl ::core::clone::Clone for KSQUERYBUFFER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSQUERYBUFFER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSQUERYBUFFER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSQUERYBUFFER {
@@ -15408,8 +15408,8 @@ impl ::core::clone::Clone for KSRATE {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSRATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSRATE {
     fn default() -> Self {
@@ -15428,8 +15428,8 @@ impl ::core::clone::Clone for KSRATE_CAPABILITY {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSRATE_CAPABILITY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRATE_CAPABILITY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSRATE_CAPABILITY {
     fn default() -> Self {
@@ -15456,8 +15456,8 @@ impl ::core::clone::Clone for KSRELATIVEEVENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSRELATIVEEVENT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRELATIVEEVENT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSRELATIVEEVENT {
@@ -15481,8 +15481,8 @@ impl ::core::clone::Clone for KSRELATIVEEVENT_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSRELATIVEEVENT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRELATIVEEVENT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSRELATIVEEVENT_0 {
@@ -15507,8 +15507,8 @@ impl ::core::fmt::Debug for KSRESOLUTION {
         f.debug_struct("KSRESOLUTION").field("Granularity", &self.Granularity).field("Error", &self.Error).finish()
     }
 }
-impl ::windows::core::TypeKind for KSRESOLUTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRESOLUTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSRESOLUTION {
     fn eq(&self, other: &Self) -> bool {
@@ -15544,8 +15544,8 @@ impl ::core::fmt::Debug for KSRTAUDIO_BUFFER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSRTAUDIO_BUFFER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRTAUDIO_BUFFER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSRTAUDIO_BUFFER {
@@ -15584,8 +15584,8 @@ impl ::core::fmt::Debug for KSRTAUDIO_BUFFER32 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSRTAUDIO_BUFFER32 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRTAUDIO_BUFFER32 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSRTAUDIO_BUFFER32 {
@@ -15614,8 +15614,8 @@ impl ::core::clone::Clone for KSRTAUDIO_BUFFER_PROPERTY {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSRTAUDIO_BUFFER_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRTAUDIO_BUFFER_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSRTAUDIO_BUFFER_PROPERTY {
     fn default() -> Self {
@@ -15635,8 +15635,8 @@ impl ::core::clone::Clone for KSRTAUDIO_BUFFER_PROPERTY32 {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSRTAUDIO_BUFFER_PROPERTY32 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRTAUDIO_BUFFER_PROPERTY32 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSRTAUDIO_BUFFER_PROPERTY32 {
     fn default() -> Self {
@@ -15657,8 +15657,8 @@ impl ::core::clone::Clone for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {
     fn default() -> Self {
@@ -15679,8 +15679,8 @@ impl ::core::clone::Clone for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
     fn default() -> Self {
@@ -15711,8 +15711,8 @@ impl ::core::fmt::Debug for KSRTAUDIO_GETREADPACKET_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSRTAUDIO_GETREADPACKET_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRTAUDIO_GETREADPACKET_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSRTAUDIO_GETREADPACKET_INFO {
@@ -15746,8 +15746,8 @@ impl ::core::fmt::Debug for KSRTAUDIO_HWLATENCY {
         f.debug_struct("KSRTAUDIO_HWLATENCY").field("FifoSize", &self.FifoSize).field("ChipsetDelay", &self.ChipsetDelay).field("CodecDelay", &self.CodecDelay).finish()
     }
 }
-impl ::windows::core::TypeKind for KSRTAUDIO_HWLATENCY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRTAUDIO_HWLATENCY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSRTAUDIO_HWLATENCY {
     fn eq(&self, other: &Self) -> bool {
@@ -15780,8 +15780,8 @@ impl ::core::fmt::Debug for KSRTAUDIO_HWREGISTER {
         f.debug_struct("KSRTAUDIO_HWREGISTER").field("Register", &self.Register).field("Width", &self.Width).field("Numerator", &self.Numerator).field("Denominator", &self.Denominator).field("Accuracy", &self.Accuracy).finish()
     }
 }
-impl ::windows::core::TypeKind for KSRTAUDIO_HWREGISTER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRTAUDIO_HWREGISTER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSRTAUDIO_HWREGISTER {
     fn eq(&self, other: &Self) -> bool {
@@ -15814,8 +15814,8 @@ impl ::core::fmt::Debug for KSRTAUDIO_HWREGISTER32 {
         f.debug_struct("KSRTAUDIO_HWREGISTER32").field("Register", &self.Register).field("Width", &self.Width).field("Numerator", &self.Numerator).field("Denominator", &self.Denominator).field("Accuracy", &self.Accuracy).finish()
     }
 }
-impl ::windows::core::TypeKind for KSRTAUDIO_HWREGISTER32 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRTAUDIO_HWREGISTER32 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSRTAUDIO_HWREGISTER32 {
     fn eq(&self, other: &Self) -> bool {
@@ -15840,8 +15840,8 @@ impl ::core::clone::Clone for KSRTAUDIO_HWREGISTER_PROPERTY {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSRTAUDIO_HWREGISTER_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRTAUDIO_HWREGISTER_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSRTAUDIO_HWREGISTER_PROPERTY {
     fn default() -> Self {
@@ -15860,8 +15860,8 @@ impl ::core::clone::Clone for KSRTAUDIO_HWREGISTER_PROPERTY32 {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSRTAUDIO_HWREGISTER_PROPERTY32 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRTAUDIO_HWREGISTER_PROPERTY32 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSRTAUDIO_HWREGISTER_PROPERTY32 {
     fn default() -> Self {
@@ -15884,8 +15884,8 @@ impl ::core::clone::Clone for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
@@ -15905,8 +15905,8 @@ impl ::core::clone::Clone for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
     fn default() -> Self {
@@ -15931,8 +15931,8 @@ impl ::core::fmt::Debug for KSRTAUDIO_PACKETVREGISTER {
         f.debug_struct("KSRTAUDIO_PACKETVREGISTER").field("CompletedPacketCount", &self.CompletedPacketCount).field("CompletedPacketQPC", &self.CompletedPacketQPC).field("CompletedPacketHash", &self.CompletedPacketHash).finish()
     }
 }
-impl ::windows::core::TypeKind for KSRTAUDIO_PACKETVREGISTER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRTAUDIO_PACKETVREGISTER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSRTAUDIO_PACKETVREGISTER {
     fn eq(&self, other: &Self) -> bool {
@@ -15957,8 +15957,8 @@ impl ::core::clone::Clone for KSRTAUDIO_PACKETVREGISTER_PROPERTY {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSRTAUDIO_PACKETVREGISTER_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRTAUDIO_PACKETVREGISTER_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSRTAUDIO_PACKETVREGISTER_PROPERTY {
     fn default() -> Self {
@@ -15983,8 +15983,8 @@ impl ::core::fmt::Debug for KSRTAUDIO_SETWRITEPACKET_INFO {
         f.debug_struct("KSRTAUDIO_SETWRITEPACKET_INFO").field("PacketNumber", &self.PacketNumber).field("Flags", &self.Flags).field("EosPacketLength", &self.EosPacketLength).finish()
     }
 }
-impl ::windows::core::TypeKind for KSRTAUDIO_SETWRITEPACKET_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSRTAUDIO_SETWRITEPACKET_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSRTAUDIO_SETWRITEPACKET_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -16001,7 +16001,7 @@ impl ::core::default::Default for KSRTAUDIO_SETWRITEPACKET_INFO {
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSSOUNDDETECTORPROPERTY {
     pub Property: KSIDENTIFIER,
-    pub EventId: ::windows::core::GUID,
+    pub EventId: ::windows_core::GUID,
 }
 impl ::core::marker::Copy for KSSOUNDDETECTORPROPERTY {}
 impl ::core::clone::Clone for KSSOUNDDETECTORPROPERTY {
@@ -16009,8 +16009,8 @@ impl ::core::clone::Clone for KSSOUNDDETECTORPROPERTY {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSSOUNDDETECTORPROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSSOUNDDETECTORPROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSSOUNDDETECTORPROPERTY {
     fn default() -> Self {
@@ -16030,8 +16030,8 @@ impl ::core::clone::Clone for KSSTREAMALLOCATOR_STATUS {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSSTREAMALLOCATOR_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSSTREAMALLOCATOR_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSSTREAMALLOCATOR_STATUS {
     fn default() -> Self {
@@ -16051,8 +16051,8 @@ impl ::core::clone::Clone for KSSTREAMALLOCATOR_STATUS_EX {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSSTREAMALLOCATOR_STATUS_EX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSSTREAMALLOCATOR_STATUS_EX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSSTREAMALLOCATOR_STATUS_EX {
     fn default() -> Self {
@@ -16088,8 +16088,8 @@ impl ::core::fmt::Debug for KSSTREAM_HEADER {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::windows::core::TypeKind for KSSTREAM_HEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSSTREAM_HEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for KSSTREAM_HEADER {
@@ -16133,8 +16133,8 @@ impl ::core::fmt::Debug for KSSTREAM_HEADER {
     }
 }
 #[cfg(target_arch = "x86")]
-impl ::windows::core::TypeKind for KSSTREAM_HEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSSTREAM_HEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for KSSTREAM_HEADER {
@@ -16171,8 +16171,8 @@ impl ::core::fmt::Debug for KSSTREAM_METADATA_INFO {
         f.debug_struct("KSSTREAM_METADATA_INFO").field("BufferSize", &self.BufferSize).field("UsedSize", &self.UsedSize).field("Data", &self.Data).field("SystemVa", &self.SystemVa).field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KSSTREAM_METADATA_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSSTREAM_METADATA_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSSTREAM_METADATA_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -16197,8 +16197,8 @@ impl ::core::clone::Clone for KSSTREAM_UVC_METADATA {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSSTREAM_UVC_METADATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSSTREAM_UVC_METADATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSSTREAM_UVC_METADATA {
     fn default() -> Self {
@@ -16220,8 +16220,8 @@ impl ::core::clone::Clone for KSSTREAM_UVC_METADATATYPE_TIMESTAMP {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSSTREAM_UVC_METADATATYPE_TIMESTAMP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSSTREAM_UVC_METADATATYPE_TIMESTAMP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSSTREAM_UVC_METADATATYPE_TIMESTAMP {
     fn default() -> Self {
@@ -16240,8 +16240,8 @@ impl ::core::clone::Clone for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0 {
     fn default() -> Self {
@@ -16264,8 +16264,8 @@ impl ::core::fmt::Debug for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0 {
         f.debug_struct("KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -16295,8 +16295,8 @@ impl ::core::fmt::Debug for KSTELEPHONY_CALLCONTROL {
         f.debug_struct("KSTELEPHONY_CALLCONTROL").field("CallType", &self.CallType).field("CallControlOp", &self.CallControlOp).finish()
     }
 }
-impl ::windows::core::TypeKind for KSTELEPHONY_CALLCONTROL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSTELEPHONY_CALLCONTROL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSTELEPHONY_CALLCONTROL {
     fn eq(&self, other: &Self) -> bool {
@@ -16326,8 +16326,8 @@ impl ::core::fmt::Debug for KSTELEPHONY_CALLINFO {
         f.debug_struct("KSTELEPHONY_CALLINFO").field("CallType", &self.CallType).field("CallState", &self.CallState).finish()
     }
 }
-impl ::windows::core::TypeKind for KSTELEPHONY_CALLINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSTELEPHONY_CALLINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSTELEPHONY_CALLINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -16357,8 +16357,8 @@ impl ::core::fmt::Debug for KSTELEPHONY_PROVIDERCHANGE {
         f.debug_struct("KSTELEPHONY_PROVIDERCHANGE").field("CallType", &self.CallType).field("ProviderChangeOp", &self.ProviderChangeOp).finish()
     }
 }
-impl ::windows::core::TypeKind for KSTELEPHONY_PROVIDERCHANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSTELEPHONY_PROVIDERCHANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSTELEPHONY_PROVIDERCHANGE {
     fn eq(&self, other: &Self) -> bool {
@@ -16389,8 +16389,8 @@ impl ::core::fmt::Debug for KSTIME {
         f.debug_struct("KSTIME").field("Time", &self.Time).field("Numerator", &self.Numerator).field("Denominator", &self.Denominator).finish()
     }
 }
-impl ::windows::core::TypeKind for KSTIME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSTIME {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSTIME {
     fn eq(&self, other: &Self) -> bool {
@@ -16407,12 +16407,12 @@ impl ::core::default::Default for KSTIME {
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSTOPOLOGY {
     pub CategoriesCount: u32,
-    pub Categories: *const ::windows::core::GUID,
+    pub Categories: *const ::windows_core::GUID,
     pub TopologyNodesCount: u32,
-    pub TopologyNodes: *const ::windows::core::GUID,
+    pub TopologyNodes: *const ::windows_core::GUID,
     pub TopologyConnectionsCount: u32,
     pub TopologyConnections: *const KSTOPOLOGY_CONNECTION,
-    pub TopologyNodesNames: *const ::windows::core::GUID,
+    pub TopologyNodesNames: *const ::windows_core::GUID,
     pub Reserved: u32,
 }
 impl ::core::marker::Copy for KSTOPOLOGY {}
@@ -16426,8 +16426,8 @@ impl ::core::fmt::Debug for KSTOPOLOGY {
         f.debug_struct("KSTOPOLOGY").field("CategoriesCount", &self.CategoriesCount).field("Categories", &self.Categories).field("TopologyNodesCount", &self.TopologyNodesCount).field("TopologyNodes", &self.TopologyNodes).field("TopologyConnectionsCount", &self.TopologyConnectionsCount).field("TopologyConnections", &self.TopologyConnections).field("TopologyNodesNames", &self.TopologyNodesNames).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KSTOPOLOGY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSTOPOLOGY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSTOPOLOGY {
     fn eq(&self, other: &Self) -> bool {
@@ -16459,8 +16459,8 @@ impl ::core::fmt::Debug for KSTOPOLOGY_CONNECTION {
         f.debug_struct("KSTOPOLOGY_CONNECTION").field("FromNode", &self.FromNode).field("FromNodePin", &self.FromNodePin).field("ToNode", &self.ToNode).field("ToNodePin", &self.ToNodePin).finish()
     }
 }
-impl ::windows::core::TypeKind for KSTOPOLOGY_CONNECTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSTOPOLOGY_CONNECTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSTOPOLOGY_CONNECTION {
     fn eq(&self, other: &Self) -> bool {
@@ -16490,8 +16490,8 @@ impl ::core::fmt::Debug for KSTOPOLOGY_ENDPOINTID {
         f.debug_struct("KSTOPOLOGY_ENDPOINTID").field("TopologyName", &self.TopologyName).field("PinId", &self.PinId).finish()
     }
 }
-impl ::windows::core::TypeKind for KSTOPOLOGY_ENDPOINTID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSTOPOLOGY_ENDPOINTID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSTOPOLOGY_ENDPOINTID {
     fn eq(&self, other: &Self) -> bool {
@@ -16521,8 +16521,8 @@ impl ::core::fmt::Debug for KSTOPOLOGY_ENDPOINTIDPAIR {
         f.debug_struct("KSTOPOLOGY_ENDPOINTIDPAIR").field("RenderEndpoint", &self.RenderEndpoint).field("CaptureEndpoint", &self.CaptureEndpoint).finish()
     }
 }
-impl ::windows::core::TypeKind for KSTOPOLOGY_ENDPOINTIDPAIR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSTOPOLOGY_ENDPOINTIDPAIR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSTOPOLOGY_ENDPOINTIDPAIR {
     fn eq(&self, other: &Self) -> bool {
@@ -16553,8 +16553,8 @@ impl ::core::fmt::Debug for KSVPMAXPIXELRATE {
         f.debug_struct("KSVPMAXPIXELRATE").field("Size", &self.Size).field("MaxPixelsPerSecond", &self.MaxPixelsPerSecond).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KSVPMAXPIXELRATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSVPMAXPIXELRATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSVPMAXPIXELRATE {
     fn eq(&self, other: &Self) -> bool {
@@ -16579,8 +16579,8 @@ impl ::core::clone::Clone for KSVPSIZE_PROP {
         *self
     }
 }
-impl ::windows::core::TypeKind for KSVPSIZE_PROP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSVPSIZE_PROP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KSVPSIZE_PROP {
     fn default() -> Self {
@@ -16605,8 +16605,8 @@ impl ::core::fmt::Debug for KSVPSURFACEPARAMS {
         f.debug_struct("KSVPSURFACEPARAMS").field("dwPitch", &self.dwPitch).field("dwXOrigin", &self.dwXOrigin).field("dwYOrigin", &self.dwYOrigin).finish()
     }
 }
-impl ::windows::core::TypeKind for KSVPSURFACEPARAMS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSVPSURFACEPARAMS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSVPSURFACEPARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -16639,8 +16639,8 @@ impl ::core::clone::Clone for KSWAVETABLE_WAVE_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KSWAVETABLE_WAVE_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSWAVETABLE_WAVE_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSWAVETABLE_WAVE_DESC {
@@ -16666,8 +16666,8 @@ impl ::core::fmt::Debug for KSWAVE_BUFFER {
         f.debug_struct("KSWAVE_BUFFER").field("Attributes", &self.Attributes).field("BufferSize", &self.BufferSize).field("BufferAddress", &self.BufferAddress).finish()
     }
 }
-impl ::windows::core::TypeKind for KSWAVE_BUFFER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSWAVE_BUFFER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSWAVE_BUFFER {
     fn eq(&self, other: &Self) -> bool {
@@ -16696,8 +16696,8 @@ impl ::core::fmt::Debug for KSWAVE_COMPATCAPS {
         f.debug_struct("KSWAVE_COMPATCAPS").field("ulDeviceType", &self.ulDeviceType).finish()
     }
 }
-impl ::windows::core::TypeKind for KSWAVE_COMPATCAPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSWAVE_COMPATCAPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSWAVE_COMPATCAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -16732,8 +16732,8 @@ impl ::core::fmt::Debug for KSWAVE_INPUT_CAPABILITIES {
         f.debug_struct("KSWAVE_INPUT_CAPABILITIES").field("MaximumChannelsPerConnection", &self.MaximumChannelsPerConnection).field("MinimumBitsPerSample", &self.MinimumBitsPerSample).field("MaximumBitsPerSample", &self.MaximumBitsPerSample).field("MinimumSampleFrequency", &self.MinimumSampleFrequency).field("MaximumSampleFrequency", &self.MaximumSampleFrequency).field("TotalConnections", &self.TotalConnections).field("ActiveConnections", &self.ActiveConnections).finish()
     }
 }
-impl ::windows::core::TypeKind for KSWAVE_INPUT_CAPABILITIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSWAVE_INPUT_CAPABILITIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSWAVE_INPUT_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
@@ -16802,8 +16802,8 @@ impl ::core::fmt::Debug for KSWAVE_OUTPUT_CAPABILITIES {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for KSWAVE_OUTPUT_CAPABILITIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSWAVE_OUTPUT_CAPABILITIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSWAVE_OUTPUT_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
@@ -16852,8 +16852,8 @@ impl ::core::fmt::Debug for KSWAVE_VOLUME {
         f.debug_struct("KSWAVE_VOLUME").field("LeftAttenuation", &self.LeftAttenuation).field("RightAttenuation", &self.RightAttenuation).finish()
     }
 }
-impl ::windows::core::TypeKind for KSWAVE_VOLUME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSWAVE_VOLUME {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KSWAVE_VOLUME {
     fn eq(&self, other: &Self) -> bool {
@@ -16913,8 +16913,8 @@ impl ::core::fmt::Debug for KS_AMVPDATAINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_AMVPDATAINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_AMVPDATAINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KS_AMVPDATAINFO {
@@ -16955,8 +16955,8 @@ impl ::core::fmt::Debug for KS_AMVPDIMINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_AMVPDIMINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_AMVPDIMINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KS_AMVPDIMINFO {
@@ -16989,8 +16989,8 @@ impl ::core::fmt::Debug for KS_AMVPSIZE {
         f.debug_struct("KS_AMVPSIZE").field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).finish()
     }
 }
-impl ::windows::core::TypeKind for KS_AMVPSIZE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_AMVPSIZE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_AMVPSIZE {
     fn eq(&self, other: &Self) -> bool {
@@ -17020,8 +17020,8 @@ impl ::core::fmt::Debug for KS_AM_ExactRateChange {
         f.debug_struct("KS_AM_ExactRateChange").field("OutputZeroTime", &self.OutputZeroTime).field("Rate", &self.Rate).finish()
     }
 }
-impl ::windows::core::TypeKind for KS_AM_ExactRateChange {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_AM_ExactRateChange {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_AM_ExactRateChange {
     fn eq(&self, other: &Self) -> bool {
@@ -17051,8 +17051,8 @@ impl ::core::fmt::Debug for KS_AM_SimpleRateChange {
         f.debug_struct("KS_AM_SimpleRateChange").field("StartTime", &self.StartTime).field("Rate", &self.Rate).finish()
     }
 }
-impl ::windows::core::TypeKind for KS_AM_SimpleRateChange {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_AM_SimpleRateChange {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_AM_SimpleRateChange {
     fn eq(&self, other: &Self) -> bool {
@@ -17090,8 +17090,8 @@ impl ::core::fmt::Debug for KS_ANALOGVIDEOINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_ANALOGVIDEOINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_ANALOGVIDEOINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KS_ANALOGVIDEOINFO {
@@ -17133,8 +17133,8 @@ impl ::core::fmt::Debug for KS_BITMAPINFOHEADER {
         f.debug_struct("KS_BITMAPINFOHEADER").field("biSize", &self.biSize).field("biWidth", &self.biWidth).field("biHeight", &self.biHeight).field("biPlanes", &self.biPlanes).field("biBitCount", &self.biBitCount).field("biCompression", &self.biCompression).field("biSizeImage", &self.biSizeImage).field("biXPelsPerMeter", &self.biXPelsPerMeter).field("biYPelsPerMeter", &self.biYPelsPerMeter).field("biClrUsed", &self.biClrUsed).field("biClrImportant", &self.biClrImportant).finish()
     }
 }
-impl ::windows::core::TypeKind for KS_BITMAPINFOHEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_BITMAPINFOHEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_BITMAPINFOHEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -17166,8 +17166,8 @@ impl ::core::fmt::Debug for KS_COLCON {
         f.debug_struct("KS_COLCON").field("_bitfield1", &self._bitfield1).field("_bitfield2", &self._bitfield2).field("_bitfield3", &self._bitfield3).field("_bitfield4", &self._bitfield4).finish()
     }
 }
-impl ::windows::core::TypeKind for KS_COLCON {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_COLCON {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_COLCON {
     fn eq(&self, other: &Self) -> bool {
@@ -17198,8 +17198,8 @@ impl ::core::fmt::Debug for KS_COMPRESSION {
         f.debug_struct("KS_COMPRESSION").field("RatioNumerator", &self.RatioNumerator).field("RatioDenominator", &self.RatioDenominator).field("RatioConstantMargin", &self.RatioConstantMargin).finish()
     }
 }
-impl ::windows::core::TypeKind for KS_COMPRESSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_COMPRESSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_COMPRESSION {
     fn eq(&self, other: &Self) -> bool {
@@ -17228,8 +17228,8 @@ impl ::core::fmt::Debug for KS_COPY_MACROVISION {
         f.debug_struct("KS_COPY_MACROVISION").field("MACROVISIONLevel", &self.MACROVISIONLevel).finish()
     }
 }
-impl ::windows::core::TypeKind for KS_COPY_MACROVISION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_COPY_MACROVISION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_COPY_MACROVISION {
     fn eq(&self, other: &Self) -> bool {
@@ -17254,8 +17254,8 @@ impl ::core::clone::Clone for KS_DATAFORMAT_H264VIDEOINFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for KS_DATAFORMAT_H264VIDEOINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DATAFORMAT_H264VIDEOINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KS_DATAFORMAT_H264VIDEOINFO {
     fn default() -> Self {
@@ -17274,8 +17274,8 @@ impl ::core::clone::Clone for KS_DATAFORMAT_IMAGEINFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for KS_DATAFORMAT_IMAGEINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DATAFORMAT_IMAGEINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KS_DATAFORMAT_IMAGEINFO {
     fn default() -> Self {
@@ -17298,8 +17298,8 @@ impl ::core::clone::Clone for KS_DATAFORMAT_MPEGVIDEOINFO2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_DATAFORMAT_MPEGVIDEOINFO2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DATAFORMAT_MPEGVIDEOINFO2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KS_DATAFORMAT_MPEGVIDEOINFO2 {
@@ -17319,8 +17319,8 @@ impl ::core::clone::Clone for KS_DATAFORMAT_VBIINFOHEADER {
         *self
     }
 }
-impl ::windows::core::TypeKind for KS_DATAFORMAT_VBIINFOHEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DATAFORMAT_VBIINFOHEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KS_DATAFORMAT_VBIINFOHEADER {
     fn default() -> Self {
@@ -17343,8 +17343,8 @@ impl ::core::clone::Clone for KS_DATAFORMAT_VIDEOINFOHEADER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_DATAFORMAT_VIDEOINFOHEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DATAFORMAT_VIDEOINFOHEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KS_DATAFORMAT_VIDEOINFOHEADER {
@@ -17368,8 +17368,8 @@ impl ::core::clone::Clone for KS_DATAFORMAT_VIDEOINFOHEADER2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_DATAFORMAT_VIDEOINFOHEADER2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DATAFORMAT_VIDEOINFOHEADER2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KS_DATAFORMAT_VIDEOINFOHEADER2 {
@@ -17393,8 +17393,8 @@ impl ::core::clone::Clone for KS_DATAFORMAT_VIDEOINFO_PALETTE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_DATAFORMAT_VIDEOINFO_PALETTE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DATAFORMAT_VIDEOINFO_PALETTE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KS_DATAFORMAT_VIDEOINFO_PALETTE {
@@ -17418,8 +17418,8 @@ impl ::core::clone::Clone for KS_DATARANGE_ANALOGVIDEO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_DATARANGE_ANALOGVIDEO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DATARANGE_ANALOGVIDEO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KS_DATARANGE_ANALOGVIDEO {
@@ -17448,8 +17448,8 @@ impl ::core::clone::Clone for KS_DATARANGE_H264_VIDEO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_DATARANGE_H264_VIDEO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DATARANGE_H264_VIDEO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KS_DATARANGE_H264_VIDEO {
@@ -17474,8 +17474,8 @@ impl ::core::clone::Clone for KS_DATARANGE_IMAGE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_DATARANGE_IMAGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DATARANGE_IMAGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KS_DATARANGE_IMAGE {
@@ -17504,8 +17504,8 @@ impl ::core::clone::Clone for KS_DATARANGE_MPEG1_VIDEO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_DATARANGE_MPEG1_VIDEO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DATARANGE_MPEG1_VIDEO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KS_DATARANGE_MPEG1_VIDEO {
@@ -17534,8 +17534,8 @@ impl ::core::clone::Clone for KS_DATARANGE_MPEG2_VIDEO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_DATARANGE_MPEG2_VIDEO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DATARANGE_MPEG2_VIDEO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KS_DATARANGE_MPEG2_VIDEO {
@@ -17564,8 +17564,8 @@ impl ::core::clone::Clone for KS_DATARANGE_VIDEO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_DATARANGE_VIDEO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DATARANGE_VIDEO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KS_DATARANGE_VIDEO {
@@ -17594,8 +17594,8 @@ impl ::core::clone::Clone for KS_DATARANGE_VIDEO2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_DATARANGE_VIDEO2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DATARANGE_VIDEO2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KS_DATARANGE_VIDEO2 {
@@ -17624,8 +17624,8 @@ impl ::core::clone::Clone for KS_DATARANGE_VIDEO_PALETTE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_DATARANGE_VIDEO_PALETTE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DATARANGE_VIDEO_PALETTE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KS_DATARANGE_VIDEO_PALETTE {
@@ -17654,8 +17654,8 @@ impl ::core::clone::Clone for KS_DATARANGE_VIDEO_VBI {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_DATARANGE_VIDEO_VBI {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DATARANGE_VIDEO_VBI {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KS_DATARANGE_VIDEO_VBI {
@@ -17680,8 +17680,8 @@ impl ::core::fmt::Debug for KS_DVDCOPY_BUSKEY {
         f.debug_struct("KS_DVDCOPY_BUSKEY").field("BusKey", &self.BusKey).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KS_DVDCOPY_BUSKEY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DVDCOPY_BUSKEY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_DVDCOPY_BUSKEY {
     fn eq(&self, other: &Self) -> bool {
@@ -17711,8 +17711,8 @@ impl ::core::fmt::Debug for KS_DVDCOPY_CHLGKEY {
         f.debug_struct("KS_DVDCOPY_CHLGKEY").field("ChlgKey", &self.ChlgKey).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KS_DVDCOPY_CHLGKEY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DVDCOPY_CHLGKEY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_DVDCOPY_CHLGKEY {
     fn eq(&self, other: &Self) -> bool {
@@ -17741,8 +17741,8 @@ impl ::core::fmt::Debug for KS_DVDCOPY_DISCKEY {
         f.debug_struct("KS_DVDCOPY_DISCKEY").field("DiscKey", &self.DiscKey).finish()
     }
 }
-impl ::windows::core::TypeKind for KS_DVDCOPY_DISCKEY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DVDCOPY_DISCKEY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_DVDCOPY_DISCKEY {
     fn eq(&self, other: &Self) -> bool {
@@ -17773,8 +17773,8 @@ impl ::core::fmt::Debug for KS_DVDCOPY_REGION {
         f.debug_struct("KS_DVDCOPY_REGION").field("Reserved", &self.Reserved).field("RegionData", &self.RegionData).field("Reserved2", &self.Reserved2).finish()
     }
 }
-impl ::windows::core::TypeKind for KS_DVDCOPY_REGION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DVDCOPY_REGION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_DVDCOPY_REGION {
     fn eq(&self, other: &Self) -> bool {
@@ -17803,8 +17803,8 @@ impl ::core::fmt::Debug for KS_DVDCOPY_SET_COPY_STATE {
         f.debug_struct("KS_DVDCOPY_SET_COPY_STATE").field("DVDCopyState", &self.DVDCopyState).finish()
     }
 }
-impl ::windows::core::TypeKind for KS_DVDCOPY_SET_COPY_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DVDCOPY_SET_COPY_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_DVDCOPY_SET_COPY_STATE {
     fn eq(&self, other: &Self) -> bool {
@@ -17836,8 +17836,8 @@ impl ::core::fmt::Debug for KS_DVDCOPY_TITLEKEY {
         f.debug_struct("KS_DVDCOPY_TITLEKEY").field("KeyFlags", &self.KeyFlags).field("ReservedNT", &self.ReservedNT).field("TitleKey", &self.TitleKey).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KS_DVDCOPY_TITLEKEY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DVDCOPY_TITLEKEY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_DVDCOPY_TITLEKEY {
     fn eq(&self, other: &Self) -> bool {
@@ -17869,8 +17869,8 @@ impl ::core::fmt::Debug for KS_DVD_YCrCb {
         f.debug_struct("KS_DVD_YCrCb").field("Reserved", &self.Reserved).field("Y", &self.Y).field("Cr", &self.Cr).field("Cb", &self.Cb).finish()
     }
 }
-impl ::windows::core::TypeKind for KS_DVD_YCrCb {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DVD_YCrCb {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_DVD_YCrCb {
     fn eq(&self, other: &Self) -> bool {
@@ -17902,8 +17902,8 @@ impl ::core::fmt::Debug for KS_DVD_YUV {
         f.debug_struct("KS_DVD_YUV").field("Reserved", &self.Reserved).field("Y", &self.Y).field("V", &self.V).field("U", &self.U).finish()
     }
 }
-impl ::windows::core::TypeKind for KS_DVD_YUV {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_DVD_YUV {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_DVD_YUV {
     fn eq(&self, other: &Self) -> bool {
@@ -17940,8 +17940,8 @@ impl ::core::clone::Clone for KS_FRAME_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_FRAME_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_FRAME_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KS_FRAME_INFO {
@@ -17965,8 +17965,8 @@ impl ::core::clone::Clone for KS_FRAME_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_FRAME_INFO_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_FRAME_INFO_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KS_FRAME_INFO_0 {
@@ -17990,8 +17990,8 @@ impl ::core::clone::Clone for KS_FRAME_INFO_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_FRAME_INFO_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_FRAME_INFO_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KS_FRAME_INFO_1 {
@@ -18021,8 +18021,8 @@ impl ::core::fmt::Debug for KS_FRAME_INFO_1_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_FRAME_INFO_1_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_FRAME_INFO_1_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KS_FRAME_INFO_1_0 {
@@ -18041,8 +18041,8 @@ impl ::core::default::Default for KS_FRAME_INFO_1_0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KS_FRAMING_ITEM {
-    pub MemoryType: ::windows::core::GUID,
-    pub BusType: ::windows::core::GUID,
+    pub MemoryType: ::windows_core::GUID,
+    pub BusType: ::windows_core::GUID,
     pub MemoryFlags: u32,
     pub BusFlags: u32,
     pub Flags: u32,
@@ -18058,8 +18058,8 @@ impl ::core::clone::Clone for KS_FRAMING_ITEM {
         *self
     }
 }
-impl ::windows::core::TypeKind for KS_FRAMING_ITEM {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_FRAMING_ITEM {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KS_FRAMING_ITEM {
     fn default() -> Self {
@@ -18078,8 +18078,8 @@ impl ::core::clone::Clone for KS_FRAMING_ITEM_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for KS_FRAMING_ITEM_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_FRAMING_ITEM_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for KS_FRAMING_ITEM_0 {
     fn default() -> Self {
@@ -18104,8 +18104,8 @@ impl ::core::fmt::Debug for KS_FRAMING_RANGE {
         f.debug_struct("KS_FRAMING_RANGE").field("MinFrameSize", &self.MinFrameSize).field("MaxFrameSize", &self.MaxFrameSize).field("Stepping", &self.Stepping).finish()
     }
 }
-impl ::windows::core::TypeKind for KS_FRAMING_RANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_FRAMING_RANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_FRAMING_RANGE {
     fn eq(&self, other: &Self) -> bool {
@@ -18136,8 +18136,8 @@ impl ::core::fmt::Debug for KS_FRAMING_RANGE_WEIGHTED {
         f.debug_struct("KS_FRAMING_RANGE_WEIGHTED").field("Range", &self.Range).field("InPlaceWeight", &self.InPlaceWeight).field("NotInPlaceWeight", &self.NotInPlaceWeight).finish()
     }
 }
-impl ::windows::core::TypeKind for KS_FRAMING_RANGE_WEIGHTED {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_FRAMING_RANGE_WEIGHTED {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_FRAMING_RANGE_WEIGHTED {
     fn eq(&self, other: &Self) -> bool {
@@ -18242,8 +18242,8 @@ impl ::core::fmt::Debug for KS_H264VIDEOINFO {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for KS_H264VIDEOINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_H264VIDEOINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_H264VIDEOINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -18317,8 +18317,8 @@ impl ::core::fmt::Debug for KS_MPEG1VIDEOINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_MPEG1VIDEOINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_MPEG1VIDEOINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KS_MPEG1VIDEOINFO {
@@ -18353,8 +18353,8 @@ impl ::core::fmt::Debug for KS_MPEGAUDIOINFO {
         f.debug_struct("KS_MPEGAUDIOINFO").field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).field("dwReserved3", &self.dwReserved3).finish()
     }
 }
-impl ::windows::core::TypeKind for KS_MPEGAUDIOINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_MPEGAUDIOINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_MPEGAUDIOINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -18388,8 +18388,8 @@ impl ::core::clone::Clone for KS_MPEGVIDEOINFO2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_MPEGVIDEOINFO2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_MPEGVIDEOINFO2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KS_MPEGVIDEOINFO2 {
@@ -18416,8 +18416,8 @@ impl ::core::fmt::Debug for KS_RGBQUAD {
         f.debug_struct("KS_RGBQUAD").field("rgbBlue", &self.rgbBlue).field("rgbGreen", &self.rgbGreen).field("rgbRed", &self.rgbRed).field("rgbReserved", &self.rgbReserved).finish()
     }
 }
-impl ::windows::core::TypeKind for KS_RGBQUAD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_RGBQUAD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_RGBQUAD {
     fn eq(&self, other: &Self) -> bool {
@@ -18447,8 +18447,8 @@ impl ::core::fmt::Debug for KS_TRUECOLORINFO {
         f.debug_struct("KS_TRUECOLORINFO").field("dwBitMasks", &self.dwBitMasks).field("bmiColors", &self.bmiColors).finish()
     }
 }
-impl ::windows::core::TypeKind for KS_TRUECOLORINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_TRUECOLORINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_TRUECOLORINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -18480,8 +18480,8 @@ impl ::core::fmt::Debug for KS_TVTUNER_CHANGE_INFO {
         f.debug_struct("KS_TVTUNER_CHANGE_INFO").field("dwFlags", &self.dwFlags).field("dwCountryCode", &self.dwCountryCode).field("dwAnalogVideoStandard", &self.dwAnalogVideoStandard).field("dwChannel", &self.dwChannel).finish()
     }
 }
-impl ::windows::core::TypeKind for KS_TVTUNER_CHANGE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_TVTUNER_CHANGE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_TVTUNER_CHANGE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -18532,8 +18532,8 @@ impl ::core::fmt::Debug for KS_VBIINFOHEADER {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for KS_VBIINFOHEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_VBIINFOHEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_VBIINFOHEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -18568,8 +18568,8 @@ impl ::core::fmt::Debug for KS_VBI_FRAME_INFO {
         f.debug_struct("KS_VBI_FRAME_INFO").field("ExtendedHeaderSize", &self.ExtendedHeaderSize).field("dwFrameFlags", &self.dwFrameFlags).field("PictureNumber", &self.PictureNumber).field("DropCount", &self.DropCount).field("dwSamplingFrequency", &self.dwSamplingFrequency).field("TvTunerChangeInfo", &self.TvTunerChangeInfo).field("VBIInfoHeader", &self.VBIInfoHeader).finish()
     }
 }
-impl ::windows::core::TypeKind for KS_VBI_FRAME_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_VBI_FRAME_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KS_VBI_FRAME_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -18603,8 +18603,8 @@ impl ::core::clone::Clone for KS_VIDEOINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_VIDEOINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_VIDEOINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KS_VIDEOINFO {
@@ -18629,8 +18629,8 @@ impl ::core::clone::Clone for KS_VIDEOINFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_VIDEOINFO_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_VIDEOINFO_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KS_VIDEOINFO_0 {
@@ -18664,8 +18664,8 @@ impl ::core::fmt::Debug for KS_VIDEOINFOHEADER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_VIDEOINFOHEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_VIDEOINFOHEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KS_VIDEOINFOHEADER {
@@ -18707,8 +18707,8 @@ impl ::core::clone::Clone for KS_VIDEOINFOHEADER2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_VIDEOINFOHEADER2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_VIDEOINFOHEADER2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KS_VIDEOINFOHEADER2 {
@@ -18732,8 +18732,8 @@ impl ::core::clone::Clone for KS_VIDEOINFOHEADER2_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_VIDEOINFOHEADER2_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_VIDEOINFOHEADER2_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KS_VIDEOINFOHEADER2_0 {
@@ -18745,7 +18745,7 @@ impl ::core::default::Default for KS_VIDEOINFOHEADER2_0 {
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_VIDEO_STREAM_CONFIG_CAPS {
-    pub guid: ::windows::core::GUID,
+    pub guid: ::windows_core::GUID,
     pub VideoStandard: u32,
     pub InputSize: super::super::Foundation::SIZE,
     pub MinCroppingSize: super::super::Foundation::SIZE,
@@ -18804,8 +18804,8 @@ impl ::core::fmt::Debug for KS_VIDEO_STREAM_CONFIG_CAPS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for KS_VIDEO_STREAM_CONFIG_CAPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KS_VIDEO_STREAM_CONFIG_CAPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KS_VIDEO_STREAM_CONFIG_CAPS {
@@ -18857,8 +18857,8 @@ impl ::core::clone::Clone for LOOPEDSTREAMING_POSITION_EVENT_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for LOOPEDSTREAMING_POSITION_EVENT_DATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LOOPEDSTREAMING_POSITION_EVENT_DATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LOOPEDSTREAMING_POSITION_EVENT_DATA {
@@ -18889,8 +18889,8 @@ impl ::core::fmt::Debug for MEDIUM_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for MEDIUM_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MEDIUM_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MEDIUM_INFO {
@@ -18910,7 +18910,7 @@ impl ::core::default::Default for MEDIUM_INFO {
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub union MF_MDL_SHARED_PAYLOAD_KEY {
     pub combined: MF_MDL_SHARED_PAYLOAD_KEY_0,
-    pub GMDLHandle: ::windows::core::GUID,
+    pub GMDLHandle: ::windows_core::GUID,
 }
 impl ::core::marker::Copy for MF_MDL_SHARED_PAYLOAD_KEY {}
 impl ::core::clone::Clone for MF_MDL_SHARED_PAYLOAD_KEY {
@@ -18918,8 +18918,8 @@ impl ::core::clone::Clone for MF_MDL_SHARED_PAYLOAD_KEY {
         *self
     }
 }
-impl ::windows::core::TypeKind for MF_MDL_SHARED_PAYLOAD_KEY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MF_MDL_SHARED_PAYLOAD_KEY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for MF_MDL_SHARED_PAYLOAD_KEY {
     fn default() -> Self {
@@ -18944,8 +18944,8 @@ impl ::core::fmt::Debug for MF_MDL_SHARED_PAYLOAD_KEY_0 {
         f.debug_struct("MF_MDL_SHARED_PAYLOAD_KEY_0").field("pHandle", &self.pHandle).field("fHandle", &self.fHandle).field("uPayload", &self.uPayload).finish()
     }
 }
-impl ::windows::core::TypeKind for MF_MDL_SHARED_PAYLOAD_KEY_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MF_MDL_SHARED_PAYLOAD_KEY_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MF_MDL_SHARED_PAYLOAD_KEY_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -18977,8 +18977,8 @@ impl ::core::fmt::Debug for NABTSFEC_BUFFER {
         f.debug_struct("NABTSFEC_BUFFER").field("dataSize", &self.dataSize).field("groupID", &self.groupID).field("Reserved", &self.Reserved).field("data", &self.data).finish()
     }
 }
-impl ::windows::core::TypeKind for NABTSFEC_BUFFER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NABTSFEC_BUFFER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NABTSFEC_BUFFER {
     fn eq(&self, other: &Self) -> bool {
@@ -19004,8 +19004,8 @@ impl ::core::clone::Clone for NABTS_BUFFER {
         *self
     }
 }
-impl ::windows::core::TypeKind for NABTS_BUFFER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NABTS_BUFFER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for NABTS_BUFFER {
     fn default() -> Self {
@@ -19029,8 +19029,8 @@ impl ::core::fmt::Debug for NABTS_BUFFER_LINE {
         f.debug_struct("NABTS_BUFFER_LINE").field("Confidence", &self.Confidence).field("Bytes", &self.Bytes).finish()
     }
 }
-impl ::windows::core::TypeKind for NABTS_BUFFER_LINE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NABTS_BUFFER_LINE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NABTS_BUFFER_LINE {
     fn eq(&self, other: &Self) -> bool {
@@ -19061,8 +19061,8 @@ impl ::core::fmt::Debug for OPTIMAL_WEIGHT_TOTALS {
         f.debug_struct("OPTIMAL_WEIGHT_TOTALS").field("MinTotalNominator", &self.MinTotalNominator).field("MaxTotalNominator", &self.MaxTotalNominator).field("TotalDenominator", &self.TotalDenominator).finish()
     }
 }
-impl ::windows::core::TypeKind for OPTIMAL_WEIGHT_TOTALS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OPTIMAL_WEIGHT_TOTALS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for OPTIMAL_WEIGHT_TOTALS {
     fn eq(&self, other: &Self) -> bool {
@@ -19093,8 +19093,8 @@ impl ::core::fmt::Debug for PIPE_DIMENSIONS {
         f.debug_struct("PIPE_DIMENSIONS").field("AllocatorPin", &self.AllocatorPin).field("MaxExpansionPin", &self.MaxExpansionPin).field("EndPin", &self.EndPin).finish()
     }
 }
-impl ::windows::core::TypeKind for PIPE_DIMENSIONS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PIPE_DIMENSIONS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PIPE_DIMENSIONS {
     fn eq(&self, other: &Self) -> bool {
@@ -19128,8 +19128,8 @@ impl ::core::fmt::Debug for PIPE_TERMINATION {
         f.debug_struct("PIPE_TERMINATION").field("Flags", &self.Flags).field("OutsideFactors", &self.OutsideFactors).field("Weigth", &self.Weigth).field("PhysicalRange", &self.PhysicalRange).field("OptimalRange", &self.OptimalRange).field("Compression", &self.Compression).finish()
     }
 }
-impl ::windows::core::TypeKind for PIPE_TERMINATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PIPE_TERMINATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PIPE_TERMINATION {
     fn eq(&self, other: &Self) -> bool {
@@ -19145,7 +19145,7 @@ impl ::core::default::Default for PIPE_TERMINATION {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct SECURE_BUFFER_INFO {
-    pub guidBufferIdentifier: ::windows::core::GUID,
+    pub guidBufferIdentifier: ::windows_core::GUID,
     pub cbBufferSize: u32,
     pub cbCaptured: u32,
     pub ullReserved: [u64; 16],
@@ -19161,8 +19161,8 @@ impl ::core::fmt::Debug for SECURE_BUFFER_INFO {
         f.debug_struct("SECURE_BUFFER_INFO").field("guidBufferIdentifier", &self.guidBufferIdentifier).field("cbBufferSize", &self.cbBufferSize).field("cbCaptured", &self.cbCaptured).field("ullReserved", &self.ullReserved).finish()
     }
 }
-impl ::windows::core::TypeKind for SECURE_BUFFER_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SECURE_BUFFER_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for SECURE_BUFFER_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -19179,7 +19179,7 @@ impl ::core::default::Default for SECURE_BUFFER_INFO {
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct SOUNDDETECTOR_PATTERNHEADER {
     pub Size: u32,
-    pub PatternType: ::windows::core::GUID,
+    pub PatternType: ::windows_core::GUID,
 }
 impl ::core::marker::Copy for SOUNDDETECTOR_PATTERNHEADER {}
 impl ::core::clone::Clone for SOUNDDETECTOR_PATTERNHEADER {
@@ -19192,8 +19192,8 @@ impl ::core::fmt::Debug for SOUNDDETECTOR_PATTERNHEADER {
         f.debug_struct("SOUNDDETECTOR_PATTERNHEADER").field("Size", &self.Size).field("PatternType", &self.PatternType).finish()
     }
 }
-impl ::windows::core::TypeKind for SOUNDDETECTOR_PATTERNHEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SOUNDDETECTOR_PATTERNHEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for SOUNDDETECTOR_PATTERNHEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -19226,8 +19226,8 @@ impl ::core::fmt::Debug for TRANSPORTAUDIOPARMS {
         f.debug_struct("TRANSPORTAUDIOPARMS").field("EnableOutput", &self.EnableOutput).field("EnableRecord", &self.EnableRecord).field("EnableSelsync", &self.EnableSelsync).field("Input", &self.Input).field("MonitorSource", &self.MonitorSource).finish()
     }
 }
-impl ::windows::core::TypeKind for TRANSPORTAUDIOPARMS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TRANSPORTAUDIOPARMS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRANSPORTAUDIOPARMS {
     fn eq(&self, other: &Self) -> bool {
@@ -19316,8 +19316,8 @@ impl ::core::fmt::Debug for TRANSPORTBASICPARMS {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for TRANSPORTBASICPARMS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TRANSPORTBASICPARMS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRANSPORTBASICPARMS {
     fn eq(&self, other: &Self) -> bool {
@@ -19401,8 +19401,8 @@ impl ::core::fmt::Debug for TRANSPORTSTATUS {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for TRANSPORTSTATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TRANSPORTSTATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRANSPORTSTATUS {
     fn eq(&self, other: &Self) -> bool {
@@ -19432,8 +19432,8 @@ impl ::core::fmt::Debug for TRANSPORTVIDEOPARMS {
         f.debug_struct("TRANSPORTVIDEOPARMS").field("OutputMode", &self.OutputMode).field("Input", &self.Input).finish()
     }
 }
-impl ::windows::core::TypeKind for TRANSPORTVIDEOPARMS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TRANSPORTVIDEOPARMS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRANSPORTVIDEOPARMS {
     fn eq(&self, other: &Self) -> bool {
@@ -19463,8 +19463,8 @@ impl ::core::fmt::Debug for TRANSPORT_STATE {
         f.debug_struct("TRANSPORT_STATE").field("Mode", &self.Mode).field("State", &self.State).finish()
     }
 }
-impl ::windows::core::TypeKind for TRANSPORT_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TRANSPORT_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRANSPORT_STATE {
     fn eq(&self, other: &Self) -> bool {
@@ -19500,8 +19500,8 @@ impl ::core::fmt::Debug for TUNER_ANALOG_CAPS_S {
         f.debug_struct("TUNER_ANALOG_CAPS_S").field("Mode", &self.Mode).field("StandardsSupported", &self.StandardsSupported).field("MinFrequency", &self.MinFrequency).field("MaxFrequency", &self.MaxFrequency).field("TuningGranularity", &self.TuningGranularity).field("SettlingTime", &self.SettlingTime).field("ScanSensingRange", &self.ScanSensingRange).field("FineTuneSensingRange", &self.FineTuneSensingRange).finish()
     }
 }
-impl ::windows::core::TypeKind for TUNER_ANALOG_CAPS_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TUNER_ANALOG_CAPS_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TUNER_ANALOG_CAPS_S {
     fn eq(&self, other: &Self) -> bool {
@@ -19527,8 +19527,8 @@ impl ::core::clone::Clone for VBICAP_PROPERTIES_PROTECTION_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for VBICAP_PROPERTIES_PROTECTION_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VBICAP_PROPERTIES_PROTECTION_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for VBICAP_PROPERTIES_PROTECTION_S {
     fn default() -> Self {
@@ -19551,8 +19551,8 @@ impl ::core::fmt::Debug for VBICODECFILTERING_CC_SUBSTREAMS {
         f.debug_struct("VBICODECFILTERING_CC_SUBSTREAMS").field("SubstreamMask", &self.SubstreamMask).finish()
     }
 }
-impl ::windows::core::TypeKind for VBICODECFILTERING_CC_SUBSTREAMS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VBICODECFILTERING_CC_SUBSTREAMS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VBICODECFILTERING_CC_SUBSTREAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -19581,8 +19581,8 @@ impl ::core::fmt::Debug for VBICODECFILTERING_NABTS_SUBSTREAMS {
         f.debug_struct("VBICODECFILTERING_NABTS_SUBSTREAMS").field("SubstreamMask", &self.SubstreamMask).finish()
     }
 }
-impl ::windows::core::TypeKind for VBICODECFILTERING_NABTS_SUBSTREAMS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VBICODECFILTERING_NABTS_SUBSTREAMS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VBICODECFILTERING_NABTS_SUBSTREAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -19611,8 +19611,8 @@ impl ::core::fmt::Debug for VBICODECFILTERING_SCANLINES {
         f.debug_struct("VBICODECFILTERING_SCANLINES").field("DwordBitArray", &self.DwordBitArray).finish()
     }
 }
-impl ::windows::core::TypeKind for VBICODECFILTERING_SCANLINES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VBICODECFILTERING_SCANLINES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VBICODECFILTERING_SCANLINES {
     fn eq(&self, other: &Self) -> bool {
@@ -19641,8 +19641,8 @@ impl ::core::fmt::Debug for VBICODECFILTERING_STATISTICS_CC {
         f.debug_struct("VBICODECFILTERING_STATISTICS_CC").field("Common", &self.Common).finish()
     }
 }
-impl ::windows::core::TypeKind for VBICODECFILTERING_STATISTICS_CC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VBICODECFILTERING_STATISTICS_CC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VBICODECFILTERING_STATISTICS_CC {
     fn eq(&self, other: &Self) -> bool {
@@ -19671,8 +19671,8 @@ impl ::core::fmt::Debug for VBICODECFILTERING_STATISTICS_CC_PIN {
         f.debug_struct("VBICODECFILTERING_STATISTICS_CC_PIN").field("Common", &self.Common).finish()
     }
 }
-impl ::windows::core::TypeKind for VBICODECFILTERING_STATISTICS_CC_PIN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VBICODECFILTERING_STATISTICS_CC_PIN {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VBICODECFILTERING_STATISTICS_CC_PIN {
     fn eq(&self, other: &Self) -> bool {
@@ -19729,8 +19729,8 @@ impl ::core::fmt::Debug for VBICODECFILTERING_STATISTICS_COMMON {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for VBICODECFILTERING_STATISTICS_COMMON {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VBICODECFILTERING_STATISTICS_COMMON {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VBICODECFILTERING_STATISTICS_COMMON {
     fn eq(&self, other: &Self) -> bool {
@@ -19766,8 +19766,8 @@ impl ::core::fmt::Debug for VBICODECFILTERING_STATISTICS_COMMON_PIN {
         f.debug_struct("VBICODECFILTERING_STATISTICS_COMMON_PIN").field("SRBsProcessed", &self.SRBsProcessed).field("SRBsIgnored", &self.SRBsIgnored).field("SRBsMissing", &self.SRBsMissing).field("InternalErrors", &self.InternalErrors).field("ExternalErrors", &self.ExternalErrors).field("Discontinuities", &self.Discontinuities).field("LineConfidenceAvg", &self.LineConfidenceAvg).field("BytesOutput", &self.BytesOutput).finish()
     }
 }
-impl ::windows::core::TypeKind for VBICODECFILTERING_STATISTICS_COMMON_PIN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VBICODECFILTERING_STATISTICS_COMMON_PIN {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VBICODECFILTERING_STATISTICS_COMMON_PIN {
     fn eq(&self, other: &Self) -> bool {
@@ -19803,8 +19803,8 @@ impl ::core::fmt::Debug for VBICODECFILTERING_STATISTICS_NABTS {
         f.debug_struct("VBICODECFILTERING_STATISTICS_NABTS").field("Common", &self.Common).field("FECBundleBadLines", &self.FECBundleBadLines).field("FECQueueOverflows", &self.FECQueueOverflows).field("FECCorrectedLines", &self.FECCorrectedLines).field("FECUncorrectableLines", &self.FECUncorrectableLines).field("BundlesProcessed", &self.BundlesProcessed).field("BundlesSent2IP", &self.BundlesSent2IP).field("FilteredLines", &self.FilteredLines).finish()
     }
 }
-impl ::windows::core::TypeKind for VBICODECFILTERING_STATISTICS_NABTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VBICODECFILTERING_STATISTICS_NABTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VBICODECFILTERING_STATISTICS_NABTS {
     fn eq(&self, other: &Self) -> bool {
@@ -19833,8 +19833,8 @@ impl ::core::fmt::Debug for VBICODECFILTERING_STATISTICS_NABTS_PIN {
         f.debug_struct("VBICODECFILTERING_STATISTICS_NABTS_PIN").field("Common", &self.Common).finish()
     }
 }
-impl ::windows::core::TypeKind for VBICODECFILTERING_STATISTICS_NABTS_PIN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VBICODECFILTERING_STATISTICS_NABTS_PIN {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VBICODECFILTERING_STATISTICS_NABTS_PIN {
     fn eq(&self, other: &Self) -> bool {
@@ -19863,8 +19863,8 @@ impl ::core::fmt::Debug for VBICODECFILTERING_STATISTICS_TELETEXT {
         f.debug_struct("VBICODECFILTERING_STATISTICS_TELETEXT").field("Common", &self.Common).finish()
     }
 }
-impl ::windows::core::TypeKind for VBICODECFILTERING_STATISTICS_TELETEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VBICODECFILTERING_STATISTICS_TELETEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VBICODECFILTERING_STATISTICS_TELETEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -19893,8 +19893,8 @@ impl ::core::fmt::Debug for VBICODECFILTERING_STATISTICS_TELETEXT_PIN {
         f.debug_struct("VBICODECFILTERING_STATISTICS_TELETEXT_PIN").field("Common", &self.Common).finish()
     }
 }
-impl ::windows::core::TypeKind for VBICODECFILTERING_STATISTICS_TELETEXT_PIN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VBICODECFILTERING_STATISTICS_TELETEXT_PIN {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VBICODECFILTERING_STATISTICS_TELETEXT_PIN {
     fn eq(&self, other: &Self) -> bool {
@@ -19930,8 +19930,8 @@ impl ::core::fmt::Debug for VRAM_SURFACE_INFO {
         f.debug_struct("VRAM_SURFACE_INFO").field("hSurface", &self.hSurface).field("VramPhysicalAddress", &self.VramPhysicalAddress).field("cbCaptured", &self.cbCaptured).field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("dwLinearSize", &self.dwLinearSize).field("lPitch", &self.lPitch).field("ullReserved", &self.ullReserved).finish()
     }
 }
-impl ::windows::core::TypeKind for VRAM_SURFACE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VRAM_SURFACE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VRAM_SURFACE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -19956,8 +19956,8 @@ impl ::core::clone::Clone for VRAM_SURFACE_INFO_PROPERTY_S {
         *self
     }
 }
-impl ::windows::core::TypeKind for VRAM_SURFACE_INFO_PROPERTY_S {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VRAM_SURFACE_INFO_PROPERTY_S {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for VRAM_SURFACE_INFO_PROPERTY_S {
     fn default() -> Self {
@@ -19983,8 +19983,8 @@ impl ::core::fmt::Debug for WNF_KSCAMERA_STREAMSTATE_INFO {
         f.debug_struct("WNF_KSCAMERA_STREAMSTATE_INFO").field("ProcessId", &self.ProcessId).field("SessionId", &self.SessionId).field("StreamState", &self.StreamState).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for WNF_KSCAMERA_STREAMSTATE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WNF_KSCAMERA_STREAMSTATE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WNF_KSCAMERA_STREAMSTATE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -20014,8 +20014,8 @@ impl ::core::fmt::Debug for WST_BUFFER {
         f.debug_struct("WST_BUFFER").field("ScanlinesRequested", &self.ScanlinesRequested).field("WstLines", &self.WstLines).finish()
     }
 }
-impl ::windows::core::TypeKind for WST_BUFFER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WST_BUFFER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WST_BUFFER {
     fn eq(&self, other: &Self) -> bool {
@@ -20045,8 +20045,8 @@ impl ::core::fmt::Debug for WST_BUFFER_LINE {
         f.debug_struct("WST_BUFFER_LINE").field("Confidence", &self.Confidence).field("Bytes", &self.Bytes).finish()
     }
 }
-impl ::windows::core::TypeKind for WST_BUFFER_LINE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WST_BUFFER_LINE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WST_BUFFER_LINE {
     fn eq(&self, other: &Self) -> bool {

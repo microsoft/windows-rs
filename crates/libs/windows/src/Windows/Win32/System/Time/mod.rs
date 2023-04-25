@@ -114,17 +114,17 @@ pub const TSF_IPv6: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Time\"`*"]
 pub const TSF_SignatureAuthenticated: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_Time\"`*"]
-pub const wszW32TimeRegKeyPolicyTimeProviders: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Policies\\Microsoft\\W32Time\\TimeProviders");
+pub const wszW32TimeRegKeyPolicyTimeProviders: ::windows_core::PCWSTR = ::windows_core::w!("Software\\Policies\\Microsoft\\W32Time\\TimeProviders");
 #[doc = "*Required features: `\"Win32_System_Time\"`*"]
-pub const wszW32TimeRegKeyTimeProviders: ::windows::core::PCWSTR = ::windows::core::w!("System\\CurrentControlSet\\Services\\W32Time\\TimeProviders");
+pub const wszW32TimeRegKeyTimeProviders: ::windows_core::PCWSTR = ::windows_core::w!("System\\CurrentControlSet\\Services\\W32Time\\TimeProviders");
 #[doc = "*Required features: `\"Win32_System_Time\"`*"]
-pub const wszW32TimeRegValueDllName: ::windows::core::PCWSTR = ::windows::core::w!("DllName");
+pub const wszW32TimeRegValueDllName: ::windows_core::PCWSTR = ::windows_core::w!("DllName");
 #[doc = "*Required features: `\"Win32_System_Time\"`*"]
-pub const wszW32TimeRegValueEnabled: ::windows::core::PCWSTR = ::windows::core::w!("Enabled");
+pub const wszW32TimeRegValueEnabled: ::windows_core::PCWSTR = ::windows_core::w!("Enabled");
 #[doc = "*Required features: `\"Win32_System_Time\"`*"]
-pub const wszW32TimeRegValueInputProvider: ::windows::core::PCWSTR = ::windows::core::w!("InputProvider");
+pub const wszW32TimeRegValueInputProvider: ::windows_core::PCWSTR = ::windows_core::w!("InputProvider");
 #[doc = "*Required features: `\"Win32_System_Time\"`*"]
-pub const wszW32TimeRegValueMetaDataProvider: ::windows::core::PCWSTR = ::windows::core::w!("MetaDataProvider");
+pub const wszW32TimeRegValueMetaDataProvider: ::windows_core::PCWSTR = ::windows_core::w!("MetaDataProvider");
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -154,8 +154,8 @@ impl ::core::fmt::Debug for DYNAMIC_TIME_ZONE_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DYNAMIC_TIME_ZONE_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DYNAMIC_TIME_ZONE_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DYNAMIC_TIME_ZONE_INFORMATION {
@@ -198,8 +198,8 @@ impl ::core::fmt::Debug for TIME_ZONE_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TIME_ZONE_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TIME_ZONE_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TIME_ZONE_INFORMATION {

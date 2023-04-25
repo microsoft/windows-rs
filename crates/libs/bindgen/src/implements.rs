@@ -30,7 +30,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         }
     }
 
-    let mut matches = quote! { iid == &<#type_ident as ::windows::core::ComInterface>::IID };
+    let mut matches = quote! { iid == &<#type_ident as ::windows_core::ComInterface>::IID };
 
     if let Some(Type::TypeDef((def, _))) = vtables.last() {
         requires.combine(&gen_required_trait(gen, *def, &[]))
@@ -41,7 +41,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
             let name = gen.type_def_name(*def, generics);
 
             matches.combine(&quote! {
-                || iid == &<#name as ::windows::core::ComInterface>::IID
+                || iid == &<#name as ::windows_core::ComInterface>::IID
             })
         }
     }
@@ -86,7 +86,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
 
         if has_unknown_base {
             quote! {
-                unsafe extern "system" fn #name<#constraints Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #impl_ident<#generic_names>, const OFFSET: isize> #vtbl_signature {
+                unsafe extern "system" fn #name<#constraints Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: #impl_ident<#generic_names>, const OFFSET: isize> #vtbl_signature {
                     // offset the `this` pointer by `OFFSET` times the size of a pointer and cast it as an IUnknown implementation
                     let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
                     let this = (*this).get_impl();
@@ -96,7 +96,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         } else {
             quote! {
                 unsafe extern "system" fn #name<Impl: #impl_ident> #vtbl_signature {
-                    let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+                    let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows_core::ScopedHeap;
                     let this = &*((*this).this as *const Impl);
                     #invoke_upcall
                 }
@@ -107,8 +107,8 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     let mut methods = quote! {};
 
     match vtables.last() {
-        Some(Type::IUnknown) => methods.combine(&quote! { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), }),
-        Some(Type::IInspectable) => methods.combine(&quote! { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, #type_ident, OFFSET>(), }),
+        Some(Type::IUnknown) => methods.combine(&quote! { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), }),
+        Some(Type::IInspectable) => methods.combine(&quote! { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, #type_ident, OFFSET>(), }),
         Some(Type::TypeDef((def, generics))) => {
             let name = gen.type_def_name_imp(*def, generics, "_Vtbl");
             if has_unknown_base {
@@ -142,14 +142,14 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
             #runtime_name
             #features
             impl<#constraints> #vtbl_ident<#generic_names> {
-                pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #impl_ident<#generic_names>, const OFFSET: isize>() -> #vtbl_ident<#generic_names> {
+                pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: #impl_ident<#generic_names>, const OFFSET: isize>() -> #vtbl_ident<#generic_names> {
                     #(#method_impls)*
                     Self{
                         #methods
                         #(#named_phantoms)*
                     }
                 }
-                pub fn matches(iid: &windows::core::GUID) -> bool {
+                pub fn matches(iid: &::windows_core::GUID) -> bool {
                     #matches
                 }
             }
@@ -180,10 +180,10 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
             }
             #features
             impl #type_ident {
-                pub fn new<'a, T: #impl_ident>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
-                    let this = ::windows::core::ScopedHeap { vtable: &#implvtbl_ident::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+                pub fn new<'a, T: #impl_ident>(this: &'a T) -> ::windows_core::ScopedInterface<'a, Self> {
+                    let this = ::windows_core::ScopedHeap { vtable: &#implvtbl_ident::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
                     let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
-                    unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
+                    unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
                 }
             }
         }

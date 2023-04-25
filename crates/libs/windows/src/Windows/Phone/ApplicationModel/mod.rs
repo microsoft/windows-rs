@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IApplicationProfileStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IApplicationProfileStatics {
+pub struct IApplicationProfileStatics(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IApplicationProfileStatics {
     type Vtable = IApplicationProfileStatics_Vtbl;
 }
 impl ::core::clone::Clone for IApplicationProfileStatics {
@@ -9,31 +9,31 @@ impl ::core::clone::Clone for IApplicationProfileStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IApplicationProfileStatics {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5008ab4_7e7a_11e1_a7f2_b0a14824019b);
+unsafe impl ::windows_core::ComInterface for IApplicationProfileStatics {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd5008ab4_7e7a_11e1_a7f2_b0a14824019b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationProfileStatics_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Modes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ApplicationProfileModes) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub Modes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ApplicationProfileModes) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Phone_ApplicationModel\"`*"]
 pub struct ApplicationProfile;
 impl ApplicationProfile {
-    pub fn Modes() -> ::windows::core::Result<ApplicationProfileModes> {
+    pub fn Modes() -> ::windows_core::Result<ApplicationProfileModes> {
         Self::IApplicationProfileStatics(|this| unsafe {
-            let mut result__ = ::windows::core::zeroed::<ApplicationProfileModes>();
-            (::windows::core::Interface::vtable(this).Modes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<ApplicationProfileModes>();
+            (::windows_core::Interface::vtable(this).Modes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
-    pub fn IApplicationProfileStatics<R, F: FnOnce(&IApplicationProfileStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::imp::FactoryCache<ApplicationProfile, IApplicationProfileStatics> = ::windows::imp::FactoryCache::new();
+    pub fn IApplicationProfileStatics<R, F: FnOnce(&IApplicationProfileStatics) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<ApplicationProfile, IApplicationProfileStatics> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
-impl ::windows::core::RuntimeName for ApplicationProfile {
+impl ::windows_core::RuntimeName for ApplicationProfile {
     const NAME: &'static str = "Windows.Phone.ApplicationModel.ApplicationProfile";
 }
 #[doc = "*Required features: `\"Phone_ApplicationModel\"`*"]
@@ -55,8 +55,8 @@ impl ::core::default::Default for ApplicationProfileModes {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for ApplicationProfileModes {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ApplicationProfileModes {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for ApplicationProfileModes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -96,8 +96,8 @@ impl ::core::ops::Not for ApplicationProfileModes {
         Self(self.0.not())
     }
 }
-impl ::windows::core::RuntimeType for ApplicationProfileModes {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.ApplicationModel.ApplicationProfileModes;u4)");
+impl ::windows_core::RuntimeType for ApplicationProfileModes {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.ApplicationModel.ApplicationProfileModes;u4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

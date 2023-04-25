@@ -28,7 +28,7 @@ pub fn gen(
     let return_type_tokens = if let Some(return_type) = &signature.return_type {
         let tokens = gen.type_name(return_type);
         if return_type.is_winrt_array() {
-            quote! { ::windows::core::Array<#tokens> }
+            quote! { ::windows_core::Array<#tokens> }
         } else {
             quote! { #tokens }
         }
@@ -39,7 +39,7 @@ pub fn gen(
     let return_arg = if let Some(return_type) = &signature.return_type {
         if return_type.is_winrt_array() {
             let return_type = gen.type_name(return_type);
-            quote! { ::windows::core::Array::<#return_type>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _ }
+            quote! { ::windows_core::Array::<#return_type>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _ }
         } else {
             quote! { &mut result__ }
         }
@@ -51,20 +51,20 @@ pub fn gen(
         if return_type.is_winrt_array() {
             quote! {
                 let mut result__ = ::core::mem::MaybeUninit::zeroed();
-                (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args #return_arg)
+                (::windows_core::Interface::vtable(this).#vname)(::windows_core::Interface::as_raw(this), #args #return_arg)
                     .and_then(|| result__.assume_init())
             }
         } else {
             let return_type = gen.type_name(return_type);
             quote! {
-                let mut result__ = ::windows::core::zeroed::<#return_type>();
-                    (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args #return_arg)
+                let mut result__ = ::windows_core::zeroed::<#return_type>();
+                    (::windows_core::Interface::vtable(this).#vname)(::windows_core::Interface::as_raw(this), #args #return_arg)
                         .from_abi(result__)
             }
         }
     } else {
         quote! {
-            (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args).ok()
+            (::windows_core::Interface::vtable(this).#vname)(::windows_core::Interface::as_raw(this), #args).ok()
         }
     };
 
@@ -72,7 +72,7 @@ pub fn gen(
         InterfaceKind::Default => quote! {
             #doc
             #features
-            pub fn #name<#generics>(&self, #params) -> ::windows::core::Result<#return_type_tokens> #where_clause {
+            pub fn #name<#generics>(&self, #params) -> ::windows_core::Result<#return_type_tokens> #where_clause {
                 let this = self;
                 unsafe {
                     #vcall
@@ -83,8 +83,8 @@ pub fn gen(
             quote! {
                 #doc
                 #features
-                pub fn #name<#generics>(&self, #params) -> ::windows::core::Result<#return_type_tokens> #where_clause {
-                    let this = &::windows::core::ComInterface::cast::<#interface_name>(self)?;
+                pub fn #name<#generics>(&self, #params) -> ::windows_core::Result<#return_type_tokens> #where_clause {
+                    let this = &::windows_core::ComInterface::cast::<#interface_name>(self)?;
                     unsafe {
                         #vcall
                     }
@@ -95,7 +95,7 @@ pub fn gen(
             quote! {
                 #doc
                 #features
-                pub fn #name<#generics>(#params) -> ::windows::core::Result<#return_type_tokens> #where_clause {
+                pub fn #name<#generics>(#params) -> ::windows_core::Result<#return_type_tokens> #where_clause {
                     Self::#interface_name(|this| unsafe { #vcall })
                 }
             }
@@ -131,7 +131,7 @@ fn gen_winrt_params(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
         } else if param.ty.is_winrt_array() {
             result.combine(&quote! { #name: &mut [#default_type], });
         } else if param.ty.is_winrt_array_ref() {
-            result.combine(&quote! { #name: &mut ::windows::core::Array<#kind>, });
+            result.combine(&quote! { #name: &mut ::windows_core::Array<#kind>, });
         } else {
             result.combine(&quote! { #name: &mut #default_type, });
         }
@@ -202,7 +202,7 @@ pub fn gen_upcall(gen: &Gen, sig: &Signature, inner: TokenStream) -> TokenStream
                         // use `core::ptr::write` since `result` could be uninitialized
                         ::core::ptr::write(result__, ok_data__);
                         ::core::ptr::write(result_size__, ok_data_len__);
-                        ::windows::core::HRESULT(0)
+                        ::windows_core::HRESULT(0)
                     }
                     ::core::result::Result::Err(err) => err.into()
                 }
@@ -215,7 +215,7 @@ pub fn gen_upcall(gen: &Gen, sig: &Signature, inner: TokenStream) -> TokenStream
                         // use `core::ptr::write` since `result` could be uninitialized
                         ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                         ::core::mem::forget(ok__);
-                        ::windows::core::HRESULT(0)
+                        ::windows_core::HRESULT(0)
                     }
                     ::core::result::Result::Err(err) => err.into()
                 }
@@ -244,14 +244,14 @@ fn gen_winrt_invoke_arg(gen: &Gen, param: &SignatureParam) -> TokenStream {
         } else if param.ty.is_winrt_const_ref() {
             quote! { ::core::mem::transmute_copy(&#name) }
         } else if gen.reader.type_is_nullable(&param.ty) {
-            quote! { ::windows::core::from_raw_borrowed(&#name) }
+            quote! { ::windows_core::from_raw_borrowed(&#name) }
         } else {
             quote! { ::core::mem::transmute(&#name) }
         }
     } else if param.ty.is_winrt_array() {
         quote! { ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&#name), #abi_size_name as _) }
     } else if param.ty.is_winrt_array_ref() {
-        quote! { ::windows::core::ArrayProxy::from_raw_parts(::core::mem::transmute_copy(&#name), #abi_size_name).as_array() }
+        quote! { ::windows_core::ArrayProxy::from_raw_parts(::core::mem::transmute_copy(&#name), #abi_size_name).as_array() }
     } else {
         quote! { ::core::mem::transmute_copy(&#name) }
     }

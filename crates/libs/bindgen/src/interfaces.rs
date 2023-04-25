@@ -46,7 +46,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
         tokens.combine(&quote! {
             #features
             #[repr(transparent)]
-            pub struct #ident(::windows::core::IUnknown, #phantoms) where #constraints;
+            pub struct #ident(::windows_core::IUnknown, #phantoms) where #constraints;
         });
     } else {
         tokens.combine(&quote! {
@@ -143,7 +143,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
         });
 
         if !vtables.is_empty() && generics.is_empty() {
-            let mut hierarchy = format!("::windows::imp::interface_hierarchy!({ident}");
+            let mut hierarchy = format!("::windows_core::imp::interface_hierarchy!({ident}");
             let mut hierarchy_cfg = cfg.clone();
 
             for ty in &vtables {
@@ -162,7 +162,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
                 let cfg = gen.cfg_features(&cfg.union(&gen.reader.type_cfg(ty)));
                 tokens.combine(&quote! {
                     #cfg
-                    impl<#constraints> windows::core::CanInto<#into> for #ident {}
+                    impl<#constraints> ::windows_core::CanInto<#into> for #ident {}
                 });
             }
         }
@@ -177,7 +177,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
                 let cfg = gen.cfg_features(&cfg.union(&gen.reader.type_cfg(&interface.ty)));
                 tokens.combine(&quote! {
                     #cfg
-                    impl<#constraints> windows::core::CanTryInto<#into> for #ident {}
+                    impl<#constraints> ::windows_core::CanTryInto<#into> for #ident {}
                 });
             }
         }

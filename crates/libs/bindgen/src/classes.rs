@@ -65,11 +65,11 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
                     return Some(quote! {
                         #hidden
                         #features
-                        pub fn #interface_type<R, F: FnOnce(&#interface_type) -> ::windows::core::Result<R>>(
+                        pub fn #interface_type<R, F: FnOnce(&#interface_type) -> ::windows_core::Result<R>>(
                             callback: F,
-                        ) -> ::windows::core::Result<R> {
-                            static SHARED: ::windows::imp::FactoryCache<#name, #interface_type> =
-                                ::windows::imp::FactoryCache::new();
+                        ) -> ::windows_core::Result<R> {
+                            static SHARED: ::windows_core::imp::FactoryCache<#name, #interface_type> =
+                                ::windows_core::imp::FactoryCache::new();
                             SHARED.call(callback)
                         }
                     });
@@ -83,14 +83,14 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
     if gen.reader.type_def_has_default_interface(def) {
         let new = if gen.reader.type_def_has_default_constructor(def) {
             quote! {
-                pub fn new() -> ::windows::core::Result<Self> {
+                pub fn new() -> ::windows_core::Result<Self> {
                     Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
                 }
-                fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(
+                fn IActivationFactory<R, F: FnOnce(&::windows_core::imp::IGenericFactory) -> ::windows_core::Result<R>>(
                     callback: F,
-                ) -> ::windows::core::Result<R> {
-                    static SHARED: ::windows::imp::FactoryCache<#name, ::windows::imp::IGenericFactory> =
-                        ::windows::imp::FactoryCache::new();
+                ) -> ::windows_core::Result<R> {
+                    static SHARED: ::windows_core::imp::FactoryCache<#name, ::windows_core::imp::IGenericFactory> =
+                        ::windows_core::imp::FactoryCache::new();
                     SHARED.call(callback)
                 }
             }
@@ -102,7 +102,7 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
             #doc
             #features
             #[repr(transparent)]
-            pub struct #name(::windows::core::IUnknown);
+            pub struct #name(::windows_core::IUnknown);
             #features
             impl #name {
                 #new
@@ -176,7 +176,7 @@ fn gen_conversions(
     let features = gen.cfg_features(cfg);
     let mut tokens = quote! {
         #features
-        ::windows::imp::interface_hierarchy!(#name, ::windows::core::IUnknown, ::windows::core::IInspectable);
+        ::windows_core::imp::interface_hierarchy!(#name, ::windows_core::IUnknown, ::windows_core::IInspectable);
     };
 
     for interface in interfaces {
@@ -192,12 +192,11 @@ fn gen_conversions(
         }
 
         let into = gen.type_name(&interface.ty);
-        // TODO: simplify - maybe provide + operator?
         let features = gen.cfg_features(&cfg.union(&gen.reader.type_cfg(&interface.ty)));
 
         tokens.combine(&quote! {
             #features
-            impl ::windows::core::CanTryInto<#into> for #name {}
+            impl ::windows_core::CanTryInto<#into> for #name {}
         });
     }
 
@@ -207,7 +206,7 @@ fn gen_conversions(
 
         tokens.combine(&quote! {
             #features
-            impl ::windows::core::CanTryInto<#into> for #name {}
+            impl ::windows_core::CanTryInto<#into> for #name {}
         });
     }
 

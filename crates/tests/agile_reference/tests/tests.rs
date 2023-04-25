@@ -20,6 +20,6 @@ fn agile_debug() -> Result<()> {
     assert!(format!("{uri:?}").starts_with("Uri(IUnknown(0x"));
 
     let reference = AgileReference::new(&uri)?;
-    assert!(format!("{reference:?}").starts_with("AgileReference(IUnknown(0x"));
+    assert!(format!("{reference:?}").starts_with("AgileReference(IAgileReference(IUnknown(0x"));
     Ok(())
 }

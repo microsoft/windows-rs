@@ -4,11 +4,11 @@ impl BOOL {
         self.0 != 0
     }
     #[inline]
-    pub fn ok(self) -> ::windows::core::Result<()> {
+    pub fn ok(self) -> ::windows_core::Result<()> {
         if self.as_bool() {
             Ok(())
         } else {
-            Err(::windows::core::Error::from_win32())
+            Err(::windows_core::Error::from_win32())
         }
     }
     #[inline]
@@ -66,8 +66,8 @@ impl ::core::ops::Not for BOOL {
         }
     }
 }
-impl windows::core::IntoParam<BOOL> for bool {
-    fn into_param(self) -> windows::core::Param<BOOL> {
-        windows::core::Param::Owned(self.into())
+impl ::windows_core::IntoParam<BOOL> for bool {
+    fn into_param(self) -> ::windows_core::Param<BOOL> {
+        ::windows_core::Param::Owned(self.into())
     }
 }

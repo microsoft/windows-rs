@@ -6,6 +6,9 @@ edition = "2018"
 [lib]
 crate-type = ["cdylib"]
 
+[dependencies.windows-core]
+path = "../../libs/core"
+
 [dependencies.windows]
 path = "../../libs/windows"
 features = [

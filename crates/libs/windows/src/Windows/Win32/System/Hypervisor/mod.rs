@@ -1,137 +1,137 @@
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn ApplyGuestMemoryFix(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualaddress: u64, fixbuffer: *const ::core::ffi::c_void, fixbuffersize: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ApplyGuestMemoryFix(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, virtualaddress : u64, fixbuffer : *const ::core::ffi::c_void, fixbuffersize : u32) -> ::windows::core::HRESULT);
+pub unsafe fn ApplyGuestMemoryFix(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualaddress: u64, fixbuffer: *const ::core::ffi::c_void, fixbuffersize: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ApplyGuestMemoryFix(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, virtualaddress : u64, fixbuffer : *const ::core::ffi::c_void, fixbuffersize : u32) -> ::windows_core::HRESULT);
     ApplyGuestMemoryFix(vmsavedstatedumphandle, vpid, virtualaddress, fixbuffer, fixbuffersize).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn ApplyPendingSavedStateFileReplayLog<P0>(vmrsfile: P0) -> ::windows::core::Result<()>
+pub unsafe fn ApplyPendingSavedStateFileReplayLog<P0>(vmrsfile: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ApplyPendingSavedStateFileReplayLog(vmrsfile : ::windows::core::PCWSTR) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ApplyPendingSavedStateFileReplayLog(vmrsfile : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     ApplyPendingSavedStateFileReplayLog(vmrsfile.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn CallStackUnwind(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, imageinfo: *const MODULE_INFO, imageinfocount: u32, framecount: u32, callstack: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn CallStackUnwind(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, imageinfo : *const MODULE_INFO, imageinfocount : u32, framecount : u32, callstack : *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT);
+pub unsafe fn CallStackUnwind(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, imageinfo: *const MODULE_INFO, imageinfocount: u32, framecount: u32, callstack: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn CallStackUnwind(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, imageinfo : *const MODULE_INFO, imageinfocount : u32, framecount : u32, callstack : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
     CallStackUnwind(vmsavedstatedumphandle, vpid, imageinfo, imageinfocount, framecount, callstack).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindSavedStateSymbolFieldInType<P0, P1>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: P0, fieldname: P1, offset: *mut u32, found: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+pub unsafe fn FindSavedStateSymbolFieldInType<P0, P1>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: P0, fieldname: P1, offset: *mut u32, found: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn FindSavedStateSymbolFieldInType(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, typename : ::windows::core::PCSTR, fieldname : ::windows::core::PCWSTR, offset : *mut u32, found : *mut super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn FindSavedStateSymbolFieldInType(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, typename : ::windows_core::PCSTR, fieldname : ::windows_core::PCWSTR, offset : *mut u32, found : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     FindSavedStateSymbolFieldInType(vmsavedstatedumphandle, vpid, typename.into_param().abi(), fieldname.into_param().abi(), offset, found).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn ForceActiveVirtualTrustLevel(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualtrustlevel: u8) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ForceActiveVirtualTrustLevel(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, virtualtrustlevel : u8) -> ::windows::core::HRESULT);
+pub unsafe fn ForceActiveVirtualTrustLevel(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualtrustlevel: u8) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ForceActiveVirtualTrustLevel(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, virtualtrustlevel : u8) -> ::windows_core::HRESULT);
     ForceActiveVirtualTrustLevel(vmsavedstatedumphandle, vpid, virtualtrustlevel).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn ForceArchitecture(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, architecture: VIRTUAL_PROCESSOR_ARCH) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ForceArchitecture(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, architecture : VIRTUAL_PROCESSOR_ARCH) -> ::windows::core::HRESULT);
+pub unsafe fn ForceArchitecture(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, architecture: VIRTUAL_PROCESSOR_ARCH) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ForceArchitecture(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, architecture : VIRTUAL_PROCESSOR_ARCH) -> ::windows_core::HRESULT);
     ForceArchitecture(vmsavedstatedumphandle, vpid, architecture).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ForceNestedHostMode<P0>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, hostmode: P0, oldmode: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()>
+pub unsafe fn ForceNestedHostMode<P0>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, hostmode: P0, oldmode: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ForceNestedHostMode(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, hostmode : super::super::Foundation:: BOOL, oldmode : *mut super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ForceNestedHostMode(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, hostmode : super::super::Foundation:: BOOL, oldmode : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     ForceNestedHostMode(vmsavedstatedumphandle, vpid, hostmode.into_param().abi(), ::core::mem::transmute(oldmode.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn ForcePagingMode(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, pagingmode: PAGING_MODE) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ForcePagingMode(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, pagingmode : PAGING_MODE) -> ::windows::core::HRESULT);
+pub unsafe fn ForcePagingMode(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, pagingmode: PAGING_MODE) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ForcePagingMode(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, pagingmode : PAGING_MODE) -> ::windows_core::HRESULT);
     ForcePagingMode(vmsavedstatedumphandle, vpid, pagingmode).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn GetActiveVirtualTrustLevel(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualtrustlevel: *mut u8) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetActiveVirtualTrustLevel(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, virtualtrustlevel : *mut u8) -> ::windows::core::HRESULT);
+pub unsafe fn GetActiveVirtualTrustLevel(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualtrustlevel: *mut u8) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetActiveVirtualTrustLevel(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, virtualtrustlevel : *mut u8) -> ::windows_core::HRESULT);
     GetActiveVirtualTrustLevel(vmsavedstatedumphandle, vpid, virtualtrustlevel).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn GetArchitecture(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, architecture: *mut VIRTUAL_PROCESSOR_ARCH) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetArchitecture(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, architecture : *mut VIRTUAL_PROCESSOR_ARCH) -> ::windows::core::HRESULT);
+pub unsafe fn GetArchitecture(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, architecture: *mut VIRTUAL_PROCESSOR_ARCH) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetArchitecture(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, architecture : *mut VIRTUAL_PROCESSOR_ARCH) -> ::windows_core::HRESULT);
     GetArchitecture(vmsavedstatedumphandle, vpid, architecture).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn GetEnabledVirtualTrustLevels(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualtrustlevels: *mut u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetEnabledVirtualTrustLevels(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, virtualtrustlevels : *mut u32) -> ::windows::core::HRESULT);
+pub unsafe fn GetEnabledVirtualTrustLevels(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualtrustlevels: *mut u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetEnabledVirtualTrustLevels(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, virtualtrustlevels : *mut u32) -> ::windows_core::HRESULT);
     GetEnabledVirtualTrustLevels(vmsavedstatedumphandle, vpid, virtualtrustlevels).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn GetGuestEnabledVirtualTrustLevels(vmsavedstatedumphandle: *mut ::core::ffi::c_void, virtualtrustlevels: *mut u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetGuestEnabledVirtualTrustLevels(vmsavedstatedumphandle : *mut ::core::ffi::c_void, virtualtrustlevels : *mut u32) -> ::windows::core::HRESULT);
+pub unsafe fn GetGuestEnabledVirtualTrustLevels(vmsavedstatedumphandle: *mut ::core::ffi::c_void, virtualtrustlevels: *mut u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetGuestEnabledVirtualTrustLevels(vmsavedstatedumphandle : *mut ::core::ffi::c_void, virtualtrustlevels : *mut u32) -> ::windows_core::HRESULT);
     GetGuestEnabledVirtualTrustLevels(vmsavedstatedumphandle, virtualtrustlevels).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn GetGuestOsInfo(vmsavedstatedumphandle: *mut ::core::ffi::c_void, virtualtrustlevel: u8, guestosinfo: *mut GUEST_OS_INFO) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetGuestOsInfo(vmsavedstatedumphandle : *mut ::core::ffi::c_void, virtualtrustlevel : u8, guestosinfo : *mut GUEST_OS_INFO) -> ::windows::core::HRESULT);
+pub unsafe fn GetGuestOsInfo(vmsavedstatedumphandle: *mut ::core::ffi::c_void, virtualtrustlevel: u8, guestosinfo: *mut GUEST_OS_INFO) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetGuestOsInfo(vmsavedstatedumphandle : *mut ::core::ffi::c_void, virtualtrustlevel : u8, guestosinfo : *mut GUEST_OS_INFO) -> ::windows_core::HRESULT);
     GetGuestOsInfo(vmsavedstatedumphandle, virtualtrustlevel, guestosinfo).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn GetGuestPhysicalMemoryChunks(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memorychunkpagesize: *mut u64, memorychunks: *mut GPA_MEMORY_CHUNK, memorychunkcount: *mut u64) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetGuestPhysicalMemoryChunks(vmsavedstatedumphandle : *mut ::core::ffi::c_void, memorychunkpagesize : *mut u64, memorychunks : *mut GPA_MEMORY_CHUNK, memorychunkcount : *mut u64) -> ::windows::core::HRESULT);
+pub unsafe fn GetGuestPhysicalMemoryChunks(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memorychunkpagesize: *mut u64, memorychunks: *mut GPA_MEMORY_CHUNK, memorychunkcount: *mut u64) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetGuestPhysicalMemoryChunks(vmsavedstatedumphandle : *mut ::core::ffi::c_void, memorychunkpagesize : *mut u64, memorychunks : *mut GPA_MEMORY_CHUNK, memorychunkcount : *mut u64) -> ::windows_core::HRESULT);
     GetGuestPhysicalMemoryChunks(vmsavedstatedumphandle, memorychunkpagesize, memorychunks, memorychunkcount).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn GetGuestRawSavedMemorySize(vmsavedstatedumphandle: *mut ::core::ffi::c_void, guestrawsavedmemorysize: *mut u64) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetGuestRawSavedMemorySize(vmsavedstatedumphandle : *mut ::core::ffi::c_void, guestrawsavedmemorysize : *mut u64) -> ::windows::core::HRESULT);
+pub unsafe fn GetGuestRawSavedMemorySize(vmsavedstatedumphandle: *mut ::core::ffi::c_void, guestrawsavedmemorysize: *mut u64) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetGuestRawSavedMemorySize(vmsavedstatedumphandle : *mut ::core::ffi::c_void, guestrawsavedmemorysize : *mut u64) -> ::windows_core::HRESULT);
     GetGuestRawSavedMemorySize(vmsavedstatedumphandle, guestrawsavedmemorysize).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn GetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memoryblockcachelimit: *mut u64) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetMemoryBlockCacheLimit(vmsavedstatedumphandle : *mut ::core::ffi::c_void, memoryblockcachelimit : *mut u64) -> ::windows::core::HRESULT);
+pub unsafe fn GetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memoryblockcachelimit: *mut u64) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetMemoryBlockCacheLimit(vmsavedstatedumphandle : *mut ::core::ffi::c_void, memoryblockcachelimit : *mut u64) -> ::windows_core::HRESULT);
     GetMemoryBlockCacheLimit(vmsavedstatedumphandle, memoryblockcachelimit).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetNestedVirtualizationMode(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, enabled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetNestedVirtualizationMode(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, enabled : *mut super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
+pub unsafe fn GetNestedVirtualizationMode(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, enabled: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetNestedVirtualizationMode(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, enabled : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     GetNestedVirtualizationMode(vmsavedstatedumphandle, vpid, enabled).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn GetPagingMode(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, pagingmode: *mut PAGING_MODE) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetPagingMode(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, pagingmode : *mut PAGING_MODE) -> ::windows::core::HRESULT);
+pub unsafe fn GetPagingMode(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, pagingmode: *mut PAGING_MODE) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetPagingMode(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, pagingmode : *mut PAGING_MODE) -> ::windows_core::HRESULT);
     GetPagingMode(vmsavedstatedumphandle, vpid, pagingmode).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn GetRegisterValue(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, registerid: u32, registervalue: *mut VIRTUAL_PROCESSOR_REGISTER) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetRegisterValue(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, registerid : u32, registervalue : *mut VIRTUAL_PROCESSOR_REGISTER) -> ::windows::core::HRESULT);
+pub unsafe fn GetRegisterValue(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, registerid: u32, registervalue: *mut VIRTUAL_PROCESSOR_REGISTER) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetRegisterValue(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, registerid : u32, registervalue : *mut VIRTUAL_PROCESSOR_REGISTER) -> ::windows_core::HRESULT);
     GetRegisterValue(vmsavedstatedumphandle, vpid, registerid, registervalue).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn GetSavedStateSymbolFieldInfo<P0>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: P0, typefieldinfomap: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>
+pub unsafe fn GetSavedStateSymbolFieldInfo<P0>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: P0, typefieldinfomap: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetSavedStateSymbolFieldInfo(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, typename : ::windows::core::PCSTR, typefieldinfomap : *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetSavedStateSymbolFieldInfo(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, typename : ::windows_core::PCSTR, typefieldinfomap : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
     GetSavedStateSymbolFieldInfo(vmsavedstatedumphandle, vpid, typename.into_param().abi(), typefieldinfomap).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
@@ -143,894 +143,894 @@ pub unsafe fn GetSavedStateSymbolProviderHandle(vmsavedstatedumphandle: *mut ::c
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn GetSavedStateSymbolTypeSize<P0>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: P0, size: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn GetSavedStateSymbolTypeSize<P0>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: P0, size: *mut u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetSavedStateSymbolTypeSize(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, typename : ::windows::core::PCSTR, size : *mut u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetSavedStateSymbolTypeSize(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, typename : ::windows_core::PCSTR, size : *mut u32) -> ::windows_core::HRESULT);
     GetSavedStateSymbolTypeSize(vmsavedstatedumphandle, vpid, typename.into_param().abi(), size).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn GetVpCount(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpcount: *mut u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetVpCount(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpcount : *mut u32) -> ::windows::core::HRESULT);
+pub unsafe fn GetVpCount(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpcount: *mut u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GetVpCount(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpcount : *mut u32) -> ::windows_core::HRESULT);
     GetVpCount(vmsavedstatedumphandle, vpcount).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn GuestPhysicalAddressToRawSavedMemoryOffset(vmsavedstatedumphandle: *mut ::core::ffi::c_void, physicaladdress: u64, rawsavedmemoryoffset: *mut u64) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GuestPhysicalAddressToRawSavedMemoryOffset(vmsavedstatedumphandle : *mut ::core::ffi::c_void, physicaladdress : u64, rawsavedmemoryoffset : *mut u64) -> ::windows::core::HRESULT);
+pub unsafe fn GuestPhysicalAddressToRawSavedMemoryOffset(vmsavedstatedumphandle: *mut ::core::ffi::c_void, physicaladdress: u64, rawsavedmemoryoffset: *mut u64) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GuestPhysicalAddressToRawSavedMemoryOffset(vmsavedstatedumphandle : *mut ::core::ffi::c_void, physicaladdress : u64, rawsavedmemoryoffset : *mut u64) -> ::windows_core::HRESULT);
     GuestPhysicalAddressToRawSavedMemoryOffset(vmsavedstatedumphandle, physicaladdress, rawsavedmemoryoffset).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn GuestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualaddress: u64, physicaladdress: *mut u64, unmappedregionsize: ::core::option::Option<*mut u64>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GuestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, virtualaddress : u64, physicaladdress : *mut u64, unmappedregionsize : *mut u64) -> ::windows::core::HRESULT);
+pub unsafe fn GuestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualaddress: u64, physicaladdress: *mut u64, unmappedregionsize: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn GuestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, virtualaddress : u64, physicaladdress : *mut u64, unmappedregionsize : *mut u64) -> ::windows_core::HRESULT);
     GuestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle, vpid, virtualaddress, physicaladdress, ::core::mem::transmute(unmappedregionsize.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn HdvCreateDeviceInstance(devicehosthandle: *const ::core::ffi::c_void, devicetype: HDV_DEVICE_TYPE, deviceclassid: *const ::windows::core::GUID, deviceinstanceid: *const ::windows::core::GUID, deviceinterface: *const ::core::ffi::c_void, devicecontext: ::core::option::Option<*const ::core::ffi::c_void>, devicehandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvCreateDeviceInstance(devicehosthandle : *const ::core::ffi::c_void, devicetype : HDV_DEVICE_TYPE, deviceclassid : *const ::windows::core::GUID, deviceinstanceid : *const ::windows::core::GUID, deviceinterface : *const ::core::ffi::c_void, devicecontext : *const ::core::ffi::c_void, devicehandle : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+pub unsafe fn HdvCreateDeviceInstance(devicehosthandle: *const ::core::ffi::c_void, devicetype: HDV_DEVICE_TYPE, deviceclassid: *const ::windows_core::GUID, deviceinstanceid: *const ::windows_core::GUID, deviceinterface: *const ::core::ffi::c_void, devicecontext: ::core::option::Option<*const ::core::ffi::c_void>, devicehandle: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvCreateDeviceInstance(devicehosthandle : *const ::core::ffi::c_void, devicetype : HDV_DEVICE_TYPE, deviceclassid : *const ::windows_core::GUID, deviceinstanceid : *const ::windows_core::GUID, deviceinterface : *const ::core::ffi::c_void, devicecontext : *const ::core::ffi::c_void, devicehandle : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     HdvCreateDeviceInstance(devicehosthandle, devicetype, deviceclassid, deviceinstanceid, deviceinterface, ::core::mem::transmute(devicecontext.unwrap_or(::std::ptr::null())), devicehandle).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HdvCreateGuestMemoryAperture<P0>(requestor: *const ::core::ffi::c_void, guestphysicaladdress: u64, bytecount: u32, writeprotected: P0, mappedaddress: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn HdvCreateGuestMemoryAperture<P0>(requestor: *const ::core::ffi::c_void, guestphysicaladdress: u64, bytecount: u32, writeprotected: P0, mappedaddress: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvCreateGuestMemoryAperture(requestor : *const ::core::ffi::c_void, guestphysicaladdress : u64, bytecount : u32, writeprotected : super::super::Foundation:: BOOL, mappedaddress : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvCreateGuestMemoryAperture(requestor : *const ::core::ffi::c_void, guestphysicaladdress : u64, bytecount : u32, writeprotected : super::super::Foundation:: BOOL, mappedaddress : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     HdvCreateGuestMemoryAperture(requestor, guestphysicaladdress, bytecount, writeprotected.into_param().abi(), mappedaddress).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HdvCreateSectionBackedMmioRange<P0>(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offsetinpages: u64, lengthinpages: u64, mappingflags: HDV_MMIO_MAPPING_FLAGS, sectionhandle: P0, sectionoffsetinpages: u64) -> ::windows::core::Result<()>
+pub unsafe fn HdvCreateSectionBackedMmioRange<P0>(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offsetinpages: u64, lengthinpages: u64, mappingflags: HDV_MMIO_MAPPING_FLAGS, sectionhandle: P0, sectionoffsetinpages: u64) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvCreateSectionBackedMmioRange(requestor : *const ::core::ffi::c_void, barindex : HDV_PCI_BAR_SELECTOR, offsetinpages : u64, lengthinpages : u64, mappingflags : HDV_MMIO_MAPPING_FLAGS, sectionhandle : super::super::Foundation:: HANDLE, sectionoffsetinpages : u64) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvCreateSectionBackedMmioRange(requestor : *const ::core::ffi::c_void, barindex : HDV_PCI_BAR_SELECTOR, offsetinpages : u64, lengthinpages : u64, mappingflags : HDV_MMIO_MAPPING_FLAGS, sectionhandle : super::super::Foundation:: HANDLE, sectionoffsetinpages : u64) -> ::windows_core::HRESULT);
     HdvCreateSectionBackedMmioRange(requestor, barindex, offsetinpages, lengthinpages, mappingflags, sectionhandle.into_param().abi(), sectionoffsetinpages).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn HdvDeliverGuestInterrupt(requestor: *const ::core::ffi::c_void, msiaddress: u64, msidata: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvDeliverGuestInterrupt(requestor : *const ::core::ffi::c_void, msiaddress : u64, msidata : u32) -> ::windows::core::HRESULT);
+pub unsafe fn HdvDeliverGuestInterrupt(requestor: *const ::core::ffi::c_void, msiaddress: u64, msidata: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvDeliverGuestInterrupt(requestor : *const ::core::ffi::c_void, msiaddress : u64, msidata : u32) -> ::windows_core::HRESULT);
     HdvDeliverGuestInterrupt(requestor, msiaddress, msidata).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn HdvDestroyGuestMemoryAperture(requestor: *const ::core::ffi::c_void, mappedaddress: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvDestroyGuestMemoryAperture(requestor : *const ::core::ffi::c_void, mappedaddress : *const ::core::ffi::c_void) -> ::windows::core::HRESULT);
+pub unsafe fn HdvDestroyGuestMemoryAperture(requestor: *const ::core::ffi::c_void, mappedaddress: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvDestroyGuestMemoryAperture(requestor : *const ::core::ffi::c_void, mappedaddress : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     HdvDestroyGuestMemoryAperture(requestor, mappedaddress).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn HdvDestroySectionBackedMmioRange(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offsetinpages: u64) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvDestroySectionBackedMmioRange(requestor : *const ::core::ffi::c_void, barindex : HDV_PCI_BAR_SELECTOR, offsetinpages : u64) -> ::windows::core::HRESULT);
+pub unsafe fn HdvDestroySectionBackedMmioRange(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offsetinpages: u64) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvDestroySectionBackedMmioRange(requestor : *const ::core::ffi::c_void, barindex : HDV_PCI_BAR_SELECTOR, offsetinpages : u64) -> ::windows_core::HRESULT);
     HdvDestroySectionBackedMmioRange(requestor, barindex, offsetinpages).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_System_HostComputeSystem\"`*"]
 #[cfg(feature = "Win32_System_HostComputeSystem")]
 #[inline]
-pub unsafe fn HdvInitializeDeviceHost<P0>(computesystem: P0, devicehosthandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn HdvInitializeDeviceHost<P0>(computesystem: P0, devicehosthandle: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::HostComputeSystem::HCS_SYSTEM>,
+    P0: ::windows_core::IntoParam<super::HostComputeSystem::HCS_SYSTEM>,
 {
-    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvInitializeDeviceHost(computesystem : super::HostComputeSystem:: HCS_SYSTEM, devicehosthandle : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvInitializeDeviceHost(computesystem : super::HostComputeSystem:: HCS_SYSTEM, devicehosthandle : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     HdvInitializeDeviceHost(computesystem.into_param().abi(), devicehosthandle).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn HdvReadGuestMemory(requestor: *const ::core::ffi::c_void, guestphysicaladdress: u64, buffer: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvReadGuestMemory(requestor : *const ::core::ffi::c_void, guestphysicaladdress : u64, bytecount : u32, buffer : *mut u8) -> ::windows::core::HRESULT);
+pub unsafe fn HdvReadGuestMemory(requestor: *const ::core::ffi::c_void, guestphysicaladdress: u64, buffer: &mut [u8]) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvReadGuestMemory(requestor : *const ::core::ffi::c_void, guestphysicaladdress : u64, bytecount : u32, buffer : *mut u8) -> ::windows_core::HRESULT);
     HdvReadGuestMemory(requestor, guestphysicaladdress, buffer.len() as _, ::core::mem::transmute(buffer.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HdvRegisterDoorbell<P0>(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, baroffset: u64, triggervalue: u64, flags: u64, doorbellevent: P0) -> ::windows::core::Result<()>
+pub unsafe fn HdvRegisterDoorbell<P0>(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, baroffset: u64, triggervalue: u64, flags: u64, doorbellevent: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvRegisterDoorbell(requestor : *const ::core::ffi::c_void, barindex : HDV_PCI_BAR_SELECTOR, baroffset : u64, triggervalue : u64, flags : u64, doorbellevent : super::super::Foundation:: HANDLE) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvRegisterDoorbell(requestor : *const ::core::ffi::c_void, barindex : HDV_PCI_BAR_SELECTOR, baroffset : u64, triggervalue : u64, flags : u64, doorbellevent : super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     HdvRegisterDoorbell(requestor, barindex, baroffset, triggervalue, flags, doorbellevent.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn HdvTeardownDeviceHost(devicehosthandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvTeardownDeviceHost(devicehosthandle : *const ::core::ffi::c_void) -> ::windows::core::HRESULT);
+pub unsafe fn HdvTeardownDeviceHost(devicehosthandle: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvTeardownDeviceHost(devicehosthandle : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     HdvTeardownDeviceHost(devicehosthandle).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn HdvUnregisterDoorbell(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, baroffset: u64, triggervalue: u64, flags: u64) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvUnregisterDoorbell(requestor : *const ::core::ffi::c_void, barindex : HDV_PCI_BAR_SELECTOR, baroffset : u64, triggervalue : u64, flags : u64) -> ::windows::core::HRESULT);
+pub unsafe fn HdvUnregisterDoorbell(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, baroffset: u64, triggervalue: u64, flags: u64) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvUnregisterDoorbell(requestor : *const ::core::ffi::c_void, barindex : HDV_PCI_BAR_SELECTOR, baroffset : u64, triggervalue : u64, flags : u64) -> ::windows_core::HRESULT);
     HdvUnregisterDoorbell(requestor, barindex, baroffset, triggervalue, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn HdvWriteGuestMemory(requestor: *const ::core::ffi::c_void, guestphysicaladdress: u64, buffer: &[u8]) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvWriteGuestMemory(requestor : *const ::core::ffi::c_void, guestphysicaladdress : u64, bytecount : u32, buffer : *const u8) -> ::windows::core::HRESULT);
+pub unsafe fn HdvWriteGuestMemory(requestor: *const ::core::ffi::c_void, guestphysicaladdress: u64, buffer: &[u8]) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvWriteGuestMemory(requestor : *const ::core::ffi::c_void, guestphysicaladdress : u64, bytecount : u32, buffer : *const u8) -> ::windows_core::HRESULT);
     HdvWriteGuestMemory(requestor, guestphysicaladdress, buffer.len() as _, ::core::mem::transmute(buffer.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InKernelSpace(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, inkernelspace: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn InKernelSpace(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, inkernelspace : *mut super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
+pub unsafe fn InKernelSpace(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, inkernelspace: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn InKernelSpace(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, inkernelspace : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     InKernelSpace(vmsavedstatedumphandle, vpid, inkernelspace).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, activevirtualtrustlevelenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, activevirtualtrustlevelenabled : *mut super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
+pub unsafe fn IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, activevirtualtrustlevelenabled: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, activevirtualtrustlevelenabled : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle, vpid, activevirtualtrustlevelenabled).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsNestedVirtualizationEnabled(vmsavedstatedumphandle: *mut ::core::ffi::c_void, enabled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn IsNestedVirtualizationEnabled(vmsavedstatedumphandle : *mut ::core::ffi::c_void, enabled : *mut super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
+pub unsafe fn IsNestedVirtualizationEnabled(vmsavedstatedumphandle: *mut ::core::ffi::c_void, enabled: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn IsNestedVirtualizationEnabled(vmsavedstatedumphandle : *mut ::core::ffi::c_void, enabled : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     IsNestedVirtualizationEnabled(vmsavedstatedumphandle, enabled).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn LoadSavedStateFile<P0>(vmrsfile: P0, vmsavedstatedumphandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn LoadSavedStateFile<P0>(vmrsfile: P0, vmsavedstatedumphandle: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateFile(vmrsfile : ::windows::core::PCWSTR, vmsavedstatedumphandle : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateFile(vmrsfile : ::windows_core::PCWSTR, vmsavedstatedumphandle : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     LoadSavedStateFile(vmrsfile.into_param().abi(), vmsavedstatedumphandle).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn LoadSavedStateFiles<P0, P1>(binfile: P0, vsvfile: P1, vmsavedstatedumphandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn LoadSavedStateFiles<P0, P1>(binfile: P0, vsvfile: P1, vmsavedstatedumphandle: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateFiles(binfile : ::windows::core::PCWSTR, vsvfile : ::windows::core::PCWSTR, vmsavedstatedumphandle : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateFiles(binfile : ::windows_core::PCWSTR, vsvfile : ::windows_core::PCWSTR, vmsavedstatedumphandle : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     LoadSavedStateFiles(binfile.into_param().abi(), vsvfile.into_param().abi(), vmsavedstatedumphandle).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn LoadSavedStateModuleSymbols<P0, P1>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, imagename: P0, modulename: P1, baseaddress: u64, sizeofbase: u32) -> ::windows::core::Result<()>
+pub unsafe fn LoadSavedStateModuleSymbols<P0, P1>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, imagename: P0, modulename: P1, baseaddress: u64, sizeofbase: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateModuleSymbols(vmsavedstatedumphandle : *mut ::core::ffi::c_void, imagename : ::windows::core::PCSTR, modulename : ::windows::core::PCSTR, baseaddress : u64, sizeofbase : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateModuleSymbols(vmsavedstatedumphandle : *mut ::core::ffi::c_void, imagename : ::windows_core::PCSTR, modulename : ::windows_core::PCSTR, baseaddress : u64, sizeofbase : u32) -> ::windows_core::HRESULT);
     LoadSavedStateModuleSymbols(vmsavedstatedumphandle, imagename.into_param().abi(), modulename.into_param().abi(), baseaddress, sizeofbase).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn LoadSavedStateModuleSymbolsEx<P0, P1>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, imagename: P0, imagetimestamp: u32, modulename: P1, baseaddress: u64, sizeofbase: u32) -> ::windows::core::Result<()>
+pub unsafe fn LoadSavedStateModuleSymbolsEx<P0, P1>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, imagename: P0, imagetimestamp: u32, modulename: P1, baseaddress: u64, sizeofbase: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateModuleSymbolsEx(vmsavedstatedumphandle : *mut ::core::ffi::c_void, imagename : ::windows::core::PCSTR, imagetimestamp : u32, modulename : ::windows::core::PCSTR, baseaddress : u64, sizeofbase : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateModuleSymbolsEx(vmsavedstatedumphandle : *mut ::core::ffi::c_void, imagename : ::windows_core::PCSTR, imagetimestamp : u32, modulename : ::windows_core::PCSTR, baseaddress : u64, sizeofbase : u32) -> ::windows_core::HRESULT);
     LoadSavedStateModuleSymbolsEx(vmsavedstatedumphandle, imagename.into_param().abi(), imagetimestamp, modulename.into_param().abi(), baseaddress, sizeofbase).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoadSavedStateSymbolProvider<P0, P1>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, usersymbols: P0, force: P1) -> ::windows::core::Result<()>
+pub unsafe fn LoadSavedStateSymbolProvider<P0, P1>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, usersymbols: P0, force: P1) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateSymbolProvider(vmsavedstatedumphandle : *mut ::core::ffi::c_void, usersymbols : ::windows::core::PCWSTR, force : super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateSymbolProvider(vmsavedstatedumphandle : *mut ::core::ffi::c_void, usersymbols : ::windows_core::PCWSTR, force : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     LoadSavedStateSymbolProvider(vmsavedstatedumphandle, usersymbols.into_param().abi(), force.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn LocateSavedStateFiles<P0, P1>(vmname: P0, snapshotname: P1, binpath: *mut ::windows::core::PWSTR, vsvpath: *mut ::windows::core::PWSTR, vmrspath: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>
+pub unsafe fn LocateSavedStateFiles<P0, P1>(vmname: P0, snapshotname: P1, binpath: *mut ::windows_core::PWSTR, vsvpath: *mut ::windows_core::PWSTR, vmrspath: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LocateSavedStateFiles(vmname : ::windows::core::PCWSTR, snapshotname : ::windows::core::PCWSTR, binpath : *mut ::windows::core::PWSTR, vsvpath : *mut ::windows::core::PWSTR, vmrspath : *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn LocateSavedStateFiles(vmname : ::windows_core::PCWSTR, snapshotname : ::windows_core::PCWSTR, binpath : *mut ::windows_core::PWSTR, vsvpath : *mut ::windows_core::PWSTR, vmrspath : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
     LocateSavedStateFiles(vmname.into_param().abi(), snapshotname.into_param().abi(), binpath, vsvpath, vmrspath).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn ReadGuestPhysicalAddress(vmsavedstatedumphandle: *mut ::core::ffi::c_void, physicaladdress: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ReadGuestPhysicalAddress(vmsavedstatedumphandle : *mut ::core::ffi::c_void, physicaladdress : u64, buffer : *mut ::core::ffi::c_void, buffersize : u32, bytesread : *mut u32) -> ::windows::core::HRESULT);
+pub unsafe fn ReadGuestPhysicalAddress(vmsavedstatedumphandle: *mut ::core::ffi::c_void, physicaladdress: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ReadGuestPhysicalAddress(vmsavedstatedumphandle : *mut ::core::ffi::c_void, physicaladdress : u64, buffer : *mut ::core::ffi::c_void, buffersize : u32, bytesread : *mut u32) -> ::windows_core::HRESULT);
     ReadGuestPhysicalAddress(vmsavedstatedumphandle, physicaladdress, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn ReadGuestRawSavedMemory(vmsavedstatedumphandle: *mut ::core::ffi::c_void, rawsavedmemoryoffset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ReadGuestRawSavedMemory(vmsavedstatedumphandle : *mut ::core::ffi::c_void, rawsavedmemoryoffset : u64, buffer : *mut ::core::ffi::c_void, buffersize : u32, bytesread : *mut u32) -> ::windows::core::HRESULT);
+pub unsafe fn ReadGuestRawSavedMemory(vmsavedstatedumphandle: *mut ::core::ffi::c_void, rawsavedmemoryoffset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ReadGuestRawSavedMemory(vmsavedstatedumphandle : *mut ::core::ffi::c_void, rawsavedmemoryoffset : u64, buffer : *mut ::core::ffi::c_void, buffersize : u32, bytesread : *mut u32) -> ::windows_core::HRESULT);
     ReadGuestRawSavedMemory(vmsavedstatedumphandle, rawsavedmemoryoffset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn ReadSavedStateGlobalVariable<P0>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, globalname: P0, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<()>
+pub unsafe fn ReadSavedStateGlobalVariable<P0>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, globalname: P0, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ReadSavedStateGlobalVariable(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, globalname : ::windows::core::PCSTR, buffer : *mut ::core::ffi::c_void, buffersize : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ReadSavedStateGlobalVariable(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, globalname : ::windows_core::PCSTR, buffer : *mut ::core::ffi::c_void, buffersize : u32) -> ::windows_core::HRESULT);
     ReadSavedStateGlobalVariable(vmsavedstatedumphandle, vpid, globalname.into_param().abi(), buffer, buffersize).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn ReleaseSavedStateFiles(vmsavedstatedumphandle: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ReleaseSavedStateFiles(vmsavedstatedumphandle : *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+pub unsafe fn ReleaseSavedStateFiles(vmsavedstatedumphandle: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ReleaseSavedStateFiles(vmsavedstatedumphandle : *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ReleaseSavedStateFiles(vmsavedstatedumphandle).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn ReleaseSavedStateSymbolProvider(vmsavedstatedumphandle: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ReleaseSavedStateSymbolProvider(vmsavedstatedumphandle : *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+pub unsafe fn ReleaseSavedStateSymbolProvider(vmsavedstatedumphandle: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ReleaseSavedStateSymbolProvider(vmsavedstatedumphandle : *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ReleaseSavedStateSymbolProvider(vmsavedstatedumphandle).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn ResolveSavedStateGlobalVariableAddress<P0>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, globalname: P0, virtualaddress: *mut u64, size: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn ResolveSavedStateGlobalVariableAddress<P0>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, globalname: P0, virtualaddress: *mut u64, size: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ResolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, globalname : ::windows::core::PCSTR, virtualaddress : *mut u64, size : *mut u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ResolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, globalname : ::windows_core::PCSTR, virtualaddress : *mut u64, size : *mut u32) -> ::windows_core::HRESULT);
     ResolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle, vpid, globalname.into_param().abi(), virtualaddress, ::core::mem::transmute(size.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ScanMemoryForDosImages(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, startaddress: u64, endaddress: u64, callbackcontext: *mut ::core::ffi::c_void, foundimagecallback: FOUND_IMAGE_CALLBACK, standaloneaddress: *const u64, standaloneaddresscount: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ScanMemoryForDosImages(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, startaddress : u64, endaddress : u64, callbackcontext : *mut ::core::ffi::c_void, foundimagecallback : FOUND_IMAGE_CALLBACK, standaloneaddress : *const u64, standaloneaddresscount : u32) -> ::windows::core::HRESULT);
+pub unsafe fn ScanMemoryForDosImages(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, startaddress: u64, endaddress: u64, callbackcontext: *mut ::core::ffi::c_void, foundimagecallback: FOUND_IMAGE_CALLBACK, standaloneaddress: *const u64, standaloneaddresscount: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn ScanMemoryForDosImages(vmsavedstatedumphandle : *mut ::core::ffi::c_void, vpid : u32, startaddress : u64, endaddress : u64, callbackcontext : *mut ::core::ffi::c_void, foundimagecallback : FOUND_IMAGE_CALLBACK, standaloneaddress : *const u64, standaloneaddresscount : u32) -> ::windows_core::HRESULT);
     ScanMemoryForDosImages(vmsavedstatedumphandle, vpid, startaddress, endaddress, callbackcontext, foundimagecallback, standaloneaddress, standaloneaddresscount).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn SetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memoryblockcachelimit: u64) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn SetMemoryBlockCacheLimit(vmsavedstatedumphandle : *mut ::core::ffi::c_void, memoryblockcachelimit : u64) -> ::windows::core::HRESULT);
+pub unsafe fn SetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memoryblockcachelimit: u64) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn SetMemoryBlockCacheLimit(vmsavedstatedumphandle : *mut ::core::ffi::c_void, memoryblockcachelimit : u64) -> ::windows_core::HRESULT);
     SetMemoryBlockCacheLimit(vmsavedstatedumphandle, memoryblockcachelimit).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: *mut ::core::ffi::c_void, callback: GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle : *mut ::core::ffi::c_void, callback : GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK) -> ::windows::core::HRESULT);
+pub unsafe fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: *mut ::core::ffi::c_void, callback: GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("vmsavedstatedumpprovider.dll" "system" fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle : *mut ::core::ffi::c_void, callback : GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK) -> ::windows_core::HRESULT);
     SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle, callback).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WHvAcceptPartitionMigration<P0>(migrationhandle: P0) -> ::windows::core::Result<WHV_PARTITION_HANDLE>
+pub unsafe fn WHvAcceptPartitionMigration<P0>(migrationhandle: P0) -> ::windows_core::Result<WHV_PARTITION_HANDLE>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvAcceptPartitionMigration(migrationhandle : super::super::Foundation:: HANDLE, partition : *mut WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<WHV_PARTITION_HANDLE>();
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvAcceptPartitionMigration(migrationhandle : super::super::Foundation:: HANDLE, partition : *mut WHV_PARTITION_HANDLE) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<WHV_PARTITION_HANDLE>();
     WHvAcceptPartitionMigration(migrationhandle.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvAdviseGpaRange<P0>(partition: P0, gparanges: &[WHV_MEMORY_RANGE_ENTRY], advice: WHV_ADVISE_GPA_RANGE_CODE, advicebuffer: *const ::core::ffi::c_void, advicebuffersizeinbytes: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvAdviseGpaRange<P0>(partition: P0, gparanges: &[WHV_MEMORY_RANGE_ENTRY], advice: WHV_ADVISE_GPA_RANGE_CODE, advicebuffer: *const ::core::ffi::c_void, advicebuffersizeinbytes: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvAdviseGpaRange(partition : WHV_PARTITION_HANDLE, gparanges : *const WHV_MEMORY_RANGE_ENTRY, gparangescount : u32, advice : WHV_ADVISE_GPA_RANGE_CODE, advicebuffer : *const ::core::ffi::c_void, advicebuffersizeinbytes : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvAdviseGpaRange(partition : WHV_PARTITION_HANDLE, gparanges : *const WHV_MEMORY_RANGE_ENTRY, gparangescount : u32, advice : WHV_ADVISE_GPA_RANGE_CODE, advicebuffer : *const ::core::ffi::c_void, advicebuffersizeinbytes : u32) -> ::windows_core::HRESULT);
     WHvAdviseGpaRange(partition.into_param().abi(), ::core::mem::transmute(gparanges.as_ptr()), gparanges.len() as _, advice, advicebuffer, advicebuffersizeinbytes).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WHvAllocateVpciResource(providerid: ::core::option::Option<*const ::windows::core::GUID>, flags: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor: ::core::option::Option<&[u8]>) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvAllocateVpciResource(providerid : *const ::windows::core::GUID, flags : WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor : *const ::core::ffi::c_void, resourcedescriptorsizeinbytes : u32, vpciresource : *mut super::super::Foundation:: HANDLE) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+pub unsafe fn WHvAllocateVpciResource(providerid: ::core::option::Option<*const ::windows_core::GUID>, flags: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor: ::core::option::Option<&[u8]>) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvAllocateVpciResource(providerid : *const ::windows_core::GUID, flags : WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor : *const ::core::ffi::c_void, resourcedescriptorsizeinbytes : u32, vpciresource : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
     WHvAllocateVpciResource(::core::mem::transmute(providerid.unwrap_or(::std::ptr::null())), flags, ::core::mem::transmute(resourcedescriptor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), resourcedescriptor.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvCancelPartitionMigration<P0>(partition: P0) -> ::windows::core::Result<()>
+pub unsafe fn WHvCancelPartitionMigration<P0>(partition: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCancelPartitionMigration(partition : WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCancelPartitionMigration(partition : WHV_PARTITION_HANDLE) -> ::windows_core::HRESULT);
     WHvCancelPartitionMigration(partition.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvCancelRunVirtualProcessor<P0>(partition: P0, vpindex: u32, flags: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvCancelRunVirtualProcessor<P0>(partition: P0, vpindex: u32, flags: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCancelRunVirtualProcessor(partition : WHV_PARTITION_HANDLE, vpindex : u32, flags : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCancelRunVirtualProcessor(partition : WHV_PARTITION_HANDLE, vpindex : u32, flags : u32) -> ::windows_core::HRESULT);
     WHvCancelRunVirtualProcessor(partition.into_param().abi(), vpindex, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvCompletePartitionMigration<P0>(partition: P0) -> ::windows::core::Result<()>
+pub unsafe fn WHvCompletePartitionMigration<P0>(partition: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCompletePartitionMigration(partition : WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCompletePartitionMigration(partition : WHV_PARTITION_HANDLE) -> ::windows_core::HRESULT);
     WHvCompletePartitionMigration(partition.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WHvCreateNotificationPort<P0, P1>(partition: P0, parameters: *const WHV_NOTIFICATION_PORT_PARAMETERS, eventhandle: P1, porthandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn WHvCreateNotificationPort<P0, P1>(partition: P0, parameters: *const WHV_NOTIFICATION_PORT_PARAMETERS, eventhandle: P1, porthandle: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCreateNotificationPort(partition : WHV_PARTITION_HANDLE, parameters : *const WHV_NOTIFICATION_PORT_PARAMETERS, eventhandle : super::super::Foundation:: HANDLE, porthandle : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCreateNotificationPort(partition : WHV_PARTITION_HANDLE, parameters : *const WHV_NOTIFICATION_PORT_PARAMETERS, eventhandle : super::super::Foundation:: HANDLE, porthandle : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     WHvCreateNotificationPort(partition.into_param().abi(), parameters, eventhandle.into_param().abi(), porthandle).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvCreatePartition() -> ::windows::core::Result<WHV_PARTITION_HANDLE> {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCreatePartition(partition : *mut WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<WHV_PARTITION_HANDLE>();
+pub unsafe fn WHvCreatePartition() -> ::windows_core::Result<WHV_PARTITION_HANDLE> {
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCreatePartition(partition : *mut WHV_PARTITION_HANDLE) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<WHV_PARTITION_HANDLE>();
     WHvCreatePartition(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WHvCreateTrigger<P0>(partition: P0, parameters: *const WHV_TRIGGER_PARAMETERS, triggerhandle: *mut *mut ::core::ffi::c_void, eventhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>
+pub unsafe fn WHvCreateTrigger<P0>(partition: P0, parameters: *const WHV_TRIGGER_PARAMETERS, triggerhandle: *mut *mut ::core::ffi::c_void, eventhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCreateTrigger(partition : WHV_PARTITION_HANDLE, parameters : *const WHV_TRIGGER_PARAMETERS, triggerhandle : *mut *mut ::core::ffi::c_void, eventhandle : *mut super::super::Foundation:: HANDLE) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCreateTrigger(partition : WHV_PARTITION_HANDLE, parameters : *const WHV_TRIGGER_PARAMETERS, triggerhandle : *mut *mut ::core::ffi::c_void, eventhandle : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     WHvCreateTrigger(partition.into_param().abi(), parameters, triggerhandle, eventhandle).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvCreateVirtualProcessor<P0>(partition: P0, vpindex: u32, flags: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvCreateVirtualProcessor<P0>(partition: P0, vpindex: u32, flags: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCreateVirtualProcessor(partition : WHV_PARTITION_HANDLE, vpindex : u32, flags : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCreateVirtualProcessor(partition : WHV_PARTITION_HANDLE, vpindex : u32, flags : u32) -> ::windows_core::HRESULT);
     WHvCreateVirtualProcessor(partition.into_param().abi(), vpindex, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvCreateVirtualProcessor2<P0>(partition: P0, vpindex: u32, properties: &[WHV_VIRTUAL_PROCESSOR_PROPERTY]) -> ::windows::core::Result<()>
+pub unsafe fn WHvCreateVirtualProcessor2<P0>(partition: P0, vpindex: u32, properties: &[WHV_VIRTUAL_PROCESSOR_PROPERTY]) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCreateVirtualProcessor2(partition : WHV_PARTITION_HANDLE, vpindex : u32, properties : *const WHV_VIRTUAL_PROCESSOR_PROPERTY, propertycount : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCreateVirtualProcessor2(partition : WHV_PARTITION_HANDLE, vpindex : u32, properties : *const WHV_VIRTUAL_PROCESSOR_PROPERTY, propertycount : u32) -> ::windows_core::HRESULT);
     WHvCreateVirtualProcessor2(partition.into_param().abi(), vpindex, ::core::mem::transmute(properties.as_ptr()), properties.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WHvCreateVpciDevice<P0, P1, P2>(partition: P0, logicaldeviceid: u64, vpciresource: P1, flags: WHV_CREATE_VPCI_DEVICE_FLAGS, notificationeventhandle: P2) -> ::windows::core::Result<()>
+pub unsafe fn WHvCreateVpciDevice<P0, P1, P2>(partition: P0, logicaldeviceid: u64, vpciresource: P1, flags: WHV_CREATE_VPCI_DEVICE_FLAGS, notificationeventhandle: P2) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P2: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCreateVpciDevice(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, vpciresource : super::super::Foundation:: HANDLE, flags : WHV_CREATE_VPCI_DEVICE_FLAGS, notificationeventhandle : super::super::Foundation:: HANDLE) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCreateVpciDevice(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, vpciresource : super::super::Foundation:: HANDLE, flags : WHV_CREATE_VPCI_DEVICE_FLAGS, notificationeventhandle : super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     WHvCreateVpciDevice(partition.into_param().abi(), logicaldeviceid, vpciresource.into_param().abi(), flags, notificationeventhandle.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvDeleteNotificationPort<P0>(partition: P0, porthandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn WHvDeleteNotificationPort<P0>(partition: P0, porthandle: *const ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvDeleteNotificationPort(partition : WHV_PARTITION_HANDLE, porthandle : *const ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvDeleteNotificationPort(partition : WHV_PARTITION_HANDLE, porthandle : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     WHvDeleteNotificationPort(partition.into_param().abi(), porthandle).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvDeletePartition<P0>(partition: P0) -> ::windows::core::Result<()>
+pub unsafe fn WHvDeletePartition<P0>(partition: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvDeletePartition(partition : WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvDeletePartition(partition : WHV_PARTITION_HANDLE) -> ::windows_core::HRESULT);
     WHvDeletePartition(partition.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvDeleteTrigger<P0>(partition: P0, triggerhandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn WHvDeleteTrigger<P0>(partition: P0, triggerhandle: *const ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvDeleteTrigger(partition : WHV_PARTITION_HANDLE, triggerhandle : *const ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvDeleteTrigger(partition : WHV_PARTITION_HANDLE, triggerhandle : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     WHvDeleteTrigger(partition.into_param().abi(), triggerhandle).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvDeleteVirtualProcessor<P0>(partition: P0, vpindex: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvDeleteVirtualProcessor<P0>(partition: P0, vpindex: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvDeleteVirtualProcessor(partition : WHV_PARTITION_HANDLE, vpindex : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvDeleteVirtualProcessor(partition : WHV_PARTITION_HANDLE, vpindex : u32) -> ::windows_core::HRESULT);
     WHvDeleteVirtualProcessor(partition.into_param().abi(), vpindex).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvDeleteVpciDevice<P0>(partition: P0, logicaldeviceid: u64) -> ::windows::core::Result<()>
+pub unsafe fn WHvDeleteVpciDevice<P0>(partition: P0, logicaldeviceid: u64) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvDeleteVpciDevice(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvDeleteVpciDevice(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64) -> ::windows_core::HRESULT);
     WHvDeleteVpciDevice(partition.into_param().abi(), logicaldeviceid).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvEmulatorCreateEmulator(callbacks: *const WHV_EMULATOR_CALLBACKS, emulator: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("winhvemulation.dll" "system" fn WHvEmulatorCreateEmulator(callbacks : *const WHV_EMULATOR_CALLBACKS, emulator : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+pub unsafe fn WHvEmulatorCreateEmulator(callbacks: *const WHV_EMULATOR_CALLBACKS, emulator: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("winhvemulation.dll" "system" fn WHvEmulatorCreateEmulator(callbacks : *const WHV_EMULATOR_CALLBACKS, emulator : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     WHvEmulatorCreateEmulator(callbacks, emulator).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvEmulatorDestroyEmulator(emulator: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("winhvemulation.dll" "system" fn WHvEmulatorDestroyEmulator(emulator : *const ::core::ffi::c_void) -> ::windows::core::HRESULT);
+pub unsafe fn WHvEmulatorDestroyEmulator(emulator: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("winhvemulation.dll" "system" fn WHvEmulatorDestroyEmulator(emulator : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     WHvEmulatorDestroyEmulator(emulator).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvEmulatorTryIoEmulation(emulator: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void, vpcontext: *const WHV_VP_EXIT_CONTEXT, ioinstructioncontext: *const WHV_X64_IO_PORT_ACCESS_CONTEXT) -> ::windows::core::Result<WHV_EMULATOR_STATUS> {
-    ::windows_targets::link!("winhvemulation.dll" "system" fn WHvEmulatorTryIoEmulation(emulator : *const ::core::ffi::c_void, context : *const ::core::ffi::c_void, vpcontext : *const WHV_VP_EXIT_CONTEXT, ioinstructioncontext : *const WHV_X64_IO_PORT_ACCESS_CONTEXT, emulatorreturnstatus : *mut WHV_EMULATOR_STATUS) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<WHV_EMULATOR_STATUS>();
+pub unsafe fn WHvEmulatorTryIoEmulation(emulator: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void, vpcontext: *const WHV_VP_EXIT_CONTEXT, ioinstructioncontext: *const WHV_X64_IO_PORT_ACCESS_CONTEXT) -> ::windows_core::Result<WHV_EMULATOR_STATUS> {
+    ::windows_targets::link!("winhvemulation.dll" "system" fn WHvEmulatorTryIoEmulation(emulator : *const ::core::ffi::c_void, context : *const ::core::ffi::c_void, vpcontext : *const WHV_VP_EXIT_CONTEXT, ioinstructioncontext : *const WHV_X64_IO_PORT_ACCESS_CONTEXT, emulatorreturnstatus : *mut WHV_EMULATOR_STATUS) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<WHV_EMULATOR_STATUS>();
     WHvEmulatorTryIoEmulation(emulator, context, vpcontext, ioinstructioncontext, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvEmulatorTryMmioEmulation(emulator: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void, vpcontext: *const WHV_VP_EXIT_CONTEXT, mmioinstructioncontext: *const WHV_MEMORY_ACCESS_CONTEXT) -> ::windows::core::Result<WHV_EMULATOR_STATUS> {
-    ::windows_targets::link!("winhvemulation.dll" "system" fn WHvEmulatorTryMmioEmulation(emulator : *const ::core::ffi::c_void, context : *const ::core::ffi::c_void, vpcontext : *const WHV_VP_EXIT_CONTEXT, mmioinstructioncontext : *const WHV_MEMORY_ACCESS_CONTEXT, emulatorreturnstatus : *mut WHV_EMULATOR_STATUS) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<WHV_EMULATOR_STATUS>();
+pub unsafe fn WHvEmulatorTryMmioEmulation(emulator: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void, vpcontext: *const WHV_VP_EXIT_CONTEXT, mmioinstructioncontext: *const WHV_MEMORY_ACCESS_CONTEXT) -> ::windows_core::Result<WHV_EMULATOR_STATUS> {
+    ::windows_targets::link!("winhvemulation.dll" "system" fn WHvEmulatorTryMmioEmulation(emulator : *const ::core::ffi::c_void, context : *const ::core::ffi::c_void, vpcontext : *const WHV_VP_EXIT_CONTEXT, mmioinstructioncontext : *const WHV_MEMORY_ACCESS_CONTEXT, emulatorreturnstatus : *mut WHV_EMULATOR_STATUS) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<WHV_EMULATOR_STATUS>();
     WHvEmulatorTryMmioEmulation(emulator, context, vpcontext, mmioinstructioncontext, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetCapability(capabilitycode: WHV_CAPABILITY_CODE, capabilitybuffer: *mut ::core::ffi::c_void, capabilitybuffersizeinbytes: u32, writtensizeinbytes: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetCapability(capabilitycode : WHV_CAPABILITY_CODE, capabilitybuffer : *mut ::core::ffi::c_void, capabilitybuffersizeinbytes : u32, writtensizeinbytes : *mut u32) -> ::windows::core::HRESULT);
+pub unsafe fn WHvGetCapability(capabilitycode: WHV_CAPABILITY_CODE, capabilitybuffer: *mut ::core::ffi::c_void, capabilitybuffersizeinbytes: u32, writtensizeinbytes: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetCapability(capabilitycode : WHV_CAPABILITY_CODE, capabilitybuffer : *mut ::core::ffi::c_void, capabilitybuffersizeinbytes : u32, writtensizeinbytes : *mut u32) -> ::windows_core::HRESULT);
     WHvGetCapability(capabilitycode, capabilitybuffer, capabilitybuffersizeinbytes, ::core::mem::transmute(writtensizeinbytes.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetInterruptTargetVpSet<P0>(partition: P0, destination: u64, destinationmode: WHV_INTERRUPT_DESTINATION_MODE, targetvps: &mut [u32], targetvpcount: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetInterruptTargetVpSet<P0>(partition: P0, destination: u64, destinationmode: WHV_INTERRUPT_DESTINATION_MODE, targetvps: &mut [u32], targetvpcount: *mut u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetInterruptTargetVpSet(partition : WHV_PARTITION_HANDLE, destination : u64, destinationmode : WHV_INTERRUPT_DESTINATION_MODE, targetvps : *mut u32, vpcount : u32, targetvpcount : *mut u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetInterruptTargetVpSet(partition : WHV_PARTITION_HANDLE, destination : u64, destinationmode : WHV_INTERRUPT_DESTINATION_MODE, targetvps : *mut u32, vpcount : u32, targetvpcount : *mut u32) -> ::windows_core::HRESULT);
     WHvGetInterruptTargetVpSet(partition.into_param().abi(), destination, destinationmode, ::core::mem::transmute(targetvps.as_ptr()), targetvps.len() as _, targetvpcount).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetPartitionCounters<P0>(partition: P0, counterset: WHV_PARTITION_COUNTER_SET, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetPartitionCounters<P0>(partition: P0, counterset: WHV_PARTITION_COUNTER_SET, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetPartitionCounters(partition : WHV_PARTITION_HANDLE, counterset : WHV_PARTITION_COUNTER_SET, buffer : *mut ::core::ffi::c_void, buffersizeinbytes : u32, byteswritten : *mut u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetPartitionCounters(partition : WHV_PARTITION_HANDLE, counterset : WHV_PARTITION_COUNTER_SET, buffer : *mut ::core::ffi::c_void, buffersizeinbytes : u32, byteswritten : *mut u32) -> ::windows_core::HRESULT);
     WHvGetPartitionCounters(partition.into_param().abi(), counterset, buffer, buffersizeinbytes, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetPartitionProperty<P0>(partition: P0, propertycode: WHV_PARTITION_PROPERTY_CODE, propertybuffer: *mut ::core::ffi::c_void, propertybuffersizeinbytes: u32, writtensizeinbytes: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetPartitionProperty<P0>(partition: P0, propertycode: WHV_PARTITION_PROPERTY_CODE, propertybuffer: *mut ::core::ffi::c_void, propertybuffersizeinbytes: u32, writtensizeinbytes: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetPartitionProperty(partition : WHV_PARTITION_HANDLE, propertycode : WHV_PARTITION_PROPERTY_CODE, propertybuffer : *mut ::core::ffi::c_void, propertybuffersizeinbytes : u32, writtensizeinbytes : *mut u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetPartitionProperty(partition : WHV_PARTITION_HANDLE, propertycode : WHV_PARTITION_PROPERTY_CODE, propertybuffer : *mut ::core::ffi::c_void, propertybuffersizeinbytes : u32, writtensizeinbytes : *mut u32) -> ::windows_core::HRESULT);
     WHvGetPartitionProperty(partition.into_param().abi(), propertycode, propertybuffer, propertybuffersizeinbytes, ::core::mem::transmute(writtensizeinbytes.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorCounters<P0>(partition: P0, vpindex: u32, counterset: WHV_PROCESSOR_COUNTER_SET, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVirtualProcessorCounters<P0>(partition: P0, vpindex: u32, counterset: WHV_PROCESSOR_COUNTER_SET, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorCounters(partition : WHV_PARTITION_HANDLE, vpindex : u32, counterset : WHV_PROCESSOR_COUNTER_SET, buffer : *mut ::core::ffi::c_void, buffersizeinbytes : u32, byteswritten : *mut u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorCounters(partition : WHV_PARTITION_HANDLE, vpindex : u32, counterset : WHV_PROCESSOR_COUNTER_SET, buffer : *mut ::core::ffi::c_void, buffersizeinbytes : u32, byteswritten : *mut u32) -> ::windows_core::HRESULT);
     WHvGetVirtualProcessorCounters(partition.into_param().abi(), vpindex, counterset, buffer, buffersizeinbytes, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorCpuidOutput<P0>(partition: P0, vpindex: u32, eax: u32, ecx: u32) -> ::windows::core::Result<WHV_CPUID_OUTPUT>
+pub unsafe fn WHvGetVirtualProcessorCpuidOutput<P0>(partition: P0, vpindex: u32, eax: u32, ecx: u32) -> ::windows_core::Result<WHV_CPUID_OUTPUT>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorCpuidOutput(partition : WHV_PARTITION_HANDLE, vpindex : u32, eax : u32, ecx : u32, cpuidoutput : *mut WHV_CPUID_OUTPUT) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<WHV_CPUID_OUTPUT>();
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorCpuidOutput(partition : WHV_PARTITION_HANDLE, vpindex : u32, eax : u32, ecx : u32, cpuidoutput : *mut WHV_CPUID_OUTPUT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<WHV_CPUID_OUTPUT>();
     WHvGetVirtualProcessorCpuidOutput(partition.into_param().abi(), vpindex, eax, ecx, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorInterruptControllerState<P0>(partition: P0, vpindex: u32, state: *mut ::core::ffi::c_void, statesize: u32, writtensize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVirtualProcessorInterruptControllerState<P0>(partition: P0, vpindex: u32, state: *mut ::core::ffi::c_void, statesize: u32, writtensize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorInterruptControllerState(partition : WHV_PARTITION_HANDLE, vpindex : u32, state : *mut ::core::ffi::c_void, statesize : u32, writtensize : *mut u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorInterruptControllerState(partition : WHV_PARTITION_HANDLE, vpindex : u32, state : *mut ::core::ffi::c_void, statesize : u32, writtensize : *mut u32) -> ::windows_core::HRESULT);
     WHvGetVirtualProcessorInterruptControllerState(partition.into_param().abi(), vpindex, state, statesize, ::core::mem::transmute(writtensize.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorInterruptControllerState2<P0>(partition: P0, vpindex: u32, state: *mut ::core::ffi::c_void, statesize: u32, writtensize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVirtualProcessorInterruptControllerState2<P0>(partition: P0, vpindex: u32, state: *mut ::core::ffi::c_void, statesize: u32, writtensize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorInterruptControllerState2(partition : WHV_PARTITION_HANDLE, vpindex : u32, state : *mut ::core::ffi::c_void, statesize : u32, writtensize : *mut u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorInterruptControllerState2(partition : WHV_PARTITION_HANDLE, vpindex : u32, state : *mut ::core::ffi::c_void, statesize : u32, writtensize : *mut u32) -> ::windows_core::HRESULT);
     WHvGetVirtualProcessorInterruptControllerState2(partition.into_param().abi(), vpindex, state, statesize, ::core::mem::transmute(writtensize.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorRegisters<P0>(partition: P0, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVirtualProcessorRegisters<P0>(partition: P0, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorRegisters(partition : WHV_PARTITION_HANDLE, vpindex : u32, registernames : *const WHV_REGISTER_NAME, registercount : u32, registervalues : *mut WHV_REGISTER_VALUE) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorRegisters(partition : WHV_PARTITION_HANDLE, vpindex : u32, registernames : *const WHV_REGISTER_NAME, registercount : u32, registervalues : *mut WHV_REGISTER_VALUE) -> ::windows_core::HRESULT);
     WHvGetVirtualProcessorRegisters(partition.into_param().abi(), vpindex, registernames, registercount, registervalues).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorState<P0>(partition: P0, vpindex: u32, statetype: WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVirtualProcessorState<P0>(partition: P0, vpindex: u32, statetype: WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorState(partition : WHV_PARTITION_HANDLE, vpindex : u32, statetype : WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer : *mut ::core::ffi::c_void, buffersizeinbytes : u32, byteswritten : *mut u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorState(partition : WHV_PARTITION_HANDLE, vpindex : u32, statetype : WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer : *mut ::core::ffi::c_void, buffersizeinbytes : u32, byteswritten : *mut u32) -> ::windows_core::HRESULT);
     WHvGetVirtualProcessorState(partition.into_param().abi(), vpindex, statetype, buffer, buffersizeinbytes, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorXsaveState<P0>(partition: P0, vpindex: u32, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVirtualProcessorXsaveState<P0>(partition: P0, vpindex: u32, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: *mut u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorXsaveState(partition : WHV_PARTITION_HANDLE, vpindex : u32, buffer : *mut ::core::ffi::c_void, buffersizeinbytes : u32, byteswritten : *mut u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorXsaveState(partition : WHV_PARTITION_HANDLE, vpindex : u32, buffer : *mut ::core::ffi::c_void, buffersizeinbytes : u32, byteswritten : *mut u32) -> ::windows_core::HRESULT);
     WHvGetVirtualProcessorXsaveState(partition.into_param().abi(), vpindex, buffer, buffersizeinbytes, byteswritten).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVpciDeviceInterruptTarget<P0>(partition: P0, logicaldeviceid: u64, index: u32, multimessagenumber: u32, target: *mut WHV_VPCI_INTERRUPT_TARGET, targetsizeinbytes: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVpciDeviceInterruptTarget<P0>(partition: P0, logicaldeviceid: u64, index: u32, multimessagenumber: u32, target: *mut WHV_VPCI_INTERRUPT_TARGET, targetsizeinbytes: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVpciDeviceInterruptTarget(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, index : u32, multimessagenumber : u32, target : *mut WHV_VPCI_INTERRUPT_TARGET, targetsizeinbytes : u32, byteswritten : *mut u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVpciDeviceInterruptTarget(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, index : u32, multimessagenumber : u32, target : *mut WHV_VPCI_INTERRUPT_TARGET, targetsizeinbytes : u32, byteswritten : *mut u32) -> ::windows_core::HRESULT);
     WHvGetVpciDeviceInterruptTarget(partition.into_param().abi(), logicaldeviceid, index, multimessagenumber, target, targetsizeinbytes, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVpciDeviceNotification<P0>(partition: P0, logicaldeviceid: u64, notification: *mut WHV_VPCI_DEVICE_NOTIFICATION, notificationsizeinbytes: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVpciDeviceNotification<P0>(partition: P0, logicaldeviceid: u64, notification: *mut WHV_VPCI_DEVICE_NOTIFICATION, notificationsizeinbytes: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVpciDeviceNotification(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, notification : *mut WHV_VPCI_DEVICE_NOTIFICATION, notificationsizeinbytes : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVpciDeviceNotification(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, notification : *mut WHV_VPCI_DEVICE_NOTIFICATION, notificationsizeinbytes : u32) -> ::windows_core::HRESULT);
     WHvGetVpciDeviceNotification(partition.into_param().abi(), logicaldeviceid, notification, notificationsizeinbytes).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVpciDeviceProperty<P0>(partition: P0, logicaldeviceid: u64, propertycode: WHV_VPCI_DEVICE_PROPERTY_CODE, propertybuffer: *mut ::core::ffi::c_void, propertybuffersizeinbytes: u32, writtensizeinbytes: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVpciDeviceProperty<P0>(partition: P0, logicaldeviceid: u64, propertycode: WHV_VPCI_DEVICE_PROPERTY_CODE, propertybuffer: *mut ::core::ffi::c_void, propertybuffersizeinbytes: u32, writtensizeinbytes: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVpciDeviceProperty(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, propertycode : WHV_VPCI_DEVICE_PROPERTY_CODE, propertybuffer : *mut ::core::ffi::c_void, propertybuffersizeinbytes : u32, writtensizeinbytes : *mut u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVpciDeviceProperty(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, propertycode : WHV_VPCI_DEVICE_PROPERTY_CODE, propertybuffer : *mut ::core::ffi::c_void, propertybuffersizeinbytes : u32, writtensizeinbytes : *mut u32) -> ::windows_core::HRESULT);
     WHvGetVpciDeviceProperty(partition.into_param().abi(), logicaldeviceid, propertycode, propertybuffer, propertybuffersizeinbytes, ::core::mem::transmute(writtensizeinbytes.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvMapGpaRange<P0>(partition: P0, sourceaddress: *const ::core::ffi::c_void, guestaddress: u64, sizeinbytes: u64, flags: WHV_MAP_GPA_RANGE_FLAGS) -> ::windows::core::Result<()>
+pub unsafe fn WHvMapGpaRange<P0>(partition: P0, sourceaddress: *const ::core::ffi::c_void, guestaddress: u64, sizeinbytes: u64, flags: WHV_MAP_GPA_RANGE_FLAGS) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvMapGpaRange(partition : WHV_PARTITION_HANDLE, sourceaddress : *const ::core::ffi::c_void, guestaddress : u64, sizeinbytes : u64, flags : WHV_MAP_GPA_RANGE_FLAGS) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvMapGpaRange(partition : WHV_PARTITION_HANDLE, sourceaddress : *const ::core::ffi::c_void, guestaddress : u64, sizeinbytes : u64, flags : WHV_MAP_GPA_RANGE_FLAGS) -> ::windows_core::HRESULT);
     WHvMapGpaRange(partition.into_param().abi(), sourceaddress, guestaddress, sizeinbytes, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WHvMapGpaRange2<P0, P1>(partition: P0, process: P1, sourceaddress: *const ::core::ffi::c_void, guestaddress: u64, sizeinbytes: u64, flags: WHV_MAP_GPA_RANGE_FLAGS) -> ::windows::core::Result<()>
+pub unsafe fn WHvMapGpaRange2<P0, P1>(partition: P0, process: P1, sourceaddress: *const ::core::ffi::c_void, guestaddress: u64, sizeinbytes: u64, flags: WHV_MAP_GPA_RANGE_FLAGS) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvMapGpaRange2(partition : WHV_PARTITION_HANDLE, process : super::super::Foundation:: HANDLE, sourceaddress : *const ::core::ffi::c_void, guestaddress : u64, sizeinbytes : u64, flags : WHV_MAP_GPA_RANGE_FLAGS) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvMapGpaRange2(partition : WHV_PARTITION_HANDLE, process : super::super::Foundation:: HANDLE, sourceaddress : *const ::core::ffi::c_void, guestaddress : u64, sizeinbytes : u64, flags : WHV_MAP_GPA_RANGE_FLAGS) -> ::windows_core::HRESULT);
     WHvMapGpaRange2(partition.into_param().abi(), process.into_param().abi(), sourceaddress, guestaddress, sizeinbytes, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvMapVpciDeviceInterrupt<P0>(partition: P0, logicaldeviceid: u64, index: u32, messagecount: u32, target: *const WHV_VPCI_INTERRUPT_TARGET, msiaddress: *mut u64, msidata: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvMapVpciDeviceInterrupt<P0>(partition: P0, logicaldeviceid: u64, index: u32, messagecount: u32, target: *const WHV_VPCI_INTERRUPT_TARGET, msiaddress: *mut u64, msidata: *mut u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvMapVpciDeviceInterrupt(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, index : u32, messagecount : u32, target : *const WHV_VPCI_INTERRUPT_TARGET, msiaddress : *mut u64, msidata : *mut u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvMapVpciDeviceInterrupt(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, index : u32, messagecount : u32, target : *const WHV_VPCI_INTERRUPT_TARGET, msiaddress : *mut u64, msidata : *mut u32) -> ::windows_core::HRESULT);
     WHvMapVpciDeviceInterrupt(partition.into_param().abi(), logicaldeviceid, index, messagecount, target, msiaddress, msidata).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvMapVpciDeviceMmioRanges<P0>(partition: P0, logicaldeviceid: u64, mappingcount: *mut u32, mappings: *mut *mut WHV_VPCI_MMIO_MAPPING) -> ::windows::core::Result<()>
+pub unsafe fn WHvMapVpciDeviceMmioRanges<P0>(partition: P0, logicaldeviceid: u64, mappingcount: *mut u32, mappings: *mut *mut WHV_VPCI_MMIO_MAPPING) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvMapVpciDeviceMmioRanges(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, mappingcount : *mut u32, mappings : *mut *mut WHV_VPCI_MMIO_MAPPING) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvMapVpciDeviceMmioRanges(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, mappingcount : *mut u32, mappings : *mut *mut WHV_VPCI_MMIO_MAPPING) -> ::windows_core::HRESULT);
     WHvMapVpciDeviceMmioRanges(partition.into_param().abi(), logicaldeviceid, mappingcount, mappings).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvPostVirtualProcessorSynicMessage<P0>(partition: P0, vpindex: u32, sintindex: u32, message: *const ::core::ffi::c_void, messagesizeinbytes: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvPostVirtualProcessorSynicMessage<P0>(partition: P0, vpindex: u32, sintindex: u32, message: *const ::core::ffi::c_void, messagesizeinbytes: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvPostVirtualProcessorSynicMessage(partition : WHV_PARTITION_HANDLE, vpindex : u32, sintindex : u32, message : *const ::core::ffi::c_void, messagesizeinbytes : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvPostVirtualProcessorSynicMessage(partition : WHV_PARTITION_HANDLE, vpindex : u32, sintindex : u32, message : *const ::core::ffi::c_void, messagesizeinbytes : u32) -> ::windows_core::HRESULT);
     WHvPostVirtualProcessorSynicMessage(partition.into_param().abi(), vpindex, sintindex, message, messagesizeinbytes).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvQueryGpaRangeDirtyBitmap<P0>(partition: P0, guestaddress: u64, rangesizeinbytes: u64, bitmap: ::core::option::Option<*mut u64>, bitmapsizeinbytes: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvQueryGpaRangeDirtyBitmap<P0>(partition: P0, guestaddress: u64, rangesizeinbytes: u64, bitmap: ::core::option::Option<*mut u64>, bitmapsizeinbytes: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvQueryGpaRangeDirtyBitmap(partition : WHV_PARTITION_HANDLE, guestaddress : u64, rangesizeinbytes : u64, bitmap : *mut u64, bitmapsizeinbytes : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvQueryGpaRangeDirtyBitmap(partition : WHV_PARTITION_HANDLE, guestaddress : u64, rangesizeinbytes : u64, bitmap : *mut u64, bitmapsizeinbytes : u32) -> ::windows_core::HRESULT);
     WHvQueryGpaRangeDirtyBitmap(partition.into_param().abi(), guestaddress, rangesizeinbytes, ::core::mem::transmute(bitmap.unwrap_or(::std::ptr::null_mut())), bitmapsizeinbytes).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvReadGpaRange<P0>(partition: P0, vpindex: u32, guestaddress: u64, controls: WHV_ACCESS_GPA_CONTROLS, data: *mut ::core::ffi::c_void, datasizeinbytes: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvReadGpaRange<P0>(partition: P0, vpindex: u32, guestaddress: u64, controls: WHV_ACCESS_GPA_CONTROLS, data: *mut ::core::ffi::c_void, datasizeinbytes: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvReadGpaRange(partition : WHV_PARTITION_HANDLE, vpindex : u32, guestaddress : u64, controls : WHV_ACCESS_GPA_CONTROLS, data : *mut ::core::ffi::c_void, datasizeinbytes : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvReadGpaRange(partition : WHV_PARTITION_HANDLE, vpindex : u32, guestaddress : u64, controls : WHV_ACCESS_GPA_CONTROLS, data : *mut ::core::ffi::c_void, datasizeinbytes : u32) -> ::windows_core::HRESULT);
     WHvReadGpaRange(partition.into_param().abi(), vpindex, guestaddress, ::core::mem::transmute(controls), data, datasizeinbytes).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvReadVpciDeviceRegister<P0>(partition: P0, logicaldeviceid: u64, register: *const WHV_VPCI_DEVICE_REGISTER, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn WHvReadVpciDeviceRegister<P0>(partition: P0, logicaldeviceid: u64, register: *const WHV_VPCI_DEVICE_REGISTER, data: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvReadVpciDeviceRegister(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, register : *const WHV_VPCI_DEVICE_REGISTER, data : *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvReadVpciDeviceRegister(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, register : *const WHV_VPCI_DEVICE_REGISTER, data : *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     WHvReadVpciDeviceRegister(partition.into_param().abi(), logicaldeviceid, register, data).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WHvRegisterPartitionDoorbellEvent<P0, P1>(partition: P0, matchdata: *const WHV_DOORBELL_MATCH_DATA, eventhandle: P1) -> ::windows::core::Result<()>
+pub unsafe fn WHvRegisterPartitionDoorbellEvent<P0, P1>(partition: P0, matchdata: *const WHV_DOORBELL_MATCH_DATA, eventhandle: P1) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvRegisterPartitionDoorbellEvent(partition : WHV_PARTITION_HANDLE, matchdata : *const WHV_DOORBELL_MATCH_DATA, eventhandle : super::super::Foundation:: HANDLE) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvRegisterPartitionDoorbellEvent(partition : WHV_PARTITION_HANDLE, matchdata : *const WHV_DOORBELL_MATCH_DATA, eventhandle : super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     WHvRegisterPartitionDoorbellEvent(partition.into_param().abi(), matchdata, eventhandle.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvRequestInterrupt<P0>(partition: P0, interrupt: *const WHV_INTERRUPT_CONTROL, interruptcontrolsize: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvRequestInterrupt<P0>(partition: P0, interrupt: *const WHV_INTERRUPT_CONTROL, interruptcontrolsize: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvRequestInterrupt(partition : WHV_PARTITION_HANDLE, interrupt : *const WHV_INTERRUPT_CONTROL, interruptcontrolsize : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvRequestInterrupt(partition : WHV_PARTITION_HANDLE, interrupt : *const WHV_INTERRUPT_CONTROL, interruptcontrolsize : u32) -> ::windows_core::HRESULT);
     WHvRequestInterrupt(partition.into_param().abi(), interrupt, interruptcontrolsize).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvRequestVpciDeviceInterrupt<P0>(partition: P0, logicaldeviceid: u64, msiaddress: u64, msidata: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvRequestVpciDeviceInterrupt<P0>(partition: P0, logicaldeviceid: u64, msiaddress: u64, msidata: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvRequestVpciDeviceInterrupt(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, msiaddress : u64, msidata : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvRequestVpciDeviceInterrupt(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, msiaddress : u64, msidata : u32) -> ::windows_core::HRESULT);
     WHvRequestVpciDeviceInterrupt(partition.into_param().abi(), logicaldeviceid, msiaddress, msidata).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvResetPartition<P0>(partition: P0) -> ::windows::core::Result<()>
+pub unsafe fn WHvResetPartition<P0>(partition: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvResetPartition(partition : WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvResetPartition(partition : WHV_PARTITION_HANDLE) -> ::windows_core::HRESULT);
     WHvResetPartition(partition.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvResumePartitionTime<P0>(partition: P0) -> ::windows::core::Result<()>
+pub unsafe fn WHvResumePartitionTime<P0>(partition: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvResumePartitionTime(partition : WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvResumePartitionTime(partition : WHV_PARTITION_HANDLE) -> ::windows_core::HRESULT);
     WHvResumePartitionTime(partition.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvRetargetVpciDeviceInterrupt<P0>(partition: P0, logicaldeviceid: u64, msiaddress: u64, msidata: u32, target: *const WHV_VPCI_INTERRUPT_TARGET) -> ::windows::core::Result<()>
+pub unsafe fn WHvRetargetVpciDeviceInterrupt<P0>(partition: P0, logicaldeviceid: u64, msiaddress: u64, msidata: u32, target: *const WHV_VPCI_INTERRUPT_TARGET) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvRetargetVpciDeviceInterrupt(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, msiaddress : u64, msidata : u32, target : *const WHV_VPCI_INTERRUPT_TARGET) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvRetargetVpciDeviceInterrupt(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, msiaddress : u64, msidata : u32, target : *const WHV_VPCI_INTERRUPT_TARGET) -> ::windows_core::HRESULT);
     WHvRetargetVpciDeviceInterrupt(partition.into_param().abi(), logicaldeviceid, msiaddress, msidata, target).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvRunVirtualProcessor<P0>(partition: P0, vpindex: u32, exitcontext: *mut ::core::ffi::c_void, exitcontextsizeinbytes: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvRunVirtualProcessor<P0>(partition: P0, vpindex: u32, exitcontext: *mut ::core::ffi::c_void, exitcontextsizeinbytes: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvRunVirtualProcessor(partition : WHV_PARTITION_HANDLE, vpindex : u32, exitcontext : *mut ::core::ffi::c_void, exitcontextsizeinbytes : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvRunVirtualProcessor(partition : WHV_PARTITION_HANDLE, vpindex : u32, exitcontext : *mut ::core::ffi::c_void, exitcontextsizeinbytes : u32) -> ::windows_core::HRESULT);
     WHvRunVirtualProcessor(partition.into_param().abi(), vpindex, exitcontext, exitcontextsizeinbytes).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvSetNotificationPortProperty<P0>(partition: P0, porthandle: *const ::core::ffi::c_void, propertycode: WHV_NOTIFICATION_PORT_PROPERTY_CODE, propertyvalue: u64) -> ::windows::core::Result<()>
+pub unsafe fn WHvSetNotificationPortProperty<P0>(partition: P0, porthandle: *const ::core::ffi::c_void, propertycode: WHV_NOTIFICATION_PORT_PROPERTY_CODE, propertyvalue: u64) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSetNotificationPortProperty(partition : WHV_PARTITION_HANDLE, porthandle : *const ::core::ffi::c_void, propertycode : WHV_NOTIFICATION_PORT_PROPERTY_CODE, propertyvalue : u64) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSetNotificationPortProperty(partition : WHV_PARTITION_HANDLE, porthandle : *const ::core::ffi::c_void, propertycode : WHV_NOTIFICATION_PORT_PROPERTY_CODE, propertyvalue : u64) -> ::windows_core::HRESULT);
     WHvSetNotificationPortProperty(partition.into_param().abi(), porthandle, propertycode, propertyvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvSetPartitionProperty<P0>(partition: P0, propertycode: WHV_PARTITION_PROPERTY_CODE, propertybuffer: *const ::core::ffi::c_void, propertybuffersizeinbytes: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvSetPartitionProperty<P0>(partition: P0, propertycode: WHV_PARTITION_PROPERTY_CODE, propertybuffer: *const ::core::ffi::c_void, propertybuffersizeinbytes: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSetPartitionProperty(partition : WHV_PARTITION_HANDLE, propertycode : WHV_PARTITION_PROPERTY_CODE, propertybuffer : *const ::core::ffi::c_void, propertybuffersizeinbytes : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSetPartitionProperty(partition : WHV_PARTITION_HANDLE, propertycode : WHV_PARTITION_PROPERTY_CODE, propertybuffer : *const ::core::ffi::c_void, propertybuffersizeinbytes : u32) -> ::windows_core::HRESULT);
     WHvSetPartitionProperty(partition.into_param().abi(), propertycode, propertybuffer, propertybuffersizeinbytes).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvSetVirtualProcessorInterruptControllerState<P0>(partition: P0, vpindex: u32, state: *const ::core::ffi::c_void, statesize: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvSetVirtualProcessorInterruptControllerState<P0>(partition: P0, vpindex: u32, state: *const ::core::ffi::c_void, statesize: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSetVirtualProcessorInterruptControllerState(partition : WHV_PARTITION_HANDLE, vpindex : u32, state : *const ::core::ffi::c_void, statesize : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSetVirtualProcessorInterruptControllerState(partition : WHV_PARTITION_HANDLE, vpindex : u32, state : *const ::core::ffi::c_void, statesize : u32) -> ::windows_core::HRESULT);
     WHvSetVirtualProcessorInterruptControllerState(partition.into_param().abi(), vpindex, state, statesize).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvSetVirtualProcessorInterruptControllerState2<P0>(partition: P0, vpindex: u32, state: *const ::core::ffi::c_void, statesize: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvSetVirtualProcessorInterruptControllerState2<P0>(partition: P0, vpindex: u32, state: *const ::core::ffi::c_void, statesize: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSetVirtualProcessorInterruptControllerState2(partition : WHV_PARTITION_HANDLE, vpindex : u32, state : *const ::core::ffi::c_void, statesize : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSetVirtualProcessorInterruptControllerState2(partition : WHV_PARTITION_HANDLE, vpindex : u32, state : *const ::core::ffi::c_void, statesize : u32) -> ::windows_core::HRESULT);
     WHvSetVirtualProcessorInterruptControllerState2(partition.into_param().abi(), vpindex, state, statesize).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvSetVirtualProcessorRegisters<P0>(partition: P0, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *const WHV_REGISTER_VALUE) -> ::windows::core::Result<()>
+pub unsafe fn WHvSetVirtualProcessorRegisters<P0>(partition: P0, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *const WHV_REGISTER_VALUE) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSetVirtualProcessorRegisters(partition : WHV_PARTITION_HANDLE, vpindex : u32, registernames : *const WHV_REGISTER_NAME, registercount : u32, registervalues : *const WHV_REGISTER_VALUE) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSetVirtualProcessorRegisters(partition : WHV_PARTITION_HANDLE, vpindex : u32, registernames : *const WHV_REGISTER_NAME, registercount : u32, registervalues : *const WHV_REGISTER_VALUE) -> ::windows_core::HRESULT);
     WHvSetVirtualProcessorRegisters(partition.into_param().abi(), vpindex, registernames, registercount, registervalues).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvSetVirtualProcessorState<P0>(partition: P0, vpindex: u32, statetype: WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer: *const ::core::ffi::c_void, buffersizeinbytes: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvSetVirtualProcessorState<P0>(partition: P0, vpindex: u32, statetype: WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer: *const ::core::ffi::c_void, buffersizeinbytes: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSetVirtualProcessorState(partition : WHV_PARTITION_HANDLE, vpindex : u32, statetype : WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer : *const ::core::ffi::c_void, buffersizeinbytes : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSetVirtualProcessorState(partition : WHV_PARTITION_HANDLE, vpindex : u32, statetype : WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer : *const ::core::ffi::c_void, buffersizeinbytes : u32) -> ::windows_core::HRESULT);
     WHvSetVirtualProcessorState(partition.into_param().abi(), vpindex, statetype, buffer, buffersizeinbytes).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvSetVirtualProcessorXsaveState<P0>(partition: P0, vpindex: u32, buffer: *const ::core::ffi::c_void, buffersizeinbytes: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvSetVirtualProcessorXsaveState<P0>(partition: P0, vpindex: u32, buffer: *const ::core::ffi::c_void, buffersizeinbytes: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSetVirtualProcessorXsaveState(partition : WHV_PARTITION_HANDLE, vpindex : u32, buffer : *const ::core::ffi::c_void, buffersizeinbytes : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSetVirtualProcessorXsaveState(partition : WHV_PARTITION_HANDLE, vpindex : u32, buffer : *const ::core::ffi::c_void, buffersizeinbytes : u32) -> ::windows_core::HRESULT);
     WHvSetVirtualProcessorXsaveState(partition.into_param().abi(), vpindex, buffer, buffersizeinbytes).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_System_Power\"`*"]
 #[cfg(feature = "Win32_System_Power")]
 #[inline]
-pub unsafe fn WHvSetVpciDevicePowerState<P0>(partition: P0, logicaldeviceid: u64, powerstate: super::Power::DEVICE_POWER_STATE) -> ::windows::core::Result<()>
+pub unsafe fn WHvSetVpciDevicePowerState<P0>(partition: P0, logicaldeviceid: u64, powerstate: super::Power::DEVICE_POWER_STATE) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSetVpciDevicePowerState(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, powerstate : super::Power:: DEVICE_POWER_STATE) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSetVpciDevicePowerState(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, powerstate : super::Power:: DEVICE_POWER_STATE) -> ::windows_core::HRESULT);
     WHvSetVpciDevicePowerState(partition.into_param().abi(), logicaldeviceid, powerstate).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvSetupPartition<P0>(partition: P0) -> ::windows::core::Result<()>
+pub unsafe fn WHvSetupPartition<P0>(partition: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSetupPartition(partition : WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSetupPartition(partition : WHV_PARTITION_HANDLE) -> ::windows_core::HRESULT);
     WHvSetupPartition(partition.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WHvSignalVirtualProcessorSynicEvent<P0>(partition: P0, synicevent: WHV_SYNIC_EVENT_PARAMETERS, newlysignaled: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()>
+pub unsafe fn WHvSignalVirtualProcessorSynicEvent<P0>(partition: P0, synicevent: WHV_SYNIC_EVENT_PARAMETERS, newlysignaled: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSignalVirtualProcessorSynicEvent(partition : WHV_PARTITION_HANDLE, synicevent : WHV_SYNIC_EVENT_PARAMETERS, newlysignaled : *mut super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSignalVirtualProcessorSynicEvent(partition : WHV_PARTITION_HANDLE, synicevent : WHV_SYNIC_EVENT_PARAMETERS, newlysignaled : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     WHvSignalVirtualProcessorSynicEvent(partition.into_param().abi(), ::core::mem::transmute(synicevent), ::core::mem::transmute(newlysignaled.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WHvStartPartitionMigration<P0>(partition: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn WHvStartPartitionMigration<P0>(partition: P0) -> ::windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvStartPartitionMigration(partition : WHV_PARTITION_HANDLE, migrationhandle : *mut super::super::Foundation:: HANDLE) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvStartPartitionMigration(partition : WHV_PARTITION_HANDLE, migrationhandle : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
     WHvStartPartitionMigration(partition.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvSuspendPartitionTime<P0>(partition: P0) -> ::windows::core::Result<()>
+pub unsafe fn WHvSuspendPartitionTime<P0>(partition: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSuspendPartitionTime(partition : WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSuspendPartitionTime(partition : WHV_PARTITION_HANDLE) -> ::windows_core::HRESULT);
     WHvSuspendPartitionTime(partition.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvTranslateGva<P0>(partition: P0, vpindex: u32, gva: u64, translateflags: WHV_TRANSLATE_GVA_FLAGS, translationresult: *mut WHV_TRANSLATE_GVA_RESULT, gpa: *mut u64) -> ::windows::core::Result<()>
+pub unsafe fn WHvTranslateGva<P0>(partition: P0, vpindex: u32, gva: u64, translateflags: WHV_TRANSLATE_GVA_FLAGS, translationresult: *mut WHV_TRANSLATE_GVA_RESULT, gpa: *mut u64) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvTranslateGva(partition : WHV_PARTITION_HANDLE, vpindex : u32, gva : u64, translateflags : WHV_TRANSLATE_GVA_FLAGS, translationresult : *mut WHV_TRANSLATE_GVA_RESULT, gpa : *mut u64) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvTranslateGva(partition : WHV_PARTITION_HANDLE, vpindex : u32, gva : u64, translateflags : WHV_TRANSLATE_GVA_FLAGS, translationresult : *mut WHV_TRANSLATE_GVA_RESULT, gpa : *mut u64) -> ::windows_core::HRESULT);
     WHvTranslateGva(partition.into_param().abi(), vpindex, gva, translateflags, translationresult, gpa).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvUnmapGpaRange<P0>(partition: P0, guestaddress: u64, sizeinbytes: u64) -> ::windows::core::Result<()>
+pub unsafe fn WHvUnmapGpaRange<P0>(partition: P0, guestaddress: u64, sizeinbytes: u64) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvUnmapGpaRange(partition : WHV_PARTITION_HANDLE, guestaddress : u64, sizeinbytes : u64) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvUnmapGpaRange(partition : WHV_PARTITION_HANDLE, guestaddress : u64, sizeinbytes : u64) -> ::windows_core::HRESULT);
     WHvUnmapGpaRange(partition.into_param().abi(), guestaddress, sizeinbytes).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvUnmapVpciDeviceInterrupt<P0>(partition: P0, logicaldeviceid: u64, index: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvUnmapVpciDeviceInterrupt<P0>(partition: P0, logicaldeviceid: u64, index: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvUnmapVpciDeviceInterrupt(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, index : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvUnmapVpciDeviceInterrupt(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, index : u32) -> ::windows_core::HRESULT);
     WHvUnmapVpciDeviceInterrupt(partition.into_param().abi(), logicaldeviceid, index).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvUnmapVpciDeviceMmioRanges<P0>(partition: P0, logicaldeviceid: u64) -> ::windows::core::Result<()>
+pub unsafe fn WHvUnmapVpciDeviceMmioRanges<P0>(partition: P0, logicaldeviceid: u64) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvUnmapVpciDeviceMmioRanges(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvUnmapVpciDeviceMmioRanges(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64) -> ::windows_core::HRESULT);
     WHvUnmapVpciDeviceMmioRanges(partition.into_param().abi(), logicaldeviceid).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvUnregisterPartitionDoorbellEvent<P0>(partition: P0, matchdata: *const WHV_DOORBELL_MATCH_DATA) -> ::windows::core::Result<()>
+pub unsafe fn WHvUnregisterPartitionDoorbellEvent<P0>(partition: P0, matchdata: *const WHV_DOORBELL_MATCH_DATA) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvUnregisterPartitionDoorbellEvent(partition : WHV_PARTITION_HANDLE, matchdata : *const WHV_DOORBELL_MATCH_DATA) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvUnregisterPartitionDoorbellEvent(partition : WHV_PARTITION_HANDLE, matchdata : *const WHV_DOORBELL_MATCH_DATA) -> ::windows_core::HRESULT);
     WHvUnregisterPartitionDoorbellEvent(partition.into_param().abi(), matchdata).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvUpdateTriggerParameters<P0>(partition: P0, parameters: *const WHV_TRIGGER_PARAMETERS, triggerhandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn WHvUpdateTriggerParameters<P0>(partition: P0, parameters: *const WHV_TRIGGER_PARAMETERS, triggerhandle: *const ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvUpdateTriggerParameters(partition : WHV_PARTITION_HANDLE, parameters : *const WHV_TRIGGER_PARAMETERS, triggerhandle : *const ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvUpdateTriggerParameters(partition : WHV_PARTITION_HANDLE, parameters : *const WHV_TRIGGER_PARAMETERS, triggerhandle : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     WHvUpdateTriggerParameters(partition.into_param().abi(), parameters, triggerhandle).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvWriteGpaRange<P0>(partition: P0, vpindex: u32, guestaddress: u64, controls: WHV_ACCESS_GPA_CONTROLS, data: *const ::core::ffi::c_void, datasizeinbytes: u32) -> ::windows::core::Result<()>
+pub unsafe fn WHvWriteGpaRange<P0>(partition: P0, vpindex: u32, guestaddress: u64, controls: WHV_ACCESS_GPA_CONTROLS, data: *const ::core::ffi::c_void, datasizeinbytes: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvWriteGpaRange(partition : WHV_PARTITION_HANDLE, vpindex : u32, guestaddress : u64, controls : WHV_ACCESS_GPA_CONTROLS, data : *const ::core::ffi::c_void, datasizeinbytes : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvWriteGpaRange(partition : WHV_PARTITION_HANDLE, vpindex : u32, guestaddress : u64, controls : WHV_ACCESS_GPA_CONTROLS, data : *const ::core::ffi::c_void, datasizeinbytes : u32) -> ::windows_core::HRESULT);
     WHvWriteGpaRange(partition.into_param().abi(), vpindex, guestaddress, ::core::mem::transmute(controls), data, datasizeinbytes).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvWriteVpciDeviceRegister<P0>(partition: P0, logicaldeviceid: u64, register: *const WHV_VPCI_DEVICE_REGISTER, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn WHvWriteVpciDeviceRegister<P0>(partition: P0, logicaldeviceid: u64, register: *const WHV_VPCI_DEVICE_REGISTER, data: *const ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<WHV_PARTITION_HANDLE>,
+    P0: ::windows_core::IntoParam<WHV_PARTITION_HANDLE>,
 {
-    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvWriteVpciDeviceRegister(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, register : *const WHV_VPCI_DEVICE_REGISTER, data : *const ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("winhvplatform.dll" "system" fn WHvWriteVpciDeviceRegister(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, register : *const WHV_VPCI_DEVICE_REGISTER, data : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     WHvWriteVpciDeviceRegister(partition.into_param().abi(), logicaldeviceid, register, data).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ff2c92b_6598_4e60_8e1c_0ccf4927e319);
+pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ff2c92b_6598_4e60_8e1c_0ccf4927e319);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HDV_PCI_BAR_COUNT: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
@@ -1044,25 +1044,25 @@ pub const HVSOCKET_CONNECT_TIMEOUT_MAX: u32 = 300000u32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HVSOCKET_HIGH_VTL: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HV_GUID_BROADCAST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffffffff_ffff_ffff_ffff_ffffffffffff);
+pub const HV_GUID_BROADCAST: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xffffffff_ffff_ffff_ffff_ffffffffffff);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HV_GUID_CHILDREN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90db8b89_0d35_4f79_8ce9_49ea0ac8b7cd);
+pub const HV_GUID_CHILDREN: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x90db8b89_0d35_4f79_8ce9_49ea0ac8b7cd);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HV_GUID_LOOPBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0e16197_dd56_4a10_9195_5ee7a155a838);
+pub const HV_GUID_LOOPBACK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe0e16197_dd56_4a10_9195_5ee7a155a838);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HV_GUID_PARENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa42e7cda_d03f_480c_9cc2_a4de20abb878);
+pub const HV_GUID_PARENT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa42e7cda_d03f_480c_9cc2_a4de20abb878);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HV_GUID_SILOHOST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36bd0c5c_7276_4223_88ba_7d03b654c568);
+pub const HV_GUID_SILOHOST: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36bd0c5c_7276_4223_88ba_7d03b654c568);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HV_GUID_VSOCK_TEMPLATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_facb_11e6_bd58_64006a7986d3);
+pub const HV_GUID_VSOCK_TEMPLATE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000000_facb_11e6_bd58_64006a7986d3);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HV_GUID_ZERO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub const HV_GUID_ZERO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HV_PROTOCOL_RAW: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const IOCTL_VMGENCOUNTER_READ: u32 = 3325956u32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const VM_GENCOUNTER_SYMBOLIC_LINK_NAME: ::windows::core::PCWSTR = ::windows::core::w!("\\VmGenerationCounter");
+pub const VM_GENCOUNTER_SYMBOLIC_LINK_NAME: ::windows_core::PCWSTR = ::windows_core::w!("\\VmGenerationCounter");
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHV_ANY_VP: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
@@ -1106,8 +1106,8 @@ impl ::core::default::Default for GUEST_OS_MICROSOFT_IDS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for GUEST_OS_MICROSOFT_IDS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GUEST_OS_MICROSOFT_IDS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for GUEST_OS_MICROSOFT_IDS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1139,8 +1139,8 @@ impl ::core::default::Default for GUEST_OS_OPENSOURCE_IDS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for GUEST_OS_OPENSOURCE_IDS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GUEST_OS_OPENSOURCE_IDS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for GUEST_OS_OPENSOURCE_IDS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1170,8 +1170,8 @@ impl ::core::default::Default for GUEST_OS_VENDOR {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for GUEST_OS_VENDOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GUEST_OS_VENDOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for GUEST_OS_VENDOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1197,8 +1197,8 @@ impl ::core::default::Default for HDV_DEVICE_HOST_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HDV_DEVICE_HOST_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HDV_DEVICE_HOST_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HDV_DEVICE_HOST_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1257,8 +1257,8 @@ impl ::core::default::Default for HDV_DEVICE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HDV_DEVICE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HDV_DEVICE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HDV_DEVICE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1292,8 +1292,8 @@ impl ::core::default::Default for HDV_DOORBELL_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HDV_DOORBELL_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HDV_DOORBELL_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HDV_DOORBELL_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1321,8 +1321,8 @@ impl ::core::default::Default for HDV_MMIO_MAPPING_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HDV_MMIO_MAPPING_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HDV_MMIO_MAPPING_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HDV_MMIO_MAPPING_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1389,8 +1389,8 @@ impl ::core::default::Default for HDV_PCI_BAR_SELECTOR {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HDV_PCI_BAR_SELECTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HDV_PCI_BAR_SELECTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HDV_PCI_BAR_SELECTOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1416,8 +1416,8 @@ impl ::core::default::Default for HDV_PCI_INTERFACE_VERSION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HDV_PCI_INTERFACE_VERSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HDV_PCI_INTERFACE_VERSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HDV_PCI_INTERFACE_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1451,8 +1451,8 @@ impl ::core::default::Default for PAGING_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for PAGING_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PAGING_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for PAGING_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1792,8 +1792,8 @@ impl ::core::default::Default for REGISTER_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for REGISTER_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for REGISTER_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for REGISTER_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1823,8 +1823,8 @@ impl ::core::default::Default for VIRTUAL_PROCESSOR_ARCH {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_ARCH {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIRTUAL_PROCESSOR_ARCH {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_ARCH {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1856,8 +1856,8 @@ impl ::core::default::Default for VIRTUAL_PROCESSOR_VENDOR {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_VENDOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIRTUAL_PROCESSOR_VENDOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_VENDOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1885,8 +1885,8 @@ impl ::core::default::Default for WHV_ADVISE_GPA_RANGE_CODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_ADVISE_GPA_RANGE_CODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_ADVISE_GPA_RANGE_CODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_ADVISE_GPA_RANGE_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1912,8 +1912,8 @@ impl ::core::default::Default for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1976,8 +1976,8 @@ impl ::core::default::Default for WHV_CACHE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_CACHE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_CACHE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_CACHE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2033,8 +2033,8 @@ impl ::core::default::Default for WHV_CAPABILITY_CODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_CAPABILITY_CODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_CAPABILITY_CODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_CAPABILITY_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2062,8 +2062,8 @@ impl ::core::default::Default for WHV_CREATE_VPCI_DEVICE_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_CREATE_VPCI_DEVICE_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_CREATE_VPCI_DEVICE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_CREATE_VPCI_DEVICE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2152,8 +2152,8 @@ impl ::core::default::Default for WHV_EXCEPTION_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_EXCEPTION_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_EXCEPTION_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_EXCEPTION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2179,8 +2179,8 @@ impl ::core::default::Default for WHV_INTERRUPT_DESTINATION_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_INTERRUPT_DESTINATION_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_INTERRUPT_DESTINATION_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_INTERRUPT_DESTINATION_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2206,8 +2206,8 @@ impl ::core::default::Default for WHV_INTERRUPT_TRIGGER_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_INTERRUPT_TRIGGER_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_INTERRUPT_TRIGGER_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_INTERRUPT_TRIGGER_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2241,8 +2241,8 @@ impl ::core::default::Default for WHV_INTERRUPT_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_INTERRUPT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_INTERRUPT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_INTERRUPT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2274,8 +2274,8 @@ impl ::core::default::Default for WHV_MAP_GPA_RANGE_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_MAP_GPA_RANGE_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_MAP_GPA_RANGE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_MAP_GPA_RANGE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2336,8 +2336,8 @@ impl ::core::default::Default for WHV_MEMORY_ACCESS_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_MEMORY_ACCESS_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_MEMORY_ACCESS_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_MEMORY_ACCESS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2365,8 +2365,8 @@ impl ::core::default::Default for WHV_MSR_ACTION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_MSR_ACTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_MSR_ACTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_MSR_ACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2392,8 +2392,8 @@ impl ::core::default::Default for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2419,8 +2419,8 @@ impl ::core::default::Default for WHV_NOTIFICATION_PORT_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_NOTIFICATION_PORT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_NOTIFICATION_PORT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_NOTIFICATION_PORT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2444,8 +2444,8 @@ impl ::core::default::Default for WHV_PARTITION_COUNTER_SET {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_PARTITION_COUNTER_SET {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PARTITION_COUNTER_SET {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_PARTITION_COUNTER_SET {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2527,8 +2527,8 @@ impl ::core::default::Default for WHV_PARTITION_PROPERTY_CODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_PARTITION_PROPERTY_CODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PARTITION_PROPERTY_CODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_PARTITION_PROPERTY_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2560,8 +2560,8 @@ impl ::core::default::Default for WHV_PROCESSOR_COUNTER_SET {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_PROCESSOR_COUNTER_SET {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PROCESSOR_COUNTER_SET {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_PROCESSOR_COUNTER_SET {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2589,8 +2589,8 @@ impl ::core::default::Default for WHV_PROCESSOR_VENDOR {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_PROCESSOR_VENDOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PROCESSOR_VENDOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_PROCESSOR_VENDOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3064,8 +3064,8 @@ impl ::core::default::Default for WHV_REGISTER_NAME {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_REGISTER_NAME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_REGISTER_NAME {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_REGISTER_NAME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3089,8 +3089,8 @@ impl ::core::default::Default for WHV_RUN_VP_CANCEL_REASON {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_RUN_VP_CANCEL_REASON {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_RUN_VP_CANCEL_REASON {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_RUN_VP_CANCEL_REASON {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3150,8 +3150,8 @@ impl ::core::default::Default for WHV_RUN_VP_EXIT_REASON {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_RUN_VP_EXIT_REASON {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_RUN_VP_EXIT_REASON {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_RUN_VP_EXIT_REASON {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3189,8 +3189,8 @@ impl ::core::default::Default for WHV_TRANSLATE_GVA_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_TRANSLATE_GVA_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_TRANSLATE_GVA_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_TRANSLATE_GVA_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3263,8 +3263,8 @@ impl ::core::default::Default for WHV_TRANSLATE_GVA_RESULT_CODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_TRANSLATE_GVA_RESULT_CODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_TRANSLATE_GVA_RESULT_CODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_TRANSLATE_GVA_RESULT_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3292,8 +3292,8 @@ impl ::core::default::Default for WHV_TRIGGER_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_TRIGGER_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_TRIGGER_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_TRIGGER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3317,8 +3317,8 @@ impl ::core::default::Default for WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3350,8 +3350,8 @@ impl ::core::default::Default for WHV_VIRTUAL_PROCESSOR_STATE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_VIRTUAL_PROCESSOR_STATE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_VIRTUAL_PROCESSOR_STATE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_VIRTUAL_PROCESSOR_STATE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3379,8 +3379,8 @@ impl ::core::default::Default for WHV_VPCI_DEVICE_NOTIFICATION_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_VPCI_DEVICE_NOTIFICATION_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_VPCI_DEVICE_NOTIFICATION_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_VPCI_DEVICE_NOTIFICATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3408,8 +3408,8 @@ impl ::core::default::Default for WHV_VPCI_DEVICE_PROPERTY_CODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_VPCI_DEVICE_PROPERTY_CODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_VPCI_DEVICE_PROPERTY_CODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_VPCI_DEVICE_PROPERTY_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3445,8 +3445,8 @@ impl ::core::default::Default for WHV_VPCI_DEVICE_REGISTER_SPACE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_VPCI_DEVICE_REGISTER_SPACE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_VPCI_DEVICE_REGISTER_SPACE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_VPCI_DEVICE_REGISTER_SPACE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3472,8 +3472,8 @@ impl ::core::default::Default for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3532,8 +3532,8 @@ impl ::core::default::Default for WHV_VPCI_MMIO_RANGE_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_VPCI_MMIO_RANGE_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_VPCI_MMIO_RANGE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_VPCI_MMIO_RANGE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3598,8 +3598,8 @@ impl ::core::default::Default for WHV_X64_APIC_WRITE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_APIC_WRITE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_APIC_WRITE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_X64_APIC_WRITE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3625,8 +3625,8 @@ impl ::core::default::Default for WHV_X64_CPUID_RESULT2_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_CPUID_RESULT2_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_CPUID_RESULT2_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_X64_CPUID_RESULT2_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3687,8 +3687,8 @@ impl ::core::default::Default for WHV_X64_LOCAL_APIC_EMULATION_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_LOCAL_APIC_EMULATION_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_LOCAL_APIC_EMULATION_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_X64_LOCAL_APIC_EMULATION_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3714,8 +3714,8 @@ impl ::core::default::Default for WHV_X64_PENDING_EVENT_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_PENDING_EVENT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_PENDING_EVENT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_X64_PENDING_EVENT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3743,8 +3743,8 @@ impl ::core::default::Default for WHV_X64_PENDING_INTERRUPTION_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_PENDING_INTERRUPTION_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_PENDING_INTERRUPTION_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_X64_PENDING_INTERRUPTION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3770,8 +3770,8 @@ impl ::core::default::Default for WHV_X64_UNSUPPORTED_FEATURE_CODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_UNSUPPORTED_FEATURE_CODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_UNSUPPORTED_FEATURE_CODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_X64_UNSUPPORTED_FEATURE_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3781,7 +3781,7 @@ impl ::core::fmt::Debug for WHV_X64_UNSUPPORTED_FEATURE_CODE {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub struct DOS_IMAGE_INFO {
-    pub PdbName: ::windows::core::PCSTR,
+    pub PdbName: ::windows_core::PCSTR,
     pub ImageBaseAddress: u64,
     pub ImageSize: u32,
     pub Timestamp: u32,
@@ -3797,8 +3797,8 @@ impl ::core::fmt::Debug for DOS_IMAGE_INFO {
         f.debug_struct("DOS_IMAGE_INFO").field("PdbName", &self.PdbName).field("ImageBaseAddress", &self.ImageBaseAddress).field("ImageSize", &self.ImageSize).field("Timestamp", &self.Timestamp).finish()
     }
 }
-impl ::windows::core::TypeKind for DOS_IMAGE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DOS_IMAGE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DOS_IMAGE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -3828,8 +3828,8 @@ impl ::core::fmt::Debug for GPA_MEMORY_CHUNK {
         f.debug_struct("GPA_MEMORY_CHUNK").field("GuestPhysicalStartPageIndex", &self.GuestPhysicalStartPageIndex).field("PageCount", &self.PageCount).finish()
     }
 }
-impl ::windows::core::TypeKind for GPA_MEMORY_CHUNK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GPA_MEMORY_CHUNK {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for GPA_MEMORY_CHUNK {
     fn eq(&self, other: &Self) -> bool {
@@ -3855,8 +3855,8 @@ impl ::core::clone::Clone for GUEST_OS_INFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for GUEST_OS_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GUEST_OS_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for GUEST_OS_INFO {
     fn default() -> Self {
@@ -3879,8 +3879,8 @@ impl ::core::fmt::Debug for GUEST_OS_INFO_0 {
         f.debug_struct("GUEST_OS_INFO_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for GUEST_OS_INFO_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GUEST_OS_INFO_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for GUEST_OS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -3909,8 +3909,8 @@ impl ::core::fmt::Debug for GUEST_OS_INFO_1 {
         f.debug_struct("GUEST_OS_INFO_1").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for GUEST_OS_INFO_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GUEST_OS_INFO_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for GUEST_OS_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -3949,8 +3949,8 @@ impl ::core::fmt::Debug for HDV_PCI_DEVICE_INTERFACE {
         f.debug_struct("HDV_PCI_DEVICE_INTERFACE").field("Version", &self.Version).finish()
     }
 }
-impl ::windows::core::TypeKind for HDV_PCI_DEVICE_INTERFACE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HDV_PCI_DEVICE_INTERFACE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for HDV_PCI_DEVICE_INTERFACE {
     fn default() -> Self {
@@ -3980,8 +3980,8 @@ impl ::core::fmt::Debug for HDV_PCI_PNP_ID {
         f.debug_struct("HDV_PCI_PNP_ID").field("VendorID", &self.VendorID).field("DeviceID", &self.DeviceID).field("RevisionID", &self.RevisionID).field("ProgIf", &self.ProgIf).field("SubClass", &self.SubClass).field("BaseClass", &self.BaseClass).field("SubVendorID", &self.SubVendorID).field("SubSystemID", &self.SubSystemID).finish()
     }
 }
-impl ::windows::core::TypeKind for HDV_PCI_PNP_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HDV_PCI_PNP_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for HDV_PCI_PNP_ID {
     fn eq(&self, other: &Self) -> bool {
@@ -3997,9 +3997,9 @@ impl ::core::default::Default for HDV_PCI_PNP_ID {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub struct HVSOCKET_ADDRESS_INFO {
-    pub SystemId: ::windows::core::GUID,
-    pub VirtualMachineId: ::windows::core::GUID,
-    pub SiloId: ::windows::core::GUID,
+    pub SystemId: ::windows_core::GUID,
+    pub VirtualMachineId: ::windows_core::GUID,
+    pub SiloId: ::windows_core::GUID,
     pub Flags: u32,
 }
 impl ::core::marker::Copy for HVSOCKET_ADDRESS_INFO {}
@@ -4013,8 +4013,8 @@ impl ::core::fmt::Debug for HVSOCKET_ADDRESS_INFO {
         f.debug_struct("HVSOCKET_ADDRESS_INFO").field("SystemId", &self.SystemId).field("VirtualMachineId", &self.VirtualMachineId).field("SiloId", &self.SiloId).field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows::core::TypeKind for HVSOCKET_ADDRESS_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HVSOCKET_ADDRESS_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for HVSOCKET_ADDRESS_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -4030,7 +4030,7 @@ impl ::core::default::Default for HVSOCKET_ADDRESS_INFO {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub struct MODULE_INFO {
-    pub ProcessImageName: ::windows::core::PCSTR,
+    pub ProcessImageName: ::windows_core::PCSTR,
     pub Image: DOS_IMAGE_INFO,
 }
 impl ::core::marker::Copy for MODULE_INFO {}
@@ -4044,8 +4044,8 @@ impl ::core::fmt::Debug for MODULE_INFO {
         f.debug_struct("MODULE_INFO").field("ProcessImageName", &self.ProcessImageName).field("Image", &self.Image).finish()
     }
 }
-impl ::windows::core::TypeKind for MODULE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MODULE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MODULE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -4064,8 +4064,8 @@ impl ::core::default::Default for MODULE_INFO {
 pub struct SOCKADDR_HV {
     pub Family: super::super::Networking::WinSock::ADDRESS_FAMILY,
     pub Reserved: u16,
-    pub VmId: ::windows::core::GUID,
-    pub ServiceId: ::windows::core::GUID,
+    pub VmId: ::windows_core::GUID,
+    pub ServiceId: ::windows_core::GUID,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for SOCKADDR_HV {}
@@ -4082,8 +4082,8 @@ impl ::core::fmt::Debug for SOCKADDR_HV {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for SOCKADDR_HV {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SOCKADDR_HV {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for SOCKADDR_HV {
@@ -4115,8 +4115,8 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER {
         *self
     }
 }
-impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER {
     fn default() -> Self {
@@ -4140,8 +4140,8 @@ impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_REGISTER_0 {
         f.debug_struct("VIRTUAL_PROCESSOR_REGISTER_0").field("Low64", &self.Low64).field("High64", &self.High64).finish()
     }
 }
-impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4168,8 +4168,8 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1 {
         *self
     }
 }
-impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER_1 {
     fn default() -> Self {
@@ -4192,8 +4192,8 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER_1_0 {
     fn default() -> Self {
@@ -4212,8 +4212,8 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
     fn default() -> Self {
@@ -4237,8 +4237,8 @@ impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
         f.debug_struct("VIRTUAL_PROCESSOR_REGISTER_1_0_0_0").field("LastFpEip", &self.LastFpEip).field("LastFpCs", &self.LastFpCs).finish()
     }
 }
-impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4265,8 +4265,8 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_1 {
         *self
     }
 }
-impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER_1_1 {
     fn default() -> Self {
@@ -4285,8 +4285,8 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
     fn default() -> Self {
@@ -4309,8 +4309,8 @@ impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
         f.debug_struct("VIRTUAL_PROCESSOR_REGISTER_1_1_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4340,8 +4340,8 @@ impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_REGISTER_1_2 {
         f.debug_struct("VIRTUAL_PROCESSOR_REGISTER_1_2").field("Limit", &self.Limit).field("Base", &self.Base).finish()
     }
 }
-impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER_1_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -4367,8 +4367,8 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_3 {
         *self
     }
 }
-impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER_1_3 {
     fn default() -> Self {
@@ -4387,8 +4387,8 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_3_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_3_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_3_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER_1_3_0 {
     fn default() -> Self {
@@ -4412,8 +4412,8 @@ impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
         f.debug_struct("VIRTUAL_PROCESSOR_REGISTER_1_3_0_0").field("LastFpDp", &self.LastFpDp).field("LastFpDs", &self.LastFpDs).finish()
     }
 }
-impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4443,8 +4443,8 @@ impl ::core::fmt::Debug for VM_GENCOUNTER {
         f.debug_struct("VM_GENCOUNTER").field("GenerationCount", &self.GenerationCount).field("GenerationCountHigh", &self.GenerationCountHigh).finish()
     }
 }
-impl ::windows::core::TypeKind for VM_GENCOUNTER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VM_GENCOUNTER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VM_GENCOUNTER {
     fn eq(&self, other: &Self) -> bool {
@@ -4469,8 +4469,8 @@ impl ::core::clone::Clone for WHV_ACCESS_GPA_CONTROLS {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_ACCESS_GPA_CONTROLS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_ACCESS_GPA_CONTROLS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_ACCESS_GPA_CONTROLS {
     fn default() -> Self {
@@ -4494,8 +4494,8 @@ impl ::core::fmt::Debug for WHV_ACCESS_GPA_CONTROLS_0 {
         f.debug_struct("WHV_ACCESS_GPA_CONTROLS_0").field("CacheType", &self.CacheType).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_ACCESS_GPA_CONTROLS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_ACCESS_GPA_CONTROLS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_ACCESS_GPA_CONTROLS_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4519,8 +4519,8 @@ impl ::core::clone::Clone for WHV_ADVISE_GPA_RANGE {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_ADVISE_GPA_RANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_ADVISE_GPA_RANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_ADVISE_GPA_RANGE {
     fn default() -> Self {
@@ -4539,8 +4539,8 @@ impl ::core::clone::Clone for WHV_ADVISE_GPA_RANGE_POPULATE {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_ADVISE_GPA_RANGE_POPULATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_ADVISE_GPA_RANGE_POPULATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_ADVISE_GPA_RANGE_POPULATE {
     fn default() -> Self {
@@ -4559,8 +4559,8 @@ impl ::core::clone::Clone for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
     fn default() -> Self {
@@ -4583,8 +4583,8 @@ impl ::core::fmt::Debug for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
         f.debug_struct("WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4628,8 +4628,8 @@ impl ::core::clone::Clone for WHV_CAPABILITY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WHV_CAPABILITY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_CAPABILITY {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WHV_CAPABILITY {
@@ -4649,8 +4649,8 @@ impl ::core::clone::Clone for WHV_CAPABILITY_FEATURES {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_CAPABILITY_FEATURES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_CAPABILITY_FEATURES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_CAPABILITY_FEATURES {
     fn default() -> Self {
@@ -4673,8 +4673,8 @@ impl ::core::fmt::Debug for WHV_CAPABILITY_FEATURES_0 {
         f.debug_struct("WHV_CAPABILITY_FEATURES_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_CAPABILITY_FEATURES_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_CAPABILITY_FEATURES_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_CAPABILITY_FEATURES_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4707,8 +4707,8 @@ impl ::core::fmt::Debug for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
         f.debug_struct("WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP").field("_bitfield", &self._bitfield).field("HighestFrequencyMhz", &self.HighestFrequencyMhz).field("NominalFrequencyMhz", &self.NominalFrequencyMhz).field("LowestFrequencyMhz", &self.LowestFrequencyMhz).field("FrequencyStepMhz", &self.FrequencyStepMhz).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
     fn eq(&self, other: &Self) -> bool {
@@ -4740,8 +4740,8 @@ impl ::core::fmt::Debug for WHV_CPUID_OUTPUT {
         f.debug_struct("WHV_CPUID_OUTPUT").field("Eax", &self.Eax).field("Ebx", &self.Ebx).field("Ecx", &self.Ecx).field("Edx", &self.Edx).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_CPUID_OUTPUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_CPUID_OUTPUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_CPUID_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -4773,8 +4773,8 @@ impl ::core::fmt::Debug for WHV_DOORBELL_MATCH_DATA {
         f.debug_struct("WHV_DOORBELL_MATCH_DATA").field("GuestAddress", &self.GuestAddress).field("Value", &self.Value).field("Length", &self.Length).field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_DOORBELL_MATCH_DATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_DOORBELL_MATCH_DATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_DOORBELL_MATCH_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -4809,8 +4809,8 @@ impl ::core::fmt::Debug for WHV_EMULATOR_CALLBACKS {
         f.debug_struct("WHV_EMULATOR_CALLBACKS").field("Size", &self.Size).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_EMULATOR_CALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_EMULATOR_CALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_EMULATOR_CALLBACKS {
     fn default() -> Self {
@@ -4836,8 +4836,8 @@ impl ::core::fmt::Debug for WHV_EMULATOR_IO_ACCESS_INFO {
         f.debug_struct("WHV_EMULATOR_IO_ACCESS_INFO").field("Direction", &self.Direction).field("Port", &self.Port).field("AccessSize", &self.AccessSize).field("Data", &self.Data).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_EMULATOR_IO_ACCESS_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_EMULATOR_IO_ACCESS_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_EMULATOR_IO_ACCESS_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -4869,8 +4869,8 @@ impl ::core::fmt::Debug for WHV_EMULATOR_MEMORY_ACCESS_INFO {
         f.debug_struct("WHV_EMULATOR_MEMORY_ACCESS_INFO").field("GpaAddress", &self.GpaAddress).field("Direction", &self.Direction).field("AccessSize", &self.AccessSize).field("Data", &self.Data).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_EMULATOR_MEMORY_ACCESS_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_EMULATOR_MEMORY_ACCESS_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_EMULATOR_MEMORY_ACCESS_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -4895,8 +4895,8 @@ impl ::core::clone::Clone for WHV_EMULATOR_STATUS {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_EMULATOR_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_EMULATOR_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_EMULATOR_STATUS {
     fn default() -> Self {
@@ -4919,8 +4919,8 @@ impl ::core::fmt::Debug for WHV_EMULATOR_STATUS_0 {
         f.debug_struct("WHV_EMULATOR_STATUS_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_EMULATOR_STATUS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_EMULATOR_STATUS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_EMULATOR_STATUS_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4945,8 +4945,8 @@ impl ::core::clone::Clone for WHV_EXTENDED_VM_EXITS {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_EXTENDED_VM_EXITS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_EXTENDED_VM_EXITS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_EXTENDED_VM_EXITS {
     fn default() -> Self {
@@ -4969,8 +4969,8 @@ impl ::core::fmt::Debug for WHV_EXTENDED_VM_EXITS_0 {
         f.debug_struct("WHV_EXTENDED_VM_EXITS_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_EXTENDED_VM_EXITS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_EXTENDED_VM_EXITS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_EXTENDED_VM_EXITS_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5003,8 +5003,8 @@ impl ::core::clone::Clone for WHV_HYPERCALL_CONTEXT {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_HYPERCALL_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_HYPERCALL_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_HYPERCALL_CONTEXT {
     fn default() -> Self {
@@ -5023,8 +5023,8 @@ impl ::core::clone::Clone for WHV_INTERNAL_ACTIVITY_REGISTER {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_INTERNAL_ACTIVITY_REGISTER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_INTERNAL_ACTIVITY_REGISTER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_INTERNAL_ACTIVITY_REGISTER {
     fn default() -> Self {
@@ -5047,8 +5047,8 @@ impl ::core::fmt::Debug for WHV_INTERNAL_ACTIVITY_REGISTER_0 {
         f.debug_struct("WHV_INTERNAL_ACTIVITY_REGISTER_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_INTERNAL_ACTIVITY_REGISTER_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_INTERNAL_ACTIVITY_REGISTER_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_INTERNAL_ACTIVITY_REGISTER_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5079,8 +5079,8 @@ impl ::core::fmt::Debug for WHV_INTERRUPT_CONTROL {
         f.debug_struct("WHV_INTERRUPT_CONTROL").field("_bitfield", &self._bitfield).field("Destination", &self.Destination).field("Vector", &self.Vector).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_INTERRUPT_CONTROL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_INTERRUPT_CONTROL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_INTERRUPT_CONTROL {
     fn eq(&self, other: &Self) -> bool {
@@ -5109,8 +5109,8 @@ impl ::core::clone::Clone for WHV_MEMORY_ACCESS_CONTEXT {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_MEMORY_ACCESS_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_MEMORY_ACCESS_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_MEMORY_ACCESS_CONTEXT {
     fn default() -> Self {
@@ -5129,8 +5129,8 @@ impl ::core::clone::Clone for WHV_MEMORY_ACCESS_INFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_MEMORY_ACCESS_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_MEMORY_ACCESS_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_MEMORY_ACCESS_INFO {
     fn default() -> Self {
@@ -5153,8 +5153,8 @@ impl ::core::fmt::Debug for WHV_MEMORY_ACCESS_INFO_0 {
         f.debug_struct("WHV_MEMORY_ACCESS_INFO_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_MEMORY_ACCESS_INFO_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_MEMORY_ACCESS_INFO_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_MEMORY_ACCESS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5184,8 +5184,8 @@ impl ::core::fmt::Debug for WHV_MEMORY_RANGE_ENTRY {
         f.debug_struct("WHV_MEMORY_RANGE_ENTRY").field("GuestAddress", &self.GuestAddress).field("SizeInBytes", &self.SizeInBytes).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_MEMORY_RANGE_ENTRY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_MEMORY_RANGE_ENTRY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_MEMORY_RANGE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -5217,8 +5217,8 @@ impl ::core::fmt::Debug for WHV_MSR_ACTION_ENTRY {
         f.debug_struct("WHV_MSR_ACTION_ENTRY").field("Index", &self.Index).field("ReadAction", &self.ReadAction).field("WriteAction", &self.WriteAction).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_MSR_ACTION_ENTRY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_MSR_ACTION_ENTRY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_MSR_ACTION_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -5244,8 +5244,8 @@ impl ::core::clone::Clone for WHV_NOTIFICATION_PORT_PARAMETERS {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_NOTIFICATION_PORT_PARAMETERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_NOTIFICATION_PORT_PARAMETERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_NOTIFICATION_PORT_PARAMETERS {
     fn default() -> Self {
@@ -5264,8 +5264,8 @@ impl ::core::clone::Clone for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
     fn default() -> Self {
@@ -5288,8 +5288,8 @@ impl ::core::fmt::Debug for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
         f.debug_struct("WHV_NOTIFICATION_PORT_PARAMETERS_0_0").field("ConnectionId", &self.ConnectionId).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5326,8 +5326,8 @@ impl ::core::fmt::Debug for WHV_PARTITION_HANDLE {
         f.debug_tuple("WHV_PARTITION_HANDLE").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_PARTITION_HANDLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PARTITION_HANDLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
@@ -5347,8 +5347,8 @@ impl ::core::fmt::Debug for WHV_PARTITION_MEMORY_COUNTERS {
         f.debug_struct("WHV_PARTITION_MEMORY_COUNTERS").field("Mapped4KPageCount", &self.Mapped4KPageCount).field("Mapped2MPageCount", &self.Mapped2MPageCount).field("Mapped1GPageCount", &self.Mapped1GPageCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_PARTITION_MEMORY_COUNTERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PARTITION_MEMORY_COUNTERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_PARTITION_MEMORY_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
@@ -5405,8 +5405,8 @@ impl ::core::clone::Clone for WHV_PARTITION_PROPERTY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WHV_PARTITION_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PARTITION_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WHV_PARTITION_PROPERTY {
@@ -5434,8 +5434,8 @@ impl ::core::fmt::Debug for WHV_PROCESSOR_APIC_COUNTERS {
         f.debug_struct("WHV_PROCESSOR_APIC_COUNTERS").field("MmioAccessCount", &self.MmioAccessCount).field("EoiAccessCount", &self.EoiAccessCount).field("TprAccessCount", &self.TprAccessCount).field("SentIpiCount", &self.SentIpiCount).field("SelfIpiCount", &self.SelfIpiCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_PROCESSOR_APIC_COUNTERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PROCESSOR_APIC_COUNTERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_APIC_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
@@ -5466,8 +5466,8 @@ impl ::core::fmt::Debug for WHV_PROCESSOR_EVENT_COUNTERS {
         f.debug_struct("WHV_PROCESSOR_EVENT_COUNTERS").field("PageFaultCount", &self.PageFaultCount).field("ExceptionCount", &self.ExceptionCount).field("InterruptCount", &self.InterruptCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_PROCESSOR_EVENT_COUNTERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PROCESSOR_EVENT_COUNTERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_EVENT_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
@@ -5492,8 +5492,8 @@ impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_PROCESSOR_FEATURES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PROCESSOR_FEATURES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_PROCESSOR_FEATURES {
     fn default() -> Self {
@@ -5516,8 +5516,8 @@ impl ::core::fmt::Debug for WHV_PROCESSOR_FEATURES_0 {
         f.debug_struct("WHV_PROCESSOR_FEATURES_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_PROCESSOR_FEATURES_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PROCESSOR_FEATURES_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_FEATURES_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5542,8 +5542,8 @@ impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES1 {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_PROCESSOR_FEATURES1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PROCESSOR_FEATURES1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_PROCESSOR_FEATURES1 {
     fn default() -> Self {
@@ -5566,8 +5566,8 @@ impl ::core::fmt::Debug for WHV_PROCESSOR_FEATURES1_0 {
         f.debug_struct("WHV_PROCESSOR_FEATURES1_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_PROCESSOR_FEATURES1_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PROCESSOR_FEATURES1_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_FEATURES1_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5593,8 +5593,8 @@ impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES_BANKS {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_PROCESSOR_FEATURES_BANKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PROCESSOR_FEATURES_BANKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_PROCESSOR_FEATURES_BANKS {
     fn default() -> Self {
@@ -5613,8 +5613,8 @@ impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES_BANKS_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_PROCESSOR_FEATURES_BANKS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PROCESSOR_FEATURES_BANKS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_PROCESSOR_FEATURES_BANKS_0 {
     fn default() -> Self {
@@ -5633,8 +5633,8 @@ impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
     fn default() -> Self {
@@ -5658,8 +5658,8 @@ impl ::core::fmt::Debug for WHV_PROCESSOR_INTERCEPT_COUNTER {
         f.debug_struct("WHV_PROCESSOR_INTERCEPT_COUNTER").field("Count", &self.Count).field("Time100ns", &self.Time100ns).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_PROCESSOR_INTERCEPT_COUNTER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PROCESSOR_INTERCEPT_COUNTER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_INTERCEPT_COUNTER {
     fn eq(&self, other: &Self) -> bool {
@@ -5716,8 +5716,8 @@ impl ::core::fmt::Debug for WHV_PROCESSOR_INTERCEPT_COUNTERS {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_PROCESSOR_INTERCEPT_COUNTERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PROCESSOR_INTERCEPT_COUNTERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_INTERCEPT_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
@@ -5742,8 +5742,8 @@ impl ::core::clone::Clone for WHV_PROCESSOR_PERFMON_FEATURES {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_PROCESSOR_PERFMON_FEATURES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PROCESSOR_PERFMON_FEATURES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_PROCESSOR_PERFMON_FEATURES {
     fn default() -> Self {
@@ -5766,8 +5766,8 @@ impl ::core::fmt::Debug for WHV_PROCESSOR_PERFMON_FEATURES_0 {
         f.debug_struct("WHV_PROCESSOR_PERFMON_FEATURES_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_PROCESSOR_PERFMON_FEATURES_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PROCESSOR_PERFMON_FEATURES_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_PERFMON_FEATURES_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5797,8 +5797,8 @@ impl ::core::fmt::Debug for WHV_PROCESSOR_RUNTIME_COUNTERS {
         f.debug_struct("WHV_PROCESSOR_RUNTIME_COUNTERS").field("TotalRuntime100ns", &self.TotalRuntime100ns).field("HypervisorRuntime100ns", &self.HypervisorRuntime100ns).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_PROCESSOR_RUNTIME_COUNTERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PROCESSOR_RUNTIME_COUNTERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_RUNTIME_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
@@ -5839,8 +5839,8 @@ impl ::core::fmt::Debug for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
@@ -5865,8 +5865,8 @@ impl ::core::clone::Clone for WHV_PROCESSOR_XSAVE_FEATURES {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_PROCESSOR_XSAVE_FEATURES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PROCESSOR_XSAVE_FEATURES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_PROCESSOR_XSAVE_FEATURES {
     fn default() -> Self {
@@ -5889,8 +5889,8 @@ impl ::core::fmt::Debug for WHV_PROCESSOR_XSAVE_FEATURES_0 {
         f.debug_struct("WHV_PROCESSOR_XSAVE_FEATURES_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_PROCESSOR_XSAVE_FEATURES_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_PROCESSOR_XSAVE_FEATURES_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_XSAVE_FEATURES_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5930,8 +5930,8 @@ impl ::core::clone::Clone for WHV_REGISTER_VALUE {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_REGISTER_VALUE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_REGISTER_VALUE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_REGISTER_VALUE {
     fn default() -> Self {
@@ -5954,8 +5954,8 @@ impl ::core::fmt::Debug for WHV_RUN_VP_CANCELED_CONTEXT {
         f.debug_struct("WHV_RUN_VP_CANCELED_CONTEXT").field("CancelReason", &self.CancelReason).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_RUN_VP_CANCELED_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_RUN_VP_CANCELED_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_RUN_VP_CANCELED_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -5982,8 +5982,8 @@ impl ::core::clone::Clone for WHV_RUN_VP_EXIT_CONTEXT {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_RUN_VP_EXIT_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_RUN_VP_EXIT_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_RUN_VP_EXIT_CONTEXT {
     fn default() -> Self {
@@ -6015,8 +6015,8 @@ impl ::core::clone::Clone for WHV_RUN_VP_EXIT_CONTEXT_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_RUN_VP_EXIT_CONTEXT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_RUN_VP_EXIT_CONTEXT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_RUN_VP_EXIT_CONTEXT_0 {
     fn default() -> Self {
@@ -6035,8 +6035,8 @@ impl ::core::clone::Clone for WHV_SCHEDULER_FEATURES {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_SCHEDULER_FEATURES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_SCHEDULER_FEATURES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_SCHEDULER_FEATURES {
     fn default() -> Self {
@@ -6059,8 +6059,8 @@ impl ::core::fmt::Debug for WHV_SCHEDULER_FEATURES_0 {
         f.debug_struct("WHV_SCHEDULER_FEATURES_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_SCHEDULER_FEATURES_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_SCHEDULER_FEATURES_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_SCHEDULER_FEATURES_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -6097,8 +6097,8 @@ impl ::core::fmt::Debug for WHV_SRIOV_RESOURCE_DESCRIPTOR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WHV_SRIOV_RESOURCE_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_SRIOV_RESOURCE_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WHV_SRIOV_RESOURCE_DESCRIPTOR {
@@ -6133,8 +6133,8 @@ impl ::core::fmt::Debug for WHV_SYNIC_EVENT_PARAMETERS {
         f.debug_struct("WHV_SYNIC_EVENT_PARAMETERS").field("VpIndex", &self.VpIndex).field("TargetSint", &self.TargetSint).field("Reserved", &self.Reserved).field("FlagNumber", &self.FlagNumber).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_SYNIC_EVENT_PARAMETERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_SYNIC_EVENT_PARAMETERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_SYNIC_EVENT_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -6165,8 +6165,8 @@ impl ::core::fmt::Debug for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
         f.debug_struct("WHV_SYNIC_SINT_DELIVERABLE_CONTEXT").field("DeliverableSints", &self.DeliverableSints).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -6191,8 +6191,8 @@ impl ::core::clone::Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_SYNTHETIC_PROCESSOR_FEATURES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_SYNTHETIC_PROCESSOR_FEATURES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_SYNTHETIC_PROCESSOR_FEATURES {
     fn default() -> Self {
@@ -6215,8 +6215,8 @@ impl ::core::fmt::Debug for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
         f.debug_struct("WHV_SYNTHETIC_PROCESSOR_FEATURES_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -6242,8 +6242,8 @@ impl ::core::clone::Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
     fn default() -> Self {
@@ -6262,8 +6262,8 @@ impl ::core::clone::Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
     fn default() -> Self {
@@ -6281,8 +6281,8 @@ impl ::core::clone::Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
     fn default() -> Self {
@@ -6306,8 +6306,8 @@ impl ::core::fmt::Debug for WHV_TRANSLATE_GVA_RESULT {
         f.debug_struct("WHV_TRANSLATE_GVA_RESULT").field("ResultCode", &self.ResultCode).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_TRANSLATE_GVA_RESULT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_TRANSLATE_GVA_RESULT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_TRANSLATE_GVA_RESULT {
     fn eq(&self, other: &Self) -> bool {
@@ -6333,8 +6333,8 @@ impl ::core::clone::Clone for WHV_TRIGGER_PARAMETERS {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_TRIGGER_PARAMETERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_TRIGGER_PARAMETERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_TRIGGER_PARAMETERS {
     fn default() -> Self {
@@ -6354,8 +6354,8 @@ impl ::core::clone::Clone for WHV_TRIGGER_PARAMETERS_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_TRIGGER_PARAMETERS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_TRIGGER_PARAMETERS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_TRIGGER_PARAMETERS_0 {
     fn default() -> Self {
@@ -6381,8 +6381,8 @@ impl ::core::fmt::Debug for WHV_TRIGGER_PARAMETERS_0_0 {
         f.debug_struct("WHV_TRIGGER_PARAMETERS_0_0").field("LogicalDeviceId", &self.LogicalDeviceId).field("MsiAddress", &self.MsiAddress).field("MsiData", &self.MsiData).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_TRIGGER_PARAMETERS_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_TRIGGER_PARAMETERS_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_TRIGGER_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -6407,8 +6407,8 @@ impl ::core::clone::Clone for WHV_UINT128 {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_UINT128 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_UINT128 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_UINT128 {
     fn default() -> Self {
@@ -6432,8 +6432,8 @@ impl ::core::fmt::Debug for WHV_UINT128_0 {
         f.debug_struct("WHV_UINT128_0").field("Low64", &self.Low64).field("High64", &self.High64).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_UINT128_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_UINT128_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_UINT128_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -6459,8 +6459,8 @@ impl ::core::clone::Clone for WHV_VIRTUAL_PROCESSOR_PROPERTY {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_VIRTUAL_PROCESSOR_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_VIRTUAL_PROCESSOR_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_VIRTUAL_PROCESSOR_PROPERTY {
     fn default() -> Self {
@@ -6479,8 +6479,8 @@ impl ::core::clone::Clone for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
     fn default() -> Self {
@@ -6500,8 +6500,8 @@ impl ::core::clone::Clone for WHV_VPCI_DEVICE_NOTIFICATION {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_VPCI_DEVICE_NOTIFICATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_VPCI_DEVICE_NOTIFICATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_VPCI_DEVICE_NOTIFICATION {
     fn default() -> Self {
@@ -6519,8 +6519,8 @@ impl ::core::clone::Clone for WHV_VPCI_DEVICE_NOTIFICATION_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_VPCI_DEVICE_NOTIFICATION_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_VPCI_DEVICE_NOTIFICATION_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_VPCI_DEVICE_NOTIFICATION_0 {
     fn default() -> Self {
@@ -6545,8 +6545,8 @@ impl ::core::fmt::Debug for WHV_VPCI_DEVICE_REGISTER {
         f.debug_struct("WHV_VPCI_DEVICE_REGISTER").field("Location", &self.Location).field("SizeInBytes", &self.SizeInBytes).field("OffsetInBytes", &self.OffsetInBytes).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_VPCI_DEVICE_REGISTER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_VPCI_DEVICE_REGISTER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_VPCI_DEVICE_REGISTER {
     fn eq(&self, other: &Self) -> bool {
@@ -6582,8 +6582,8 @@ impl ::core::fmt::Debug for WHV_VPCI_HARDWARE_IDS {
         f.debug_struct("WHV_VPCI_HARDWARE_IDS").field("VendorID", &self.VendorID).field("DeviceID", &self.DeviceID).field("RevisionID", &self.RevisionID).field("ProgIf", &self.ProgIf).field("SubClass", &self.SubClass).field("BaseClass", &self.BaseClass).field("SubVendorID", &self.SubVendorID).field("SubSystemID", &self.SubSystemID).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_VPCI_HARDWARE_IDS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_VPCI_HARDWARE_IDS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_VPCI_HARDWARE_IDS {
     fn eq(&self, other: &Self) -> bool {
@@ -6615,8 +6615,8 @@ impl ::core::fmt::Debug for WHV_VPCI_INTERRUPT_TARGET {
         f.debug_struct("WHV_VPCI_INTERRUPT_TARGET").field("Vector", &self.Vector).field("Flags", &self.Flags).field("ProcessorCount", &self.ProcessorCount).field("Processors", &self.Processors).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_VPCI_INTERRUPT_TARGET {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_VPCI_INTERRUPT_TARGET {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_VPCI_INTERRUPT_TARGET {
     fn eq(&self, other: &Self) -> bool {
@@ -6649,8 +6649,8 @@ impl ::core::fmt::Debug for WHV_VPCI_MMIO_MAPPING {
         f.debug_struct("WHV_VPCI_MMIO_MAPPING").field("Location", &self.Location).field("Flags", &self.Flags).field("SizeInBytes", &self.SizeInBytes).field("OffsetInBytes", &self.OffsetInBytes).field("VirtualAddress", &self.VirtualAddress).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_VPCI_MMIO_MAPPING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_VPCI_MMIO_MAPPING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_VPCI_MMIO_MAPPING {
     fn eq(&self, other: &Self) -> bool {
@@ -6679,8 +6679,8 @@ impl ::core::fmt::Debug for WHV_VPCI_PROBED_BARS {
         f.debug_struct("WHV_VPCI_PROBED_BARS").field("Value", &self.Value).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_VPCI_PROBED_BARS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_VPCI_PROBED_BARS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_VPCI_PROBED_BARS {
     fn eq(&self, other: &Self) -> bool {
@@ -6711,8 +6711,8 @@ impl ::core::clone::Clone for WHV_VP_EXCEPTION_CONTEXT {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_VP_EXCEPTION_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_VP_EXCEPTION_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_VP_EXCEPTION_CONTEXT {
     fn default() -> Self {
@@ -6731,8 +6731,8 @@ impl ::core::clone::Clone for WHV_VP_EXCEPTION_INFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_VP_EXCEPTION_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_VP_EXCEPTION_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_VP_EXCEPTION_INFO {
     fn default() -> Self {
@@ -6755,8 +6755,8 @@ impl ::core::fmt::Debug for WHV_VP_EXCEPTION_INFO_0 {
         f.debug_struct("WHV_VP_EXCEPTION_INFO_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_VP_EXCEPTION_INFO_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_VP_EXCEPTION_INFO_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_VP_EXCEPTION_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -6786,8 +6786,8 @@ impl ::core::clone::Clone for WHV_VP_EXIT_CONTEXT {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_VP_EXIT_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_VP_EXIT_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_VP_EXIT_CONTEXT {
     fn default() -> Self {
@@ -6810,8 +6810,8 @@ impl ::core::fmt::Debug for WHV_X64_APIC_EOI_CONTEXT {
         f.debug_struct("WHV_X64_APIC_EOI_CONTEXT").field("InterruptVector", &self.InterruptVector).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_APIC_EOI_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_APIC_EOI_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_APIC_EOI_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -6840,8 +6840,8 @@ impl ::core::fmt::Debug for WHV_X64_APIC_INIT_SIPI_CONTEXT {
         f.debug_struct("WHV_X64_APIC_INIT_SIPI_CONTEXT").field("ApicIcr", &self.ApicIcr).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_APIC_INIT_SIPI_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_APIC_INIT_SIPI_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_APIC_INIT_SIPI_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -6870,8 +6870,8 @@ impl ::core::fmt::Debug for WHV_X64_APIC_SMI_CONTEXT {
         f.debug_struct("WHV_X64_APIC_SMI_CONTEXT").field("ApicIcr", &self.ApicIcr).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_APIC_SMI_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_APIC_SMI_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_APIC_SMI_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -6902,8 +6902,8 @@ impl ::core::fmt::Debug for WHV_X64_APIC_WRITE_CONTEXT {
         f.debug_struct("WHV_X64_APIC_WRITE_CONTEXT").field("Type", &self.Type).field("Reserved", &self.Reserved).field("WriteValue", &self.WriteValue).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_APIC_WRITE_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_APIC_WRITE_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_APIC_WRITE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -6939,8 +6939,8 @@ impl ::core::fmt::Debug for WHV_X64_CPUID_ACCESS_CONTEXT {
         f.debug_struct("WHV_X64_CPUID_ACCESS_CONTEXT").field("Rax", &self.Rax).field("Rcx", &self.Rcx).field("Rdx", &self.Rdx).field("Rbx", &self.Rbx).field("DefaultResultRax", &self.DefaultResultRax).field("DefaultResultRcx", &self.DefaultResultRcx).field("DefaultResultRdx", &self.DefaultResultRdx).field("DefaultResultRbx", &self.DefaultResultRbx).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_CPUID_ACCESS_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_CPUID_ACCESS_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_CPUID_ACCESS_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -6974,8 +6974,8 @@ impl ::core::fmt::Debug for WHV_X64_CPUID_RESULT {
         f.debug_struct("WHV_X64_CPUID_RESULT").field("Function", &self.Function).field("Reserved", &self.Reserved).field("Eax", &self.Eax).field("Ebx", &self.Ebx).field("Ecx", &self.Ecx).field("Edx", &self.Edx).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_CPUID_RESULT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_CPUID_RESULT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_CPUID_RESULT {
     fn eq(&self, other: &Self) -> bool {
@@ -7009,8 +7009,8 @@ impl ::core::fmt::Debug for WHV_X64_CPUID_RESULT2 {
         f.debug_struct("WHV_X64_CPUID_RESULT2").field("Function", &self.Function).field("Index", &self.Index).field("VpIndex", &self.VpIndex).field("Flags", &self.Flags).field("Output", &self.Output).field("Mask", &self.Mask).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_CPUID_RESULT2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_CPUID_RESULT2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_CPUID_RESULT2 {
     fn eq(&self, other: &Self) -> bool {
@@ -7035,8 +7035,8 @@ impl ::core::clone::Clone for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
     fn default() -> Self {
@@ -7059,8 +7059,8 @@ impl ::core::fmt::Debug for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
         f.debug_struct("WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7085,8 +7085,8 @@ impl ::core::clone::Clone for WHV_X64_FP_CONTROL_STATUS_REGISTER {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_FP_CONTROL_STATUS_REGISTER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_FP_CONTROL_STATUS_REGISTER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_FP_CONTROL_STATUS_REGISTER {
     fn default() -> Self {
@@ -7109,8 +7109,8 @@ impl ::core::clone::Clone for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
     fn default() -> Self {
@@ -7129,8 +7129,8 @@ impl ::core::clone::Clone for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
     fn default() -> Self {
@@ -7155,8 +7155,8 @@ impl ::core::fmt::Debug for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
         f.debug_struct("WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0").field("LastFpEip", &self.LastFpEip).field("LastFpCs", &self.LastFpCs).field("Reserved2", &self.Reserved2).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7181,8 +7181,8 @@ impl ::core::clone::Clone for WHV_X64_FP_REGISTER {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_FP_REGISTER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_FP_REGISTER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_FP_REGISTER {
     fn default() -> Self {
@@ -7206,8 +7206,8 @@ impl ::core::fmt::Debug for WHV_X64_FP_REGISTER_0 {
         f.debug_struct("WHV_X64_FP_REGISTER_0").field("Mantissa", &self.Mantissa).field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_FP_REGISTER_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_FP_REGISTER_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_FP_REGISTER_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7236,8 +7236,8 @@ impl ::core::fmt::Debug for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
         f.debug_struct("WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT").field("DeliverableType", &self.DeliverableType).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -7262,8 +7262,8 @@ impl ::core::clone::Clone for WHV_X64_INTERRUPT_STATE_REGISTER {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_INTERRUPT_STATE_REGISTER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_INTERRUPT_STATE_REGISTER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_INTERRUPT_STATE_REGISTER {
     fn default() -> Self {
@@ -7286,8 +7286,8 @@ impl ::core::fmt::Debug for WHV_X64_INTERRUPT_STATE_REGISTER_0 {
         f.debug_struct("WHV_X64_INTERRUPT_STATE_REGISTER_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_INTERRUPT_STATE_REGISTER_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_INTERRUPT_STATE_REGISTER_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_INTERRUPT_STATE_REGISTER_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7322,8 +7322,8 @@ impl ::core::clone::Clone for WHV_X64_IO_PORT_ACCESS_CONTEXT {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_IO_PORT_ACCESS_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_IO_PORT_ACCESS_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_IO_PORT_ACCESS_CONTEXT {
     fn default() -> Self {
@@ -7342,8 +7342,8 @@ impl ::core::clone::Clone for WHV_X64_IO_PORT_ACCESS_INFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_IO_PORT_ACCESS_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_IO_PORT_ACCESS_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_IO_PORT_ACCESS_INFO {
     fn default() -> Self {
@@ -7366,8 +7366,8 @@ impl ::core::fmt::Debug for WHV_X64_IO_PORT_ACCESS_INFO_0 {
         f.debug_struct("WHV_X64_IO_PORT_ACCESS_INFO_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_IO_PORT_ACCESS_INFO_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_IO_PORT_ACCESS_INFO_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_IO_PORT_ACCESS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7394,8 +7394,8 @@ impl ::core::clone::Clone for WHV_X64_MSR_ACCESS_CONTEXT {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_MSR_ACCESS_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_MSR_ACCESS_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_MSR_ACCESS_CONTEXT {
     fn default() -> Self {
@@ -7414,8 +7414,8 @@ impl ::core::clone::Clone for WHV_X64_MSR_ACCESS_INFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_MSR_ACCESS_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_MSR_ACCESS_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_MSR_ACCESS_INFO {
     fn default() -> Self {
@@ -7438,8 +7438,8 @@ impl ::core::fmt::Debug for WHV_X64_MSR_ACCESS_INFO_0 {
         f.debug_struct("WHV_X64_MSR_ACCESS_INFO_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_MSR_ACCESS_INFO_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_MSR_ACCESS_INFO_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_MSR_ACCESS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7464,8 +7464,8 @@ impl ::core::clone::Clone for WHV_X64_MSR_EXIT_BITMAP {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_MSR_EXIT_BITMAP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_MSR_EXIT_BITMAP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_MSR_EXIT_BITMAP {
     fn default() -> Self {
@@ -7488,8 +7488,8 @@ impl ::core::fmt::Debug for WHV_X64_MSR_EXIT_BITMAP_0 {
         f.debug_struct("WHV_X64_MSR_EXIT_BITMAP_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_MSR_EXIT_BITMAP_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_MSR_EXIT_BITMAP_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_MSR_EXIT_BITMAP_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7514,8 +7514,8 @@ impl ::core::clone::Clone for WHV_X64_PENDING_DEBUG_EXCEPTION {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_PENDING_DEBUG_EXCEPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_PENDING_DEBUG_EXCEPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_PENDING_DEBUG_EXCEPTION {
     fn default() -> Self {
@@ -7538,8 +7538,8 @@ impl ::core::fmt::Debug for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
         f.debug_struct("WHV_X64_PENDING_DEBUG_EXCEPTION_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7564,8 +7564,8 @@ impl ::core::clone::Clone for WHV_X64_PENDING_EXCEPTION_EVENT {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_PENDING_EXCEPTION_EVENT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_PENDING_EXCEPTION_EVENT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_PENDING_EXCEPTION_EVENT {
     fn default() -> Self {
@@ -7590,8 +7590,8 @@ impl ::core::fmt::Debug for WHV_X64_PENDING_EXCEPTION_EVENT_0 {
         f.debug_struct("WHV_X64_PENDING_EXCEPTION_EVENT_0").field("_bitfield", &self._bitfield).field("ErrorCode", &self.ErrorCode).field("ExceptionParameter", &self.ExceptionParameter).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_PENDING_EXCEPTION_EVENT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_PENDING_EXCEPTION_EVENT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_PENDING_EXCEPTION_EVENT_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7616,8 +7616,8 @@ impl ::core::clone::Clone for WHV_X64_PENDING_EXT_INT_EVENT {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_PENDING_EXT_INT_EVENT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_PENDING_EXT_INT_EVENT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_PENDING_EXT_INT_EVENT {
     fn default() -> Self {
@@ -7641,8 +7641,8 @@ impl ::core::fmt::Debug for WHV_X64_PENDING_EXT_INT_EVENT_0 {
         f.debug_struct("WHV_X64_PENDING_EXT_INT_EVENT_0").field("_bitfield", &self._bitfield).field("Reserved2", &self.Reserved2).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_PENDING_EXT_INT_EVENT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_PENDING_EXT_INT_EVENT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_PENDING_EXT_INT_EVENT_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7667,8 +7667,8 @@ impl ::core::clone::Clone for WHV_X64_PENDING_INTERRUPTION_REGISTER {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_PENDING_INTERRUPTION_REGISTER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_PENDING_INTERRUPTION_REGISTER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_PENDING_INTERRUPTION_REGISTER {
     fn default() -> Self {
@@ -7692,8 +7692,8 @@ impl ::core::fmt::Debug for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
         f.debug_struct("WHV_X64_PENDING_INTERRUPTION_REGISTER_0").field("_bitfield", &self._bitfield).field("ErrorCode", &self.ErrorCode).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7721,8 +7721,8 @@ impl ::core::clone::Clone for WHV_X64_RDTSC_CONTEXT {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_RDTSC_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_RDTSC_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_RDTSC_CONTEXT {
     fn default() -> Self {
@@ -7741,8 +7741,8 @@ impl ::core::clone::Clone for WHV_X64_RDTSC_INFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_RDTSC_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_RDTSC_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_RDTSC_INFO {
     fn default() -> Self {
@@ -7765,8 +7765,8 @@ impl ::core::fmt::Debug for WHV_X64_RDTSC_INFO_0 {
         f.debug_struct("WHV_X64_RDTSC_INFO_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_RDTSC_INFO_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_RDTSC_INFO_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_RDTSC_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7793,8 +7793,8 @@ impl ::core::clone::Clone for WHV_X64_SEGMENT_REGISTER {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_SEGMENT_REGISTER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_SEGMENT_REGISTER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_SEGMENT_REGISTER {
     fn default() -> Self {
@@ -7813,8 +7813,8 @@ impl ::core::clone::Clone for WHV_X64_SEGMENT_REGISTER_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_SEGMENT_REGISTER_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_SEGMENT_REGISTER_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_SEGMENT_REGISTER_0 {
     fn default() -> Self {
@@ -7837,8 +7837,8 @@ impl ::core::fmt::Debug for WHV_X64_SEGMENT_REGISTER_0_0 {
         f.debug_struct("WHV_X64_SEGMENT_REGISTER_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_SEGMENT_REGISTER_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_SEGMENT_REGISTER_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_SEGMENT_REGISTER_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7869,8 +7869,8 @@ impl ::core::fmt::Debug for WHV_X64_TABLE_REGISTER {
         f.debug_struct("WHV_X64_TABLE_REGISTER").field("Pad", &self.Pad).field("Limit", &self.Limit).field("Base", &self.Base).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_TABLE_REGISTER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_TABLE_REGISTER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_TABLE_REGISTER {
     fn eq(&self, other: &Self) -> bool {
@@ -7901,8 +7901,8 @@ impl ::core::fmt::Debug for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
         f.debug_struct("WHV_X64_UNSUPPORTED_FEATURE_CONTEXT").field("FeatureCode", &self.FeatureCode).field("Reserved", &self.Reserved).field("FeatureParameter", &self.FeatureParameter).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -7927,8 +7927,8 @@ impl ::core::clone::Clone for WHV_X64_VP_EXECUTION_STATE {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_VP_EXECUTION_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_VP_EXECUTION_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_VP_EXECUTION_STATE {
     fn default() -> Self {
@@ -7951,8 +7951,8 @@ impl ::core::fmt::Debug for WHV_X64_VP_EXECUTION_STATE_0 {
         f.debug_struct("WHV_X64_VP_EXECUTION_STATE_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_VP_EXECUTION_STATE_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_VP_EXECUTION_STATE_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_VP_EXECUTION_STATE_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7977,8 +7977,8 @@ impl ::core::clone::Clone for WHV_X64_XMM_CONTROL_STATUS_REGISTER {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_XMM_CONTROL_STATUS_REGISTER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_XMM_CONTROL_STATUS_REGISTER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER {
     fn default() -> Self {
@@ -7998,8 +7998,8 @@ impl ::core::clone::Clone for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
     fn default() -> Self {
@@ -8018,8 +8018,8 @@ impl ::core::clone::Clone for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
     fn default() -> Self {
@@ -8044,8 +8044,8 @@ impl ::core::fmt::Debug for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
         f.debug_struct("WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0").field("LastFpDp", &self.LastFpDp).field("LastFpDs", &self.LastFpDs).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8062,36 +8062,36 @@ impl ::core::default::Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 pub type FOUND_IMAGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, imageinfo: *const DOS_IMAGE_INFO) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub type GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK = ::core::option::Option<unsafe extern "system" fn(infomessage: ::windows::core::PCSTR) -> ()>;
+pub type GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK = ::core::option::Option<unsafe extern "system" fn(infomessage: ::windows_core::PCSTR) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub type HDV_PCI_DEVICE_GET_DETAILS = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, pnpid: *mut HDV_PCI_PNP_ID, probedbarscount: u32, probedbars: *mut u32) -> ::windows::core::HRESULT>;
+pub type HDV_PCI_DEVICE_GET_DETAILS = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, pnpid: *mut HDV_PCI_PNP_ID, probedbarscount: u32, probedbars: *mut u32) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub type HDV_PCI_DEVICE_INITIALIZE = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+pub type HDV_PCI_DEVICE_INITIALIZE = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub type HDV_PCI_DEVICE_SET_CONFIGURATION = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, configurationvaluecount: u32, configurationvalues: *const ::windows::core::PCWSTR) -> ::windows::core::HRESULT>;
+pub type HDV_PCI_DEVICE_SET_CONFIGURATION = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, configurationvaluecount: u32, configurationvalues: *const ::windows_core::PCWSTR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub type HDV_PCI_DEVICE_START = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+pub type HDV_PCI_DEVICE_START = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub type HDV_PCI_DEVICE_STOP = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub type HDV_PCI_DEVICE_TEARDOWN = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub type HDV_PCI_READ_CONFIG_SPACE = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, offset: u32, value: *mut u32) -> ::windows::core::HRESULT>;
+pub type HDV_PCI_READ_CONFIG_SPACE = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, offset: u32, value: *mut u32) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub type HDV_PCI_READ_INTERCEPTED_MEMORY = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *mut u8) -> ::windows::core::HRESULT>;
+pub type HDV_PCI_READ_INTERCEPTED_MEMORY = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *mut u8) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub type HDV_PCI_WRITE_CONFIG_SPACE = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, offset: u32, value: u32) -> ::windows::core::HRESULT>;
+pub type HDV_PCI_WRITE_CONFIG_SPACE = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, offset: u32, value: u32) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub type HDV_PCI_WRITE_INTERCEPTED_MEMORY = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *const u8) -> ::windows::core::HRESULT>;
+pub type HDV_PCI_WRITE_INTERCEPTED_MEMORY = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *const u8) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub type WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> ::windows::core::HRESULT>;
+pub type WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub type WHV_EMULATOR_IO_PORT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, ioaccess: *mut WHV_EMULATOR_IO_ACCESS_INFO) -> ::windows::core::HRESULT>;
+pub type WHV_EMULATOR_IO_PORT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, ioaccess: *mut WHV_EMULATOR_IO_ACCESS_INFO) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub type WHV_EMULATOR_MEMORY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, memoryaccess: *mut WHV_EMULATOR_MEMORY_ACCESS_INFO) -> ::windows::core::HRESULT>;
+pub type WHV_EMULATOR_MEMORY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, memoryaccess: *mut WHV_EMULATOR_MEMORY_ACCESS_INFO) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub type WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *const WHV_REGISTER_VALUE) -> ::windows::core::HRESULT>;
+pub type WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *const WHV_REGISTER_VALUE) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub type WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, gva: u64, translateflags: WHV_TRANSLATE_GVA_FLAGS, translationresult: *mut WHV_TRANSLATE_GVA_RESULT_CODE, gpa: *mut u64) -> ::windows::core::HRESULT>;
+pub type WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, gva: u64, translateflags: WHV_TRANSLATE_GVA_FLAGS, translationresult: *mut WHV_TRANSLATE_GVA_RESULT_CODE, gpa: *mut u64) -> ::windows_core::HRESULT>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

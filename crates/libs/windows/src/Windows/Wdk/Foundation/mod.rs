@@ -25,8 +25,8 @@ impl ::core::default::Default for IO_PRIORITY_HINT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for IO_PRIORITY_HINT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_PRIORITY_HINT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for IO_PRIORITY_HINT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -84,8 +84,8 @@ impl ::core::default::Default for KSPIN_LOCK_QUEUE_NUMBER {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KSPIN_LOCK_QUEUE_NUMBER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KSPIN_LOCK_QUEUE_NUMBER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KSPIN_LOCK_QUEUE_NUMBER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -153,8 +153,8 @@ impl ::core::default::Default for POOL_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for POOL_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POOL_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for POOL_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -191,8 +191,8 @@ impl ::core::clone::Clone for ACCESS_STATE {
     }
 }
 #[cfg(all(feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::windows::core::TypeKind for ACCESS_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ACCESS_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for ACCESS_STATE {
@@ -216,8 +216,8 @@ impl ::core::clone::Clone for ACCESS_STATE_0 {
     }
 }
 #[cfg(all(feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::windows::core::TypeKind for ACCESS_STATE_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ACCESS_STATE_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for ACCESS_STATE_0 {
@@ -264,8 +264,8 @@ impl ::core::clone::Clone for DEVICE_OBJECT {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for DEVICE_OBJECT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DEVICE_OBJECT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for DEVICE_OBJECT {
@@ -289,8 +289,8 @@ impl ::core::clone::Clone for DEVICE_OBJECT_0 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for DEVICE_OBJECT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DEVICE_OBJECT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for DEVICE_OBJECT_0 {
@@ -306,8 +306,8 @@ impl ::core::clone::Clone for DEVICE_OBJECT_POWER_EXTENSION {
         *self
     }
 }
-impl ::windows::core::TypeKind for DEVICE_OBJECT_POWER_EXTENSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DEVICE_OBJECT_POWER_EXTENSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
@@ -362,8 +362,8 @@ impl ::core::fmt::Debug for DEVOBJ_EXTENSION {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for DEVOBJ_EXTENSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DEVOBJ_EXTENSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for DEVOBJ_EXTENSION {
@@ -396,8 +396,8 @@ impl ::core::clone::Clone for DISPATCHER_HEADER {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for DISPATCHER_HEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISPATCHER_HEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for DISPATCHER_HEADER {
@@ -426,8 +426,8 @@ impl ::core::clone::Clone for DISPATCHER_HEADER_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for DISPATCHER_HEADER_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISPATCHER_HEADER_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for DISPATCHER_HEADER_0 {
@@ -451,8 +451,8 @@ impl ::core::clone::Clone for DISPATCHER_HEADER_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for DISPATCHER_HEADER_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISPATCHER_HEADER_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for DISPATCHER_HEADER_0_0 {
@@ -484,8 +484,8 @@ impl ::core::fmt::Debug for DISPATCHER_HEADER_0_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for DISPATCHER_HEADER_0_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISPATCHER_HEADER_0_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for DISPATCHER_HEADER_0_1 {
@@ -519,8 +519,8 @@ impl ::core::clone::Clone for DISPATCHER_HEADER_0_2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for DISPATCHER_HEADER_0_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISPATCHER_HEADER_0_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for DISPATCHER_HEADER_0_2 {
@@ -544,8 +544,8 @@ impl ::core::clone::Clone for DISPATCHER_HEADER_0_2_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for DISPATCHER_HEADER_0_2_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISPATCHER_HEADER_0_2_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for DISPATCHER_HEADER_0_2_0 {
@@ -574,8 +574,8 @@ impl ::core::fmt::Debug for DISPATCHER_HEADER_0_2_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for DISPATCHER_HEADER_0_2_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISPATCHER_HEADER_0_2_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for DISPATCHER_HEADER_0_2_0_0 {
@@ -607,8 +607,8 @@ impl ::core::clone::Clone for DISPATCHER_HEADER_0_2_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for DISPATCHER_HEADER_0_2_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISPATCHER_HEADER_0_2_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for DISPATCHER_HEADER_0_2_1 {
@@ -637,8 +637,8 @@ impl ::core::fmt::Debug for DISPATCHER_HEADER_0_2_1_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for DISPATCHER_HEADER_0_2_1_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISPATCHER_HEADER_0_2_1_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for DISPATCHER_HEADER_0_2_1_0 {
@@ -672,8 +672,8 @@ impl ::core::clone::Clone for DISPATCHER_HEADER_0_3 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for DISPATCHER_HEADER_0_3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISPATCHER_HEADER_0_3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for DISPATCHER_HEADER_0_3 {
@@ -697,8 +697,8 @@ impl ::core::clone::Clone for DISPATCHER_HEADER_0_3_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for DISPATCHER_HEADER_0_3_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISPATCHER_HEADER_0_3_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for DISPATCHER_HEADER_0_3_0 {
@@ -727,8 +727,8 @@ impl ::core::fmt::Debug for DISPATCHER_HEADER_0_3_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for DISPATCHER_HEADER_0_3_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISPATCHER_HEADER_0_3_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for DISPATCHER_HEADER_0_3_0_0 {
@@ -762,8 +762,8 @@ impl ::core::clone::Clone for DISPATCHER_HEADER_0_4 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for DISPATCHER_HEADER_0_4 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISPATCHER_HEADER_0_4 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for DISPATCHER_HEADER_0_4 {
@@ -787,8 +787,8 @@ impl ::core::clone::Clone for DISPATCHER_HEADER_0_4_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for DISPATCHER_HEADER_0_4_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISPATCHER_HEADER_0_4_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for DISPATCHER_HEADER_0_4_0 {
@@ -817,8 +817,8 @@ impl ::core::fmt::Debug for DISPATCHER_HEADER_0_4_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for DISPATCHER_HEADER_0_4_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISPATCHER_HEADER_0_4_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for DISPATCHER_HEADER_0_4_0_0 {
@@ -852,8 +852,8 @@ impl ::core::clone::Clone for DISPATCHER_HEADER_0_5 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for DISPATCHER_HEADER_0_5 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISPATCHER_HEADER_0_5 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for DISPATCHER_HEADER_0_5 {
@@ -877,8 +877,8 @@ impl ::core::clone::Clone for DISPATCHER_HEADER_0_5_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for DISPATCHER_HEADER_0_5_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISPATCHER_HEADER_0_5_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for DISPATCHER_HEADER_0_5_0 {
@@ -907,8 +907,8 @@ impl ::core::fmt::Debug for DISPATCHER_HEADER_0_5_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for DISPATCHER_HEADER_0_5_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISPATCHER_HEADER_0_5_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for DISPATCHER_HEADER_0_5_0_0 {
@@ -939,8 +939,8 @@ impl ::core::clone::Clone for DISPATCHER_HEADER_0_5_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for DISPATCHER_HEADER_0_5_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISPATCHER_HEADER_0_5_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for DISPATCHER_HEADER_0_5_1 {
@@ -972,8 +972,8 @@ impl ::core::fmt::Debug for DISPATCHER_HEADER_0_6 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for DISPATCHER_HEADER_0_6 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISPATCHER_HEADER_0_6 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for DISPATCHER_HEADER_0_6 {
@@ -1013,8 +1013,8 @@ impl ::core::fmt::Debug for DRIVER_EXTENSION {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for DRIVER_EXTENSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DRIVER_EXTENSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for DRIVER_EXTENSION {
@@ -1057,8 +1057,8 @@ impl ::core::fmt::Debug for DRIVER_OBJECT {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for DRIVER_OBJECT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DRIVER_OBJECT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for DRIVER_OBJECT {
@@ -1074,8 +1074,8 @@ impl ::core::clone::Clone for ECP_LIST {
         *self
     }
 }
-impl ::windows::core::TypeKind for ECP_LIST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ECP_LIST {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 pub struct EJOB(pub u8);
@@ -1085,8 +1085,8 @@ impl ::core::clone::Clone for EJOB {
         *self
     }
 }
-impl ::windows::core::TypeKind for EJOB {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EJOB {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Win32_System_Kernel\"`*"]
@@ -1115,8 +1115,8 @@ impl ::core::clone::Clone for ERESOURCE {
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::windows::core::TypeKind for ERESOURCE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ERESOURCE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::default::Default for ERESOURCE {
@@ -1140,8 +1140,8 @@ impl ::core::clone::Clone for ERESOURCE_0 {
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::windows::core::TypeKind for ERESOURCE_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ERESOURCE_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::default::Default for ERESOURCE_0 {
@@ -1171,8 +1171,8 @@ impl ::core::fmt::Debug for ERESOURCE_0_0 {
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::windows::core::TypeKind for ERESOURCE_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ERESOURCE_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for ERESOURCE_0_0 {
@@ -1204,8 +1204,8 @@ impl ::core::clone::Clone for ERESOURCE_1 {
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::windows::core::TypeKind for ERESOURCE_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ERESOURCE_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::default::Default for ERESOURCE_1 {
@@ -1261,8 +1261,8 @@ impl ::core::fmt::Debug for FAST_IO_DISPATCH {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for FAST_IO_DISPATCH {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FAST_IO_DISPATCH {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FAST_IO_DISPATCH {
@@ -1289,8 +1289,8 @@ impl ::core::clone::Clone for FAST_MUTEX {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for FAST_MUTEX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FAST_MUTEX {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for FAST_MUTEX {
@@ -1342,8 +1342,8 @@ impl ::core::clone::Clone for FILE_OBJECT {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for FILE_OBJECT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FILE_OBJECT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for FILE_OBJECT {
@@ -1369,8 +1369,8 @@ impl ::core::fmt::Debug for IO_COMPLETION_CONTEXT {
         f.debug_struct("IO_COMPLETION_CONTEXT").field("Port", &self.Port).field("Key", &self.Key).field("UsageCount", &self.UsageCount).finish()
     }
 }
-impl ::windows::core::TypeKind for IO_COMPLETION_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_COMPLETION_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for IO_COMPLETION_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -1407,8 +1407,8 @@ impl ::core::fmt::Debug for IO_SECURITY_CONTEXT {
     }
 }
 #[cfg(all(feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::windows::core::TypeKind for IO_SECURITY_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_SECURITY_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for IO_SECURITY_CONTEXT {
@@ -1447,8 +1447,8 @@ impl ::core::clone::Clone for IO_STACK_LOCATION {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for IO_STACK_LOCATION {
@@ -1509,8 +1509,8 @@ impl ::core::clone::Clone for IO_STACK_LOCATION_0 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for IO_STACK_LOCATION_0 {
@@ -1543,8 +1543,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_0 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_0 {
@@ -1585,8 +1585,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_1 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_1 {
@@ -1627,8 +1627,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_2 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_2 {
@@ -1665,8 +1665,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_3 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_3 {
@@ -1706,8 +1706,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_4 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_4 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_4 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_4 {
@@ -1747,8 +1747,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_5 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_5 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_5 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_5 {
@@ -1785,8 +1785,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_6 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_6 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_6 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_6 {
@@ -1819,8 +1819,8 @@ impl ::core::clone::Clone for IO_STACK_LOCATION_0_7 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_7 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_7 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for IO_STACK_LOCATION_0_7 {
@@ -1850,8 +1850,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_8 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_8 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_8 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_8 {
@@ -1890,8 +1890,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_9 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_9 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_9 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_9 {
@@ -1929,8 +1929,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_10 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_10 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_10 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_10 {
@@ -1970,8 +1970,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_11 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_11 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_11 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_11 {
@@ -2008,8 +2008,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_12 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_12 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_12 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_12 {
@@ -2043,8 +2043,8 @@ impl ::core::clone::Clone for IO_STACK_LOCATION_0_13 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_13 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_13 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for IO_STACK_LOCATION_0_13 {
@@ -2068,8 +2068,8 @@ impl ::core::clone::Clone for IO_STACK_LOCATION_0_13_0 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_13_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_13_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for IO_STACK_LOCATION_0_13_0 {
@@ -2098,8 +2098,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_14 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_14 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_14 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_14 {
@@ -2137,8 +2137,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_15 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_15 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_15 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_15 {
@@ -2178,8 +2178,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_16 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_16 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_16 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_16 {
@@ -2219,8 +2219,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_17 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_17 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_17 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_17 {
@@ -2258,8 +2258,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_18 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_18 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_18 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_18 {
@@ -2296,8 +2296,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_19 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_19 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_19 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_19 {
@@ -2317,7 +2317,7 @@ impl ::core::default::Default for IO_STACK_LOCATION_0_19 {
 #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_20 {
-    pub InterfaceType: *const ::windows::core::GUID,
+    pub InterfaceType: *const ::windows_core::GUID,
     pub Size: u16,
     pub Version: u16,
     pub Interface: *mut super::System::SystemServices::INTERFACE,
@@ -2338,8 +2338,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_20 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_20 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_20 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_20 {
@@ -2379,8 +2379,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_21 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_21 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_21 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_21 {
@@ -2418,8 +2418,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_22 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_22 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_22 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_22 {
@@ -2457,8 +2457,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_23 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_23 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_23 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_23 {
@@ -2498,8 +2498,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_24 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_24 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_24 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_24 {
@@ -2532,8 +2532,8 @@ impl ::core::clone::Clone for IO_STACK_LOCATION_0_25 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_25 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_25 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for IO_STACK_LOCATION_0_25 {
@@ -2562,8 +2562,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_26 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_26 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_26 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_26 {
@@ -2600,8 +2600,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_27 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_27 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_27 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_27 {
@@ -2635,8 +2635,8 @@ impl ::core::clone::Clone for IO_STACK_LOCATION_0_28 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_28 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_28 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for IO_STACK_LOCATION_0_28 {
@@ -2661,8 +2661,8 @@ impl ::core::clone::Clone for IO_STACK_LOCATION_0_28_0 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_28_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_28_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for IO_STACK_LOCATION_0_28_0 {
@@ -2692,8 +2692,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_28_0_0 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_28_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_28_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_28_0_0 {
@@ -2730,8 +2730,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_29 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_29 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_29 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_29 {
@@ -2768,8 +2768,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_30 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_30 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_30 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_30 {
@@ -2807,8 +2807,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_31 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_31 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_31 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_31 {
@@ -2846,8 +2846,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_32 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_32 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_32 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_32 {
@@ -2885,8 +2885,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_33 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_33 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_33 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_33 {
@@ -2925,8 +2925,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_34 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_34 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_34 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_34 {
@@ -2964,8 +2964,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_35 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_35 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_35 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_35 {
@@ -3005,8 +3005,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_36 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_36 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_36 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_36 {
@@ -3043,8 +3043,8 @@ impl ::core::fmt::Debug for IO_STACK_LOCATION_0_37 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_37 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_37 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IO_STACK_LOCATION_0_37 {
@@ -3077,8 +3077,8 @@ impl ::core::clone::Clone for IO_STACK_LOCATION_0_38 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IO_STACK_LOCATION_0_38 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_STACK_LOCATION_0_38 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for IO_STACK_LOCATION_0_38 {
@@ -3094,8 +3094,8 @@ impl ::core::clone::Clone for IO_TIMER {
         *self
     }
 }
-impl ::windows::core::TypeKind for IO_TIMER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_TIMER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
@@ -3132,8 +3132,8 @@ impl ::core::clone::Clone for IRP {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IRP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IRP {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for IRP {
@@ -3157,8 +3157,8 @@ impl ::core::clone::Clone for IRP_0 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IRP_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IRP_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for IRP_0 {
@@ -3183,8 +3183,8 @@ impl ::core::clone::Clone for IRP_1 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IRP_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IRP_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for IRP_1 {
@@ -3208,8 +3208,8 @@ impl ::core::clone::Clone for IRP_2 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IRP_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IRP_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for IRP_2 {
@@ -3233,8 +3233,8 @@ impl ::core::clone::Clone for IRP_2_0 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IRP_2_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IRP_2_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for IRP_2_0 {
@@ -3258,8 +3258,8 @@ impl ::core::clone::Clone for IRP_2_0_0 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IRP_2_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IRP_2_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for IRP_2_0_0 {
@@ -3283,8 +3283,8 @@ impl ::core::clone::Clone for IRP_2_0_1 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IRP_2_0_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IRP_2_0_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for IRP_2_0_1 {
@@ -3300,8 +3300,8 @@ impl ::core::clone::Clone for IRP_2_0_1_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for IRP_2_0_1_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IRP_2_0_1_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
@@ -3320,8 +3320,8 @@ impl ::core::clone::Clone for IRP_3 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IRP_3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IRP_3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for IRP_3 {
@@ -3335,7 +3335,7 @@ impl ::core::default::Default for IRP_3 {
 pub struct IRP_3_0 {
     pub Anonymous1: IRP_3_0_0,
     pub Thread: *mut super::System::SystemServices::_ETHREAD,
-    pub AuxiliaryBuffer: ::windows::core::PSTR,
+    pub AuxiliaryBuffer: ::windows_core::PSTR,
     pub Anonymous2: IRP_3_0_1,
     pub OriginalFileObject: *mut FILE_OBJECT,
 }
@@ -3348,8 +3348,8 @@ impl ::core::clone::Clone for IRP_3_0 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IRP_3_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IRP_3_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for IRP_3_0 {
@@ -3373,8 +3373,8 @@ impl ::core::clone::Clone for IRP_3_0_0 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IRP_3_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IRP_3_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for IRP_3_0_0 {
@@ -3403,8 +3403,8 @@ impl ::core::fmt::Debug for IRP_3_0_0_0 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IRP_3_0_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IRP_3_0_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for IRP_3_0_0_0 {
@@ -3436,8 +3436,8 @@ impl ::core::clone::Clone for IRP_3_0_1 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IRP_3_0_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IRP_3_0_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for IRP_3_0_1 {
@@ -3461,8 +3461,8 @@ impl ::core::clone::Clone for IRP_3_0_1_0 {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for IRP_3_0_1_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IRP_3_0_1_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::default::Default for IRP_3_0_1_0 {
@@ -3495,8 +3495,8 @@ impl ::core::fmt::Debug for KDEVICE_QUEUE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for KDEVICE_QUEUE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KDEVICE_QUEUE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for KDEVICE_QUEUE {
@@ -3534,8 +3534,8 @@ impl ::core::clone::Clone for KDPC {
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::windows::core::TypeKind for KDPC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KDPC {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::default::Default for KDPC {
@@ -3559,8 +3559,8 @@ impl ::core::clone::Clone for KDPC_0 {
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::windows::core::TypeKind for KDPC_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KDPC_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::default::Default for KDPC_0 {
@@ -3591,8 +3591,8 @@ impl ::core::fmt::Debug for KDPC_0_0 {
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::windows::core::TypeKind for KDPC_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KDPC_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for KDPC_0_0 {
@@ -3623,8 +3623,8 @@ impl ::core::clone::Clone for KEVENT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for KEVENT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KEVENT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for KEVENT {
@@ -3651,8 +3651,8 @@ impl ::core::clone::Clone for KMUTANT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for KMUTANT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KMUTANT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for KMUTANT {
@@ -3676,8 +3676,8 @@ impl ::core::clone::Clone for KMUTANT_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for KMUTANT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KMUTANT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for KMUTANT_0 {
@@ -3706,8 +3706,8 @@ impl ::core::fmt::Debug for KMUTANT_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for KMUTANT_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KMUTANT_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for KMUTANT_0_0 {
@@ -3731,8 +3731,8 @@ impl ::core::clone::Clone for KPROCESS {
         *self
     }
 }
-impl ::windows::core::TypeKind for KPROCESS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KPROCESS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
@@ -3753,8 +3753,8 @@ impl ::core::clone::Clone for KQUEUE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for KQUEUE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KQUEUE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for KQUEUE {
@@ -3770,8 +3770,8 @@ impl ::core::clone::Clone for KTHREAD {
         *self
     }
 }
-impl ::windows::core::TypeKind for KTHREAD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KTHREAD {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
@@ -3794,8 +3794,8 @@ impl ::core::clone::Clone for KWAIT_BLOCK {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for KWAIT_BLOCK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KWAIT_BLOCK {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for KWAIT_BLOCK {
@@ -3820,8 +3820,8 @@ impl ::core::clone::Clone for KWAIT_BLOCK_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows::core::TypeKind for KWAIT_BLOCK_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KWAIT_BLOCK_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for KWAIT_BLOCK_0 {
@@ -3850,8 +3850,8 @@ impl ::core::fmt::Debug for OBJECT_NAME_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for OBJECT_NAME_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OBJECT_NAME_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OBJECT_NAME_INFORMATION {
@@ -3875,8 +3875,8 @@ impl ::core::clone::Clone for OBJECT_TYPE {
         *self
     }
 }
-impl ::windows::core::TypeKind for OBJECT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OBJECT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Foundation\"`*"]
@@ -3890,8 +3890,8 @@ impl ::core::clone::Clone for OWNER_ENTRY {
         *self
     }
 }
-impl ::windows::core::TypeKind for OWNER_ENTRY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OWNER_ENTRY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for OWNER_ENTRY {
     fn default() -> Self {
@@ -3910,8 +3910,8 @@ impl ::core::clone::Clone for OWNER_ENTRY_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for OWNER_ENTRY_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OWNER_ENTRY_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for OWNER_ENTRY_0 {
     fn default() -> Self {
@@ -3934,8 +3934,8 @@ impl ::core::fmt::Debug for OWNER_ENTRY_0_0 {
         f.debug_struct("OWNER_ENTRY_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for OWNER_ENTRY_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OWNER_ENTRY_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for OWNER_ENTRY_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -3966,8 +3966,8 @@ impl ::core::fmt::Debug for RTL_SPLAY_LINKS {
         f.debug_struct("RTL_SPLAY_LINKS").field("Parent", &self.Parent).field("LeftChild", &self.LeftChild).field("RightChild", &self.RightChild).finish()
     }
 }
-impl ::windows::core::TypeKind for RTL_SPLAY_LINKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RTL_SPLAY_LINKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RTL_SPLAY_LINKS {
     fn eq(&self, other: &Self) -> bool {
@@ -3998,8 +3998,8 @@ impl ::core::fmt::Debug for SECTION_OBJECT_POINTERS {
         f.debug_struct("SECTION_OBJECT_POINTERS").field("DataSectionObject", &self.DataSectionObject).field("SharedCacheMap", &self.SharedCacheMap).field("ImageSectionObject", &self.ImageSectionObject).finish()
     }
 }
-impl ::windows::core::TypeKind for SECTION_OBJECT_POINTERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SECTION_OBJECT_POINTERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for SECTION_OBJECT_POINTERS {
     fn eq(&self, other: &Self) -> bool {
@@ -4036,8 +4036,8 @@ impl ::core::fmt::Debug for SECURITY_SUBJECT_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Security")]
-impl ::windows::core::TypeKind for SECURITY_SUBJECT_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SECURITY_SUBJECT_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for SECURITY_SUBJECT_CONTEXT {
@@ -4059,7 +4059,7 @@ impl ::core::default::Default for SECURITY_SUBJECT_CONTEXT {
 pub struct TARGET_DEVICE_CUSTOM_NOTIFICATION {
     pub Version: u16,
     pub Size: u16,
-    pub Event: ::windows::core::GUID,
+    pub Event: ::windows_core::GUID,
     pub FileObject: *mut FILE_OBJECT,
     pub NameBufferOffset: i32,
     pub CustomDataBuffer: [u8; 1],
@@ -4079,8 +4079,8 @@ impl ::core::fmt::Debug for TARGET_DEVICE_CUSTOM_NOTIFICATION {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for TARGET_DEVICE_CUSTOM_NOTIFICATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TARGET_DEVICE_CUSTOM_NOTIFICATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for TARGET_DEVICE_CUSTOM_NOTIFICATION {
@@ -4125,8 +4125,8 @@ impl ::core::fmt::Debug for VPB {
     }
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl ::windows::core::TypeKind for VPB {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VPB {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for VPB {
@@ -4165,8 +4165,8 @@ impl ::core::fmt::Debug for WORK_QUEUE_ITEM {
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::windows::core::TypeKind for WORK_QUEUE_ITEM {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WORK_QUEUE_ITEM {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::default::Default for WORK_QUEUE_ITEM {

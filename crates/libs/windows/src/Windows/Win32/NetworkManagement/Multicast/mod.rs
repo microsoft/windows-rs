@@ -15,7 +15,7 @@ pub unsafe fn McastApiStartup(version: *mut u32) -> u32 {
 #[inline]
 pub unsafe fn McastEnumerateScopes<P0>(addrfamily: u16, requery: P0, pscopelist: *mut MCAST_SCOPE_ENTRY, pscopelen: *mut u32, pscopecount: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("dhcpcsvc.dll" "system" fn McastEnumerateScopes(addrfamily : u16, requery : super::super::Foundation:: BOOL, pscopelist : *mut MCAST_SCOPE_ENTRY, pscopelen : *mut u32, pscopecount : *mut u32) -> u32);
     McastEnumerateScopes(addrfamily, requery.into_param().abi(), pscopelist, pscopelen, pscopecount)
@@ -64,8 +64,8 @@ impl ::core::clone::Clone for IPNG_ADDRESS {
         *self
     }
 }
-impl ::windows::core::TypeKind for IPNG_ADDRESS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IPNG_ADDRESS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for IPNG_ADDRESS {
     fn default() -> Self {
@@ -89,8 +89,8 @@ impl ::core::fmt::Debug for MCAST_CLIENT_UID {
         f.debug_struct("MCAST_CLIENT_UID").field("ClientUID", &self.ClientUID).field("ClientUIDLength", &self.ClientUIDLength).finish()
     }
 }
-impl ::windows::core::TypeKind for MCAST_CLIENT_UID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MCAST_CLIENT_UID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MCAST_CLIENT_UID {
     fn eq(&self, other: &Self) -> bool {
@@ -121,8 +121,8 @@ impl ::core::clone::Clone for MCAST_LEASE_REQUEST {
         *self
     }
 }
-impl ::windows::core::TypeKind for MCAST_LEASE_REQUEST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MCAST_LEASE_REQUEST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for MCAST_LEASE_REQUEST {
     fn default() -> Self {
@@ -144,8 +144,8 @@ impl ::core::clone::Clone for MCAST_LEASE_RESPONSE {
         *self
     }
 }
-impl ::windows::core::TypeKind for MCAST_LEASE_RESPONSE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MCAST_LEASE_RESPONSE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for MCAST_LEASE_RESPONSE {
     fn default() -> Self {
@@ -165,8 +165,8 @@ impl ::core::clone::Clone for MCAST_SCOPE_CTX {
         *self
     }
 }
-impl ::windows::core::TypeKind for MCAST_SCOPE_CTX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MCAST_SCOPE_CTX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for MCAST_SCOPE_CTX {
     fn default() -> Self {
@@ -191,8 +191,8 @@ impl ::core::clone::Clone for MCAST_SCOPE_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for MCAST_SCOPE_ENTRY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MCAST_SCOPE_ENTRY {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCAST_SCOPE_ENTRY {

@@ -17,11 +17,7 @@ pub fn gen_mod(gen: &Gen, namespace: &str) -> TokenStream {
             include_str!("mod/Foundation/Numerics/Vector3.rs"),
             include_str!("mod/Foundation/Numerics/Vector4.rs"),
         ),
-        "Windows.Foundation" => concat!(
-            include_str!("mod/Foundation/IInspectable.rs"),
-            include_str!("mod/Foundation/PropertyValue.rs"),
-            include_str!("mod/Foundation/TimeSpan.rs"),
-        ),
+        "Windows.Foundation" => concat!(include_str!("mod/Foundation/TimeSpan.rs"),),
         "Windows.Win32.Foundation" => concat!(
             include_str!("mod/Win32/Foundation/BOOL.rs"),
             include_str!("mod/Win32/Foundation/BOOLEAN.rs"),

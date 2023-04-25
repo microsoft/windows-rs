@@ -3,8 +3,8 @@
 #[inline]
 pub unsafe fn QOSAddSocketToFlow<P0, P1>(qoshandle: P0, socket: P1, destaddr: ::core::option::Option<*const super::super::Networking::WinSock::SOCKADDR>, traffictype: QOS_TRAFFIC_TYPE, flags: u32, flowid: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Networking::WinSock::SOCKET>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Networking::WinSock::SOCKET>,
 {
     ::windows_targets::link!("qwave.dll" "system" fn QOSAddSocketToFlow(qoshandle : super::super::Foundation:: HANDLE, socket : super::super::Networking::WinSock:: SOCKET, destaddr : *const super::super::Networking::WinSock:: SOCKADDR, traffictype : QOS_TRAFFIC_TYPE, flags : u32, flowid : *mut u32) -> super::super::Foundation:: BOOL);
     QOSAddSocketToFlow(qoshandle.into_param().abi(), socket.into_param().abi(), ::core::mem::transmute(destaddr.unwrap_or(::std::ptr::null())), traffictype, flags, flowid)
@@ -14,7 +14,7 @@ where
 #[inline]
 pub unsafe fn QOSCancel<P0>(qoshandle: P0, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("qwave.dll" "system" fn QOSCancel(qoshandle : super::super::Foundation:: HANDLE, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     QOSCancel(qoshandle.into_param().abi(), overlapped)
@@ -24,7 +24,7 @@ where
 #[inline]
 pub unsafe fn QOSCloseHandle<P0>(qoshandle: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("qwave.dll" "system" fn QOSCloseHandle(qoshandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     QOSCloseHandle(qoshandle.into_param().abi())
@@ -41,7 +41,7 @@ pub unsafe fn QOSCreateHandle(version: *const QOS_VERSION, qoshandle: *mut super
 #[inline]
 pub unsafe fn QOSEnumerateFlows<P0>(qoshandle: P0, size: *mut u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("qwave.dll" "system" fn QOSEnumerateFlows(qoshandle : super::super::Foundation:: HANDLE, size : *mut u32, buffer : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     QOSEnumerateFlows(qoshandle.into_param().abi(), size, buffer)
@@ -51,7 +51,7 @@ where
 #[inline]
 pub unsafe fn QOSNotifyFlow<P0>(qoshandle: P0, flowid: u32, operation: QOS_NOTIFY_FLOW, size: ::core::option::Option<*mut u32>, buffer: ::core::option::Option<*mut ::core::ffi::c_void>, flags: u32, overlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("qwave.dll" "system" fn QOSNotifyFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_NOTIFY_FLOW, size : *mut u32, buffer : *mut ::core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     QOSNotifyFlow(qoshandle.into_param().abi(), flowid, operation, ::core::mem::transmute(size.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), flags, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null_mut())))
@@ -61,7 +61,7 @@ where
 #[inline]
 pub unsafe fn QOSQueryFlow<P0>(qoshandle: P0, flowid: u32, operation: QOS_QUERY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("qwave.dll" "system" fn QOSQueryFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_QUERY_FLOW, size : *mut u32, buffer : *mut ::core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     QOSQueryFlow(qoshandle.into_param().abi(), flowid, operation, size, buffer, flags, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null_mut())))
@@ -71,8 +71,8 @@ where
 #[inline]
 pub unsafe fn QOSRemoveSocketFromFlow<P0, P1>(qoshandle: P0, socket: P1, flowid: u32, flags: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Networking::WinSock::SOCKET>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Networking::WinSock::SOCKET>,
 {
     ::windows_targets::link!("qwave.dll" "system" fn QOSRemoveSocketFromFlow(qoshandle : super::super::Foundation:: HANDLE, socket : super::super::Networking::WinSock:: SOCKET, flowid : u32, flags : u32) -> super::super::Foundation:: BOOL);
     QOSRemoveSocketFromFlow(qoshandle.into_param().abi(), socket.into_param().abi(), flowid, flags)
@@ -82,7 +82,7 @@ where
 #[inline]
 pub unsafe fn QOSSetFlow<P0>(qoshandle: P0, flowid: u32, operation: QOS_SET_FLOW, size: u32, buffer: *const ::core::ffi::c_void, flags: u32, overlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("qwave.dll" "system" fn QOSSetFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_SET_FLOW, size : u32, buffer : *const ::core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     QOSSetFlow(qoshandle.into_param().abi(), flowid, operation, size, buffer, flags, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null_mut())))
@@ -92,7 +92,7 @@ where
 #[inline]
 pub unsafe fn QOSStartTrackingClient<P0>(qoshandle: P0, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("qwave.dll" "system" fn QOSStartTrackingClient(qoshandle : super::super::Foundation:: HANDLE, destaddr : *const super::super::Networking::WinSock:: SOCKADDR, flags : u32) -> super::super::Foundation:: BOOL);
     QOSStartTrackingClient(qoshandle.into_param().abi(), destaddr, flags)
@@ -102,7 +102,7 @@ where
 #[inline]
 pub unsafe fn QOSStopTrackingClient<P0>(qoshandle: P0, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("qwave.dll" "system" fn QOSStopTrackingClient(qoshandle : super::super::Foundation:: HANDLE, destaddr : *const super::super::Networking::WinSock:: SOCKADDR, flags : u32) -> super::super::Foundation:: BOOL);
     QOSStopTrackingClient(qoshandle.into_param().abi(), destaddr, flags)
@@ -112,7 +112,7 @@ where
 #[inline]
 pub unsafe fn TcAddFilter<P0>(flowhandle: P0, pgenericfilter: *const TC_GEN_FILTER, pfilterhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("traffic.dll" "system" fn TcAddFilter(flowhandle : super::super::Foundation:: HANDLE, pgenericfilter : *const TC_GEN_FILTER, pfilterhandle : *mut super::super::Foundation:: HANDLE) -> u32);
     TcAddFilter(flowhandle.into_param().abi(), pgenericfilter, pfilterhandle)
@@ -122,8 +122,8 @@ where
 #[inline]
 pub unsafe fn TcAddFlow<P0, P1>(ifchandle: P0, clflowctx: P1, flags: u32, pgenericflow: *const TC_GEN_FLOW, pflowhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("traffic.dll" "system" fn TcAddFlow(ifchandle : super::super::Foundation:: HANDLE, clflowctx : super::super::Foundation:: HANDLE, flags : u32, pgenericflow : *const TC_GEN_FLOW, pflowhandle : *mut super::super::Foundation:: HANDLE) -> u32);
     TcAddFlow(ifchandle.into_param().abi(), clflowctx.into_param().abi(), flags, pgenericflow, pflowhandle)
@@ -133,7 +133,7 @@ where
 #[inline]
 pub unsafe fn TcCloseInterface<P0>(ifchandle: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("traffic.dll" "system" fn TcCloseInterface(ifchandle : super::super::Foundation:: HANDLE) -> u32);
     TcCloseInterface(ifchandle.into_param().abi())
@@ -143,7 +143,7 @@ where
 #[inline]
 pub unsafe fn TcDeleteFilter<P0>(filterhandle: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("traffic.dll" "system" fn TcDeleteFilter(filterhandle : super::super::Foundation:: HANDLE) -> u32);
     TcDeleteFilter(filterhandle.into_param().abi())
@@ -153,7 +153,7 @@ where
 #[inline]
 pub unsafe fn TcDeleteFlow<P0>(flowhandle: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("traffic.dll" "system" fn TcDeleteFlow(flowhandle : super::super::Foundation:: HANDLE) -> u32);
     TcDeleteFlow(flowhandle.into_param().abi())
@@ -163,7 +163,7 @@ where
 #[inline]
 pub unsafe fn TcDeregisterClient<P0>(clienthandle: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("traffic.dll" "system" fn TcDeregisterClient(clienthandle : super::super::Foundation:: HANDLE) -> u32);
     TcDeregisterClient(clienthandle.into_param().abi())
@@ -173,7 +173,7 @@ where
 #[inline]
 pub unsafe fn TcEnumerateFlows<P0>(ifchandle: P0, penumhandle: *mut super::super::Foundation::HANDLE, pflowcount: *mut u32, pbufsize: *mut u32, buffer: *mut ENUMERATION_BUFFER) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("traffic.dll" "system" fn TcEnumerateFlows(ifchandle : super::super::Foundation:: HANDLE, penumhandle : *mut super::super::Foundation:: HANDLE, pflowcount : *mut u32, pbufsize : *mut u32, buffer : *mut ENUMERATION_BUFFER) -> u32);
     TcEnumerateFlows(ifchandle.into_param().abi(), penumhandle, pflowcount, pbufsize, buffer)
@@ -183,7 +183,7 @@ where
 #[inline]
 pub unsafe fn TcEnumerateInterfaces<P0>(clienthandle: P0, pbuffersize: *mut u32, interfacebuffer: *mut TC_IFC_DESCRIPTOR) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("traffic.dll" "system" fn TcEnumerateInterfaces(clienthandle : super::super::Foundation:: HANDLE, pbuffersize : *mut u32, interfacebuffer : *mut TC_IFC_DESCRIPTOR) -> u32);
     TcEnumerateInterfaces(clienthandle.into_param().abi(), pbuffersize, interfacebuffer)
@@ -193,9 +193,9 @@ where
 #[inline]
 pub unsafe fn TcGetFlowNameA<P0>(flowhandle: P0, pflowname: &mut [u8]) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("traffic.dll" "system" fn TcGetFlowNameA(flowhandle : super::super::Foundation:: HANDLE, strsize : u32, pflowname : ::windows::core::PSTR) -> u32);
+    ::windows_targets::link!("traffic.dll" "system" fn TcGetFlowNameA(flowhandle : super::super::Foundation:: HANDLE, strsize : u32, pflowname : ::windows_core::PSTR) -> u32);
     TcGetFlowNameA(flowhandle.into_param().abi(), pflowname.len() as _, ::core::mem::transmute(pflowname.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
@@ -203,9 +203,9 @@ where
 #[inline]
 pub unsafe fn TcGetFlowNameW<P0>(flowhandle: P0, pflowname: &mut [u16]) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("traffic.dll" "system" fn TcGetFlowNameW(flowhandle : super::super::Foundation:: HANDLE, strsize : u32, pflowname : ::windows::core::PWSTR) -> u32);
+    ::windows_targets::link!("traffic.dll" "system" fn TcGetFlowNameW(flowhandle : super::super::Foundation:: HANDLE, strsize : u32, pflowname : ::windows_core::PWSTR) -> u32);
     TcGetFlowNameW(flowhandle.into_param().abi(), pflowname.len() as _, ::core::mem::transmute(pflowname.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -213,7 +213,7 @@ where
 #[inline]
 pub unsafe fn TcModifyFlow<P0>(flowhandle: P0, pgenericflow: *const TC_GEN_FLOW) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("traffic.dll" "system" fn TcModifyFlow(flowhandle : super::super::Foundation:: HANDLE, pgenericflow : *const TC_GEN_FLOW) -> u32);
     TcModifyFlow(flowhandle.into_param().abi(), pgenericflow)
@@ -223,11 +223,11 @@ where
 #[inline]
 pub unsafe fn TcOpenInterfaceA<P0, P1, P2>(pinterfacename: P0, clienthandle: P1, clifcctx: P2, pifchandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P2: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("traffic.dll" "system" fn TcOpenInterfaceA(pinterfacename : ::windows::core::PCSTR, clienthandle : super::super::Foundation:: HANDLE, clifcctx : super::super::Foundation:: HANDLE, pifchandle : *mut super::super::Foundation:: HANDLE) -> u32);
+    ::windows_targets::link!("traffic.dll" "system" fn TcOpenInterfaceA(pinterfacename : ::windows_core::PCSTR, clienthandle : super::super::Foundation:: HANDLE, clifcctx : super::super::Foundation:: HANDLE, pifchandle : *mut super::super::Foundation:: HANDLE) -> u32);
     TcOpenInterfaceA(pinterfacename.into_param().abi(), clienthandle.into_param().abi(), clifcctx.into_param().abi(), pifchandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
@@ -235,40 +235,40 @@ where
 #[inline]
 pub unsafe fn TcOpenInterfaceW<P0, P1, P2>(pinterfacename: P0, clienthandle: P1, clifcctx: P2, pifchandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P2: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("traffic.dll" "system" fn TcOpenInterfaceW(pinterfacename : ::windows::core::PCWSTR, clienthandle : super::super::Foundation:: HANDLE, clifcctx : super::super::Foundation:: HANDLE, pifchandle : *mut super::super::Foundation:: HANDLE) -> u32);
+    ::windows_targets::link!("traffic.dll" "system" fn TcOpenInterfaceW(pinterfacename : ::windows_core::PCWSTR, clienthandle : super::super::Foundation:: HANDLE, clifcctx : super::super::Foundation:: HANDLE, pifchandle : *mut super::super::Foundation:: HANDLE) -> u32);
     TcOpenInterfaceW(pinterfacename.into_param().abi(), clienthandle.into_param().abi(), clifcctx.into_param().abi(), pifchandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 #[inline]
-pub unsafe fn TcQueryFlowA<P0>(pflowname: P0, pguidparam: *const ::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32
+pub unsafe fn TcQueryFlowA<P0>(pflowname: P0, pguidparam: *const ::windows_core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("traffic.dll" "system" fn TcQueryFlowA(pflowname : ::windows::core::PCSTR, pguidparam : *const ::windows::core::GUID, pbuffersize : *mut u32, buffer : *mut ::core::ffi::c_void) -> u32);
+    ::windows_targets::link!("traffic.dll" "system" fn TcQueryFlowA(pflowname : ::windows_core::PCSTR, pguidparam : *const ::windows_core::GUID, pbuffersize : *mut u32, buffer : *mut ::core::ffi::c_void) -> u32);
     TcQueryFlowA(pflowname.into_param().abi(), pguidparam, pbuffersize, buffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 #[inline]
-pub unsafe fn TcQueryFlowW<P0>(pflowname: P0, pguidparam: *const ::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32
+pub unsafe fn TcQueryFlowW<P0>(pflowname: P0, pguidparam: *const ::windows_core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("traffic.dll" "system" fn TcQueryFlowW(pflowname : ::windows::core::PCWSTR, pguidparam : *const ::windows::core::GUID, pbuffersize : *mut u32, buffer : *mut ::core::ffi::c_void) -> u32);
+    ::windows_targets::link!("traffic.dll" "system" fn TcQueryFlowW(pflowname : ::windows_core::PCWSTR, pguidparam : *const ::windows_core::GUID, pbuffersize : *mut u32, buffer : *mut ::core::ffi::c_void) -> u32);
     TcQueryFlowW(pflowname.into_param().abi(), pguidparam, pbuffersize, buffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcQueryInterface<P0, P1>(ifchandle: P0, pguidparam: *const ::windows::core::GUID, notifychange: P1, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32
+pub unsafe fn TcQueryInterface<P0, P1>(ifchandle: P0, pguidparam: *const ::windows_core::GUID, notifychange: P1, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows_targets::link!("traffic.dll" "system" fn TcQueryInterface(ifchandle : super::super::Foundation:: HANDLE, pguidparam : *const ::windows::core::GUID, notifychange : super::super::Foundation:: BOOLEAN, pbuffersize : *mut u32, buffer : *mut ::core::ffi::c_void) -> u32);
+    ::windows_targets::link!("traffic.dll" "system" fn TcQueryInterface(ifchandle : super::super::Foundation:: HANDLE, pguidparam : *const ::windows_core::GUID, notifychange : super::super::Foundation:: BOOLEAN, pbuffersize : *mut u32, buffer : *mut ::core::ffi::c_void) -> u32);
     TcQueryInterface(ifchandle.into_param().abi(), pguidparam, notifychange.into_param().abi(), pbuffersize, buffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
@@ -276,37 +276,37 @@ where
 #[inline]
 pub unsafe fn TcRegisterClient<P0>(tciversion: u32, clregctx: P0, clienthandlerlist: *const TCI_CLIENT_FUNC_LIST, pclienthandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("traffic.dll" "system" fn TcRegisterClient(tciversion : u32, clregctx : super::super::Foundation:: HANDLE, clienthandlerlist : *const TCI_CLIENT_FUNC_LIST, pclienthandle : *mut super::super::Foundation:: HANDLE) -> u32);
     TcRegisterClient(tciversion, clregctx.into_param().abi(), clienthandlerlist, pclienthandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 #[inline]
-pub unsafe fn TcSetFlowA<P0>(pflowname: P0, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32
+pub unsafe fn TcSetFlowA<P0>(pflowname: P0, pguidparam: *const ::windows_core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("traffic.dll" "system" fn TcSetFlowA(pflowname : ::windows::core::PCSTR, pguidparam : *const ::windows::core::GUID, buffersize : u32, buffer : *const ::core::ffi::c_void) -> u32);
+    ::windows_targets::link!("traffic.dll" "system" fn TcSetFlowA(pflowname : ::windows_core::PCSTR, pguidparam : *const ::windows_core::GUID, buffersize : u32, buffer : *const ::core::ffi::c_void) -> u32);
     TcSetFlowA(pflowname.into_param().abi(), pguidparam, buffersize, buffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 #[inline]
-pub unsafe fn TcSetFlowW<P0>(pflowname: P0, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32
+pub unsafe fn TcSetFlowW<P0>(pflowname: P0, pguidparam: *const ::windows_core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("traffic.dll" "system" fn TcSetFlowW(pflowname : ::windows::core::PCWSTR, pguidparam : *const ::windows::core::GUID, buffersize : u32, buffer : *const ::core::ffi::c_void) -> u32);
+    ::windows_targets::link!("traffic.dll" "system" fn TcSetFlowW(pflowname : ::windows_core::PCWSTR, pguidparam : *const ::windows_core::GUID, buffersize : u32, buffer : *const ::core::ffi::c_void) -> u32);
     TcSetFlowW(pflowname.into_param().abi(), pguidparam, buffersize, buffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcSetInterface<P0>(ifchandle: P0, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32
+pub unsafe fn TcSetInterface<P0>(ifchandle: P0, pguidparam: *const ::windows_core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("traffic.dll" "system" fn TcSetInterface(ifchandle : super::super::Foundation:: HANDLE, pguidparam : *const ::windows::core::GUID, buffersize : u32, buffer : *const ::core::ffi::c_void) -> u32);
+    ::windows_targets::link!("traffic.dll" "system" fn TcSetInterface(ifchandle : super::super::Foundation:: HANDLE, pguidparam : *const ::windows_core::GUID, buffersize : u32, buffer : *const ::core::ffi::c_void) -> u32);
     TcSetInterface(ifchandle.into_param().abi(), pguidparam, buffersize, buffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
@@ -336,7 +336,7 @@ pub const CREDENTIAL_SUB_TYPE_X509_V3_CERT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const CURRENT_TCI_VERSION: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const DD_TCP_DEVICE_NAME: ::windows::core::PCWSTR = ::windows::core::w!("\\Device\\Tcp");
+pub const DD_TCP_DEVICE_NAME: ::windows_core::PCWSTR = ::windows_core::w!("\\Device\\Tcp");
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const DUP_RESULTS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
@@ -466,37 +466,37 @@ pub const GUAR_ADSPARM_Dsum: i32 = 136i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const GUAR_ADSPARM_Dtot: i32 = 134i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const GUID_QOS_BESTEFFORT_BANDWIDTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed885290_40ec_11d1_2c91_00aa00574915);
+pub const GUID_QOS_BESTEFFORT_BANDWIDTH: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed885290_40ec_11d1_2c91_00aa00574915);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const GUID_QOS_ENABLE_AVG_STATS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbafb6d11_27c4_4801_a46f_ef8080c188c8);
+pub const GUID_QOS_ENABLE_AVG_STATS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbafb6d11_27c4_4801_a46f_ef8080c188c8);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const GUID_QOS_ENABLE_WINDOW_ADJUSTMENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa966725_d3e9_4c55_b335_2a00279a1e64);
+pub const GUID_QOS_ENABLE_WINDOW_ADJUSTMENT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa966725_d3e9_4c55_b335_2a00279a1e64);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const GUID_QOS_FLOW_8021P_CONFORMING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c1e013_fcd2_11d2_be1e_00a0c99ee63b);
+pub const GUID_QOS_FLOW_8021P_CONFORMING: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x08c1e013_fcd2_11d2_be1e_00a0c99ee63b);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const GUID_QOS_FLOW_8021P_NONCONFORMING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09023f91_fcd2_11d2_be1e_00a0c99ee63b);
+pub const GUID_QOS_FLOW_8021P_NONCONFORMING: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x09023f91_fcd2_11d2_be1e_00a0c99ee63b);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const GUID_QOS_FLOW_COUNT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1147f880_40ed_11d1_2c91_00aa00574915);
+pub const GUID_QOS_FLOW_COUNT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1147f880_40ed_11d1_2c91_00aa00574915);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const GUID_QOS_FLOW_IP_CONFORMING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07f99a8b_fcd2_11d2_be1e_00a0c99ee63b);
+pub const GUID_QOS_FLOW_IP_CONFORMING: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x07f99a8b_fcd2_11d2_be1e_00a0c99ee63b);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const GUID_QOS_FLOW_IP_NONCONFORMING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x087a5987_fcd2_11d2_be1e_00a0c99ee63b);
+pub const GUID_QOS_FLOW_IP_NONCONFORMING: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x087a5987_fcd2_11d2_be1e_00a0c99ee63b);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const GUID_QOS_FLOW_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c82290a_515a_11d2_8e58_00c04fc9bfcb);
+pub const GUID_QOS_FLOW_MODE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c82290a_515a_11d2_8e58_00c04fc9bfcb);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const GUID_QOS_ISSLOW_FLOW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabf273a4_ee07_11d2_be1b_00a0c99ee63b);
+pub const GUID_QOS_ISSLOW_FLOW: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xabf273a4_ee07_11d2_be1b_00a0c99ee63b);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const GUID_QOS_LATENCY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc408ef0_40ec_11d1_2c91_00aa00574915);
+pub const GUID_QOS_LATENCY: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfc408ef0_40ec_11d1_2c91_00aa00574915);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const GUID_QOS_MAX_OUTSTANDING_SENDS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x161ffa86_6120_11d1_2c91_00aa00574915);
+pub const GUID_QOS_MAX_OUTSTANDING_SENDS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x161ffa86_6120_11d1_2c91_00aa00574915);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const GUID_QOS_NON_BESTEFFORT_LIMIT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185c44e0_40ed_11d1_2c91_00aa00574915);
+pub const GUID_QOS_NON_BESTEFFORT_LIMIT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x185c44e0_40ed_11d1_2c91_00aa00574915);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const GUID_QOS_REMAINING_BANDWIDTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4c51720_40ec_11d1_2c91_00aa00574915);
+pub const GUID_QOS_REMAINING_BANDWIDTH: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c51720_40ec_11d1_2c91_00aa00574915);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const GUID_QOS_STATISTICS_BUFFER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb2c0980_e900_11d1_b07e_0080c71382bf);
+pub const GUID_QOS_STATISTICS_BUFFER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb2c0980_e900_11d1_b07e_0080c71382bf);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const GUID_QOS_TIMER_RESOLUTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba10cc88_f13e_11d2_be1b_00a0c99ee63b);
+pub const GUID_QOS_TIMER_RESOLUTION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xba10cc88_f13e_11d2_be1b_00a0c99ee63b);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const HIGHLY_DELAY_SENSITIVE: u32 = 4294967294u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
@@ -1392,8 +1392,8 @@ impl ::core::default::Default for FilterType {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for FilterType {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FilterType {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for FilterType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1425,8 +1425,8 @@ impl ::core::default::Default for QOS_FLOWRATE_REASON {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for QOS_FLOWRATE_REASON {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QOS_FLOWRATE_REASON {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for QOS_FLOWRATE_REASON {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1454,8 +1454,8 @@ impl ::core::default::Default for QOS_NOTIFY_FLOW {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for QOS_NOTIFY_FLOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QOS_NOTIFY_FLOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for QOS_NOTIFY_FLOW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1483,8 +1483,8 @@ impl ::core::default::Default for QOS_QUERY_FLOW {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for QOS_QUERY_FLOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QOS_QUERY_FLOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for QOS_QUERY_FLOW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1512,8 +1512,8 @@ impl ::core::default::Default for QOS_SET_FLOW {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for QOS_SET_FLOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QOS_SET_FLOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for QOS_SET_FLOW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1541,8 +1541,8 @@ impl ::core::default::Default for QOS_SHAPING {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for QOS_SHAPING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QOS_SHAPING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for QOS_SHAPING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1576,8 +1576,8 @@ impl ::core::default::Default for QOS_TRAFFIC_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for QOS_TRAFFIC_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QOS_TRAFFIC_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for QOS_TRAFFIC_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1611,8 +1611,8 @@ impl ::core::default::Default for int_serv_wkp {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for int_serv_wkp {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for int_serv_wkp {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for int_serv_wkp {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1641,8 +1641,8 @@ impl ::core::fmt::Debug for ADDRESS_LIST_DESCRIPTOR {
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::windows::core::TypeKind for ADDRESS_LIST_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ADDRESS_LIST_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::PartialEq for ADDRESS_LIST_DESCRIPTOR {
@@ -1675,8 +1675,8 @@ impl ::core::fmt::Debug for ADSPEC {
         f.debug_struct("ADSPEC").field("adspec_header", &self.adspec_header).field("adspec_body", &self.adspec_body).finish()
     }
 }
-impl ::windows::core::TypeKind for ADSPEC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ADSPEC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for ADSPEC {
     fn eq(&self, other: &Self) -> bool {
@@ -1709,8 +1709,8 @@ impl ::core::fmt::Debug for AD_GENERAL_PARAMS {
         f.debug_struct("AD_GENERAL_PARAMS").field("IntServAwareHopCount", &self.IntServAwareHopCount).field("PathBandwidthEstimate", &self.PathBandwidthEstimate).field("MinimumLatency", &self.MinimumLatency).field("PathMTU", &self.PathMTU).field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows::core::TypeKind for AD_GENERAL_PARAMS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for AD_GENERAL_PARAMS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for AD_GENERAL_PARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -1742,8 +1742,8 @@ impl ::core::fmt::Debug for AD_GUARANTEED {
         f.debug_struct("AD_GUARANTEED").field("CTotal", &self.CTotal).field("DTotal", &self.DTotal).field("CSum", &self.CSum).field("DSum", &self.DSum).finish()
     }
 }
-impl ::windows::core::TypeKind for AD_GUARANTEED {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for AD_GUARANTEED {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for AD_GUARANTEED {
     fn eq(&self, other: &Self) -> bool {
@@ -1770,8 +1770,8 @@ impl ::core::clone::Clone for CONTROL_SERVICE {
         *self
     }
 }
-impl ::windows::core::TypeKind for CONTROL_SERVICE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CONTROL_SERVICE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for CONTROL_SERVICE {
     fn default() -> Self {
@@ -1790,8 +1790,8 @@ impl ::core::clone::Clone for CONTROL_SERVICE_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for CONTROL_SERVICE_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CONTROL_SERVICE_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for CONTROL_SERVICE_0 {
     fn default() -> Self {
@@ -1816,8 +1816,8 @@ impl ::core::fmt::Debug for CtrlLoadFlowspec {
         f.debug_struct("CtrlLoadFlowspec").field("CL_spec_serv_hdr", &self.CL_spec_serv_hdr).field("CL_spec_parm_hdr", &self.CL_spec_parm_hdr).field("CL_spec_parms", &self.CL_spec_parms).finish()
     }
 }
-impl ::windows::core::TypeKind for CtrlLoadFlowspec {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CtrlLoadFlowspec {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for CtrlLoadFlowspec {
     fn eq(&self, other: &Self) -> bool {
@@ -1857,8 +1857,8 @@ impl ::core::fmt::Debug for ENUMERATION_BUFFER {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for ENUMERATION_BUFFER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ENUMERATION_BUFFER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for ENUMERATION_BUFFER {
@@ -1890,8 +1890,8 @@ impl ::core::clone::Clone for ERROR_SPEC {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for ERROR_SPEC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ERROR_SPEC {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for ERROR_SPEC {
@@ -1914,8 +1914,8 @@ impl ::core::clone::Clone for ERROR_SPEC_0 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for ERROR_SPEC_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ERROR_SPEC_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for ERROR_SPEC_0 {
@@ -1941,8 +1941,8 @@ impl ::core::clone::Clone for Error_Spec_IPv4 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for Error_Spec_IPv4 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for Error_Spec_IPv4 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for Error_Spec_IPv4 {
@@ -1966,8 +1966,8 @@ impl ::core::clone::Clone for FILTER_SPEC {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for FILTER_SPEC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FILTER_SPEC {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for FILTER_SPEC {
@@ -1991,8 +1991,8 @@ impl ::core::clone::Clone for FILTER_SPEC_0 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for FILTER_SPEC_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FILTER_SPEC_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for FILTER_SPEC_0 {
@@ -2023,8 +2023,8 @@ impl ::core::fmt::Debug for FLOWDESCRIPTOR {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for FLOWDESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FLOWDESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for FLOWDESCRIPTOR {
@@ -2056,8 +2056,8 @@ impl ::core::clone::Clone for FLOW_DESC {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for FLOW_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FLOW_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for FLOW_DESC {
@@ -2081,8 +2081,8 @@ impl ::core::clone::Clone for FLOW_DESC_0 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for FLOW_DESC_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FLOW_DESC_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for FLOW_DESC_0 {
@@ -2106,8 +2106,8 @@ impl ::core::clone::Clone for FLOW_DESC_1 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for FLOW_DESC_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FLOW_DESC_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for FLOW_DESC_1 {
@@ -2132,8 +2132,8 @@ impl ::core::clone::Clone for Filter_Spec_IPv4 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for Filter_Spec_IPv4 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for Filter_Spec_IPv4 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for Filter_Spec_IPv4 {
@@ -2157,8 +2157,8 @@ impl ::core::clone::Clone for Filter_Spec_IPv4GPI {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for Filter_Spec_IPv4GPI {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for Filter_Spec_IPv4GPI {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for Filter_Spec_IPv4GPI {
@@ -2190,8 +2190,8 @@ impl ::core::fmt::Debug for Gads_parms_t {
         f.debug_struct("Gads_parms_t").field("Gads_serv_hdr", &self.Gads_serv_hdr).field("Gads_Ctot_hdr", &self.Gads_Ctot_hdr).field("Gads_Ctot", &self.Gads_Ctot).field("Gads_Dtot_hdr", &self.Gads_Dtot_hdr).field("Gads_Dtot", &self.Gads_Dtot).field("Gads_Csum_hdr", &self.Gads_Csum_hdr).field("Gads_Csum", &self.Gads_Csum).field("Gads_Dsum_hdr", &self.Gads_Dsum_hdr).field("Gads_Dsum", &self.Gads_Dsum).finish()
     }
 }
-impl ::windows::core::TypeKind for Gads_parms_t {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for Gads_parms_t {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for Gads_parms_t {
     fn eq(&self, other: &Self) -> bool {
@@ -2238,8 +2238,8 @@ impl ::core::fmt::Debug for GenAdspecParams {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for GenAdspecParams {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GenAdspecParams {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for GenAdspecParams {
     fn eq(&self, other: &Self) -> bool {
@@ -2270,8 +2270,8 @@ impl ::core::fmt::Debug for GenTspec {
         f.debug_struct("GenTspec").field("gen_Tspec_serv_hdr", &self.gen_Tspec_serv_hdr).field("gen_Tspec_parm_hdr", &self.gen_Tspec_parm_hdr).field("gen_Tspec_parms", &self.gen_Tspec_parms).finish()
     }
 }
-impl ::windows::core::TypeKind for GenTspec {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GenTspec {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for GenTspec {
     fn eq(&self, other: &Self) -> bool {
@@ -2304,8 +2304,8 @@ impl ::core::fmt::Debug for GenTspecParms {
         f.debug_struct("GenTspecParms").field("TB_Tspec_r", &self.TB_Tspec_r).field("TB_Tspec_b", &self.TB_Tspec_b).field("TB_Tspec_p", &self.TB_Tspec_p).field("TB_Tspec_m", &self.TB_Tspec_m).field("TB_Tspec_M", &self.TB_Tspec_M).finish()
     }
 }
-impl ::windows::core::TypeKind for GenTspecParms {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GenTspecParms {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for GenTspecParms {
     fn eq(&self, other: &Self) -> bool {
@@ -2338,8 +2338,8 @@ impl ::core::fmt::Debug for GuarFlowSpec {
         f.debug_struct("GuarFlowSpec").field("Guar_serv_hdr", &self.Guar_serv_hdr).field("Guar_Tspec_hdr", &self.Guar_Tspec_hdr).field("Guar_Tspec_parms", &self.Guar_Tspec_parms).field("Guar_Rspec_hdr", &self.Guar_Rspec_hdr).field("Guar_Rspec", &self.Guar_Rspec).finish()
     }
 }
-impl ::windows::core::TypeKind for GuarFlowSpec {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GuarFlowSpec {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for GuarFlowSpec {
     fn eq(&self, other: &Self) -> bool {
@@ -2369,8 +2369,8 @@ impl ::core::fmt::Debug for GuarRspec {
         f.debug_struct("GuarRspec").field("Guar_R", &self.Guar_R).field("Guar_S", &self.Guar_S).finish()
     }
 }
-impl ::windows::core::TypeKind for GuarRspec {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GuarRspec {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for GuarRspec {
     fn eq(&self, other: &Self) -> bool {
@@ -2397,8 +2397,8 @@ impl ::core::clone::Clone for HSP_UPGRADE_IMAGEDATA {
         *self
     }
 }
-impl ::windows::core::TypeKind for HSP_UPGRADE_IMAGEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HSP_UPGRADE_IMAGEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for HSP_UPGRADE_IMAGEDATA {
     fn default() -> Self {
@@ -2424,8 +2424,8 @@ impl ::core::fmt::Debug for IDPE_ATTR {
         f.debug_struct("IDPE_ATTR").field("PeAttribLength", &self.PeAttribLength).field("PeAttribType", &self.PeAttribType).field("PeAttribSubType", &self.PeAttribSubType).field("PeAttribValue", &self.PeAttribValue).finish()
     }
 }
-impl ::windows::core::TypeKind for IDPE_ATTR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IDPE_ATTR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for IDPE_ATTR {
     fn eq(&self, other: &Self) -> bool {
@@ -2459,8 +2459,8 @@ impl ::core::fmt::Debug for ID_ERROR_OBJECT {
         f.debug_struct("ID_ERROR_OBJECT").field("usIdErrLength", &self.usIdErrLength).field("ucAType", &self.ucAType).field("ucSubType", &self.ucSubType).field("usReserved", &self.usReserved).field("usIdErrorValue", &self.usIdErrorValue).field("ucIdErrData", &self.ucIdErrData).finish()
     }
 }
-impl ::windows::core::TypeKind for ID_ERROR_OBJECT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ID_ERROR_OBJECT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for ID_ERROR_OBJECT {
     fn eq(&self, other: &Self) -> bool {
@@ -2485,8 +2485,8 @@ impl ::core::clone::Clone for IN_ADDR_IPV4 {
         *self
     }
 }
-impl ::windows::core::TypeKind for IN_ADDR_IPV4 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IN_ADDR_IPV4 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for IN_ADDR_IPV4 {
     fn default() -> Self {
@@ -2509,8 +2509,8 @@ impl ::core::fmt::Debug for IN_ADDR_IPV6 {
         f.debug_struct("IN_ADDR_IPV6").field("Addr", &self.Addr).finish()
     }
 }
-impl ::windows::core::TypeKind for IN_ADDR_IPV6 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IN_ADDR_IPV6 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for IN_ADDR_IPV6 {
     fn eq(&self, other: &Self) -> bool {
@@ -2540,8 +2540,8 @@ impl ::core::fmt::Debug for IPX_PATTERN {
         f.debug_struct("IPX_PATTERN").field("Src", &self.Src).field("Dest", &self.Dest).finish()
     }
 }
-impl ::windows::core::TypeKind for IPX_PATTERN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IPX_PATTERN {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPX_PATTERN {
     fn eq(&self, other: &Self) -> bool {
@@ -2572,8 +2572,8 @@ impl ::core::fmt::Debug for IPX_PATTERN_0 {
         f.debug_struct("IPX_PATTERN_0").field("NetworkAddress", &self.NetworkAddress).field("NodeAddress", &self.NodeAddress).field("Socket", &self.Socket).finish()
     }
 }
-impl ::windows::core::TypeKind for IPX_PATTERN_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IPX_PATTERN_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPX_PATTERN_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -2603,8 +2603,8 @@ impl ::core::clone::Clone for IP_PATTERN {
         *self
     }
 }
-impl ::windows::core::TypeKind for IP_PATTERN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IP_PATTERN {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for IP_PATTERN {
     fn default() -> Self {
@@ -2624,8 +2624,8 @@ impl ::core::clone::Clone for IP_PATTERN_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for IP_PATTERN_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IP_PATTERN_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for IP_PATTERN_0 {
     fn default() -> Self {
@@ -2650,8 +2650,8 @@ impl ::core::fmt::Debug for IP_PATTERN_0_0 {
         f.debug_struct("IP_PATTERN_0_0").field("s_type", &self.s_type).field("s_code", &self.s_code).field("filler", &self.filler).finish()
     }
 }
-impl ::windows::core::TypeKind for IP_PATTERN_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IP_PATTERN_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for IP_PATTERN_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -2681,8 +2681,8 @@ impl ::core::fmt::Debug for IP_PATTERN_0_1 {
         f.debug_struct("IP_PATTERN_0_1").field("s_srcport", &self.s_srcport).field("s_dstport", &self.s_dstport).finish()
     }
 }
-impl ::windows::core::TypeKind for IP_PATTERN_0_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IP_PATTERN_0_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for IP_PATTERN_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -2712,8 +2712,8 @@ impl ::core::fmt::Debug for IS_ADSPEC_BODY {
         f.debug_struct("IS_ADSPEC_BODY").field("adspec_mh", &self.adspec_mh).field("adspec_genparms", &self.adspec_genparms).finish()
     }
 }
-impl ::windows::core::TypeKind for IS_ADSPEC_BODY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IS_ADSPEC_BODY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for IS_ADSPEC_BODY {
     fn eq(&self, other: &Self) -> bool {
@@ -2738,8 +2738,8 @@ impl ::core::clone::Clone for IS_FLOWSPEC {
         *self
     }
 }
-impl ::windows::core::TypeKind for IS_FLOWSPEC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IS_FLOWSPEC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for IS_FLOWSPEC {
     fn default() -> Self {
@@ -2758,8 +2758,8 @@ impl ::core::clone::Clone for IntServFlowSpec {
         *self
     }
 }
-impl ::windows::core::TypeKind for IntServFlowSpec {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IntServFlowSpec {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for IntServFlowSpec {
     fn default() -> Self {
@@ -2779,8 +2779,8 @@ impl ::core::clone::Clone for IntServFlowSpec_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for IntServFlowSpec_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IntServFlowSpec_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for IntServFlowSpec_0 {
     fn default() -> Self {
@@ -2805,8 +2805,8 @@ impl ::core::fmt::Debug for IntServMainHdr {
         f.debug_struct("IntServMainHdr").field("ismh_version", &self.ismh_version).field("ismh_unused", &self.ismh_unused).field("ismh_len32b", &self.ismh_len32b).finish()
     }
 }
-impl ::windows::core::TypeKind for IntServMainHdr {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IntServMainHdr {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for IntServMainHdr {
     fn eq(&self, other: &Self) -> bool {
@@ -2837,8 +2837,8 @@ impl ::core::fmt::Debug for IntServParmHdr {
         f.debug_struct("IntServParmHdr").field("isph_parm_num", &self.isph_parm_num).field("isph_flags", &self.isph_flags).field("isph_len32b", &self.isph_len32b).finish()
     }
 }
-impl ::windows::core::TypeKind for IntServParmHdr {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IntServParmHdr {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for IntServParmHdr {
     fn eq(&self, other: &Self) -> bool {
@@ -2869,8 +2869,8 @@ impl ::core::fmt::Debug for IntServServiceHdr {
         f.debug_struct("IntServServiceHdr").field("issh_service", &self.issh_service).field("issh_flags", &self.issh_flags).field("issh_len32b", &self.issh_len32b).finish()
     }
 }
-impl ::windows::core::TypeKind for IntServServiceHdr {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IntServServiceHdr {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for IntServServiceHdr {
     fn eq(&self, other: &Self) -> bool {
@@ -2895,8 +2895,8 @@ impl ::core::clone::Clone for IntServTspecBody {
         *self
     }
 }
-impl ::windows::core::TypeKind for IntServTspecBody {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IntServTspecBody {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for IntServTspecBody {
     fn default() -> Self {
@@ -2915,8 +2915,8 @@ impl ::core::clone::Clone for IntServTspecBody_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for IntServTspecBody_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IntServTspecBody_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for IntServTspecBody_0 {
     fn default() -> Self {
@@ -2941,8 +2941,8 @@ impl ::core::clone::Clone for LPMIPTABLE {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for LPMIPTABLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LPMIPTABLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for LPMIPTABLE {
@@ -2974,8 +2974,8 @@ impl ::core::fmt::Debug for LPM_HANDLE {
         f.debug_tuple("LPM_HANDLE").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for LPM_HANDLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LPM_HANDLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
@@ -2999,8 +2999,8 @@ impl ::core::fmt::Debug for LPM_INIT_INFO {
         f.debug_struct("LPM_INIT_INFO").field("PcmVersionNumber", &self.PcmVersionNumber).field("ResultTimeLimit", &self.ResultTimeLimit).field("ConfiguredLpmCount", &self.ConfiguredLpmCount).finish()
     }
 }
-impl ::windows::core::TypeKind for LPM_INIT_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LPM_INIT_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for LPM_INIT_INFO {
     fn default() -> Self {
@@ -3025,8 +3025,8 @@ impl ::core::fmt::Debug for PARAM_BUFFER {
         f.debug_struct("PARAM_BUFFER").field("ParameterId", &self.ParameterId).field("Length", &self.Length).field("Buffer", &self.Buffer).finish()
     }
 }
-impl ::windows::core::TypeKind for PARAM_BUFFER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PARAM_BUFFER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PARAM_BUFFER {
     fn eq(&self, other: &Self) -> bool {
@@ -3057,8 +3057,8 @@ impl ::core::fmt::Debug for POLICY_DATA {
         f.debug_struct("POLICY_DATA").field("PolicyObjHdr", &self.PolicyObjHdr).field("usPeOffset", &self.usPeOffset).field("usReserved", &self.usReserved).finish()
     }
 }
-impl ::windows::core::TypeKind for POLICY_DATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POLICY_DATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for POLICY_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -3089,8 +3089,8 @@ impl ::core::fmt::Debug for POLICY_DECISION {
         f.debug_struct("POLICY_DECISION").field("lpvResult", &self.lpvResult).field("wPolicyErrCode", &self.wPolicyErrCode).field("wPolicyErrValue", &self.wPolicyErrValue).finish()
     }
 }
-impl ::windows::core::TypeKind for POLICY_DECISION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POLICY_DECISION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for POLICY_DECISION {
     fn eq(&self, other: &Self) -> bool {
@@ -3121,8 +3121,8 @@ impl ::core::fmt::Debug for POLICY_ELEMENT {
         f.debug_struct("POLICY_ELEMENT").field("usPeLength", &self.usPeLength).field("usPeType", &self.usPeType).field("ucPeData", &self.ucPeData).finish()
     }
 }
-impl ::windows::core::TypeKind for POLICY_ELEMENT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POLICY_ELEMENT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for POLICY_ELEMENT {
     fn eq(&self, other: &Self) -> bool {
@@ -3158,8 +3158,8 @@ impl ::core::fmt::Debug for QOS_DESTADDR {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for QOS_DESTADDR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QOS_DESTADDR {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for QOS_DESTADDR {
@@ -3193,8 +3193,8 @@ impl ::core::fmt::Debug for QOS_DIFFSERV {
         f.debug_struct("QOS_DIFFSERV").field("ObjectHdr", &self.ObjectHdr).field("DSFieldCount", &self.DSFieldCount).field("DiffservRule", &self.DiffservRule).finish()
     }
 }
-impl ::windows::core::TypeKind for QOS_DIFFSERV {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QOS_DIFFSERV {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_DIFFSERV {
     fn eq(&self, other: &Self) -> bool {
@@ -3227,8 +3227,8 @@ impl ::core::fmt::Debug for QOS_DIFFSERV_RULE {
         f.debug_struct("QOS_DIFFSERV_RULE").field("InboundDSField", &self.InboundDSField).field("ConformingOutboundDSField", &self.ConformingOutboundDSField).field("NonConformingOutboundDSField", &self.NonConformingOutboundDSField).field("ConformingUserPriority", &self.ConformingUserPriority).field("NonConformingUserPriority", &self.NonConformingUserPriority).finish()
     }
 }
-impl ::windows::core::TypeKind for QOS_DIFFSERV_RULE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QOS_DIFFSERV_RULE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_DIFFSERV_RULE {
     fn eq(&self, other: &Self) -> bool {
@@ -3258,8 +3258,8 @@ impl ::core::fmt::Debug for QOS_DS_CLASS {
         f.debug_struct("QOS_DS_CLASS").field("ObjectHdr", &self.ObjectHdr).field("DSField", &self.DSField).finish()
     }
 }
-impl ::windows::core::TypeKind for QOS_DS_CLASS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QOS_DS_CLASS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_DS_CLASS {
     fn eq(&self, other: &Self) -> bool {
@@ -3290,8 +3290,8 @@ impl ::core::fmt::Debug for QOS_FLOWRATE_OUTGOING {
         f.debug_struct("QOS_FLOWRATE_OUTGOING").field("Bandwidth", &self.Bandwidth).field("ShapingBehavior", &self.ShapingBehavior).field("Reason", &self.Reason).finish()
     }
 }
-impl ::windows::core::TypeKind for QOS_FLOWRATE_OUTGOING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QOS_FLOWRATE_OUTGOING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_FLOWRATE_OUTGOING {
     fn eq(&self, other: &Self) -> bool {
@@ -3330,8 +3330,8 @@ impl ::core::fmt::Debug for QOS_FLOW_FUNDAMENTALS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for QOS_FLOW_FUNDAMENTALS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QOS_FLOW_FUNDAMENTALS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for QOS_FLOW_FUNDAMENTALS {
@@ -3364,8 +3364,8 @@ impl ::core::fmt::Debug for QOS_FRIENDLY_NAME {
         f.debug_struct("QOS_FRIENDLY_NAME").field("ObjectHdr", &self.ObjectHdr).field("FriendlyName", &self.FriendlyName).finish()
     }
 }
-impl ::windows::core::TypeKind for QOS_FRIENDLY_NAME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QOS_FRIENDLY_NAME {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_FRIENDLY_NAME {
     fn eq(&self, other: &Self) -> bool {
@@ -3395,8 +3395,8 @@ impl ::core::fmt::Debug for QOS_OBJECT_HDR {
         f.debug_struct("QOS_OBJECT_HDR").field("ObjectType", &self.ObjectType).field("ObjectLength", &self.ObjectLength).finish()
     }
 }
-impl ::windows::core::TypeKind for QOS_OBJECT_HDR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QOS_OBJECT_HDR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_OBJECT_HDR {
     fn eq(&self, other: &Self) -> bool {
@@ -3428,8 +3428,8 @@ impl ::core::fmt::Debug for QOS_PACKET_PRIORITY {
         f.debug_struct("QOS_PACKET_PRIORITY").field("ConformantDSCPValue", &self.ConformantDSCPValue).field("NonConformantDSCPValue", &self.NonConformantDSCPValue).field("ConformantL2Value", &self.ConformantL2Value).field("NonConformantL2Value", &self.NonConformantL2Value).finish()
     }
 }
-impl ::windows::core::TypeKind for QOS_PACKET_PRIORITY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QOS_PACKET_PRIORITY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_PACKET_PRIORITY {
     fn eq(&self, other: &Self) -> bool {
@@ -3459,8 +3459,8 @@ impl ::core::fmt::Debug for QOS_SD_MODE {
         f.debug_struct("QOS_SD_MODE").field("ObjectHdr", &self.ObjectHdr).field("ShapeDiscardMode", &self.ShapeDiscardMode).finish()
     }
 }
-impl ::windows::core::TypeKind for QOS_SD_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QOS_SD_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_SD_MODE {
     fn eq(&self, other: &Self) -> bool {
@@ -3490,8 +3490,8 @@ impl ::core::fmt::Debug for QOS_SHAPING_RATE {
         f.debug_struct("QOS_SHAPING_RATE").field("ObjectHdr", &self.ObjectHdr).field("ShapingRate", &self.ShapingRate).finish()
     }
 }
-impl ::windows::core::TypeKind for QOS_SHAPING_RATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QOS_SHAPING_RATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_SHAPING_RATE {
     fn eq(&self, other: &Self) -> bool {
@@ -3520,8 +3520,8 @@ impl ::core::fmt::Debug for QOS_TCP_TRAFFIC {
         f.debug_struct("QOS_TCP_TRAFFIC").field("ObjectHdr", &self.ObjectHdr).finish()
     }
 }
-impl ::windows::core::TypeKind for QOS_TCP_TRAFFIC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QOS_TCP_TRAFFIC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_TCP_TRAFFIC {
     fn eq(&self, other: &Self) -> bool {
@@ -3551,8 +3551,8 @@ impl ::core::fmt::Debug for QOS_TRAFFIC_CLASS {
         f.debug_struct("QOS_TRAFFIC_CLASS").field("ObjectHdr", &self.ObjectHdr).field("TrafficClass", &self.TrafficClass).finish()
     }
 }
-impl ::windows::core::TypeKind for QOS_TRAFFIC_CLASS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QOS_TRAFFIC_CLASS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_TRAFFIC_CLASS {
     fn eq(&self, other: &Self) -> bool {
@@ -3582,8 +3582,8 @@ impl ::core::fmt::Debug for QOS_VERSION {
         f.debug_struct("QOS_VERSION").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
     }
 }
-impl ::windows::core::TypeKind for QOS_VERSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QOS_VERSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_VERSION {
     fn eq(&self, other: &Self) -> bool {
@@ -3614,8 +3614,8 @@ impl ::core::fmt::Debug for QualAppFlowSpec {
         f.debug_struct("QualAppFlowSpec").field("Q_spec_serv_hdr", &self.Q_spec_serv_hdr).field("Q_spec_parm_hdr", &self.Q_spec_parm_hdr).field("Q_spec_parms", &self.Q_spec_parms).finish()
     }
 }
-impl ::windows::core::TypeKind for QualAppFlowSpec {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QualAppFlowSpec {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for QualAppFlowSpec {
     fn eq(&self, other: &Self) -> bool {
@@ -3646,8 +3646,8 @@ impl ::core::fmt::Debug for QualTspec {
         f.debug_struct("QualTspec").field("qual_Tspec_serv_hdr", &self.qual_Tspec_serv_hdr).field("qual_Tspec_parm_hdr", &self.qual_Tspec_parm_hdr).field("qual_Tspec_parms", &self.qual_Tspec_parms).finish()
     }
 }
-impl ::windows::core::TypeKind for QualTspec {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QualTspec {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for QualTspec {
     fn eq(&self, other: &Self) -> bool {
@@ -3676,8 +3676,8 @@ impl ::core::fmt::Debug for QualTspecParms {
         f.debug_struct("QualTspecParms").field("TB_Tspec_M", &self.TB_Tspec_M).finish()
     }
 }
-impl ::windows::core::TypeKind for QualTspecParms {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QualTspecParms {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for QualTspecParms {
     fn eq(&self, other: &Self) -> bool {
@@ -3707,8 +3707,8 @@ impl ::core::fmt::Debug for RESV_STYLE {
         f.debug_struct("RESV_STYLE").field("style_header", &self.style_header).field("style_word", &self.style_word).finish()
     }
 }
-impl ::windows::core::TypeKind for RESV_STYLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RESV_STYLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RESV_STYLE {
     fn eq(&self, other: &Self) -> bool {
@@ -3745,8 +3745,8 @@ impl ::core::fmt::Debug for RHANDLE {
         f.debug_tuple("RHANDLE").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for RHANDLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RHANDLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
@@ -3762,8 +3762,8 @@ impl ::core::clone::Clone for RSVP_ADSPEC {
         *self
     }
 }
-impl ::windows::core::TypeKind for RSVP_ADSPEC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RSVP_ADSPEC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for RSVP_ADSPEC {
     fn default() -> Self {
@@ -3782,8 +3782,8 @@ impl ::core::clone::Clone for RSVP_FILTERSPEC {
         *self
     }
 }
-impl ::windows::core::TypeKind for RSVP_FILTERSPEC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RSVP_FILTERSPEC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for RSVP_FILTERSPEC {
     fn default() -> Self {
@@ -3805,8 +3805,8 @@ impl ::core::clone::Clone for RSVP_FILTERSPEC_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for RSVP_FILTERSPEC_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RSVP_FILTERSPEC_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for RSVP_FILTERSPEC_0 {
     fn default() -> Self {
@@ -3826,8 +3826,8 @@ impl ::core::clone::Clone for RSVP_FILTERSPEC_V4 {
         *self
     }
 }
-impl ::windows::core::TypeKind for RSVP_FILTERSPEC_V4 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RSVP_FILTERSPEC_V4 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for RSVP_FILTERSPEC_V4 {
     fn default() -> Self {
@@ -3846,8 +3846,8 @@ impl ::core::clone::Clone for RSVP_FILTERSPEC_V4_GPI {
         *self
     }
 }
-impl ::windows::core::TypeKind for RSVP_FILTERSPEC_V4_GPI {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RSVP_FILTERSPEC_V4_GPI {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for RSVP_FILTERSPEC_V4_GPI {
     fn default() -> Self {
@@ -3872,8 +3872,8 @@ impl ::core::fmt::Debug for RSVP_FILTERSPEC_V6 {
         f.debug_struct("RSVP_FILTERSPEC_V6").field("Address", &self.Address).field("UnUsed", &self.UnUsed).field("Port", &self.Port).finish()
     }
 }
-impl ::windows::core::TypeKind for RSVP_FILTERSPEC_V6 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RSVP_FILTERSPEC_V6 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RSVP_FILTERSPEC_V6 {
     fn eq(&self, other: &Self) -> bool {
@@ -3904,8 +3904,8 @@ impl ::core::fmt::Debug for RSVP_FILTERSPEC_V6_FLOW {
         f.debug_struct("RSVP_FILTERSPEC_V6_FLOW").field("Address", &self.Address).field("UnUsed", &self.UnUsed).field("FlowLabel", &self.FlowLabel).finish()
     }
 }
-impl ::windows::core::TypeKind for RSVP_FILTERSPEC_V6_FLOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RSVP_FILTERSPEC_V6_FLOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RSVP_FILTERSPEC_V6_FLOW {
     fn eq(&self, other: &Self) -> bool {
@@ -3935,8 +3935,8 @@ impl ::core::fmt::Debug for RSVP_FILTERSPEC_V6_GPI {
         f.debug_struct("RSVP_FILTERSPEC_V6_GPI").field("Address", &self.Address).field("GeneralPortId", &self.GeneralPortId).finish()
     }
 }
-impl ::windows::core::TypeKind for RSVP_FILTERSPEC_V6_GPI {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RSVP_FILTERSPEC_V6_GPI {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RSVP_FILTERSPEC_V6_GPI {
     fn eq(&self, other: &Self) -> bool {
@@ -3965,8 +3965,8 @@ impl ::core::clone::Clone for RSVP_HOP {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for RSVP_HOP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RSVP_HOP {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RSVP_HOP {
@@ -3989,8 +3989,8 @@ impl ::core::clone::Clone for RSVP_HOP_0 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for RSVP_HOP_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RSVP_HOP_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RSVP_HOP_0 {
@@ -4043,8 +4043,8 @@ impl ::core::fmt::Debug for RSVP_MSG_OBJS {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for RSVP_MSG_OBJS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RSVP_MSG_OBJS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for RSVP_MSG_OBJS {
@@ -4078,8 +4078,8 @@ impl ::core::fmt::Debug for RSVP_POLICY {
         f.debug_struct("RSVP_POLICY").field("Len", &self.Len).field("Type", &self.Type).field("Info", &self.Info).finish()
     }
 }
-impl ::windows::core::TypeKind for RSVP_POLICY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RSVP_POLICY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RSVP_POLICY {
     fn eq(&self, other: &Self) -> bool {
@@ -4110,8 +4110,8 @@ impl ::core::fmt::Debug for RSVP_POLICY_INFO {
         f.debug_struct("RSVP_POLICY_INFO").field("ObjectHdr", &self.ObjectHdr).field("NumPolicyElement", &self.NumPolicyElement).field("PolicyElement", &self.PolicyElement).finish()
     }
 }
-impl ::windows::core::TypeKind for RSVP_POLICY_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RSVP_POLICY_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RSVP_POLICY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -4150,8 +4150,8 @@ impl ::core::fmt::Debug for RSVP_RESERVE_INFO {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for RSVP_RESERVE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RSVP_RESERVE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for RSVP_RESERVE_INFO {
@@ -4183,8 +4183,8 @@ impl ::core::clone::Clone for RSVP_SCOPE {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for RSVP_SCOPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RSVP_SCOPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RSVP_SCOPE {
@@ -4207,8 +4207,8 @@ impl ::core::clone::Clone for RSVP_SCOPE_0 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for RSVP_SCOPE_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RSVP_SCOPE_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RSVP_SCOPE_0 {
@@ -4232,8 +4232,8 @@ impl ::core::clone::Clone for RSVP_SESSION {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for RSVP_SESSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RSVP_SESSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RSVP_SESSION {
@@ -4256,8 +4256,8 @@ impl ::core::clone::Clone for RSVP_SESSION_0 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for RSVP_SESSION_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RSVP_SESSION_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RSVP_SESSION_0 {
@@ -4284,8 +4284,8 @@ impl ::core::fmt::Debug for RSVP_STATUS_INFO {
         f.debug_struct("RSVP_STATUS_INFO").field("ObjectHdr", &self.ObjectHdr).field("StatusCode", &self.StatusCode).field("ExtendedStatus1", &self.ExtendedStatus1).field("ExtendedStatus2", &self.ExtendedStatus2).finish()
     }
 }
-impl ::windows::core::TypeKind for RSVP_STATUS_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RSVP_STATUS_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RSVP_STATUS_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -4316,8 +4316,8 @@ impl ::core::fmt::Debug for RsvpObjHdr {
         f.debug_struct("RsvpObjHdr").field("obj_length", &self.obj_length).field("obj_class", &self.obj_class).field("obj_ctype", &self.obj_ctype).finish()
     }
 }
-impl ::windows::core::TypeKind for RsvpObjHdr {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RsvpObjHdr {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for RsvpObjHdr {
     fn eq(&self, other: &Self) -> bool {
@@ -4346,8 +4346,8 @@ impl ::core::clone::Clone for Rsvp_Hop_IPv4 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for Rsvp_Hop_IPv4 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for Rsvp_Hop_IPv4 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for Rsvp_Hop_IPv4 {
@@ -4367,8 +4367,8 @@ impl ::core::clone::Clone for SENDER_TSPEC {
         *self
     }
 }
-impl ::windows::core::TypeKind for SENDER_TSPEC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SENDER_TSPEC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for SENDER_TSPEC {
     fn default() -> Self {
@@ -4388,8 +4388,8 @@ impl ::core::clone::Clone for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
         *self
     }
 }
-impl ::windows::core::TypeKind for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
     fn default() -> Self {
@@ -4410,8 +4410,8 @@ impl ::core::clone::Clone for SIPAEVENT_REVOCATION_LIST_PAYLOAD {
         *self
     }
 }
-impl ::windows::core::TypeKind for SIPAEVENT_REVOCATION_LIST_PAYLOAD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SIPAEVENT_REVOCATION_LIST_PAYLOAD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for SIPAEVENT_REVOCATION_LIST_PAYLOAD {
     fn default() -> Self {
@@ -4435,8 +4435,8 @@ impl ::core::clone::Clone for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
         *self
     }
 }
-impl ::windows::core::TypeKind for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
     fn default() -> Self {
@@ -4458,8 +4458,8 @@ impl ::core::clone::Clone for SIPAEVENT_SI_POLICY_PAYLOAD {
         *self
     }
 }
-impl ::windows::core::TypeKind for SIPAEVENT_SI_POLICY_PAYLOAD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SIPAEVENT_SI_POLICY_PAYLOAD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for SIPAEVENT_SI_POLICY_PAYLOAD {
     fn default() -> Self {
@@ -4478,8 +4478,8 @@ impl ::core::clone::Clone for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
         *self
     }
 }
-impl ::windows::core::TypeKind for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
     fn default() -> Self {
@@ -4497,8 +4497,8 @@ impl ::core::clone::Clone for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
     fn default() -> Self {
@@ -4519,8 +4519,8 @@ impl ::core::clone::Clone for SIPAEVENT_VSM_IDK_RSA_INFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for SIPAEVENT_VSM_IDK_RSA_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SIPAEVENT_VSM_IDK_RSA_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for SIPAEVENT_VSM_IDK_RSA_INFO {
     fn default() -> Self {
@@ -4542,8 +4542,8 @@ impl ::core::clone::Clone for Scope_list_ipv4 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for Scope_list_ipv4 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for Scope_list_ipv4 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for Scope_list_ipv4 {
@@ -4569,8 +4569,8 @@ impl ::core::clone::Clone for Session_IPv4 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for Session_IPv4 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for Session_IPv4 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for Session_IPv4 {
@@ -4593,8 +4593,8 @@ impl ::core::clone::Clone for TCG_PCClientPCREventStruct {
         *self
     }
 }
-impl ::windows::core::TypeKind for TCG_PCClientPCREventStruct {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TCG_PCClientPCREventStruct {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for TCG_PCClientPCREventStruct {
     fn default() -> Self {
@@ -4614,8 +4614,8 @@ impl ::core::clone::Clone for TCG_PCClientTaggedEventStruct {
         *self
     }
 }
-impl ::windows::core::TypeKind for TCG_PCClientTaggedEventStruct {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TCG_PCClientTaggedEventStruct {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for TCG_PCClientTaggedEventStruct {
     fn default() -> Self {
@@ -4646,8 +4646,8 @@ impl ::core::fmt::Debug for TCI_CLIENT_FUNC_LIST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TCI_CLIENT_FUNC_LIST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TCI_CLIENT_FUNC_LIST {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TCI_CLIENT_FUNC_LIST {
@@ -4674,8 +4674,8 @@ impl ::core::fmt::Debug for TC_GEN_FILTER {
         f.debug_struct("TC_GEN_FILTER").field("AddressType", &self.AddressType).field("PatternSize", &self.PatternSize).field("Pattern", &self.Pattern).field("Mask", &self.Mask).finish()
     }
 }
-impl ::windows::core::TypeKind for TC_GEN_FILTER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TC_GEN_FILTER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TC_GEN_FILTER {
     fn eq(&self, other: &Self) -> bool {
@@ -4712,8 +4712,8 @@ impl ::core::fmt::Debug for TC_GEN_FLOW {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for TC_GEN_FLOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TC_GEN_FLOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for TC_GEN_FLOW {
@@ -4734,8 +4734,8 @@ impl ::core::default::Default for TC_GEN_FLOW {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct TC_IFC_DESCRIPTOR {
     pub Length: u32,
-    pub pInterfaceName: ::windows::core::PWSTR,
-    pub pInterfaceID: ::windows::core::PWSTR,
+    pub pInterfaceName: ::windows_core::PWSTR,
+    pub pInterfaceID: ::windows_core::PWSTR,
     pub AddressListDesc: ADDRESS_LIST_DESCRIPTOR,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -4753,8 +4753,8 @@ impl ::core::fmt::Debug for TC_IFC_DESCRIPTOR {
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::windows::core::TypeKind for TC_IFC_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TC_IFC_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::PartialEq for TC_IFC_DESCRIPTOR {
@@ -4794,8 +4794,8 @@ impl ::core::fmt::Debug for TC_SUPPORTED_INFO_BUFFER {
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::windows::core::TypeKind for TC_SUPPORTED_INFO_BUFFER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TC_SUPPORTED_INFO_BUFFER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::PartialEq for TC_SUPPORTED_INFO_BUFFER {
@@ -4831,8 +4831,8 @@ impl ::core::clone::Clone for WBCL_Iterator {
         *self
     }
 }
-impl ::windows::core::TypeKind for WBCL_Iterator {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WBCL_Iterator {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WBCL_Iterator {
     fn default() -> Self {
@@ -4853,8 +4853,8 @@ impl ::core::clone::Clone for WBCL_LogHdr {
         *self
     }
 }
-impl ::windows::core::TypeKind for WBCL_LogHdr {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WBCL_LogHdr {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WBCL_LogHdr {
     fn default() -> Self {

@@ -1,36 +1,36 @@
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct ICatalog(::windows::core::IUnknown);
+pub struct ICatalog(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICatalog {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetCollection<P0>(&self, bstrcollname: P0) -> ::windows::core::Result<super::Com::IDispatch>
+    pub unsafe fn GetCollection<P0>(&self, bstrcollname: P0) -> ::windows_core::Result<super::Com::IDispatch>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).GetCollection)(::windows::core::Interface::as_raw(self), bstrcollname.into_param().abi(), &mut result__).from_abi(result__)
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).GetCollection)(::windows_core::Interface::as_raw(self), bstrcollname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Connect<P0>(&self, bstrconnectstring: P0) -> ::windows::core::Result<super::Com::IDispatch>
+    pub unsafe fn Connect<P0>(&self, bstrconnectstring: P0) -> ::windows_core::Result<super::Com::IDispatch>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Connect)(::windows::core::Interface::as_raw(self), bstrconnectstring.into_param().abi(), &mut result__).from_abi(result__)
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Connect)(::windows_core::Interface::as_raw(self), bstrconnectstring.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn MajorVersion(&self, retval: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MajorVersion)(::windows::core::Interface::as_raw(self), retval).ok()
+    pub unsafe fn MajorVersion(&self, retval: *mut i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).MajorVersion)(::windows_core::Interface::as_raw(self), retval).ok()
     }
-    pub unsafe fn MinorVersion(&self, retval: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MinorVersion)(::windows::core::Interface::as_raw(self), retval).ok()
+    pub unsafe fn MinorVersion(&self, retval: *mut i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).MinorVersion)(::windows_core::Interface::as_raw(self), retval).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(ICatalog, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(ICatalog, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICatalog {
     fn eq(&self, other: &Self) -> bool {
@@ -46,7 +46,7 @@ impl ::core::fmt::Debug for ICatalog {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for ICatalog {
+unsafe impl ::windows_core::Interface for ICatalog {
     type Vtable = ICatalog_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -56,8 +56,8 @@ impl ::core::clone::Clone for ICatalog {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for ICatalog {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22870_8a19_11d0_81b6_00a0c9231c29);
+unsafe impl ::windows_core::ComInterface for ICatalog {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eb22870_8a19_11d0_81b6_00a0c9231c29);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -65,54 +65,54 @@ unsafe impl ::windows::core::ComInterface for ICatalog {
 pub struct ICatalog_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcollname: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppcatalogcollection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcollname: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppcatalogcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetCollection: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrconnectstring: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppcatalogcollection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrconnectstring: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppcatalogcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Connect: usize,
-    pub MajorVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
-    pub MinorVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
+    pub MajorVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
+    pub MinorVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IComponentUtil(::windows::core::IUnknown);
+pub struct IComponentUtil(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IComponentUtil {
-    pub unsafe fn InstallComponent<P0, P1, P2>(&self, bstrdllfile: P0, bstrtypelibfile: P1, bstrproxystubdllfile: P2) -> ::windows::core::Result<()>
+    pub unsafe fn InstallComponent<P0, P1, P2>(&self, bstrdllfile: P0, bstrtypelibfile: P1, bstrproxystubdllfile: P2) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
-        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
-        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P2: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).InstallComponent)(::windows::core::Interface::as_raw(self), bstrdllfile.into_param().abi(), bstrtypelibfile.into_param().abi(), bstrproxystubdllfile.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).InstallComponent)(::windows_core::Interface::as_raw(self), bstrdllfile.into_param().abi(), bstrtypelibfile.into_param().abi(), bstrproxystubdllfile.into_param().abi()).ok()
     }
-    pub unsafe fn ImportComponent<P0>(&self, bstrclsid: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ImportComponent<P0>(&self, bstrclsid: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).ImportComponent)(::windows::core::Interface::as_raw(self), bstrclsid.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).ImportComponent)(::windows_core::Interface::as_raw(self), bstrclsid.into_param().abi()).ok()
     }
-    pub unsafe fn ImportComponentByName<P0>(&self, bstrprogid: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ImportComponentByName<P0>(&self, bstrprogid: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).ImportComponentByName)(::windows::core::Interface::as_raw(self), bstrprogid.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).ImportComponentByName)(::windows_core::Interface::as_raw(self), bstrprogid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetCLSIDs<P0, P1>(&self, bstrdllfile: P0, bstrtypelibfile: P1, aclsids: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>
+    pub unsafe fn GetCLSIDs<P0, P1>(&self, bstrdllfile: P0, bstrtypelibfile: P1, aclsids: *mut *mut super::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
-        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetCLSIDs)(::windows::core::Interface::as_raw(self), bstrdllfile.into_param().abi(), bstrtypelibfile.into_param().abi(), aclsids).ok()
+        (::windows_core::Interface::vtable(self).GetCLSIDs)(::windows_core::Interface::as_raw(self), bstrdllfile.into_param().abi(), bstrtypelibfile.into_param().abi(), aclsids).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IComponentUtil, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IComponentUtil, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IComponentUtil {
     fn eq(&self, other: &Self) -> bool {
@@ -128,7 +128,7 @@ impl ::core::fmt::Debug for IComponentUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IComponentUtil {
+unsafe impl ::windows_core::Interface for IComponentUtil {
     type Vtable = IComponentUtil_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -138,51 +138,51 @@ impl ::core::clone::Clone for IComponentUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IComponentUtil {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22873_8a19_11d0_81b6_00a0c9231c29);
+unsafe impl ::windows_core::ComInterface for IComponentUtil {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eb22873_8a19_11d0_81b6_00a0c9231c29);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComponentUtil_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub InstallComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdllfile: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrtypelibfile: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrproxystubdllfile: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ImportComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrclsid: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ImportComponentByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprogid: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub InstallComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdllfile: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrtypelibfile: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrproxystubdllfile: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ImportComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrclsid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ImportComponentByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprogid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetCLSIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdllfile: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrtypelibfile: ::std::mem::MaybeUninit<::windows::core::BSTR>, aclsids: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT,
+    pub GetCLSIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdllfile: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrtypelibfile: ::std::mem::MaybeUninit<::windows_core::BSTR>, aclsids: *mut *mut super::Com::SAFEARRAY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetCLSIDs: usize,
 }
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IPackageUtil(::windows::core::IUnknown);
+pub struct IPackageUtil(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPackageUtil {
-    pub unsafe fn InstallPackage<P0, P1>(&self, bstrpackagefile: P0, bstrinstallpath: P1, loptions: i32) -> ::windows::core::Result<()>
+    pub unsafe fn InstallPackage<P0, P1>(&self, bstrpackagefile: P0, bstrinstallpath: P1, loptions: i32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
-        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).InstallPackage)(::windows::core::Interface::as_raw(self), bstrpackagefile.into_param().abi(), bstrinstallpath.into_param().abi(), loptions).ok()
+        (::windows_core::Interface::vtable(self).InstallPackage)(::windows_core::Interface::as_raw(self), bstrpackagefile.into_param().abi(), bstrinstallpath.into_param().abi(), loptions).ok()
     }
-    pub unsafe fn ExportPackage<P0, P1>(&self, bstrpackageid: P0, bstrpackagefile: P1, loptions: i32) -> ::windows::core::Result<()>
+    pub unsafe fn ExportPackage<P0, P1>(&self, bstrpackageid: P0, bstrpackagefile: P1, loptions: i32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
-        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).ExportPackage)(::windows::core::Interface::as_raw(self), bstrpackageid.into_param().abi(), bstrpackagefile.into_param().abi(), loptions).ok()
+        (::windows_core::Interface::vtable(self).ExportPackage)(::windows_core::Interface::as_raw(self), bstrpackageid.into_param().abi(), bstrpackagefile.into_param().abi(), loptions).ok()
     }
-    pub unsafe fn ShutdownPackage<P0>(&self, bstrpackageid: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ShutdownPackage<P0>(&self, bstrpackageid: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).ShutdownPackage)(::windows::core::Interface::as_raw(self), bstrpackageid.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).ShutdownPackage)(::windows_core::Interface::as_raw(self), bstrpackageid.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IPackageUtil, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IPackageUtil, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPackageUtil {
     fn eq(&self, other: &Self) -> bool {
@@ -198,7 +198,7 @@ impl ::core::fmt::Debug for IPackageUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IPackageUtil {
+unsafe impl ::windows_core::Interface for IPackageUtil {
     type Vtable = IPackageUtil_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -208,43 +208,43 @@ impl ::core::clone::Clone for IPackageUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IPackageUtil {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22874_8a19_11d0_81b6_00a0c9231c29);
+unsafe impl ::windows_core::ComInterface for IPackageUtil {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eb22874_8a19_11d0_81b6_00a0c9231c29);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageUtil_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub InstallPackage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpackagefile: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrinstallpath: ::std::mem::MaybeUninit<::windows::core::BSTR>, loptions: i32) -> ::windows::core::HRESULT,
-    pub ExportPackage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpackageid: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrpackagefile: ::std::mem::MaybeUninit<::windows::core::BSTR>, loptions: i32) -> ::windows::core::HRESULT,
-    pub ShutdownPackage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpackageid: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub InstallPackage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpackagefile: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrinstallpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, loptions: i32) -> ::windows_core::HRESULT,
+    pub ExportPackage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpackageid: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrpackagefile: ::std::mem::MaybeUninit<::windows_core::BSTR>, loptions: i32) -> ::windows_core::HRESULT,
+    pub ShutdownPackage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpackageid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IRemoteComponentUtil(::windows::core::IUnknown);
+pub struct IRemoteComponentUtil(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRemoteComponentUtil {
-    pub unsafe fn InstallRemoteComponent<P0, P1, P2>(&self, bstrserver: P0, bstrpackageid: P1, bstrclsid: P2) -> ::windows::core::Result<()>
+    pub unsafe fn InstallRemoteComponent<P0, P1, P2>(&self, bstrserver: P0, bstrpackageid: P1, bstrclsid: P2) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
-        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
-        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P2: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).InstallRemoteComponent)(::windows::core::Interface::as_raw(self), bstrserver.into_param().abi(), bstrpackageid.into_param().abi(), bstrclsid.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).InstallRemoteComponent)(::windows_core::Interface::as_raw(self), bstrserver.into_param().abi(), bstrpackageid.into_param().abi(), bstrclsid.into_param().abi()).ok()
     }
-    pub unsafe fn InstallRemoteComponentByName<P0, P1, P2>(&self, bstrserver: P0, bstrpackagename: P1, bstrprogid: P2) -> ::windows::core::Result<()>
+    pub unsafe fn InstallRemoteComponentByName<P0, P1, P2>(&self, bstrserver: P0, bstrpackagename: P1, bstrprogid: P2) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
-        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
-        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P2: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).InstallRemoteComponentByName)(::windows::core::Interface::as_raw(self), bstrserver.into_param().abi(), bstrpackagename.into_param().abi(), bstrprogid.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).InstallRemoteComponentByName)(::windows_core::Interface::as_raw(self), bstrserver.into_param().abi(), bstrpackagename.into_param().abi(), bstrprogid.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IRemoteComponentUtil, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IRemoteComponentUtil, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRemoteComponentUtil {
     fn eq(&self, other: &Self) -> bool {
@@ -260,7 +260,7 @@ impl ::core::fmt::Debug for IRemoteComponentUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IRemoteComponentUtil {
+unsafe impl ::windows_core::Interface for IRemoteComponentUtil {
     type Vtable = IRemoteComponentUtil_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -270,38 +270,38 @@ impl ::core::clone::Clone for IRemoteComponentUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IRemoteComponentUtil {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22875_8a19_11d0_81b6_00a0c9231c29);
+unsafe impl ::windows_core::ComInterface for IRemoteComponentUtil {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eb22875_8a19_11d0_81b6_00a0c9231c29);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteComponentUtil_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub InstallRemoteComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrserver: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrpackageid: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrclsid: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub InstallRemoteComponentByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrserver: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrpackagename: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrprogid: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub InstallRemoteComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrserver: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrpackageid: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrclsid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub InstallRemoteComponentByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrserver: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrpackagename: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrprogid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IRoleAssociationUtil(::windows::core::IUnknown);
+pub struct IRoleAssociationUtil(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRoleAssociationUtil {
-    pub unsafe fn AssociateRole<P0>(&self, bstrroleid: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AssociateRole<P0>(&self, bstrroleid: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).AssociateRole)(::windows::core::Interface::as_raw(self), bstrroleid.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).AssociateRole)(::windows_core::Interface::as_raw(self), bstrroleid.into_param().abi()).ok()
     }
-    pub unsafe fn AssociateRoleByName<P0>(&self, bstrrolename: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AssociateRoleByName<P0>(&self, bstrrolename: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).AssociateRoleByName)(::windows::core::Interface::as_raw(self), bstrrolename.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).AssociateRoleByName)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IRoleAssociationUtil, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IRoleAssociationUtil, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRoleAssociationUtil {
     fn eq(&self, other: &Self) -> bool {
@@ -317,7 +317,7 @@ impl ::core::fmt::Debug for IRoleAssociationUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IRoleAssociationUtil {
+unsafe impl ::windows_core::Interface for IRoleAssociationUtil {
     type Vtable = IRoleAssociationUtil_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -327,31 +327,31 @@ impl ::core::clone::Clone for IRoleAssociationUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IRoleAssociationUtil {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22876_8a19_11d0_81b6_00a0c9231c29);
+unsafe impl ::windows_core::ComInterface for IRoleAssociationUtil {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eb22876_8a19_11d0_81b6_00a0c9231c29);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRoleAssociationUtil_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub AssociateRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrroleid: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub AssociateRoleByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrolename: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub AssociateRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrroleid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub AssociateRoleByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrolename: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const Catalog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22881_8a19_11d0_81b6_00a0c9231c29);
+pub const Catalog: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eb22881_8a19_11d0_81b6_00a0c9231c29);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const CatalogCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22883_8a19_11d0_81b6_00a0c9231c29);
+pub const CatalogCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eb22883_8a19_11d0_81b6_00a0c9231c29);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const CatalogObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22882_8a19_11d0_81b6_00a0c9231c29);
+pub const CatalogObject: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eb22882_8a19_11d0_81b6_00a0c9231c29);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const ComponentUtil: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22884_8a19_11d0_81b6_00a0c9231c29);
+pub const ComponentUtil: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eb22884_8a19_11d0_81b6_00a0c9231c29);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const PackageUtil: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22885_8a19_11d0_81b6_00a0c9231c29);
+pub const PackageUtil: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eb22885_8a19_11d0_81b6_00a0c9231c29);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const RemoteComponentUtil: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22886_8a19_11d0_81b6_00a0c9231c29);
+pub const RemoteComponentUtil: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eb22886_8a19_11d0_81b6_00a0c9231c29);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const RoleAssociationUtil: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22887_8a19_11d0_81b6_00a0c9231c29);
+pub const RoleAssociationUtil: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eb22887_8a19_11d0_81b6_00a0c9231c29);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -457,8 +457,8 @@ impl ::core::default::Default for MTSAdminErrorCodes {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MTSAdminErrorCodes {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MTSAdminErrorCodes {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MTSAdminErrorCodes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -482,8 +482,8 @@ impl ::core::default::Default for MTSPackageExportOptions {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MTSPackageExportOptions {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MTSPackageExportOptions {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MTSPackageExportOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -507,8 +507,8 @@ impl ::core::default::Default for MTSPackageInstallOptions {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MTSPackageInstallOptions {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MTSPackageInstallOptions {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MTSPackageInstallOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

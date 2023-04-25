@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IClosedCaptionPropertiesStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IClosedCaptionPropertiesStatics {
+pub struct IClosedCaptionPropertiesStatics(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IClosedCaptionPropertiesStatics {
     type Vtable = IClosedCaptionPropertiesStatics_Vtbl;
 }
 impl ::core::clone::Clone for IClosedCaptionPropertiesStatics {
@@ -9,123 +9,123 @@ impl ::core::clone::Clone for IClosedCaptionPropertiesStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IClosedCaptionPropertiesStatics {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10aa1f84_cc30_4141_b503_5272289e0c20);
+unsafe impl ::windows_core::ComInterface for IClosedCaptionPropertiesStatics {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x10aa1f84_cc30_4141_b503_5272289e0c20);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClosedCaptionPropertiesStatics_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub FontColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionColor) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub FontColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionColor) -> ::windows_core::HRESULT,
     #[cfg(feature = "UI")]
-    pub ComputedFontColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT,
+    pub ComputedFontColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "UI"))]
     ComputedFontColor: usize,
-    pub FontOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionOpacity) -> ::windows::core::HRESULT,
-    pub FontSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionSize) -> ::windows::core::HRESULT,
-    pub FontStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionStyle) -> ::windows::core::HRESULT,
-    pub FontEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionEdgeEffect) -> ::windows::core::HRESULT,
-    pub BackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionColor) -> ::windows::core::HRESULT,
+    pub FontOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionOpacity) -> ::windows_core::HRESULT,
+    pub FontSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionSize) -> ::windows_core::HRESULT,
+    pub FontStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionStyle) -> ::windows_core::HRESULT,
+    pub FontEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionEdgeEffect) -> ::windows_core::HRESULT,
+    pub BackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionColor) -> ::windows_core::HRESULT,
     #[cfg(feature = "UI")]
-    pub ComputedBackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT,
+    pub ComputedBackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "UI"))]
     ComputedBackgroundColor: usize,
-    pub BackgroundOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionOpacity) -> ::windows::core::HRESULT,
-    pub RegionColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionColor) -> ::windows::core::HRESULT,
+    pub BackgroundOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionOpacity) -> ::windows_core::HRESULT,
+    pub RegionColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionColor) -> ::windows_core::HRESULT,
     #[cfg(feature = "UI")]
-    pub ComputedRegionColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT,
+    pub ComputedRegionColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "UI"))]
     ComputedRegionColor: usize,
-    pub RegionOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionOpacity) -> ::windows::core::HRESULT,
+    pub RegionOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionOpacity) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
 pub struct ClosedCaptionProperties;
 impl ClosedCaptionProperties {
-    pub fn FontColor() -> ::windows::core::Result<ClosedCaptionColor> {
+    pub fn FontColor() -> ::windows_core::Result<ClosedCaptionColor> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__ = ::windows::core::zeroed::<ClosedCaptionColor>();
-            (::windows::core::Interface::vtable(this).FontColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<ClosedCaptionColor>();
+            (::windows_core::Interface::vtable(this).FontColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     #[cfg(feature = "UI")]
-    pub fn ComputedFontColor() -> ::windows::core::Result<super::super::UI::Color> {
+    pub fn ComputedFontColor() -> ::windows_core::Result<super::super::UI::Color> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::UI::Color>();
-            (::windows::core::Interface::vtable(this).ComputedFontColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::UI::Color>();
+            (::windows_core::Interface::vtable(this).ComputedFontColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    pub fn FontOpacity() -> ::windows::core::Result<ClosedCaptionOpacity> {
+    pub fn FontOpacity() -> ::windows_core::Result<ClosedCaptionOpacity> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__ = ::windows::core::zeroed::<ClosedCaptionOpacity>();
-            (::windows::core::Interface::vtable(this).FontOpacity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<ClosedCaptionOpacity>();
+            (::windows_core::Interface::vtable(this).FontOpacity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    pub fn FontSize() -> ::windows::core::Result<ClosedCaptionSize> {
+    pub fn FontSize() -> ::windows_core::Result<ClosedCaptionSize> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__ = ::windows::core::zeroed::<ClosedCaptionSize>();
-            (::windows::core::Interface::vtable(this).FontSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<ClosedCaptionSize>();
+            (::windows_core::Interface::vtable(this).FontSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    pub fn FontStyle() -> ::windows::core::Result<ClosedCaptionStyle> {
+    pub fn FontStyle() -> ::windows_core::Result<ClosedCaptionStyle> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__ = ::windows::core::zeroed::<ClosedCaptionStyle>();
-            (::windows::core::Interface::vtable(this).FontStyle)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<ClosedCaptionStyle>();
+            (::windows_core::Interface::vtable(this).FontStyle)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    pub fn FontEffect() -> ::windows::core::Result<ClosedCaptionEdgeEffect> {
+    pub fn FontEffect() -> ::windows_core::Result<ClosedCaptionEdgeEffect> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__ = ::windows::core::zeroed::<ClosedCaptionEdgeEffect>();
-            (::windows::core::Interface::vtable(this).FontEffect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<ClosedCaptionEdgeEffect>();
+            (::windows_core::Interface::vtable(this).FontEffect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    pub fn BackgroundColor() -> ::windows::core::Result<ClosedCaptionColor> {
+    pub fn BackgroundColor() -> ::windows_core::Result<ClosedCaptionColor> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__ = ::windows::core::zeroed::<ClosedCaptionColor>();
-            (::windows::core::Interface::vtable(this).BackgroundColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
-        })
-    }
-    #[doc = "*Required features: `\"UI\"`*"]
-    #[cfg(feature = "UI")]
-    pub fn ComputedBackgroundColor() -> ::windows::core::Result<super::super::UI::Color> {
-        Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::UI::Color>();
-            (::windows::core::Interface::vtable(this).ComputedBackgroundColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
-        })
-    }
-    pub fn BackgroundOpacity() -> ::windows::core::Result<ClosedCaptionOpacity> {
-        Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__ = ::windows::core::zeroed::<ClosedCaptionOpacity>();
-            (::windows::core::Interface::vtable(this).BackgroundOpacity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
-        })
-    }
-    pub fn RegionColor() -> ::windows::core::Result<ClosedCaptionColor> {
-        Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__ = ::windows::core::zeroed::<ClosedCaptionColor>();
-            (::windows::core::Interface::vtable(this).RegionColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<ClosedCaptionColor>();
+            (::windows_core::Interface::vtable(this).BackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     #[cfg(feature = "UI")]
-    pub fn ComputedRegionColor() -> ::windows::core::Result<super::super::UI::Color> {
+    pub fn ComputedBackgroundColor() -> ::windows_core::Result<super::super::UI::Color> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::UI::Color>();
-            (::windows::core::Interface::vtable(this).ComputedRegionColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::UI::Color>();
+            (::windows_core::Interface::vtable(this).ComputedBackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    pub fn RegionOpacity() -> ::windows::core::Result<ClosedCaptionOpacity> {
+    pub fn BackgroundOpacity() -> ::windows_core::Result<ClosedCaptionOpacity> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__ = ::windows::core::zeroed::<ClosedCaptionOpacity>();
-            (::windows::core::Interface::vtable(this).RegionOpacity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<ClosedCaptionOpacity>();
+            (::windows_core::Interface::vtable(this).BackgroundOpacity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn RegionColor() -> ::windows_core::Result<ClosedCaptionColor> {
+        Self::IClosedCaptionPropertiesStatics(|this| unsafe {
+            let mut result__ = ::windows_core::zeroed::<ClosedCaptionColor>();
+            (::windows_core::Interface::vtable(this).RegionColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    #[doc = "*Required features: `\"UI\"`*"]
+    #[cfg(feature = "UI")]
+    pub fn ComputedRegionColor() -> ::windows_core::Result<super::super::UI::Color> {
+        Self::IClosedCaptionPropertiesStatics(|this| unsafe {
+            let mut result__ = ::windows_core::zeroed::<super::super::UI::Color>();
+            (::windows_core::Interface::vtable(this).ComputedRegionColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        })
+    }
+    pub fn RegionOpacity() -> ::windows_core::Result<ClosedCaptionOpacity> {
+        Self::IClosedCaptionPropertiesStatics(|this| unsafe {
+            let mut result__ = ::windows_core::zeroed::<ClosedCaptionOpacity>();
+            (::windows_core::Interface::vtable(this).RegionOpacity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
-    pub fn IClosedCaptionPropertiesStatics<R, F: FnOnce(&IClosedCaptionPropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::imp::FactoryCache<ClosedCaptionProperties, IClosedCaptionPropertiesStatics> = ::windows::imp::FactoryCache::new();
+    pub fn IClosedCaptionPropertiesStatics<R, F: FnOnce(&IClosedCaptionPropertiesStatics) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<ClosedCaptionProperties, IClosedCaptionPropertiesStatics> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
-impl ::windows::core::RuntimeName for ClosedCaptionProperties {
+impl ::windows_core::RuntimeName for ClosedCaptionProperties {
     const NAME: &'static str = "Windows.Media.ClosedCaptioning.ClosedCaptionProperties";
 }
 #[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
@@ -154,16 +154,16 @@ impl ::core::default::Default for ClosedCaptionColor {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for ClosedCaptionColor {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ClosedCaptionColor {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for ClosedCaptionColor {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ClosedCaptionColor").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for ClosedCaptionColor {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionColor;i4)");
+impl ::windows_core::RuntimeType for ClosedCaptionColor {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionColor;i4)");
 }
 #[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
 #[repr(transparent)]
@@ -188,16 +188,16 @@ impl ::core::default::Default for ClosedCaptionEdgeEffect {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for ClosedCaptionEdgeEffect {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ClosedCaptionEdgeEffect {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for ClosedCaptionEdgeEffect {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ClosedCaptionEdgeEffect").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for ClosedCaptionEdgeEffect {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionEdgeEffect;i4)");
+impl ::windows_core::RuntimeType for ClosedCaptionEdgeEffect {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionEdgeEffect;i4)");
 }
 #[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
 #[repr(transparent)]
@@ -221,16 +221,16 @@ impl ::core::default::Default for ClosedCaptionOpacity {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for ClosedCaptionOpacity {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ClosedCaptionOpacity {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for ClosedCaptionOpacity {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ClosedCaptionOpacity").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for ClosedCaptionOpacity {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionOpacity;i4)");
+impl ::windows_core::RuntimeType for ClosedCaptionOpacity {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionOpacity;i4)");
 }
 #[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
 #[repr(transparent)]
@@ -254,16 +254,16 @@ impl ::core::default::Default for ClosedCaptionSize {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for ClosedCaptionSize {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ClosedCaptionSize {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for ClosedCaptionSize {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ClosedCaptionSize").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for ClosedCaptionSize {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionSize;i4)");
+impl ::windows_core::RuntimeType for ClosedCaptionSize {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionSize;i4)");
 }
 #[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
 #[repr(transparent)]
@@ -290,16 +290,16 @@ impl ::core::default::Default for ClosedCaptionStyle {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for ClosedCaptionStyle {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ClosedCaptionStyle {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for ClosedCaptionStyle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ClosedCaptionStyle").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for ClosedCaptionStyle {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionStyle;i4)");
+impl ::windows_core::RuntimeType for ClosedCaptionStyle {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionStyle;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
